@@ -1581,16 +1581,13 @@ impl ::core::clone::Clone for MIDL_STUB_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union MIDL_STUB_DESC_0 {
     pub pAutoHandle: *mut *mut ::core::ffi::c_void,
     pub pPrimitiveHandle: *mut *mut ::core::ffi::c_void,
     pub pGenericBindingInfo: *mut GENERIC_BINDING_INFO,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MIDL_STUB_DESC_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MIDL_STUB_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -2866,15 +2863,15 @@ impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation', 'Win32_System_IO'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RPC_ASYNC_NOTIFICATION_INFO_2 {
     pub hWnd: super::super::Foundation::HWND,
     pub Msg: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RPC_ASYNC_NOTIFICATION_INFO_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RPC_ASYNC_NOTIFICATION_INFO_2 {
     fn clone(&self) -> Self {
         *self
@@ -3951,14 +3948,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V2_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_A_0 {
     fn clone(&self) -> Self {
         *self
@@ -3984,14 +3978,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V2_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V2_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V2_W_0 {
     fn clone(&self) -> Self {
         *self
@@ -4018,14 +4009,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V3_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_A_0 {
     fn clone(&self) -> Self {
         *self
@@ -4052,14 +4040,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V3_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V3_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V3_W_0 {
     fn clone(&self) -> Self {
         *self
@@ -4087,14 +4072,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V4_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_A_0 {
     fn clone(&self) -> Self {
         *self
@@ -4122,14 +4104,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V4_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V4_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V4_W_0 {
     fn clone(&self) -> Self {
         *self
@@ -4158,14 +4137,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V5_A_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_A,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_A_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_A_0 {
     fn clone(&self) -> Self {
         *self
@@ -4194,14 +4170,11 @@ impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Rpc', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_System_Rpc'*"]
 pub union RPC_SECURITY_QOS_V5_W_0 {
     pub HttpCredentials: *mut RPC_HTTP_TRANSPORT_CREDENTIALS_W,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for RPC_SECURITY_QOS_V5_W_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for RPC_SECURITY_QOS_V5_W_0 {
     fn clone(&self) -> Self {
         *self

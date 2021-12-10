@@ -248,124 +248,99 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_0 {
     pub Flags: CF_CALLBACK_CANCEL_FLAGS,
     pub Anonymous: CF_CALLBACK_PARAMETERS_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub union CF_CALLBACK_PARAMETERS_0_0_0 {
     pub FetchData: CF_CALLBACK_PARAMETERS_0_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_0_0_0 {
     pub FileOffset: i64,
     pub Length: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_1 {
     pub Flags: CF_CALLBACK_CLOSE_COMPLETION_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_2 {
     pub Flags: CF_CALLBACK_DEHYDRATE_COMPLETION_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_3 {
     pub Flags: CF_CALLBACK_DEHYDRATE_FLAGS,
     pub Reason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_4 {
     pub Flags: CF_CALLBACK_DELETE_COMPLETION_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_5 {
     pub Flags: CF_CALLBACK_DELETE_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub Flags: CF_CALLBACK_FETCH_DATA_FLAGS,
     pub RequiredFileOffset: i64,
@@ -375,9 +350,7 @@ pub struct CF_CALLBACK_PARAMETERS_0_6 {
     pub LastDehydrationTime: i64,
     pub LastDehydrationReason: CF_CALLBACK_DEHYDRATION_REASON,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_6 {
     fn clone(&self) -> Self {
         *self
@@ -399,14 +372,11 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_7 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_8 {
     pub Flags: CF_CALLBACK_OPEN_COMPLETION_FLAGS,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_8 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_8 {
     fn clone(&self) -> Self {
         *self
@@ -443,16 +413,13 @@ impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_10 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_CALLBACK_PARAMETERS_0_11 {
     pub Flags: CF_CALLBACK_VALIDATE_DATA_FLAGS,
     pub RequiredFileOffset: i64,
     pub RequiredLength: i64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_CALLBACK_PARAMETERS_0_11 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_CALLBACK_PARAMETERS_0_11 {
     fn clone(&self) -> Self {
         *self
@@ -779,89 +746,88 @@ impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_OPERATION_PARAMETERS_0_0 {
     pub Flags: CF_OPERATION_ACK_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_OPERATION_PARAMETERS_0_1 {
     pub Flags: CF_OPERATION_ACK_DEHYDRATE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
     pub FileIdentity: *mut ::core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_OPERATION_PARAMETERS_0_2 {
     pub Flags: CF_OPERATION_ACK_DELETE_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_OPERATION_PARAMETERS_0_3 {
     pub Flags: CF_OPERATION_ACK_RENAME_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Storage_FileSystem'*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct CF_OPERATION_PARAMETERS_0_4 {
     pub Flags: CF_OPERATION_RESTART_HYDRATION_FLAGS,
     pub FsMetadata: *mut CF_FS_METADATA,
     pub FileIdentity: *mut ::core::ffi::c_void,
     pub FileIdentityLength: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters'*"]
 pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Flags: CF_OPERATION_RETRIEVE_DATA_FLAGS,
     pub Buffer: *mut ::core::ffi::c_void,
@@ -869,17 +835,15 @@ pub struct CF_OPERATION_PARAMETERS_0_5 {
     pub Length: i64,
     pub ReturnedLength: i64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_5 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation', 'Win32_Storage_FileSystem'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[doc = "*Required features: 'Win32_Storage_CloudFilters', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Flags: CF_OPERATION_TRANSFER_DATA_FLAGS,
     pub CompletionStatus: super::super::Foundation::NTSTATUS,
@@ -887,9 +851,9 @@ pub struct CF_OPERATION_PARAMETERS_0_6 {
     pub Offset: i64,
     pub Length: i64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CF_OPERATION_PARAMETERS_0_6 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_FileSystem"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CF_OPERATION_PARAMETERS_0_6 {
     fn clone(&self) -> Self {
         *self

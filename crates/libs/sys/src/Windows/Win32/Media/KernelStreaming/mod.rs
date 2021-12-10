@@ -920,15 +920,12 @@ impl ::core::clone::Clone for KSAUDIO_MIX_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub union KSAUDIO_MIX_CAPS_0 {
     pub Reset: i32,
     pub Resolution: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSAUDIO_MIX_CAPS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSAUDIO_MIX_CAPS_0 {
     fn clone(&self) -> Self {
         *self
@@ -1063,15 +1060,12 @@ impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFI
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     pub Numerator: i32,
     pub Denominator: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSCAMERA_EXTENDEDPROP_BACKGROUNDSEGMENTATION_CONFIGCAPS_0 {
     fn clone(&self) -> Self {
         *self
@@ -2493,15 +2487,12 @@ impl ::core::clone::Clone for KSEVENTDATA_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KSEVENTDATA_0_0 {
     pub Unused: *mut ::core::ffi::c_void,
     pub Alignment: [isize; 2],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSEVENTDATA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSEVENTDATA_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -4082,15 +4073,12 @@ impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub union KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     pub Capabilities: u32,
     pub Configuration: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSPROPERTY_CAMERACONTROL_REGION_OF_INTEREST_S_0 {
     fn clone(&self) -> Self {
         *self
@@ -4472,32 +4460,26 @@ impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_NODE_S_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_NODE_S_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_NODE_S_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -4541,32 +4523,26 @@ impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KSPROPERTY_EXTXPORT_S_0_0 {
     pub PayloadSize: u32,
     pub Payload: [u8; 512],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_S_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KSPROPERTY_EXTXPORT_S_0_1 {
     pub frame: u8,
     pub second: u8,
     pub minute: u8,
     pub hour: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KSPROPERTY_EXTXPORT_S_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KSPROPERTY_EXTXPORT_S_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -7514,45 +7490,36 @@ impl ::core::clone::Clone for KS_FRAME_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub union KS_FRAME_INFO_0 {
     pub lSurfacePitch: i32,
     pub Reserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KS_FRAME_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KS_FRAME_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub union KS_FRAME_INFO_1 {
     pub Anonymous: KS_FRAME_INFO_1_0,
     pub FrameCompletionNumber: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KS_FRAME_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KS_FRAME_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub struct KS_FRAME_INFO_1_0 {
     pub Reserved3: u32,
     pub Reserved4: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KS_FRAME_INFO_1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KS_FRAME_INFO_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -8021,16 +7988,13 @@ impl ::core::clone::Clone for KS_VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub union KS_VIDEOINFO_0 {
     pub bmiColors: [KS_RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: KS_TRUECOLORINFO,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KS_VIDEOINFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KS_VIDEOINFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -8081,15 +8045,12 @@ impl ::core::clone::Clone for KS_VIDEOINFOHEADER2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_KernelStreaming', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_KernelStreaming'*"]
 pub union KS_VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for KS_VIDEOINFOHEADER2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for KS_VIDEOINFOHEADER2_0 {
     fn clone(&self) -> Self {
         *self

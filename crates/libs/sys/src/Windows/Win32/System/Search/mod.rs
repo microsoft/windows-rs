@@ -628,16 +628,16 @@ impl ::core::clone::Clone for CATEGORIZATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_Storage_IndexServer', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 pub union CATEGORIZATION_0 {
     pub cClusters: u32,
     pub bucket: BUCKETCATEGORIZE,
     pub range: RANGECATEGORIZE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::marker::Copy for CATEGORIZATION_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Storage_IndexServer", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))]
 impl ::core::clone::Clone for CATEGORIZATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -7984,40 +7984,34 @@ impl ::core::clone::Clone for SSVARIANT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SSVARIANT_0_0 {
     pub dbobj: DBOBJECT,
     pub pUnk: ::windows_sys::core::IUnknown,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for SSVARIANT_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SSVARIANT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SSVARIANT_0_1 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
     pub prgbBinaryVal: *mut u8,
     pub dwReserved: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for SSVARIANT_0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SSVARIANT_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SSVARIANT_0_2 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
@@ -8026,17 +8020,17 @@ pub struct SSVARIANT_0_2 {
     pub dwReserved: u32,
     pub pwchReserved: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SSVARIANT_0_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SSVARIANT_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SSVARIANT_0_3 {
     pub sActualLength: i16,
     pub sMaxLength: i16,
@@ -8045,25 +8039,22 @@ pub struct SSVARIANT_0_3 {
     pub dwReserved: u32,
     pub pwchReserved: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SSVARIANT_0_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SSVARIANT_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Search', 'Win32_Foundation', 'Win32_System_Com'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
+#[doc = "*Required features: 'Win32_System_Search'*"]
 pub struct SSVARIANT_0_4 {
     pub dwActualLength: u32,
     pub rgMetadata: [u8; 16],
     pub pUnknownData: *mut u8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::marker::Copy for SSVARIANT_0_4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 impl ::core::clone::Clone for SSVARIANT_0_4 {
     fn clone(&self) -> Self {
         *self

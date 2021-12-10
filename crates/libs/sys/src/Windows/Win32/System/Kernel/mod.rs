@@ -184,15 +184,12 @@ impl ::core::clone::Clone for NT_TIB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Kernel', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
+#[doc = "*Required features: 'Win32_System_Kernel'*"]
 pub union NT_TIB_0 {
     pub FiberData: *mut ::core::ffi::c_void,
     pub Version: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::marker::Copy for NT_TIB_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::clone::Clone for NT_TIB_0 {
     fn clone(&self) -> Self {
         *self
@@ -390,14 +387,11 @@ impl ::core::clone::Clone for SLIST_HEADER {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
-#[cfg(target_arch = "aarch64")]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(target_arch = "aarch64")]
 impl ::core::marker::Copy for SLIST_HEADER_0 {}
-#[cfg(target_arch = "aarch64")]
 impl ::core::clone::Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -405,14 +399,11 @@ impl ::core::clone::Clone for SLIST_HEADER_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
-#[cfg(target_arch = "aarch64")]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
-#[cfg(target_arch = "aarch64")]
 impl ::core::marker::Copy for SLIST_HEADER_1 {}
-#[cfg(target_arch = "aarch64")]
 impl ::core::clone::Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
@@ -435,14 +426,11 @@ impl ::core::clone::Clone for SLIST_HEADER {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
-#[cfg(target_arch = "x86_64")]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
-#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for SLIST_HEADER_0 {}
-#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -450,14 +438,11 @@ impl ::core::clone::Clone for SLIST_HEADER_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
-#[cfg(target_arch = "x86_64")]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
-#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for SLIST_HEADER_1 {}
-#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
@@ -480,15 +465,12 @@ impl ::core::clone::Clone for SLIST_HEADER {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
-#[cfg(target_arch = "x86")]
 pub struct SLIST_HEADER_0 {
     pub Next: SINGLE_LIST_ENTRY,
     pub Depth: u16,
     pub CpuId: u16,
 }
-#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SLIST_HEADER_0 {}
-#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self

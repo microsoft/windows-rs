@@ -110,18 +110,12 @@ impl ::core::clone::Clone for DBID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub union DBID_0 {
     pub guid: ::windows_sys::core::GUID,
     pub pguid: *mut ::windows_sys::core::GUID,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
@@ -129,16 +123,13 @@ impl ::core::clone::Clone for DBID_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {
@@ -165,18 +156,12 @@ impl ::core::clone::Clone for DBID {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
 pub union DBID_0 {
     pub guid: ::windows_sys::core::GUID,
     pub pguid: *mut ::windows_sys::core::GUID,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
-#[cfg(target_arch = "x86")]
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
@@ -184,16 +169,13 @@ impl ::core::clone::Clone for DBID_0 {
 }
 #[repr(C, packed(2))]
 #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
-#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
-#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
-#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {

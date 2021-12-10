@@ -855,15 +855,12 @@ impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Mmc'*"]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
     pub pUnkControl: ::windows_sys::core::IUnknown,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RESULT_VIEW_TYPE_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
     fn clone(&self) -> Self {
         *self

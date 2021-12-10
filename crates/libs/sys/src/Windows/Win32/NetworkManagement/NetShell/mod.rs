@@ -135,30 +135,24 @@ impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub Anonymous: NS_CONTEXT_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_NetShell', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_NetShell'*"]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn clone(&self) -> Self {
         *self

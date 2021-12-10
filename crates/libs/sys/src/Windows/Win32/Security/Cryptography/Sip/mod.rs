@@ -149,15 +149,12 @@ impl ::core::clone::Clone for SIP_CAP_SET_V3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SIP_CAP_SET_V3_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SIP_CAP_SET_V3_0 {
     fn clone(&self) -> Self {
         *self

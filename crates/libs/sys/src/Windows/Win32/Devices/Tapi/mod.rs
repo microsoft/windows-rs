@@ -2915,25 +2915,21 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub dwAgentExtensionIDIndex: u32,
     pub dwSize: u32,
     pub Params: [u8; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_1 {
     pub hAgentSession: u32,
     pub dwAgentPINSize: u32,
@@ -2942,17 +2938,14 @@ pub struct LINEPROXYREQUEST_0_1 {
     pub GroupID: ::windows_sys::core::GUID,
     pub dwWorkingAddressID: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_2 {
     pub hAgent: u32,
     pub dwAgentIDSize: u32,
@@ -2960,54 +2953,43 @@ pub struct LINEPROXYREQUEST_0_2 {
     pub dwAgentPINSize: u32,
     pub dwAgentPINOffset: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
     pub ActivityList: LINEAGENTACTIVITYLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
     pub AgentCaps: LINEAGENTCAPS,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_4 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_5 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_5 {
     fn clone(&self) -> Self {
         *self
@@ -3044,182 +3026,146 @@ impl ::core::clone::Clone for LINEPROXYREQUEST_0_7 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
     pub SessionList: LINEAGENTSESSIONLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_8 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_8 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
     pub AgentStatus: LINEAGENTSTATUS,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_9 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_9 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_10 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_10 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_11 {
     pub dwQueueID: u32,
     pub QueueInfo: LINEQUEUEINFO,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_11 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_11 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: ::windows_sys::core::GUID,
     pub QueueList: LINEQUEUELIST,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_12 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_12 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_13 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_13 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_13 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_14 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_14 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_14 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgent: u32,
     pub dwMeasurementPeriod: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_15 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_15 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_16 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_16 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_16 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_17 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_17 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_17 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwAddressID: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_18 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_18 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct LINEPROXYREQUEST_0_19 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_19 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_19 {
     fn clone(&self) -> Self {
         *self
@@ -3605,38 +3551,31 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: ITTerminal,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_0 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: ITTerminal,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_1 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -3644,17 +3583,14 @@ pub struct MSP_EVENT_INFO_0_2 {
     pub pTerminal: ITTerminal,
     pub hrError: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_2 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: ITTerminal,
     pub pFileTrack: ITFileTrack,
@@ -3662,9 +3598,7 @@ pub struct MSP_EVENT_INFO_0_3 {
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_3 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
@@ -3686,45 +3620,36 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: ITTerminal,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_5 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_6 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
-#[cfg(feature = "Win32_System_Com")]
+#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: ITTerminal,
     pub hrErrorCode: ::windows_sys::core::HRESULT,
 }
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_7 {}
-#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
     fn clone(&self) -> Self {
         *self

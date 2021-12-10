@@ -2363,22 +2363,18 @@ impl ::core::clone::Clone for NLA_BLOB_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct NLA_BLOB_0_0 {
     pub remote: NLA_BLOB_0_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NLA_BLOB_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NLA_BLOB_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct NLA_BLOB_0_0_0 {
     pub speed: u32,
     pub r#type: u32,
@@ -2386,24 +2382,19 @@ pub struct NLA_BLOB_0_0_0 {
     pub machineName: [u16; 256],
     pub sharedAdapterName: [u16; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NLA_BLOB_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NLA_BLOB_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct NLA_BLOB_0_1 {
     pub r#type: NLA_CONNECTIVITY_TYPE,
     pub internet: NLA_INTERNET,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NLA_BLOB_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NLA_BLOB_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -2440,16 +2431,13 @@ impl ::core::clone::Clone for NLA_BLOB_0_3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct NLA_BLOB_1 {
     pub r#type: NLA_BLOB_DATA_TYPE,
     pub dwSize: u32,
     pub nextOffset: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for NLA_BLOB_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for NLA_BLOB_1 {
     fn clone(&self) -> Self {
         *self
@@ -4621,47 +4609,38 @@ impl ::core::clone::Clone for WINDOWS_IAS_QUERY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub union WINDOWS_IAS_QUERY_0 {
     pub irdaAttribInt: i32,
     pub irdaAttribOctetSeq: WINDOWS_IAS_QUERY_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_QUERY_0_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDOWS_IAS_QUERY_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_QUERY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct WINDOWS_IAS_QUERY_0_0 {
     pub Len: u32,
     pub OctetSeq: [u8; 1024],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDOWS_IAS_QUERY_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_QUERY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct WINDOWS_IAS_QUERY_0_1 {
     pub Len: u32,
     pub CharSet: u32,
     pub UsrStr: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDOWS_IAS_QUERY_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_QUERY_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -4685,47 +4664,38 @@ impl ::core::clone::Clone for WINDOWS_IAS_SET {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub union WINDOWS_IAS_SET_0 {
     pub irdaAttribInt: i32,
     pub irdaAttribOctetSeq: WINDOWS_IAS_SET_0_0,
     pub irdaAttribUsrStr: WINDOWS_IAS_SET_0_1,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDOWS_IAS_SET_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_SET_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct WINDOWS_IAS_SET_0_0 {
     pub Len: u16,
     pub OctetSeq: [u8; 1024],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDOWS_IAS_SET_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_SET_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_WinSock'*"]
 pub struct WINDOWS_IAS_SET_0_1 {
     pub Len: u8,
     pub CharSet: u8,
     pub UsrStr: [u8; 256],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINDOWS_IAS_SET_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINDOWS_IAS_SET_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -4843,16 +4813,16 @@ impl ::core::clone::Clone for WSACOMPLETION_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation', 'Win32_System_IO'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[doc = "*Required features: 'Win32_Networking_WinSock', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WSACOMPLETION_0_3 {
     pub hWnd: super::super::Foundation::HWND,
     pub uMsg: u32,
     pub context: super::super::Foundation::WPARAM,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSACOMPLETION_0_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSACOMPLETION_0_3 {
     fn clone(&self) -> Self {
         *self

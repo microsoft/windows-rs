@@ -111,16 +111,13 @@ impl ::core::clone::Clone for RAWINPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Input', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Input'*"]
 pub union RAWINPUT_0 {
     pub mouse: RAWMOUSE,
     pub keyboard: RAWKEYBOARD,
     pub hid: RAWHID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RAWINPUT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RAWINPUT_0 {
     fn clone(&self) -> Self {
         *self

@@ -4444,8 +4444,7 @@ impl ::core::clone::Clone for RTM_DEST_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -4454,9 +4453,7 @@ pub struct RTM_DEST_INFO_0 {
     pub DestFlags: u32,
     pub HoldRoute: isize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RTM_DEST_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RTM_DEST_INFO_0 {
     fn clone(&self) -> Self {
         *self

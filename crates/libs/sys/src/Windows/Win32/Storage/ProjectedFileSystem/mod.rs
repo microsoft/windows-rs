@@ -327,28 +327,22 @@ impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub struct PRJ_NOTIFICATION_PARAMETERS_1 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub struct PRJ_NOTIFICATION_PARAMETERS_2 {
     pub NotificationMask: PRJ_NOTIFY_TYPES,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRJ_NOTIFICATION_PARAMETERS_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_NOTIFICATION_PARAMETERS_2 {
     fn clone(&self) -> Self {
         *self
@@ -410,45 +404,36 @@ impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub struct PRJ_PLACEHOLDER_INFO_0 {
     pub EaBufferSize: u32,
     pub OffsetToFirstEa: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub struct PRJ_PLACEHOLDER_INFO_1 {
     pub SecurityBufferSize: u32,
     pub OffsetToSecurityDescriptor: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_ProjectedFileSystem'*"]
 pub struct PRJ_PLACEHOLDER_INFO_2 {
     pub StreamsInfoBufferSize: u32,
     pub OffsetToFirstStreamInfo: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PRJ_PLACEHOLDER_INFO_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PRJ_PLACEHOLDER_INFO_2 {
     fn clone(&self) -> Self {
         *self

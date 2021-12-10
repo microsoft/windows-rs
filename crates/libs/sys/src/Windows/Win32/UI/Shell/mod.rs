@@ -6411,18 +6411,12 @@ impl ::core::clone::Clone for NOTIFYICONDATAA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for NOTIFYICONDATAA_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAA_0 {
     fn clone(&self) -> Self {
         *self
@@ -6460,18 +6454,12 @@ impl ::core::clone::Clone for NOTIFYICONDATAA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub union NOTIFYICONDATAA_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for NOTIFYICONDATAA_0 {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAA_0 {
     fn clone(&self) -> Self {
         *self
@@ -6509,18 +6497,12 @@ impl ::core::clone::Clone for NOTIFYICONDATAW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for NOTIFYICONDATAW_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAW_0 {
     fn clone(&self) -> Self {
         *self
@@ -6558,18 +6540,12 @@ impl ::core::clone::Clone for NOTIFYICONDATAW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Shell'*"]
 pub union NOTIFYICONDATAW_0 {
     pub uTimeout: u32,
     pub uVersion: u32,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for NOTIFYICONDATAW_0 {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for NOTIFYICONDATAW_0 {
     fn clone(&self) -> Self {
         *self
@@ -8655,18 +8631,15 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SHELLEXECUTEINFOA_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SHELLEXECUTEINFOA_0 {
     fn clone(&self) -> Self {
         *self
@@ -8704,18 +8677,15 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOA {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union SHELLEXECUTEINFOA_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SHELLEXECUTEINFOA_0 {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SHELLEXECUTEINFOA_0 {
     fn clone(&self) -> Self {
         *self
@@ -8753,18 +8723,15 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SHELLEXECUTEINFOW_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SHELLEXECUTEINFOW_0 {
     fn clone(&self) -> Self {
         *self
@@ -8802,18 +8769,15 @@ impl ::core::clone::Clone for SHELLEXECUTEINFOW {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union SHELLEXECUTEINFOW_0 {
     pub hIcon: super::super::Foundation::HANDLE,
     pub hMonitor: super::super::Foundation::HANDLE,
 }
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SHELLEXECUTEINFOW_0 {}
-#[cfg(target_arch = "x86")]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SHELLEXECUTEINFOW_0 {
     fn clone(&self) -> Self {
         *self

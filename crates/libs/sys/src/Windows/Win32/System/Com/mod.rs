@@ -2233,15 +2233,15 @@ impl ::core::clone::Clone for VARIANT_0_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation', 'Win32_System_Ole'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[doc = "*Required features: 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[cfg(feature = "Win32_System_Ole")]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut ::core::ffi::c_void,
     pub pRecInfo: super::Ole::IRecordInfo,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Ole")]
 impl ::core::marker::Copy for VARIANT_0_0_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
+#[cfg(feature = "Win32_System_Ole")]
 impl ::core::clone::Clone for VARIANT_0_0_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2320,15 +2320,12 @@ impl ::core::clone::Clone for uCLSSPEC_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Com'*"]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: ::windows_sys::core::GUID,
     pub PolicyId: ::windows_sys::core::GUID,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for uCLSSPEC_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for uCLSSPEC_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -2359,19 +2356,23 @@ impl ::core::clone::Clone for userSTGMEDIUM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com'*"]
+#[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_SystemServices'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub struct userSTGMEDIUM_0 {
     pub tymed: u32,
     pub u: userSTGMEDIUM_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for userSTGMEDIUM_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for userSTGMEDIUM_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com'*"]
+#[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_System_SystemServices'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 pub union userSTGMEDIUM_0_0 {
     pub hMetaFilePict: *mut super::SystemServices::userHMETAFILEPICT,
     pub hHEnhMetaFile: *mut super::SystemServices::userHENHMETAFILE,
@@ -2381,7 +2382,9 @@ pub union userSTGMEDIUM_0_0 {
     pub pstm: *mut BYTE_BLOB,
     pub pstg: *mut BYTE_BLOB,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::marker::Copy for userSTGMEDIUM_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_System_SystemServices"))]
 impl ::core::clone::Clone for userSTGMEDIUM_0_0 {
     fn clone(&self) -> Self {
         *self

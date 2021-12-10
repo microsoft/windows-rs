@@ -1210,15 +1210,12 @@ impl ::core::clone::Clone for CPSUICBPARAM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub union CPSUICBPARAM_0 {
     pub OldSel: i32,
     pub pOldSel: *mut i8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for CPSUICBPARAM_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for CPSUICBPARAM_0 {
     fn clone(&self) -> Self {
         *self
@@ -1543,15 +1540,15 @@ impl ::core::clone::Clone for DLGPAGE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DLGPAGE_0 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DLGPAGE_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DLGPAGE_0 {
     fn clone(&self) -> Self {
         *self
@@ -2417,15 +2414,15 @@ impl ::core::clone::Clone for EXTPUSH_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union EXTPUSH_1 {
     pub DlgTemplateID: u16,
     pub hDlgTemplate: super::super::Foundation::HANDLE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for EXTPUSH_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for EXTPUSH_1 {
     fn clone(&self) -> Self {
         *self
@@ -4926,15 +4923,12 @@ impl ::core::clone::Clone for OPTITEM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub union OPTITEM_0 {
     pub Sel: i32,
     pub pSel: *mut i8,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for OPTITEM_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for OPTITEM_0 {
     fn clone(&self) -> Self {
         *self
@@ -6291,15 +6285,15 @@ impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union PROPSHEETUI_INFO_HEADER_0 {
     pub hIcon: super::super::UI::WindowsAndMessaging::HICON,
     pub IconID: usize,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for PROPSHEETUI_INFO_HEADER_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for PROPSHEETUI_INFO_HEADER_0 {
     fn clone(&self) -> Self {
         *self
@@ -6597,15 +6591,12 @@ impl ::core::clone::Clone for PrintPropertyValue_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Printing', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct PrintPropertyValue_0_0 {
     pub cbBuf: u32,
     pub pBuf: *mut ::core::ffi::c_void,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PrintPropertyValue_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PrintPropertyValue_0_0 {
     fn clone(&self) -> Self {
         *self

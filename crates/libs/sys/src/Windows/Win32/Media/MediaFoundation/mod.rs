@@ -8877,15 +8877,15 @@ impl ::core::clone::Clone for MFVideoAlphaBitmap {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Foundation', 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: 'Win32_Media_MediaFoundation', 'Win32_Graphics_Direct3D9', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 pub union MFVideoAlphaBitmap_0 {
     pub hdc: super::super::Graphics::Gdi::HDC,
     pub pDDS: super::super::Graphics::Direct3D9::IDirect3DSurface9,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for MFVideoAlphaBitmap_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for MFVideoAlphaBitmap_0 {
     fn clone(&self) -> Self {
         *self

@@ -4650,15 +4650,12 @@ impl ::core::clone::Clone for DVD_TitleAttributes {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub union DVD_TitleAttributes_0 {
     pub AppMode: DVD_TITLE_APPMODE,
     pub TitleLength: DVD_HMSF_TIMECODE,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DVD_TitleAttributes_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DVD_TitleAttributes_0 {
     fn clone(&self) -> Self {
         *self
@@ -6985,15 +6982,12 @@ impl ::core::clone::Clone for KSM_BDA_PIN {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Media_KernelStreaming'*"]
-#[cfg(feature = "Win32_Media_KernelStreaming")]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub union KSM_BDA_PIN_0 {
     pub PinId: u32,
     pub PinType: u32,
 }
-#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_PIN_0 {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_PIN_0 {
     fn clone(&self) -> Self {
         *self
@@ -7016,30 +7010,24 @@ impl ::core::clone::Clone for KSM_BDA_PIN_PAIR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Media_KernelStreaming'*"]
-#[cfg(feature = "Win32_Media_KernelStreaming")]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub union KSM_BDA_PIN_PAIR_0 {
     pub InputPinId: u32,
     pub InputPinType: u32,
 }
-#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_PIN_PAIR_0 {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_PIN_PAIR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Media_KernelStreaming'*"]
-#[cfg(feature = "Win32_Media_KernelStreaming")]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub union KSM_BDA_PIN_PAIR_1 {
     pub OutputPinId: u32,
     pub OutputPinType: u32,
 }
-#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::marker::Copy for KSM_BDA_PIN_PAIR_1 {}
-#[cfg(feature = "Win32_Media_KernelStreaming")]
 impl ::core::clone::Clone for KSM_BDA_PIN_PAIR_1 {
     fn clone(&self) -> Self {
         *self
@@ -9213,15 +9201,12 @@ impl ::core::clone::Clone for REGFILTER2_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub struct REGFILTER2_0_1 {
     pub cPins2: u32,
     pub rgPins2: *mut REGFILTERPINS2,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for REGFILTER2_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for REGFILTER2_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -10980,16 +10965,16 @@ impl ::core::clone::Clone for VIDEOINFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Graphics_Gdi'*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub union VIDEOINFO_0 {
     pub bmiColors: [super::super::Graphics::Gdi::RGBQUAD; 256],
     pub dwBitMasks: [u32; 3],
     pub TrueColorInfo: TRUECOLORINFO,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for VIDEOINFO_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for VIDEOINFO_0 {
     fn clone(&self) -> Self {
         *self
@@ -11040,15 +11025,12 @@ impl ::core::clone::Clone for VIDEOINFOHEADER2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_DirectShow', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: 'Win32_Media_DirectShow'*"]
 pub union VIDEOINFOHEADER2_0 {
     pub dwControlFlags: u32,
     pub dwReserved1: u32,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for VIDEOINFOHEADER2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for VIDEOINFOHEADER2_0 {
     fn clone(&self) -> Self {
         *self

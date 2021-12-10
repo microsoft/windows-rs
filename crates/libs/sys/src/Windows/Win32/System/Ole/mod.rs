@@ -3619,59 +3619,59 @@ impl ::core::clone::Clone for PICTDESC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PICTDESC_0_0 {
     pub hbitmap: super::super::Graphics::Gdi::HBITMAP,
     pub hpal: super::super::Graphics::Gdi::HPALETTE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for PICTDESC_0_0 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for PICTDESC_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PICTDESC_0_1 {
     pub hemf: super::super::Graphics::Gdi::HENHMETAFILE,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for PICTDESC_0_1 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for PICTDESC_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_System_Ole', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub struct PICTDESC_0_2 {
     pub hicon: super::super::UI::WindowsAndMessaging::HICON,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for PICTDESC_0_2 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for PICTDESC_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_System_Ole', 'Win32_Graphics_Gdi'*"]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct PICTDESC_0_3 {
     pub hmeta: super::super::Graphics::Gdi::HMETAFILE,
     pub xExt: i32,
     pub yExt: i32,
 }
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::marker::Copy for PICTDESC_0_3 {}
-#[cfg(all(feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::clone::Clone for PICTDESC_0_3 {
     fn clone(&self) -> Self {
         *self

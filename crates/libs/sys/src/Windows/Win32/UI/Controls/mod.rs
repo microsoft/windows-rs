@@ -5395,30 +5395,30 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union PROPSHEETHEADERA_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V1_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V1_1 {
     fn clone(&self) -> Self {
         *self
@@ -5466,30 +5466,30 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERA_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union PROPSHEETHEADERA_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V2_1 {
     fn clone(&self) -> Self {
         *self
@@ -5511,30 +5511,30 @@ impl ::core::clone::Clone for PROPSHEETHEADERA_V2_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union PROPSHEETHEADERA_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V2_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union PROPSHEETHEADERA_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PROPSHEETHEADERA_V2_4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PROPSHEETHEADERA_V2_4 {
     fn clone(&self) -> Self {
         *self
@@ -5564,30 +5564,30 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V1_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union PROPSHEETHEADERW_V1_1 {
     pub nStartPage: u32,
     pub pStartPage: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V1_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V1_1 {
     fn clone(&self) -> Self {
         *self
@@ -5635,30 +5635,30 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETHEADERW_V2_0 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union PROPSHEETHEADERW_V2_1 {
     pub nStartPage: u32,
     pub pStartPage: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V2_1 {
     fn clone(&self) -> Self {
         *self
@@ -5680,30 +5680,30 @@ impl ::core::clone::Clone for PROPSHEETHEADERW_V2_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union PROPSHEETHEADERW_V2_3 {
     pub hbmWatermark: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmWatermark: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_3 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V2_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union PROPSHEETHEADERW_V2_4 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PROPSHEETHEADERW_V2_4 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PROPSHEETHEADERW_V2_4 {
     fn clone(&self) -> Self {
         *self
@@ -5737,45 +5737,45 @@ impl ::core::clone::Clone for PROPSHEETPAGEA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union PROPSHEETPAGEA_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_2 {
     fn clone(&self) -> Self {
         *self
@@ -5805,30 +5805,30 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V1_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V1_1 {
     fn clone(&self) -> Self {
         *self
@@ -5860,30 +5860,30 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V2_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V2_1 {
     fn clone(&self) -> Self {
         *self
@@ -5916,30 +5916,30 @@ impl ::core::clone::Clone for PROPSHEETPAGEA_V3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_0 {
     pub pszTemplate: super::super::Foundation::PSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V3_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEA_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEA_V3_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEA_V3_1 {
     fn clone(&self) -> Self {
         *self
@@ -5973,45 +5973,45 @@ impl ::core::clone::Clone for PROPSHEETPAGEW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union PROPSHEETPAGEW_2 {
     pub hbmHeader: super::super::Graphics::Gdi::HBITMAP,
     pub pszbmHeader: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_2 {
     fn clone(&self) -> Self {
         *self
@@ -6041,30 +6041,30 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V1_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V1_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V1_1 {
     fn clone(&self) -> Self {
         *self
@@ -6096,30 +6096,30 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V2_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V2_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V2_1 {
     fn clone(&self) -> Self {
         *self
@@ -6152,30 +6152,30 @@ impl ::core::clone::Clone for PROPSHEETPAGEW_V3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_0 {
     pub pszTemplate: super::super::Foundation::PWSTR,
     pub pResource: *mut super::WindowsAndMessaging::DLGTEMPLATE,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V3_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_Graphics_Gdi', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[doc = "*Required features: 'Win32_UI_Controls', 'Win32_Foundation', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 pub union PROPSHEETPAGEW_V3_1 {
     pub hIcon: super::WindowsAndMessaging::HICON,
     pub pszIcon: super::super::Foundation::PWSTR,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::marker::Copy for PROPSHEETPAGEW_V3_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi", feature = "Win32_UI_WindowsAndMessaging"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_WindowsAndMessaging"))]
 impl ::core::clone::Clone for PROPSHEETPAGEW_V3_1 {
     fn clone(&self) -> Self {
         *self

@@ -549,15 +549,12 @@ impl ::core::clone::Clone for INSTALLSPEC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
 pub struct INSTALLSPEC_1 {
     pub Clsid: ::windows_sys::core::GUID,
     pub ClsCtx: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INSTALLSPEC_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INSTALLSPEC_1 {
     fn clone(&self) -> Self {
         *self

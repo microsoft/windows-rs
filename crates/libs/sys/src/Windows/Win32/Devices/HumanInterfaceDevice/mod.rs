@@ -3088,23 +3088,19 @@ impl ::core::clone::Clone for HIDP_BUTTON_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub union HIDP_BUTTON_CAPS_0 {
     pub Range: HIDP_BUTTON_CAPS_0_1,
     pub NotRange: HIDP_BUTTON_CAPS_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_BUTTON_CAPS_0_0 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -3115,17 +3111,14 @@ pub struct HIDP_BUTTON_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_BUTTON_CAPS_0_1 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -3136,9 +3129,7 @@ pub struct HIDP_BUTTON_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIDP_BUTTON_CAPS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_BUTTON_CAPS_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -3331,23 +3322,19 @@ impl ::core::clone::Clone for HIDP_VALUE_CAPS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub union HIDP_VALUE_CAPS_0 {
     pub Range: HIDP_VALUE_CAPS_0_1,
     pub NotRange: HIDP_VALUE_CAPS_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIDP_VALUE_CAPS_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_VALUE_CAPS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_VALUE_CAPS_0_0 {
     pub Usage: u16,
     pub Reserved1: u16,
@@ -3358,17 +3345,14 @@ pub struct HIDP_VALUE_CAPS_0_0 {
     pub DataIndex: u16,
     pub Reserved4: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Devices_HumanInterfaceDevice'*"]
 pub struct HIDP_VALUE_CAPS_0_1 {
     pub UsageMin: u16,
     pub UsageMax: u16,
@@ -3379,9 +3363,7 @@ pub struct HIDP_VALUE_CAPS_0_1 {
     pub DataIndexMin: u16,
     pub DataIndexMax: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HIDP_VALUE_CAPS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HIDP_VALUE_CAPS_0_1 {
     fn clone(&self) -> Self {
         *self

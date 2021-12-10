@@ -761,14 +761,11 @@ impl ::core::clone::Clone for TF_LMLATTELEMENT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_TextServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_TextServices'*"]
 pub union TF_LMLATTELEMENT_0 {
     pub iCost: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for TF_LMLATTELEMENT_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for TF_LMLATTELEMENT_0 {
     fn clone(&self) -> Self {
         *self

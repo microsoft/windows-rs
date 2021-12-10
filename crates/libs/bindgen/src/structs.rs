@@ -46,7 +46,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Cfg) 
     }
 
     let is_union = def.is_union();
-    let cfg = if def.name() == struct_name { gen.type_cfg(def) } else { cfg.clone() };
+    let cfg = gen.type_cfg(def);
 
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::u32_unsuffixed(layout.packing_size());

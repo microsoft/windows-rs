@@ -160,17 +160,14 @@ impl ::core::clone::Clone for FDIDECRYPT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Cabinets', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut ::core::ffi::c_void,
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -196,16 +193,13 @@ impl ::core::clone::Clone for FDIDECRYPT_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Cabinets', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub struct FDIDECRYPT_0_2 {
     pub pFolderReserve: *mut ::core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0_2 {
     fn clone(&self) -> Self {
         *self

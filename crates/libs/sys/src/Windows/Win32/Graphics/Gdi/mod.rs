@@ -1630,8 +1630,7 @@ impl ::core::clone::Clone for DEVMODEA_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -1642,9 +1641,7 @@ pub struct DEVMODEA_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVMODEA_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEA_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1667,15 +1664,12 @@ impl ::core::clone::Clone for DEVMODEA_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVMODEA_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEA_1 {
     fn clone(&self) -> Self {
         *self
@@ -1737,8 +1731,7 @@ impl ::core::clone::Clone for DEVMODEW_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
     pub dmPaperSize: i16,
@@ -1749,9 +1742,7 @@ pub struct DEVMODEW_0_0 {
     pub dmDefaultSource: i16,
     pub dmPrintQuality: i16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVMODEW_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEW_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1774,15 +1765,12 @@ impl ::core::clone::Clone for DEVMODEW_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
     pub dmNup: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEVMODEW_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEVMODEW_1 {
     fn clone(&self) -> Self {
         *self

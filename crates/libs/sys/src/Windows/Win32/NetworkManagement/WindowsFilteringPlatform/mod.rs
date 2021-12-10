@@ -1228,30 +1228,24 @@ impl ::core::clone::Clone for FWPM_CONNECTION0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_CONNECTION0_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_CONNECTION0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_CONNECTION0_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FWPM_CONNECTION0_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FWPM_CONNECTION0_1 {
     fn clone(&self) -> Self {
         *self
@@ -1383,15 +1377,12 @@ impl ::core::clone::Clone for FWPM_FILTER0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_FILTER0_0 {
     pub rawContext: u64,
     pub providerContextKey: ::windows_sys::core::GUID,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_FILTER0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_FILTER0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2076,30 +2067,24 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER0_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER0_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER0_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER0_1 {
     fn clone(&self) -> Self {
         *self
@@ -2131,81 +2116,65 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER1_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER1_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER1_2 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_HEADER1_2_0 {
     pub reserved1: FWP_AF,
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER1_2_0_0 {
     pub Anonymous: FWPM_NET_EVENT_HEADER1_2_0_0_0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved2: FWP_BYTE_ARRAY6,
     pub reserved3: FWP_BYTE_ARRAY6,
@@ -2217,9 +2186,7 @@ pub struct FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     pub reserved9: u16,
     pub reserved10: u64,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER1_2_0_0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER1_2_0_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2252,30 +2219,24 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER2_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER2_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER2_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER2_1 {
     fn clone(&self) -> Self {
         *self
@@ -2311,30 +2272,24 @@ impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER3_0 {
     pub localAddrV4: u32,
     pub localAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union FWPM_NET_EVENT_HEADER3_1 {
     pub remoteAddrV4: u32,
     pub remoteAddrV6: FWP_BYTE_ARRAY16,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for FWPM_NET_EVENT_HEADER3_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for FWPM_NET_EVENT_HEADER3_1 {
     fn clone(&self) -> Self {
         *self
@@ -3972,58 +3927,46 @@ impl ::core::clone::Clone for IGMPV3_QUERY_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IGMPV3_QUERY_HEADER_0 {
     pub MaxRespCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_0_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IGMPV3_QUERY_HEADER_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IGMPV3_QUERY_HEADER_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IGMPV3_QUERY_HEADER_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IGMPV3_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: IGMPV3_QUERY_HEADER_1_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IGMPV3_QUERY_HEADER_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IGMPV3_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IGMPV3_QUERY_HEADER_1_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMPV3_QUERY_HEADER_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -4079,45 +4022,36 @@ impl ::core::clone::Clone for IGMP_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IGMP_HEADER_0 {
     pub Anonymous: IGMP_HEADER_0_0,
     pub VersionType: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IGMP_HEADER_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMP_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IGMP_HEADER_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IGMP_HEADER_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMP_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IGMP_HEADER_1 {
     pub Reserved: u8,
     pub MaxRespTime: u8,
     pub Code: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IGMP_HEADER_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IGMP_HEADER_1 {
     fn clone(&self) -> Self {
         *self
@@ -5475,14 +5409,11 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS0_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS0_0 {
     fn clone(&self) -> Self {
         *self
@@ -5513,14 +5444,11 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS1_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS1_0 {
     fn clone(&self) -> Self {
         *self
@@ -5551,14 +5479,11 @@ impl ::core::clone::Clone for IKEEXT_SA_DETAILS2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IKEEXT_SA_DETAILS2_0 {
     pub v4UdpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IKEEXT_SA_DETAILS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IKEEXT_SA_DETAILS2_0 {
     fn clone(&self) -> Self {
         *self
@@ -6281,14 +6206,11 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_BUNDLE0_0 {
     pub peerV4PrivateAddress: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE0_0 {
     fn clone(&self) -> Self {
         *self
@@ -6324,14 +6246,11 @@ impl ::core::clone::Clone for IPSEC_SA_BUNDLE1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_BUNDLE1_0 {
     pub peerV4PrivateAddress: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_SA_BUNDLE1_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_SA_BUNDLE1_0 {
     fn clone(&self) -> Self {
         *self
@@ -6489,14 +6408,11 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_DETAILS0_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for IPSEC_SA_DETAILS0_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS0_0 {
     fn clone(&self) -> Self {
         *self
@@ -6523,14 +6439,11 @@ impl ::core::clone::Clone for IPSEC_SA_DETAILS1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_SA_DETAILS1_0 {
     pub udpEncapsulation: *mut IPSEC_V4_UDP_ENCAPSULATION0,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for IPSEC_SA_DETAILS1_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for IPSEC_SA_DETAILS1_0 {
     fn clone(&self) -> Self {
         *self
@@ -7064,30 +6977,24 @@ impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_TUNNEL_ENDPOINTS2_0 {
     pub localV4Address: u32,
     pub localV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPSEC_TUNNEL_ENDPOINTS2_1 {
     pub remoteV4Address: u32,
     pub remoteV6Address: [u8; 16],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IPSEC_TUNNEL_ENDPOINTS2_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IPSEC_TUNNEL_ENDPOINTS2_1 {
     fn clone(&self) -> Self {
         *self
@@ -7233,87 +7140,69 @@ impl ::core::clone::Clone for IPV4_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPV4_HEADER_0 {
     pub VersionAndHeaderLength: u8,
     pub Anonymous: IPV4_HEADER_0_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV4_HEADER_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPV4_HEADER_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV4_HEADER_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPV4_HEADER_1 {
     pub TypeOfServiceAndEcnField: u8,
     pub Anonymous: IPV4_HEADER_1_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV4_HEADER_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPV4_HEADER_1_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV4_HEADER_1_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPV4_HEADER_2 {
     pub FlagsAndOffset: u16,
     pub Anonymous: IPV4_HEADER_2_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV4_HEADER_2 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPV4_HEADER_2_0 {
     pub _bitfield: u16,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV4_HEADER_2_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV4_HEADER_2_0 {
     fn clone(&self) -> Self {
         *self
@@ -7501,29 +7390,23 @@ impl ::core::clone::Clone for IPV6_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union IPV6_HEADER_0 {
     pub VersionClassFlow: u32,
     pub Anonymous: IPV6_HEADER_0_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV6_HEADER_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV6_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct IPV6_HEADER_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for IPV6_HEADER_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for IPV6_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -7677,58 +7560,46 @@ impl ::core::clone::Clone for MLDV2_QUERY_HEADER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union MLDV2_QUERY_HEADER_0 {
     pub MaxRespCode: u16,
     pub Anonymous: MLDV2_QUERY_HEADER_0_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for MLDV2_QUERY_HEADER_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_QUERY_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct MLDV2_QUERY_HEADER_0_0 {
     pub _bitfield: u16,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for MLDV2_QUERY_HEADER_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_QUERY_HEADER_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union MLDV2_QUERY_HEADER_1 {
     pub QueriersQueryInterfaceCode: u8,
     pub Anonymous: MLDV2_QUERY_HEADER_1_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for MLDV2_QUERY_HEADER_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_QUERY_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct MLDV2_QUERY_HEADER_1_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for MLDV2_QUERY_HEADER_1_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MLDV2_QUERY_HEADER_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -8047,59 +7918,47 @@ impl ::core::clone::Clone for nd_opt_prefix_info {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union nd_opt_prefix_info_0 {
     pub nd_opt_pi_flags_reserved: u8,
     pub Flags: nd_opt_prefix_info_0_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for nd_opt_prefix_info_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_prefix_info_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct nd_opt_prefix_info_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for nd_opt_prefix_info_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_prefix_info_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union nd_opt_prefix_info_1 {
     pub nd_opt_pi_reserved2: u32,
     pub Anonymous: nd_opt_prefix_info_1_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for nd_opt_prefix_info_1 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_prefix_info_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct nd_opt_prefix_info_1_0 {
     pub nd_opt_pi_reserved3: [u8; 3],
     pub nd_opt_pi_site_prefix_len: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for nd_opt_prefix_info_1_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_prefix_info_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -8153,29 +8012,23 @@ impl ::core::clone::Clone for nd_opt_route_info {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub union nd_opt_route_info_0 {
     pub nd_opt_ri_flags_reserved: u8,
     pub Flags: nd_opt_route_info_0_0,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for nd_opt_route_info_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_route_info_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform', 'Win32_Networking_WinSock'*"]
-#[cfg(feature = "Win32_Networking_WinSock")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WindowsFilteringPlatform'*"]
 pub struct nd_opt_route_info_0_0 {
     pub _bitfield: u8,
 }
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for nd_opt_route_info_0_0 {}
-#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for nd_opt_route_info_0_0 {
     fn clone(&self) -> Self {
         *self

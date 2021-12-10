@@ -260,15 +260,12 @@ impl ::core::clone::Clone for CHARFORMAT2A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMAT2A_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMAT2A_0 {
     fn clone(&self) -> Self {
         *self
