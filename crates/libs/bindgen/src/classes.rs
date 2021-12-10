@@ -45,8 +45,14 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
                 let interface_type = gen_type_name(def, gen);
                 let features = gen.type_cfg(def).gen(gen);
 
+                let hidden = if gen.doc {
+                    quote! { #[doc(hidden)] }
+                } else {
+                    quote! {}
+                };
+
                 Some(quote! {
-                    #[doc(hidden)]
+                    #hidden
                     #features
                     pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
                         callback: F,
