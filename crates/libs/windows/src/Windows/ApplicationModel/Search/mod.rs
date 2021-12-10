@@ -20,13 +20,14 @@ pub struct ILocalContentSuggestionSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPane(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -63,25 +64,25 @@ pub struct ISearchPaneVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, settings: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -96,8 +97,10 @@ pub struct ISearchPaneVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc = "*Required features: 'ApplicationModel_Search', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneQueryChangedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl ISearchPaneQueryChangedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn QueryText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -124,41 +127,49 @@ impl ISearchPaneQueryChangedEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<ISearchPaneQueryChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: ISearchPaneQueryChangedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ISearchPaneQueryChangedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &ISearchPaneQueryChangedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for ISearchPaneQueryChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &ISearchPaneQueryChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<ISearchPaneQueryChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: ISearchPaneQueryChangedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&ISearchPaneQueryChangedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &ISearchPaneQueryChangedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for ISearchPaneQueryChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &ISearchPaneQueryChangedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
@@ -226,6 +237,7 @@ pub struct ISearchPaneQueryLinguisticDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneQuerySubmittedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -249,6 +261,7 @@ pub struct ISearchPaneQuerySubmittedEventArgsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetails(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -270,6 +283,7 @@ pub struct ISearchPaneQuerySubmittedEventArgsWithLinguisticDetailsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneResultSuggestionChosenEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -291,6 +305,7 @@ pub struct ISearchPaneResultSuggestionChosenEventArgsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -312,6 +327,7 @@ pub struct ISearchPaneStaticsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneStaticsWithHideThisApplication(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -333,6 +349,7 @@ pub struct ISearchPaneStaticsWithHideThisApplicationVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneSuggestionsRequest(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -358,6 +375,7 @@ pub struct ISearchPaneSuggestionsRequestVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneSuggestionsRequestDeferral(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -379,6 +397,7 @@ pub struct ISearchPaneSuggestionsRequestDeferralVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneSuggestionsRequestedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -400,6 +419,7 @@ pub struct ISearchPaneSuggestionsRequestedEventArgsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISearchPaneVisibilityChangedEventArgs(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]

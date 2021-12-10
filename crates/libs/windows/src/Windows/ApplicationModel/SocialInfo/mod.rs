@@ -2,6 +2,7 @@
 #[cfg(feature = "ApplicationModel_SocialInfo_Provider")]
 pub mod Provider;
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISocialFeedChildItem(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -26,21 +27,22 @@ pub struct ISocialFeedChildItemVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISocialFeedContent(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -67,11 +69,12 @@ pub struct ISocialFeedContentVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISocialFeedItem(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -96,15 +99,15 @@ pub struct ISocialFeedItemVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -131,6 +134,7 @@ pub struct ISocialFeedItemVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISocialFeedSharedItem(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -149,25 +153,26 @@ pub struct ISocialFeedSharedItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::DateTime) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISocialItemThumbnail(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -186,21 +191,22 @@ pub struct ISocialItemThumbnailVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Graphics_Imaging", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Graphics_Imaging", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Graphics_Imaging", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Graphics_Imaging", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Graphics::Imaging::BitmapSize) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Graphics_Imaging", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Graphics_Imaging", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, image: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ISocialUserInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -231,9 +237,9 @@ pub struct ISocialUserInfoVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
 );
 #[doc = "*Required features: 'ApplicationModel_SocialInfo', 'deprecated'*"]
 #[cfg(feature = "deprecated")]

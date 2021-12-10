@@ -2811,101 +2811,80 @@ impl ::core::default::Default for sqlite3_index_info {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_index_info_0 {
     pub iColumn: i32,
     pub op: u8,
     pub usable: u8,
     pub iTermOffset: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_index_info_1 {
     pub argvIndex: i32,
     pub omit: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_1 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SqlLite'*"]
 pub struct sqlite3_index_info_2 {
     pub iColumn: i32,
     pub desc: u8,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for sqlite3_index_info_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for sqlite3_index_info_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<sqlite3_index_info_2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for sqlite3_index_info_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for sqlite3_index_info_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -7496,9 +7496,9 @@ pub struct IPopupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -8208,7 +8208,7 @@ pub struct ISettingsFlyoutTemplateSettingsVtbl(
     #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]

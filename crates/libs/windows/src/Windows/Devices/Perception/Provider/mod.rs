@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IKnownPerceptionFrameKindStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -25,6 +26,7 @@ pub struct IKnownPerceptionFrameKindStaticsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionControlGroup(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -43,9 +45,10 @@ pub struct IPerceptionControlGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionControlGroupFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -64,9 +67,10 @@ pub struct IPerceptionControlGroupFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionCorrelation(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -87,11 +91,12 @@ pub struct IPerceptionCorrelationVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Numerics", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Numerics", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionCorrelationFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -110,9 +115,10 @@ pub struct IPerceptionCorrelationFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Numerics", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, targetid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, position: super::super::super::Foundation::Numerics::Vector3, orientation: super::super::super::Foundation::Numerics::Quaternion, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Numerics", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Numerics", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionCorrelationGroup(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -131,9 +137,10 @@ pub struct IPerceptionCorrelationGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionCorrelationGroupFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -152,9 +159,10 @@ pub struct IPerceptionCorrelationGroupFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, relativelocations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionFaceAuthenticationGroup(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -173,9 +181,10 @@ pub struct IPerceptionFaceAuthenticationGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionFaceAuthenticationGroupFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -194,9 +203,10 @@ pub struct IPerceptionFaceAuthenticationGroupFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ids: ::windows::core::RawPtr, starthandler: ::windows::core::RawPtr, stophandler: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionFrame(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -215,17 +225,19 @@ pub struct IPerceptionFrameVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
 );
 #[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionFrameProvider(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl IPerceptionFrameProvider {
     #[cfg(feature = "deprecated")]
     pub fn FrameProviderInfo(&self) -> ::windows::core::Result<PerceptionFrameProviderInfo> {
@@ -272,67 +284,75 @@ impl IPerceptionFrameProvider {
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IPerceptionFrameProvider> for ::windows::core::IInspectable {
     fn from(value: IPerceptionFrameProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IPerceptionFrameProvider> for ::windows::core::IInspectable {
     fn from(value: &IPerceptionFrameProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPerceptionFrameProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPerceptionFrameProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IPerceptionFrameProvider> for ::windows::core::IUnknown {
     fn from(value: IPerceptionFrameProvider) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IPerceptionFrameProvider> for ::windows::core::IUnknown {
     fn from(value: &IPerceptionFrameProvider) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPerceptionFrameProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPerceptionFrameProvider {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<IPerceptionFrameProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: IPerceptionFrameProvider) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<&IPerceptionFrameProvider> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPerceptionFrameProvider) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for IPerceptionFrameProvider {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &IPerceptionFrameProvider {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
@@ -376,7 +396,7 @@ pub struct IPerceptionFrameProviderVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation_Collections", feature = "deprecated")))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -385,6 +405,7 @@ pub struct IPerceptionFrameProviderVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionFrameProviderInfo(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -424,8 +445,10 @@ pub struct IPerceptionFrameProviderInfoVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionFrameProviderManager(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl IPerceptionFrameProviderManager {
     #[cfg(feature = "deprecated")]
     pub fn GetFrameProvider<'a, Param0: ::windows::core::IntoParam<'a, PerceptionFrameProviderInfo>>(&self, frameproviderinfo: Param0) -> ::windows::core::Result<IPerceptionFrameProvider> {
@@ -441,67 +464,75 @@ impl IPerceptionFrameProviderManager {
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IPerceptionFrameProviderManager> for ::windows::core::IInspectable {
     fn from(value: IPerceptionFrameProviderManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IPerceptionFrameProviderManager> for ::windows::core::IInspectable {
     fn from(value: &IPerceptionFrameProviderManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IPerceptionFrameProviderManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IPerceptionFrameProviderManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<IPerceptionFrameProviderManager> for ::windows::core::IUnknown {
     fn from(value: IPerceptionFrameProviderManager) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&IPerceptionFrameProviderManager> for ::windows::core::IUnknown {
     fn from(value: &IPerceptionFrameProviderManager) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IPerceptionFrameProviderManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IPerceptionFrameProviderManager {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<IPerceptionFrameProviderManager> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: IPerceptionFrameProviderManager) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<&IPerceptionFrameProviderManager> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &IPerceptionFrameProviderManager) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for IPerceptionFrameProviderManager {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &IPerceptionFrameProviderManager {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
@@ -544,6 +575,7 @@ pub struct IPerceptionFrameProviderManagerVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionFrameProviderManagerServiceStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -583,6 +615,7 @@ pub struct IPerceptionFrameProviderManagerServiceStaticsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionPropertyChangeRequest(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -609,9 +642,10 @@ pub struct IPerceptionPropertyChangeRequestVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::PerceptionFrameSourcePropertyChangeStatus) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionVideoFrameAllocator(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -632,9 +666,10 @@ pub struct IPerceptionVideoFrameAllocatorVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
     #[cfg(all(feature = "Media", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frame: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Media", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Media", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IPerceptionVideoFrameAllocatorFactory(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -653,7 +688,7 @@ pub struct IPerceptionVideoFrameAllocatorFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated")))] usize,
+    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated")))] usize,
 );
 pub struct KnownPerceptionFrameKind {}
 impl KnownPerceptionFrameKind {

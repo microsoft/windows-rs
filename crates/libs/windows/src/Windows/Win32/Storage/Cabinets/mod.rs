@@ -322,35 +322,28 @@ impl ::core::default::Default for FDIDECRYPT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Cabinets', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub struct FDIDECRYPT_0_0 {
     pub pHeaderReserve: *mut ::core::ffi::c_void,
     pub cbHeaderReserve: u16,
     pub setID: u16,
     pub iCabinet: i32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -394,34 +387,27 @@ impl ::core::default::Default for FDIDECRYPT_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Cabinets', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Cabinets'*"]
 pub struct FDIDECRYPT_0_2 {
     pub pFolderReserve: *mut ::core::ffi::c_void,
     pub cbFolderReserve: u16,
     pub iFolder: u16,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FDIDECRYPT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FDIDECRYPT_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FDIDECRYPT_0_2 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FDIDECRYPT_0_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FDIDECRYPT_0_2>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FDIDECRYPT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FDIDECRYPT_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

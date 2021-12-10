@@ -89,7 +89,7 @@ pub struct IShareOperation3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(any(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(all(feature = "ApplicationModel_Contacts", feature = "Foundation_Collections")))] usize,
 );
 #[doc = "*Required features: 'ApplicationModel_DataTransfer_ShareTarget'*"]
 #[repr(transparent)]

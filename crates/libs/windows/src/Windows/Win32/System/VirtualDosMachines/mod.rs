@@ -509,32 +509,25 @@ impl ::core::default::Default for VDMLDT_ENTRY {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_1,
     pub Bits: VDMLDT_ENTRY_0_0,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for VDMLDT_ENTRY_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for VDMLDT_ENTRY_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -542,31 +535,24 @@ impl ::core::default::Default for VDMLDT_ENTRY_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for VDMLDT_ENTRY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -574,34 +560,27 @@ impl ::core::default::Default for VDMLDT_ENTRY_0_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_VirtualDosMachines'*"]
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct VDMLDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_1>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

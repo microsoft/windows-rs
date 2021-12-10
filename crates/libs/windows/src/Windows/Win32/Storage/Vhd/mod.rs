@@ -1295,35 +1295,28 @@ impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Vhd', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
     pub SectorSize: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for GET_VIRTUAL_DISK_INFO_0_3 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GET_VIRTUAL_DISK_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GET_VIRTUAL_DISK_INFO_0_3>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GET_VIRTUAL_DISK_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GET_VIRTUAL_DISK_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1941,32 +1934,25 @@ impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Vhd', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPEN_VIRTUAL_DISK_PARAMETERS_0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

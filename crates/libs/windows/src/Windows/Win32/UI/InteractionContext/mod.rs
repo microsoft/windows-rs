@@ -473,34 +473,27 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_CONTEXT_OUTPUT_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::Eq for INTERACTION_CONTEXT_OUTPUT_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -546,34 +539,27 @@ impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
+#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT2_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 unsafe impl ::windows::core::Abi for INTERACTION_CONTEXT_OUTPUT2_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::PartialEq for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERACTION_CONTEXT_OUTPUT2_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::cmp::Eq for INTERACTION_CONTEXT_OUTPUT2_0 {}
-#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::default::Default for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

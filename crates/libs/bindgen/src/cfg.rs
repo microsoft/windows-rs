@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: store &Gen? then can implement ToTokens
 #[derive(Default, Clone)]
 pub struct Cfg {
     pub arch: BTreeSet<&'static str>,
@@ -19,12 +18,6 @@ impl Cfg {
         }        
     }
 
-    pub fn and_std(&self) -> Self {
-        let mut combo = self.clone();
-        combo.features.insert("std");
-        combo
-    }
-
     pub fn and_iterator(&self) -> Self {
         let mut combo = self.clone();
         combo.features.insert("Windows.Foundation.Collections");
@@ -33,6 +26,7 @@ impl Cfg {
 
     pub fn and_async(&self) -> Self {
         let mut combo = self.clone();
+        combo.features.insert("std");
         combo.features.insert("Windows.Foundation");
         combo
     }
@@ -95,7 +89,7 @@ impl Cfg {
                 }
                 _ => {
                     let features = self.features.iter().cloned().map(to_feature);
-                    quote! { #[cfg(not(any( #(feature = #features),* )))] }
+                    quote! { #[cfg(not(all( #(feature = #features),* )))] }
                 }
             }
         }

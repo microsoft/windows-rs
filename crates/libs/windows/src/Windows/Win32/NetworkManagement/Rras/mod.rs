@@ -7763,8 +7763,7 @@ impl ::core::default::Default for RTM_DEST_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_Rras', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_Rras'*"]
 pub struct RTM_DEST_INFO_0 {
     pub ViewId: i32,
     pub NumRoutes: u32,
@@ -7773,27 +7772,21 @@ pub struct RTM_DEST_INFO_0 {
     pub DestFlags: u32,
     pub HoldRoute: isize,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for RTM_DEST_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RTM_DEST_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RTM_DEST_INFO_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RTM_DEST_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTM_DEST_INFO_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RTM_DEST_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RTM_DEST_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

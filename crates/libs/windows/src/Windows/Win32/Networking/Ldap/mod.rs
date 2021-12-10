@@ -873,35 +873,28 @@ impl ::core::default::Default for ldap {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_Ldap', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Networking_Ldap'*"]
 pub struct ldap_0 {
     pub sb_sd: usize,
     pub Reserved1: [u8; 41],
     pub sb_naddr: usize,
     pub Reserved2: [u8; 24],
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ldap_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ldap_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ldap_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldap_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldap_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldap_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldap_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

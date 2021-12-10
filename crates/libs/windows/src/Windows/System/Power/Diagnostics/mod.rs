@@ -56,6 +56,7 @@ impl ::windows::core::RuntimeName for ForegroundEnergyDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.ForegroundEnergyDiagnostics";
 }
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IBackgroundEnergyDiagnosticsStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]
@@ -81,6 +82,7 @@ pub struct IBackgroundEnergyDiagnosticsStaticsVtbl(
     #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IForegroundEnergyDiagnosticsStatics(::windows::core::IUnknown);
 #[cfg(feature = "deprecated")]

@@ -5,10 +5,10 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    gen_struct_with_name(def, def.name(), gen, &Cfg::new())
+    gen_struct_with_name(def, def.name(), gen)
 }
 
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Cfg) -> TokenStream {
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStream {
     if !gen.sys {
         if let Some(replacement) = replacements::gen(def) {
             return replacement;
@@ -104,7 +104,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Cfg) 
     if let Some(nested_types) = def.nested_types() {
         for (index, (_, nested_type)) in nested_types.iter().enumerate() {
             let nested_name = format!("{}_{}", struct_name, index);
-            tokens.combine(&gen_struct_with_name(nested_type, &nested_name, gen, &cfg));
+            tokens.combine(&gen_struct_with_name(nested_type, &nested_name, gen));
         }
     }
 

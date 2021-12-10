@@ -37,7 +37,7 @@ fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Ge
     let constraints = gen_type_constraints(self_name, gen);
     let name = gen_type_name(self_name, gen);
     let namespace = gen.namespace("Windows.Foundation");
-    let cfg = cfg.and_std().and_async().gen(gen);
+    let cfg = cfg.and_async().gen(gen);
 
     quote! {
         #cfg

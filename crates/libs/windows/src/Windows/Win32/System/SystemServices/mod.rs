@@ -8369,65 +8369,51 @@ impl ::core::default::Default for PROCESS_MITIGATION_DEP_POLICY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DEP_POLICY_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MITIGATION_DEP_POLICY_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DEP_POLICY_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_SystemServices'*"]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MITIGATION_DEP_POLICY_0_0>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -10678,33 +10664,33 @@ impl ::core::default::Default for SE_TOKEN_USER_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation', 'Win32_Security'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Security'*"]
+#[cfg(feature = "Win32_Security")]
 pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::marker::Copy for SE_TOKEN_USER_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::clone::Clone for SE_TOKEN_USER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 unsafe impl ::windows::core::Abi for SE_TOKEN_USER_1 {
     type Abi = Self;
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::PartialEq for SE_TOKEN_USER_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SE_TOKEN_USER_1>()) == 0 }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::cmp::Eq for SE_TOKEN_USER_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+#[cfg(feature = "Win32_Security")]
 impl ::core::default::Default for SE_TOKEN_USER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

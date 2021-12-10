@@ -147,7 +147,7 @@ pub struct ICompositionFramePresentStatisticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance),
-    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]

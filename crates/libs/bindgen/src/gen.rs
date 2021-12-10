@@ -43,31 +43,8 @@ impl Gen<'_> {
             tokens
         }
     }
-    
-    fn arch(&self, attributes: impl Iterator<Item = Attribute>) -> BTreeSet<&'static str> {
-        let mut set = BTreeSet::new();
 
-        for attribute in attributes {
-            if attribute.name() == "SupportedArchitectureAttribute" {
-                if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
-                    if value & 1 == 1 {
-                        set.insert("x86");
-                    }
-                    if value & 2 == 2 {
-                        set.insert("x86_64");
-                    }
-                    if value & 4 == 4 {
-                        set.insert("aarch64");
-                    }
-                }
-                break;
-            }
-        }
-
-        set
-    }
-
-    pub fn element_cfg(&self, def: &ElementType) -> Cfg {
+    pub(crate) fn element_cfg(&self, def: &ElementType) -> Cfg {
         if let ElementType::TypeDef(def) = def {
             self.type_cfg(def)
         } else {
@@ -84,7 +61,7 @@ impl Gen<'_> {
             features.insert("deprecated");
         }
 
-        Cfg { arch: self.arch(def.attributes()), features }
+        Cfg { arch: arch(def.attributes()), features }
     }
 
     pub(crate) fn field_cfg(&self, def: &Field) -> Cfg {
@@ -98,7 +75,7 @@ impl Gen<'_> {
         let mut features = BTreeSet::new();
         let mut keys = HashSet::new();
         self.method_requirements(&method.signature(&[]), &mut features, &mut keys);
-        Cfg { arch: self.arch(method.attributes()), features }
+        Cfg { arch: arch(method.attributes()), features }
     }
 
     pub(crate) fn method_cfg(&self, def: &TypeDef, method: &MethodDef) -> Cfg {
@@ -179,4 +156,27 @@ impl Gen<'_> {
     fn field_requirements(&self, def: &Field, enclosing: Option<&TypeDef>, namespaces: &mut BTreeSet<&'static str>, keys: &mut HashSet<Row>) {
         self.element_requirements(&def.signature(enclosing).kind, namespaces, keys);
     }
+}
+
+fn arch(attributes: impl Iterator<Item = Attribute>) -> BTreeSet<&'static str> {
+    let mut set = BTreeSet::new();
+
+    for attribute in attributes {
+        if attribute.name() == "SupportedArchitectureAttribute" {
+            if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
+                if value & 1 == 1 {
+                    set.insert("x86");
+                }
+                if value & 2 == 2 {
+                    set.insert("x86_64");
+                }
+                if value & 4 == 4 {
+                    set.insert("aarch64");
+                }
+            }
+            break;
+        }
+    }
+
+    set
 }
