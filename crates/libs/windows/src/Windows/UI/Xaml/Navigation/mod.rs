@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct FrameNavigationOptions(::windows::core::IUnknown);
 impl FrameNavigationOptions {
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn IsNavigationStackEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -10,10 +11,12 @@ impl FrameNavigationOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SetIsNavigationStackEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
     pub fn TransitionInfoOverride(&self) -> ::windows::core::Result<super::Media::Animation::NavigationTransitionInfo> {
         let this = self;
@@ -22,11 +25,13 @@ impl FrameNavigationOptions {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
     pub fn SetTransitionInfoOverride<'a, Param0: ::windows::core::IntoParam<'a, super::Media::Animation::NavigationTransitionInfo>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn new() -> ::windows::core::Result<FrameNavigationOptions> {
         Self::IFrameNavigationOptionsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -318,6 +323,7 @@ impl LoadCompletedEventHandler {
         let com = LoadCompletedEventHandlerBox::<F> { vtable: &LoadCompletedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -387,6 +393,7 @@ impl NavigatedEventHandler {
         let com = NavigatedEventHandlerBox::<F> { vtable: &NavigatedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -452,6 +459,7 @@ pub struct NavigatedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::
 #[repr(transparent)]
 pub struct NavigatingCancelEventArgs(::windows::core::IUnknown);
 impl NavigatingCancelEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Cancel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -459,10 +467,12 @@ impl NavigatingCancelEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn NavigationMode(&self) -> ::windows::core::Result<NavigationMode> {
         let this = self;
         unsafe {
@@ -470,6 +480,7 @@ impl NavigatingCancelEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NavigationMode>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop'*"]
     #[cfg(feature = "UI_Xaml_Interop")]
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
@@ -478,6 +489,7 @@ impl NavigatingCancelEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Parameter(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<INavigatingCancelEventArgs2>(self)?;
         unsafe {
@@ -485,6 +497,7 @@ impl NavigatingCancelEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
     pub fn NavigationTransitionInfo(&self) -> ::windows::core::Result<super::Media::Animation::NavigationTransitionInfo> {
         let this = &::windows::core::Interface::cast::<INavigatingCancelEventArgs2>(self)?;
@@ -565,6 +578,7 @@ impl NavigatingCancelEventHandler {
         let com = NavigatingCancelEventHandlerBox::<F> { vtable: &NavigatingCancelEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigatingCancelEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -659,6 +673,7 @@ impl ::windows::core::DefaultType for NavigationCacheMode {
 #[repr(transparent)]
 pub struct NavigationEventArgs(::windows::core::IUnknown);
 impl NavigationEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Content(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -666,6 +681,7 @@ impl NavigationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Parameter(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -673,6 +689,7 @@ impl NavigationEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop'*"]
     #[cfg(feature = "UI_Xaml_Interop")]
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
@@ -681,6 +698,7 @@ impl NavigationEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn NavigationMode(&self) -> ::windows::core::Result<NavigationMode> {
         let this = self;
         unsafe {
@@ -688,6 +706,7 @@ impl NavigationEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NavigationMode>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Uri(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -696,11 +715,13 @@ impl NavigationEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
     pub fn NavigationTransitionInfo(&self) -> ::windows::core::Result<super::Media::Animation::NavigationTransitionInfo> {
         let this = &::windows::core::Interface::cast::<INavigationEventArgs2>(self)?;
@@ -777,6 +798,7 @@ unsafe impl ::core::marker::Sync for NavigationEventArgs {}
 #[repr(transparent)]
 pub struct NavigationFailedEventArgs(::windows::core::IUnknown);
 impl NavigationFailedEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Exception(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -784,6 +806,7 @@ impl NavigationFailedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -791,10 +814,12 @@ impl NavigationFailedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop'*"]
     #[cfg(feature = "UI_Xaml_Interop")]
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
@@ -875,6 +900,7 @@ impl NavigationFailedEventHandler {
         let com = NavigationFailedEventHandlerBox::<F> { vtable: &NavigationFailedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationFailedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -974,6 +1000,7 @@ impl NavigationStoppedEventHandler {
         let com = NavigationStoppedEventHandlerBox::<F> { vtable: &NavigationStoppedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NavigationEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -1039,6 +1066,7 @@ pub struct NavigationStoppedEventHandlerVtbl(pub unsafe extern "system" fn(this:
 #[repr(transparent)]
 pub struct PageStackEntry(::windows::core::IUnknown);
 impl PageStackEntry {
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop'*"]
     #[cfg(feature = "UI_Xaml_Interop")]
     pub fn SourcePageType(&self) -> ::windows::core::Result<super::Interop::TypeName> {
         let this = self;
@@ -1047,6 +1075,7 @@ impl PageStackEntry {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Interop::TypeName>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn Parameter(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1054,6 +1083,7 @@ impl PageStackEntry {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Media_Animation'*"]
     #[cfg(feature = "UI_Xaml_Media_Animation")]
     pub fn NavigationTransitionInfo(&self) -> ::windows::core::Result<super::Media::Animation::NavigationTransitionInfo> {
         let this = self;
@@ -1062,6 +1092,7 @@ impl PageStackEntry {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Animation::NavigationTransitionInfo>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation', 'UI_Xaml_Interop', 'UI_Xaml_Media_Animation'*"]
     #[cfg(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation"))]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Interop::TypeName>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, super::Media::Animation::NavigationTransitionInfo>>(sourcepagetype: Param0, parameter: Param1, navigationtransitioninfo: Param2) -> ::windows::core::Result<PageStackEntry> {
         Self::IPageStackEntryFactory(|this| unsafe {
@@ -1069,6 +1100,7 @@ impl PageStackEntry {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), sourcepagetype.into_param().abi(), parameter.into_param().abi(), navigationtransitioninfo.into_param().abi(), &mut result__).from_abi::<PageStackEntry>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Navigation'*"]
     pub fn SourcePageTypeProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPageStackEntryStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

@@ -5,6 +5,7 @@ pub mod Core;
 #[repr(transparent)]
 pub struct AutomationConnection(::windows::core::IUnknown);
 impl AutomationConnection {
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn IsRemoteSystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12,6 +13,7 @@ impl AutomationConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -19,6 +21,7 @@ impl AutomationConnection {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -94,6 +97,7 @@ unsafe impl ::core::marker::Sync for AutomationConnection {}
 #[repr(transparent)]
 pub struct AutomationConnectionBoundObject(::windows::core::IUnknown);
 impl AutomationConnectionBoundObject {
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn Connection(&self) -> ::windows::core::Result<AutomationConnection> {
         let this = self;
         unsafe {
@@ -169,6 +173,7 @@ unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
 #[repr(transparent)]
 pub struct AutomationElement(::windows::core::IUnknown);
 impl AutomationElement {
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn IsRemoteSystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -176,6 +181,7 @@ impl AutomationElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -183,6 +189,7 @@ impl AutomationElement {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {

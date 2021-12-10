@@ -35,6 +35,7 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::windows::core
 #[repr(transparent)]
 pub struct IDirect3DDxgiInterfaceAccess(::windows::core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
+    #[doc = "*Required features: 'Win32_System_WinRT_Direct3D11'*"]
     pub unsafe fn GetInterface<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)

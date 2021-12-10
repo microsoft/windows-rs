@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct DesignerAppExitedEventArgs(::windows::core::IUnknown);
 impl DesignerAppExitedEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn ExitCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -78,11 +79,13 @@ unsafe impl ::core::marker::Sync for DesignerAppExitedEventArgs {}
 #[repr(transparent)]
 pub struct DesignerAppManager(::windows::core::IUnknown);
 impl DesignerAppManager {
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -90,6 +93,7 @@ impl DesignerAppManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DesignerAppExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DesignerAppManager, DesignerAppExitedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -98,11 +102,13 @@ impl DesignerAppManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDesignerAppExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateNewViewAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(&self, initialviewstate: DesignerAppViewState, initialviewsize: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<DesignerAppView>> {
         let this = self;
@@ -111,6 +117,7 @@ impl DesignerAppManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), initialviewstate, initialviewsize.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<DesignerAppView>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn LoadObjectIntoAppAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::GUID>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, dllname: Param0, classid: Param1, initializationdata: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -119,6 +126,7 @@ impl DesignerAppManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), dllname.into_param().abi(), classid.into_param().abi(), initializationdata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(appusermodelid: Param0) -> ::windows::core::Result<DesignerAppManager> {
         Self::IDesignerAppManagerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -223,11 +231,13 @@ unsafe impl ::core::marker::Sync for DesignerAppManager {}
 #[repr(transparent)]
 pub struct DesignerAppView(::windows::core::IUnknown);
 impl DesignerAppView {
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn ApplicationViewId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -235,6 +245,7 @@ impl DesignerAppView {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -242,6 +253,7 @@ impl DesignerAppView {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn ViewState(&self) -> ::windows::core::Result<DesignerAppViewState> {
         let this = self;
         unsafe {
@@ -249,6 +261,7 @@ impl DesignerAppView {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DesignerAppViewState>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ViewSize(&self) -> ::windows::core::Result<super::super::super::Foundation::Size> {
         let this = self;
@@ -257,6 +270,7 @@ impl DesignerAppView {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateViewAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>>(&self, viewstate: DesignerAppViewState, viewsize: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -387,11 +401,13 @@ impl ::windows::core::DefaultType for DesignerAppViewState {
 #[repr(transparent)]
 pub struct DesktopWindowXamlSource(::windows::core::IUnknown);
 impl DesktopWindowXamlSource {
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn Content(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
@@ -399,10 +415,12 @@ impl DesktopWindowXamlSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIElement>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetContent<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn HasFocus(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -410,6 +428,7 @@ impl DesktopWindowXamlSource {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TakeFocusRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceTakeFocusRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -418,11 +437,13 @@ impl DesktopWindowXamlSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTakeFocusRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GotFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DesktopWindowXamlSource, DesktopWindowXamlSourceGotFocusEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -431,11 +452,13 @@ impl DesktopWindowXamlSource {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGotFocus<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn NavigateFocus<'a, Param0: ::windows::core::IntoParam<'a, XamlSourceFocusNavigationRequest>>(&self, request: Param0) -> ::windows::core::Result<XamlSourceFocusNavigationResult> {
         let this = self;
         unsafe {
@@ -443,6 +466,7 @@ impl DesktopWindowXamlSource {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), request.into_param().abi(), &mut result__).from_abi::<XamlSourceFocusNavigationResult>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn new() -> ::windows::core::Result<DesktopWindowXamlSource> {
         Self::IDesktopWindowXamlSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -547,6 +571,7 @@ unsafe impl ::core::marker::Sync for DesktopWindowXamlSource {}
 #[repr(transparent)]
 pub struct DesktopWindowXamlSourceGotFocusEventArgs(::windows::core::IUnknown);
 impl DesktopWindowXamlSourceGotFocusEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn Request(&self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         let this = self;
         unsafe {
@@ -622,6 +647,7 @@ unsafe impl ::core::marker::Sync for DesktopWindowXamlSourceGotFocusEventArgs {}
 #[repr(transparent)]
 pub struct DesktopWindowXamlSourceTakeFocusRequestedEventArgs(::windows::core::IUnknown);
 impl DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn Request(&self) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         let this = self;
         unsafe {
@@ -697,6 +723,7 @@ unsafe impl ::core::marker::Sync for DesktopWindowXamlSourceTakeFocusRequestedEv
 #[repr(transparent)]
 pub struct ElementCompositionPreview(::windows::core::IUnknown);
 impl ElementCompositionPreview {
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_Composition'*"]
     #[cfg(feature = "UI_Composition")]
     pub fn GetElementVisual<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::core::Result<super::super::Composition::Visual> {
         Self::IElementCompositionPreviewStatics(|this| unsafe {
@@ -704,6 +731,7 @@ impl ElementCompositionPreview {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::Composition::Visual>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_Composition'*"]
     #[cfg(feature = "UI_Composition")]
     pub fn GetElementChildVisual<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0) -> ::windows::core::Result<super::super::Composition::Visual> {
         Self::IElementCompositionPreviewStatics(|this| unsafe {
@@ -711,10 +739,12 @@ impl ElementCompositionPreview {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::Composition::Visual>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_Composition'*"]
     #[cfg(feature = "UI_Composition")]
     pub fn SetElementChildVisual<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>, Param1: ::windows::core::IntoParam<'a, super::super::Composition::Visual>>(element: Param0, visual: Param1) -> ::windows::core::Result<()> {
         Self::IElementCompositionPreviewStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), visual.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_Composition', 'UI_Xaml_Controls'*"]
     #[cfg(all(feature = "UI_Composition", feature = "UI_Xaml_Controls"))]
     pub fn GetScrollViewerManipulationPropertySet<'a, Param0: ::windows::core::IntoParam<'a, super::Controls::ScrollViewer>>(scrollviewer: Param0) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet> {
         Self::IElementCompositionPreviewStatics(|this| unsafe {
@@ -722,17 +752,21 @@ impl ElementCompositionPreview {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), scrollviewer.into_param().abi(), &mut result__).from_abi::<super::super::Composition::CompositionPropertySet>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_Composition'*"]
     #[cfg(feature = "UI_Composition")]
     pub fn SetImplicitShowAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>, Param1: ::windows::core::IntoParam<'a, super::super::Composition::ICompositionAnimationBase>>(element: Param0, animation: Param1) -> ::windows::core::Result<()> {
         Self::IElementCompositionPreviewStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), element.into_param().abi(), animation.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_Composition'*"]
     #[cfg(feature = "UI_Composition")]
     pub fn SetImplicitHideAnimation<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>, Param1: ::windows::core::IntoParam<'a, super::super::Composition::ICompositionAnimationBase>>(element: Param0, animation: Param1) -> ::windows::core::Result<()> {
         Self::IElementCompositionPreviewStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), animation.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetIsTranslationEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(element: Param0, value: bool) -> ::windows::core::Result<()> {
         Self::IElementCompositionPreviewStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_Composition'*"]
     #[cfg(feature = "UI_Composition")]
     pub fn GetPointerPositionPropertySet<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(targetelement: Param0) -> ::windows::core::Result<super::super::Composition::CompositionPropertySet> {
         Self::IElementCompositionPreviewStatics2(|this| unsafe {
@@ -740,10 +774,12 @@ impl ElementCompositionPreview {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), targetelement.into_param().abi(), &mut result__).from_abi::<super::super::Composition::CompositionPropertySet>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_WindowManagement'*"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn SetAppWindowContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowManagement::AppWindow>, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(appwindow: Param0, xamlcontent: Param1) -> ::windows::core::Result<()> {
         Self::IElementCompositionPreviewStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), appwindow.into_param().abi(), xamlcontent.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'UI_WindowManagement'*"]
     #[cfg(feature = "UI_WindowManagement")]
     pub fn GetAppWindowContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::WindowManagement::AppWindow>>(appwindow: Param0) -> ::windows::core::Result<super::UIElement> {
         Self::IElementCompositionPreviewStatics3(|this| unsafe {
@@ -1227,6 +1263,7 @@ pub struct IXamlUIPresenterVtbl(
 #[repr(transparent)]
 pub struct IXamlUIPresenterHost(::windows::core::IUnknown);
 impl IXamlUIPresenterHost {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn ResolveFileResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, path: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1308,6 +1345,7 @@ pub struct IXamlUIPresenterHostVtbl(
 #[repr(transparent)]
 pub struct IXamlUIPresenterHost2(::windows::core::IUnknown);
 impl IXamlUIPresenterHost2 {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn GetGenericXamlFilePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1389,6 +1427,7 @@ pub struct IXamlUIPresenterHost2Vtbl(
 #[repr(transparent)]
 pub struct IXamlUIPresenterHost3(::windows::core::IUnknown);
 impl IXamlUIPresenterHost3 {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn ResolveDictionaryResource<'a, Param0: ::windows::core::IntoParam<'a, super::ResourceDictionary>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, dictionary: Param0, dictionarykey: Param1, suggestedvalue: Param2) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1512,11 +1551,13 @@ pub struct IXamlUIPresenterStatics2Vtbl(
 #[repr(transparent)]
 pub struct WindowsXamlManager(::windows::core::IUnknown);
 impl WindowsXamlManager {
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn InitializeForCurrentThread() -> ::windows::core::Result<WindowsXamlManager> {
         Self::IWindowsXamlManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1655,6 +1696,7 @@ impl ::windows::core::DefaultType for XamlSourceFocusNavigationReason {
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationRequest(::windows::core::IUnknown);
 impl XamlSourceFocusNavigationRequest {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn Reason(&self) -> ::windows::core::Result<XamlSourceFocusNavigationReason> {
         let this = self;
         unsafe {
@@ -1662,6 +1704,7 @@ impl XamlSourceFocusNavigationRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XamlSourceFocusNavigationReason>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn HintRect(&self) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         let this = self;
@@ -1670,6 +1713,7 @@ impl XamlSourceFocusNavigationRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn CorrelationId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -1677,12 +1721,14 @@ impl XamlSourceFocusNavigationRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn CreateInstance(reason: XamlSourceFocusNavigationReason) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         Self::IXamlSourceFocusNavigationRequestFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<XamlSourceFocusNavigationRequest>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstanceWithHintRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(reason: XamlSourceFocusNavigationReason, hintrect: Param1) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         Self::IXamlSourceFocusNavigationRequestFactory(|this| unsafe {
@@ -1690,6 +1736,7 @@ impl XamlSourceFocusNavigationRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), reason, hintrect.into_param().abi(), &mut result__).from_abi::<XamlSourceFocusNavigationRequest>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstanceWithHintRectAndCorrelationId<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>, Param2: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(reason: XamlSourceFocusNavigationReason, hintrect: Param1, correlationid: Param2) -> ::windows::core::Result<XamlSourceFocusNavigationRequest> {
         Self::IXamlSourceFocusNavigationRequestFactory(|this| unsafe {
@@ -1769,6 +1816,7 @@ unsafe impl ::core::marker::Sync for XamlSourceFocusNavigationRequest {}
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationResult(::windows::core::IUnknown);
 impl XamlSourceFocusNavigationResult {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn WasFocusMoved(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1776,6 +1824,7 @@ impl XamlSourceFocusNavigationResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn CreateInstance(focusmoved: bool) -> ::windows::core::Result<XamlSourceFocusNavigationResult> {
         Self::IXamlSourceFocusNavigationResultFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1854,6 +1903,7 @@ unsafe impl ::core::marker::Sync for XamlSourceFocusNavigationResult {}
 #[repr(transparent)]
 pub struct XamlUIPresenter(::windows::core::IUnknown);
 impl XamlUIPresenter {
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn RootElement(&self) -> ::windows::core::Result<super::UIElement> {
         let this = self;
         unsafe {
@@ -1861,10 +1911,12 @@ impl XamlUIPresenter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIElement>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetRootElement<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn ThemeKey(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1872,10 +1924,12 @@ impl XamlUIPresenter {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetThemeKey<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn ThemeResourcesXaml(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1883,37 +1937,46 @@ impl XamlUIPresenter {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetThemeResourcesXaml<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetSize(&self, width: i32, height: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), width, height).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn Render(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn Present(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn CompleteTimelinesAutomatically() -> ::windows::core::Result<bool> {
         Self::IXamlUIPresenterStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetCompleteTimelinesAutomatically(value: bool) -> ::windows::core::Result<()> {
         Self::IXamlUIPresenterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn SetHost<'a, Param0: ::windows::core::IntoParam<'a, IXamlUIPresenterHost>>(host: Param0) -> ::windows::core::Result<()> {
         Self::IXamlUIPresenterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), host.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting'*"]
     pub fn NotifyWindowSizeChanged() -> ::windows::core::Result<()> {
         Self::IXamlUIPresenterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
     pub fn GetFlyoutPlacementTargetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::FrameworkElement>>(placementtarget: Param0, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: &mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: &mut bool) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         Self::IXamlUIPresenterStatics2(|this| unsafe {
@@ -1921,6 +1984,7 @@ impl XamlUIPresenter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), placementtarget.into_param().abi(), preferredplacement, targetpreferredplacement, allowfallbacks, &mut result__).from_abi::<super::super::super::Foundation::Rect>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Hosting', 'Foundation', 'UI_Xaml_Controls_Primitives'*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))]
     pub fn GetFlyoutPlacement<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Size>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::Rect>>(placementtargetbounds: Param0, controlsize: Param1, mincontrolsize: Param2, containerrect: Param3, targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: bool, chosenplacement: &mut super::Controls::Primitives::FlyoutPlacementMode) -> ::windows::core::Result<super::super::super::Foundation::Rect> {
         Self::IXamlUIPresenterStatics2(|this| unsafe {

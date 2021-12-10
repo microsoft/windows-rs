@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct ICoreFrameworkInputViewInterop(::windows::core::IUnknown);
 impl ICoreFrameworkInputViewInterop {
+    #[doc = "*Required features: 'Win32_System_WinRT_CoreInputView', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;

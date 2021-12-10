@@ -19,7 +19,9 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
     };
 
     let constraints = gen_param_constraints(params, gen);
-    let feature_cfg = gen.method_cfg(def, method).gen(gen);
+    let cfg = gen.method_cfg(def, method);
+    let doc = cfg.gen_doc(gen);
+    let cfg = cfg.gen(gen);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
     let args = params.iter().map(gen_winrt_abi_arg);
     let params = gen_winrt_params(params, gen);
@@ -82,7 +84,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
 
     match kind {
         InterfaceKind::Default => quote! {
-            #feature_cfg
+            #doc
+            #cfg
             pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                 let this = self;
                 unsafe {
@@ -92,7 +95,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         },
         InterfaceKind::NonDefault | InterfaceKind::Base => {
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let this = &::windows::core::Interface::cast::<#interface_name>(self)?;
                     unsafe {
@@ -103,7 +107,8 @@ pub fn gen_winrt_method(def: &TypeDef, kind: InterfaceKind, method: &MethodDef, 
         }
         InterfaceKind::Static | InterfaceKind::Composable => {
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
                     Self::#interface_name(|this| unsafe { #vcall })
                 }
@@ -122,7 +127,9 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
     let name = if *overload > 1 { format!("{}{}", name, overload).into() } else { gen_ident(&name) };
 
     let constraints = gen_param_constraints(&signature.params, gen);
-    let feature_cfg = gen.method_cfg(def, method).gen(gen);
+    let cfg = gen.method_cfg(def, method);
+    let doc = cfg.gen_doc(gen);
+    let cfg = cfg.gen(gen);
     let vtable_offset = Literal::usize_unsuffixed(vtable_offset);
 
     match signature.kind() {
@@ -132,7 +139,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params) -> ::windows::core::Result<T> {
                     let mut result__ = ::core::option::Option::None;
                     (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -145,7 +153,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(&self, #params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
                     (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* &<T as ::windows::core::Interface>::IID, result__ as *mut _ as *mut _).ok()
                 }
@@ -162,7 +171,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
 
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<#return_type_tokens> {
                     let mut result__: #abi_return_type_tokens = ::core::mem::zeroed();
                     (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)* ::core::mem::transmute(&mut result__))
@@ -175,7 +185,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> ::windows::core::Result<()> {
                     (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*).ok()
                 }
@@ -187,7 +198,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let return_sig = gen_abi_element_name(&signature.return_sig.unwrap(), gen);
 
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) -> #return_sig {
                     let mut result__: #return_sig = :: core::mem::zeroed();
                     (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), &mut result__ #(,#args)*);
@@ -201,7 +213,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let return_sig = gen_return_sig(&signature, gen);
 
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) #return_sig {
                     ::core::mem::transmute((::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*))
                 }
@@ -212,7 +225,8 @@ pub fn gen_com_method(def: &TypeDef, method: &MethodDef, vtable_offset: usize, m
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #feature_cfg
+                #doc
+                #cfg
                 pub unsafe fn #name<#constraints>(&self, #params) {
                     (::windows::core::Interface::vtable(self).#vtable_offset)(::core::mem::transmute_copy(self), #(#args,)*)
                 }

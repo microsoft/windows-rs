@@ -147,10 +147,12 @@ pub struct ILockScreenUnlockingEventArgsVtbl(
 #[repr(transparent)]
 pub struct LockApplicationHost(::windows::core::IUnknown);
 impl LockApplicationHost {
+    #[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
     pub fn RequestUnlock(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Unlocking<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockApplicationHost, LockScreenUnlockingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -159,11 +161,13 @@ impl LockApplicationHost {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUnlocking<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<LockApplicationHost> {
         Self::ILockApplicationHostStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -242,6 +246,7 @@ unsafe impl ::core::marker::Sync for LockApplicationHost {}
 #[repr(transparent)]
 pub struct LockScreenBadge(::windows::core::IUnknown);
 impl LockScreenBadge {
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Logo(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -250,6 +255,7 @@ impl LockScreenBadge {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Glyph(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -258,6 +264,7 @@ impl LockScreenBadge {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Number(&self) -> ::windows::core::Result<super::super::Foundation::IReference<u32>> {
         let this = self;
@@ -266,6 +273,7 @@ impl LockScreenBadge {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
     pub fn AutomationName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -273,6 +281,7 @@ impl LockScreenBadge {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
     pub fn LaunchApp(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
@@ -345,6 +354,7 @@ unsafe impl ::core::marker::Sync for LockScreenBadge {}
 #[repr(transparent)]
 pub struct LockScreenInfo(::windows::core::IUnknown);
 impl LockScreenInfo {
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn LockScreenImageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -353,11 +363,13 @@ impl LockScreenInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveLockScreenImageChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn LockScreenImage(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -366,6 +378,7 @@ impl LockScreenInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BadgesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -374,11 +387,13 @@ impl LockScreenInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBadgesChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Badges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<LockScreenBadge>> {
         let this = self;
@@ -387,6 +402,7 @@ impl LockScreenInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<LockScreenBadge>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DetailTextChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -395,11 +411,13 @@ impl LockScreenInfo {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDetailTextChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DetailText(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -408,6 +426,7 @@ impl LockScreenInfo {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AlarmIconChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<LockScreenInfo, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -416,11 +435,13 @@ impl LockScreenInfo {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAlarmIconChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AlarmIcon(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -497,6 +518,7 @@ unsafe impl ::core::marker::Sync for LockScreenInfo {}
 #[repr(transparent)]
 pub struct LockScreenUnlockingDeferral(::windows::core::IUnknown);
 impl LockScreenUnlockingDeferral {
+    #[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -569,6 +591,7 @@ unsafe impl ::core::marker::Sync for LockScreenUnlockingDeferral {}
 #[repr(transparent)]
 pub struct LockScreenUnlockingEventArgs(::windows::core::IUnknown);
 impl LockScreenUnlockingEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_LockScreen'*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<LockScreenUnlockingDeferral> {
         let this = self;
         unsafe {
@@ -576,6 +599,7 @@ impl LockScreenUnlockingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LockScreenUnlockingDeferral>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_LockScreen', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;

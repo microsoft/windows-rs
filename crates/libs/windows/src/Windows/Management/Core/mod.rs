@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct ApplicationDataManager(::windows::core::IUnknown);
 impl ApplicationDataManager {
+    #[doc = "*Required features: 'Management_Core', 'Storage'*"]
     #[cfg(feature = "Storage")]
     pub fn CreateForPackageFamily<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefamilyname: Param0) -> ::windows::core::Result<super::super::Storage::ApplicationData> {
         Self::IApplicationDataManagerStatics(|this| unsafe {

@@ -74,6 +74,7 @@ pub struct ILanguageFontGroupFactoryVtbl(
 #[repr(transparent)]
 pub struct LanguageFont(::windows::core::IUnknown);
 impl LanguageFont {
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn FontFamily(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -81,6 +82,7 @@ impl LanguageFont {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts', 'UI_Text'*"]
     #[cfg(feature = "UI_Text")]
     pub fn FontWeight(&self) -> ::windows::core::Result<super::super::UI::Text::FontWeight> {
         let this = self;
@@ -89,6 +91,7 @@ impl LanguageFont {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Text::FontWeight>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts', 'UI_Text'*"]
     #[cfg(feature = "UI_Text")]
     pub fn FontStretch(&self) -> ::windows::core::Result<super::super::UI::Text::FontStretch> {
         let this = self;
@@ -97,6 +100,7 @@ impl LanguageFont {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Text::FontStretch>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts', 'UI_Text'*"]
     #[cfg(feature = "UI_Text")]
     pub fn FontStyle(&self) -> ::windows::core::Result<super::super::UI::Text::FontStyle> {
         let this = self;
@@ -105,6 +109,7 @@ impl LanguageFont {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Text::FontStyle>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn ScaleFactor(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -180,6 +185,7 @@ unsafe impl ::core::marker::Sync for LanguageFont {}
 #[repr(transparent)]
 pub struct LanguageFontGroup(::windows::core::IUnknown);
 impl LanguageFontGroup {
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn UITextFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -187,6 +193,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn UIHeadingFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -194,6 +201,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn UITitleFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -201,6 +209,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn UICaptionFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -208,6 +217,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn UINotificationHeadingFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -215,6 +225,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn TraditionalDocumentFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -222,6 +233,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn ModernDocumentFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -229,6 +241,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn DocumentHeadingFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -236,6 +249,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn FixedWidthTextFont(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -243,6 +257,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn DocumentAlternate1Font(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -250,6 +265,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn DocumentAlternate2Font(&self) -> ::windows::core::Result<LanguageFont> {
         let this = self;
         unsafe {
@@ -257,6 +273,7 @@ impl LanguageFontGroup {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LanguageFont>(result__)
         }
     }
+    #[doc = "*Required features: 'Globalization_Fonts'*"]
     pub fn CreateLanguageFontGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(languagetag: Param0) -> ::windows::core::Result<LanguageFontGroup> {
         Self::ILanguageFontGroupFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

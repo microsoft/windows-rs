@@ -41,11 +41,13 @@ pub struct IPalmRejectionDelayZonePreviewStaticsVtbl(
 #[repr(transparent)]
 pub struct PalmRejectionDelayZonePreview(::windows::core::IUnknown);
 impl PalmRejectionDelayZonePreview {
+    #[doc = "*Required features: 'UI_Input_Inking_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Input_Inking_Preview', 'Foundation', 'UI_Composition'*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub fn CreateForVisual<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Composition::Visual>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>>(inputpanelvisual: Param0, inputpanelrect: Param1) -> ::windows::core::Result<PalmRejectionDelayZonePreview> {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {
@@ -53,6 +55,7 @@ impl PalmRejectionDelayZonePreview {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputpanelvisual.into_param().abi(), inputpanelrect.into_param().abi(), &mut result__).from_abi::<PalmRejectionDelayZonePreview>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Input_Inking_Preview', 'Foundation', 'UI_Composition'*"]
     #[cfg(all(feature = "Foundation", feature = "UI_Composition"))]
     pub fn CreateForVisualWithViewportClip<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Composition::Visual>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>, Param2: ::windows::core::IntoParam<'a, super::super::super::Composition::Visual>, Param3: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>>(inputpanelvisual: Param0, inputpanelrect: Param1, viewportvisual: Param2, viewportrect: Param3) -> ::windows::core::Result<PalmRejectionDelayZonePreview> {
         Self::IPalmRejectionDelayZonePreviewStatics(|this| unsafe {

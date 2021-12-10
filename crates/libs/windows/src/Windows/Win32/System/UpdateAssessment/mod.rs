@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct IWaaSAssessor(::windows::core::IUnknown);
 impl IWaaSAssessor {
+    #[doc = "*Required features: 'Win32_System_UpdateAssessment', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOSUpdateAssessment(&self) -> ::windows::core::Result<OSUpdateAssessment> {
         let mut result__: OSUpdateAssessment = ::core::mem::zeroed();

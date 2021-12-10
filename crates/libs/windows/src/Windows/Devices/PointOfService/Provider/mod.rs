@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct BarcodeScannerDisableScannerRequest(::windows::core::IUnknown);
 impl BarcodeScannerDisableScannerRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -11,6 +12,7 @@ impl BarcodeScannerDisableScannerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -19,6 +21,7 @@ impl BarcodeScannerDisableScannerRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerDisableScannerRequest2>(self)?;
@@ -27,6 +30,7 @@ impl BarcodeScannerDisableScannerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerDisableScannerRequest2>(self)?;
@@ -103,6 +107,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerDisableScannerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerDisableScannerRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerDisableScannerRequest> {
         let this = self;
         unsafe {
@@ -110,6 +115,7 @@ impl BarcodeScannerDisableScannerRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerDisableScannerRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -186,6 +192,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerDisableScannerRequestEventArg
 #[repr(transparent)]
 pub struct BarcodeScannerEnableScannerRequest(::windows::core::IUnknown);
 impl BarcodeScannerEnableScannerRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -194,6 +201,7 @@ impl BarcodeScannerEnableScannerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -202,6 +210,7 @@ impl BarcodeScannerEnableScannerRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerEnableScannerRequest2>(self)?;
@@ -210,6 +219,7 @@ impl BarcodeScannerEnableScannerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerEnableScannerRequest2>(self)?;
@@ -286,6 +296,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerEnableScannerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerEnableScannerRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerEnableScannerRequest> {
         let this = self;
         unsafe {
@@ -293,6 +304,7 @@ impl BarcodeScannerEnableScannerRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerEnableScannerRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -369,6 +381,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerEnableScannerRequestEventArgs
 #[repr(transparent)]
 pub struct BarcodeScannerFrameReader(::windows::core::IUnknown);
 impl BarcodeScannerFrameReader {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -377,6 +390,7 @@ impl BarcodeScannerFrameReader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StopAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -385,6 +399,7 @@ impl BarcodeScannerFrameReader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryAcquireLatestFrameAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerVideoFrame>> {
         let this = self;
@@ -393,6 +408,7 @@ impl BarcodeScannerFrameReader {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerVideoFrame>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Connection(&self) -> ::windows::core::Result<BarcodeScannerProviderConnection> {
         let this = self;
         unsafe {
@@ -400,6 +416,7 @@ impl BarcodeScannerFrameReader {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerProviderConnection>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerFrameReader, BarcodeScannerFrameReaderFrameArrivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -408,11 +425,13 @@ impl BarcodeScannerFrameReader {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFrameArrived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -512,6 +531,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerFrameReader {}
 #[repr(transparent)]
 pub struct BarcodeScannerFrameReaderFrameArrivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerFrameReaderFrameArrivedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -588,6 +608,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerFrameReaderFrameArrivedEventA
 #[repr(transparent)]
 pub struct BarcodeScannerGetSymbologyAttributesRequest(::windows::core::IUnknown);
 impl BarcodeScannerGetSymbologyAttributesRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Symbology(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -595,6 +616,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync<'a, Param0: ::windows::core::IntoParam<'a, super::BarcodeSymbologyAttributes>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -603,6 +625,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), attributes.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -611,6 +634,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerGetSymbologyAttributesRequest2>(self)?;
@@ -619,6 +643,7 @@ impl BarcodeScannerGetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerGetSymbologyAttributesRequest2>(self)?;
@@ -695,6 +720,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest
 #[repr(transparent)]
 pub struct BarcodeScannerGetSymbologyAttributesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerGetSymbologyAttributesRequest> {
         let this = self;
         unsafe {
@@ -702,6 +728,7 @@ impl BarcodeScannerGetSymbologyAttributesRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerGetSymbologyAttributesRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -778,6 +805,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerGetSymbologyAttributesRequest
 #[repr(transparent)]
 pub struct BarcodeScannerHideVideoPreviewRequest(::windows::core::IUnknown);
 impl BarcodeScannerHideVideoPreviewRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -786,6 +814,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -794,6 +823,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerHideVideoPreviewRequest2>(self)?;
@@ -802,6 +832,7 @@ impl BarcodeScannerHideVideoPreviewRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerHideVideoPreviewRequest2>(self)?;
@@ -878,6 +909,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerHideVideoPreviewRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerHideVideoPreviewRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerHideVideoPreviewRequest> {
         let this = self;
         unsafe {
@@ -885,6 +917,7 @@ impl BarcodeScannerHideVideoPreviewRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerHideVideoPreviewRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -961,6 +994,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerHideVideoPreviewRequestEventA
 #[repr(transparent)]
 pub struct BarcodeScannerProviderConnection(::windows::core::IUnknown);
 impl BarcodeScannerProviderConnection {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -968,6 +1002,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -975,6 +1010,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedSymbologies(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<u32>> {
         let this = self;
@@ -983,6 +1019,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn CompanyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -990,10 +1027,12 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn SetCompanyName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1001,10 +1040,12 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn SetName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1012,14 +1053,17 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportScannedDataAsync<'a, Param0: ::windows::core::IntoParam<'a, super::BarcodeScannerReport>>(&self, report: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1028,6 +1072,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), report.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportTriggerStateAsync(&self, state: BarcodeScannerTriggerState) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1036,6 +1081,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), state, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportErrorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::UnifiedPosErrorData>>(&self, errordata: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1044,6 +1090,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), errordata.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportErrorAsyncWithScanReport<'a, Param0: ::windows::core::IntoParam<'a, super::UnifiedPosErrorData>, Param2: ::windows::core::IntoParam<'a, super::BarcodeScannerReport>>(&self, errordata: Param0, isretriable: bool, scanreport: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1052,6 +1099,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), errordata.into_param().abi(), isretriable, scanreport.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableScannerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerEnableScannerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1060,11 +1108,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnableScannerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableScannerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerDisableScannerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1073,11 +1123,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisableScannerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetActiveSymbologiesRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetActiveSymbologiesRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1086,11 +1138,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSetActiveSymbologiesRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StartSoftwareTriggerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStartSoftwareTriggerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1099,11 +1153,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStartSoftwareTriggerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StopSoftwareTriggerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerStopSoftwareTriggerRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1112,11 +1168,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopSoftwareTriggerRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerGetSymbologyAttributesRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1125,11 +1183,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerSetSymbologyAttributesRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1138,11 +1198,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSetBarcodeSymbologyAttributesRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn HideVideoPreviewRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BarcodeScannerProviderConnection, BarcodeScannerHideVideoPreviewRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1151,11 +1213,13 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveHideVideoPreviewRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateFrameReaderAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
@@ -1164,6 +1228,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation', 'Graphics_Imaging'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn CreateFrameReaderWithFormatAsync(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
@@ -1172,6 +1237,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), preferredformat, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation', 'Graphics_Imaging'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn CreateFrameReaderWithFormatAndSizeAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Graphics::Imaging::BitmapSize>>(&self, preferredformat: super::super::super::Graphics::Imaging::BitmapPixelFormat, preferredsize: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerProviderConnection2>(self)?;
@@ -1180,6 +1246,7 @@ impl BarcodeScannerProviderConnection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), preferredformat, preferredsize.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<BarcodeScannerFrameReader>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -1279,6 +1346,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerProviderConnection {}
 #[repr(transparent)]
 pub struct BarcodeScannerProviderTriggerDetails(::windows::core::IUnknown);
 impl BarcodeScannerProviderTriggerDetails {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Connection(&self) -> ::windows::core::Result<BarcodeScannerProviderConnection> {
         let this = self;
         unsafe {
@@ -1354,6 +1422,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerProviderTriggerDetails {}
 #[repr(transparent)]
 pub struct BarcodeScannerSetActiveSymbologiesRequest(::windows::core::IUnknown);
 impl BarcodeScannerSetActiveSymbologiesRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Symbologies(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -1362,6 +1431,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1370,6 +1440,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1378,6 +1449,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerSetActiveSymbologiesRequest2>(self)?;
@@ -1386,6 +1458,7 @@ impl BarcodeScannerSetActiveSymbologiesRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerSetActiveSymbologiesRequest2>(self)?;
@@ -1462,6 +1535,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequest {
 #[repr(transparent)]
 pub struct BarcodeScannerSetActiveSymbologiesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerSetActiveSymbologiesRequest> {
         let this = self;
         unsafe {
@@ -1469,6 +1543,7 @@ impl BarcodeScannerSetActiveSymbologiesRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerSetActiveSymbologiesRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1545,6 +1620,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerSetActiveSymbologiesRequestEv
 #[repr(transparent)]
 pub struct BarcodeScannerSetSymbologyAttributesRequest(::windows::core::IUnknown);
 impl BarcodeScannerSetSymbologyAttributesRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Symbology(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1552,6 +1628,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Attributes(&self) -> ::windows::core::Result<super::BarcodeSymbologyAttributes> {
         let this = self;
         unsafe {
@@ -1559,6 +1636,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BarcodeSymbologyAttributes>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1567,6 +1645,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1575,6 +1654,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerSetSymbologyAttributesRequest2>(self)?;
@@ -1583,6 +1663,7 @@ impl BarcodeScannerSetSymbologyAttributesRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerSetSymbologyAttributesRequest2>(self)?;
@@ -1659,6 +1740,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest
 #[repr(transparent)]
 pub struct BarcodeScannerSetSymbologyAttributesRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerSetSymbologyAttributesRequest> {
         let this = self;
         unsafe {
@@ -1666,6 +1748,7 @@ impl BarcodeScannerSetSymbologyAttributesRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerSetSymbologyAttributesRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1742,6 +1825,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerSetSymbologyAttributesRequest
 #[repr(transparent)]
 pub struct BarcodeScannerStartSoftwareTriggerRequest(::windows::core::IUnknown);
 impl BarcodeScannerStartSoftwareTriggerRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1750,6 +1834,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1758,6 +1843,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerStartSoftwareTriggerRequest2>(self)?;
@@ -1766,6 +1852,7 @@ impl BarcodeScannerStartSoftwareTriggerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerStartSoftwareTriggerRequest2>(self)?;
@@ -1842,6 +1929,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequest {
 #[repr(transparent)]
 pub struct BarcodeScannerStartSoftwareTriggerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerStartSoftwareTriggerRequest> {
         let this = self;
         unsafe {
@@ -1849,6 +1937,7 @@ impl BarcodeScannerStartSoftwareTriggerRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerStartSoftwareTriggerRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1925,6 +2014,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerStartSoftwareTriggerRequestEv
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequest(::windows::core::IUnknown);
 impl BarcodeScannerStopSoftwareTriggerRequest {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1933,6 +2023,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1941,6 +2032,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAsync(&self, reason: i32) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerStopSoftwareTriggerRequest2>(self)?;
@@ -1949,6 +2041,7 @@ impl BarcodeScannerStopSoftwareTriggerRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), reason, &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedWithFailedReasonAndDescriptionAsync<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, reason: i32, failedreasondescription: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerStopSoftwareTriggerRequest2>(self)?;
@@ -2025,6 +2118,7 @@ unsafe impl ::core::marker::Sync for BarcodeScannerStopSoftwareTriggerRequest {}
 #[repr(transparent)]
 pub struct BarcodeScannerStopSoftwareTriggerRequestEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<BarcodeScannerStopSoftwareTriggerRequest> {
         let this = self;
         unsafe {
@@ -2032,6 +2126,7 @@ impl BarcodeScannerStopSoftwareTriggerRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerStopSoftwareTriggerRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -2136,6 +2231,7 @@ impl ::windows::core::DefaultType for BarcodeScannerTriggerState {
 #[repr(transparent)]
 pub struct BarcodeScannerVideoFrame(::windows::core::IUnknown);
 impl BarcodeScannerVideoFrame {
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::Imaging::BitmapPixelFormat> {
         let this = self;
@@ -2144,6 +2240,7 @@ impl BarcodeScannerVideoFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::Imaging::BitmapPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2151,6 +2248,7 @@ impl BarcodeScannerVideoFrame {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2158,6 +2256,7 @@ impl BarcodeScannerVideoFrame {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PixelData(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2166,6 +2265,7 @@ impl BarcodeScannerVideoFrame {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
@@ -2272,6 +2372,7 @@ impl BarcodeSymbologyAttributesBuilder {
         static mut SHARED: ::windows::core::FactoryCache<BarcodeSymbologyAttributesBuilder, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn IsCheckDigitValidationSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2279,10 +2380,12 @@ impl BarcodeSymbologyAttributesBuilder {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn SetIsCheckDigitValidationSupported(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn IsCheckDigitTransmissionSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2290,10 +2393,12 @@ impl BarcodeSymbologyAttributesBuilder {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn SetIsCheckDigitTransmissionSupported(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn IsDecodeLengthSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2301,10 +2406,12 @@ impl BarcodeSymbologyAttributesBuilder {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn SetIsDecodeLengthSupported(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
     pub fn CreateAttributes(&self) -> ::windows::core::Result<super::BarcodeSymbologyAttributes> {
         let this = self;
         unsafe {

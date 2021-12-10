@@ -21,6 +21,7 @@ pub struct IInteractiveSessionStaticsVtbl(
 );
 pub struct InteractiveSession {}
 impl InteractiveSession {
+    #[doc = "*Required features: 'System_RemoteDesktop'*"]
     pub fn IsRemote() -> ::windows::core::Result<bool> {
         Self::IInteractiveSessionStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();

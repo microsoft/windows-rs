@@ -1413,24 +1413,28 @@ pub struct IRemoteSystemWebAccountFilterFactoryVtbl(
 );
 pub struct KnownRemoteSystemCapabilities {}
 impl KnownRemoteSystemCapabilities {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn AppService() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRemoteSystemCapabilitiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn LaunchUri() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRemoteSystemCapabilitiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSession() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRemoteSystemCapabilitiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn SpatialEntity() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRemoteSystemCapabilitiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -1449,6 +1453,7 @@ impl ::windows::core::RuntimeName for KnownRemoteSystemCapabilities {
 #[repr(transparent)]
 pub struct RemoteSystem(::windows::core::IUnknown);
 impl RemoteSystem {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1456,6 +1461,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1463,6 +1469,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Kind(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1470,6 +1477,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Status(&self) -> ::windows::core::Result<RemoteSystemStatus> {
         let this = self;
         unsafe {
@@ -1477,6 +1485,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn IsAvailableByProximity(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1484,6 +1493,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn IsAvailableBySpatialProximity(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem2>(self)?;
         unsafe {
@@ -1491,6 +1501,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCapabilitySupportedAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, capabilityname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem2>(self)?;
@@ -1499,6 +1510,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), capabilityname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn ManufacturerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem3>(self)?;
         unsafe {
@@ -1506,6 +1518,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn ModelDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem3>(self)?;
         unsafe {
@@ -1513,6 +1526,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Platform(&self) -> ::windows::core::Result<RemoteSystemPlatform> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem4>(self)?;
         unsafe {
@@ -1520,6 +1534,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemPlatform>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Apps(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<RemoteSystemApp>> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem5>(self)?;
@@ -1528,6 +1543,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<RemoteSystemApp>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn User(&self) -> ::windows::core::Result<super::User> {
         let this = &::windows::core::Interface::cast::<IRemoteSystem6>(self)?;
         unsafe {
@@ -1535,6 +1551,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::User>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation', 'Networking'*"]
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
     pub fn FindByHostNameAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Networking::HostName>>(hostname: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystem>> {
         Self::IRemoteSystemStatics(|this| unsafe {
@@ -1542,12 +1559,14 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), hostname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<RemoteSystem>>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateWatcher() -> ::windows::core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemWatcher>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherWithFilters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>>(filters: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics(|this| unsafe {
@@ -1555,6 +1574,7 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), filters.into_param().abi(), &mut result__).from_abi::<RemoteSystemWatcher>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemAccessStatus>> {
         Self::IRemoteSystemStatics(|this| unsafe {
@@ -1562,18 +1582,21 @@ impl RemoteSystem {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<RemoteSystemAccessStatus>>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn IsAuthorizationKindEnabled(kind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<bool> {
         Self::IRemoteSystemStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateWatcherForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<RemoteSystemWatcher>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWatcherWithFiltersForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<IRemoteSystemFilter>>>(user: Param0, filters: Param1) -> ::windows::core::Result<RemoteSystemWatcher> {
         Self::IRemoteSystemStatics3(|this| unsafe {
@@ -1691,6 +1714,7 @@ impl ::windows::core::DefaultType for RemoteSystemAccessStatus {
 #[repr(transparent)]
 pub struct RemoteSystemAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemAddedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem> {
         let this = self;
         unsafe {
@@ -1766,6 +1790,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemAddedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemApp(::windows::core::IUnknown);
 impl RemoteSystemApp {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1773,6 +1798,7 @@ impl RemoteSystemApp {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1780,6 +1806,7 @@ impl RemoteSystemApp {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn IsAvailableByProximity(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1787,6 +1814,7 @@ impl RemoteSystemApp {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn IsAvailableBySpatialProximity(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1794,6 +1822,7 @@ impl RemoteSystemApp {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Attributes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -1802,6 +1831,7 @@ impl RemoteSystemApp {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn User(&self) -> ::windows::core::Result<super::User> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemApp2>(self)?;
         unsafe {
@@ -1809,6 +1839,7 @@ impl RemoteSystemApp {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::User>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn ConnectionToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemApp2>(self)?;
         unsafe {
@@ -1884,6 +1915,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemApp {}
 #[repr(transparent)]
 pub struct RemoteSystemAppRegistration(::windows::core::IUnknown);
 impl RemoteSystemAppRegistration {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn User(&self) -> ::windows::core::Result<super::User> {
         let this = self;
         unsafe {
@@ -1891,6 +1923,7 @@ impl RemoteSystemAppRegistration {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::User>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Attributes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -1899,6 +1932,7 @@ impl RemoteSystemAppRegistration {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1907,12 +1941,14 @@ impl RemoteSystemAppRegistration {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn GetDefault() -> ::windows::core::Result<RemoteSystemAppRegistration> {
         Self::IRemoteSystemAppRegistrationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemAppRegistration>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn GetForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<RemoteSystemAppRegistration> {
         Self::IRemoteSystemAppRegistrationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2019,6 +2055,7 @@ impl ::windows::core::DefaultType for RemoteSystemAuthorizationKind {
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKindFilter(::windows::core::IUnknown);
 impl RemoteSystemAuthorizationKindFilter {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystemAuthorizationKind(&self) -> ::windows::core::Result<RemoteSystemAuthorizationKind> {
         let this = self;
         unsafe {
@@ -2026,6 +2063,7 @@ impl RemoteSystemAuthorizationKindFilter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemAuthorizationKind>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Create(remotesystemauthorizationkind: RemoteSystemAuthorizationKind) -> ::windows::core::Result<RemoteSystemAuthorizationKindFilter> {
         Self::IRemoteSystemAuthorizationKindFilterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2126,6 +2164,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemAuthorizationKindFilter {}
 #[repr(transparent)]
 pub struct RemoteSystemConnectionInfo(::windows::core::IUnknown);
 impl RemoteSystemConnectionInfo {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn IsProximal(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2133,6 +2172,7 @@ impl RemoteSystemConnectionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'ApplicationModel_AppService'*"]
     #[cfg(feature = "ApplicationModel_AppService")]
     pub fn TryCreateFromAppServiceConnection<'a, Param0: ::windows::core::IntoParam<'a, super::super::ApplicationModel::AppService::AppServiceConnection>>(connection: Param0) -> ::windows::core::Result<RemoteSystemConnectionInfo> {
         Self::IRemoteSystemConnectionInfoStatics(|this| unsafe {
@@ -2212,6 +2252,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemConnectionInfo {}
 #[repr(transparent)]
 pub struct RemoteSystemConnectionRequest(::windows::core::IUnknown);
 impl RemoteSystemConnectionRequest {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem> {
         let this = self;
         unsafe {
@@ -2219,6 +2260,7 @@ impl RemoteSystemConnectionRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystem>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystemApp(&self) -> ::windows::core::Result<RemoteSystemApp> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemConnectionRequest2>(self)?;
         unsafe {
@@ -2226,6 +2268,7 @@ impl RemoteSystemConnectionRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemApp>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn ConnectionToken(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemConnectionRequest3>(self)?;
         unsafe {
@@ -2233,24 +2276,28 @@ impl RemoteSystemConnectionRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystem>>(remotesystem: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), remotesystem.into_param().abi(), &mut result__).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateForApp<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemApp>>(remotesystemapp: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), remotesystemapp.into_param().abi(), &mut result__).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateFromConnectionToken<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(connectiontoken: Param0) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectiontoken.into_param().abi(), &mut result__).from_abi::<RemoteSystemConnectionRequest>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateFromConnectionTokenForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(user: Param0, connectiontoken: Param1) -> ::windows::core::Result<RemoteSystemConnectionRequest> {
         Self::IRemoteSystemConnectionRequestStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2367,6 +2414,7 @@ impl ::windows::core::DefaultType for RemoteSystemDiscoveryType {
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryTypeFilter(::windows::core::IUnknown);
 impl RemoteSystemDiscoveryTypeFilter {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystemDiscoveryType(&self) -> ::windows::core::Result<RemoteSystemDiscoveryType> {
         let this = self;
         unsafe {
@@ -2374,6 +2422,7 @@ impl RemoteSystemDiscoveryTypeFilter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemDiscoveryType>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Create(discoverytype: RemoteSystemDiscoveryType) -> ::windows::core::Result<RemoteSystemDiscoveryTypeFilter> {
         Self::IRemoteSystemDiscoveryTypeFilterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2541,6 +2590,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemEnumerationCompletedEventArgs {
 #[repr(transparent)]
 pub struct RemoteSystemKindFilter(::windows::core::IUnknown);
 impl RemoteSystemKindFilter {
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn RemoteSystemKinds(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -2549,6 +2599,7 @@ impl RemoteSystemKindFilter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(remotesystemkinds: Param0) -> ::windows::core::Result<RemoteSystemKindFilter> {
         Self::IRemoteSystemKindFilterFactory(|this| unsafe {
@@ -2648,48 +2699,56 @@ unsafe impl ::core::marker::Send for RemoteSystemKindFilter {}
 unsafe impl ::core::marker::Sync for RemoteSystemKindFilter {}
 pub struct RemoteSystemKinds {}
 impl RemoteSystemKinds {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Phone() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Hub() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Holographic() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Desktop() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Xbox() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Iot() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Tablet() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Laptop() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRemoteSystemKindStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -2743,6 +2802,7 @@ impl ::windows::core::DefaultType for RemoteSystemPlatform {
 #[repr(transparent)]
 pub struct RemoteSystemRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemRemovedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystemId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2818,11 +2878,13 @@ unsafe impl ::core::marker::Sync for RemoteSystemRemovedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSession(::windows::core::IUnknown);
 impl RemoteSystemSession {
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2830,6 +2892,7 @@ impl RemoteSystemSession {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2837,6 +2900,7 @@ impl RemoteSystemSession {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn ControllerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2844,6 +2908,7 @@ impl RemoteSystemSession {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Disconnected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSession, RemoteSystemSessionDisconnectedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2852,11 +2917,13 @@ impl RemoteSystemSession {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisconnected<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateParticipantWatcher(&self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcher> {
         let this = self;
         unsafe {
@@ -2864,6 +2931,7 @@ impl RemoteSystemSession {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionParticipantWatcher>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SendInvitationAsync<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystem>>(&self, invitee: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2872,6 +2940,7 @@ impl RemoteSystemSession {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), invitee.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateWatcher() -> ::windows::core::Result<RemoteSystemSessionWatcher> {
         Self::IRemoteSystemSessionStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -2976,6 +3045,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSession {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionAddedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo> {
         let this = self;
         unsafe {
@@ -3051,6 +3121,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionAddedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionController(::windows::core::IUnknown);
 impl RemoteSystemSessionController {
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn JoinRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionController, RemoteSystemSessionJoinRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3059,11 +3130,13 @@ impl RemoteSystemSessionController {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveJoinRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveParticipantAsync<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemSessionParticipant>>(&self, pparticipant: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -3072,6 +3145,7 @@ impl RemoteSystemSessionController {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), pparticipant.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateSessionAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionCreationResult>> {
         let this = self;
@@ -3080,12 +3154,14 @@ impl RemoteSystemSessionController {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<RemoteSystemSessionCreationResult>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateController<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(displayname: Param0) -> ::windows::core::Result<RemoteSystemSessionController> {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), displayname.into_param().abi(), &mut result__).from_abi::<RemoteSystemSessionController>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateControllerWithSessionOptions<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, RemoteSystemSessionOptions>>(displayname: Param0, options: Param1) -> ::windows::core::Result<RemoteSystemSessionController> {
         Self::IRemoteSystemSessionControllerFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -3164,6 +3240,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionController {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationResult(::windows::core::IUnknown);
 impl RemoteSystemSessionCreationResult {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionCreationStatus> {
         let this = self;
         unsafe {
@@ -3171,6 +3248,7 @@ impl RemoteSystemSessionCreationResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionCreationStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Session(&self) -> ::windows::core::Result<RemoteSystemSession> {
         let this = self;
         unsafe {
@@ -3275,6 +3353,7 @@ impl ::windows::core::DefaultType for RemoteSystemSessionCreationStatus {
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionDisconnectedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Reason(&self) -> ::windows::core::Result<RemoteSystemSessionDisconnectedReason> {
         let this = self;
         unsafe {
@@ -3379,6 +3458,7 @@ impl ::windows::core::DefaultType for RemoteSystemSessionDisconnectedReason {
 #[repr(transparent)]
 pub struct RemoteSystemSessionInfo(::windows::core::IUnknown);
 impl RemoteSystemSessionInfo {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3386,6 +3466,7 @@ impl RemoteSystemSessionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn ControllerDisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3393,6 +3474,7 @@ impl RemoteSystemSessionInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn JoinAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RemoteSystemSessionJoinResult>> {
         let this = self;
@@ -3469,6 +3551,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionInfo {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitation(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitation {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Sender(&self) -> ::windows::core::Result<RemoteSystem> {
         let this = self;
         unsafe {
@@ -3476,6 +3559,7 @@ impl RemoteSystemSessionInvitation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystem>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo> {
         let this = self;
         unsafe {
@@ -3558,6 +3642,7 @@ impl RemoteSystemSessionInvitationListener {
         static mut SHARED: ::windows::core::FactoryCache<RemoteSystemSessionInvitationListener, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn InvitationReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionInvitationListener, RemoteSystemSessionInvitationReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3566,6 +3651,7 @@ impl RemoteSystemSessionInvitationListener {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveInvitationReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -3639,6 +3725,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationListener {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionInvitationReceivedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionInvitationReceivedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Invitation(&self) -> ::windows::core::Result<RemoteSystemSessionInvitation> {
         let this = self;
         unsafe {
@@ -3714,6 +3801,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionInvitationReceivedEventA
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinRequest(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinRequest {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Participant(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant> {
         let this = self;
         unsafe {
@@ -3721,6 +3809,7 @@ impl RemoteSystemSessionJoinRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionParticipant>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Accept(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
@@ -3793,6 +3882,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequest {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinRequestedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinRequestedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn JoinRequest(&self) -> ::windows::core::Result<RemoteSystemSessionJoinRequest> {
         let this = self;
         unsafe {
@@ -3800,6 +3890,7 @@ impl RemoteSystemSessionJoinRequestedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionJoinRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -3876,6 +3967,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionJoinRequestedEventArgs {
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinResult(::windows::core::IUnknown);
 impl RemoteSystemSessionJoinResult {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionJoinStatus> {
         let this = self;
         unsafe {
@@ -3883,6 +3975,7 @@ impl RemoteSystemSessionJoinResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionJoinStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Session(&self) -> ::windows::core::Result<RemoteSystemSession> {
         let this = self;
         unsafe {
@@ -3989,6 +4082,7 @@ impl ::windows::core::DefaultType for RemoteSystemSessionJoinStatus {
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannel(::windows::core::IUnknown);
 impl RemoteSystemSessionMessageChannel {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Session(&self) -> ::windows::core::Result<RemoteSystemSession> {
         let this = self;
         unsafe {
@@ -3996,6 +4090,7 @@ impl RemoteSystemSessionMessageChannel {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSession>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn BroadcastValueSetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>>(&self, messagedata: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4004,6 +4099,7 @@ impl RemoteSystemSessionMessageChannel {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), messagedata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SendValueSetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>, Param1: ::windows::core::IntoParam<'a, RemoteSystemSessionParticipant>>(&self, messagedata: Param0, participant: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4012,6 +4108,7 @@ impl RemoteSystemSessionMessageChannel {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), messagedata.into_param().abi(), participant.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SendValueSetToParticipantsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::ValueSet>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<RemoteSystemSessionParticipant>>>(&self, messagedata: Param0, participants: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4020,6 +4117,7 @@ impl RemoteSystemSessionMessageChannel {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), messagedata.into_param().abi(), participants.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ValueSetReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionMessageChannel, RemoteSystemSessionValueSetReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4028,17 +4126,20 @@ impl RemoteSystemSessionMessageChannel {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveValueSetReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemSession>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(session: Param0, channelname: Param1) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), session.into_param().abi(), channelname.into_param().abi(), &mut result__).from_abi::<RemoteSystemSessionMessageChannel>(result__)
         })
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn CreateWithReliability<'a, Param0: ::windows::core::IntoParam<'a, RemoteSystemSession>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(session: Param0, channelname: Param1, reliability: RemoteSystemSessionMessageChannelReliability) -> ::windows::core::Result<RemoteSystemSessionMessageChannel> {
         Self::IRemoteSystemSessionMessageChannelFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -4152,6 +4253,7 @@ impl RemoteSystemSessionOptions {
         static mut SHARED: ::windows::core::FactoryCache<RemoteSystemSessionOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn IsInviteOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4159,6 +4261,7 @@ impl RemoteSystemSessionOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn SetIsInviteOnly(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -4231,6 +4334,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionOptions {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipant(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipant {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem> {
         let this = self;
         unsafe {
@@ -4238,6 +4342,7 @@ impl RemoteSystemSessionParticipant {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystem>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections', 'Networking'*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Networking"))]
     pub fn GetHostNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Networking::HostName>> {
         let this = self;
@@ -4314,6 +4419,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipant {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantAddedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantAddedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Participant(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant> {
         let this = self;
         unsafe {
@@ -4389,6 +4495,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantAddedEventArg
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantRemovedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Participant(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant> {
         let this = self;
         unsafe {
@@ -4464,14 +4571,17 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionParticipantRemovedEventA
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcher(::windows::core::IUnknown);
 impl RemoteSystemSessionParticipantWatcher {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionParticipantWatcherStatus> {
         let this = self;
         unsafe {
@@ -4479,6 +4589,7 @@ impl RemoteSystemSessionParticipantWatcher {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionParticipantWatcherStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4487,11 +4598,13 @@ impl RemoteSystemSessionParticipantWatcher {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, RemoteSystemSessionParticipantRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4500,11 +4613,13 @@ impl RemoteSystemSessionParticipantWatcher {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionParticipantWatcher, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4513,6 +4628,7 @@ impl RemoteSystemSessionParticipantWatcher {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -4618,6 +4734,7 @@ impl ::windows::core::DefaultType for RemoteSystemSessionParticipantWatcherStatu
 #[repr(transparent)]
 pub struct RemoteSystemSessionRemovedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionRemovedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo> {
         let this = self;
         unsafe {
@@ -4693,6 +4810,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionRemovedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionUpdatedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionUpdatedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn SessionInfo(&self) -> ::windows::core::Result<RemoteSystemSessionInfo> {
         let this = self;
         unsafe {
@@ -4768,6 +4886,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemSessionValueSetReceivedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemSessionValueSetReceivedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Sender(&self) -> ::windows::core::Result<RemoteSystemSessionParticipant> {
         let this = self;
         unsafe {
@@ -4775,6 +4894,7 @@ impl RemoteSystemSessionValueSetReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionParticipant>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Message(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = self;
@@ -4851,14 +4971,17 @@ unsafe impl ::core::marker::Sync for RemoteSystemSessionValueSetReceivedEventArg
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcher(::windows::core::IUnknown);
 impl RemoteSystemSessionWatcher {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Status(&self) -> ::windows::core::Result<RemoteSystemSessionWatcherStatus> {
         let this = self;
         unsafe {
@@ -4866,6 +4989,7 @@ impl RemoteSystemSessionWatcher {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemSessionWatcherStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4874,11 +4998,13 @@ impl RemoteSystemSessionWatcher {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4887,11 +5013,13 @@ impl RemoteSystemSessionWatcher {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemSessionWatcher, RemoteSystemSessionRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4900,6 +5028,7 @@ impl RemoteSystemSessionWatcher {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -5063,6 +5192,7 @@ impl ::windows::core::DefaultType for RemoteSystemStatusType {
 #[repr(transparent)]
 pub struct RemoteSystemStatusTypeFilter(::windows::core::IUnknown);
 impl RemoteSystemStatusTypeFilter {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystemStatusType(&self) -> ::windows::core::Result<RemoteSystemStatusType> {
         let this = self;
         unsafe {
@@ -5070,6 +5200,7 @@ impl RemoteSystemStatusTypeFilter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RemoteSystemStatusType>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Create(remotesystemstatustype: RemoteSystemStatusType) -> ::windows::core::Result<RemoteSystemStatusTypeFilter> {
         Self::IRemoteSystemStatusTypeFilterFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -5170,6 +5301,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemStatusTypeFilter {}
 #[repr(transparent)]
 pub struct RemoteSystemUpdatedEventArgs(::windows::core::IUnknown);
 impl RemoteSystemUpdatedEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn RemoteSystem(&self) -> ::windows::core::Result<RemoteSystem> {
         let this = self;
         unsafe {
@@ -5245,14 +5377,17 @@ unsafe impl ::core::marker::Sync for RemoteSystemUpdatedEventArgs {}
 #[repr(transparent)]
 pub struct RemoteSystemWatcher(::windows::core::IUnknown);
 impl RemoteSystemWatcher {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoteSystemAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemAddedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5261,11 +5396,13 @@ impl RemoteSystemWatcher {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoteSystemAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoteSystemUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5274,11 +5411,13 @@ impl RemoteSystemWatcher {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoteSystemUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoteSystemRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -5287,11 +5426,13 @@ impl RemoteSystemWatcher {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoteSystemRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemEnumerationCompletedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
@@ -5300,11 +5441,13 @@ impl RemoteSystemWatcher {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<RemoteSystemWatcher, RemoteSystemWatcherErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
@@ -5313,11 +5456,13 @@ impl RemoteSystemWatcher {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn User(&self) -> ::windows::core::Result<super::User> {
         let this = &::windows::core::Interface::cast::<IRemoteSystemWatcher3>(self)?;
         unsafe {
@@ -5422,6 +5567,7 @@ impl ::windows::core::DefaultType for RemoteSystemWatcherError {
 #[repr(transparent)]
 pub struct RemoteSystemWatcherErrorOccurredEventArgs(::windows::core::IUnknown);
 impl RemoteSystemWatcherErrorOccurredEventArgs {
+    #[doc = "*Required features: 'System_RemoteSystems'*"]
     pub fn Error(&self) -> ::windows::core::Result<RemoteSystemWatcherError> {
         let this = self;
         unsafe {
@@ -5497,6 +5643,7 @@ unsafe impl ::core::marker::Sync for RemoteSystemWatcherErrorOccurredEventArgs {
 #[repr(transparent)]
 pub struct RemoteSystemWebAccountFilter(::windows::core::IUnknown);
 impl RemoteSystemWebAccountFilter {
+    #[doc = "*Required features: 'System_RemoteSystems', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn Account(&self) -> ::windows::core::Result<super::super::Security::Credentials::WebAccount> {
         let this = self;
@@ -5505,6 +5652,7 @@ impl RemoteSystemWebAccountFilter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::WebAccount>(result__)
         }
     }
+    #[doc = "*Required features: 'System_RemoteSystems', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::WebAccount>>(account: Param0) -> ::windows::core::Result<RemoteSystemWebAccountFilter> {
         Self::IRemoteSystemWebAccountFilterFactory(|this| unsafe {

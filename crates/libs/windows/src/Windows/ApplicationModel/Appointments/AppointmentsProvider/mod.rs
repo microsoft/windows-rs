@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct AddAppointmentOperation(::windows::core::IUnknown);
 impl AddAppointmentOperation {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn AppointmentInformation(&self) -> ::windows::core::Result<super::Appointment> {
         let this = self;
         unsafe {
@@ -10,6 +11,7 @@ impl AddAppointmentOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointment>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -17,18 +19,22 @@ impl AddAppointmentOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), itemid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
@@ -99,30 +105,35 @@ unsafe impl ::core::marker::Send for AddAppointmentOperation {}
 unsafe impl ::core::marker::Sync for AddAppointmentOperation {}
 pub struct AppointmentsProviderLaunchActionVerbs {}
 impl AppointmentsProviderLaunchActionVerbs {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn AddAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReplaceAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn RemoveAppointment() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ShowTimeFrame() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ShowAppointmentDetails() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAppointmentsProviderLaunchActionVerbsStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -258,6 +269,7 @@ pub struct IReplaceAppointmentOperationVtbl(
 #[repr(transparent)]
 pub struct RemoveAppointmentOperation(::windows::core::IUnknown);
 impl RemoveAppointmentOperation {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn AppointmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -265,6 +277,7 @@ impl RemoveAppointmentOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -273,6 +286,7 @@ impl RemoveAppointmentOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -280,18 +294,22 @@ impl RemoveAppointmentOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
@@ -364,6 +382,7 @@ unsafe impl ::core::marker::Sync for RemoveAppointmentOperation {}
 #[repr(transparent)]
 pub struct ReplaceAppointmentOperation(::windows::core::IUnknown);
 impl ReplaceAppointmentOperation {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn AppointmentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -371,6 +390,7 @@ impl ReplaceAppointmentOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn AppointmentInformation(&self) -> ::windows::core::Result<super::Appointment> {
         let this = self;
         unsafe {
@@ -378,6 +398,7 @@ impl ReplaceAppointmentOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointment>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn InstanceStartDate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -386,6 +407,7 @@ impl ReplaceAppointmentOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn SourcePackageFamilyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -393,18 +415,22 @@ impl ReplaceAppointmentOperation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, itemid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), itemid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportCanceled(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn ReportError<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
     pub fn DismissUI(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this)).ok() }

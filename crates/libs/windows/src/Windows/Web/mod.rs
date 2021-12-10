@@ -11,6 +11,7 @@ pub mod UI;
 #[repr(transparent)]
 pub struct IUriToStreamResolver(::windows::core::IUnknown);
 impl IUriToStreamResolver {
+    #[doc = "*Required features: 'Web', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn UriToStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
         let this = self;
@@ -110,6 +111,7 @@ pub struct IWebErrorStaticsVtbl(
 );
 pub struct WebError {}
 impl WebError {
+    #[doc = "*Required features: 'Web'*"]
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__: WebErrorStatus = ::core::mem::zeroed();

@@ -318,87 +318,107 @@ impl ::core::default::Default for HistogramHeader {
 #[repr(transparent)]
 pub struct IMFDeviceTransform(::windows::core::IUnknown);
 impl IMFDeviceTransform {
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn InitializeTransform<'a, Param0: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFAttributes>>(&self, pattributes: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pattributes.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetInputAvailableType(&self, dwinputstreamid: u32, dwtypeindex: u32) -> ::windows::core::Result<super::MediaFoundation::IMFMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputstreamid), ::core::mem::transmute(dwtypeindex), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::IMFMediaType>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetInputCurrentType(&self, dwinputstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::IMFMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputstreamid), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::IMFMediaType>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetInputStreamAttributes(&self, dwinputstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::IMFAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputstreamid), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::IMFAttributes>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetOutputAvailableType(&self, dwoutputstreamid: u32, dwtypeindex: u32) -> ::windows::core::Result<super::MediaFoundation::IMFMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoutputstreamid), ::core::mem::transmute(dwtypeindex), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::IMFMediaType>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetOutputCurrentType(&self, dwoutputstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::IMFMediaType> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoutputstreamid), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::IMFMediaType>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetOutputStreamAttributes(&self, dwoutputstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::IMFAttributes> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwoutputstreamid), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::IMFAttributes>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming'*"]
     pub unsafe fn GetStreamCount(&self, pcinputstreams: *mut u32, pcoutputstreams: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcinputstreams), ::core::mem::transmute(pcoutputstreams)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming'*"]
     pub unsafe fn GetStreamIDs(&self, dwinputidarraysize: u32, pdwinputstreamids: *mut u32, dwoutputidarraysize: u32, pdwoutputstreamids: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputidarraysize), ::core::mem::transmute(pdwinputstreamids), ::core::mem::transmute(dwoutputidarraysize), ::core::mem::transmute(pdwoutputstreamids)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn ProcessEvent<'a, Param1: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFMediaEvent>>(&self, dwinputstreamid: u32, pevent: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputstreamid), pevent.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn ProcessInput<'a, Param1: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFSample>>(&self, dwinputstreamid: u32, psample: Param1, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwinputstreamid), psample.into_param().abi(), ::core::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn ProcessMessage(&self, emessage: super::MediaFoundation::MFT_MESSAGE_TYPE, ulparam: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(emessage), ::core::mem::transmute(ulparam)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn ProcessOutput(&self, dwflags: u32, coutputbuffercount: u32, poutputsample: *mut super::MediaFoundation::MFT_OUTPUT_DATA_BUFFER, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags), ::core::mem::transmute(coutputbuffercount), ::core::mem::transmute(poutputsample), ::core::mem::transmute(pdwstatus)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn SetInputStreamState<'a, Param1: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFMediaType>>(&self, dwstreamid: u32, pmediatype: Param1, value: super::MediaFoundation::DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamid), pmediatype.into_param().abi(), ::core::mem::transmute(value), ::core::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetInputStreamState(&self, dwstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::DeviceStreamState> {
         let mut result__: super::MediaFoundation::DeviceStreamState = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamid), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::DeviceStreamState>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn SetOutputStreamState<'a, Param1: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFMediaType>>(&self, dwstreamid: u32, pmediatype: Param1, value: super::MediaFoundation::DeviceStreamState, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamid), pmediatype.into_param().abi(), ::core::mem::transmute(value), ::core::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetOutputStreamState(&self, dwstreamid: u32) -> ::windows::core::Result<super::MediaFoundation::DeviceStreamState> {
         let mut result__: super::MediaFoundation::DeviceStreamState = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamid), ::core::mem::transmute(&mut result__)).from_abi::<super::MediaFoundation::DeviceStreamState>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn GetInputStreamPreferredState(&self, dwstreamid: u32, value: *mut super::MediaFoundation::DeviceStreamState, ppmediatype: *mut ::core::option::Option<super::MediaFoundation::IMFMediaType>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamid), ::core::mem::transmute(value), ::core::mem::transmute(ppmediatype)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming'*"]
     pub unsafe fn FlushInputStream(&self, dwstreamindex: u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media_Streaming'*"]
     pub unsafe fn FlushOutputStream(&self, dwstreamindex: u32, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstreamindex), ::core::mem::transmute(dwflags)).ok()
     }
@@ -485,6 +505,7 @@ pub struct IMFDeviceTransformVtbl(
 #[repr(transparent)]
 pub struct IMFDeviceTransformCallback(::windows::core::IUnknown);
 impl IMFDeviceTransformCallback {
+    #[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Media_MediaFoundation'*"]
     #[cfg(feature = "Win32_Media_MediaFoundation")]
     pub unsafe fn OnBufferSent<'a, Param0: ::windows::core::IntoParam<'a, super::MediaFoundation::IMFAttributes>>(&self, pcallbackattributes: Param0, pinid: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pcallbackattributes.into_param().abi(), ::core::mem::transmute(pinid)).ok()

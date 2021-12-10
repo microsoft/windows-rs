@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct Enterprise(::windows::core::IUnknown);
 impl Enterprise {
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -10,6 +11,7 @@ impl Enterprise {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -17,6 +19,7 @@ impl Enterprise {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn WorkplaceId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -24,6 +27,7 @@ impl Enterprise {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnrollmentValidFrom(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -32,6 +36,7 @@ impl Enterprise {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnrollmentValidTo(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -40,6 +45,7 @@ impl Enterprise {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn Status(&self) -> ::windows::core::Result<EnterpriseStatus> {
         let this = self;
         unsafe {
@@ -113,6 +119,7 @@ unsafe impl ::core::marker::Send for Enterprise {}
 unsafe impl ::core::marker::Sync for Enterprise {}
 pub struct EnterpriseEnrollmentManager {}
 impl EnterpriseEnrollmentManager {
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn EnrolledEnterprises() -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<Enterprise>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
@@ -120,12 +127,14 @@ impl EnterpriseEnrollmentManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<Enterprise>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn CurrentEnterprise() -> ::windows::core::Result<Enterprise> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Enterprise>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ValidateEnterprisesAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
@@ -133,6 +142,7 @@ impl EnterpriseEnrollmentManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestEnrollmentAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(enrollmenttoken: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<EnterpriseEnrollmentResult>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
@@ -140,6 +150,7 @@ impl EnterpriseEnrollmentManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), enrollmenttoken.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<EnterpriseEnrollmentResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestUnenrollmentAsync<'a, Param0: ::windows::core::IntoParam<'a, Enterprise>>(enterprise: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         Self::IEnterpriseEnrollmentManager(|this| unsafe {
@@ -159,6 +170,7 @@ impl ::windows::core::RuntimeName for EnterpriseEnrollmentManager {
 #[repr(transparent)]
 pub struct EnterpriseEnrollmentResult(::windows::core::IUnknown);
 impl EnterpriseEnrollmentResult {
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn EnrolledEnterprise(&self) -> ::windows::core::Result<Enterprise> {
         let this = self;
         unsafe {
@@ -166,6 +178,7 @@ impl EnterpriseEnrollmentResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Enterprise>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn Status(&self) -> ::windows::core::Result<EnterpriseEnrollmentStatus> {
         let this = self;
         unsafe {
@@ -454,6 +467,7 @@ pub struct IPackageInstallResult2Vtbl(
 );
 pub struct InstallationManager {}
 impl InstallationManager {
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AddPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(title: Param0, sourcelocation: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics(|this| unsafe {
@@ -461,6 +475,7 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), title.into_param().abi(), sourcelocation.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AddPackagePreloadedAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(title: Param0, sourcelocation: Param1, instanceid: Param2, offerid: Param3, license: Param4) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics(|this| unsafe {
@@ -468,6 +483,7 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), title.into_param().abi(), sourcelocation.into_param().abi(), instanceid.into_param().abi(), offerid.into_param().abi(), license.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetPendingPackageInstalls() -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>> {
         Self::IInstallationManagerStatics(|this| unsafe {
@@ -475,6 +491,7 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'ApplicationModel', 'Foundation_Collections'*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindPackagesForCurrentPublisher() -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics(|this| unsafe {
@@ -482,6 +499,7 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'ApplicationModel', 'Foundation_Collections'*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindPackages() -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics(|this| unsafe {
@@ -489,6 +507,7 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation', 'Management_Deployment'*"]
     #[cfg(all(feature = "Foundation", feature = "Management_Deployment"))]
     pub fn RemovePackageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagefullname: Param0, removaloptions: super::super::super::Management::Deployment::RemovalOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
@@ -496,6 +515,7 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), packagefullname.into_param().abi(), removaloptions, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation', 'Foundation_Collections', 'Management_Deployment'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Management_Deployment"))]
     pub fn RegisterPackageAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Uri>>>(manifesturi: Param0, dependencypackageuris: Param1, deploymentoptions: super::super::super::Management::Deployment::DeploymentOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
@@ -503,6 +523,7 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), manifesturi.into_param().abi(), dependencypackageuris.into_param().abi(), deploymentoptions, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperationWithProgress<PackageInstallResult, u32>>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'ApplicationModel', 'Foundation_Collections'*"]
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation_Collections"))]
     pub fn FindPackagesByNamePublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(packagename: Param0, packagepublisher: Param1) -> ::windows::core::Result<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>> {
         Self::IInstallationManagerStatics2(|this| unsafe {
@@ -526,6 +547,7 @@ impl ::windows::core::RuntimeName for InstallationManager {
 #[repr(transparent)]
 pub struct PackageInstallResult(::windows::core::IUnknown);
 impl PackageInstallResult {
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn ProductId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -533,6 +555,7 @@ impl PackageInstallResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment', 'Management_Deployment'*"]
     #[cfg(feature = "Management_Deployment")]
     pub fn InstallState(&self) -> ::windows::core::Result<super::super::super::Management::Deployment::PackageInstallState> {
         let this = self;
@@ -541,6 +564,7 @@ impl PackageInstallResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Management::Deployment::PackageInstallState>(result__)
         }
     }
+    #[doc = "*Required features: 'Phone_Management_Deployment'*"]
     pub fn ErrorText(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IPackageInstallResult2>(self)?;
         unsafe {

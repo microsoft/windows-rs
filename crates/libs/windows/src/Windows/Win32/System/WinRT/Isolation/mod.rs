@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct IIsolatedEnvironmentInterop(::windows::core::IUnknown);
 impl IIsolatedEnvironmentInterop {
+    #[doc = "*Required features: 'Win32_System_WinRT_Isolation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetHostHwndInterop<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>>(&self, containerhwnd: Param0) -> ::windows::core::Result<super::super::super::Foundation::HWND> {
         let mut result__: super::super::super::Foundation::HWND = ::core::mem::zeroed();

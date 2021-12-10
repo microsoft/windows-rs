@@ -44,6 +44,7 @@ pub struct IUserDataAccountProviderAddAccountOperationVtbl(
 #[repr(transparent)]
 pub struct IUserDataAccountProviderOperation(::windows::core::IUnknown);
 impl IUserDataAccountProviderOperation {
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = self;
         unsafe {
@@ -163,6 +164,7 @@ pub struct IUserDataAccountProviderSettingsOperationVtbl(
 #[repr(transparent)]
 pub struct UserDataAccountPartnerAccountInfo(::windows::core::IUnknown);
 impl UserDataAccountPartnerAccountInfo {
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -170,6 +172,7 @@ impl UserDataAccountPartnerAccountInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn Priority(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -177,6 +180,7 @@ impl UserDataAccountPartnerAccountInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn AccountKind(&self) -> ::windows::core::Result<UserDataAccountProviderPartnerAccountKind> {
         let this = self;
         unsafe {
@@ -252,6 +256,7 @@ unsafe impl ::core::marker::Sync for UserDataAccountPartnerAccountInfo {}
 #[repr(transparent)]
 pub struct UserDataAccountProviderAddAccountOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderAddAccountOperation {
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn ContentKinds(&self) -> ::windows::core::Result<super::UserDataAccountContentKinds> {
         let this = self;
         unsafe {
@@ -259,6 +264,7 @@ impl UserDataAccountProviderAddAccountOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UserDataAccountContentKinds>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PartnerAccountInfos(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>> {
         let this = self;
@@ -267,10 +273,12 @@ impl UserDataAccountProviderAddAccountOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<UserDataAccountPartnerAccountInfo>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn ReportCompleted<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, userdataaccountid: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), userdataaccountid.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
@@ -425,6 +433,7 @@ impl ::windows::core::DefaultType for UserDataAccountProviderPartnerAccountKind 
 #[repr(transparent)]
 pub struct UserDataAccountProviderResolveErrorsOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderResolveErrorsOperation {
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
@@ -432,6 +441,7 @@ impl UserDataAccountProviderResolveErrorsOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -439,6 +449,7 @@ impl UserDataAccountProviderResolveErrorsOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
@@ -533,6 +544,7 @@ unsafe impl ::core::marker::Sync for UserDataAccountProviderResolveErrorsOperati
 #[repr(transparent)]
 pub struct UserDataAccountProviderSettingsOperation(::windows::core::IUnknown);
 impl UserDataAccountProviderSettingsOperation {
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn Kind(&self) -> ::windows::core::Result<UserDataAccountProviderOperationKind> {
         let this = &::windows::core::Interface::cast::<IUserDataAccountProviderOperation>(self)?;
         unsafe {
@@ -540,6 +552,7 @@ impl UserDataAccountProviderSettingsOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UserDataAccountProviderOperationKind>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn UserDataAccountId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -547,6 +560,7 @@ impl UserDataAccountProviderSettingsOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
     pub fn ReportCompleted(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }

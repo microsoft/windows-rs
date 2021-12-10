@@ -60,6 +60,7 @@ pub struct IXsltProcessorFactoryVtbl(
 #[repr(transparent)]
 pub struct XsltProcessor(::windows::core::IUnknown);
 impl XsltProcessor {
+    #[doc = "*Required features: 'Data_Xml_Xsl', 'Data_Xml_Dom'*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToString<'a, Param0: ::windows::core::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -68,6 +69,7 @@ impl XsltProcessor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Xml_Xsl', 'Data_Xml_Dom'*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::core::Result<super::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXsltProcessor2>(self)?;
@@ -76,6 +78,7 @@ impl XsltProcessor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<super::Dom::XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Xml_Xsl', 'Data_Xml_Dom'*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Dom::XmlDocument>>(document: Param0) -> ::windows::core::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {

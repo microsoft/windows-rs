@@ -3,18 +3,21 @@
 pub mod SystemManufacturers;
 pub struct AnalyticsInfo {}
 impl AnalyticsInfo {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn VersionInfo() -> ::windows::core::Result<AnalyticsVersionInfo> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AnalyticsVersionInfo>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn DeviceForm() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IAnalyticsInfoStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetSystemPropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(attributenames: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         Self::IAnalyticsInfoStatics2(|this| unsafe {
@@ -38,6 +41,7 @@ impl ::windows::core::RuntimeName for AnalyticsInfo {
 #[repr(transparent)]
 pub struct AnalyticsVersionInfo(::windows::core::IUnknown);
 impl AnalyticsVersionInfo {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn DeviceFamily(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -45,6 +49,7 @@ impl AnalyticsVersionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn DeviceFamilyVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -52,6 +57,7 @@ impl AnalyticsVersionInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn ProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IAnalyticsVersionInfo2>(self)?;
         unsafe {
@@ -125,6 +131,7 @@ unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
 pub struct AppApplicability {}
 impl AppApplicability {
+    #[doc = "*Required features: 'System_Profile', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetUnsupportedAppRequirements<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(capabilities: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>> {
         Self::IAppApplicabilityStatics(|this| unsafe {
@@ -142,6 +149,7 @@ impl ::windows::core::RuntimeName for AppApplicability {
 }
 pub struct EducationSettings {}
 impl EducationSettings {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsEducationEnvironment() -> ::windows::core::Result<bool> {
         Self::IEducationSettingsStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -158,6 +166,7 @@ impl ::windows::core::RuntimeName for EducationSettings {
 }
 pub struct HardwareIdentification {}
 impl HardwareIdentification {
+    #[doc = "*Required features: 'System_Profile', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetPackageSpecificToken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(nonce: Param0) -> ::windows::core::Result<HardwareToken> {
         Self::IHardwareIdentificationStatics(|this| unsafe {
@@ -177,6 +186,7 @@ impl ::windows::core::RuntimeName for HardwareIdentification {
 #[repr(transparent)]
 pub struct HardwareToken(::windows::core::IUnknown);
 impl HardwareToken {
+    #[doc = "*Required features: 'System_Profile', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -185,6 +195,7 @@ impl HardwareToken {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Signature(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -193,6 +204,7 @@ impl HardwareToken {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Certificate(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -644,132 +656,154 @@ pub struct IWindowsIntegrityPolicyStaticsVtbl(
 );
 pub struct KnownRetailInfoProperties {}
 impl KnownRetailInfoProperties {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn RetailAccessCode() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn ManufacturerName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn ModelName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn DisplayModelName() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn Price() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsFeatured() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn FormFactor() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn ScreenSize() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn Weight() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn DisplayDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn BatteryLifeDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn ProcessorDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn Memory() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn StorageDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn GraphicsDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn FrontCameraDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn RearCameraDescription() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn HasNfc() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn HasSdSlot() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn HasOpticalDrive() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsOfficeInstalled() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn WindowsEdition() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IKnownRetailInfoPropertiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
@@ -816,12 +850,14 @@ impl ::windows::core::DefaultType for PlatformDataCollectionLevel {
 }
 pub struct PlatformDiagnosticsAndUsageDataSettings {}
 impl PlatformDiagnosticsAndUsageDataSettings {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn CollectionLevel() -> ::windows::core::Result<PlatformDataCollectionLevel> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__: PlatformDataCollectionLevel = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PlatformDataCollectionLevel>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CollectionLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
@@ -829,10 +865,12 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCollectionLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn CanCollectDiagnostics(level: PlatformDataCollectionLevel) -> ::windows::core::Result<bool> {
         Self::IPlatformDiagnosticsAndUsageDataSettingsStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -849,12 +887,14 @@ impl ::windows::core::RuntimeName for PlatformDiagnosticsAndUsageDataSettings {
 }
 pub struct RetailInfo {}
 impl RetailInfo {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsDemoModeEnabled() -> ::windows::core::Result<bool> {
         Self::IRetailInfoStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties() -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>> {
         Self::IRetailInfoStatics(|this| unsafe {
@@ -872,12 +912,14 @@ impl ::windows::core::RuntimeName for RetailInfo {
 }
 pub struct SharedModeSettings {}
 impl SharedModeSettings {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
         Self::ISharedModeSettingsStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn ShouldAvoidLocalStorage() -> ::windows::core::Result<bool> {
         Self::ISharedModeSettingsStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
@@ -898,12 +940,14 @@ impl ::windows::core::RuntimeName for SharedModeSettings {
 }
 pub struct SystemIdentification {}
 impl SystemIdentification {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn GetSystemIdForPublisher() -> ::windows::core::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemIdentificationInfo>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn GetSystemIdForUser<'a, Param0: ::windows::core::IntoParam<'a, super::User>>(user: Param0) -> ::windows::core::Result<SystemIdentificationInfo> {
         Self::ISystemIdentificationStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -922,6 +966,7 @@ impl ::windows::core::RuntimeName for SystemIdentification {
 #[repr(transparent)]
 pub struct SystemIdentificationInfo(::windows::core::IUnknown);
 impl SystemIdentificationInfo {
+    #[doc = "*Required features: 'System_Profile', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Id(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -930,6 +975,7 @@ impl SystemIdentificationInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn Source(&self) -> ::windows::core::Result<SystemIdentificationSource> {
         let this = self;
         unsafe {
@@ -1062,12 +1108,14 @@ impl ::windows::core::DefaultType for SystemOutOfBoxExperienceState {
 }
 pub struct SystemSetupInfo {}
 impl SystemSetupInfo {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn OutOfBoxExperienceState() -> ::windows::core::Result<SystemOutOfBoxExperienceState> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
             let mut result__: SystemOutOfBoxExperienceState = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemOutOfBoxExperienceState>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn OutOfBoxExperienceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::ISystemSetupInfoStatics(|this| unsafe {
@@ -1075,6 +1123,7 @@ impl SystemSetupInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOutOfBoxExperienceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
@@ -1091,6 +1140,7 @@ impl ::windows::core::RuntimeName for SystemSetupInfo {
 #[repr(transparent)]
 pub struct UnsupportedAppRequirement(::windows::core::IUnknown);
 impl UnsupportedAppRequirement {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn Requirement(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1098,6 +1148,7 @@ impl UnsupportedAppRequirement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn Reasons(&self) -> ::windows::core::Result<UnsupportedAppRequirementReasons> {
         let this = self;
         unsafe {
@@ -1199,30 +1250,35 @@ impl ::windows::core::DefaultType for UnsupportedAppRequirementReasons {
 }
 pub struct WindowsIntegrityPolicy {}
 impl WindowsIntegrityPolicy {
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsEnabled() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsEnabledForTrial() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn CanDisable() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile'*"]
     pub fn IsDisableSupported() -> ::windows::core::Result<bool> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PolicyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe {
@@ -1230,6 +1286,7 @@ impl WindowsIntegrityPolicy {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePolicyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })

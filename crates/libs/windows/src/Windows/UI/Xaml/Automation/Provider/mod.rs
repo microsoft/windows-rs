@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct IAnnotationProvider(::windows::core::IUnknown);
 impl IAnnotationProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn AnnotationTypeId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -10,6 +11,7 @@ impl IAnnotationProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn AnnotationTypeName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -17,6 +19,7 @@ impl IAnnotationProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Author(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -24,6 +27,7 @@ impl IAnnotationProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DateTime(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -31,6 +35,7 @@ impl IAnnotationProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Target(&self) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -116,6 +121,7 @@ pub struct IAnnotationProviderVtbl(
 #[repr(transparent)]
 pub struct ICustomNavigationProvider(::windows::core::IUnknown);
 impl ICustomNavigationProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Peers'*"]
     #[cfg(feature = "UI_Xaml_Automation_Peers")]
     pub fn NavigateCustom(&self, direction: super::Peers::AutomationNavigationDirection) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
@@ -199,6 +205,7 @@ pub struct ICustomNavigationProviderVtbl(
 #[repr(transparent)]
 pub struct IDockProvider(::windows::core::IUnknown);
 impl IDockProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DockPosition(&self) -> ::windows::core::Result<super::DockPosition> {
         let this = self;
         unsafe {
@@ -206,6 +213,7 @@ impl IDockProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DockPosition>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SetDockPosition(&self, dockposition: super::DockPosition) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), dockposition).ok() }
@@ -285,6 +293,7 @@ pub struct IDockProviderVtbl(
 #[repr(transparent)]
 pub struct IDragProvider(::windows::core::IUnknown);
 impl IDragProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn IsGrabbed(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -292,6 +301,7 @@ impl IDragProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DropEffect(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -299,6 +309,7 @@ impl IDragProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DropEffects(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -306,6 +317,7 @@ impl IDragProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::core::Array::<::windows::core::HSTRING>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetGrabbedItems(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -390,6 +402,7 @@ pub struct IDragProviderVtbl(
 #[repr(transparent)]
 pub struct IDropTargetProvider(::windows::core::IUnknown);
 impl IDropTargetProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DropEffect(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -397,6 +410,7 @@ impl IDropTargetProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DropEffects(&self) -> ::windows::core::Result<::windows::core::Array<::windows::core::HSTRING>> {
         let this = self;
         unsafe {
@@ -479,6 +493,7 @@ pub struct IDropTargetProviderVtbl(
 #[repr(transparent)]
 pub struct IExpandCollapseProvider(::windows::core::IUnknown);
 impl IExpandCollapseProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ExpandCollapseState(&self) -> ::windows::core::Result<super::ExpandCollapseState> {
         let this = self;
         unsafe {
@@ -486,10 +501,12 @@ impl IExpandCollapseProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ExpandCollapseState>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Collapse(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Expand(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
@@ -570,6 +587,7 @@ pub struct IExpandCollapseProviderVtbl(
 #[repr(transparent)]
 pub struct IGridItemProvider(::windows::core::IUnknown);
 impl IGridItemProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Column(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -577,6 +595,7 @@ impl IGridItemProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ColumnSpan(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -584,6 +603,7 @@ impl IGridItemProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ContainingGrid(&self) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -591,6 +611,7 @@ impl IGridItemProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IRawElementProviderSimple>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Row(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -598,6 +619,7 @@ impl IGridItemProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RowSpan(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -683,6 +705,7 @@ pub struct IGridItemProviderVtbl(
 #[repr(transparent)]
 pub struct IGridProvider(::windows::core::IUnknown);
 impl IGridProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ColumnCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -690,6 +713,7 @@ impl IGridProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RowCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -697,6 +721,7 @@ impl IGridProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetItem(&self, row: i32, column: i32) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -797,6 +822,7 @@ pub struct IIRawElementProviderSimpleVtbl(
 #[repr(transparent)]
 pub struct IInvokeProvider(::windows::core::IUnknown);
 impl IInvokeProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Invoke(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -875,6 +901,7 @@ pub struct IInvokeProviderVtbl(
 #[repr(transparent)]
 pub struct IItemContainerProvider(::windows::core::IUnknown);
 impl IItemContainerProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FindItemByProperty<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>, Param1: ::windows::core::IntoParam<'a, super::AutomationProperty>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, startafter: Param0, automationproperty: Param1, value: Param2) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -956,6 +983,7 @@ pub struct IItemContainerProviderVtbl(
 #[repr(transparent)]
 pub struct IMultipleViewProvider(::windows::core::IUnknown);
 impl IMultipleViewProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CurrentView(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -963,6 +991,7 @@ impl IMultipleViewProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetSupportedViews(&self) -> ::windows::core::Result<::windows::core::Array<i32>> {
         let this = self;
         unsafe {
@@ -970,6 +999,7 @@ impl IMultipleViewProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::core::Array::<i32>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetViewName(&self, viewid: i32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -977,6 +1007,7 @@ impl IMultipleViewProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), viewid, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SetCurrentView(&self, viewid: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), viewid).ok() }
@@ -1058,6 +1089,7 @@ pub struct IMultipleViewProviderVtbl(
 #[repr(transparent)]
 pub struct IObjectModelProvider(::windows::core::IUnknown);
 impl IObjectModelProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetUnderlyingObjectModel(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -1139,6 +1171,7 @@ pub struct IObjectModelProviderVtbl(
 #[repr(transparent)]
 pub struct IRangeValueProvider(::windows::core::IUnknown);
 impl IRangeValueProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1146,6 +1179,7 @@ impl IRangeValueProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn LargeChange(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1153,6 +1187,7 @@ impl IRangeValueProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Maximum(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1160,6 +1195,7 @@ impl IRangeValueProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Minimum(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1167,6 +1203,7 @@ impl IRangeValueProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SmallChange(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1174,6 +1211,7 @@ impl IRangeValueProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Value(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1181,6 +1219,7 @@ impl IRangeValueProvider {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SetValue(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
@@ -1352,6 +1391,7 @@ unsafe impl ::core::marker::Sync for IRawElementProviderSimple {}
 #[repr(transparent)]
 pub struct IScrollItemProvider(::windows::core::IUnknown);
 impl IScrollItemProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ScrollIntoView(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -1430,6 +1470,7 @@ pub struct IScrollItemProviderVtbl(
 #[repr(transparent)]
 pub struct IScrollProvider(::windows::core::IUnknown);
 impl IScrollProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn HorizontallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1437,6 +1478,7 @@ impl IScrollProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn HorizontalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1444,6 +1486,7 @@ impl IScrollProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn HorizontalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1451,6 +1494,7 @@ impl IScrollProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn VerticallyScrollable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1458,6 +1502,7 @@ impl IScrollProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn VerticalScrollPercent(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1465,6 +1510,7 @@ impl IScrollProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn VerticalViewSize(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1472,10 +1518,12 @@ impl IScrollProvider {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Scroll(&self, horizontalamount: super::ScrollAmount, verticalamount: super::ScrollAmount) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), horizontalamount, verticalamount).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SetScrollPercent(&self, horizontalpercent: f64, verticalpercent: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), horizontalpercent, verticalpercent).ok() }
@@ -1561,6 +1609,7 @@ pub struct IScrollProviderVtbl(
 #[repr(transparent)]
 pub struct ISelectionItemProvider(::windows::core::IUnknown);
 impl ISelectionItemProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn IsSelected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1568,6 +1617,7 @@ impl ISelectionItemProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SelectionContainer(&self) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -1575,14 +1625,17 @@ impl ISelectionItemProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IRawElementProviderSimple>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn AddToSelection(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RemoveFromSelection(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Select(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
@@ -1665,6 +1718,7 @@ pub struct ISelectionItemProviderVtbl(
 #[repr(transparent)]
 pub struct ISelectionProvider(::windows::core::IUnknown);
 impl ISelectionProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanSelectMultiple(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1672,6 +1726,7 @@ impl ISelectionProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn IsSelectionRequired(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1679,6 +1734,7 @@ impl ISelectionProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -1762,6 +1818,7 @@ pub struct ISelectionProviderVtbl(
 #[repr(transparent)]
 pub struct ISpreadsheetItemProvider(::windows::core::IUnknown);
 impl ISpreadsheetItemProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Formula(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1769,6 +1826,7 @@ impl ISpreadsheetItemProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetAnnotationObjects(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -1776,6 +1834,7 @@ impl ISpreadsheetItemProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::core::Array::<IRawElementProviderSimple>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetAnnotationTypes(&self) -> ::windows::core::Result<::windows::core::Array<super::AnnotationType>> {
         let this = self;
         unsafe {
@@ -1859,6 +1918,7 @@ pub struct ISpreadsheetItemProviderVtbl(
 #[repr(transparent)]
 pub struct ISpreadsheetProvider(::windows::core::IUnknown);
 impl ISpreadsheetProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetItemByName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -1940,6 +2000,7 @@ pub struct ISpreadsheetProviderVtbl(
 #[repr(transparent)]
 pub struct IStylesProvider(::windows::core::IUnknown);
 impl IStylesProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ExtendedProperties(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1947,6 +2008,7 @@ impl IStylesProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FillColor(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
@@ -1954,6 +2016,7 @@ impl IStylesProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FillPatternColor(&self) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
@@ -1961,6 +2024,7 @@ impl IStylesProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FillPatternStyle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1968,6 +2032,7 @@ impl IStylesProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Shape(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1975,6 +2040,7 @@ impl IStylesProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn StyleId(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1982,6 +2048,7 @@ impl IStylesProvider {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn StyleName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2069,10 +2136,12 @@ pub struct IStylesProviderVtbl(
 #[repr(transparent)]
 pub struct ISynchronizedInputProvider(::windows::core::IUnknown);
 impl ISynchronizedInputProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn StartListening(&self, inputtype: super::SynchronizedInputType) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), inputtype).ok() }
@@ -2152,6 +2221,7 @@ pub struct ISynchronizedInputProviderVtbl(
 #[repr(transparent)]
 pub struct ITableItemProvider(::windows::core::IUnknown);
 impl ITableItemProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetColumnHeaderItems(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -2159,6 +2229,7 @@ impl ITableItemProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::windows::core::Array::<IRawElementProviderSimple>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetRowHeaderItems(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -2241,6 +2312,7 @@ pub struct ITableItemProviderVtbl(
 #[repr(transparent)]
 pub struct ITableProvider(::windows::core::IUnknown);
 impl ITableProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RowOrColumnMajor(&self) -> ::windows::core::Result<super::RowOrColumnMajor> {
         let this = self;
         unsafe {
@@ -2248,6 +2320,7 @@ impl ITableProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::RowOrColumnMajor>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetColumnHeaders(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -2255,6 +2328,7 @@ impl ITableProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), ::windows::core::Array::<IRawElementProviderSimple>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetRowHeaders(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -2338,6 +2412,7 @@ pub struct ITableProviderVtbl(
 #[repr(transparent)]
 pub struct ITextChildProvider(::windows::core::IUnknown);
 impl ITextChildProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn TextContainer(&self) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -2345,6 +2420,7 @@ impl ITextChildProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IRawElementProviderSimple>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn TextRange(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2427,6 +2503,7 @@ pub struct ITextChildProviderVtbl(
 #[repr(transparent)]
 pub struct ITextEditProvider(::windows::core::IUnknown);
 impl ITextEditProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetActiveComposition(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2434,6 +2511,7 @@ impl ITextEditProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetConversionTarget(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2441,6 +2519,7 @@ impl ITextEditProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DocumentRange(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2448,6 +2527,7 @@ impl ITextEditProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SupportedTextSelection(&self) -> ::windows::core::Result<super::SupportedTextSelection> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2455,6 +2535,7 @@ impl ITextEditProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::SupportedTextSelection>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2462,6 +2543,7 @@ impl ITextEditProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::core::Array::<ITextRangeProvider>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetVisibleRanges(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2469,6 +2551,7 @@ impl ITextEditProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), ::windows::core::Array::<ITextRangeProvider>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RangeFromChild<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(&self, childelement: Param0) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2476,6 +2559,7 @@ impl ITextEditProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), childelement.into_param().abi(), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RangeFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, screenlocation: Param0) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
@@ -2581,6 +2665,7 @@ pub struct ITextEditProviderVtbl(
 #[repr(transparent)]
 pub struct ITextProvider(::windows::core::IUnknown);
 impl ITextProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DocumentRange(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2588,6 +2673,7 @@ impl ITextProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SupportedTextSelection(&self) -> ::windows::core::Result<super::SupportedTextSelection> {
         let this = self;
         unsafe {
@@ -2595,6 +2681,7 @@ impl ITextProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::SupportedTextSelection>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>> {
         let this = self;
         unsafe {
@@ -2602,6 +2689,7 @@ impl ITextProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::core::Array::<ITextRangeProvider>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetVisibleRanges(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>> {
         let this = self;
         unsafe {
@@ -2609,6 +2697,7 @@ impl ITextProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), ::windows::core::Array::<ITextRangeProvider>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RangeFromChild<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(&self, childelement: Param0) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2616,6 +2705,7 @@ impl ITextProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), childelement.into_param().abi(), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RangeFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, screenlocation: Param0) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
@@ -2704,6 +2794,7 @@ pub struct ITextProviderVtbl(
 #[repr(transparent)]
 pub struct ITextProvider2(::windows::core::IUnknown);
 impl ITextProvider2 {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RangeFromAnnotation<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(&self, annotationelement: Param0) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2711,6 +2802,7 @@ impl ITextProvider2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), annotationelement.into_param().abi(), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetCaretRange(&self, isactive: &mut bool) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2718,6 +2810,7 @@ impl ITextProvider2 {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), isactive, &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn DocumentRange(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2725,6 +2818,7 @@ impl ITextProvider2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SupportedTextSelection(&self) -> ::windows::core::Result<super::SupportedTextSelection> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2732,6 +2826,7 @@ impl ITextProvider2 {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::SupportedTextSelection>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetSelection(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2739,6 +2834,7 @@ impl ITextProvider2 {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::core::Array::<ITextRangeProvider>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetVisibleRanges(&self) -> ::windows::core::Result<::windows::core::Array<ITextRangeProvider>> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2746,6 +2842,7 @@ impl ITextProvider2 {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), ::windows::core::Array::<ITextRangeProvider>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RangeFromChild<'a, Param0: ::windows::core::IntoParam<'a, IRawElementProviderSimple>>(&self, childelement: Param0) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
         unsafe {
@@ -2753,6 +2850,7 @@ impl ITextProvider2 {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), childelement.into_param().abi(), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RangeFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, screenlocation: Param0) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextProvider>(self)?;
@@ -2858,6 +2956,7 @@ pub struct ITextProvider2Vtbl(
 #[repr(transparent)]
 pub struct ITextRangeProvider(::windows::core::IUnknown);
 impl ITextRangeProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Clone(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2865,6 +2964,7 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Compare<'a, Param0: ::windows::core::IntoParam<'a, ITextRangeProvider>>(&self, textrangeprovider: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2872,6 +2972,7 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), textrangeprovider.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn CompareEndpoints<'a, Param1: ::windows::core::IntoParam<'a, ITextRangeProvider>>(&self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: Param1, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2880,11 +2981,13 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), endpoint, textrangeprovider.into_param().abi(), targetendpoint, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn ExpandToEnclosingUnit(&self, unit: super::Text::TextUnit) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), unit).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FindAttribute<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, attributeid: i32, value: Param1, backward: bool) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2892,6 +2995,7 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), attributeid, value.into_param().abi(), backward, &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FindText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0, backward: bool, ignorecase: bool) -> ::windows::core::Result<ITextRangeProvider> {
         let this = self;
         unsafe {
@@ -2899,6 +3003,7 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), text.into_param().abi(), backward, ignorecase, &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetAttributeValue(&self, attributeid: i32) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -2906,10 +3011,12 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), attributeid, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetBoundingRectangles(&self, returnvalue: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), returnvalue.set_abi_len(), returnvalue as *mut _ as _).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetEnclosingElement(&self) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = self;
         unsafe {
@@ -2917,6 +3024,7 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IRawElementProviderSimple>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetText(&self, maxlength: i32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2924,6 +3032,7 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), maxlength, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn Move(&self, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2932,6 +3041,7 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn MoveEndpointByUnit(&self, endpoint: super::Text::TextPatternRangeEndpoint, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32> {
         let this = self;
@@ -2940,27 +3050,33 @@ impl ITextRangeProvider {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), endpoint, unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn MoveEndpointByRange<'a, Param1: ::windows::core::IntoParam<'a, ITextRangeProvider>>(&self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: Param1, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), endpoint, textrangeprovider.into_param().abi(), targetendpoint).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Select(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn AddToSelection(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RemoveFromSelection(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ScrollIntoView(&self, aligntotop: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), aligntotop).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetChildren(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = self;
         unsafe {
@@ -3064,10 +3180,12 @@ pub struct ITextRangeProviderVtbl(
 #[repr(transparent)]
 pub struct ITextRangeProvider2(::windows::core::IUnknown);
 impl ITextRangeProvider2 {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ShowContextMenu(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Clone(&self) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3075,6 +3193,7 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Compare<'a, Param0: ::windows::core::IntoParam<'a, ITextRangeProvider>>(&self, textrangeprovider: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3082,6 +3201,7 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), textrangeprovider.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn CompareEndpoints<'a, Param1: ::windows::core::IntoParam<'a, ITextRangeProvider>>(&self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: Param1, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
@@ -3090,11 +3210,13 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), endpoint, textrangeprovider.into_param().abi(), targetendpoint, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn ExpandToEnclosingUnit(&self, unit: super::Text::TextUnit) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), unit).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FindAttribute<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, attributeid: i32, value: Param1, backward: bool) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3102,6 +3224,7 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), attributeid, value.into_param().abi(), backward, &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn FindText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0, backward: bool, ignorecase: bool) -> ::windows::core::Result<ITextRangeProvider> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3109,6 +3232,7 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), text.into_param().abi(), backward, ignorecase, &mut result__).from_abi::<ITextRangeProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetAttributeValue(&self, attributeid: i32) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3116,10 +3240,12 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), attributeid, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetBoundingRectangles(&self, returnvalue: &mut ::windows::core::Array<f64>) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), returnvalue.set_abi_len(), returnvalue as *mut _ as _).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetEnclosingElement(&self) -> ::windows::core::Result<IRawElementProviderSimple> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3127,6 +3253,7 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IRawElementProviderSimple>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetText(&self, maxlength: i32) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3134,6 +3261,7 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), maxlength, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn Move(&self, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
@@ -3142,6 +3270,7 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn MoveEndpointByUnit(&self, endpoint: super::Text::TextPatternRangeEndpoint, unit: super::Text::TextUnit, count: i32) -> ::windows::core::Result<i32> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
@@ -3150,27 +3279,33 @@ impl ITextRangeProvider2 {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), endpoint, unit, count, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider', 'UI_Xaml_Automation_Text'*"]
     #[cfg(feature = "UI_Xaml_Automation_Text")]
     pub fn MoveEndpointByRange<'a, Param1: ::windows::core::IntoParam<'a, ITextRangeProvider>>(&self, endpoint: super::Text::TextPatternRangeEndpoint, textrangeprovider: Param1, targetendpoint: super::Text::TextPatternRangeEndpoint) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), endpoint, textrangeprovider.into_param().abi(), targetendpoint).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Select(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn AddToSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn RemoveFromSelection(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ScrollIntoView(&self, aligntotop: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), aligntotop).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn GetChildren(&self) -> ::windows::core::Result<::windows::core::Array<IRawElementProviderSimple>> {
         let this = &::windows::core::Interface::cast::<ITextRangeProvider>(self)?;
         unsafe {
@@ -3274,6 +3409,7 @@ pub struct ITextRangeProvider2Vtbl(
 #[repr(transparent)]
 pub struct IToggleProvider(::windows::core::IUnknown);
 impl IToggleProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ToggleState(&self) -> ::windows::core::Result<super::ToggleState> {
         let this = self;
         unsafe {
@@ -3281,6 +3417,7 @@ impl IToggleProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ToggleState>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Toggle(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
@@ -3360,6 +3497,7 @@ pub struct IToggleProviderVtbl(
 #[repr(transparent)]
 pub struct ITransformProvider(::windows::core::IUnknown);
 impl ITransformProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanMove(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3367,6 +3505,7 @@ impl ITransformProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanResize(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3374,6 +3513,7 @@ impl ITransformProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanRotate(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3381,14 +3521,17 @@ impl ITransformProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), x, y).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Resize(&self, width: f64, height: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), width, height).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Rotate(&self, degrees: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), degrees).ok() }
@@ -3472,6 +3615,7 @@ pub struct ITransformProviderVtbl(
 #[repr(transparent)]
 pub struct ITransformProvider2(::windows::core::IUnknown);
 impl ITransformProvider2 {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanZoom(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3479,6 +3623,7 @@ impl ITransformProvider2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ZoomLevel(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3486,6 +3631,7 @@ impl ITransformProvider2 {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn MaxZoom(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3493,6 +3639,7 @@ impl ITransformProvider2 {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn MinZoom(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -3500,14 +3647,17 @@ impl ITransformProvider2 {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Zoom(&self, zoom: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), zoom).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn ZoomByUnit(&self, zoomunit: super::ZoomUnit) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), zoomunit).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanMove(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITransformProvider>(self)?;
         unsafe {
@@ -3515,6 +3665,7 @@ impl ITransformProvider2 {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanResize(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITransformProvider>(self)?;
         unsafe {
@@ -3522,6 +3673,7 @@ impl ITransformProvider2 {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn CanRotate(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ITransformProvider>(self)?;
         unsafe {
@@ -3529,14 +3681,17 @@ impl ITransformProvider2 {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Move(&self, x: f64, y: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITransformProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), x, y).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Resize(&self, width: f64, height: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITransformProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), width, height).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Rotate(&self, degrees: f64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ITransformProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), degrees).ok() }
@@ -3642,6 +3797,7 @@ pub struct ITransformProvider2Vtbl(
 #[repr(transparent)]
 pub struct IValueProvider(::windows::core::IUnknown);
 impl IValueProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3649,6 +3805,7 @@ impl IValueProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3656,6 +3813,7 @@ impl IValueProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -3736,6 +3894,7 @@ pub struct IValueProviderVtbl(
 #[repr(transparent)]
 pub struct IVirtualizedItemProvider(::windows::core::IUnknown);
 impl IVirtualizedItemProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Realize(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -3814,6 +3973,7 @@ pub struct IVirtualizedItemProviderVtbl(
 #[repr(transparent)]
 pub struct IWindowProvider(::windows::core::IUnknown);
 impl IWindowProvider {
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn IsModal(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3821,6 +3981,7 @@ impl IWindowProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn IsTopmost(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3828,6 +3989,7 @@ impl IWindowProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Maximizable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3835,6 +3997,7 @@ impl IWindowProvider {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Minimizable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3842,6 +4005,7 @@ impl IWindowProvider {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn InteractionState(&self) -> ::windows::core::Result<super::WindowInteractionState> {
         let this = self;
         unsafe {
@@ -3849,6 +4013,7 @@ impl IWindowProvider {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowInteractionState>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn VisualState(&self) -> ::windows::core::Result<super::WindowVisualState> {
         let this = self;
         unsafe {
@@ -3856,14 +4021,17 @@ impl IWindowProvider {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::WindowVisualState>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn SetVisualState(&self, state: super::WindowVisualState) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), state).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Automation_Provider'*"]
     pub fn WaitForInputIdle(&self, milliseconds: i32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {

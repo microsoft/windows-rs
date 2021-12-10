@@ -3,6 +3,7 @@
 #[repr(transparent)]
 pub struct AppointmentCalendarCancelMeetingRequest(::windows::core::IUnknown);
 impl AppointmentCalendarCancelMeetingRequest {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10,6 +11,7 @@ impl AppointmentCalendarCancelMeetingRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -17,6 +19,7 @@ impl AppointmentCalendarCancelMeetingRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -25,6 +28,7 @@ impl AppointmentCalendarCancelMeetingRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -32,6 +36,7 @@ impl AppointmentCalendarCancelMeetingRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -39,6 +44,7 @@ impl AppointmentCalendarCancelMeetingRequest {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn NotifyInvitees(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -46,6 +52,7 @@ impl AppointmentCalendarCancelMeetingRequest {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -54,6 +61,7 @@ impl AppointmentCalendarCancelMeetingRequest {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -130,6 +138,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequest {}
 #[repr(transparent)]
 pub struct AppointmentCalendarCancelMeetingRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarCancelMeetingRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCancelMeetingRequest> {
         let this = self;
         unsafe {
@@ -137,6 +146,7 @@ impl AppointmentCalendarCancelMeetingRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppointmentCalendarCancelMeetingRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -213,6 +223,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarCancelMeetingRequestEven
 #[repr(transparent)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequest(::windows::core::IUnknown);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -220,6 +231,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Appointment(&self) -> ::windows::core::Result<super::Appointment> {
         let this = self;
         unsafe {
@@ -227,6 +239,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Appointment>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn NotifyInvitees(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -234,6 +247,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ChangedProperties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -242,6 +256,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Appointment>>(&self, createdorupdatedappointment: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -250,6 +265,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequest {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), createdorupdatedappointment.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -326,6 +342,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmen
 #[repr(transparent)]
 pub struct AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<AppointmentCalendarCreateOrUpdateAppointmentRequest> {
         let this = self;
         unsafe {
@@ -333,6 +350,7 @@ impl AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppointmentCalendarCreateOrUpdateAppointmentRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -409,6 +427,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarCreateOrUpdateAppointmen
 #[repr(transparent)]
 pub struct AppointmentCalendarForwardMeetingRequest(::windows::core::IUnknown);
 impl AppointmentCalendarForwardMeetingRequest {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -416,6 +435,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -423,6 +443,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -431,6 +452,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Invitees(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::AppointmentInvitee>> {
         let this = self;
@@ -439,6 +461,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::AppointmentInvitee>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -446,6 +469,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn ForwardHeader(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -453,6 +477,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -460,6 +485,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -468,6 +494,7 @@ impl AppointmentCalendarForwardMeetingRequest {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -544,6 +571,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequest {}
 #[repr(transparent)]
 pub struct AppointmentCalendarForwardMeetingRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarForwardMeetingRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<AppointmentCalendarForwardMeetingRequest> {
         let this = self;
         unsafe {
@@ -551,6 +579,7 @@ impl AppointmentCalendarForwardMeetingRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppointmentCalendarForwardMeetingRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -627,6 +656,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarForwardMeetingRequestEve
 #[repr(transparent)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequest(::windows::core::IUnknown);
 impl AppointmentCalendarProposeNewTimeForMeetingRequest {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -634,6 +664,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -641,6 +672,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -649,6 +681,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn NewStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -657,6 +690,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn NewDuration(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -665,6 +699,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -672,6 +707,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -679,6 +715,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -687,6 +724,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequest {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -763,6 +801,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeeting
 #[repr(transparent)]
 pub struct AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<AppointmentCalendarProposeNewTimeForMeetingRequest> {
         let this = self;
         unsafe {
@@ -770,6 +809,7 @@ impl AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppointmentCalendarProposeNewTimeForMeetingRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -846,6 +886,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarProposeNewTimeForMeeting
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManagerSyncRequest(::windows::core::IUnknown);
 impl AppointmentCalendarSyncManagerSyncRequest {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -853,6 +894,7 @@ impl AppointmentCalendarSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -861,6 +903,7 @@ impl AppointmentCalendarSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -937,6 +980,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequest {
 #[repr(transparent)]
 pub struct AppointmentCalendarSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<AppointmentCalendarSyncManagerSyncRequest> {
         let this = self;
         unsafe {
@@ -944,6 +988,7 @@ impl AppointmentCalendarSyncManagerSyncRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppointmentCalendarSyncManagerSyncRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1020,6 +1065,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarSyncManagerSyncRequestEv
 #[repr(transparent)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequest(::windows::core::IUnknown);
 impl AppointmentCalendarUpdateMeetingResponseRequest {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentCalendarLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1027,6 +1073,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn AppointmentLocalId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1034,6 +1081,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AppointmentOriginalStartTime(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>> {
         let this = self;
@@ -1042,6 +1090,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::DateTime>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Response(&self) -> ::windows::core::Result<super::AppointmentParticipantResponse> {
         let this = self;
         unsafe {
@@ -1049,6 +1098,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::AppointmentParticipantResponse>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Subject(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1056,6 +1106,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1063,6 +1114,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn SendUpdate(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1070,6 +1122,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1078,6 +1131,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequest {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1154,6 +1208,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseReq
 #[repr(transparent)]
 pub struct AppointmentCalendarUpdateMeetingResponseRequestEventArgs(::windows::core::IUnknown);
 impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<AppointmentCalendarUpdateMeetingResponseRequest> {
         let this = self;
         unsafe {
@@ -1161,6 +1216,7 @@ impl AppointmentCalendarUpdateMeetingResponseRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppointmentCalendarUpdateMeetingResponseRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -1237,6 +1293,7 @@ unsafe impl ::core::marker::Sync for AppointmentCalendarUpdateMeetingResponseReq
 #[repr(transparent)]
 pub struct AppointmentDataProviderConnection(::windows::core::IUnknown);
 impl AppointmentDataProviderConnection {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarSyncManagerSyncRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1245,11 +1302,13 @@ impl AppointmentDataProviderConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateOrUpdateAppointmentRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCreateOrUpdateAppointmentRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1258,11 +1317,13 @@ impl AppointmentDataProviderConnection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCreateOrUpdateAppointmentRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CancelMeetingRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarCancelMeetingRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1271,11 +1332,13 @@ impl AppointmentDataProviderConnection {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCancelMeetingRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ForwardMeetingRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarForwardMeetingRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1284,11 +1347,13 @@ impl AppointmentDataProviderConnection {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveForwardMeetingRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ProposeNewTimeForMeetingRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarProposeNewTimeForMeetingRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1297,11 +1362,13 @@ impl AppointmentDataProviderConnection {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProposeNewTimeForMeetingRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateMeetingResponseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<AppointmentDataProviderConnection, AppointmentCalendarUpdateMeetingResponseRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1310,11 +1377,13 @@ impl AppointmentDataProviderConnection {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdateMeetingResponseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this)).ok() }
@@ -1387,6 +1456,7 @@ unsafe impl ::core::marker::Sync for AppointmentDataProviderConnection {}
 #[repr(transparent)]
 pub struct AppointmentDataProviderTriggerDetails(::windows::core::IUnknown);
 impl AppointmentDataProviderTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Appointments_DataProvider'*"]
     pub fn Connection(&self) -> ::windows::core::Result<AppointmentDataProviderConnection> {
         let this = self;
         unsafe {

@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub struct BackgroundEnergyDiagnostics {}
 impl BackgroundEnergyDiagnostics {
+    #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -8,6 +9,7 @@ impl BackgroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -15,6 +17,7 @@ impl BackgroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
@@ -29,6 +32,7 @@ impl ::windows::core::RuntimeName for BackgroundEnergyDiagnostics {
 }
 pub struct ForegroundEnergyDiagnostics {}
 impl ForegroundEnergyDiagnostics {
+    #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn DeviceSpecificConversionFactor() -> ::windows::core::Result<f64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -36,6 +40,7 @@ impl ForegroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn ComputeTotalEnergyUsage() -> ::windows::core::Result<u64> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe {
@@ -43,6 +48,7 @@ impl ForegroundEnergyDiagnostics {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })

@@ -901,24 +901,31 @@ impl ::core::default::Default for D2D_VECTOR_4F {
 #[repr(transparent)]
 pub struct ID2D1SimplifiedGeometrySink(::windows::core::IUnknown);
 impl ID2D1SimplifiedGeometrySink {
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn SetFillMode(&self, fillmode: D2D1_FILL_MODE) {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(fillmode))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn SetSegmentFlags(&self, vertexflags: D2D1_PATH_SEGMENT) {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(vertexflags))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn BeginFigure<'a, Param0: ::windows::core::IntoParam<'a, D2D_POINT_2F>>(&self, startpoint: Param0, figurebegin: D2D1_FIGURE_BEGIN) {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), startpoint.into_param().abi(), ::core::mem::transmute(figurebegin))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn AddLines(&self, points: *const D2D_POINT_2F, pointscount: u32) {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(points), ::core::mem::transmute(pointscount))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn AddBeziers(&self, beziers: *const D2D1_BEZIER_SEGMENT, bezierscount: u32) {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(beziers), ::core::mem::transmute(bezierscount))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn EndFigure(&self, figureend: D2D1_FIGURE_END) {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(figureend))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct2D_Common'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }
