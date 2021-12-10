@@ -84,9 +84,9 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
     };
 
     tokens.combine(&gen_struct_constants(def, &name, &cfg, gen));
-    tokens.combine(&gen_copy_clone(def, &name, gen, &cfg));
-    tokens.combine(&gen_windows_traits(def, &name, gen, &cfg));
-    tokens.combine(&gen_compare_traits(def, &name, gen, &cfg));
+    tokens.combine(&gen_copy_clone(def, &name, &cfg, gen));
+    tokens.combine(&gen_windows_traits(def, &name, &cfg, gen));
+    tokens.combine(&gen_compare_traits(def, &name, &cfg, gen));
 
     if !gen.sys {
         tokens.combine(&quote! {
@@ -111,7 +111,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
     tokens
 }
 
-fn gen_windows_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, cfg: &Cfg) -> TokenStream {
+fn gen_windows_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
     if gen.sys {
         quote! {}
     } else {
@@ -149,7 +149,7 @@ fn gen_windows_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, cfg: &Cfg) -
     }
 }
 
-fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, cfg: &Cfg) -> TokenStream {
+fn gen_compare_traits(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let cfg = cfg.gen(gen);
 
     if gen.sys {
@@ -197,7 +197,7 @@ fn gen_compare_traits(def: &TypeDef, name: &TokenStream, gen: &Gen, cfg: &Cfg) -
     }
 }
 
-fn gen_copy_clone(def: &TypeDef, name: &TokenStream, gen: &Gen, cfg: &Cfg) -> TokenStream {
+fn gen_copy_clone(def: &TypeDef, name: &TokenStream, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let cfg = cfg.gen(gen);
 
     if gen.sys || def.is_blittable() {

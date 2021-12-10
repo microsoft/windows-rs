@@ -4,7 +4,7 @@ pub fn gen_async(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let kind = def.async_kind();
 
     if kind != AsyncKind::None {
-        return gen_async_kind(kind, def, def, gen, cfg);
+        return gen_async_kind(kind, def, def, cfg, gen);
     }
 
     let interfaces = if def.kind() == TypeKind::Class { def.class_interfaces().iter().map(|(def, _)| def.clone()).collect() } else { def.required_interfaces() };
@@ -13,14 +13,14 @@ pub fn gen_async(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
         let kind = interface.async_kind();
 
         if kind != AsyncKind::None {
-            return gen_async_kind(kind, &interface, def, gen, cfg);
+            return gen_async_kind(kind, &interface, def, cfg, gen);
         }
     }
 
     quote! {}
 }
 
-fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, gen: &Gen, cfg: &Cfg) -> TokenStream {
+fn gen_async_kind(kind: AsyncKind, name: &TypeDef, self_name: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let return_sig = match kind {
         AsyncKind::Operation | AsyncKind::OperationWithProgress => gen_element_name(&name.generics[0], gen),
         _ => quote! { () },
