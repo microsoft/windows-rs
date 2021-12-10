@@ -172,6 +172,7 @@ pub struct IPlaceInfoHelperStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 pub struct LocalCategories {}
 impl LocalCategories {
     #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
@@ -230,6 +231,7 @@ impl LocalCategories {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ILocalCategoriesStatics<R, F: FnOnce(&ILocalCategoriesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LocalCategories, ILocalCategoriesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -388,6 +390,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
 }
 unsafe impl ::core::marker::Send for LocalLocation {}
 unsafe impl ::core::marker::Sync for LocalLocation {}
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 pub struct LocalLocationFinder {}
 impl LocalLocationFinder {
     #[doc = "*Required features: 'Services_Maps_LocalSearch', 'Devices_Geolocation', 'Foundation'*"]
@@ -398,6 +401,7 @@ impl LocalLocationFinder {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), searchterm.into_param().abi(), searcharea.into_param().abi(), localcategory.into_param().abi(), maxresults, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<LocalLocationFinderResult>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ILocalLocationFinderStatics<R, F: FnOnce(&ILocalLocationFinderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LocalLocationFinder, ILocalLocationFinderStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -714,6 +718,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Loca
 }
 unsafe impl ::core::marker::Send for LocalLocationRatingInfo {}
 unsafe impl ::core::marker::Sync for LocalLocationRatingInfo {}
+#[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
 pub struct PlaceInfoHelper {}
 impl PlaceInfoHelper {
     #[doc = "*Required features: 'Services_Maps_LocalSearch'*"]
@@ -723,6 +728,7 @@ impl PlaceInfoHelper {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), location.into_param().abi(), &mut result__).from_abi::<super::PlaceInfo>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPlaceInfoHelperStatics<R, F: FnOnce(&IPlaceInfoHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlaceInfoHelper, IPlaceInfoHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

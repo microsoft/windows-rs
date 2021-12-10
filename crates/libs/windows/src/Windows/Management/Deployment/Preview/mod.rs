@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Management_Deployment_Preview'*"]
 pub struct ClassicAppManager {}
 impl ClassicAppManager {
     #[doc = "*Required features: 'Management_Deployment_Preview'*"]
@@ -8,6 +9,7 @@ impl ClassicAppManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), appuninstallkey.into_param().abi(), &mut result__).from_abi::<InstalledClassicAppInfo>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IClassicAppManagerStatics<R, F: FnOnce(&IClassicAppManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ClassicAppManager, IClassicAppManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

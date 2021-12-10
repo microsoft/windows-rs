@@ -1580,6 +1580,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoImportItemSelectionMode {
 impl ::windows::core::DefaultType for PhotoImportItemSelectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_Import'*"]
 pub struct PhotoImportManager {}
 impl PhotoImportManager {
     #[doc = "*Required features: 'Media_Import', 'Foundation'*"]
@@ -1606,6 +1607,7 @@ impl PhotoImportManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PhotoImportOperation>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPhotoImportManagerStatics<R, F: FnOnce(&IPhotoImportManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhotoImportManager, IPhotoImportManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2324,6 +2326,7 @@ impl PhotoImportSource {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), sourcerootfolder.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PhotoImportSource>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPhotoImportSourceStatics<R, F: FnOnce(&IPhotoImportSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PhotoImportSource, IPhotoImportSourceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

@@ -299,6 +299,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &Docume
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 pub struct GeotagHelper {}
 impl GeotagHelper {
     #[doc = "*Required features: 'Storage_FileProperties', 'Devices_Geolocation', 'Foundation'*"]
@@ -325,6 +326,7 @@ impl GeotagHelper {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), file.into_param().abi(), geopoint.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeotagHelper, IGeotagHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
 pub struct CommunicationBlockingAccessManager {}
 impl CommunicationBlockingAccessManager {
     #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
@@ -40,6 +41,7 @@ impl CommunicationBlockingAccessManager {
     pub fn ShowBlockedMessagesUI() -> ::windows::core::Result<()> {
         Self::ICommunicationBlockingAccessManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc(hidden)]
     pub fn ICommunicationBlockingAccessManagerStatics<R, F: FnOnce(&ICommunicationBlockingAccessManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CommunicationBlockingAccessManager, ICommunicationBlockingAccessManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -48,6 +50,7 @@ impl CommunicationBlockingAccessManager {
 impl ::windows::core::RuntimeName for CommunicationBlockingAccessManager {
     const NAME: &'static str = "Windows.ApplicationModel.CommunicationBlocking.CommunicationBlockingAccessManager";
 }
+#[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
 pub struct CommunicationBlockingAppManager {}
 impl CommunicationBlockingAppManager {
     #[doc = "*Required features: 'ApplicationModel_CommunicationBlocking'*"]
@@ -69,10 +72,12 @@ impl CommunicationBlockingAppManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICommunicationBlockingAppManagerStatics<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CommunicationBlockingAppManager, ICommunicationBlockingAppManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ICommunicationBlockingAppManagerStatics2<R, F: FnOnce(&ICommunicationBlockingAppManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CommunicationBlockingAppManager, ICommunicationBlockingAppManagerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

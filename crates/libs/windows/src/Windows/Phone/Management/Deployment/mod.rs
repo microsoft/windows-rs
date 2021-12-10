@@ -117,6 +117,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ente
 }
 unsafe impl ::core::marker::Send for Enterprise {}
 unsafe impl ::core::marker::Sync for Enterprise {}
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 pub struct EnterpriseEnrollmentManager {}
 impl EnterpriseEnrollmentManager {
     #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation_Collections'*"]
@@ -158,6 +159,7 @@ impl EnterpriseEnrollmentManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), enterprise.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IEnterpriseEnrollmentManager<R, F: FnOnce(&IEnterpriseEnrollmentManager) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EnterpriseEnrollmentManager, IEnterpriseEnrollmentManager> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -465,6 +467,7 @@ pub struct IPackageInstallResult2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Phone_Management_Deployment'*"]
 pub struct InstallationManager {}
 impl InstallationManager {
     #[doc = "*Required features: 'Phone_Management_Deployment', 'Foundation'*"]
@@ -531,10 +534,12 @@ impl InstallationManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), packagename.into_param().abi(), packagepublisher.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::Collections::IIterable<super::super::super::ApplicationModel::Package>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IInstallationManagerStatics<R, F: FnOnce(&IInstallationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InstallationManager, IInstallationManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IInstallationManagerStatics2<R, F: FnOnce(&IInstallationManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InstallationManager, IInstallationManagerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

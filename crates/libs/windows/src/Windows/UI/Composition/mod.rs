@@ -487,6 +487,7 @@ impl AnimationController {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertyname.into_param().abi(), &mut result__).from_abi::<AnimationController>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn IAnimationControllerStatics<R, F: FnOnce(&IAnimationControllerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AnimationController, IAnimationControllerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -6044,6 +6045,7 @@ impl CompositionCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CompositionCapabilities>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICompositionCapabilitiesStatics<R, F: FnOnce(&ICompositionCapabilitiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositionCapabilities, ICompositionCapabilitiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -8418,6 +8420,7 @@ impl CompositionEasingFunction {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertyname.into_param().abi(), &mut result__).from_abi::<AnimationController>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn ICompositionEasingFunctionStatics<R, F: FnOnce(&ICompositionEasingFunctionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositionEasingFunction, ICompositionEasingFunctionStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -9159,6 +9162,7 @@ impl CompositionEffectSourceParameter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<CompositionEffectSourceParameter>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICompositionEffectSourceParameterFactory<R, F: FnOnce(&ICompositionEffectSourceParameterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositionEffectSourceParameter, ICompositionEffectSourceParameterFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13160,6 +13164,7 @@ impl CompositionObject {
     pub fn StartAnimationGroupWithIAnimationObject<'a, Param0: ::windows::core::IntoParam<'a, IAnimationObject>, Param1: ::windows::core::IntoParam<'a, ICompositionAnimationBase>>(target: Param0, animation: Param1) -> ::windows::core::Result<()> {
         Self::ICompositionObjectStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), target.into_param().abi(), animation.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
     pub fn ICompositionObjectStatics<R, F: FnOnce(&ICompositionObjectStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositionObject, ICompositionObjectStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13288,6 +13293,7 @@ impl CompositionPath {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), source.into_param().abi(), &mut result__).from_abi::<CompositionPath>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICompositionPathFactory<R, F: FnOnce(&ICompositionPathFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositionPath, ICompositionPathFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14410,6 +14416,7 @@ impl CompositionProjectedShadowCasterCollection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IIterator<CompositionProjectedShadowCaster>>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn ICompositionProjectedShadowCasterCollectionStatics<R, F: FnOnce(&ICompositionProjectedShadowCasterCollectionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CompositionProjectedShadowCasterCollection, ICompositionProjectedShadowCasterCollectionStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -21451,6 +21458,7 @@ impl Compositor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CompositionVisualSurface>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn ICompositorStatics<R, F: FnOnce(&ICompositorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Compositor, ICompositorStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -22828,6 +22836,7 @@ impl DelegatedInkTrailVisual {
         let this = &::windows::core::Interface::cast::<IVisual4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc(hidden)]
     pub fn IDelegatedInkTrailVisualStatics<R, F: FnOnce(&IDelegatedInkTrailVisualStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DelegatedInkTrailVisual, IDelegatedInkTrailVisualStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

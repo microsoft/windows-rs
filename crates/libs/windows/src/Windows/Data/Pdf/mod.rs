@@ -193,6 +193,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), inputstream.into_param().abi(), password.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPdfDocumentStatics<R, F: FnOnce(&IPdfDocumentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PdfDocument, IPdfDocumentStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

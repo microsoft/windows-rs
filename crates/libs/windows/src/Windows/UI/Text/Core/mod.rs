@@ -1510,6 +1510,7 @@ unsafe impl ::windows::core::RuntimeType for CoreTextSelectionUpdatingResult {
 impl ::windows::core::DefaultType for CoreTextSelectionUpdatingResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 pub struct CoreTextServicesConstants {}
 impl CoreTextServicesConstants {
     #[doc = "*Required features: 'UI_Text_Core'*"]
@@ -1519,6 +1520,7 @@ impl CoreTextServicesConstants {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICoreTextServicesStatics<R, F: FnOnce(&ICoreTextServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CoreTextServicesConstants, ICoreTextServicesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1570,6 +1572,7 @@ impl CoreTextServicesManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CoreTextServicesManager>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICoreTextServicesManagerStatics<R, F: FnOnce(&ICoreTextServicesManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CoreTextServicesManager, ICoreTextServicesManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

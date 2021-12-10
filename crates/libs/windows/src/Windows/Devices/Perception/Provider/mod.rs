@@ -699,7 +699,10 @@ pub struct IPerceptionVideoFrameAllocatorFactoryVtbl(
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxoutstandingframecountforwrite: u32, format: super::super::super::Graphics::Imaging::BitmapPixelFormat, resolution: super::super::super::Foundation::Size, alpha: super::super::super::Graphics::Imaging::BitmapAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownPerceptionFrameKind {}
+#[cfg(feature = "deprecated")]
 impl KnownPerceptionFrameKind {
     #[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -725,11 +728,14 @@ impl KnownPerceptionFrameKind {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionFrameKindStatics<R, F: FnOnce(&IKnownPerceptionFrameKindStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionFrameKind, IKnownPerceptionFrameKindStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownPerceptionFrameKind {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.KnownPerceptionFrameKind";
 }
@@ -756,6 +762,8 @@ impl PerceptionControlGroup {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ids.into_param().abi(), &mut result__).from_abi::<PerceptionControlGroup>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionControlGroupFactory<R, F: FnOnce(&IPerceptionControlGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionControlGroup, IPerceptionControlGroupFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -881,6 +889,8 @@ impl PerceptionCorrelation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), targetid.into_param().abi(), position.into_param().abi(), orientation.into_param().abi(), &mut result__).from_abi::<PerceptionCorrelation>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionCorrelationFactory<R, F: FnOnce(&IPerceptionCorrelationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionCorrelation, IPerceptionCorrelationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -988,6 +998,8 @@ impl PerceptionCorrelationGroup {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), relativelocations.into_param().abi(), &mut result__).from_abi::<PerceptionCorrelationGroup>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionCorrelationGroupFactory<R, F: FnOnce(&IPerceptionCorrelationGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionCorrelationGroup, IPerceptionCorrelationGroupFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1095,6 +1107,8 @@ impl PerceptionFaceAuthenticationGroup {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ids.into_param().abi(), starthandler.into_param().abi(), stophandler.into_param().abi(), &mut result__).from_abi::<PerceptionFaceAuthenticationGroup>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionFaceAuthenticationGroupFactory<R, F: FnOnce(&IPerceptionFaceAuthenticationGroupFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionFaceAuthenticationGroup, IPerceptionFaceAuthenticationGroupFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1466,7 +1480,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 unsafe impl ::core::marker::Send for PerceptionFrameProviderInfo {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for PerceptionFrameProviderInfo {}
+#[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct PerceptionFrameProviderManagerService {}
+#[cfg(feature = "deprecated")]
 impl PerceptionFrameProviderManagerService {
     #[doc = "*Required features: 'Devices_Perception_Provider', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1518,11 +1535,14 @@ impl PerceptionFrameProviderManagerService {
     pub fn PublishFrameForProvider<'a, Param0: ::windows::core::IntoParam<'a, IPerceptionFrameProvider>, Param1: ::windows::core::IntoParam<'a, PerceptionFrame>>(provider: Param0, frame: Param1) -> ::windows::core::Result<()> {
         Self::IPerceptionFrameProviderManagerServiceStatics(|this| unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), provider.into_param().abi(), frame.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionFrameProviderManagerServiceStatics<R, F: FnOnce(&IPerceptionFrameProviderManagerServiceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionFrameProviderManagerService, IPerceptionFrameProviderManagerServiceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for PerceptionFrameProviderManagerService {
     const NAME: &'static str = "Windows.Devices.Perception.Provider.PerceptionFrameProviderManagerService";
 }
@@ -1876,6 +1896,8 @@ impl PerceptionVideoFrameAllocator {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), maxoutstandingframecountforwrite, format, resolution.into_param().abi(), alpha, &mut result__).from_abi::<PerceptionVideoFrameAllocator>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionVideoFrameAllocatorFactory<R, F: FnOnce(&IPerceptionVideoFrameAllocatorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionVideoFrameAllocator, IPerceptionVideoFrameAllocatorFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

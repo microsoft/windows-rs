@@ -20,6 +20,7 @@ pub struct IInputActivationListenerPreviewStaticsVtbl(
     #[cfg(feature = "UI_WindowManagement")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, window: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_WindowManagement"))] usize,
 );
+#[doc = "*Required features: 'UI_Input_Preview'*"]
 pub struct InputActivationListenerPreview {}
 impl InputActivationListenerPreview {
     #[doc = "*Required features: 'UI_Input_Preview', 'UI_WindowManagement'*"]
@@ -30,6 +31,7 @@ impl InputActivationListenerPreview {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), window.into_param().abi(), &mut result__).from_abi::<super::InputActivationListener>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IInputActivationListenerPreviewStatics<R, F: FnOnce(&IInputActivationListenerPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<InputActivationListenerPreview, IInputActivationListenerPreviewStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

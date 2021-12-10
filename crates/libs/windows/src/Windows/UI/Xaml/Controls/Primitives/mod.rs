@@ -501,6 +501,7 @@ impl ButtonBase {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IButtonBaseStatics<R, F: FnOnce(&IButtonBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ButtonBase, IButtonBaseStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1377,6 +1378,7 @@ impl CarouselPanel {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), orientation, alignment, offset, &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn ICarouselPanelFactory<R, F: FnOnce(&ICarouselPanelFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CarouselPanel, ICarouselPanelFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1650,10 +1652,12 @@ impl ColorPickerSlider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IColorPickerSliderFactory<R, F: FnOnce(&IColorPickerSliderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorPickerSlider, IColorPickerSliderFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IColorPickerSliderStatics<R, F: FnOnce(&IColorPickerSliderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorPickerSlider, IColorPickerSliderStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2122,10 +2126,12 @@ impl ColorSpectrum {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IColorSpectrumFactory<R, F: FnOnce(&IColorSpectrumFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorSpectrum, IColorSpectrumFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IColorSpectrumStatics<R, F: FnOnce(&IColorSpectrumStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorSpectrum, IColorSpectrumStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2473,6 +2479,7 @@ impl CommandBarFlyoutCommandBar {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CommandBarFlyoutCommandBar>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICommandBarFlyoutCommandBarFactory<R, F: FnOnce(&ICommandBarFlyoutCommandBarFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CommandBarFlyoutCommandBar, ICommandBarFlyoutCommandBarFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3231,6 +3238,7 @@ impl DragCompletedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, canceled, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragCompletedEventArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDragCompletedEventArgsFactory<R, F: FnOnce(&IDragCompletedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DragCompletedEventArgs, IDragCompletedEventArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3416,6 +3424,7 @@ impl DragDeltaEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), horizontalchange, verticalchange, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragDeltaEventArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDragDeltaEventArgsFactory<R, F: FnOnce(&IDragDeltaEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DragDeltaEventArgs, IDragDeltaEventArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3601,6 +3610,7 @@ impl DragStartedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), horizontaloffset, verticaloffset, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DragStartedEventArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDragStartedEventArgsFactory<R, F: FnOnce(&IDragStartedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DragStartedEventArgs, IDragStartedEventArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4142,22 +4152,27 @@ impl FlyoutBase {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFlyoutBaseStatics<R, F: FnOnce(&IFlyoutBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFlyoutBaseStatics2<R, F: FnOnce(&IFlyoutBaseStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFlyoutBaseStatics3<R, F: FnOnce(&IFlyoutBaseStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFlyoutBaseStatics5<R, F: FnOnce(&IFlyoutBaseStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics5> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFlyoutBaseStatics6<R, F: FnOnce(&IFlyoutBaseStatics6) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlyoutBase, IFlyoutBaseStatics6> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4464,6 +4479,7 @@ impl FlyoutShowOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlyoutShowOptions>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFlyoutShowOptionsFactory<R, F: FnOnce(&IFlyoutShowOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlyoutShowOptions, IFlyoutShowOptionsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4603,6 +4619,7 @@ impl GeneratorPositionHelper {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), index, offset, &mut result__).from_abi::<GeneratorPosition>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGeneratorPositionHelperStatics<R, F: FnOnce(&IGeneratorPositionHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeneratorPositionHelper, IGeneratorPositionHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5155,10 +5172,12 @@ impl GridViewItemPresenter {
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGridViewItemPresenterFactory<R, F: FnOnce(&IGridViewItemPresenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GridViewItemPresenter, IGridViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IGridViewItemPresenterStatics<R, F: FnOnce(&IGridViewItemPresenterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GridViewItemPresenter, IGridViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -9013,6 +9032,7 @@ impl JumpListItemBackgroundConverter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn IJumpListItemBackgroundConverterStatics<R, F: FnOnce(&IJumpListItemBackgroundConverterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<JumpListItemBackgroundConverter, IJumpListItemBackgroundConverterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -9200,6 +9220,7 @@ impl JumpListItemForegroundConverter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi(), targettype.into_param().abi(), parameter.into_param().abi(), language.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn IJumpListItemForegroundConverterStatics<R, F: FnOnce(&IJumpListItemForegroundConverterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<JumpListItemForegroundConverter, IJumpListItemForegroundConverterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -9341,10 +9362,12 @@ impl LayoutInformation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::Size>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ILayoutInformationStatics<R, F: FnOnce(&ILayoutInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LayoutInformation, ILayoutInformationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ILayoutInformationStatics2<R, F: FnOnce(&ILayoutInformationStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LayoutInformation, ILayoutInformationStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -10697,22 +10720,27 @@ impl ListViewItemPresenter {
             (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IListViewItemPresenterFactory<R, F: FnOnce(&IListViewItemPresenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IListViewItemPresenterStatics<R, F: FnOnce(&IListViewItemPresenterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IListViewItemPresenterStatics2<R, F: FnOnce(&IListViewItemPresenterStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IListViewItemPresenterStatics3<R, F: FnOnce(&IListViewItemPresenterStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IListViewItemPresenterStatics4<R, F: FnOnce(&IListViewItemPresenterStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewItemPresenter, IListViewItemPresenterStatics4> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11226,6 +11254,7 @@ impl LoopingSelector {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ILoopingSelectorStatics<R, F: FnOnce(&ILoopingSelectorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LoopingSelector, ILoopingSelectorStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12173,10 +12202,12 @@ impl NavigationViewItemPresenter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn INavigationViewItemPresenterFactory<R, F: FnOnce(&INavigationViewItemPresenterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NavigationViewItemPresenter, INavigationViewItemPresenterFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn INavigationViewItemPresenterStatics<R, F: FnOnce(&INavigationViewItemPresenterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NavigationViewItemPresenter, INavigationViewItemPresenterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12918,6 +12949,7 @@ impl PickerFlyoutBase {
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, super::super::DependencyObject>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(element: Param0, value: Param1) -> ::windows::core::Result<()> {
         Self::IPickerFlyoutBaseStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), value.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
     pub fn IPickerFlyoutBaseStatics<R, F: FnOnce(&IPickerFlyoutBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PickerFlyoutBase, IPickerFlyoutBaseStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13037,6 +13069,7 @@ impl PivotHeaderItem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PivotHeaderItem>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPivotHeaderItemFactory<R, F: FnOnce(&IPivotHeaderItemFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PivotHeaderItem, IPivotHeaderItemFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14081,18 +14114,22 @@ impl Popup {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPopupStatics<R, F: FnOnce(&IPopupStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPopupStatics2<R, F: FnOnce(&IPopupStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPopupStatics3<R, F: FnOnce(&IPopupStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPopupStatics4<R, F: FnOnce(&IPopupStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Popup, IPopupStatics4> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14687,6 +14724,7 @@ impl RangeBase {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRangeBaseStatics<R, F: FnOnce(&IRangeBaseStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RangeBase, IRangeBaseStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15112,6 +15150,7 @@ impl RepeatButton {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRepeatButtonStatics<R, F: FnOnce(&IRepeatButtonStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RepeatButton, IRepeatButtonStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15438,6 +15477,7 @@ impl ScrollBar {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IScrollBarStatics<R, F: FnOnce(&IScrollBarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScrollBar, IScrollBarStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16031,6 +16071,7 @@ impl Selector {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISelectorStatics<R, F: FnOnce(&ISelectorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Selector, ISelectorStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16297,6 +16338,7 @@ impl SelectorItem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISelectorItemStatics<R, F: FnOnce(&ISelectorItemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SelectorItem, ISelectorItemStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16927,6 +16969,7 @@ impl Thumb {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IThumbStatics<R, F: FnOnce(&IThumbStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Thumb, IThumbStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17160,6 +17203,7 @@ impl TickBar {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITickBarStatics<R, F: FnOnce(&ITickBarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TickBar, ITickBarStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17469,10 +17513,12 @@ impl ToggleButton {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IToggleButtonFactory<R, F: FnOnce(&IToggleButtonFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ToggleButton, IToggleButtonFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IToggleButtonStatics<R, F: FnOnce(&IToggleButtonStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ToggleButton, IToggleButtonStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

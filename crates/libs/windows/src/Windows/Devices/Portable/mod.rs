@@ -38,6 +38,7 @@ pub struct IStorageDeviceStaticsVtbl(
     #[cfg(not(feature = "Storage"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_Portable'*"]
 pub struct ServiceDevice {}
 impl ServiceDevice {
     #[doc = "*Required features: 'Devices_Portable'*"]
@@ -54,6 +55,7 @@ impl ServiceDevice {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), serviceid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IServiceDeviceStatics<R, F: FnOnce(&IServiceDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ServiceDevice, IServiceDeviceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -95,6 +97,7 @@ unsafe impl ::windows::core::RuntimeType for ServiceDeviceType {
 impl ::windows::core::DefaultType for ServiceDeviceType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Portable'*"]
 pub struct StorageDevice {}
 impl StorageDevice {
     #[doc = "*Required features: 'Devices_Portable', 'Storage'*"]
@@ -112,6 +115,7 @@ impl StorageDevice {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageDeviceStatics<R, F: FnOnce(&IStorageDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageDevice, IStorageDeviceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

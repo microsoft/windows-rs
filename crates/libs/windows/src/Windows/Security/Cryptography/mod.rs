@@ -34,6 +34,7 @@ unsafe impl ::windows::core::RuntimeType for BinaryStringEncoding {
 impl ::windows::core::DefaultType for BinaryStringEncoding {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Cryptography'*"]
 pub struct CryptographicBuffer {}
 impl CryptographicBuffer {
     #[doc = "*Required features: 'Security_Cryptography', 'Storage_Streams'*"]
@@ -120,6 +121,7 @@ impl CryptographicBuffer {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), encoding, buffer.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICryptographicBufferStatics<R, F: FnOnce(&ICryptographicBufferStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CryptographicBuffer, ICryptographicBufferStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

@@ -1226,6 +1226,8 @@ impl PlayToManager {
     pub fn ShowPlayToUI() -> ::windows::core::Result<()> {
         Self::IPlayToManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPlayToManagerStatics<R, F: FnOnce(&IPlayToManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlayToManager, IPlayToManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

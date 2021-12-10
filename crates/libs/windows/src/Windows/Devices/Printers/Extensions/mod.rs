@@ -560,6 +560,7 @@ unsafe impl ::windows::core::RuntimeType for Print3DWorkflowStatus {
 impl ::windows::core::DefaultType for Print3DWorkflowStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Printers_Extensions'*"]
 pub struct PrintExtensionContext {}
 impl PrintExtensionContext {
     #[doc = "*Required features: 'Devices_Printers_Extensions'*"]
@@ -569,6 +570,7 @@ impl PrintExtensionContext {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPrintExtensionContextStatic<R, F: FnOnce(&IPrintExtensionContextStatic) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PrintExtensionContext, IPrintExtensionContextStatic> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

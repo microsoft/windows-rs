@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Embedded_DeviceLockdown'*"]
 pub struct DeviceLockdownProfile {}
 impl DeviceLockdownProfile {
     #[doc = "*Required features: 'Embedded_DeviceLockdown', 'Foundation_Collections'*"]
@@ -31,6 +32,7 @@ impl DeviceLockdownProfile {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), profileid.into_param().abi(), &mut result__).from_abi::<DeviceLockdownProfileInformation>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDeviceLockdownProfileStatics<R, F: FnOnce(&IDeviceLockdownProfileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DeviceLockdownProfile, IDeviceLockdownProfileStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

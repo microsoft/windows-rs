@@ -178,6 +178,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Perc
 }
 unsafe impl ::core::marker::Send for PerceptionTimestamp {}
 unsafe impl ::core::marker::Sync for PerceptionTimestamp {}
+#[doc = "*Required features: 'Perception'*"]
 pub struct PerceptionTimestampHelper {}
 impl PerceptionTimestampHelper {
     #[doc = "*Required features: 'Perception', 'Foundation'*"]
@@ -196,10 +197,12 @@ impl PerceptionTimestampHelper {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), targettime.into_param().abi(), &mut result__).from_abi::<PerceptionTimestamp>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPerceptionTimestampHelperStatics<R, F: FnOnce(&IPerceptionTimestampHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPerceptionTimestampHelperStatics2<R, F: FnOnce(&IPerceptionTimestampHelperStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionTimestampHelper, IPerceptionTimestampHelperStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

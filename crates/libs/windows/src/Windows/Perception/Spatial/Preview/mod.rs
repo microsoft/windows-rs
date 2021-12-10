@@ -158,6 +158,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Spat
 }
 unsafe impl ::core::marker::Send for SpatialGraphInteropFrameOfReferencePreview {}
 unsafe impl ::core::marker::Sync for SpatialGraphInteropFrameOfReferencePreview {}
+#[doc = "*Required features: 'Perception_Spatial_Preview'*"]
 pub struct SpatialGraphInteropPreview {}
 impl SpatialGraphInteropPreview {
     #[doc = "*Required features: 'Perception_Spatial_Preview'*"]
@@ -213,10 +214,12 @@ impl SpatialGraphInteropPreview {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), coordinatesystem.into_param().abi(), relativeposition.into_param().abi(), relativeorientation.into_param().abi(), &mut result__).from_abi::<SpatialGraphInteropFrameOfReferencePreview>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISpatialGraphInteropPreviewStatics<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ISpatialGraphInteropPreviewStatics2<R, F: FnOnce(&ISpatialGraphInteropPreviewStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SpatialGraphInteropPreview, ISpatialGraphInteropPreviewStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

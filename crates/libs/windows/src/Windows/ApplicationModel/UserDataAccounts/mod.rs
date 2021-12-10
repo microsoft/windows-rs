@@ -568,6 +568,7 @@ unsafe impl ::windows::core::RuntimeType for UserDataAccountContentKinds {
 impl ::windows::core::DefaultType for UserDataAccountContentKinds {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 pub struct UserDataAccountManager {}
 impl UserDataAccountManager {
     #[doc = "*Required features: 'ApplicationModel_UserDataAccounts', 'Foundation'*"]
@@ -610,10 +611,12 @@ impl UserDataAccountManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<UserDataAccountManagerForUser>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IUserDataAccountManagerStatics<R, F: FnOnce(&IUserDataAccountManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataAccountManager, IUserDataAccountManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUserDataAccountManagerStatics2<R, F: FnOnce(&IUserDataAccountManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserDataAccountManager, IUserDataAccountManagerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

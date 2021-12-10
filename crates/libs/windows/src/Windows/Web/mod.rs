@@ -109,6 +109,7 @@ pub struct IWebErrorStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut WebErrorStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Web'*"]
 pub struct WebError {}
 impl WebError {
     #[doc = "*Required features: 'Web'*"]
@@ -118,6 +119,7 @@ impl WebError {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<WebErrorStatus>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebError, IWebErrorStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

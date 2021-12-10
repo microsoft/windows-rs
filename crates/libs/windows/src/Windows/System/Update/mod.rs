@@ -386,6 +386,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemUpdateLastErrorInfo {}
 unsafe impl ::core::marker::Sync for SystemUpdateLastErrorInfo {}
+#[doc = "*Required features: 'System_Update'*"]
 pub struct SystemUpdateManager {}
 impl SystemUpdateManager {
     #[doc = "*Required features: 'System_Update'*"]
@@ -555,6 +556,7 @@ impl SystemUpdateManager {
     pub fn StartCancelUpdates() -> ::windows::core::Result<()> {
         Self::ISystemUpdateManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc(hidden)]
     pub fn ISystemUpdateManagerStatics<R, F: FnOnce(&ISystemUpdateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SystemUpdateManager, ISystemUpdateManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

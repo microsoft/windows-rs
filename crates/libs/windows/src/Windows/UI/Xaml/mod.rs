@@ -78,10 +78,12 @@ impl AdaptiveTrigger {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IAdaptiveTriggerFactory<R, F: FnOnce(&IAdaptiveTriggerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AdaptiveTrigger, IAdaptiveTriggerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IAdaptiveTriggerStatics<R, F: FnOnce(&IAdaptiveTriggerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AdaptiveTrigger, IAdaptiveTriggerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -375,10 +377,12 @@ impl Application {
     pub fn LoadComponentWithResourceLocation<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(component: Param0, resourcelocator: Param1, componentresourcelocation: Controls::Primitives::ComponentResourceLocation) -> ::windows::core::Result<()> {
         Self::IApplicationStatics(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), component.into_param().abi(), resourcelocator.into_param().abi(), componentresourcelocation).ok() })
     }
+    #[doc(hidden)]
     pub fn IApplicationFactory<R, F: FnOnce(&IApplicationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Application, IApplicationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IApplicationStatics<R, F: FnOnce(&IApplicationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Application, IApplicationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1245,6 +1249,7 @@ impl BrushTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<BrushTransition>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBrushTransitionFactory<R, F: FnOnce(&IBrushTransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BrushTransition, IBrushTransitionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1795,6 +1800,7 @@ impl ColorPaletteResources {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IMap<::windows::core::IInspectable, ::windows::core::IInspectable>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IColorPaletteResourcesFactory<R, F: FnOnce(&IColorPaletteResourcesFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorPaletteResources, IColorPaletteResourcesFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2023,6 +2029,7 @@ impl CornerRadiusHelper {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uniformradius, &mut result__).from_abi::<CornerRadius>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICornerRadiusHelperStatics<R, F: FnOnce(&ICornerRadiusHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CornerRadiusHelper, ICornerRadiusHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2310,10 +2317,12 @@ impl DataTemplate {
         let this = &::windows::core::Interface::cast::<IElementFactory>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), args.into_param().abi()).ok() }
     }
+    #[doc(hidden)]
     pub fn IDataTemplateFactory<R, F: FnOnce(&IDataTemplateFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DataTemplate, IDataTemplateFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IDataTemplateStatics2<R, F: FnOnce(&IDataTemplateStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DataTemplate, IDataTemplateStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2475,6 +2484,7 @@ impl DataTemplateKey {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), datatype.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DataTemplateKey>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDataTemplateKeyFactory<R, F: FnOnce(&IDataTemplateKeyFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DataTemplateKey, IDataTemplateKeyFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2953,6 +2963,7 @@ impl DependencyObjectCollection {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<DependencyObject>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
+    #[doc(hidden)]
     pub fn IDependencyObjectCollectionFactory<R, F: FnOnce(&IDependencyObjectCollectionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DependencyObjectCollection, IDependencyObjectCollectionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3191,6 +3202,7 @@ impl DependencyProperty {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), name.into_param().abi(), propertytype.into_param().abi(), ownertype.into_param().abi(), defaultmetadata.into_param().abi(), &mut result__).from_abi::<DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDependencyPropertyStatics<R, F: FnOnce(&IDependencyPropertyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DependencyProperty, IDependencyPropertyStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3550,6 +3562,7 @@ impl DispatcherTimer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DispatcherTimer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDispatcherTimerFactory<R, F: FnOnce(&IDispatcherTimerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DispatcherTimer, IDispatcherTimerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4546,6 +4559,7 @@ impl DurationHelper {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), target.into_param().abi(), duration.into_param().abi(), &mut result__).from_abi::<Duration>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDurationHelperStatics<R, F: FnOnce(&IDurationHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DurationHelper, IDurationHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4782,6 +4796,7 @@ impl ElementFactoryGetArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ElementFactoryGetArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IElementFactoryGetArgsFactory<R, F: FnOnce(&IElementFactoryGetArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ElementFactoryGetArgs, IElementFactoryGetArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4887,6 +4902,7 @@ impl ElementFactoryRecycleArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ElementFactoryRecycleArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IElementFactoryRecycleArgsFactory<R, F: FnOnce(&IElementFactoryRecycleArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ElementFactoryRecycleArgs, IElementFactoryRecycleArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5087,10 +5103,12 @@ impl ElementSoundPlayer {
     pub fn SetSpatialAudioMode(value: ElementSpatialAudioMode) -> ::windows::core::Result<()> {
         Self::IElementSoundPlayerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() })
     }
+    #[doc(hidden)]
     pub fn IElementSoundPlayerStatics<R, F: FnOnce(&IElementSoundPlayerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ElementSoundPlayer, IElementSoundPlayerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IElementSoundPlayerStatics2<R, F: FnOnce(&IElementSoundPlayerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ElementSoundPlayer, IElementSoundPlayerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -6655,22 +6673,27 @@ impl FrameworkElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFrameworkElementStatics<R, F: FnOnce(&IFrameworkElementStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkElement, IFrameworkElementStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFrameworkElementStatics2<R, F: FnOnce(&IFrameworkElementStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkElement, IFrameworkElementStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFrameworkElementStatics4<R, F: FnOnce(&IFrameworkElementStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkElement, IFrameworkElementStatics4> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFrameworkElementStatics5<R, F: FnOnce(&IFrameworkElementStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkElement, IFrameworkElementStatics5> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFrameworkElementStatics6<R, F: FnOnce(&IFrameworkElementStatics6) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkElement, IFrameworkElementStatics6> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -7244,6 +7267,7 @@ impl GridLengthHelper {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), target.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGridLengthHelperStatics<R, F: FnOnce(&IGridLengthHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GridLengthHelper, IGridLengthHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11930,6 +11954,7 @@ impl PointHelper {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), x, y, &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPointHelperStatics<R, F: FnOnce(&IPointHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PointHelper, IPointHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12130,10 +12155,12 @@ impl PropertyMetadata {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), createdefaultvaluecallback.into_param().abi(), propertychangedcallback.into_param().abi(), &mut result__).from_abi::<PropertyMetadata>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPropertyMetadataFactory<R, F: FnOnce(&IPropertyMetadataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PropertyMetadata, IPropertyMetadataFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPropertyMetadataStatics<R, F: FnOnce(&IPropertyMetadataStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PropertyMetadata, IPropertyMetadataStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12221,6 +12248,7 @@ impl PropertyPath {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), path.into_param().abi(), &mut result__).from_abi::<PropertyPath>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPropertyPathFactory<R, F: FnOnce(&IPropertyPathFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PropertyPath, IPropertyPathFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12425,6 +12453,7 @@ impl RectHelper {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), target.into_param().abi(), rect.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRectHelperStatics<R, F: FnOnce(&IRectHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RectHelper, IRectHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12603,6 +12632,7 @@ impl ResourceDictionary {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ResourceDictionary>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IResourceDictionaryFactory<R, F: FnOnce(&IResourceDictionaryFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ResourceDictionary, IResourceDictionaryFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12845,6 +12875,7 @@ impl RoutedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RoutedEventArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRoutedEventArgsFactory<R, F: FnOnce(&IRoutedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RoutedEventArgs, IRoutedEventArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13009,6 +13040,7 @@ impl ScalarTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScalarTransition>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IScalarTransitionFactory<R, F: FnOnce(&IScalarTransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScalarTransition, IScalarTransitionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13134,6 +13166,7 @@ impl Setter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), targetproperty.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<Setter>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISetterFactory<R, F: FnOnce(&ISetterFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Setter, ISetterFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13797,6 +13830,7 @@ impl SizeHelper {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), target.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISizeHelperStatics<R, F: FnOnce(&ISizeHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SizeHelper, ISizeHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -13896,6 +13930,7 @@ impl StateTrigger {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStateTriggerStatics<R, F: FnOnce(&IStateTriggerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StateTrigger, IStateTriggerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14165,6 +14200,7 @@ impl Style {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), targettype.into_param().abi(), &mut result__).from_abi::<Style>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStyleFactory<R, F: FnOnce(&IStyleFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Style, IStyleFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14384,6 +14420,7 @@ impl TargetPropertyPath {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), targetproperty.into_param().abi(), &mut result__).from_abi::<TargetPropertyPath>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITargetPropertyPathFactory<R, F: FnOnce(&ITargetPropertyPathFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TargetPropertyPath, ITargetPropertyPathFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14655,6 +14692,7 @@ impl ThicknessHelper {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uniformlength, &mut result__).from_abi::<Thickness>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IThicknessHelperStatics<R, F: FnOnce(&IThicknessHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ThicknessHelper, IThicknessHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17410,42 +17448,52 @@ impl UIElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics<R, F: FnOnce(&IUIElementStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics10<R, F: FnOnce(&IUIElementStatics10) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics10> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics2<R, F: FnOnce(&IUIElementStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics3<R, F: FnOnce(&IUIElementStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics4<R, F: FnOnce(&IUIElementStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics4> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics5<R, F: FnOnce(&IUIElementStatics5) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics5> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics6<R, F: FnOnce(&IUIElementStatics6) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics6> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics7<R, F: FnOnce(&IUIElementStatics7) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics7> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics8<R, F: FnOnce(&IUIElementStatics8) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics8> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IUIElementStatics9<R, F: FnOnce(&IUIElementStatics9) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElement, IUIElementStatics9> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17693,6 +17741,7 @@ impl UIElementWeakCollection {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::Collections::IVector<UIElement>>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), items.len() as u32, ::core::mem::transmute(items.as_ptr())).ok() }
     }
+    #[doc(hidden)]
     pub fn IUIElementWeakCollectionFactory<R, F: FnOnce(&IUIElementWeakCollectionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UIElementWeakCollection, IUIElementWeakCollectionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18035,6 +18084,7 @@ impl Vector3Transition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Vector3Transition>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IVector3TransitionFactory<R, F: FnOnce(&IVector3TransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Vector3Transition, IVector3TransitionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18727,10 +18777,12 @@ impl VisualStateManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), control.into_param().abi(), statename.into_param().abi(), usetransitions, &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IVisualStateManagerFactory<R, F: FnOnce(&IVisualStateManagerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VisualStateManager, IVisualStateManagerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IVisualStateManagerStatics<R, F: FnOnce(&IVisualStateManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VisualStateManager, IVisualStateManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18901,6 +18953,7 @@ impl VisualTransition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<VisualTransition>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IVisualTransitionFactory<R, F: FnOnce(&IVisualTransitionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VisualTransition, IVisualTransitionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -19140,6 +19193,7 @@ impl Window {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<Window>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWindowStatics<R, F: FnOnce(&IWindowStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Window, IWindowStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

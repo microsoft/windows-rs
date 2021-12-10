@@ -1,5 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct BackgroundEnergyDiagnostics {}
+#[cfg(feature = "deprecated")]
 impl BackgroundEnergyDiagnostics {
     #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -22,15 +25,21 @@ impl BackgroundEnergyDiagnostics {
     pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
         Self::IBackgroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IBackgroundEnergyDiagnosticsStatics<R, F: FnOnce(&IBackgroundEnergyDiagnosticsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundEnergyDiagnostics, IBackgroundEnergyDiagnosticsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for BackgroundEnergyDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.BackgroundEnergyDiagnostics";
 }
+#[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct ForegroundEnergyDiagnostics {}
+#[cfg(feature = "deprecated")]
 impl ForegroundEnergyDiagnostics {
     #[doc = "*Required features: 'System_Power_Diagnostics', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -53,11 +62,14 @@ impl ForegroundEnergyDiagnostics {
     pub fn ResetTotalEnergyUsage() -> ::windows::core::Result<()> {
         Self::IForegroundEnergyDiagnosticsStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IForegroundEnergyDiagnosticsStatics<R, F: FnOnce(&IForegroundEnergyDiagnosticsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ForegroundEnergyDiagnostics, IForegroundEnergyDiagnosticsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for ForegroundEnergyDiagnostics {
     const NAME: &'static str = "Windows.System.Power.Diagnostics.ForegroundEnergyDiagnostics";
 }

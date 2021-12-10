@@ -441,6 +441,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &MdmS
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Management'*"]
 pub struct MdmSessionManager {}
 impl MdmSessionManager {
     #[doc = "*Required features: 'Management', 'Foundation_Collections'*"]
@@ -469,6 +470,7 @@ impl MdmSessionManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), sessionid.into_param().abi(), &mut result__).from_abi::<MdmSession>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMdmSessionManagerStatics<R, F: FnOnce(&IMdmSessionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MdmSessionManager, IMdmSessionManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

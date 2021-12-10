@@ -377,7 +377,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Soci
 unsafe impl ::core::marker::Send for SocialFeedUpdater {}
 #[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for SocialFeedUpdater {}
+#[doc = "*Required features: 'ApplicationModel_SocialInfo_Provider', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct SocialInfoProviderManager {}
+#[cfg(feature = "deprecated")]
 impl SocialInfoProviderManager {
     #[doc = "*Required features: 'ApplicationModel_SocialInfo_Provider', 'Foundation', 'deprecated'*"]
     #[cfg(all(feature = "Foundation", feature = "deprecated"))]
@@ -421,11 +424,14 @@ impl SocialInfoProviderManager {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn ISocialInfoProviderManagerStatics<R, F: FnOnce(&ISocialInfoProviderManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SocialInfoProviderManager, ISocialInfoProviderManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SocialInfoProviderManager {
     const NAME: &'static str = "Windows.ApplicationModel.SocialInfo.Provider.SocialInfoProviderManager";
 }

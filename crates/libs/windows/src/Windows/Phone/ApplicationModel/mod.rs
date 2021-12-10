@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Phone_ApplicationModel'*"]
 pub struct ApplicationProfile {}
 impl ApplicationProfile {
     #[doc = "*Required features: 'Phone_ApplicationModel'*"]
@@ -8,6 +9,7 @@ impl ApplicationProfile {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ApplicationProfileModes>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IApplicationProfileStatics<R, F: FnOnce(&IApplicationProfileStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ApplicationProfile, IApplicationProfileStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

@@ -21,7 +21,10 @@ pub struct IRetailModeStaticsVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Phone_System_Profile', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct RetailMode {}
+#[cfg(feature = "deprecated")]
 impl RetailMode {
     #[doc = "*Required features: 'Phone_System_Profile', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -31,11 +34,14 @@ impl RetailMode {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IRetailModeStatics<R, F: FnOnce(&IRetailModeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RetailMode, IRetailModeStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for RetailMode {
     const NAME: &'static str = "Windows.Phone.System.Profile.RetailMode";
 }

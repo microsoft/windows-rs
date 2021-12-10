@@ -98,6 +98,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticActionState {
 impl ::windows::core::DefaultType for PlatformDiagnosticActionState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
 pub struct PlatformDiagnosticActions {}
 impl PlatformDiagnosticActions {
     #[doc = "*Required features: 'System_Diagnostics_TraceReporting'*"]
@@ -159,6 +160,7 @@ impl PlatformDiagnosticActions {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), slottype, &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<PlatformDiagnosticTraceInfo>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPlatformDiagnosticActionsStatics<R, F: FnOnce(&IPlatformDiagnosticActionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlatformDiagnosticActions, IPlatformDiagnosticActionsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

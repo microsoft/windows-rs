@@ -221,6 +221,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
 }
 unsafe impl ::core::marker::Send for WalletItemSystemStore {}
 unsafe impl ::core::marker::Sync for WalletItemSystemStore {}
+#[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
 pub struct WalletManagerSystem {}
 impl WalletManagerSystem {
     #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation'*"]
@@ -231,6 +232,7 @@ impl WalletManagerSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWalletManagerSystemStatics<R, F: FnOnce(&IWalletManagerSystemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WalletManagerSystem, IWalletManagerSystemStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

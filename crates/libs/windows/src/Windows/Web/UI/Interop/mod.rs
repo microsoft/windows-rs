@@ -1149,6 +1149,7 @@ impl WebViewControlProcess {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), processoptions.into_param().abi(), &mut result__).from_abi::<WebViewControlProcess>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWebViewControlProcessFactory<R, F: FnOnce(&IWebViewControlProcessFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebViewControlProcess, IWebViewControlProcessFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

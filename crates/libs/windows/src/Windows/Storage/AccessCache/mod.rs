@@ -675,6 +675,7 @@ unsafe impl ::windows::core::RuntimeType for RecentStorageItemVisibility {
 impl ::windows::core::DefaultType for RecentStorageItemVisibility {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_AccessCache'*"]
 pub struct StorageApplicationPermissions {}
 impl StorageApplicationPermissions {
     #[doc = "*Required features: 'Storage_AccessCache'*"]
@@ -707,10 +708,12 @@ impl StorageApplicationPermissions {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<StorageItemMostRecentlyUsedList>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageApplicationPermissionsStatics<R, F: FnOnce(&IStorageApplicationPermissionsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageApplicationPermissions, IStorageApplicationPermissionsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IStorageApplicationPermissionsStatics2<R, F: FnOnce(&IStorageApplicationPermissionsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageApplicationPermissions, IStorageApplicationPermissionsStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

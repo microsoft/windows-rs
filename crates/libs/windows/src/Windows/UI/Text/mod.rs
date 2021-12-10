@@ -377,6 +377,7 @@ impl FontWeights {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FontWeight>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFontWeightsStatics<R, F: FnOnce(&IFontWeightsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FontWeights, IFontWeightsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4098,6 +4099,7 @@ unsafe impl ::windows::core::RuntimeType for TabLeader {
 impl ::windows::core::DefaultType for TabLeader {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Text'*"]
 pub struct TextConstants {}
 impl TextConstants {
     #[doc = "*Required features: 'UI_Text'*"]
@@ -4156,6 +4158,7 @@ impl TextConstants {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FontStyle>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITextConstantsStatics<R, F: FnOnce(&ITextConstantsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TextConstants, ITextConstantsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

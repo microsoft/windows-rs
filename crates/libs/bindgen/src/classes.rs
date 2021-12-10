@@ -22,6 +22,10 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
     let mut method_names = BTreeMap::<String, u32>::new();
 
+    let cfg = gen.type_cfg(def);
+    let features = cfg.gen(gen);
+    let doc = cfg.gen_doc(gen);
+
     for (def, kind) in &interfaces {
         if gen.min_xaml && *kind == InterfaceKind::Base && gen.namespace.starts_with("Windows.UI.Xaml") && !def.namespace().starts_with("Windows.Foundation") {
             continue;
@@ -39,8 +43,11 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             if def.methods().next().is_some() {
                 let interface_name = format_token!("{}", def.name());
                 let interface_type = gen_type_name(def, gen);
+                let features = gen.type_cfg(def).gen(gen);
 
                 Some(quote! {
+                    #[doc(hidden)]
+                    #features
                     pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
                         callback: F,
                     ) -> ::windows::core::Result<R> {
@@ -74,10 +81,6 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             quote! {}
         };
 
-        let cfg = gen.type_cfg(def);
-        let features = cfg.gen(gen);
-        let doc = cfg.gen_doc(gen);
-
         let mut tokens = quote! {
             #doc
             #features
@@ -102,14 +105,17 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens
     } else {
         let mut tokens = quote! {
+            #doc
+            #features
             pub struct #name {}
+            #features
             impl #name {
                 #methods
                 #(#factories)*
             }
         };
 
-        tokens.combine(&gen_runtime_name(def, &Cfg::new(), gen));
+        tokens.combine(&gen_runtime_name(def, &cfg, gen));
         tokens
     }
 }

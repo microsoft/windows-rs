@@ -57,6 +57,7 @@ pub struct IPlatformTelemetryRegistrationSettingsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Diagnostics_Telemetry'*"]
 pub struct PlatformTelemetryClient {}
 impl PlatformTelemetryClient {
     #[doc = "*Required features: 'System_Diagnostics_Telemetry'*"]
@@ -73,6 +74,7 @@ impl PlatformTelemetryClient {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), id.into_param().abi(), settings.into_param().abi(), &mut result__).from_abi::<PlatformTelemetryRegistrationResult>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPlatformTelemetryClientStatics<R, F: FnOnce(&IPlatformTelemetryClientStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlatformTelemetryClient, IPlatformTelemetryClientStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

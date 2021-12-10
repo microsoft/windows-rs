@@ -151,6 +151,7 @@ impl AppBarAutomationPeer {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), milliseconds, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn IAppBarAutomationPeerFactory<R, F: FnOnce(&IAppBarAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppBarAutomationPeer, IAppBarAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -390,6 +391,7 @@ impl AppBarButtonAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IExpandCollapseProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IAppBarButtonAutomationPeerFactory<R, F: FnOnce(&IAppBarButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppBarButtonAutomationPeer, IAppBarButtonAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -622,6 +624,7 @@ impl AppBarToggleButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<AppBarToggleButtonAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IAppBarToggleButtonAutomationPeerFactory<R, F: FnOnce(&IAppBarToggleButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppBarToggleButtonAutomationPeer, IAppBarToggleButtonAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -834,6 +837,7 @@ impl AutoSuggestBoxAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IAutoSuggestBoxAutomationPeerFactory<R, F: FnOnce(&IAutoSuggestBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AutoSuggestBoxAutomationPeer, IAutoSuggestBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1777,10 +1781,12 @@ impl AutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RawElementProviderRuntimeId>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IAutomationPeerStatics<R, F: FnOnce(&IAutomationPeerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AutomationPeer, IAutomationPeerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IAutomationPeerStatics3<R, F: FnOnce(&IAutomationPeerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AutomationPeer, IAutomationPeerStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1934,10 +1940,12 @@ impl AutomationPeerAnnotation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IAutomationPeerAnnotationFactory<R, F: FnOnce(&IAutomationPeerAnnotationFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AutomationPeerAnnotation, IAutomationPeerAnnotationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IAutomationPeerAnnotationStatics<R, F: FnOnce(&IAutomationPeerAnnotationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AutomationPeerAnnotation, IAutomationPeerAnnotationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2076,6 +2084,7 @@ impl ButtonAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IButtonAutomationPeerFactory<R, F: FnOnce(&IButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ButtonAutomationPeer, IButtonAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2419,6 +2428,7 @@ impl CalendarDatePickerAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IValueProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc(hidden)]
     pub fn ICalendarDatePickerAutomationPeerFactory<R, F: FnOnce(&ICalendarDatePickerAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CalendarDatePickerAutomationPeer, ICalendarDatePickerAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2611,6 +2621,7 @@ impl CaptureElementAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CaptureElementAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICaptureElementAutomationPeerFactory<R, F: FnOnce(&ICaptureElementAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CaptureElementAutomationPeer, ICaptureElementAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2751,6 +2762,7 @@ impl CheckBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<CheckBoxAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICheckBoxAutomationPeerFactory<R, F: FnOnce(&ICheckBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CheckBoxAutomationPeer, ICheckBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2957,6 +2969,7 @@ impl ColorPickerSliderAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorPickerSliderAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IColorPickerSliderAutomationPeerFactory<R, F: FnOnce(&IColorPickerSliderAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorPickerSliderAutomationPeer, IColorPickerSliderAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3163,6 +3176,7 @@ impl ColorSpectrumAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ColorSpectrumAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IColorSpectrumAutomationPeerFactory<R, F: FnOnce(&IColorSpectrumAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ColorSpectrumAutomationPeer, IColorSpectrumAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3423,6 +3437,7 @@ impl ComboBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), milliseconds, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc(hidden)]
     pub fn IComboBoxAutomationPeerFactory<R, F: FnOnce(&IComboBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ComboBoxAutomationPeer, IComboBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3733,6 +3748,7 @@ impl ComboBoxItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ComboBoxItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IComboBoxItemAutomationPeerFactory<R, F: FnOnce(&IComboBoxItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ComboBoxItemAutomationPeer, IComboBoxItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3878,6 +3894,7 @@ impl ComboBoxItemDataAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IComboBoxItemDataAutomationPeerFactory<R, F: FnOnce(&IComboBoxItemDataAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ComboBoxItemDataAutomationPeer, IComboBoxItemDataAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4116,6 +4133,7 @@ impl DatePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<DatePickerAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDatePickerAutomationPeerFactory<R, F: FnOnce(&IDatePickerAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DatePickerAutomationPeer, IDatePickerAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4383,6 +4401,7 @@ impl FlipViewAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFlipViewAutomationPeerFactory<R, F: FnOnce(&IFlipViewAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlipViewAutomationPeer, IFlipViewAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4615,6 +4634,7 @@ impl FlipViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlipViewItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFlipViewItemAutomationPeerFactory<R, F: FnOnce(&IFlipViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlipViewItemAutomationPeer, IFlipViewItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4760,6 +4780,7 @@ impl FlipViewItemDataAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IFlipViewItemDataAutomationPeerFactory<R, F: FnOnce(&IFlipViewItemDataAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlipViewItemDataAutomationPeer, IFlipViewItemDataAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4998,6 +5019,7 @@ impl FlyoutPresenterAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<FlyoutPresenterAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFlyoutPresenterAutomationPeerFactory<R, F: FnOnce(&IFlyoutPresenterAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FlyoutPresenterAutomationPeer, IFlyoutPresenterAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5159,10 +5181,12 @@ impl FrameworkElementAutomationPeer {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<AutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFrameworkElementAutomationPeerFactory<R, F: FnOnce(&IFrameworkElementAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkElementAutomationPeer, IFrameworkElementAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFrameworkElementAutomationPeerStatics<R, F: FnOnce(&IFrameworkElementAutomationPeerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FrameworkElementAutomationPeer, IFrameworkElementAutomationPeerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5283,6 +5307,7 @@ impl GridViewAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGridViewAutomationPeerFactory<R, F: FnOnce(&IGridViewAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GridViewAutomationPeer, IGridViewAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5561,6 +5586,7 @@ impl GridViewHeaderItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewHeaderItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGridViewHeaderItemAutomationPeerFactory<R, F: FnOnce(&IGridViewHeaderItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GridViewHeaderItemAutomationPeer, IGridViewHeaderItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5721,6 +5747,7 @@ impl GridViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GridViewItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGridViewItemAutomationPeerFactory<R, F: FnOnce(&IGridViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GridViewItemAutomationPeer, IGridViewItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5866,6 +5893,7 @@ impl GridViewItemDataAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IGridViewItemDataAutomationPeerFactory<R, F: FnOnce(&IGridViewItemDataAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GridViewItemDataAutomationPeer, IGridViewItemDataAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -6104,6 +6132,7 @@ impl GroupItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<GroupItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGroupItemAutomationPeerFactory<R, F: FnOnce(&IGroupItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GroupItemAutomationPeer, IGroupItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -6244,6 +6273,7 @@ impl HubAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<HubAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IHubAutomationPeerFactory<R, F: FnOnce(&IHubAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HubAutomationPeer, IHubAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -6390,6 +6420,7 @@ impl HubSectionAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IHubSectionAutomationPeerFactory<R, F: FnOnce(&IHubSectionAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HubSectionAutomationPeer, IHubSectionAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -6562,6 +6593,7 @@ impl HyperlinkButtonAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IInvokeProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IHyperlinkButtonAutomationPeerFactory<R, F: FnOnce(&IHyperlinkButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HyperlinkButtonAutomationPeer, IHyperlinkButtonAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -10337,6 +10369,7 @@ impl ImageAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ImageAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IImageAutomationPeerFactory<R, F: FnOnce(&IImageAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ImageAutomationPeer, IImageAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -10625,6 +10658,7 @@ impl ItemAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IVirtualizedItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IItemAutomationPeerFactory<R, F: FnOnce(&IItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ItemAutomationPeer, IItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -10788,6 +10822,7 @@ impl ItemsControlAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ItemsControlAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IItemsControlAutomationPeerFactory<R, F: FnOnce(&IItemsControlAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ItemsControlAutomationPeer, IItemsControlAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -10954,6 +10989,7 @@ impl ListBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IListBoxAutomationPeerFactory<R, F: FnOnce(&IListBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListBoxAutomationPeer, IListBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11186,6 +11222,7 @@ impl ListBoxItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListBoxItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IListBoxItemAutomationPeerFactory<R, F: FnOnce(&IListBoxItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListBoxItemAutomationPeer, IListBoxItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11331,6 +11368,7 @@ impl ListBoxItemDataAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IListBoxItemDataAutomationPeerFactory<R, F: FnOnce(&IListBoxItemDataAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListBoxItemDataAutomationPeer, IListBoxItemDataAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11696,6 +11734,7 @@ impl ListViewAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IListViewAutomationPeerFactory<R, F: FnOnce(&IListViewAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewAutomationPeer, IListViewAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11992,6 +12031,7 @@ impl ListViewBaseAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewBaseAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IListViewBaseAutomationPeerFactory<R, F: FnOnce(&IListViewBaseAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewBaseAutomationPeer, IListViewBaseAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12377,6 +12417,7 @@ impl ListViewHeaderItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewHeaderItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IListViewHeaderItemAutomationPeerFactory<R, F: FnOnce(&IListViewHeaderItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewHeaderItemAutomationPeer, IListViewHeaderItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12537,6 +12578,7 @@ impl ListViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ListViewItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IListViewItemAutomationPeerFactory<R, F: FnOnce(&IListViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewItemAutomationPeer, IListViewItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12682,6 +12724,7 @@ impl ListViewItemDataAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IScrollItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IListViewItemDataAutomationPeerFactory<R, F: FnOnce(&IListViewItemDataAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ListViewItemDataAutomationPeer, IListViewItemDataAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14002,6 +14045,7 @@ impl MediaElementAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaElementAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMediaElementAutomationPeerFactory<R, F: FnOnce(&IMediaElementAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaElementAutomationPeer, IMediaElementAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14142,6 +14186,7 @@ impl MediaPlayerElementAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaPlayerElementAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMediaPlayerElementAutomationPeerFactory<R, F: FnOnce(&IMediaPlayerElementAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaPlayerElementAutomationPeer, IMediaPlayerElementAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14282,6 +14327,7 @@ impl MediaTransportControlsAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MediaTransportControlsAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMediaTransportControlsAutomationPeerFactory<R, F: FnOnce(&IMediaTransportControlsAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MediaTransportControlsAutomationPeer, IMediaTransportControlsAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14422,6 +14468,7 @@ impl MenuBarAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuBarAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMenuBarAutomationPeerFactory<R, F: FnOnce(&IMenuBarAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MenuBarAutomationPeer, IMenuBarAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14589,6 +14636,7 @@ impl MenuBarItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuBarItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMenuBarItemAutomationPeerFactory<R, F: FnOnce(&IMenuBarItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MenuBarItemAutomationPeer, IMenuBarItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14787,6 +14835,7 @@ impl MenuFlyoutItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuFlyoutItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMenuFlyoutItemAutomationPeerFactory<R, F: FnOnce(&IMenuFlyoutItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MenuFlyoutItemAutomationPeer, IMenuFlyoutItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14953,6 +15002,7 @@ impl MenuFlyoutPresenterAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<MenuFlyoutPresenterAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMenuFlyoutPresenterAutomationPeerFactory<R, F: FnOnce(&IMenuFlyoutPresenterAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MenuFlyoutPresenterAutomationPeer, IMenuFlyoutPresenterAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15139,6 +15189,7 @@ impl NavigationViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NavigationViewItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn INavigationViewItemAutomationPeerFactory<R, F: FnOnce(&INavigationViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NavigationViewItemAutomationPeer, INavigationViewItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15299,6 +15350,7 @@ impl PasswordBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PasswordBoxAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPasswordBoxAutomationPeerFactory<R, F: FnOnce(&IPasswordBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PasswordBoxAutomationPeer, IPasswordBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15499,6 +15551,7 @@ impl PersonPictureAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PersonPictureAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPersonPictureAutomationPeerFactory<R, F: FnOnce(&IPersonPictureAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PersonPictureAutomationPeer, IPersonPictureAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -15859,6 +15912,7 @@ impl PivotAutomationPeer {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::core::Array::<super::Provider::IRawElementProviderSimple>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc(hidden)]
     pub fn IPivotAutomationPeerFactory<R, F: FnOnce(&IPivotAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PivotAutomationPeer, IPivotAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16097,6 +16151,7 @@ impl PivotItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), &mut result__).from_abi::<PivotItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPivotItemAutomationPeerFactory<R, F: FnOnce(&IPivotItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PivotItemAutomationPeer, IPivotItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16284,6 +16339,7 @@ impl PivotItemDataAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IVirtualizedItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IPivotItemDataAutomationPeerFactory<R, F: FnOnce(&IPivotItemDataAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PivotItemDataAutomationPeer, IPivotItemDataAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16502,6 +16558,7 @@ impl ProgressBarAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ProgressBarAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IProgressBarAutomationPeerFactory<R, F: FnOnce(&IProgressBarAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProgressBarAutomationPeer, IProgressBarAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16688,6 +16745,7 @@ impl ProgressRingAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ProgressRingAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IProgressRingAutomationPeerFactory<R, F: FnOnce(&IProgressRingAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProgressRingAutomationPeer, IProgressRingAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -16864,6 +16922,7 @@ impl RadioButtonAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::ISelectionItemProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IRadioButtonAutomationPeerFactory<R, F: FnOnce(&IRadioButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RadioButtonAutomationPeer, IRadioButtonAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17156,6 +17215,7 @@ impl RangeBaseAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IRangeValueProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc(hidden)]
     pub fn IRangeBaseAutomationPeerFactory<R, F: FnOnce(&IRangeBaseAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RangeBaseAutomationPeer, IRangeBaseAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17322,6 +17382,7 @@ impl RatingControlAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RatingControlAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRatingControlAutomationPeerFactory<R, F: FnOnce(&IRatingControlAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RatingControlAutomationPeer, IRatingControlAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17500,6 +17561,7 @@ impl RepeatButtonAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RepeatButtonAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRepeatButtonAutomationPeerFactory<R, F: FnOnce(&IRepeatButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RepeatButtonAutomationPeer, IRepeatButtonAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17686,6 +17748,7 @@ impl RichEditBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichEditBoxAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRichEditBoxAutomationPeerFactory<R, F: FnOnce(&IRichEditBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RichEditBoxAutomationPeer, IRichEditBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17826,6 +17889,7 @@ impl RichTextBlockAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichTextBlockAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRichTextBlockAutomationPeerFactory<R, F: FnOnce(&IRichTextBlockAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RichTextBlockAutomationPeer, IRichTextBlockAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -17966,6 +18030,7 @@ impl RichTextBlockOverflowAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<RichTextBlockOverflowAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRichTextBlockOverflowAutomationPeerFactory<R, F: FnOnce(&IRichTextBlockOverflowAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RichTextBlockOverflowAutomationPeer, IRichTextBlockOverflowAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18106,6 +18171,7 @@ impl ScrollBarAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScrollBarAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IScrollBarAutomationPeerFactory<R, F: FnOnce(&IScrollBarAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScrollBarAutomationPeer, IScrollBarAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18358,6 +18424,7 @@ impl ScrollViewerAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ScrollViewerAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IScrollViewerAutomationPeerFactory<R, F: FnOnce(&IScrollViewerAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ScrollViewerAutomationPeer, IScrollViewerAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18524,6 +18591,7 @@ impl SearchBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SearchBoxAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISearchBoxAutomationPeerFactory<R, F: FnOnce(&ISearchBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SearchBoxAutomationPeer, ISearchBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18691,6 +18759,7 @@ impl SelectorAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SelectorAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISelectorAutomationPeerFactory<R, F: FnOnce(&ISelectorAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SelectorAutomationPeer, ISelectorAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -18938,6 +19007,7 @@ impl SelectorItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), item.into_param().abi(), parent.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SelectorItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISelectorItemAutomationPeerFactory<R, F: FnOnce(&ISelectorItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SelectorItemAutomationPeer, ISelectorItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -19145,6 +19215,7 @@ impl SemanticZoomAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn ISemanticZoomAutomationPeerFactory<R, F: FnOnce(&ISemanticZoomAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SemanticZoomAutomationPeer, ISemanticZoomAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -19311,6 +19382,7 @@ impl SettingsFlyoutAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SettingsFlyoutAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISettingsFlyoutAutomationPeerFactory<R, F: FnOnce(&ISettingsFlyoutAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SettingsFlyoutAutomationPeer, ISettingsFlyoutAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -19451,6 +19523,7 @@ impl SliderAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SliderAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISliderAutomationPeerFactory<R, F: FnOnce(&ISliderAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SliderAutomationPeer, ISliderAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -19637,6 +19710,7 @@ impl TextBlockAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TextBlockAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITextBlockAutomationPeerFactory<R, F: FnOnce(&ITextBlockAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TextBlockAutomationPeer, ITextBlockAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -19777,6 +19851,7 @@ impl TextBoxAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TextBoxAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITextBoxAutomationPeerFactory<R, F: FnOnce(&ITextBoxAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TextBoxAutomationPeer, ITextBoxAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -19917,6 +19992,7 @@ impl ThumbAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ThumbAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IThumbAutomationPeerFactory<R, F: FnOnce(&IThumbAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ThumbAutomationPeer, IThumbAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -20057,6 +20133,7 @@ impl TimePickerAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TimePickerAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITimePickerAutomationPeerFactory<R, F: FnOnce(&ITimePickerAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TimePickerAutomationPeer, ITimePickerAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -20339,6 +20416,7 @@ impl ToggleButtonAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IToggleButtonAutomationPeerFactory<R, F: FnOnce(&IToggleButtonAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ToggleButtonAutomationPeer, IToggleButtonAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -20540,6 +20618,7 @@ impl ToggleMenuFlyoutItemAutomationPeer {
         let this = &::windows::core::Interface::cast::<super::Provider::IToggleProvider>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IToggleMenuFlyoutItemAutomationPeerFactory<R, F: FnOnce(&IToggleMenuFlyoutItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ToggleMenuFlyoutItemAutomationPeer, IToggleMenuFlyoutItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -20721,6 +20800,7 @@ impl ToggleSwitchAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<ToggleSwitchAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IToggleSwitchAutomationPeerFactory<R, F: FnOnce(&IToggleSwitchAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ToggleSwitchAutomationPeer, IToggleSwitchAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -20908,6 +20988,7 @@ impl TreeViewItemAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TreeViewItemAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITreeViewItemAutomationPeerFactory<R, F: FnOnce(&ITreeViewItemAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TreeViewItemAutomationPeer, ITreeViewItemAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -21094,6 +21175,7 @@ impl TreeViewListAutomationPeer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), owner.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<TreeViewListAutomationPeer>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ITreeViewListAutomationPeerFactory<R, F: FnOnce(&ITreeViewListAutomationPeerFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<TreeViewListAutomationPeer, ITreeViewListAutomationPeerFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

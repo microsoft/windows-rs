@@ -536,6 +536,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XamlDirect>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IXamlDirectStatics<R, F: FnOnce(&IXamlDirectStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<XamlDirect, IXamlDirectStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

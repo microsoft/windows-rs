@@ -1263,7 +1263,10 @@ pub struct IPerceptionVideoProfileVtbl(
     #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, other: ::windows::core::RawPtr, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "deprecated"))] usize,
 );
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownCameraIntrinsicsProperties {}
+#[cfg(feature = "deprecated")]
 impl KnownCameraIntrinsicsProperties {
     #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1297,15 +1300,21 @@ impl KnownCameraIntrinsicsProperties {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownCameraIntrinsicsPropertiesStatics<R, F: FnOnce(&IKnownCameraIntrinsicsPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownCameraIntrinsicsProperties, IKnownCameraIntrinsicsPropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownCameraIntrinsicsProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownCameraIntrinsicsProperties";
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownPerceptionColorFrameSourceProperties {}
+#[cfg(feature = "deprecated")]
 impl KnownPerceptionColorFrameSourceProperties {
     #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1331,15 +1340,21 @@ impl KnownPerceptionColorFrameSourceProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionColorFrameSourcePropertiesStatics<R, F: FnOnce(&IKnownPerceptionColorFrameSourcePropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionColorFrameSourceProperties, IKnownPerceptionColorFrameSourcePropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownPerceptionColorFrameSourceProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownPerceptionColorFrameSourceProperties";
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownPerceptionDepthFrameSourceProperties {}
+#[cfg(feature = "deprecated")]
 impl KnownPerceptionDepthFrameSourceProperties {
     #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1357,15 +1372,21 @@ impl KnownPerceptionDepthFrameSourceProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionDepthFrameSourcePropertiesStatics<R, F: FnOnce(&IKnownPerceptionDepthFrameSourcePropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionDepthFrameSourceProperties, IKnownPerceptionDepthFrameSourcePropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownPerceptionDepthFrameSourceProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownPerceptionDepthFrameSourceProperties";
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownPerceptionFrameSourceProperties {}
+#[cfg(feature = "deprecated")]
 impl KnownPerceptionFrameSourceProperties {
     #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1415,19 +1436,27 @@ impl KnownPerceptionFrameSourceProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionFrameSourcePropertiesStatics<R, F: FnOnce(&IKnownPerceptionFrameSourcePropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionFrameSourceProperties, IKnownPerceptionFrameSourcePropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionFrameSourcePropertiesStatics2<R, F: FnOnce(&IKnownPerceptionFrameSourcePropertiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionFrameSourceProperties, IKnownPerceptionFrameSourcePropertiesStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownPerceptionFrameSourceProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownPerceptionFrameSourceProperties";
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownPerceptionInfraredFrameSourceProperties {}
+#[cfg(feature = "deprecated")]
 impl KnownPerceptionInfraredFrameSourceProperties {
     #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1485,15 +1514,21 @@ impl KnownPerceptionInfraredFrameSourceProperties {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionInfraredFrameSourcePropertiesStatics<R, F: FnOnce(&IKnownPerceptionInfraredFrameSourcePropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionInfraredFrameSourceProperties, IKnownPerceptionInfraredFrameSourcePropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownPerceptionInfraredFrameSourceProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownPerceptionInfraredFrameSourceProperties";
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownPerceptionVideoFrameSourceProperties {}
+#[cfg(feature = "deprecated")]
 impl KnownPerceptionVideoFrameSourceProperties {
     #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1535,15 +1570,21 @@ impl KnownPerceptionVideoFrameSourceProperties {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionVideoFrameSourcePropertiesStatics<R, F: FnOnce(&IKnownPerceptionVideoFrameSourcePropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionVideoFrameSourceProperties, IKnownPerceptionVideoFrameSourcePropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownPerceptionVideoFrameSourceProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownPerceptionVideoFrameSourceProperties";
 }
+#[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct KnownPerceptionVideoProfileProperties {}
+#[cfg(feature = "deprecated")]
 impl KnownPerceptionVideoProfileProperties {
     #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
@@ -1585,11 +1626,14 @@ impl KnownPerceptionVideoProfileProperties {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IKnownPerceptionVideoProfilePropertiesStatics<R, F: FnOnce(&IKnownPerceptionVideoProfilePropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownPerceptionVideoProfileProperties, IKnownPerceptionVideoProfilePropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for KnownPerceptionVideoProfileProperties {
     const NAME: &'static str = "Windows.Devices.Perception.KnownPerceptionVideoProfileProperties";
 }
@@ -2283,6 +2327,8 @@ impl PerceptionColorFrameSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionColorFrameSourceStatics<R, F: FnOnce(&IPerceptionColorFrameSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionColorFrameSource, IPerceptionColorFrameSourceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3794,6 +3840,8 @@ impl PerceptionDepthFrameSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionDepthFrameSourceStatics<R, F: FnOnce(&IPerceptionDepthFrameSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionDepthFrameSource, IPerceptionDepthFrameSourceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -5195,6 +5243,8 @@ impl PerceptionInfraredFrameSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PerceptionFrameSourceAccessStatus>>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IPerceptionInfraredFrameSourceStatics<R, F: FnOnce(&IPerceptionInfraredFrameSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PerceptionInfraredFrameSource, IPerceptionInfraredFrameSourceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

@@ -1,6 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "System_Profile_SystemManufacturers")]
 pub mod SystemManufacturers;
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct AnalyticsInfo {}
 impl AnalyticsInfo {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -25,10 +26,12 @@ impl AnalyticsInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), attributenames.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IAnalyticsInfoStatics<R, F: FnOnce(&IAnalyticsInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IAnalyticsInfoStatics2<R, F: FnOnce(&IAnalyticsInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AnalyticsInfo, IAnalyticsInfoStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -129,6 +132,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Anal
 }
 unsafe impl ::core::marker::Send for AnalyticsVersionInfo {}
 unsafe impl ::core::marker::Sync for AnalyticsVersionInfo {}
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct AppApplicability {}
 impl AppApplicability {
     #[doc = "*Required features: 'System_Profile', 'Foundation_Collections'*"]
@@ -139,6 +143,7 @@ impl AppApplicability {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), capabilities.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<UnsupportedAppRequirement>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IAppApplicabilityStatics<R, F: FnOnce(&IAppApplicabilityStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppApplicability, IAppApplicabilityStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -147,6 +152,7 @@ impl AppApplicability {
 impl ::windows::core::RuntimeName for AppApplicability {
     const NAME: &'static str = "Windows.System.Profile.AppApplicability";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct EducationSettings {}
 impl EducationSettings {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -156,6 +162,7 @@ impl EducationSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IEducationSettingsStatics<R, F: FnOnce(&IEducationSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<EducationSettings, IEducationSettingsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -164,6 +171,7 @@ impl EducationSettings {
 impl ::windows::core::RuntimeName for EducationSettings {
     const NAME: &'static str = "Windows.System.Profile.EducationSettings";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct HardwareIdentification {}
 impl HardwareIdentification {
     #[doc = "*Required features: 'System_Profile', 'Storage_Streams'*"]
@@ -174,6 +182,7 @@ impl HardwareIdentification {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), nonce.into_param().abi(), &mut result__).from_abi::<HardwareToken>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IHardwareIdentificationStatics<R, F: FnOnce(&IHardwareIdentificationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<HardwareIdentification, IHardwareIdentificationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -654,6 +663,7 @@ pub struct IWindowsIntegrityPolicyStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct KnownRetailInfoProperties {}
 impl KnownRetailInfoProperties {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -810,6 +820,7 @@ impl KnownRetailInfoProperties {
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IKnownRetailInfoPropertiesStatics<R, F: FnOnce(&IKnownRetailInfoPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<KnownRetailInfoProperties, IKnownRetailInfoPropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -848,6 +859,7 @@ unsafe impl ::windows::core::RuntimeType for PlatformDataCollectionLevel {
 impl ::windows::core::DefaultType for PlatformDataCollectionLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct PlatformDiagnosticsAndUsageDataSettings {}
 impl PlatformDiagnosticsAndUsageDataSettings {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -877,6 +889,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), level, &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPlatformDiagnosticsAndUsageDataSettingsStatics<R, F: FnOnce(&IPlatformDiagnosticsAndUsageDataSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PlatformDiagnosticsAndUsageDataSettings, IPlatformDiagnosticsAndUsageDataSettingsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -885,6 +898,7 @@ impl PlatformDiagnosticsAndUsageDataSettings {
 impl ::windows::core::RuntimeName for PlatformDiagnosticsAndUsageDataSettings {
     const NAME: &'static str = "Windows.System.Profile.PlatformDiagnosticsAndUsageDataSettings";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct RetailInfo {}
 impl RetailInfo {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -902,6 +916,7 @@ impl RetailInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::IInspectable>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRetailInfoStatics<R, F: FnOnce(&IRetailInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RetailInfo, IRetailInfoStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -910,6 +925,7 @@ impl RetailInfo {
 impl ::windows::core::RuntimeName for RetailInfo {
     const NAME: &'static str = "Windows.System.Profile.RetailInfo";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct SharedModeSettings {}
 impl SharedModeSettings {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -926,10 +942,12 @@ impl SharedModeSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISharedModeSettingsStatics<R, F: FnOnce(&ISharedModeSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ISharedModeSettingsStatics2<R, F: FnOnce(&ISharedModeSettingsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SharedModeSettings, ISharedModeSettingsStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -938,6 +956,7 @@ impl SharedModeSettings {
 impl ::windows::core::RuntimeName for SharedModeSettings {
     const NAME: &'static str = "Windows.System.Profile.SharedModeSettings";
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct SystemIdentification {}
 impl SystemIdentification {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -954,6 +973,7 @@ impl SystemIdentification {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<SystemIdentificationInfo>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISystemIdentificationStatics<R, F: FnOnce(&ISystemIdentificationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SystemIdentification, ISystemIdentificationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1106,6 +1126,7 @@ unsafe impl ::windows::core::RuntimeType for SystemOutOfBoxExperienceState {
 impl ::windows::core::DefaultType for SystemOutOfBoxExperienceState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct SystemSetupInfo {}
 impl SystemSetupInfo {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -1128,6 +1149,7 @@ impl SystemSetupInfo {
     pub fn RemoveOutOfBoxExperienceStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::ISystemSetupInfoStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
     pub fn ISystemSetupInfoStatics<R, F: FnOnce(&ISystemSetupInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SystemSetupInfo, ISystemSetupInfoStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1248,6 +1270,7 @@ unsafe impl ::windows::core::RuntimeType for UnsupportedAppRequirementReasons {
 impl ::windows::core::DefaultType for UnsupportedAppRequirementReasons {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'System_Profile'*"]
 pub struct WindowsIntegrityPolicy {}
 impl WindowsIntegrityPolicy {
     #[doc = "*Required features: 'System_Profile'*"]
@@ -1291,6 +1314,7 @@ impl WindowsIntegrityPolicy {
     pub fn RemovePolicyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IWindowsIntegrityPolicyStatics(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
     pub fn IWindowsIntegrityPolicyStatics<R, F: FnOnce(&IWindowsIntegrityPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WindowsIntegrityPolicy, IWindowsIntegrityPolicyStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

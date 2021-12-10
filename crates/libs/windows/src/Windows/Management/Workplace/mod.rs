@@ -56,6 +56,7 @@ pub struct IWorkplaceSettingsStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Management_Workplace'*"]
 pub struct MdmPolicy {}
 impl MdmPolicy {
     #[doc = "*Required features: 'Management_Workplace'*"]
@@ -93,10 +94,12 @@ impl MdmPolicy {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MessagingSyncPolicy>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMdmAllowPolicyStatics<R, F: FnOnce(&IMdmAllowPolicyStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MdmPolicy, IMdmAllowPolicyStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IMdmPolicyStatics2<R, F: FnOnce(&IMdmPolicyStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MdmPolicy, IMdmPolicyStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -134,6 +137,7 @@ unsafe impl ::windows::core::RuntimeType for MessagingSyncPolicy {
 impl ::windows::core::DefaultType for MessagingSyncPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Management_Workplace'*"]
 pub struct WorkplaceSettings {}
 impl WorkplaceSettings {
     #[doc = "*Required features: 'Management_Workplace'*"]
@@ -143,6 +147,7 @@ impl WorkplaceSettings {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWorkplaceSettingsStatics<R, F: FnOnce(&IWorkplaceSettingsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WorkplaceSettings, IWorkplaceSettingsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

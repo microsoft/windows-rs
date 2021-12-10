@@ -103,6 +103,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AddA
 }
 unsafe impl ::core::marker::Send for AddAppointmentOperation {}
 unsafe impl ::core::marker::Sync for AddAppointmentOperation {}
+#[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
 pub struct AppointmentsProviderLaunchActionVerbs {}
 impl AppointmentsProviderLaunchActionVerbs {
     #[doc = "*Required features: 'ApplicationModel_Appointments_AppointmentsProvider'*"]
@@ -140,10 +141,12 @@ impl AppointmentsProviderLaunchActionVerbs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IAppointmentsProviderLaunchActionVerbsStatics<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IAppointmentsProviderLaunchActionVerbsStatics2<R, F: FnOnce(&IAppointmentsProviderLaunchActionVerbsStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppointmentsProviderLaunchActionVerbs, IAppointmentsProviderLaunchActionVerbsStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

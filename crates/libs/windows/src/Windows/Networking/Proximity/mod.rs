@@ -670,6 +670,7 @@ unsafe impl ::windows::core::RuntimeType for PeerDiscoveryTypes {
 impl ::windows::core::DefaultType for PeerDiscoveryTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_Proximity'*"]
 pub struct PeerFinder {}
 impl PeerFinder {
     #[doc = "*Required features: 'Networking_Proximity'*"]
@@ -816,10 +817,12 @@ impl PeerFinder {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PeerWatcher>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPeerFinderStatics<R, F: FnOnce(&IPeerFinderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PeerFinder, IPeerFinderStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPeerFinderStatics2<R, F: FnOnce(&IPeerFinderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PeerFinder, IPeerFinderStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1308,6 +1311,7 @@ impl ProximityDevice {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<ProximityDevice>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IProximityDeviceStatics<R, F: FnOnce(&IProximityDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProximityDevice, IProximityDeviceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

@@ -2056,6 +2056,7 @@ impl StoreContext {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), user.into_param().abi(), &mut result__).from_abi::<StoreContext>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStoreContextStatics<R, F: FnOnce(&IStoreContextStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StoreContext, IStoreContextStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3591,6 +3592,7 @@ impl StorePurchaseProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<StorePurchaseProperties>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorePurchasePropertiesFactory<R, F: FnOnce(&IStorePurchasePropertiesFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorePurchaseProperties, IStorePurchasePropertiesFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -4338,6 +4340,7 @@ unsafe impl ::windows::core::RuntimeType for StoreRateAndReviewStatus {
 impl ::windows::core::DefaultType for StoreRateAndReviewStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Store'*"]
 pub struct StoreRequestHelper {}
 impl StoreRequestHelper {
     #[doc = "*Required features: 'Services_Store', 'Foundation'*"]
@@ -4348,6 +4351,7 @@ impl StoreRequestHelper {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), context.into_param().abi(), requestkind, parametersasjson.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<StoreSendRequestResult>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStoreRequestHelperStatics<R, F: FnOnce(&IStoreRequestHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StoreRequestHelper, IStoreRequestHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

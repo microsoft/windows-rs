@@ -97,6 +97,7 @@ unsafe impl ::windows::core::RuntimeType for ClosedCaptionOpacity {
 impl ::windows::core::DefaultType for ClosedCaptionOpacity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Media_ClosedCaptioning'*"]
 pub struct ClosedCaptionProperties {}
 impl ClosedCaptionProperties {
     #[doc = "*Required features: 'Media_ClosedCaptioning'*"]
@@ -186,6 +187,7 @@ impl ClosedCaptionProperties {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClosedCaptionOpacity>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IClosedCaptionPropertiesStatics<R, F: FnOnce(&IClosedCaptionPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ClosedCaptionProperties, IClosedCaptionPropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

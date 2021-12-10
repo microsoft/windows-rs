@@ -32,6 +32,7 @@ unsafe impl ::windows::core::RuntimeType for AuthenticationProtocol {
 impl ::windows::core::DefaultType for AuthenticationProtocol {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 pub struct CredentialPicker {}
 impl CredentialPicker {
     #[doc = "*Required features: 'Security_Credentials_UI', 'Foundation'*"]
@@ -58,6 +59,7 @@ impl CredentialPicker {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), targetname.into_param().abi(), message.into_param().abi(), caption.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<CredentialPickerResults>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICredentialPickerStatics<R, F: FnOnce(&ICredentialPickerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CredentialPicker, ICredentialPickerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -564,6 +566,7 @@ unsafe impl ::windows::core::RuntimeType for UserConsentVerificationResult {
 impl ::windows::core::DefaultType for UserConsentVerificationResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Credentials_UI'*"]
 pub struct UserConsentVerifier {}
 impl UserConsentVerifier {
     #[doc = "*Required features: 'Security_Credentials_UI', 'Foundation'*"]
@@ -582,6 +585,7 @@ impl UserConsentVerifier {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), message.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<UserConsentVerificationResult>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IUserConsentVerifierStatics<R, F: FnOnce(&IUserConsentVerifierStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UserConsentVerifier, IUserConsentVerifierStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

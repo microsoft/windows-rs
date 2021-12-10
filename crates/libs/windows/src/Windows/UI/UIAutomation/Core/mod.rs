@@ -200,6 +200,7 @@ unsafe impl ::windows::core::RuntimeType for AutomationRemoteOperationStatus {
 impl ::windows::core::DefaultType for AutomationRemoteOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_UIAutomation_Core'*"]
 pub struct CoreAutomationRegistrar {}
 impl CoreAutomationRegistrar {
     #[doc = "*Required features: 'UI_UIAutomation_Core'*"]
@@ -213,6 +214,7 @@ impl CoreAutomationRegistrar {
     pub fn UnregisterAnnotationType<'a, Param0: ::windows::core::IntoParam<'a, AutomationAnnotationTypeRegistration>>(registration: Param0) -> ::windows::core::Result<()> {
         Self::ICoreAutomationRegistrarStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), registration.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
     pub fn ICoreAutomationRegistrarStatics<R, F: FnOnce(&ICoreAutomationRegistrarStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CoreAutomationRegistrar, ICoreAutomationRegistrarStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -888,6 +890,7 @@ impl RemoteAutomationClientSession {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), sessionid.into_param().abi(), &mut result__).from_abi::<RemoteAutomationClientSession>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRemoteAutomationClientSessionFactory<R, F: FnOnce(&IRemoteAutomationClientSessionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RemoteAutomationClientSession, IRemoteAutomationClientSessionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1116,12 +1119,14 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Remo
 }
 unsafe impl ::core::marker::Send for RemoteAutomationDisconnectedEventArgs {}
 unsafe impl ::core::marker::Sync for RemoteAutomationDisconnectedEventArgs {}
+#[doc = "*Required features: 'UI_UIAutomation_Core'*"]
 pub struct RemoteAutomationServer {}
 impl RemoteAutomationServer {
     #[doc = "*Required features: 'UI_UIAutomation_Core'*"]
     pub fn ReportSession<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(sessionid: Param0) -> ::windows::core::Result<()> {
         Self::IRemoteAutomationServerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), sessionid.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
     pub fn IRemoteAutomationServerStatics<R, F: FnOnce(&IRemoteAutomationServerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RemoteAutomationServer, IRemoteAutomationServerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
