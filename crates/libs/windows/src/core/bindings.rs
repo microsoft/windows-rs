@@ -1,434 +1,33 @@
 #![allow(non_snake_case, non_upper_case_globals, dead_code, non_camel_case_types, clippy::upper_case_acronyms, clippy::derivable_impls)]
-#[repr(transparent)]
-pub struct IReference<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
-where
-    T: ::windows::core::RuntimeType + 'static;
-impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
-    pub fn Value(&self) -> ::windows::core::Result<T> {
-        let this = self;
-        unsafe {
-            let mut result__: <T as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<T>(result__)
-        }
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::core::IInspectable {
-    fn from(value: IReference<T>) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::core::IInspectable {
-    fn from(value: &IReference<T>) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IReference<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IReference<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::core::IUnknown {
-    fn from(value: IReference<T>) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::core::IUnknown {
-    fn from(value: &IReference<T>) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReference<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IReference<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IReference<T>> for IPropertyValue {
-    type Error = ::windows::core::Error;
-    fn try_from(value: IReference<T>) -> ::windows::core::Result<Self> {
-        ::core::convert::TryFrom::try_from(&value)
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for IPropertyValue {
-    type Error = ::windows::core::Error;
-    fn try_from(value: &IReference<T>) -> ::windows::core::Result<Self> {
-        ::windows::core::Interface::cast(value)
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IPropertyValue> for IReference<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyValue> {
-        ::windows::core::IntoParam::into_param(&self)
-    }
-}
-impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IPropertyValue> for &IReference<T> {
-    fn into_param(self) -> ::windows::core::Param<'a, IPropertyValue> {
-        ::core::convert::TryInto::<IPropertyValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IReference<T> {
-    fn clone(&self) -> Self {
-        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IReference<T> {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReference<T> {}
-unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReference<T> {
-    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
-}
-unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IReference<T> {
-    type Vtable = IReferenceVtbl<T>;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
-}
 #[repr(C)]
-#[doc(hidden)]
-pub struct IReferenceVtbl<T>(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
-    pub ::core::marker::PhantomData<T>,
-)
-where
-    T: ::windows::core::RuntimeType + 'static;
-#[repr(transparent)]
-pub struct IStringable(::windows::core::IUnknown);
-impl IStringable {
-    pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
-        let this = self;
-        unsafe {
-            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
-        }
-    }
+pub struct DateTime {
+    pub UniversalTime: i64,
 }
-impl ::core::convert::From<IStringable> for ::windows::core::IInspectable {
-    fn from(value: IStringable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStringable> for ::windows::core::IInspectable {
-    fn from(value: &IStringable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStringable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStringable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::convert::From<IStringable> for ::windows::core::IUnknown {
-    fn from(value: IStringable) -> Self {
-        unsafe { ::core::mem::transmute(value) }
-    }
-}
-impl ::core::convert::From<&IStringable> for ::windows::core::IUnknown {
-    fn from(value: &IStringable) -> Self {
-        ::core::convert::From::from(::core::clone::Clone::clone(value))
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStringable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStringable {
-    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
-    }
-}
-impl ::core::clone::Clone for IStringable {
+impl ::core::marker::Copy for DateTime {}
+impl ::core::clone::Clone for DateTime {
     fn clone(&self) -> Self {
-        Self(self.0.clone())
+        *self
     }
 }
-impl ::core::cmp::PartialEq for IStringable {
+unsafe impl ::windows::core::Abi for DateTime {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for DateTime {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
+}
+impl ::windows::core::DefaultType for DateTime {
+    type DefaultType = Self;
+}
+impl ::core::cmp::PartialEq for DateTime {
     fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DateTime>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for IStringable {}
-unsafe impl ::windows::core::RuntimeType for IStringable {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
-}
-unsafe impl ::windows::core::Interface for IStringable {
-    type Vtable = IStringableVtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IStringableVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-);
-pub struct PropertyValue {}
-impl PropertyValue {
-    pub fn CreateEmpty() -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
+impl ::core::cmp::Eq for DateTime {}
+impl ::core::default::Default for DateTime {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
     }
-    pub fn CreateUInt8(value: u8) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInt16(value: i16) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateUInt16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInt32(value: i32) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateUInt32(value: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInt64(value: i64) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateUInt64(value: u64) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateSingle(value: f32) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateDouble(value: f64) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateChar16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateBoolean(value: bool) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInspectable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateDateTime<'a, Param0: ::windows::core::IntoParam<'a, DateTime>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateTimeSpan<'a, Param0: ::windows::core::IntoParam<'a, TimeSpan>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreatePoint<'a, Param0: ::windows::core::IntoParam<'a, Point>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateSize<'a, Param0: ::windows::core::IntoParam<'a, Size>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateRect<'a, Param0: ::windows::core::IntoParam<'a, Rect>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateUInt8Array(value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInt16Array(value: &[<i16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateUInt16Array(value: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInt32Array(value: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateUInt32Array(value: &[<u32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInt64Array(value: &[<i64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateUInt64Array(value: &[<u64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateSingleArray(value: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateDoubleArray(value: &[<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateChar16Array(value: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateBooleanArray(value: &[<bool as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateStringArray(value: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateInspectableArray(value: &[<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateGuidArray(value: &[<::windows::core::GUID as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateDateTimeArray(value: &[<DateTime as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateTimeSpanArray(value: &[<TimeSpan as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreatePointArray(value: &[<Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateSizeArray(value: &[<Size as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn CreateRectArray(value: &[<Rect as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
-        Self::IPropertyValueStatics(|this| unsafe {
-            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
-        })
-    }
-    pub fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<PropertyValue, IPropertyValueStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
-    }
-}
-impl ::windows::core::RuntimeName for PropertyValue {
-    const NAME: &'static str = "Windows.Foundation.PropertyValue";
 }
 #[repr(transparent)]
 pub struct IPropertyValue(::windows::core::IUnknown);
@@ -757,6 +356,280 @@ pub struct IPropertyValueVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut Size) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: *mut u32, value: *mut *mut Rect) -> ::windows::core::HRESULT,
 );
+#[doc(hidden)]
+#[repr(transparent)]
+pub struct IPropertyValueStatics(::windows::core::IUnknown);
+unsafe impl ::windows::core::Interface for IPropertyValueStatics {
+    type Vtable = IPropertyValueStaticsVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IPropertyValueStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+);
+#[repr(transparent)]
+pub struct IReference<T>(::windows::core::IUnknown, ::core::marker::PhantomData<T>)
+where
+    T: ::windows::core::RuntimeType + 'static;
+impl<T: ::windows::core::RuntimeType + 'static> IReference<T> {
+    pub fn Value(&self) -> ::windows::core::Result<T> {
+        let this = self;
+        unsafe {
+            let mut result__: <T as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<T>(result__)
+        }
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::core::IInspectable {
+    fn from(value: IReference<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::core::IInspectable {
+    fn from(value: &IReference<T>) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IReference<T> {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IReference<T> {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<IReference<T>> for ::windows::core::IUnknown {
+    fn from(value: IReference<T>) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::From<&IReference<T>> for ::windows::core::IUnknown {
+    fn from(value: &IReference<T>) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IReference<T> {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IReference<T> {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<IReference<T>> for IPropertyValue {
+    type Error = ::windows::core::Error;
+    fn try_from(value: IReference<T>) -> ::windows::core::Result<Self> {
+        ::core::convert::TryFrom::try_from(&value)
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::convert::TryFrom<&IReference<T>> for IPropertyValue {
+    type Error = ::windows::core::Error;
+    fn try_from(value: &IReference<T>) -> ::windows::core::Result<Self> {
+        ::windows::core::Interface::cast(value)
+    }
+}
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IPropertyValue> for IReference<T> {
+    fn into_param(self) -> ::windows::core::Param<'a, IPropertyValue> {
+        ::windows::core::IntoParam::into_param(&self)
+    }
+}
+impl<'a, T: ::windows::core::RuntimeType + 'static> ::windows::core::IntoParam<'a, IPropertyValue> for &IReference<T> {
+    fn into_param(self) -> ::windows::core::Param<'a, IPropertyValue> {
+        ::core::convert::TryInto::<IPropertyValue>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::clone::Clone for IReference<T> {
+    fn clone(&self) -> Self {
+        Self(self.0.clone(), ::core::marker::PhantomData::<T>)
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IReference<T> {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReference<T> {}
+unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReference<T> {
+    const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
+}
+unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for IReference<T> {
+    type Vtable = IReferenceVtbl<T>;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IReferenceVtbl<T>(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut <T as ::windows::core::Abi>::Abi) -> ::windows::core::HRESULT,
+    pub ::core::marker::PhantomData<T>,
+)
+where
+    T: ::windows::core::RuntimeType + 'static;
+#[repr(transparent)]
+pub struct IStringable(::windows::core::IUnknown);
+impl IStringable {
+    pub fn ToString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
+        let this = self;
+        unsafe {
+            let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
+        }
+    }
+}
+impl ::core::convert::From<IStringable> for ::windows::core::IInspectable {
+    fn from(value: IStringable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IStringable> for ::windows::core::IInspectable {
+    fn from(value: &IStringable) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for IStringable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &IStringable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::convert::From<IStringable> for ::windows::core::IUnknown {
+    fn from(value: IStringable) -> Self {
+        unsafe { ::core::mem::transmute(value) }
+    }
+}
+impl ::core::convert::From<&IStringable> for ::windows::core::IUnknown {
+    fn from(value: &IStringable) -> Self {
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for IStringable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &IStringable {
+    fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
+    }
+}
+impl ::core::clone::Clone for IStringable {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for IStringable {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for IStringable {}
+unsafe impl ::windows::core::RuntimeType for IStringable {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
+}
+unsafe impl ::windows::core::Interface for IStringable {
+    type Vtable = IStringableVtbl;
+    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96369f54_8eb6_48f0_abce_c1b211e627c3);
+}
+#[repr(C)]
+#[doc(hidden)]
+pub struct IStringableVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+);
+#[repr(C)]
+pub struct Point {
+    pub X: f32,
+    pub Y: f32,
+}
+impl ::core::marker::Copy for Point {}
+impl ::core::clone::Clone for Point {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Point {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for Point {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
+}
+impl ::windows::core::DefaultType for Point {
+    type DefaultType = Self;
+}
+impl ::core::cmp::PartialEq for Point {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Point>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Point {}
+impl ::core::default::Default for Point {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
 #[repr(transparent)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
@@ -823,32 +696,310 @@ unsafe impl ::windows::core::RuntimeType for PropertyType {
 impl ::windows::core::DefaultType for PropertyType {
     type DefaultType = Self;
 }
-#[repr(C)]
-pub struct DateTime {
-    pub UniversalTime: i64,
+pub struct PropertyValue {}
+impl PropertyValue {
+    pub fn CreateEmpty() -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt8(value: u8) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInt16(value: i16) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInt32(value: i32) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt32(value: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInt64(value: i64) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt64(value: u64) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateSingle(value: f32) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateDouble(value: f64) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateChar16(value: u16) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateBoolean(value: bool) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateString<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInspectable<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateGuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateDateTime<'a, Param0: ::windows::core::IntoParam<'a, DateTime>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateTimeSpan<'a, Param0: ::windows::core::IntoParam<'a, TimeSpan>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreatePoint<'a, Param0: ::windows::core::IntoParam<'a, Point>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateSize<'a, Param0: ::windows::core::IntoParam<'a, Size>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateRect<'a, Param0: ::windows::core::IntoParam<'a, Rect>>(value: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt8Array(value: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInt16Array(value: &[<i16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt16Array(value: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInt32Array(value: &[<i32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt32Array(value: &[<u32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInt64Array(value: &[<i64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateUInt64Array(value: &[<u64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateSingleArray(value: &[<f32 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateDoubleArray(value: &[<f64 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateChar16Array(value: &[<u16 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateBooleanArray(value: &[<bool as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateStringArray(value: &[<::windows::core::HSTRING as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateInspectableArray(value: &[<::windows::core::IInspectable as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateGuidArray(value: &[<::windows::core::GUID as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateDateTimeArray(value: &[<DateTime as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateTimeSpanArray(value: &[<TimeSpan as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreatePointArray(value: &[<Point as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateSizeArray(value: &[<Size as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn CreateRectArray(value: &[<Rect as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<::windows::core::IInspectable> {
+        Self::IPropertyValueStatics(|this| unsafe {
+            let mut result__: *mut ::core::ffi::c_void = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), value.len() as u32, ::core::mem::transmute(value.as_ptr()), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
+        })
+    }
+    pub fn IPropertyValueStatics<R, F: FnOnce(&IPropertyValueStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<PropertyValue, IPropertyValueStatics> = ::windows::core::FactoryCache::new();
+        unsafe { SHARED.call(callback) }
+    }
 }
-impl ::core::marker::Copy for DateTime {}
-impl ::core::clone::Clone for DateTime {
+impl ::windows::core::RuntimeName for PropertyValue {
+    const NAME: &'static str = "Windows.Foundation.PropertyValue";
+}
+#[repr(C)]
+pub struct Rect {
+    pub X: f32,
+    pub Y: f32,
+    pub Width: f32,
+    pub Height: f32,
+}
+impl ::core::marker::Copy for Rect {}
+impl ::core::clone::Clone for Rect {
     fn clone(&self) -> Self {
         *self
     }
 }
-unsafe impl ::windows::core::Abi for DateTime {
+unsafe impl ::windows::core::Abi for Rect {
     type Abi = Self;
 }
-unsafe impl ::windows::core::RuntimeType for DateTime {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.DateTime;i8)");
+unsafe impl ::windows::core::RuntimeType for Rect {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
 }
-impl ::windows::core::DefaultType for DateTime {
+impl ::windows::core::DefaultType for Rect {
     type DefaultType = Self;
 }
-impl ::core::cmp::PartialEq for DateTime {
+impl ::core::cmp::PartialEq for Rect {
     fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DateTime>()) == 0 }
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Rect>()) == 0 }
     }
 }
-impl ::core::cmp::Eq for DateTime {}
-impl ::core::default::Default for DateTime {
+impl ::core::cmp::Eq for Rect {}
+impl ::core::default::Default for Rect {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
+}
+#[repr(C)]
+pub struct Size {
+    pub Width: f32,
+    pub Height: f32,
+}
+impl ::core::marker::Copy for Size {}
+impl ::core::clone::Clone for Size {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Size {
+    type Abi = Self;
+}
+unsafe impl ::windows::core::RuntimeType for Size {
+    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
+}
+impl ::windows::core::DefaultType for Size {
+    type DefaultType = Self;
+}
+impl ::core::cmp::PartialEq for Size {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Size>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Size {}
+impl ::core::default::Default for Size {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
@@ -898,188 +1049,101 @@ impl<'a> ::windows::core::IntoParam<'a, TimeSpan> for ::core::time::Duration {
         ::windows::core::Param::Owned(self.into())
     }
 }
-#[repr(C)]
-pub struct Point {
-    pub X: f32,
-    pub Y: f32,
-}
-impl ::core::marker::Copy for Point {}
-impl ::core::clone::Clone for Point {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for Point {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for Point {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Point;f4;f4)");
-}
-impl ::windows::core::DefaultType for Point {
-    type DefaultType = Self;
-}
-impl ::core::cmp::PartialEq for Point {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Point>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Point {}
-impl ::core::default::Default for Point {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-pub struct Size {
-    pub Width: f32,
-    pub Height: f32,
-}
-impl ::core::marker::Copy for Size {}
-impl ::core::clone::Clone for Size {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for Size {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for Size {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Size;f4;f4)");
-}
-impl ::windows::core::DefaultType for Size {
-    type DefaultType = Self;
-}
-impl ::core::cmp::PartialEq for Size {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Size>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Size {}
-impl ::core::default::Default for Size {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[repr(C)]
-pub struct Rect {
-    pub X: f32,
-    pub Y: f32,
-    pub Width: f32,
-    pub Height: f32,
-}
-impl ::core::marker::Copy for Rect {}
-impl ::core::clone::Clone for Rect {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-unsafe impl ::windows::core::Abi for Rect {
-    type Abi = Self;
-}
-unsafe impl ::windows::core::RuntimeType for Rect {
-    const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"struct(Windows.Foundation.Rect;f4;f4;f4;f4)");
-}
-impl ::windows::core::DefaultType for Rect {
-    type DefaultType = Self;
-}
-impl ::core::cmp::PartialEq for Rect {
-    fn eq(&self, other: &Self) -> bool {
-        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Rect>()) == 0 }
-    }
-}
-impl ::core::cmp::Eq for Rect {}
-impl ::core::default::Default for Rect {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-#[doc(hidden)]
 #[repr(transparent)]
-pub struct IPropertyValueStatics(::windows::core::IUnknown);
-unsafe impl ::windows::core::Interface for IPropertyValueStatics {
-    type Vtable = IPropertyValueStaticsVtbl;
-    const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x629bdbc8_d932_4ff4_96b9_8d96c5c1e858);
-}
-#[repr(C)]
-#[doc(hidden)]
-pub struct IPropertyValueStaticsVtbl(
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u8, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const i64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const f32, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const f64, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const u16, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const bool, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const *mut ::core::ffi::c_void, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const ::windows::core::GUID, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const DateTime, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const TimeSpan, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Point, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Size, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value_array_size: u32, value: *const Rect, result__: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-);
-#[inline]
-pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
-    #[cfg(windows)]
-    {
-        #[link(name = "kernel32")]
-        extern "system" {
-            fn CloseHandle(hobject: HANDLE) -> BOOL;
-        }
-        ::core::mem::transmute(CloseHandle(hobject.into_param().abi()))
+pub struct BOOL(pub i32);
+impl BOOL {
+    #[inline]
+    pub fn as_bool(self) -> bool {
+        self.0 != 0
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
-#[inline]
-pub unsafe fn GetLastError() -> WIN32_ERROR {
-    #[cfg(windows)]
-    {
-        #[link(name = "kernel32")]
-        extern "system" {
-            fn GetLastError() -> WIN32_ERROR;
+    #[inline]
+    pub fn ok(self) -> ::windows::core::Result<()> {
+        if self.as_bool() {
+            Ok(())
+        } else {
+            Err(::windows::core::Error::from_win32())
         }
-        ::core::mem::transmute(GetLastError())
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
+    #[inline]
+    #[track_caller]
+    pub fn unwrap(self) {
+        self.ok().unwrap();
+    }
+    #[inline]
+    #[track_caller]
+    pub fn expect(self, msg: &str) {
+        self.ok().expect(msg);
+    }
 }
-pub const E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147467262i32);
-pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221231i32);
-pub const E_OUTOFMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024882i32);
-pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
-pub const CO_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221008i32);
+impl ::core::default::Default for BOOL {
+    fn default() -> Self {
+        Self(0)
+    }
+}
+impl ::core::clone::Clone for BOOL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+impl ::core::marker::Copy for BOOL {}
+impl ::core::cmp::PartialEq for BOOL {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for BOOL {}
+impl ::core::convert::From<BOOL> for bool {
+    fn from(value: BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<&BOOL> for bool {
+    fn from(value: &BOOL) -> Self {
+        value.as_bool()
+    }
+}
+impl ::core::convert::From<bool> for BOOL {
+    fn from(value: bool) -> Self {
+        if value {
+            BOOL(1)
+        } else {
+            BOOL(0)
+        }
+    }
+}
+impl ::core::convert::From<&bool> for BOOL {
+    fn from(value: &bool) -> Self {
+        (*value).into()
+    }
+}
+impl ::core::cmp::PartialEq<bool> for BOOL {
+    fn eq(&self, other: &bool) -> bool {
+        self.as_bool() == *other
+    }
+}
+impl ::core::cmp::PartialEq<BOOL> for bool {
+    fn eq(&self, other: &BOOL) -> bool {
+        *self == other.as_bool()
+    }
+}
+impl ::core::ops::Not for BOOL {
+    type Output = Self;
+    fn not(self) -> Self::Output {
+        if self.as_bool() {
+            BOOL(0)
+        } else {
+            BOOL(1)
+        }
+    }
+}
+unsafe impl ::windows::core::Abi for BOOL {
+    type Abi = Self;
+}
+impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
+    fn into_param(self) -> ::windows::core::Param<'a, BOOL> {
+        ::windows::core::Param::Owned(self.into())
+    }
+}
 #[repr(transparent)]
 pub struct BSTR(*mut u16);
 impl BSTR {
@@ -1210,6 +1274,37 @@ impl<'a> ::windows::core::IntoParam<'a, BSTR> for ::windows::core::alloc::string
         ::windows::core::Param::Owned(self.into())
     }
 }
+pub const CLASS_E_CLASSNOTAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221231i32);
+#[inline]
+pub unsafe fn CloseHandle<'a, Param0: ::windows::core::IntoParam<'a, HANDLE>>(hobject: Param0) -> BOOL {
+    #[cfg(windows)]
+    {
+        #[link(name = "kernel32")]
+        extern "system" {
+            fn CloseHandle(hobject: HANDLE) -> BOOL;
+        }
+        ::core::mem::transmute(CloseHandle(hobject.into_param().abi()))
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
+pub const CO_E_NOTINITIALIZED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147221008i32);
+pub const E_NOINTERFACE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147467262i32);
+pub const E_OUTOFMEMORY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024882i32);
+pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
+#[inline]
+pub unsafe fn GetLastError() -> WIN32_ERROR {
+    #[cfg(windows)]
+    {
+        #[link(name = "kernel32")]
+        extern "system" {
+            fn GetLastError() -> WIN32_ERROR;
+        }
+        ::core::mem::transmute(GetLastError())
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[repr(transparent)]
 pub struct HANDLE(pub isize);
 impl HANDLE {
@@ -1244,139 +1339,53 @@ impl ::core::cmp::Eq for HANDLE {}
 unsafe impl ::windows::core::Abi for HANDLE {
     type Abi = Self;
 }
+pub type HINSTANCE = isize;
 #[repr(transparent)]
-pub struct BOOL(pub i32);
-impl BOOL {
-    #[inline]
-    pub fn as_bool(self) -> bool {
-        self.0 != 0
-    }
-    #[inline]
-    pub fn ok(self) -> ::windows::core::Result<()> {
-        if self.as_bool() {
-            Ok(())
-        } else {
-            Err(::windows::core::Error::from_win32())
-        }
-    }
-    #[inline]
-    #[track_caller]
-    pub fn unwrap(self) {
-        self.ok().unwrap();
-    }
-    #[inline]
-    #[track_caller]
-    pub fn expect(self, msg: &str) {
-        self.ok().expect(msg);
+pub struct PSTR(pub *mut u8);
+impl PSTR {
+    pub fn is_null(&self) -> bool {
+        self.0.is_null()
     }
 }
-impl ::core::default::Default for BOOL {
+impl ::core::default::Default for PSTR {
     fn default() -> Self {
-        Self(0)
+        Self(::core::ptr::null_mut())
     }
 }
-impl ::core::clone::Clone for BOOL {
+impl ::core::clone::Clone for PSTR {
     fn clone(&self) -> Self {
         *self
     }
 }
-impl ::core::marker::Copy for BOOL {}
-impl ::core::cmp::PartialEq for BOOL {
+impl ::core::marker::Copy for PSTR {}
+impl ::core::cmp::PartialEq for PSTR {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
-impl ::core::cmp::Eq for BOOL {}
-impl ::core::convert::From<BOOL> for bool {
-    fn from(value: BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<&BOOL> for bool {
-    fn from(value: &BOOL) -> Self {
-        value.as_bool()
-    }
-}
-impl ::core::convert::From<bool> for BOOL {
-    fn from(value: bool) -> Self {
-        if value {
-            BOOL(1)
-        } else {
-            BOOL(0)
-        }
-    }
-}
-impl ::core::convert::From<&bool> for BOOL {
-    fn from(value: &bool) -> Self {
-        (*value).into()
-    }
-}
-impl ::core::cmp::PartialEq<bool> for BOOL {
-    fn eq(&self, other: &bool) -> bool {
-        self.as_bool() == *other
-    }
-}
-impl ::core::cmp::PartialEq<BOOL> for bool {
-    fn eq(&self, other: &BOOL) -> bool {
-        *self == other.as_bool()
-    }
-}
-impl ::core::ops::Not for BOOL {
-    type Output = Self;
-    fn not(self) -> Self::Output {
-        if self.as_bool() {
-            BOOL(0)
-        } else {
-            BOOL(1)
-        }
-    }
-}
-unsafe impl ::windows::core::Abi for BOOL {
+impl ::core::cmp::Eq for PSTR {}
+unsafe impl ::windows::core::Abi for PSTR {
     type Abi = Self;
-}
-impl<'a> ::windows::core::IntoParam<'a, BOOL> for bool {
-    fn into_param(self) -> ::windows::core::Param<'a, BOOL> {
-        ::windows::core::Param::Owned(self.into())
-    }
-}
-#[inline]
-pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbstr: Param0) -> u32 {
-    #[cfg(windows)]
-    {
-        #[link(name = "oleaut32")]
-        extern "system" {
-            fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
+    #[cfg(feature = "alloc")]
+    unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
+        if let ::windows::core::Param::Boxed(value) = param {
+            if !value.is_null() {
+                ::windows::core::alloc::boxed::Box::from_raw(value.0);
+            }
         }
-        ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
 }
-#[inline]
-pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(strin: Param0, ui: u32) -> BSTR {
-    #[cfg(windows)]
-    {
-        #[link(name = "oleaut32")]
-        extern "system" {
-            fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
-        }
-        ::core::mem::transmute(SysAllocStringLen(strin.into_param().abi(), ::core::mem::transmute(ui)))
+#[cfg(feature = "alloc")]
+impl<'a> ::windows::core::IntoParam<'a, PSTR> for &str {
+    fn into_param(self) -> ::windows::core::Param<'a, PSTR> {
+        ::windows::core::Param::Boxed(PSTR(::windows::core::alloc::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<::windows::core::alloc::vec::Vec<u8>>().into_boxed_slice()) as _))
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
 }
-#[inline]
-pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
-    #[cfg(windows)]
-    {
-        #[link(name = "oleaut32")]
-        extern "system" {
-            fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
-        }
-        SysFreeString(bstrstring.into_param().abi())
+#[cfg(feature = "alloc")]
+impl<'a> ::windows::core::IntoParam<'a, PSTR> for ::windows::core::alloc::string::String {
+    fn into_param(self) -> ::windows::core::Param<'a, PSTR> {
+        ::windows::core::IntoParam::into_param(self.as_str())
     }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
 }
 #[repr(transparent)]
 pub struct PWSTR(pub *mut u16);
@@ -1438,55 +1447,46 @@ impl<'a> ::windows::core::IntoParam<'a, PWSTR> for ::std::ffi::OsString {
         ::windows::core::IntoParam::into_param(self.as_os_str())
     }
 }
-#[repr(transparent)]
-pub struct PSTR(pub *mut u8);
-impl PSTR {
-    pub fn is_null(&self) -> bool {
-        self.0.is_null()
-    }
-}
-impl ::core::default::Default for PSTR {
-    fn default() -> Self {
-        Self(::core::ptr::null_mut())
-    }
-}
-impl ::core::clone::Clone for PSTR {
-    fn clone(&self) -> Self {
-        *self
-    }
-}
-impl ::core::marker::Copy for PSTR {}
-impl ::core::cmp::PartialEq for PSTR {
-    fn eq(&self, other: &Self) -> bool {
-        self.0 == other.0
-    }
-}
-impl ::core::cmp::Eq for PSTR {}
-unsafe impl ::windows::core::Abi for PSTR {
-    type Abi = Self;
-    #[cfg(feature = "alloc")]
-    unsafe fn drop_param(param: &mut ::windows::core::Param<'_, Self>) {
-        if let ::windows::core::Param::Boxed(value) = param {
-            if !value.is_null() {
-                ::windows::core::alloc::boxed::Box::from_raw(value.0);
-            }
+pub const S_OK: ::windows::core::HRESULT = ::windows::core::HRESULT(0i32);
+#[inline]
+pub unsafe fn SysAllocStringLen<'a, Param0: ::windows::core::IntoParam<'a, PWSTR>>(strin: Param0, ui: u32) -> BSTR {
+    #[cfg(windows)]
+    {
+        #[link(name = "oleaut32")]
+        extern "system" {
+            fn SysAllocStringLen(strin: PWSTR, ui: u32) -> BSTR;
         }
+        ::core::mem::transmute(SysAllocStringLen(strin.into_param().abi(), ::core::mem::transmute(ui)))
     }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, PSTR> for &str {
-    fn into_param(self) -> ::windows::core::Param<'a, PSTR> {
-        ::windows::core::Param::Boxed(PSTR(::windows::core::alloc::boxed::Box::<[u8]>::into_raw(self.bytes().chain(::core::iter::once(0)).collect::<::windows::core::alloc::vec::Vec<u8>>().into_boxed_slice()) as _))
+#[inline]
+pub unsafe fn SysFreeString<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(bstrstring: Param0) {
+    #[cfg(windows)]
+    {
+        #[link(name = "oleaut32")]
+        extern "system" {
+            fn SysFreeString(bstrstring: ::core::mem::ManuallyDrop<BSTR>);
+        }
+        SysFreeString(bstrstring.into_param().abi())
     }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
 }
-#[cfg(feature = "alloc")]
-impl<'a> ::windows::core::IntoParam<'a, PSTR> for ::windows::core::alloc::string::String {
-    fn into_param(self) -> ::windows::core::Param<'a, PSTR> {
-        ::windows::core::IntoParam::into_param(self.as_str())
+#[inline]
+pub unsafe fn SysStringLen<'a, Param0: ::windows::core::IntoParam<'a, BSTR>>(pbstr: Param0) -> u32 {
+    #[cfg(windows)]
+    {
+        #[link(name = "oleaut32")]
+        extern "system" {
+            fn SysStringLen(pbstr: ::core::mem::ManuallyDrop<BSTR>) -> u32;
+        }
+        ::core::mem::transmute(SysStringLen(pbstr.into_param().abi()))
     }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
 }
-pub type HINSTANCE = isize;
-pub type FARPROC = ::core::option::Option<unsafe extern "system" fn() -> isize>;
 pub type WIN32_ERROR = u32;
 #[repr(C)]
 pub struct SECURITY_ATTRIBUTES {
@@ -1554,6 +1554,20 @@ pub unsafe fn CoTaskMemFree(pv: *const ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[inline]
+pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInfo> {
+    #[cfg(windows)]
+    {
+        #[link(name = "oleaut32")]
+        extern "system" {
+            fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+        }
+        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+        GetErrorInfo(::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<IErrorInfo>(result__)
+    }
+    #[cfg(not(windows))]
+    unimplemented!("Unsupported target OS");
+}
 #[repr(transparent)]
 pub struct IAgileObject(::windows::core::IUnknown);
 impl IAgileObject {}
@@ -1595,20 +1609,6 @@ unsafe impl ::windows::core::Interface for IAgileObject {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IAgileObjectVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32);
-#[inline]
-pub unsafe fn GetErrorInfo(dwreserved: u32) -> ::windows::core::Result<IErrorInfo> {
-    #[cfg(windows)]
-    {
-        #[link(name = "oleaut32")]
-        extern "system" {
-            fn GetErrorInfo(dwreserved: u32, pperrinfo: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
-        }
-        let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-        GetErrorInfo(::core::mem::transmute(dwreserved), ::core::mem::transmute(&mut result__)).from_abi::<IErrorInfo>(result__)
-    }
-    #[cfg(not(windows))]
-    unimplemented!("Unsupported target OS");
-}
 #[repr(transparent)]
 pub struct IErrorInfo(::windows::core::IUnknown);
 impl IErrorInfo {
@@ -1693,6 +1693,13 @@ pub unsafe fn SetErrorInfo<'a, Param1: ::windows::core::IntoParam<'a, IErrorInfo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+pub type FORMAT_MESSAGE_OPTIONS = u32;
+pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
+pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = 8192u32;
+pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048u32;
+pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = 1024u32;
+pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
+pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
 #[inline]
 pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const ::core::ffi::c_void, dwmessageid: u32, dwlanguageid: u32, lpbuffer: PWSTR, nsize: u32, arguments: *const *const i8) -> u32 {
     #[cfg(windows)]
@@ -1706,13 +1713,6 @@ pub unsafe fn FormatMessageW(dwflags: FORMAT_MESSAGE_OPTIONS, lpsource: *const :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-pub type FORMAT_MESSAGE_OPTIONS = u32;
-pub const FORMAT_MESSAGE_ALLOCATE_BUFFER: FORMAT_MESSAGE_OPTIONS = 256u32;
-pub const FORMAT_MESSAGE_ARGUMENT_ARRAY: FORMAT_MESSAGE_OPTIONS = 8192u32;
-pub const FORMAT_MESSAGE_FROM_HMODULE: FORMAT_MESSAGE_OPTIONS = 2048u32;
-pub const FORMAT_MESSAGE_FROM_STRING: FORMAT_MESSAGE_OPTIONS = 1024u32;
-pub const FORMAT_MESSAGE_FROM_SYSTEM: FORMAT_MESSAGE_OPTIONS = 4096u32;
-pub const FORMAT_MESSAGE_IGNORE_INSERTS: FORMAT_MESSAGE_OPTIONS = 512u32;
 #[inline]
 pub unsafe fn FreeLibrary<'a, Param0: ::windows::core::IntoParam<'a, HINSTANCE>>(hlibmodule: Param0) -> BOOL {
     #[cfg(windows)]
@@ -1783,7 +1783,6 @@ pub const HEAP_PSEUDO_TAG_FLAG: HEAP_FLAGS = 32768u32;
 pub const HEAP_TAG_SHIFT: HEAP_FLAGS = 18u32;
 pub const HEAP_CREATE_SEGMENT_HEAP: HEAP_FLAGS = 256u32;
 pub const HEAP_CREATE_HARDENED: HEAP_FLAGS = 512u32;
-pub type HeapHandle = isize;
 #[inline]
 pub unsafe fn HeapAlloc<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(hheap: Param0, dwflags: HEAP_FLAGS, dwbytes: usize) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -1810,6 +1809,7 @@ pub unsafe fn HeapFree<'a, Param0: ::windows::core::IntoParam<'a, HeapHandle>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+pub type HeapHandle = isize;
 #[inline]
 pub unsafe fn CreateEventA<'a, Param1: ::windows::core::IntoParam<'a, BOOL>, Param2: ::windows::core::IntoParam<'a, BOOL>, Param3: ::windows::core::IntoParam<'a, PSTR>>(lpeventattributes: *const SECURITY_ATTRIBUTES, bmanualreset: Param1, binitialstate: Param2, lpname: Param3) -> HANDLE {
     #[cfg(windows)]
