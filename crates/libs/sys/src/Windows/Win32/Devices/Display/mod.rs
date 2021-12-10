@@ -1072,23 +1072,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     pub Anonymous: DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0,
     pub value: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DISPLAYCONFIG_GET_ADVANCED_COLOR_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1110,23 +1116,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_GET_MONITOR_SPECIALIZATION_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1209,23 +1221,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_SOURCE_INFO_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_SOURCE_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1255,23 +1273,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     pub modeInfoIdx: u32,
     pub Anonymous: DISPLAYCONFIG_PATH_TARGET_INFO_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_PATH_TARGET_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1376,23 +1400,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0,
     pub value: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_ADVANCED_COLOR_STATE_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1417,23 +1447,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     pub Anonymous: DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0,
     pub value: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_MONITOR_SPECIALIZATION_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1455,23 +1491,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     pub Anonymous: DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0,
     pub value: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SET_TARGET_PERSISTENCE_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1525,23 +1567,29 @@ impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     pub Anonymous: DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0,
     pub value: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISPLAYCONFIG_SUPPORT_VIRTUAL_RESOLUTION_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -4507,12 +4555,15 @@ impl ::core::clone::Clone for VIDEO_BRIGHTNESS_POLICY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Display'*"]
+#[doc = "*Required features: 'Win32_Devices_Display', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct VIDEO_BRIGHTNESS_POLICY_0 {
     pub BatteryLevel: u8,
     pub Brightness: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VIDEO_BRIGHTNESS_POLICY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VIDEO_BRIGHTNESS_POLICY_0 {
     fn clone(&self) -> Self {
         *self

@@ -686,23 +686,29 @@ impl ::core::clone::Clone for CONVERT_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_A_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_A_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -724,23 +730,29 @@ impl ::core::clone::Clone for CONVERT_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_W_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_W_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -816,11 +828,14 @@ impl ::core::clone::Clone for JET_BKLOGTIME_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_BKLOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKLOGTIME_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -842,11 +857,14 @@ impl ::core::clone::Clone for JET_BKLOGTIME_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_BKLOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKLOGTIME_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -1489,24 +1507,30 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_1 {
     fn clone(&self) -> Self {
         *self
@@ -1539,24 +1563,30 @@ impl ::core::clone::Clone for JET_INDEXCREATE2_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_1 {
     fn clone(&self) -> Self {
         *self
@@ -1589,12 +1619,15 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_A_0 {
     fn clone(&self) -> Self {
         *self
@@ -1627,12 +1660,15 @@ impl ::core::clone::Clone for JET_INDEXCREATE3_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_W_0 {
     fn clone(&self) -> Self {
         *self
@@ -1664,24 +1700,30 @@ impl ::core::clone::Clone for JET_INDEXCREATE_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_1 {
     fn clone(&self) -> Self {
         *self
@@ -1713,24 +1755,30 @@ impl ::core::clone::Clone for JET_INDEXCREATE_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_1 {
     fn clone(&self) -> Self {
         *self
@@ -1964,11 +2012,14 @@ impl ::core::clone::Clone for JET_LOGTIME_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_LOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_LOGTIME_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1990,11 +2041,14 @@ impl ::core::clone::Clone for JET_LOGTIME_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_LOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_LOGTIME_1_0 {
     fn clone(&self) -> Self {
         *self

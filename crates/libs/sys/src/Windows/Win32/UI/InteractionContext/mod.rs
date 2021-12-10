@@ -260,13 +260,16 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT_0 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT_0 {
     fn clone(&self) -> Self {
         *self
@@ -294,13 +297,16 @@ impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_InteractionContext'*"]
+#[doc = "*Required features: 'Win32_UI_InteractionContext', 'Win32_UI_WindowsAndMessaging'*"]
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 pub union INTERACTION_CONTEXT_OUTPUT2_0 {
     pub manipulation: INTERACTION_ARGUMENTS_MANIPULATION,
     pub tap: INTERACTION_ARGUMENTS_TAP,
     pub crossSlide: INTERACTION_ARGUMENTS_CROSS_SLIDE,
 }
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::marker::Copy for INTERACTION_CONTEXT_OUTPUT2_0 {}
+#[cfg(feature = "Win32_UI_WindowsAndMessaging")]
 impl ::core::clone::Clone for INTERACTION_CONTEXT_OUTPUT2_0 {
     fn clone(&self) -> Self {
         *self

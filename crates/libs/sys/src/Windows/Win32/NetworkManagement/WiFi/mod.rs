@@ -2528,16 +2528,16 @@ impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_Foundation', 'Win32_NetworkManagement_Ndis'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 pub union DOT11_PHY_ATTRIBUTES_0 {
     pub HRDSSSAttributes: DOT11_HRDSSS_PHY_ATTRIBUTES,
     pub OFDMAttributes: DOT11_OFDM_PHY_ATTRIBUTES,
     pub ERPAttributes: DOT11_ERP_PHY_ATTRIBUTES,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::marker::Copy for DOT11_PHY_ATTRIBUTES_0 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_NetworkManagement_Ndis"))]
 impl ::core::clone::Clone for DOT11_PHY_ATTRIBUTES_0 {
     fn clone(&self) -> Self {
         *self
@@ -2589,12 +2589,15 @@ impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_WiFi'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_WiFi', 'Win32_NetworkManagement_Ndis'*"]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub union DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     pub ulChannel: u32,
     pub ulFrequency: u32,
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::marker::Copy for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::clone::Clone for DOT11_PHY_FREQUENCY_ADOPTED_PARAMETERS_0 {
     fn clone(&self) -> Self {
         *self

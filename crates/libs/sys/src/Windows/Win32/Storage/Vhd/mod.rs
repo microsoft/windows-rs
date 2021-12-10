@@ -714,14 +714,17 @@ impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
+#[doc = "*Required features: 'Win32_Storage_Vhd', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct GET_VIRTUAL_DISK_INFO_0_3 {
     pub VirtualSize: u64,
     pub PhysicalSize: u64,
     pub BlockSize: u32,
     pub SectorSize: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for GET_VIRTUAL_DISK_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for GET_VIRTUAL_DISK_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
@@ -1004,11 +1007,14 @@ impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Vhd'*"]
+#[doc = "*Required features: 'Win32_Storage_Vhd', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     pub RWDepth: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPEN_VIRTUAL_DISK_PARAMETERS_0_0 {
     fn clone(&self) -> Self {
         *self

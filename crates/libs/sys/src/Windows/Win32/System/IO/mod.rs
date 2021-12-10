@@ -56,24 +56,30 @@ impl ::core::clone::Clone for OVERLAPPED {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_IO'*"]
+#[doc = "*Required features: 'Win32_System_IO', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OVERLAPPED_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_IO'*"]
+#[doc = "*Required features: 'Win32_System_IO', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OVERLAPPED_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OVERLAPPED_0_0 {
     fn clone(&self) -> Self {
         *self

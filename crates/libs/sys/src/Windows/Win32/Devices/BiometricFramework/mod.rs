@@ -612,20 +612,24 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub Sample: *mut WINBIO_BIR,
     pub SampleSize: usize,
     pub RejectDetail: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub Component: WINBIO_COMPONENT,
     pub ControlCode: u32,
@@ -636,41 +640,52 @@ pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub ReceiveBufferSize: usize,
     pub ReceiveDataSize: usize,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub SubFactor: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub RejectDetail: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_4 {
     fn clone(&self) -> Self {
         *self
@@ -692,78 +707,97 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_5 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub SelectorValue: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_6 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub UnitCount: usize,
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_7 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_7 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_8 {
     pub StorageCount: usize,
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_8 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_8 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactorCount: usize,
     pub SubFactorArray: *mut u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_9 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_9 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
     pub BspCount: usize,
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_10 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_10 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Event: WINBIO_EVENT,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_11 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_11 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -772,46 +806,57 @@ pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_12 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_12 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub Identity: WINBIO_IDENTITY,
     pub Policy: WINBIO_PROTECTION_POLICY,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_13 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_13 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
     pub Ticket: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_14 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_14 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub Identity: WINBIO_IDENTITY,
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_15 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_15 {
     fn clone(&self) -> Self {
         *self
@@ -834,18 +879,22 @@ impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_16 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_17 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_17 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyType: u32,
     pub PropertyId: u32,
@@ -854,7 +903,9 @@ pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyBufferSize: usize,
     pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_18 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_18 {
     fn clone(&self) -> Self {
         *self
@@ -1448,19 +1499,23 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub AdapterId: ::windows_sys::core::GUID,
     pub Data: [u32; 78],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub GeneralSamples: u32,
     pub Center: u32,
@@ -1469,7 +1524,9 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -1498,24 +1555,30 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub X: f64,
     pub Y: f64,
     pub Z: f64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     pub Reserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn clone(&self) -> Self {
         *self
@@ -1573,24 +1636,30 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     pub ColorSensorId: [u16; 260],
     pub InfraredSensorId: [u16; 260],
     pub InfraredSensorRotationAngle: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     pub Reserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
@@ -1613,11 +1682,14 @@ impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     pub Reserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn clone(&self) -> Self {
         *self
@@ -2097,12 +2169,15 @@ impl ::core::clone::Clone for WINBIO_PRESENCE {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_0 {
     pub Size: u32,
     pub Data: [u8; 32],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_PRESENCE_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_PRESENCE_0 {
     fn clone(&self) -> Self {
         *self
@@ -2140,12 +2215,15 @@ impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_BiometricFramework'*"]
+#[doc = "*Required features: 'Win32_Devices_BiometricFramework', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub AdapterId: ::windows_sys::core::GUID,
     pub Data: [u32; 78],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINBIO_PRESENCE_PROPERTIES_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn clone(&self) -> Self {
         *self

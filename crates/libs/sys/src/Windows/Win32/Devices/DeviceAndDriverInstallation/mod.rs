@@ -2018,22 +2018,28 @@ impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
+#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub InstanceId: [u16; 200],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CM_NOTIFY_FILTER_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
+#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER_0_2 {
     pub ClassGuid: ::windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CM_NOTIFY_FILTER_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_2 {
     fn clone(&self) -> Self {
         *self
@@ -4176,12 +4182,18 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
+#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
     fn clone(&self) -> Self {
         *self
@@ -4212,12 +4224,18 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
+#[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation', 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 pub union SP_ALTPLATFORM_INFO_V2_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
     fn clone(&self) -> Self {
         *self
@@ -4249,11 +4267,14 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3_0 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
     fn clone(&self) -> Self {
         *self
@@ -4285,11 +4306,14 @@ impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
 }
 #[repr(C, packed(1))]
 #[doc = "*Required features: 'Win32_Devices_DeviceAndDriverInstallation'*"]
+#[cfg(target_arch = "x86")]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Reserved: u16,
     pub Flags: u16,
 }
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3_0 {}
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
     fn clone(&self) -> Self {
         *self

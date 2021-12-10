@@ -1879,7 +1879,8 @@ impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
     pub dwStreamNumber: u32,
@@ -1891,18 +1892,23 @@ pub struct COPYFILE2_MESSAGE_0_2 {
     pub uliTotalFileSize: u64,
     pub uliTotalBytesTransferred: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwReserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for COPYFILE2_MESSAGE_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for COPYFILE2_MESSAGE_0_3 {
     fn clone(&self) -> Self {
         *self

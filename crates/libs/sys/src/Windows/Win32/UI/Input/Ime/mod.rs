@@ -1282,24 +1282,30 @@ impl ::core::clone::Clone for IMEWRD {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union IMEWRD_0 {
     pub ulPos: u32,
     pub Anonymous: IMEWRD_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMEWRD_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMEWRD_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct IMEWRD_0_0 {
     pub nPos1: u16,
     pub nPos2: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMEWRD_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMEWRD_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1491,15 +1497,15 @@ impl ::core::clone::Clone for INPUTCONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation', 'Win32_Globalization', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 pub union INPUTCONTEXT_0 {
     pub A: super::super::super::Graphics::Gdi::LOGFONTA,
     pub W: super::super::super::Graphics::Gdi::LOGFONTW,
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for INPUTCONTEXT_0 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Globalization", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for INPUTCONTEXT_0 {
     fn clone(&self) -> Self {
         *self
@@ -1754,24 +1760,30 @@ impl ::core::clone::Clone for MORRSLT_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_1 {
     pub cchRead: u16,
     pub cchComp: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MORRSLT_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MORRSLT_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_UI_Input_Ime'*"]
+#[doc = "*Required features: 'Win32_UI_Input_Ime', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MORRSLT_2 {
     pub pchReadIdxWDD: *mut u16,
     pub pchCompIdxWDD: *mut u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MORRSLT_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MORRSLT_2 {
     fn clone(&self) -> Self {
         *self

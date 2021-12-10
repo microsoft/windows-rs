@@ -1279,47 +1279,59 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ADDRESSES_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_LH_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ADDRESSES_LH_1 {
     pub Flags: u32,
     pub Anonymous: IP_ADAPTER_ADDRESSES_LH_1_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_LH_1_0 {
     pub _bitfield: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_LH_1_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_LH_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -1358,24 +1370,30 @@ impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ADDRESSES_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ADDRESSES_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ADDRESSES_XP_0_0 {
     pub Length: u32,
     pub IfIndex: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ADDRESSES_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ADDRESSES_XP_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1400,24 +1418,30 @@ impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_ANYCAST_ADDRESS_XP_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1442,24 +1466,30 @@ impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_DNS_SERVER_ADDRESS_XP_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1494,24 +1524,30 @@ impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_GATEWAY_ADDRESS_LH_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1581,24 +1617,30 @@ impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_MULTICAST_ADDRESS_XP_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1636,24 +1678,30 @@ impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_PREFIX_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_PREFIX_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_PREFIX_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_PREFIX_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_PREFIX_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_PREFIX_XP_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1685,24 +1733,30 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_LH_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1731,24 +1785,30 @@ impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_UNICAST_ADDRESS_XP_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     pub Length: u32,
     pub Flags: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_UNICAST_ADDRESS_XP_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -1771,24 +1831,30 @@ impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     pub Alignment: u64,
     pub Anonymous: IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     pub Length: u32,
     pub Reserved: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for IP_ADAPTER_WINS_SERVER_ADDRESS_LH_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2299,11 +2365,14 @@ impl ::core::clone::Clone for MIB_IF_ROW2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_NetworkManagement_Ndis'*"]
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 pub struct MIB_IF_ROW2_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::marker::Copy for MIB_IF_ROW2_0 {}
+#[cfg(feature = "Win32_NetworkManagement_Ndis")]
 impl ::core::clone::Clone for MIB_IF_ROW2_0 {
     fn clone(&self) -> Self {
         *self
@@ -2486,12 +2555,15 @@ impl ::core::clone::Clone for MIB_IPFORWARDROW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union MIB_IPFORWARDROW_0 {
     pub dwForwardType: u32,
     pub ForwardType: MIB_IPFORWARD_TYPE,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for MIB_IPFORWARDROW_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for MIB_IPFORWARDROW_0 {
     fn clone(&self) -> Self {
         *self
@@ -2945,35 +3017,44 @@ impl ::core::clone::Clone for MIB_IPNET_ROW2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union MIB_IPNET_ROW2_0 {
     pub Anonymous: MIB_IPNET_ROW2_0_0,
     pub Flags: u8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for MIB_IPNET_ROW2_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPNET_ROW2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct MIB_IPNET_ROW2_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for MIB_IPNET_ROW2_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPNET_ROW2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union MIB_IPNET_ROW2_1 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for MIB_IPNET_ROW2_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPNET_ROW2_1 {
     fn clone(&self) -> Self {
         *self
@@ -3030,12 +3111,15 @@ impl ::core::clone::Clone for MIB_IPPATH_ROW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_IpHelper', 'Win32_Foundation', 'Win32_Networking_WinSock'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub union MIB_IPPATH_ROW_0 {
     pub LastReachable: u32,
     pub LastUnreachable: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for MIB_IPPATH_ROW_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for MIB_IPPATH_ROW_0 {
     fn clone(&self) -> Self {
         *self

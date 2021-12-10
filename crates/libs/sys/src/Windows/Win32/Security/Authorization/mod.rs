@@ -511,12 +511,15 @@ impl ::core::clone::Clone for ACTRL_OVERLAPPED {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut ::core::ffi::c_void,
     pub Reserved1: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACTRL_OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACTRL_OVERLAPPED_0 {
     fn clone(&self) -> Self {
         *self
@@ -691,12 +694,15 @@ impl ::core::clone::Clone for AUDIT_PARAM_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUDIT_PARAM_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUDIT_PARAM_1 {
     fn clone(&self) -> Self {
         *self
@@ -1136,12 +1142,15 @@ impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut ::core::ffi::c_void,
     pub pProviderGuid: *mut ::windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn clone(&self) -> Self {
         *self

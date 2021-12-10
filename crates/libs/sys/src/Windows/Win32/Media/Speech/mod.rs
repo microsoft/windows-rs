@@ -1525,25 +1525,31 @@ impl ::core::clone::Clone for SPPHRASEPROPERTY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub union SPPHRASEPROPERTY_0 {
     pub ulId: u32,
     pub Anonymous: SPPHRASEPROPERTY_0_0,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SPPHRASEPROPERTY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPHRASEPROPERTY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Media_Speech'*"]
+#[doc = "*Required features: 'Win32_Media_Speech', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 pub struct SPPHRASEPROPERTY_0_0 {
     pub bType: u8,
     pub bReserved: u8,
     pub usArrayIndex: u16,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for SPPHRASEPROPERTY_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for SPPHRASEPROPERTY_0_0 {
     fn clone(&self) -> Self {
         *self

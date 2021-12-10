@@ -1344,12 +1344,15 @@ impl ::core::clone::Clone for DELTA_INPUT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing'*"]
+#[doc = "*Required features: 'Win32_System_ApplicationInstallationAndServicing', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DELTA_INPUT_0 {
     pub lpcStart: *mut ::core::ffi::c_void,
     pub lpStart: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DELTA_INPUT_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELTA_INPUT_0 {
     fn clone(&self) -> Self {
         *self

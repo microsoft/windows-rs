@@ -73,13 +73,13 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
         quote! { struct }
     };
 
-    let cfg_gen = cfg.gen(gen);
+    let features = cfg.gen(gen);
     let doc = cfg.gen_doc(gen);
 
     let mut tokens = quote! {
         #repr
         #doc
-        #cfg_gen
+        #features
         pub #struct_or_union #name {#(#fields)*}
     };
 
@@ -90,7 +90,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) 
 
     if !gen.sys {
         tokens.combine(&quote! {
-            #cfg_gen
+            #features
             impl ::core::default::Default for #name {
                 fn default() -> Self {
                     unsafe { ::core::mem::zeroed() }

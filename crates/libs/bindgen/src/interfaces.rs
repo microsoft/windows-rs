@@ -30,7 +30,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let constraints = gen_type_constraints(def, gen);
     let cfg = gen.type_cfg(def);
     let doc = cfg.gen_doc(gen);
-    let cfg_gen = cfg.gen(gen);
+    let features = cfg.gen(gen);
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
@@ -39,7 +39,7 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     };
 
     tokens.combine(&quote! {
-        #cfg_gen
+        #features
         #[repr(transparent)]
         pub struct #name(::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
     });

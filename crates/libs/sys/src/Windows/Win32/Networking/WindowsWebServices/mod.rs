@@ -1925,11 +1925,14 @@ impl ::core::clone::Clone for WS_ENDPOINT_POLICY_EXTENSION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
     pub assertionValue: *mut WS_XML_BUFFER,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_ENDPOINT_POLICY_EXTENSION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn clone(&self) -> Self {
         *self

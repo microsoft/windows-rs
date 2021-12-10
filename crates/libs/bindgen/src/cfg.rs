@@ -28,6 +28,12 @@ impl Cfg {
         combo
     }
 
+    pub fn gen_with_doc(&self, gen: &Gen) -> TokenStream {
+        let doc = self.gen_doc(gen);
+        let requires = self.gen(gen);
+        quote! { #doc #requires }
+    }
+
     pub fn gen_doc(&self, gen: &Gen) -> TokenStream {
         if !gen.doc {
             quote! {}

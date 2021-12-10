@@ -202,7 +202,8 @@ impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ExitStatus: u32,
     pub PebBaseAddress: *mut ::core::ffi::c_void,
@@ -212,39 +213,48 @@ pub struct PSS_HANDLE_ENTRY_0_2 {
     pub ParentProcessId: u32,
     pub Flags: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_3 {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub AllocationAttributes: u32,
     pub MaximumSize: i64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_4 {
     pub CurrentCount: i32,
     pub MaximumCount: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_ProcessSnapshotting', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PSS_HANDLE_ENTRY_0_5 {
     pub ExitStatus: u32,
     pub TebBaseAddress: *mut ::core::ffi::c_void,
@@ -255,7 +265,9 @@ pub struct PSS_HANDLE_ENTRY_0_5 {
     pub BasePriority: i32,
     pub Win32StartAddress: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PSS_HANDLE_ENTRY_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PSS_HANDLE_ENTRY_0_5 {
     fn clone(&self) -> Self {
         *self

@@ -2068,12 +2068,15 @@ impl ::core::clone::Clone for flow_desc {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union flow_desc_0 {
     pub stspec: *mut SENDER_TSPEC,
     pub isflow: *mut IS_FLOWSPEC,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for flow_desc_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for flow_desc_0 {
     fn clone(&self) -> Self {
         *self

@@ -1867,12 +1867,15 @@ impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+#[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation', 'Win32_System_Kernel'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
     pub Reserved6: *mut ::core::ffi::c_void,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for LDR_DATA_TABLE_ENTRY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY_0 {
     fn clone(&self) -> Self {
         *self

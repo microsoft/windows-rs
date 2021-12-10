@@ -551,11 +551,14 @@ impl ::core::clone::Clone for HYBRID_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HYBRID_INFORMATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HYBRID_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
@@ -583,14 +586,17 @@ impl ::core::clone::Clone for HYBRID_INFORMATION_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HYBRID_INFORMATION_1_0 {
     pub _bitfield: u32,
     pub MaxEvictCommands: u32,
     pub MaxLbaRangeCountForEvict: u32,
     pub MaxLbaRangeCountForChangeLba: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HYBRID_INFORMATION_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HYBRID_INFORMATION_1_0 {
     fn clone(&self) -> Self {
         *self
@@ -2044,12 +2050,15 @@ impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IscsiDisc'*"]
+#[doc = "*Required features: 'Win32_Storage_IscsiDisc', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_FIRMWARE_SLOT_INFO_0 {
     pub Info: [u8; 8],
     pub AsUlonglong: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_FIRMWARE_SLOT_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_FIRMWARE_SLOT_INFO_0 {
     fn clone(&self) -> Self {
         *self

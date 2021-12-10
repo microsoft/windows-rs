@@ -5807,23 +5807,29 @@ impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices'*"]
+#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union PROCESS_MITIGATION_DEP_POLICY_0 {
     pub Flags: u32,
     pub Anonymous: PROCESS_MITIGATION_DEP_POLICY_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices'*"]
+#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_MITIGATION_DEP_POLICY_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROCESS_MITIGATION_DEP_POLICY_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_MITIGATION_DEP_POLICY_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -7140,15 +7146,15 @@ impl ::core::clone::Clone for SE_TOKEN_USER_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Security'*"]
-#[cfg(feature = "Win32_Security")]
+#[doc = "*Required features: 'Win32_System_SystemServices', 'Win32_Foundation', 'Win32_Security'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub union SE_TOKEN_USER_1 {
     pub Sid: super::super::Security::SID,
     pub Buffer: [u8; 68],
 }
-#[cfg(feature = "Win32_Security")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::marker::Copy for SE_TOKEN_USER_1 {}
-#[cfg(feature = "Win32_Security")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::clone::Clone for SE_TOKEN_USER_1 {
     fn clone(&self) -> Self {
         *self

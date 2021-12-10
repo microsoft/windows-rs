@@ -512,11 +512,14 @@ impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Memory'*"]
+#[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_0 {
     fn clone(&self) -> Self {
         *self
@@ -708,14 +711,17 @@ impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Memory'*"]
+#[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
     pub lpFirstBlock: *mut ::core::ffi::c_void,
     pub lpLastBlock: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self

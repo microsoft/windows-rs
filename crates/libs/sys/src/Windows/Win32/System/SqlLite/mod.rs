@@ -1664,38 +1664,47 @@ impl ::core::clone::Clone for sqlite3_index_info {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite'*"]
+#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_0 {
     pub iColumn: i32,
     pub op: u8,
     pub usable: u8,
     pub iTermOffset: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite'*"]
+#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_1 {
     pub argvIndex: i32,
     pub omit: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_SqlLite'*"]
+#[doc = "*Required features: 'Win32_System_SqlLite', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct sqlite3_index_info_2 {
     pub iColumn: i32,
     pub desc: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for sqlite3_index_info_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for sqlite3_index_info_2 {
     fn clone(&self) -> Self {
         *self

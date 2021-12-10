@@ -56,14 +56,17 @@ impl ::core::clone::Clone for MLOperatorAttributeNameValue {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *mut ::core::ffi::c_void,
     pub ints: *mut i64,
     pub strings: *mut *mut i8,
     pub floats: *mut f32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorAttributeNameValue_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
     fn clone(&self) -> Self {
         *self
@@ -631,14 +634,17 @@ impl ::core::clone::Clone for WINML_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,
     pub Sequence: WINML_SEQUENCE_VARIABLE_DESC,
     pub Map: WINML_MAP_VARIABLE_DESC,
     pub Image: WINML_IMAGE_VARIABLE_DESC,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_VARIABLE_DESC_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_VARIABLE_DESC_0 {
     fn clone(&self) -> Self {
         *self

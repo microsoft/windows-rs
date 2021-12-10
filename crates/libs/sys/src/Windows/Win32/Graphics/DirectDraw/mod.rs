@@ -3425,15 +3425,15 @@ impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_GBL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Graphics_Gdi'*"]
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWPALETTE_GBL_0 {
     pub dwReserved1: usize,
     pub hHELGDIPalette: super::Gdi::HPALETTE,
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDRAWI_DDRAWPALETTE_GBL_0 {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWPALETTE_GBL_0 {
     fn clone(&self) -> Self {
         *self
@@ -3521,15 +3521,15 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_1 {
     pub lpVidMemHeap: *mut VMEMHEAP,
     pub dwBlockSizeX: u32,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDRAWI_DDRAWSURFACE_GBL_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_1 {
     fn clone(&self) -> Self {
         *self
@@ -3551,12 +3551,15 @@ impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation', 'Win32_Graphics_Gdi'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub union DDRAWI_DDRAWSURFACE_GBL_3 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for DDRAWI_DDRAWSURFACE_GBL_3 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for DDRAWI_DDRAWSURFACE_GBL_3 {
     fn clone(&self) -> Self {
         *self
@@ -6073,12 +6076,15 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_0 {
     pub dwBlockSizeY: u32,
     pub lSlicePitch: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_SURFACE_GLOBAL_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_SURFACE_GLOBAL_0 {
     fn clone(&self) -> Self {
         *self
@@ -6101,12 +6107,15 @@ impl ::core::clone::Clone for DD_SURFACE_GLOBAL_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_GLOBAL_2 {
     pub lPitch: i32,
     pub dwLinearSize: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_SURFACE_GLOBAL_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_SURFACE_GLOBAL_2 {
     fn clone(&self) -> Self {
         *self
@@ -6150,24 +6159,30 @@ impl ::core::clone::Clone for DD_SURFACE_LOCAL {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_LOCAL_0 {
     pub ddckCKSrcOverlay: DDCOLORKEY,
     pub ddckCKSrcBlt: DDCOLORKEY,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_SURFACE_LOCAL_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_SURFACE_LOCAL_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DD_SURFACE_LOCAL_1 {
     pub ddckCKDestOverlay: DDCOLORKEY,
     pub ddckCKDestBlt: DDCOLORKEY,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DD_SURFACE_LOCAL_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DD_SURFACE_LOCAL_1 {
     fn clone(&self) -> Self {
         *self
@@ -7152,12 +7167,15 @@ impl ::core::clone::Clone for VIDEOMEMORY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union VIDEOMEMORY_0 {
     pub fpEnd: usize,
     pub dwWidth: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VIDEOMEMORY_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VIDEOMEMORY_0 {
     fn clone(&self) -> Self {
         *self
@@ -7220,12 +7238,15 @@ impl ::core::clone::Clone for VIDMEM {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_DirectDraw'*"]
+#[doc = "*Required features: 'Win32_Graphics_DirectDraw', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union VIDMEM_0 {
     pub fpEnd: usize,
     pub dwWidth: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for VIDMEM_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for VIDMEM_0 {
     fn clone(&self) -> Self {
         *self

@@ -2233,15 +2233,15 @@ impl ::core::clone::Clone for VARIANT_0_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com', 'Win32_System_Ole'*"]
-#[cfg(feature = "Win32_System_Ole")]
+#[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation', 'Win32_System_Ole'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 pub struct VARIANT_0_0_0_0 {
     pub pvRecord: *mut ::core::ffi::c_void,
     pub pRecInfo: super::Ole::IRecordInfo,
 }
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::marker::Copy for VARIANT_0_0_0_0 {}
-#[cfg(feature = "Win32_System_Ole")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))]
 impl ::core::clone::Clone for VARIANT_0_0_0_0 {
     fn clone(&self) -> Self {
         *self
@@ -2320,12 +2320,15 @@ impl ::core::clone::Clone for uCLSSPEC_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Com'*"]
+#[doc = "*Required features: 'Win32_System_Com', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct uCLSSPEC_0_1 {
     pub ObjectId: ::windows_sys::core::GUID,
     pub PolicyId: ::windows_sys::core::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for uCLSSPEC_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for uCLSSPEC_0_1 {
     fn clone(&self) -> Self {
         *self

@@ -401,12 +401,15 @@ impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
+#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub pBuffer: *mut ::core::ffi::c_void,
     pub BufferLength: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_DATA_CHUNK_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_3 {
     fn clone(&self) -> Self {
         *self

@@ -1272,7 +1272,8 @@ impl ::core::clone::Clone for D3D11_DEPTH_STENCIL_VIEW_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture1D: D3D11_TEX1D_DSV,
     pub Texture1DArray: D3D11_TEX1D_ARRAY_DSV,
@@ -1281,7 +1282,9 @@ pub union D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     pub Texture2DMS: D3D11_TEX2DMS_DSV,
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_DSV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_DEPTH_STENCIL_VIEW_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -5396,7 +5399,8 @@ impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D11_RENDER_TARGET_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_RTV,
     pub Texture1D: D3D11_TEX1D_RTV,
@@ -5407,7 +5411,9 @@ pub union D3D11_RENDER_TARGET_VIEW_DESC_0 {
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D11_TEX3D_RTV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_RENDER_TARGET_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -5430,7 +5436,8 @@ impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_RTV,
     pub Texture1D: D3D11_TEX1D_RTV,
@@ -5441,7 +5448,9 @@ pub union D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     pub Texture2DMSArray: D3D11_TEX2DMS_ARRAY_RTV,
     pub Texture3D: D3D11_TEX3D_RTV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_RENDER_TARGET_VIEW_DESC1_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_RENDER_TARGET_VIEW_DESC1_0 {
     fn clone(&self) -> Self {
         *self
@@ -5702,7 +5711,8 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub union D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_SRV,
     pub Texture1D: D3D11_TEX1D_SRV,
@@ -5716,7 +5726,9 @@ pub union D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     pub TextureCubeArray: D3D11_TEXCUBE_ARRAY_SRV,
     pub BufferEx: D3D11_BUFFEREX_SRV,
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::marker::Copy for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -5739,7 +5751,8 @@ impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Direct3D', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 pub union D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_SRV,
     pub Texture1D: D3D11_TEX1D_SRV,
@@ -5753,7 +5766,9 @@ pub union D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     pub TextureCubeArray: D3D11_TEXCUBE_ARRAY_SRV,
     pub BufferEx: D3D11_BUFFEREX_SRV,
 }
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::marker::Copy for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {}
+#[cfg(all(feature = "Win32_Graphics_Direct3D", feature = "Win32_Graphics_Dxgi_Common"))]
 impl ::core::clone::Clone for D3D11_SHADER_RESOURCE_VIEW_DESC1_0 {
     fn clone(&self) -> Self {
         *self
@@ -6960,7 +6975,8 @@ impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Buffer: D3D11_BUFFER_UAV,
     pub Texture1D: D3D11_TEX1D_UAV,
@@ -6969,7 +6985,9 @@ pub union D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     pub Texture2DArray: D3D11_TEX2D_ARRAY_UAV,
     pub Texture3D: D3D11_TEX3D_UAV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC_0 {
     fn clone(&self) -> Self {
         *self
@@ -6992,7 +7010,8 @@ impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Graphics_Direct3D11'*"]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D11', 'Win32_Graphics_Dxgi_Common'*"]
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 pub union D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     pub Buffer: D3D11_BUFFER_UAV,
     pub Texture1D: D3D11_TEX1D_UAV,
@@ -7001,7 +7020,9 @@ pub union D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     pub Texture2DArray: D3D11_TEX2D_ARRAY_UAV1,
     pub Texture3D: D3D11_TEX3D_UAV,
 }
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::marker::Copy for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {}
+#[cfg(feature = "Win32_Graphics_Dxgi_Common")]
 impl ::core::clone::Clone for D3D11_UNORDERED_ACCESS_VIEW_DESC1_0 {
     fn clone(&self) -> Self {
         *self
