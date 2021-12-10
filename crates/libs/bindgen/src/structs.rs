@@ -8,7 +8,7 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     gen_struct_with_name(def, def.name(), &Cfg::new(), gen)
 }
 
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg:&Cfg, gen: &Gen) -> TokenStream {
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg: &Cfg, gen: &Gen) -> TokenStream {
     if !gen.sys {
         if let Some(replacement) = replacements::gen(def) {
             return replacement;
