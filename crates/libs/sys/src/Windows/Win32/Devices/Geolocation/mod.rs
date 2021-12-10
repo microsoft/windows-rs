@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
 pub const CivicAddressReport: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3550378973, data2: 32005, data3: 18104, data4: [135, 33, 128, 207, 3, 95, 87, 215] };

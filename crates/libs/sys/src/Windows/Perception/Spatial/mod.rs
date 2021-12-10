@@ -3,8 +3,6 @@
 pub mod Preview;
 #[cfg(feature = "Perception_Spatial_Surfaces")]
 pub mod Surfaces;
-#[link(name = "windows")]
-extern "system" {}
 pub type SpatialAnchor = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Perception_Spatial'*"]
 #[repr(transparent)]

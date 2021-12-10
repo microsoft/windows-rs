@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const AdSyncTask: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 719734609, data2: 46888, data3: 19819, data4: [151, 160, 178, 218, 46, 125, 42, 59] };
 #[doc = "*Required features: 'Win32_Storage_FileServerResourceManager'*"]
 pub type AdrClientDisplayFlags = i32;

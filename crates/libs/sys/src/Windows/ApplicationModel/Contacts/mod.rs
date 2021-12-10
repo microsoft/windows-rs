@@ -3,8 +3,6 @@
 pub mod DataProvider;
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
-extern "system" {}
 pub type AggregateContactManager = *mut ::core::ffi::c_void;
 pub type Contact = *mut ::core::ffi::c_void;
 pub type ContactAddress = *mut ::core::ffi::c_void;

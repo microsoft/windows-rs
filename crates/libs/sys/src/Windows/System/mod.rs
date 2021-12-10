@@ -23,8 +23,6 @@ pub mod Threading;
 pub mod Update;
 #[cfg(feature = "System_UserProfile")]
 pub mod UserProfile;
-#[link(name = "windows")]
-extern "system" {}
 pub type AppActivationResult = *mut ::core::ffi::c_void;
 pub type AppDiagnosticInfo = *mut ::core::ffi::c_void;
 pub type AppDiagnosticInfoWatcher = *mut ::core::ffi::c_void;

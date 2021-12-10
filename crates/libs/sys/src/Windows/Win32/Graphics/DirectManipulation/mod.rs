@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const CLSID_AutoScrollBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 638741073, data2: 15472, data3: 19610, data4: [174, 194, 148, 136, 73, 238, 176, 147] };
 pub const CLSID_DeferContactService: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3619060980, data2: 33979, data3: 17230, data4: [134, 174, 101, 146, 187, 201, 171, 217] };
 pub const CLSID_DragDropConfigurationBehavior: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 162536254, data2: 47724, data3: 17741, data4: [130, 232, 149, 227, 82, 50, 159, 35] };

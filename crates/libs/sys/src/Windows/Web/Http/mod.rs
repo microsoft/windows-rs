@@ -5,8 +5,6 @@ pub mod Diagnostics;
 pub mod Filters;
 #[cfg(feature = "Web_Http_Headers")]
 pub mod Headers;
-#[link(name = "windows")]
-extern "system" {}
 pub type HttpBufferContent = *mut ::core::ffi::c_void;
 pub type HttpClient = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Web_Http'*"]

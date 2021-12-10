@@ -3,8 +3,6 @@
 pub mod DragDrop;
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 pub mod ShareTarget;
-#[link(name = "windows")]
-extern "system" {}
 pub type ClipboardContentOptions = *mut ::core::ffi::c_void;
 pub type ClipboardHistoryChangedEventArgs = *mut ::core::ffi::c_void;
 pub type ClipboardHistoryItem = *mut ::core::ffi::c_void;

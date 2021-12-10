@@ -5,8 +5,6 @@ pub mod Guidance;
 pub mod LocalSearch;
 #[cfg(feature = "Services_Maps_OfflineMaps")]
 pub mod OfflineMaps;
-#[link(name = "windows")]
-extern "system" {}
 pub type EnhancedWaypoint = *mut ::core::ffi::c_void;
 pub type ManeuverWarning = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Services_Maps'*"]

@@ -2,13 +2,17 @@ use super::*;
 
 pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
     if gen.sys {
-        let mut functions = tree.types.values().map(|entry| gen_function_if(entry, gen)).peekable();
+        let mut tokens = quote! {};
 
-        if functions.peek().is_some() {
+        for entry in tree.types.values() {
+            tokens.combine(&gen_function_if(entry, gen));
+        }
+
+        if !tokens.is_empty() {
             quote! {
                 #[link(name = "windows")]
                 extern "system" {
-                    #(#functions)*
+                    #tokens
                 }
             }
         } else {

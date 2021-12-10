@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Sensors_Custom")]
 pub mod Custom;
-#[link(name = "windows")]
-extern "system" {}
 pub type Accelerometer = *mut ::core::ffi::c_void;
 pub type AccelerometerDataThreshold = *mut ::core::ffi::c_void;
 pub type AccelerometerReading = *mut ::core::ffi::c_void;

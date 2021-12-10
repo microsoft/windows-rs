@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const ICW_ALREADYRUN: u32 = 4u32;
 pub const ICW_CHECKSTATUS: u32 = 1u32;
 pub const ICW_FULLPRESENT: u32 = 1u32;

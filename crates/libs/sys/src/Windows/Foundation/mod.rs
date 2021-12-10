@@ -7,8 +7,6 @@ pub mod Diagnostics;
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
-#[link(name = "windows")]
-extern "system" {}
 pub type AsyncActionCompletedHandler = *mut ::core::ffi::c_void;
 pub type AsyncActionProgressHandler = *mut ::core::ffi::c_void;
 pub type AsyncActionWithProgressCompletedHandler = *mut ::core::ffi::c_void;

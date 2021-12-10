@@ -5,8 +5,6 @@ pub mod Custom;
 pub mod ForceFeedback;
 #[cfg(feature = "Gaming_Input_Preview")]
 pub mod Preview;
-#[link(name = "windows")]
-extern "system" {}
 pub type ArcadeStick = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]

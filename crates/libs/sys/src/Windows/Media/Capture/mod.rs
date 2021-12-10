@@ -3,8 +3,6 @@
 pub mod Core;
 #[cfg(feature = "Media_Capture_Frames")]
 pub mod Frames;
-#[link(name = "windows")]
-extern "system" {}
 pub type AdvancedCapturedPhoto = *mut ::core::ffi::c_void;
 pub type AdvancedPhotoCapture = *mut ::core::ffi::c_void;
 pub type AppBroadcastBackgroundService = *mut ::core::ffi::c_void;

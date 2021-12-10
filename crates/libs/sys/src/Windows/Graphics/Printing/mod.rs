@@ -7,8 +7,6 @@ pub mod PrintSupport;
 pub mod PrintTicket;
 #[cfg(feature = "Graphics_Printing_Workflow")]
 pub mod Workflow;
-#[link(name = "windows")]
-extern "system" {}
 pub type IPrintDocumentSource = *mut ::core::ffi::c_void;
 pub type IPrintTaskOptionsCore = *mut ::core::ffi::c_void;
 pub type IPrintTaskOptionsCoreProperties = *mut ::core::ffi::c_void;

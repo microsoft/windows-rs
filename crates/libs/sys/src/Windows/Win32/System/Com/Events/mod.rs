@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const CEventClass: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 3451832768, data2: 31336, data3: 4561, data4: [136, 249, 0, 128, 199, 215, 113, 191] };
 pub const CEventPublisher: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2878621216, data2: 31174, data3: 4561, data4: [136, 249, 0, 128, 199, 215, 113, 191] };
 pub const CEventSubscription: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1967319392, data2: 31175, data3: 4561, data4: [136, 249, 0, 128, 199, 215, 113, 191] };

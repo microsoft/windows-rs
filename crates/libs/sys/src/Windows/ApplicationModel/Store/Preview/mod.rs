@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_Store_Preview_InstallControl")]
 pub mod InstallControl;
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'ApplicationModel_Store_Preview'*"]
 #[repr(transparent)]
 pub struct DeliveryOptimizationDownloadMode(pub i32);

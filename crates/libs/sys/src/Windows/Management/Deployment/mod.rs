@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Management_Deployment_Preview")]
 pub mod Preview;
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'Management_Deployment'*"]
 #[repr(transparent)]
 pub struct AddPackageByAppInstallerOptions(pub u32);

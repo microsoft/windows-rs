@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Geolocation_Geofencing")]
 pub mod Geofencing;
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct AltitudeReferenceSystem(pub i32);

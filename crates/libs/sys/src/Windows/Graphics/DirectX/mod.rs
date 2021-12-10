@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Graphics_DirectX_Direct3D11")]
 pub mod Direct3D11;
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'Graphics_DirectX'*"]
 #[repr(transparent)]
 pub struct DirectXAlphaMode(pub i32);

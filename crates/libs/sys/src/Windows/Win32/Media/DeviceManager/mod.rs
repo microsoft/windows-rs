@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const ALLOW_OUTOFBAND_NOTIFICATION: u32 = 2u32;
 pub const DO_NOT_VIRTUALIZE_STORAGES_AS_DEVICES: u32 = 1u32;
 pub const EVENT_WMDM_CONTENT_TRANSFER: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 865901556, data2: 48382, data3: 20184, data4: [148, 223, 234, 248, 194, 106, 182, 27] };

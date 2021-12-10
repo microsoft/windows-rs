@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const ATP_CHANGE: u32 = 1u32;
 pub const ATP_NOCHANGE: u32 = 0u32;
 pub const ATP_NODELIMITER: u32 = 2u32;

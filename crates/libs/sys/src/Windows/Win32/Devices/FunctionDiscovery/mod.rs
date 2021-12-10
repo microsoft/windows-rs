@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]
 pub const E_FDPAIRING_AUTHFAILURE: ::windows_sys::core::HRESULT = -1882193917i32;
 #[doc = "*Required features: 'Win32_Devices_FunctionDiscovery'*"]

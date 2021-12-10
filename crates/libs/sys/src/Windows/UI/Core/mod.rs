@@ -3,8 +3,6 @@
 pub mod AnimationMetrics;
 #[cfg(feature = "UI_Core_Preview")]
 pub mod Preview;
-#[link(name = "windows")]
-extern "system" {}
 pub type AcceleratorKeyEventArgs = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'UI_Core'*"]
 #[repr(transparent)]

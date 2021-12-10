@@ -11,8 +11,6 @@ pub mod Effects;
 pub mod Interactions;
 #[cfg(feature = "UI_Composition_Scenes")]
 pub mod Scenes;
-#[link(name = "windows")]
-extern "system" {}
 pub type AmbientLight = *mut ::core::ffi::c_void;
 pub type AnimationController = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'UI_Composition'*"]

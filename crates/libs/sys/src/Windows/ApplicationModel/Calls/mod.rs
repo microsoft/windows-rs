@@ -3,8 +3,6 @@
 pub mod Background;
 #[cfg(feature = "ApplicationModel_Calls_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
-extern "system" {}
 pub type CallAnswerEventArgs = *mut ::core::ffi::c_void;
 pub type CallRejectEventArgs = *mut ::core::ffi::c_void;
 pub type CallStateChangeEventArgs = *mut ::core::ffi::c_void;

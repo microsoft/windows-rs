@@ -53,8 +53,6 @@ pub mod SpeechSynthesis;
 pub mod Streaming;
 #[cfg(feature = "Media_Transcoding")]
 pub mod Transcoding;
-#[link(name = "windows")]
-extern "system" {}
 pub type AudioBuffer = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]

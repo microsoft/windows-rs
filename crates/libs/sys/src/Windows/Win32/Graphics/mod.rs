@@ -41,8 +41,6 @@ pub mod Imaging;
 pub mod OpenGL;
 #[cfg(feature = "Win32_Graphics_Printing")]
 pub mod Printing;
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'Win32_Graphics'*"]
 pub type D2D1_2DAFFINETRANSFORM_INTERPOLATION_MODE = u32;
 #[doc = "*Required features: 'Win32_Graphics'*"]

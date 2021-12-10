@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const ASSERT_ALTERNATE: u32 = 9u32;
 pub const ASSERT_PRIMARY: u32 = 8u32;
 #[repr(C)]

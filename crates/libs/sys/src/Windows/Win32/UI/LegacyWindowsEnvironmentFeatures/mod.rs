@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const EVCCBF_LASTNOTIFICATION: u32 = 1u32;
 pub const EVCF_DONTSHOWIFZERO: u32 = 16u32;
 pub const EVCF_ENABLEBYDEFAULT: u32 = 2u32;

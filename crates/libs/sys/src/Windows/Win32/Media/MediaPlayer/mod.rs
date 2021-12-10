@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const CLSID_WMPMediaPluginRegistrar: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1433004021, data2: 16971, data3: 19347, data4: [137, 202, 121, 209, 121, 36, 104, 154] };
 pub const CLSID_WMPSkinManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2997353810, data2: 12319, data3: 17224, data4: [185, 58, 99, 140, 109, 228, 146, 41] };
 pub const CLSID_XFeedsManager: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4268429763, data2: 50990, data3: 16481, data4: [134, 198, 157, 22, 49, 33, 242, 41] };

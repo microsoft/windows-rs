@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const E_SURFACE_CONTENTS_LOST: u32 = 2150301728u32;
 pub type IDesktopWindowXamlSourceNative = *mut ::core::ffi::c_void;
 pub type IDesktopWindowXamlSourceNative2 = *mut ::core::ffi::c_void;

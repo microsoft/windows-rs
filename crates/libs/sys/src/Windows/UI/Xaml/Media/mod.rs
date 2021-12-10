@@ -5,8 +5,6 @@ pub mod Animation;
 pub mod Imaging;
 #[cfg(feature = "UI_Xaml_Media_Media3D")]
 pub mod Media3D;
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'UI_Xaml_Media'*"]
 #[repr(transparent)]
 pub struct AcrylicBackgroundSource(pub i32);

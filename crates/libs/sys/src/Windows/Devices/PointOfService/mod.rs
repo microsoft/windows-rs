@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_PointOfService_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
-extern "system" {}
 pub type BarcodeScanner = *mut ::core::ffi::c_void;
 pub type BarcodeScannerCapabilities = *mut ::core::ffi::c_void;
 pub type BarcodeScannerDataReceivedEventArgs = *mut ::core::ffi::c_void;

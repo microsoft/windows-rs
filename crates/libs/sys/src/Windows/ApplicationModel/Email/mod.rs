@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_Email_DataProvider")]
 pub mod DataProvider;
-#[link(name = "windows")]
-extern "system" {}
 pub type EmailAttachment = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'ApplicationModel_Email'*"]
 #[repr(transparent)]

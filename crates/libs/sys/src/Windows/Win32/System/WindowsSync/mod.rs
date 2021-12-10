@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 #[doc = "*Required features: 'Win32_System_WindowsSync'*"]
 pub type CONFLICT_RESOLUTION_POLICY = i32;
 #[doc = "*Required features: 'Win32_System_WindowsSync'*"]

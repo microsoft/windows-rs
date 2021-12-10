@@ -3,8 +3,6 @@
 pub mod Maps;
 #[cfg(feature = "UI_Xaml_Controls_Primitives")]
 pub mod Primitives;
-#[link(name = "windows")]
-extern "system" {}
 pub type AnchorRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type AppBar = *mut ::core::ffi::c_void;
 pub type AppBarButton = *mut ::core::ffi::c_void;

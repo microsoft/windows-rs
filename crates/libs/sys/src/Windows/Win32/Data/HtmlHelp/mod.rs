@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const CLSID_IITCmdInt: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883618, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };
 pub const CLSID_IITDatabase: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1718039634, data2: 35875, data3: 4560, data4: [168, 78, 0, 170, 0, 108, 125, 1] };
 pub const CLSID_IITDatabaseLocal: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1180883625, data2: 54163, data3: 4560, data4: [154, 86, 0, 192, 79, 182, 139, 247] };

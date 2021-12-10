@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const DBG_ATTACH: u32 = 14u32;
 pub const DBG_BREAK: u32 = 6u32;
 pub const DBG_DIVOVERFLOW: u32 = 8u32;

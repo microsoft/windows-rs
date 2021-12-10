@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const DISPID_DOM_ATTRIBUTE: u32 = 117u32;
 pub const DISPID_DOM_ATTRIBUTE_GETNAME: u32 = 118u32;
 pub const DISPID_DOM_ATTRIBUTE_SPECIFIED: u32 = 119u32;

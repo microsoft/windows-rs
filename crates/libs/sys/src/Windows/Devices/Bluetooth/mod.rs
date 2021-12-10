@@ -7,8 +7,6 @@ pub mod Background;
 pub mod GenericAttributeProfile;
 #[cfg(feature = "Devices_Bluetooth_Rfcomm")]
 pub mod Rfcomm;
-#[link(name = "windows")]
-extern "system" {}
 pub type BluetoothAdapter = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Devices_Bluetooth'*"]
 #[repr(transparent)]

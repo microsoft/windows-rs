@@ -15,8 +15,6 @@ pub mod Provider;
 pub mod Search;
 #[cfg(feature = "Storage_Streams")]
 pub mod Streams;
-#[link(name = "windows")]
-extern "system" {}
 pub type AppDataPaths = *mut ::core::ffi::c_void;
 pub type ApplicationData = *mut ::core::ffi::c_void;
 pub type ApplicationDataCompositeValue = *mut ::core::ffi::c_void;

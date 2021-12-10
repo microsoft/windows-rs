@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const ARRAY_SEP_CHAR: u32 = 9u32;
 pub const FACILITY_WPC: u32 = 2457u32;
 pub type IWPCGamesSettings = *mut ::core::ffi::c_void;

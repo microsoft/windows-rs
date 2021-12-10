@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "AI_MachineLearning_Preview")]
 pub mod Preview;
-#[link(name = "windows")]
-extern "system" {}
 pub type ILearningModelFeatureDescriptor = *mut ::core::ffi::c_void;
 pub type ILearningModelFeatureValue = *mut ::core::ffi::c_void;
 pub type ILearningModelOperatorProvider = *mut ::core::ffi::c_void;

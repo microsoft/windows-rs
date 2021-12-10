@@ -3,8 +3,6 @@
 pub mod AppointmentsProvider;
 #[cfg(feature = "ApplicationModel_Appointments_DataProvider")]
 pub mod DataProvider;
-#[link(name = "windows")]
-extern "system" {}
 pub type Appointment = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'ApplicationModel_Appointments'*"]
 #[repr(transparent)]

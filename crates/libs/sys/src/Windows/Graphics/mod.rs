@@ -15,8 +15,6 @@ pub mod Imaging;
 pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
-#[link(name = "windows")]
-extern "system" {}
 #[repr(C)]
 #[doc = "*Required features: 'Graphics'*"]
 pub struct DisplayAdapterId {

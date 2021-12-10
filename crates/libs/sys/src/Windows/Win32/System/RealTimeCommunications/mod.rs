@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const FACILITY_PINT_STATUS_CODE: u32 = 240u32;
 pub const FACILITY_RTC_INTERFACE: u32 = 238u32;
 pub const FACILITY_SIP_STATUS_CODE: u32 = 239u32;

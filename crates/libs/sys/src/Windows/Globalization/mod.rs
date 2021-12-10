@@ -9,8 +9,6 @@ pub mod Fonts;
 pub mod NumberFormatting;
 #[cfg(feature = "Globalization_PhoneNumberFormatting")]
 pub mod PhoneNumberFormatting;
-#[link(name = "windows")]
-extern "system" {}
 pub type Calendar = *mut ::core::ffi::c_void;
 pub type CurrencyAmount = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Globalization'*"]

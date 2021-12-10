@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const CGD_ARRAY_NODE: u32 = 8u32;
 pub const CGD_BINARY_PROPERTY: u32 = 4u32;
 pub const CGD_DATE_PROPERTY: u32 = 2u32;
