@@ -23,8 +23,10 @@ pub type IPlayReadyLicenseSession2 = *mut ::core::ffi::c_void;
 pub type IPlayReadySecureStopServiceRequest = *mut ::core::ffi::c_void;
 pub type IPlayReadyServiceRequest = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDCertificateFeature(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDCertificateFeature {
     pub const Transmitter: Self = Self(1i32);
     pub const Receiver: Self = Self(2i32);
@@ -34,15 +36,19 @@ impl NDCertificateFeature {
     pub const CRLS: Self = Self(9i32);
     pub const PlayReady3Features: Self = Self(13i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDCertificateFeature {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDCertificateFeature {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDCertificatePlatformID(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDCertificatePlatformID {
     pub const Windows: Self = Self(0i32);
     pub const OSX: Self = Self(1i32);
@@ -57,15 +63,19 @@ impl NDCertificatePlatformID {
     pub const WindowsPhone81OnARM: Self = Self(12i32);
     pub const WindowsPhone81OnX86: Self = Self(13i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDCertificatePlatformID {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDCertificatePlatformID {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDCertificateType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDCertificateType {
     pub const Unknown: Self = Self(0i32);
     pub const PC: Self = Self(1i32);
@@ -81,7 +91,9 @@ impl NDCertificateType {
     pub const Server: Self = Self(11i32);
     pub const LicenseSigner: Self = Self(12i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDCertificateType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDCertificateType {
     fn clone(&self) -> Self {
         *self
@@ -89,28 +101,36 @@ impl ::core::clone::Clone for NDCertificateType {
 }
 pub type NDClient = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDClosedCaptionFormat(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDClosedCaptionFormat {
     pub const ATSC: Self = Self(0i32);
     pub const SCTE20: Self = Self(1i32);
     pub const Unknown: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDClosedCaptionFormat {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDClosedCaptionFormat {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDContentIDType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDContentIDType {
     pub const KeyID: Self = Self(1i32);
     pub const PlayReadyObject: Self = Self(2i32);
     pub const Custom: Self = Self(3i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDContentIDType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDContentIDType {
     fn clone(&self) -> Self {
         *self
@@ -120,40 +140,52 @@ pub type NDCustomData = *mut ::core::ffi::c_void;
 pub type NDDownloadEngineNotifier = *mut ::core::ffi::c_void;
 pub type NDLicenseFetchDescriptor = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDMediaStreamType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDMediaStreamType {
     pub const Audio: Self = Self(1i32);
     pub const Video: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDMediaStreamType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDMediaStreamType {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDProximityDetectionType(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDProximityDetectionType {
     pub const UDP: Self = Self(1i32);
     pub const TCP: Self = Self(2i32);
     pub const TransportAgnostic: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDProximityDetectionType {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDProximityDetectionType {
     fn clone(&self) -> Self {
         *self
     }
 }
 #[doc = "*Required features: 'Media_Protection_PlayReady', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct NDStartAsyncOptions(pub i32);
+#[cfg(feature = "deprecated")]
 impl NDStartAsyncOptions {
     pub const MutualAuthentication: Self = Self(1i32);
     pub const WaitForLicenseDescriptor: Self = Self(2i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for NDStartAsyncOptions {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for NDStartAsyncOptions {
     fn clone(&self) -> Self {
         *self

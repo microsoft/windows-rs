@@ -6,13 +6,17 @@ pub type CredentialCommand = *mut ::core::ffi::c_void;
 pub type CredentialCommandCredentialDeletedHandler = *mut ::core::ffi::c_void;
 pub type SettingsCommand = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsEdgeLocation(pub i32);
+#[cfg(feature = "deprecated")]
 impl SettingsEdgeLocation {
     pub const Right: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for SettingsEdgeLocation {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SettingsEdgeLocation {
     fn clone(&self) -> Self {
         *self

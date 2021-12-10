@@ -212,8 +212,10 @@ impl ::core::clone::Clone for MediaPlayerError {
 pub type MediaPlayerFailedEventArgs = *mut ::core::ffi::c_void;
 pub type MediaPlayerRateChangedEventArgs = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Media_Playback', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct MediaPlayerState(pub i32);
+#[cfg(feature = "deprecated")]
 impl MediaPlayerState {
     pub const Closed: Self = Self(0i32);
     pub const Opening: Self = Self(1i32);
@@ -222,7 +224,9 @@ impl MediaPlayerState {
     pub const Paused: Self = Self(4i32);
     pub const Stopped: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for MediaPlayerState {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for MediaPlayerState {
     fn clone(&self) -> Self {
         *self

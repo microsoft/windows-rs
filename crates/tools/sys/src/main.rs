@@ -54,6 +54,7 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.28.0" }
 
 [features]
 default = []
+deprecated = []
 "#
         .as_bytes(),
     )

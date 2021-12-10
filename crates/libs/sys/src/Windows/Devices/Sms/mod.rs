@@ -179,8 +179,10 @@ impl ::core::clone::Clone for SmsMessageClass {
     }
 }
 #[doc = "*Required features: 'Devices_Sms', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SmsMessageFilter(pub i32);
+#[cfg(feature = "deprecated")]
 impl SmsMessageFilter {
     pub const All: Self = Self(0i32);
     pub const Unread: Self = Self(1i32);
@@ -188,7 +190,9 @@ impl SmsMessageFilter {
     pub const Sent: Self = Self(3i32);
     pub const Draft: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for SmsMessageFilter {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SmsMessageFilter {
     fn clone(&self) -> Self {
         *self

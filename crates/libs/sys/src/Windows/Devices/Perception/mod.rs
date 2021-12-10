@@ -19,15 +19,19 @@ pub type PerceptionDepthFrameSourceAddedEventArgs = *mut ::core::ffi::c_void;
 pub type PerceptionDepthFrameSourceRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type PerceptionDepthFrameSourceWatcher = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourceAccessStatus(pub i32);
+#[cfg(feature = "deprecated")]
 impl PerceptionFrameSourceAccessStatus {
     pub const Unspecified: Self = Self(0i32);
     pub const Allowed: Self = Self(1i32);
     pub const DeniedByUser: Self = Self(2i32);
     pub const DeniedBySystem: Self = Self(3i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for PerceptionFrameSourceAccessStatus {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
     fn clone(&self) -> Self {
         *self
@@ -36,8 +40,10 @@ impl ::core::clone::Clone for PerceptionFrameSourceAccessStatus {
 pub type PerceptionFrameSourcePropertiesChangedEventArgs = *mut ::core::ffi::c_void;
 pub type PerceptionFrameSourcePropertyChangeResult = *mut ::core::ffi::c_void;
 #[doc = "*Required features: 'Devices_Perception', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct PerceptionFrameSourcePropertyChangeStatus(pub i32);
+#[cfg(feature = "deprecated")]
 impl PerceptionFrameSourcePropertyChangeStatus {
     pub const Unknown: Self = Self(0i32);
     pub const Accepted: Self = Self(1i32);
@@ -46,7 +52,9 @@ impl PerceptionFrameSourcePropertyChangeStatus {
     pub const PropertyReadOnly: Self = Self(4i32);
     pub const ValueOutOfRange: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for PerceptionFrameSourcePropertyChangeStatus {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for PerceptionFrameSourcePropertyChangeStatus {
     fn clone(&self) -> Self {
         *self

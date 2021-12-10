@@ -60,9 +60,9 @@ windows_gen = { path = "../gen",  version = "0.28.0", optional = true }
 
 [features]
 default = []
+deprecated = []
 std = []
 alloc = []
-deprecated = []
 build = ["windows_gen", "windows_macros", "windows_reader"]
 "#
         .as_bytes(),
