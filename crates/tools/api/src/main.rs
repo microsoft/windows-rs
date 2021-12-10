@@ -1,8 +1,9 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
+const EXCLUDE_NAMESPACES: [&'static str; 1] = ["Windows.Win32.Interop"];
+
 fn main() {
-    let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
     output.push("crates/libs/windows/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
@@ -18,11 +19,6 @@ fn main() {
     output.pop();
     output.push("Cargo.toml");
 
-    write_toml(&output, root);
-    println!("Elapsed: {} ms", start.elapsed().as_millis());
-}
-
-fn write_toml(output: &std::path::Path, tree: &reader::TypeTree) {
     let mut file = std::fs::File::create(&output).unwrap();
 
     file.write_all(
@@ -73,34 +69,26 @@ build = ["windows_gen", "windows_macros", "windows_reader"]
     )
     .unwrap();
 
-    write_features(&mut file, tree.namespace, tree);
-}
+    // Skip the root Windows tree while writing features
+    for tree in trees.iter().skip(1) {
+        // TODO: don't include parent features automatically
+        let feature = tree.namespace[root.namespace.len() + 1..].replace('.', "_");
 
-fn write_features(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
-    for tree in tree.namespaces.values() {
-        if tree.namespace == "Windows.Win32.Interop" {
-            continue;
+        if let Some(pos) = feature.rfind('_') {
+            let dependency = &feature[..pos];
+
+            file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes()).unwrap();
+        } else {
+            file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
         }
-
-        write_feature(file, root, tree);
-        write_features(file, root, tree);
-    }
-}
-
-fn write_feature(file: &mut std::fs::File, root: &'static str, tree: &reader::TypeTree) {
-    // TODO: don't include parent features automatically
-    let feature = tree.namespace[root.len() + 1..].replace('.', "_");
-
-    if let Some(pos) = feature.rfind('_') {
-        let dependency = &feature[..pos];
-
-        file.write_all(format!("{} = [\"{}\"]\n", feature, dependency).as_bytes()).unwrap();
-    } else {
-        file.write_all(format!("{} = []\n", feature).as_bytes()).unwrap();
     }
 }
 
 fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
+    if EXCLUDE_NAMESPACES.iter().find(|&&x| x == tree.namespace).is_some() {
+        return;
+    }
+
     trees.push(tree);
     tree.namespaces.values().for_each(|tree| collect_trees(output, root, tree, trees));
     let mut path = std::path::PathBuf::from(output);
@@ -109,10 +97,6 @@ fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a rea
 }
 
 fn gen_tree(output: &std::path::Path, _root: &'static str, tree: &reader::TypeTree) {
-    if tree.namespace == "Windows.Win32.Interop" {
-        return;
-    }
-
     let mut path = std::path::PathBuf::from(output);
 
     path.push(tree.namespace.replace('.', "/"));
