@@ -50,7 +50,7 @@ fn main() {
 }
 
 fn load_functions(tree: &TypeTree, libraries: &mut BTreeMap<String, BTreeMap<&'static str, usize>>) {
-    tree.types.values().map(|entry| entry.def.iter()).flatten().for_each(|def| load_function(def, libraries));
+    tree.types.values().flat_map(|entry| entry.def.iter()).for_each(|def| load_function(def, libraries));
 
     tree.namespaces.values().for_each(|tree| load_functions(tree, libraries));
 }

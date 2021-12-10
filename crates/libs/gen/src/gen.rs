@@ -123,7 +123,7 @@ impl Gen {
                 continue;
             }
 
-            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { &feature };
+            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { feature };
             tokens.push_str(&format!(", `{}`", feature.replace('.', "_")));
         }
 
@@ -186,7 +186,7 @@ impl Gen {
                 continue;
             }
 
-            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { &feature };
+            let feature = if feature.starts_with(self.root) && feature[self.root.len()..].starts_with('.') { &feature[self.root.len() + 1..] } else { feature };
             tokens.push_str(&format!("feature = \"{}\", ", feature.replace('.', "_")));
             count += 1;
         }

@@ -1,7 +1,7 @@
 use rayon::prelude::*;
 use std::io::prelude::*;
 
-const EXCLUDE_NAMESPACES: [&'static str; 1] = ["Windows.Win32.Interop"];
+const EXCLUDE_NAMESPACES: [&str; 1] = ["Windows.Win32.Interop"];
 
 fn main() {
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
@@ -75,7 +75,7 @@ default = []
 }
 
 fn collect_trees<'a>(output: &std::path::Path, root: &'static str, tree: &'a reader::TypeTree, trees: &mut Vec<&'a reader::TypeTree>) {
-    if EXCLUDE_NAMESPACES.iter().find(|&&x| x == tree.namespace).is_some() {
+    if EXCLUDE_NAMESPACES.iter().any(|&x| x == tree.namespace) {
         return;
     }
 
