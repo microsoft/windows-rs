@@ -4,7 +4,7 @@ use std::io::prelude::*;
 fn main() {
     let start = std::time::Instant::now();
     let mut output = std::path::PathBuf::from(reader::workspace_dir());
-    output.push("src/Windows");
+    output.push("crates/libs/windows/src/Windows");
     let _ = std::fs::remove_dir_all(&output);
     output.pop();
 
@@ -36,46 +36,31 @@ license = "MIT OR Apache-2.0"
 description = "Rust for Windows"
 repository = "https://github.com/microsoft/windows-rs"
 documentation = "https://microsoft.github.io/windows-docs-rs/"
-readme = ".github/readme.md"
-exclude = [".github", ".windows", "docs", "tests"]
-
-[workspace]
-members = [
-    "crates/deps/*",
-    "crates/targets/*",
-    "crates/tools/*",
-    "crates/tests/legacy/*",
-    "crates/tests/metadata/*",
-    "crates/tests/winrt/*",
-    "crates/tests/win32/*",
-    "crates/tests/core",
-    "crates/tests/sys",
-]
-exclude = ["crates/tests/component"]
+readme = "../../../.github/readme.md"
 
 [package.metadata.docs.rs]
 default-target = "x86_64-pc-windows-msvc"
 targets = []
 
 [target.i686-pc-windows-msvc.dependencies]
-windows_i686_msvc = { path = "crates/targets/i686_msvc", version = "0.28.0" }
+windows_i686_msvc = { path = "../../targets/i686_msvc", version = "0.28.0" }
 
 [target.x86_64-pc-windows-msvc.dependencies]
-windows_x86_64_msvc = { path = "crates/targets/x86_64_msvc", version = "0.28.0" }
+windows_x86_64_msvc = { path = "../../targets/x86_64_msvc", version = "0.28.0" }
 
 [target.aarch64-pc-windows-msvc.dependencies]
-windows_aarch64_msvc = { path = "crates/targets/aarch64_msvc", version = "0.28.0" }
+windows_aarch64_msvc = { path = "../../targets/aarch64_msvc", version = "0.28.0" }
 
 [target.i686-pc-windows-gnu.dependencies]
-windows_i686_gnu = { path = "crates/targets/i686_gnu", version = "0.28.0" }
+windows_i686_gnu = { path = "../../targets/i686_gnu", version = "0.28.0" }
 
 [target.x86_64-pc-windows-gnu.dependencies]
-windows_x86_64_gnu = { path = "crates/targets/x86_64_gnu", version = "0.28.0" }
+windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.28.0" }
 
 [dependencies]
-windows_macros = { path = "crates/deps/macros",  version = "0.28.0", optional = true }
-windows_reader = { path = "crates/deps/reader", version = "0.28.0", optional = true }
-windows_gen = { path = "crates/deps/gen",  version = "0.28.0", optional = true }
+windows_macros = { path = "../macros",  version = "0.28.0", optional = true }
+windows_reader = { path = "../reader", version = "0.28.0", optional = true }
+windows_gen = { path = "../gen",  version = "0.28.0", optional = true }
 
 [features]
 default = []

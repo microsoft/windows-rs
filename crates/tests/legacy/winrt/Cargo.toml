@@ -5,16 +5,16 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-windows = { path = "../../../..", features = ["std", "alloc"] }
-gen = { package = "windows_gen", path = "../../../../crates/deps/gen" }
-reader = { package = "windows_reader", path = "../../../../crates/deps/reader" }
+windows = { path = "../../../libs/windows", features = ["std", "alloc"] }
+gen = { package = "windows_gen", path = "../../../../crates/libs/gen" }
+reader = { package = "windows_reader", path = "../../../../crates/libs/reader" }
 
 [dev-dependencies]
 futures = "0.3"
 helpers = { package = "test_helpers", path = "../helpers" }
 
 [build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+windows = { path = "../../../libs/windows", features = ["build"] }
 
 [features]
 default = ["std"]

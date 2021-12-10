@@ -5,8 +5,8 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-windows = { path = "../../../.." }
-gen = { package = "windows_gen", path = "../../../../crates/deps/gen" }
+windows = { path = "../../../libs/windows" }
+gen = { package = "windows_gen", path = "../../../../crates/libs/gen" }
 
 [build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+windows = { path = "../../../libs/windows", features = ["build"] }

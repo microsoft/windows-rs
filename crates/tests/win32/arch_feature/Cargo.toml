@@ -5,7 +5,7 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies.windows]
-path = "../../../.."
+path = "../../../libs/windows"
 features = [
     "Win32_System_Diagnostics_Debug",
     "Win32_System_SystemServices",
