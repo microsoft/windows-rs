@@ -133,7 +133,6 @@ impl ::windows::core::RuntimeName for AccessListEntryView {
     const NAME: &'static str = "Windows.Storage.AccessCache.AccessListEntryView";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for AccessListEntryView {
     type Item = AccessListEntry;
     type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
@@ -141,7 +140,6 @@ impl ::core::iter::IntoIterator for AccessListEntryView {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &AccessListEntryView {
     type Item = AccessListEntry;
@@ -199,14 +197,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Acce
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
     type Error = ::windows::core::Error;
     fn try_from(value: AccessListEntryView) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation::Collections::IIterable<AccessListEntry> {
     type Error = ::windows::core::Error;
@@ -215,20 +211,17 @@ impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<AccessListEntry>> for AccessListEntryView {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<AccessListEntry>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<AccessListEntry>> for &AccessListEntryView {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<AccessListEntry>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<AccessListEntry>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation::Collections::IVectorView<AccessListEntry> {
     type Error = ::windows::core::Error;
@@ -237,7 +230,6 @@ impl ::core::convert::TryFrom<AccessListEntryView> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation::Collections::IVectorView<AccessListEntry> {
     type Error = ::windows::core::Error;
     fn try_from(value: &AccessListEntryView) -> ::windows::core::Result<Self> {
@@ -245,13 +237,11 @@ impl ::core::convert::TryFrom<&AccessListEntryView> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> for AccessListEntryView {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> for &AccessListEntryView {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<AccessListEntry>> {

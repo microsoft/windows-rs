@@ -2643,9 +2643,9 @@ pub struct IAdaptiveMediaSourceStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, httpclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Web_Http")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, uri: ::windows::core::RawPtr, contenttype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, httpclient: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams", feature = "Web_Http")))] usize,
 );

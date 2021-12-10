@@ -58,25 +58,25 @@ pub struct IWebAccountManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, cookies: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Web_Http")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, applicationcallbackuri: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, webaccountpicture: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -114,13 +114,13 @@ pub struct IWebAccountManagerStatics3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, scope: WebAccountScope, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, scope: WebAccountScope, peruserwebaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials", feature = "System")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -141,7 +141,7 @@ pub struct IWebAccountManagerStatics4Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -160,13 +160,13 @@ pub struct IWebAccountMapManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, scope: WebAccountScope, peruserwebaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perappaccount: ::windows::core::RawPtr, peruserwebaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perappaccount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, perappaccount: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -408,7 +408,7 @@ pub struct IWebAccountProviderRetrieveCookiesOperationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Web_Http"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web_Http")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Web_Http")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1005,9 +1005,9 @@ pub struct IWebAccountScopeManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccountid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, webaccountusername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, props: ::windows::core::RawPtr, scope: WebAccountScope, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, scope: WebAccountScope, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Credentials")))] usize,
     #[cfg(feature = "Security_Credentials")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, webaccount: ::windows::core::RawPtr, result__: *mut WebAccountScope) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Credentials"))] usize,
 );
@@ -1030,12 +1030,12 @@ pub struct IWebProviderTokenRequestVtbl(
     #[cfg(feature = "Security_Authentication_Web_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Security_Authentication_Web_Core"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Security_Credentials"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Security_Credentials")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAccountSelectionOptions) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Security_Cryptography_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keytype: super::TokenBindingKeyType, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Security_Cryptography_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Security_Cryptography_Core")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1054,7 +1054,7 @@ pub struct IWebProviderTokenRequest2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keytype: super::TokenBindingKeyType, target: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]

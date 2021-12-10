@@ -401,39 +401,39 @@ impl ::core::default::Default for WINHTTP_CONNECTION_GROUP {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_INFO {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CONNECTION_INFO>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for WINHTTP_CONNECTION_INFO {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
     fn default() -> Self {
@@ -441,39 +441,39 @@ impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 pub struct WINHTTP_CONNECTION_INFO {
     pub cbSize: u32,
     pub LocalAddress: super::WinSock::SOCKADDR_STORAGE,
     pub RemoteAddress: super::WinSock::SOCKADDR_STORAGE,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::marker::Copy for WINHTTP_CONNECTION_INFO {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::clone::Clone for WINHTTP_CONNECTION_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 unsafe impl ::windows::core::Abi for WINHTTP_CONNECTION_INFO {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::PartialEq for WINHTTP_CONNECTION_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_CONNECTION_INFO>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::cmp::Eq for WINHTTP_CONNECTION_INFO {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Networking_WinSock"))]
 impl ::core::default::Default for WINHTTP_CONNECTION_INFO {
     fn default() -> Self {
@@ -842,64 +842,64 @@ pub const WINHTTP_INTERNET_SCHEME_FTP: WINHTTP_INTERNET_SCHEME = 3u32;
 pub const WINHTTP_INTERNET_SCHEME_SOCKS: WINHTTP_INTERNET_SCHEME = 4u32;
 pub const WINHTTP_LAST_OPTION: u32 = 183u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ConnectionGuid: ::windows::core::GUID,
     pub ullFlags: u64,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for WINHTTP_MATCH_CONNECTION_GUID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_MATCH_CONNECTION_GUID {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_MATCH_CONNECTION_GUID>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct WINHTTP_MATCH_CONNECTION_GUID {
     pub ConnectionGuid: ::windows::core::GUID,
     pub ullFlags: u64,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for WINHTTP_MATCH_CONNECTION_GUID {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for WINHTTP_MATCH_CONNECTION_GUID {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for WINHTTP_MATCH_CONNECTION_GUID {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_MATCH_CONNECTION_GUID>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for WINHTTP_MATCH_CONNECTION_GUID {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for WINHTTP_MATCH_CONNECTION_GUID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1342,68 +1342,68 @@ pub const WINHTTP_QUERY_VIA: u32 = 66u32;
 pub const WINHTTP_QUERY_WARNING: u32 = 67u32;
 pub const WINHTTP_QUERY_WWW_AUTHENTICATE: u32 = 40u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_REQUEST_STATS {
     pub ullFlags: u64,
     pub ulIndex: u32,
     pub cStats: u32,
     pub rgullStats: [u64; 32],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for WINHTTP_REQUEST_STATS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for WINHTTP_REQUEST_STATS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STATS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for WINHTTP_REQUEST_STATS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_STATS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for WINHTTP_REQUEST_STATS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for WINHTTP_REQUEST_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_STATS {
     pub ullFlags: u64,
     pub ulIndex: u32,
     pub cStats: u32,
     pub rgullStats: [u64; 32],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for WINHTTP_REQUEST_STATS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for WINHTTP_REQUEST_STATS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_STATS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for WINHTTP_REQUEST_STATS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_STATS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for WINHTTP_REQUEST_STATS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for WINHTTP_REQUEST_STATS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1435,64 +1435,64 @@ pub const WINHTTP_REQUEST_STAT_FLAG_TCP_FAST_OPEN: u32 = 1u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_FALSE_START: u32 = 4u32;
 pub const WINHTTP_REQUEST_STAT_FLAG_TLS_SESSION_RESUMPTION: u32 = 2u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgullTimes: [u64; 64],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for WINHTTP_REQUEST_TIMES {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for WINHTTP_REQUEST_TIMES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIMES {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_TIMES>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for WINHTTP_REQUEST_TIMES {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct WINHTTP_REQUEST_TIMES {
     pub cTimes: u32,
     pub rgullTimes: [u64; 64],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for WINHTTP_REQUEST_TIMES {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for WINHTTP_REQUEST_TIMES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for WINHTTP_REQUEST_TIMES {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for WINHTTP_REQUEST_TIMES {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_REQUEST_TIMES>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for WINHTTP_REQUEST_TIMES {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for WINHTTP_REQUEST_TIMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1546,7 +1546,7 @@ pub const WINHTTP_RESET_STATE: u32 = 1u32;
 pub const WINHTTP_RESET_SWPAD_ALL: u32 = 4u32;
 pub const WINHTTP_RESET_SWPAD_CURRENT_NETWORK: u32 = 2u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ulMaxResolverCacheEntries: u32,
     pub ulMaxCacheEntryAge: u32,
@@ -1555,34 +1555,34 @@ pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ullConnResolutionWaitTime: u64,
     pub ullFlags: u64,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_RESOLVER_CACHE_CONFIG>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ulMaxResolverCacheEntries: u32,
     pub ulMaxCacheEntryAge: u32,
@@ -1591,27 +1591,27 @@ pub struct WINHTTP_RESOLVER_CACHE_CONFIG {
     pub ullConnResolutionWaitTime: u64,
     pub ullFlags: u64,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for WINHTTP_RESOLVER_CACHE_CONFIG {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINHTTP_RESOLVER_CACHE_CONFIG>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for WINHTTP_RESOLVER_CACHE_CONFIG {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for WINHTTP_RESOLVER_CACHE_CONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

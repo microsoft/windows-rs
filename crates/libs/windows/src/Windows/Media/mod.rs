@@ -639,10 +639,12 @@ pub struct IImageDisplayPropertiesVtbl(
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IMediaControl(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IMediaControl {
     type Vtable = IMediaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f1fbe1_7a8d_42cb_b6fe_8fe698264f13);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IMediaControlVtbl(
@@ -652,65 +654,72 @@ pub struct IMediaControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SoundLevel) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SoundLevel) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
 #[repr(transparent)]
 pub struct IMediaExtension(::windows::core::IUnknown);
@@ -1596,7 +1605,7 @@ pub struct ISystemMediaTransportControlsDisplayUpdaterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: MediaPlaybackType, source: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
@@ -1771,7 +1780,7 @@ pub struct IVideoFrame2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frame: ::windows::core::RawPtr, sourcebounds: ::windows::core::RawPtr, destinationbounds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1813,7 +1822,7 @@ pub struct IVideoFrameStaticsVtbl(
     #[cfg(feature = "Graphics_DirectX")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))] usize,
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: super::Graphics::DirectX::DirectXPixelFormat, width: i32, height: i32, device: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))] usize,
+    #[cfg(not(any(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11")))] usize,
     #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmap: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -1910,159 +1919,135 @@ unsafe impl ::core::marker::Send for ImageDisplayProperties {}
 unsafe impl ::core::marker::Sync for ImageDisplayProperties {}
 pub struct MediaControl {}
 impl MediaControl {
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveSoundLevelChanged<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PlayPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePlayPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PausePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePausePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn StopPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveStopPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PlayPauseTogglePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePlayPauseTogglePressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RecordPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRecordPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn NextTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveNextTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn PreviousTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemovePreviousTrackPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FastForwardPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveFastForwardPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RewindPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveRewindPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ChannelUpPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveChannelUpPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ChannelDownPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::Foundation::EventRegistrationToken> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: super::Foundation::EventRegistrationToken = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::Foundation::EventRegistrationToken>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveChannelDownPressed<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::EventRegistrationToken>>(cookie: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() })
     }
@@ -2106,13 +2091,11 @@ impl MediaControl {
             (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn SetAlbumArt<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>>(value: Param0) -> ::windows::core::Result<()> {
         Self::IMediaControl(|this| unsafe { (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AlbumArt() -> ::windows::core::Result<super::Foundation::Uri> {
         Self::IMediaControl(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();

@@ -1139,17 +1139,17 @@ pub struct IContactInformationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, format: VCardFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[repr(transparent)]
 pub struct IContactInformation2(::windows::core::IUnknown);
@@ -1257,7 +1257,7 @@ pub struct IContactInformationStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vcard: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1299,9 +1299,9 @@ pub struct IContactQueryResultVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, startindex: u32, maxnumberofitems: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc(hidden)]
@@ -1332,11 +1332,11 @@ pub struct IContactStoreVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baserevisionnumber: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1451,7 +1451,7 @@ pub struct IStoredContactVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,

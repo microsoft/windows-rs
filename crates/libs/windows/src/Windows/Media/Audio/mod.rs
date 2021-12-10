@@ -2098,14 +2098,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Audi
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<AudioGraphBatchUpdater> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: AudioGraphBatchUpdater) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&AudioGraphBatchUpdater> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -2114,13 +2112,11 @@ impl ::core::convert::TryFrom<&AudioGraphBatchUpdater> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &AudioGraphBatchUpdater {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
@@ -5063,7 +5059,7 @@ pub struct IAudioFileOutputNodeVtbl(
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Media_Transcoding"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Transcoding")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Media_Transcoding")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5151,22 +5147,22 @@ pub struct IAudioGraphVtbl(
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Media_Capture"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Capture")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Media_Capture")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))] usize,
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, encodingproperties: ::windows::core::RawPtr, device: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))] usize,
+    #[cfg(not(any(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, fileencodingprofile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Media_MediaProperties", feature = "Storage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
@@ -5213,9 +5209,9 @@ pub struct IAudioGraph2Vtbl(
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, emitter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, encodingproperties: ::windows::core::RawPtr, device: ::windows::core::RawPtr, emitter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))] usize,
+    #[cfg(not(any(feature = "Devices_Enumeration", feature = "Foundation", feature = "Media_Capture", feature = "Media_MediaProperties")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, emitter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, encodingproperties: ::windows::core::RawPtr, emitter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_MediaProperties"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -5238,9 +5234,9 @@ pub struct IAudioGraph3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasource: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Media_Core")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Media_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, mediasource: ::windows::core::RawPtr, emitter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Media_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Media_Core")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5980,7 +5976,7 @@ pub struct IAudioNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Effects"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Effects")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Media_Effects")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_MediaProperties")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6525,14 +6521,14 @@ pub struct IAudioStateMonitorStaticsVtbl(
     #[cfg(feature = "Media_Render")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Render::AudioRenderCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Render"))] usize,
     #[cfg(all(feature = "Media_Devices", feature = "Media_Render"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Render::AudioRenderCategory, role: super::Devices::AudioDeviceRole, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Media_Devices", feature = "Media_Render")))] usize,
+    #[cfg(not(any(feature = "Media_Devices", feature = "Media_Render")))] usize,
     #[cfg(feature = "Media_Render")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Render::AudioRenderCategory, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Render"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Media_Capture")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Capture"))] usize,
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, role: super::Devices::AudioDeviceRole, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Media_Capture", feature = "Media_Devices")))] usize,
+    #[cfg(not(any(feature = "Media_Capture", feature = "Media_Devices")))] usize,
     #[cfg(feature = "Media_Capture")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, category: super::Capture::MediaCategory, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Media_Capture"))] usize,
 );

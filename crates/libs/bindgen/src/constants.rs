@@ -7,7 +7,7 @@ pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
 
     let signature = def.signature(None);
 
-    let cfg = gen.field_cfg(def);
+    let cfg = gen.field_cfg(def).gen(gen);
 
     if let Some(constant) = def.constant() {
         if signature.kind == constant.value_type() {

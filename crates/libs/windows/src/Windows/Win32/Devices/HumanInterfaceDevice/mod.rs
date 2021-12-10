@@ -8201,7 +8201,7 @@ pub struct IDirectInputJoyConfigVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
     #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: u32, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))] usize,
 );
@@ -8327,7 +8327,7 @@ pub struct IDirectInputJoyConfig8Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::HWND, param1: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: super::super::Foundation::PWSTR, param1: u32, param2: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Registry")))] usize,
     #[cfg(feature = "Win32_System_Registry")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, param0: *mut super::super::System::Registry::HKEY) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Registry"))] usize,
 );

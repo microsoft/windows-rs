@@ -168,7 +168,7 @@ pub struct ISceneMeshVtbl(
     #[cfg(feature = "Graphics_DirectX")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::super::Graphics::DirectX::DirectXPrimitiveTopology) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, semantic: SceneAttributeSemantic, format: super::super::super::Graphics::DirectX::DirectXPixelFormat, memory: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1376,7 +1376,6 @@ impl ::windows::core::RuntimeName for SceneComponentCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneComponentCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for SceneComponentCollection {
     type Item = SceneComponent;
     type IntoIter = super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -1384,7 +1383,6 @@ impl ::core::iter::IntoIterator for SceneComponentCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &SceneComponentCollection {
     type Item = SceneComponent;
@@ -1467,37 +1465,32 @@ impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &SceneCompo
         ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<SceneComponentCollection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneComponentCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponentCollection) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for SceneComponentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneComponentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneComponentCollection> for super::super::super::Foundation::Collections::IIterable<SceneComponent> {
     type Error = ::windows::core::Error;
@@ -1506,7 +1499,6 @@ impl ::core::convert::TryFrom<SceneComponentCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super::Foundation::Collections::IIterable<SceneComponent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponentCollection) -> ::windows::core::Result<Self> {
@@ -1514,20 +1506,17 @@ impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<SceneComponent>> for SceneComponentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<SceneComponent>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<SceneComponent>> for &SceneComponentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<SceneComponent>> {
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<SceneComponent>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneComponentCollection> for super::super::super::Foundation::Collections::IVector<SceneComponent> {
     type Error = ::windows::core::Error;
@@ -1536,7 +1525,6 @@ impl ::core::convert::TryFrom<SceneComponentCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super::Foundation::Collections::IVector<SceneComponent> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneComponentCollection) -> ::windows::core::Result<Self> {
@@ -1544,13 +1532,11 @@ impl ::core::convert::TryFrom<&SceneComponentCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<SceneComponent>> for SceneComponentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<SceneComponent>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<SceneComponent>> for &SceneComponentCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<SceneComponent>> {
@@ -4324,7 +4310,6 @@ impl ::windows::core::RuntimeName for SceneNodeCollection {
     const NAME: &'static str = "Windows.UI.Composition.Scenes.SceneNodeCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for SceneNodeCollection {
     type Item = SceneNode;
     type IntoIter = super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -4332,7 +4317,6 @@ impl ::core::iter::IntoIterator for SceneNodeCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &SceneNodeCollection {
     type Item = SceneNode;
@@ -4415,37 +4399,32 @@ impl<'a> ::windows::core::IntoParam<'a, super::IAnimationObject> for &SceneNodeC
         ::core::convert::TryInto::<super::IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<SceneNodeCollection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneNodeCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNodeCollection) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for SceneNodeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosable> for &SceneNodeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneNodeCollection> for super::super::super::Foundation::Collections::IIterable<SceneNode> {
     type Error = ::windows::core::Error;
@@ -4454,7 +4433,6 @@ impl ::core::convert::TryFrom<SceneNodeCollection> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Foundation::Collections::IIterable<SceneNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNodeCollection) -> ::windows::core::Result<Self> {
@@ -4462,20 +4440,17 @@ impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<SceneNode>> for SceneNodeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<SceneNode>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<SceneNode>> for &SceneNodeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<SceneNode>> {
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<SceneNode>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<SceneNodeCollection> for super::super::super::Foundation::Collections::IVector<SceneNode> {
     type Error = ::windows::core::Error;
@@ -4484,7 +4459,6 @@ impl ::core::convert::TryFrom<SceneNodeCollection> for super::super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Foundation::Collections::IVector<SceneNode> {
     type Error = ::windows::core::Error;
     fn try_from(value: &SceneNodeCollection) -> ::windows::core::Result<Self> {
@@ -4492,13 +4466,11 @@ impl ::core::convert::TryFrom<&SceneNodeCollection> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<SceneNode>> for SceneNodeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<SceneNode>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<SceneNode>> for &SceneNodeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<SceneNode>> {

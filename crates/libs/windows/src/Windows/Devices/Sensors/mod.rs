@@ -3463,9 +3463,9 @@ pub struct IActivitySensorStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fromtime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5410,9 +5410,9 @@ pub struct IPedometerStaticsVtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fromtime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fromtime: super::super::Foundation::DateTime, duration: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8428,14 +8428,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prox
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<ProximitySensorDisplayOnOffController> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: ProximitySensorDisplayOnOffController) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&ProximitySensorDisplayOnOffController> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
@@ -8444,13 +8442,11 @@ impl ::core::convert::TryFrom<&ProximitySensorDisplayOnOffController> for super:
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &ProximitySensorDisplayOnOffController {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {

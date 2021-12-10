@@ -3972,7 +3972,7 @@ impl ::core::default::Default for DHCP_SERVER_CONFIG_INFO_VQ {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SERVER_OPTIONS {
     pub MessageType: *mut u8,
@@ -4001,32 +4001,32 @@ pub struct DHCP_SERVER_OPTIONS {
     pub DSDomainNameLen: u32,
     pub ScopeId: *mut u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DHCP_SERVER_OPTIONS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SERVER_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_OPTIONS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DHCP_SERVER_OPTIONS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SERVER_OPTIONS {
     fn default() -> Self {
@@ -4034,7 +4034,7 @@ impl ::core::default::Default for DHCP_SERVER_OPTIONS {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DHCP_SERVER_OPTIONS {
     pub MessageType: *mut u8,
@@ -4063,32 +4063,32 @@ pub struct DHCP_SERVER_OPTIONS {
     pub DSDomainNameLen: u32,
     pub ScopeId: *mut u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DHCP_SERVER_OPTIONS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DHCP_SERVER_OPTIONS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DHCP_SERVER_OPTIONS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DHCP_SERVER_OPTIONS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DHCP_SERVER_OPTIONS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DHCP_SERVER_OPTIONS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DHCP_SERVER_OPTIONS {
     fn default() -> Self {

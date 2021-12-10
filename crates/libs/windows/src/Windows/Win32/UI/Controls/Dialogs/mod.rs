@@ -13,7 +13,7 @@ pub const CD_LBSELCHANGE: u32 = 0u32;
 pub const CD_LBSELNOITEMS: i32 = -1i32;
 pub const CD_LBSELSUB: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORA {
     pub lStructSize: u32,
@@ -26,32 +26,32 @@ pub struct CHOOSECOLORA {
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHOOSECOLORA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHOOSECOLORA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHOOSECOLORA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHOOSECOLORA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORA {
     fn default() -> Self {
@@ -59,7 +59,7 @@ impl ::core::default::Default for CHOOSECOLORA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORA {
     pub lStructSize: u32,
@@ -72,32 +72,32 @@ pub struct CHOOSECOLORA {
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHOOSECOLORA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHOOSECOLORA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHOOSECOLORA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHOOSECOLORA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORA {
     fn default() -> Self {
@@ -105,7 +105,7 @@ impl ::core::default::Default for CHOOSECOLORA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORW {
     pub lStructSize: u32,
@@ -118,32 +118,32 @@ pub struct CHOOSECOLORW {
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHOOSECOLORW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHOOSECOLORW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHOOSECOLORW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHOOSECOLORW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORW {
     fn default() -> Self {
@@ -151,7 +151,7 @@ impl ::core::default::Default for CHOOSECOLORW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CHOOSECOLORW {
     pub lStructSize: u32,
@@ -164,32 +164,32 @@ pub struct CHOOSECOLORW {
     pub lpfnHook: LPCCHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHOOSECOLORW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHOOSECOLORW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHOOSECOLORW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHOOSECOLORW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSECOLORW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHOOSECOLORW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHOOSECOLORW {
     fn default() -> Self {
@@ -197,7 +197,7 @@ impl ::core::default::Default for CHOOSECOLORW {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTA {
     pub lStructSize: u32,
@@ -217,32 +217,32 @@ pub struct CHOOSEFONTA {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHOOSEFONTA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHOOSEFONTA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHOOSEFONTA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHOOSEFONTA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTA {
     fn default() -> Self {
@@ -250,7 +250,7 @@ impl ::core::default::Default for CHOOSEFONTA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTA {
     pub lStructSize: u32,
@@ -270,32 +270,32 @@ pub struct CHOOSEFONTA {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHOOSEFONTA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHOOSEFONTA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHOOSEFONTA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHOOSEFONTA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTA {
     fn default() -> Self {
@@ -303,7 +303,7 @@ impl ::core::default::Default for CHOOSEFONTA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTW {
     pub lStructSize: u32,
@@ -323,32 +323,32 @@ pub struct CHOOSEFONTW {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHOOSEFONTW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHOOSEFONTW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHOOSEFONTW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHOOSEFONTW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTW {
     fn default() -> Self {
@@ -356,7 +356,7 @@ impl ::core::default::Default for CHOOSEFONTW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct CHOOSEFONTW {
     pub lStructSize: u32,
@@ -376,32 +376,32 @@ pub struct CHOOSEFONTW {
     pub nSizeMin: i32,
     pub nSizeMax: i32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for CHOOSEFONTW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for CHOOSEFONTW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for CHOOSEFONTW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for CHOOSEFONTW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHOOSEFONTW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for CHOOSEFONTW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for CHOOSEFONTW {
     fn default() -> Self {
@@ -583,68 +583,68 @@ pub unsafe fn CommDlgExtendedError() -> COMMON_DLG_ERRORS {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
     pub wDeviceOffset: u16,
     pub wOutputOffset: u16,
     pub wDefault: u16,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for DEVNAMES {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for DEVNAMES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for DEVNAMES {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for DEVNAMES {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for DEVNAMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct DEVNAMES {
     pub wDriverOffset: u16,
     pub wDeviceOffset: u16,
     pub wOutputOffset: u16,
     pub wDefault: u16,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for DEVNAMES {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for DEVNAMES {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for DEVNAMES {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for DEVNAMES {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVNAMES>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for DEVNAMES {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for DEVNAMES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -653,7 +653,7 @@ impl ::core::default::Default for DEVNAMES {
 pub const DLG_COLOR: u32 = 10u32;
 pub const DN_DEFAULTPRN: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
@@ -668,32 +668,32 @@ pub struct FINDREPLACEA {
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDREPLACEA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDREPLACEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FINDREPLACEA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FINDREPLACEA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEA {
     fn default() -> Self {
@@ -701,7 +701,7 @@ impl ::core::default::Default for FINDREPLACEA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEA {
     pub lStructSize: u32,
@@ -716,32 +716,32 @@ pub struct FINDREPLACEA {
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDREPLACEA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDREPLACEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FINDREPLACEA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FINDREPLACEA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEA {
     fn default() -> Self {
@@ -749,7 +749,7 @@ impl ::core::default::Default for FINDREPLACEA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
@@ -764,32 +764,32 @@ pub struct FINDREPLACEW {
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDREPLACEW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDREPLACEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FINDREPLACEW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FINDREPLACEW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEW {
     fn default() -> Self {
@@ -797,7 +797,7 @@ impl ::core::default::Default for FINDREPLACEW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FINDREPLACEW {
     pub lStructSize: u32,
@@ -812,32 +812,32 @@ pub struct FINDREPLACEW {
     pub lpfnHook: LPFRHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for FINDREPLACEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for FINDREPLACEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for FINDREPLACEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FINDREPLACEW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FINDREPLACEW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for FINDREPLACEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FINDREPLACEW {
     fn default() -> Self {
@@ -1100,7 +1100,7 @@ pub struct IPrintDialogServicesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdevmode: *mut super::super::super::Graphics::Gdi::DEVMODEA, pcbsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprintername: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pportname: super::super::super::Foundation::PWSTR, pcchsize: *mut u32) -> ::windows::core::HRESULT,
@@ -1125,39 +1125,39 @@ pub type LPSETUPHOOKPROC = ::core::option::Option<unsafe extern "system" fn(para
 pub const NUM_BASIC_COLORS: u32 = 48u32;
 pub const NUM_CUSTOM_COLORS: u32 = 16u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
     pub pszFile: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYA {
     fn default() -> Self {
@@ -1165,39 +1165,39 @@ impl ::core::default::Default for OFNOTIFYA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYA {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEA,
     pub pszFile: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYA {
     fn default() -> Self {
@@ -1205,7 +1205,7 @@ impl ::core::default::Default for OFNOTIFYA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
@@ -1213,32 +1213,32 @@ pub struct OFNOTIFYEXA {
     pub psf: *mut ::core::ffi::c_void,
     pub pidl: *mut ::core::ffi::c_void,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYEXA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYEXA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYEXA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXA {
     fn default() -> Self {
@@ -1246,7 +1246,7 @@ impl ::core::default::Default for OFNOTIFYEXA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXA {
     pub hdr: super::NMHDR,
@@ -1254,32 +1254,32 @@ pub struct OFNOTIFYEXA {
     pub psf: *mut ::core::ffi::c_void,
     pub pidl: *mut ::core::ffi::c_void,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYEXA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYEXA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYEXA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYEXA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYEXA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXA {
     fn default() -> Self {
@@ -1287,7 +1287,7 @@ impl ::core::default::Default for OFNOTIFYEXA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
@@ -1295,32 +1295,32 @@ pub struct OFNOTIFYEXW {
     pub psf: *mut ::core::ffi::c_void,
     pub pidl: *mut ::core::ffi::c_void,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYEXW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYEXW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYEXW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYEXW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXW {
     fn default() -> Self {
@@ -1328,7 +1328,7 @@ impl ::core::default::Default for OFNOTIFYEXW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYEXW {
     pub hdr: super::NMHDR,
@@ -1336,32 +1336,32 @@ pub struct OFNOTIFYEXW {
     pub psf: *mut ::core::ffi::c_void,
     pub pidl: *mut ::core::ffi::c_void,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYEXW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYEXW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYEXW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYEXW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYEXW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYEXW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYEXW {
     fn default() -> Self {
@@ -1369,39 +1369,39 @@ impl ::core::default::Default for OFNOTIFYEXW {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
     pub pszFile: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYW {
     fn default() -> Self {
@@ -1409,39 +1409,39 @@ impl ::core::default::Default for OFNOTIFYW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFNOTIFYW {
     pub hdr: super::NMHDR,
     pub lpOFN: *mut OPENFILENAMEW,
     pub pszFile: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OFNOTIFYW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OFNOTIFYW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OFNOTIFYW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OFNOTIFYW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OFNOTIFYW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OFNOTIFYW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OFNOTIFYW {
     fn default() -> Self {
@@ -1452,7 +1452,7 @@ pub const OFN_SHAREFALLTHROUGH: u32 = 2u32;
 pub const OFN_SHARENOWARN: u32 = 1u32;
 pub const OFN_SHAREWARN: u32 = 0u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
@@ -1479,32 +1479,32 @@ pub struct OPENFILENAMEA {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAMEA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAMEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAMEA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAMEA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEA {
     fn default() -> Self {
@@ -1512,7 +1512,7 @@ impl ::core::default::Default for OPENFILENAMEA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEA {
     pub lStructSize: u32,
@@ -1539,32 +1539,32 @@ pub struct OPENFILENAMEA {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAMEA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAMEA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAMEA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAMEA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEA {
     fn default() -> Self {
@@ -1572,7 +1572,7 @@ impl ::core::default::Default for OPENFILENAMEA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
@@ -1599,32 +1599,32 @@ pub struct OPENFILENAMEW {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAMEW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAMEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAMEW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAMEW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEW {
     fn default() -> Self {
@@ -1632,7 +1632,7 @@ impl ::core::default::Default for OPENFILENAMEW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAMEW {
     pub lStructSize: u32,
@@ -1659,32 +1659,32 @@ pub struct OPENFILENAMEW {
     pub dwReserved: u32,
     pub FlagsEx: OPEN_FILENAME_FLAGS_EX,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAMEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAMEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAMEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAMEW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAMEW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAMEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAMEW {
     fn default() -> Self {
@@ -1692,7 +1692,7 @@ impl ::core::default::Default for OPENFILENAMEW {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
@@ -1716,32 +1716,32 @@ pub struct OPENFILENAME_NT4A {
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAME_NT4A {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAME_NT4A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4A {
     fn default() -> Self {
@@ -1749,7 +1749,7 @@ impl ::core::default::Default for OPENFILENAME_NT4A {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4A {
     pub lStructSize: u32,
@@ -1773,32 +1773,32 @@ pub struct OPENFILENAME_NT4A {
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAME_NT4A {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAME_NT4A {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4A {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAME_NT4A {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4A>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAME_NT4A {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4A {
     fn default() -> Self {
@@ -1806,7 +1806,7 @@ impl ::core::default::Default for OPENFILENAME_NT4A {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
@@ -1830,32 +1830,32 @@ pub struct OPENFILENAME_NT4W {
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAME_NT4W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAME_NT4W {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4W {
     fn default() -> Self {
@@ -1863,7 +1863,7 @@ impl ::core::default::Default for OPENFILENAME_NT4W {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OPENFILENAME_NT4W {
     pub lStructSize: u32,
@@ -1887,32 +1887,32 @@ pub struct OPENFILENAME_NT4W {
     pub lpfnHook: LPOFNHOOKPROC,
     pub lpTemplateName: super::super::super::Foundation::PWSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OPENFILENAME_NT4W {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OPENFILENAME_NT4W {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OPENFILENAME_NT4W {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OPENFILENAME_NT4W {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OPENFILENAME_NT4W>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OPENFILENAME_NT4W {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OPENFILENAME_NT4W {
     fn default() -> Self {
@@ -1950,7 +1950,7 @@ pub type OPEN_FILENAME_FLAGS_EX = u32;
 pub const OFN_EX_NONE: OPEN_FILENAME_FLAGS_EX = 0u32;
 pub const OFN_EX_NOPLACESBAR: OPEN_FILENAME_FLAGS_EX = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
@@ -1968,32 +1968,32 @@ pub struct PAGESETUPDLGA {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PAGESETUPDLGA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PAGESETUPDLGA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAGESETUPDLGA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PAGESETUPDLGA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGA {
     fn default() -> Self {
@@ -2001,7 +2001,7 @@ impl ::core::default::Default for PAGESETUPDLGA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGA {
     pub lStructSize: u32,
@@ -2019,32 +2019,32 @@ pub struct PAGESETUPDLGA {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PSTR,
     pub hPageSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PAGESETUPDLGA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PAGESETUPDLGA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAGESETUPDLGA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PAGESETUPDLGA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGA {
     fn default() -> Self {
@@ -2052,7 +2052,7 @@ impl ::core::default::Default for PAGESETUPDLGA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
@@ -2070,32 +2070,32 @@ pub struct PAGESETUPDLGW {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PAGESETUPDLGW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PAGESETUPDLGW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAGESETUPDLGW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PAGESETUPDLGW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGW {
     fn default() -> Self {
@@ -2103,7 +2103,7 @@ impl ::core::default::Default for PAGESETUPDLGW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAGESETUPDLGW {
     pub lStructSize: u32,
@@ -2121,32 +2121,32 @@ pub struct PAGESETUPDLGW {
     pub lpPageSetupTemplateName: super::super::super::Foundation::PWSTR,
     pub hPageSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PAGESETUPDLGW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PAGESETUPDLGW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PAGESETUPDLGW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PAGESETUPDLGW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PAGESETUPDLGW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PAGESETUPDLGW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PAGESETUPDLGW {
     fn default() -> Self {
@@ -2177,7 +2177,7 @@ pub const PD_RESULT_APPLY: u32 = 2u32;
 pub const PD_RESULT_CANCEL: u32 = 0u32;
 pub const PD_RESULT_PRINT: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGA {
     pub lStructSize: u32,
@@ -2200,32 +2200,32 @@ pub struct PRINTDLGA {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTDLGA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGA {
     fn default() -> Self {
@@ -2233,7 +2233,7 @@ impl ::core::default::Default for PRINTDLGA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGA {
     pub lStructSize: u32,
@@ -2256,32 +2256,32 @@ pub struct PRINTDLGA {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTDLGA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGA {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGA {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGA {
     fn default() -> Self {
@@ -2289,7 +2289,7 @@ impl ::core::default::Default for PRINTDLGA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
@@ -2314,7 +2314,7 @@ pub struct PRINTDLGEXA {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGEXA {
     fn clone(&self) -> Self {
@@ -2343,12 +2343,12 @@ impl ::core::clone::Clone for PRINTDLGEXA {
         }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGEXA {
     fn eq(&self, other: &Self) -> bool {
@@ -2375,10 +2375,10 @@ impl ::core::cmp::PartialEq for PRINTDLGEXA {
             && self.dwResultAction == other.dwResultAction
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGEXA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXA {
     fn default() -> Self {
@@ -2386,7 +2386,7 @@ impl ::core::default::Default for PRINTDLGEXA {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXA {
     pub lStructSize: u32,
@@ -2411,22 +2411,22 @@ pub struct PRINTDLGEXA {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXA {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGEXA {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGEXA>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGEXA {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXA {
     fn default() -> Self {
@@ -2434,7 +2434,7 @@ impl ::core::default::Default for PRINTDLGEXA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
@@ -2459,7 +2459,7 @@ pub struct PRINTDLGEXW {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGEXW {
     fn clone(&self) -> Self {
@@ -2488,12 +2488,12 @@ impl ::core::clone::Clone for PRINTDLGEXW {
         }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGEXW {
     fn eq(&self, other: &Self) -> bool {
@@ -2520,10 +2520,10 @@ impl ::core::cmp::PartialEq for PRINTDLGEXW {
             && self.dwResultAction == other.dwResultAction
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGEXW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXW {
     fn default() -> Self {
@@ -2531,7 +2531,7 @@ impl ::core::default::Default for PRINTDLGEXW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGEXW {
     pub lStructSize: u32,
@@ -2556,22 +2556,22 @@ pub struct PRINTDLGEXW {
     pub nStartPage: u32,
     pub dwResultAction: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGEXW {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGEXW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGEXW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGEXW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGEXW {
     fn default() -> Self {
@@ -2608,7 +2608,7 @@ pub const PD_NONETWORKBUTTON: PRINTDLGEX_FLAGS = 2097152u32;
 pub const PD_PRINTSETUP: PRINTDLGEX_FLAGS = 64u32;
 pub const PD_SHOWHELP: PRINTDLGEX_FLAGS = 2048u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGW {
     pub lStructSize: u32,
@@ -2631,32 +2631,32 @@ pub struct PRINTDLGW {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTDLGW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGW {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGW {
     fn default() -> Self {
@@ -2664,7 +2664,7 @@ impl ::core::default::Default for PRINTDLGW {
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct PRINTDLGW {
     pub lStructSize: u32,
@@ -2687,32 +2687,32 @@ pub struct PRINTDLGW {
     pub hPrintTemplate: isize,
     pub hSetupTemplate: isize,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTDLGW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for PRINTDLGW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for PRINTDLGW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for PRINTDLGW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTDLGW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for PRINTDLGW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for PRINTDLGW {
     fn default() -> Self {
@@ -2720,64 +2720,64 @@ impl ::core::default::Default for PRINTDLGW {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for PRINTPAGERANGE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for PRINTPAGERANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for PRINTPAGERANGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTPAGERANGE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for PRINTPAGERANGE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for PRINTPAGERANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct PRINTPAGERANGE {
     pub nFromPage: u32,
     pub nToPage: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for PRINTPAGERANGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for PRINTPAGERANGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for PRINTPAGERANGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for PRINTPAGERANGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PRINTPAGERANGE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for PRINTPAGERANGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for PRINTPAGERANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

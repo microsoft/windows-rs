@@ -118,7 +118,6 @@ impl ::windows::core::RuntimeName for FileExtensionVector {
     const NAME: &'static str = "Windows.Storage.Pickers.FileExtensionVector";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for FileExtensionVector {
     type Item = ::windows::core::HSTRING;
     type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -126,7 +125,6 @@ impl ::core::iter::IntoIterator for FileExtensionVector {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &FileExtensionVector {
     type Item = ::windows::core::HSTRING;
@@ -184,14 +182,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FileExtensionVector> for super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
     fn try_from(value: FileExtensionVector) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation::Collections::IIterable<::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
@@ -200,20 +196,17 @@ impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> for FileExtensionVector {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> for &FileExtensionVector {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FileExtensionVector> for super::super::Foundation::Collections::IVector<::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
@@ -222,7 +215,6 @@ impl ::core::convert::TryFrom<FileExtensionVector> for super::super::Foundation:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation::Collections::IVector<::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileExtensionVector) -> ::windows::core::Result<Self> {
@@ -230,13 +222,11 @@ impl ::core::convert::TryFrom<&FileExtensionVector> for super::super::Foundation
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> for FileExtensionVector {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> for &FileExtensionVector {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
@@ -325,8 +315,7 @@ impl FileOpenPicker {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<super::StorageFile>>>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation_Collections")]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ContinuationData(&self) -> ::windows::core::Result<super::super::Foundation::Collections::ValueSet> {
         let this = &::windows::core::Interface::cast::<IFileOpenPicker2>(self)?;
         unsafe {
@@ -352,8 +341,7 @@ impl FileOpenPicker {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::User>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn ResumePickSingleFileAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::StorageFile>> {
         Self::IFileOpenPickerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -539,7 +527,6 @@ impl ::windows::core::RuntimeName for FilePickerFileTypesOrderedMap {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerFileTypesOrderedMap";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for FilePickerFileTypesOrderedMap {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
     type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
@@ -547,7 +534,6 @@ impl ::core::iter::IntoIterator for FilePickerFileTypesOrderedMap {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &FilePickerFileTypesOrderedMap {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>;
@@ -605,14 +591,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerFileTypesOrderedMap> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
     fn try_from(value: FilePickerFileTypesOrderedMap) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
     type Error = ::windows::core::Error;
@@ -621,20 +605,17 @@ impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> for FilePickerFileTypesOrderedMap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> for &FilePickerFileTypesOrderedMap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerFileTypesOrderedMap> for super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -643,7 +624,6 @@ impl ::core::convert::TryFrom<FilePickerFileTypesOrderedMap> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FilePickerFileTypesOrderedMap) -> ::windows::core::Result<Self> {
@@ -651,13 +631,11 @@ impl ::core::convert::TryFrom<&FilePickerFileTypesOrderedMap> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> for FilePickerFileTypesOrderedMap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> for &FilePickerFileTypesOrderedMap {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>> {
@@ -742,7 +720,6 @@ impl ::windows::core::RuntimeName for FilePickerSelectedFilesArray {
     const NAME: &'static str = "Windows.Storage.Pickers.FilePickerSelectedFilesArray";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for FilePickerSelectedFilesArray {
     type Item = super::StorageFile;
     type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
@@ -750,7 +727,6 @@ impl ::core::iter::IntoIterator for FilePickerSelectedFilesArray {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &FilePickerSelectedFilesArray {
     type Item = super::StorageFile;
@@ -808,14 +784,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerSelectedFilesArray> for super::super::Foundation::Collections::IIterable<super::StorageFile> {
     type Error = ::windows::core::Error;
     fn try_from(value: FilePickerSelectedFilesArray) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::Foundation::Collections::IIterable<super::StorageFile> {
     type Error = ::windows::core::Error;
@@ -824,20 +798,17 @@ impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> for FilePickerSelectedFilesArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> for &FilePickerSelectedFilesArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::StorageFile>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::StorageFile>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<FilePickerSelectedFilesArray> for super::super::Foundation::Collections::IVectorView<super::StorageFile> {
     type Error = ::windows::core::Error;
@@ -846,7 +817,6 @@ impl ::core::convert::TryFrom<FilePickerSelectedFilesArray> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::Foundation::Collections::IVectorView<super::StorageFile> {
     type Error = ::windows::core::Error;
     fn try_from(value: &FilePickerSelectedFilesArray) -> ::windows::core::Result<Self> {
@@ -854,13 +824,11 @@ impl ::core::convert::TryFrom<&FilePickerSelectedFilesArray> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> for FilePickerSelectedFilesArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> for &FilePickerSelectedFilesArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<super::StorageFile>> {
@@ -1265,7 +1233,7 @@ pub struct IFileOpenPickerVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1283,10 +1251,12 @@ pub struct IFileOpenPicker2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1323,8 +1293,8 @@ pub struct IFileOpenPickerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1415,7 +1385,8 @@ pub struct IFileSavePicker2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1521,7 +1492,8 @@ pub struct IFolderPicker2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]

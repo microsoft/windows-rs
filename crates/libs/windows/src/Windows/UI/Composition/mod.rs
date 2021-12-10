@@ -16296,7 +16296,6 @@ impl ::windows::core::RuntimeName for CompositionShapeCollection {
     const NAME: &'static str = "Windows.UI.Composition.CompositionShapeCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for CompositionShapeCollection {
     type Item = CompositionShape;
     type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -16304,7 +16303,6 @@ impl ::core::iter::IntoIterator for CompositionShapeCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &CompositionShapeCollection {
     type Item = CompositionShape;
@@ -16387,37 +16385,32 @@ impl<'a> ::windows::core::IntoParam<'a, IAnimationObject> for &CompositionShapeC
         ::core::convert::TryInto::<IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<CompositionShapeCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionShapeCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<&CompositionShapeCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionShapeCollection) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionShapeCollection> for super::super::Foundation::Collections::IIterable<CompositionShape> {
     type Error = ::windows::core::Error;
@@ -16426,7 +16419,6 @@ impl ::core::convert::TryFrom<CompositionShapeCollection> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&CompositionShapeCollection> for super::super::Foundation::Collections::IIterable<CompositionShape> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionShapeCollection) -> ::windows::core::Result<Self> {
@@ -16434,20 +16426,17 @@ impl ::core::convert::TryFrom<&CompositionShapeCollection> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<CompositionShape>> for CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<CompositionShape>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<CompositionShape>> for &CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<CompositionShape>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<CompositionShape>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionShapeCollection> for super::super::Foundation::Collections::IVector<CompositionShape> {
     type Error = ::windows::core::Error;
@@ -16456,7 +16445,6 @@ impl ::core::convert::TryFrom<CompositionShapeCollection> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&CompositionShapeCollection> for super::super::Foundation::Collections::IVector<CompositionShape> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionShapeCollection) -> ::windows::core::Result<Self> {
@@ -16464,13 +16452,11 @@ impl ::core::convert::TryFrom<&CompositionShapeCollection> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<CompositionShape>> for CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<CompositionShape>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<CompositionShape>> for &CompositionShapeCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<CompositionShape>> {
@@ -17206,7 +17192,6 @@ impl ::windows::core::RuntimeName for CompositionStrokeDashArray {
     const NAME: &'static str = "Windows.UI.Composition.CompositionStrokeDashArray";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for CompositionStrokeDashArray {
     type Item = f32;
     type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -17214,7 +17199,6 @@ impl ::core::iter::IntoIterator for CompositionStrokeDashArray {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &CompositionStrokeDashArray {
     type Item = f32;
@@ -17297,37 +17281,32 @@ impl<'a> ::windows::core::IntoParam<'a, IAnimationObject> for &CompositionStroke
         ::core::convert::TryInto::<IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<CompositionStrokeDashArray> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: CompositionStrokeDashArray) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<&CompositionStrokeDashArray> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionStrokeDashArray) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionStrokeDashArray> for super::super::Foundation::Collections::IIterable<f32> {
     type Error = ::windows::core::Error;
@@ -17336,7 +17315,6 @@ impl ::core::convert::TryFrom<CompositionStrokeDashArray> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&CompositionStrokeDashArray> for super::super::Foundation::Collections::IIterable<f32> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionStrokeDashArray) -> ::windows::core::Result<Self> {
@@ -17344,20 +17322,17 @@ impl ::core::convert::TryFrom<&CompositionStrokeDashArray> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f32>> for CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<f32>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<f32>> for &CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<f32>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<f32>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<CompositionStrokeDashArray> for super::super::Foundation::Collections::IVector<f32> {
     type Error = ::windows::core::Error;
@@ -17366,7 +17341,6 @@ impl ::core::convert::TryFrom<CompositionStrokeDashArray> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&CompositionStrokeDashArray> for super::super::Foundation::Collections::IVector<f32> {
     type Error = ::windows::core::Error;
     fn try_from(value: &CompositionStrokeDashArray) -> ::windows::core::Result<Self> {
@@ -17374,13 +17348,11 @@ impl ::core::convert::TryFrom<&CompositionStrokeDashArray> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<f32>> for CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<f32>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<f32>> for &CompositionStrokeDashArray {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<f32>> {
@@ -23851,7 +23823,7 @@ pub struct ICompositionGraphicsDeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Foundation::Size, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -23874,9 +23846,9 @@ pub struct ICompositionGraphicsDevice2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Graphics", feature = "Graphics_DirectX")))] usize,
     #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Graphics", feature = "Graphics_DirectX")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -23895,7 +23867,7 @@ pub struct ICompositionGraphicsDevice3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Graphics", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sizepixels: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Graphics", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Graphics", feature = "Graphics_DirectX")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc(hidden)]
@@ -23915,7 +23887,7 @@ pub struct ICompositionGraphicsDevice4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, capturevisual: ::windows::core::RawPtr, size: super::super::Graphics::SizeInt32, pixelformat: super::super::Graphics::DirectX::DirectXPixelFormat, alphamode: super::super::Graphics::DirectX::DirectXAlphaMode, sdrboost: f32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics", feature = "Graphics_DirectX")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -25244,7 +25216,7 @@ pub struct ICompositorVtbl(
     #[cfg(feature = "Graphics_Effects")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Effects"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Effects"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, graphicseffect: ::windows::core::RawPtr, animatableproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Effects")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Graphics_Effects")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, expression: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -26556,13 +26528,13 @@ pub struct IVector2NaturalMotionAnimationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
@@ -26623,13 +26595,13 @@ pub struct IVector3NaturalMotionAnimationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics")))] usize,
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
@@ -27538,7 +27510,6 @@ impl ::windows::core::RuntimeName for InitialValueExpressionCollection {
     const NAME: &'static str = "Windows.UI.Composition.InitialValueExpressionCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for InitialValueExpressionCollection {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>;
     type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
@@ -27546,7 +27517,6 @@ impl ::core::iter::IntoIterator for InitialValueExpressionCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &InitialValueExpressionCollection {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>;
@@ -27629,37 +27599,32 @@ impl<'a> ::windows::core::IntoParam<'a, IAnimationObject> for &InitialValueExpre
         ::core::convert::TryInto::<IAnimationObject>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<InitialValueExpressionCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: InitialValueExpressionCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl ::core::convert::TryFrom<&InitialValueExpressionCollection> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &InitialValueExpressionCollection) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<InitialValueExpressionCollection> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
@@ -27668,7 +27633,6 @@ impl ::core::convert::TryFrom<InitialValueExpressionCollection> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&InitialValueExpressionCollection> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InitialValueExpressionCollection) -> ::windows::core::Result<Self> {
@@ -27676,20 +27640,17 @@ impl ::core::convert::TryFrom<&InitialValueExpressionCollection> for super::supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> for InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> for &InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<InitialValueExpressionCollection> for super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
@@ -27698,7 +27659,6 @@ impl ::core::convert::TryFrom<InitialValueExpressionCollection> for super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&InitialValueExpressionCollection> for super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InitialValueExpressionCollection) -> ::windows::core::Result<Self> {
@@ -27706,13 +27666,11 @@ impl ::core::convert::TryFrom<&InitialValueExpressionCollection> for super::supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> for InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> for &InitialValueExpressionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::HSTRING>> {

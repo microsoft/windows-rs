@@ -3942,68 +3942,68 @@ impl ::core::default::Default for FD_LIGATURE {
 }
 pub const FD_NEGATIVE_FONT: i32 = 1i32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FD_XFORM {
     pub eXX: f32,
     pub eXY: f32,
     pub eYX: f32,
     pub eYY: f32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FD_XFORM {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for FD_XFORM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for FD_XFORM {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for FD_XFORM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_XFORM>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for FD_XFORM {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FD_XFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct FD_XFORM {
     pub eXX: u32,
     pub eXY: u32,
     pub eYX: u32,
     pub eYY: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for FD_XFORM {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for FD_XFORM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FD_XFORM {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FD_XFORM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FD_XFORM>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for FD_XFORM {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FD_XFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4012,39 +4012,39 @@ impl ::core::default::Default for FD_XFORM {
 pub const FF_IGNORED_SIGNATURE: u32 = 2u32;
 pub const FF_SIGNATURE_VERIFIED: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct FLOATOBJ {
     pub ul1: u32,
     pub ul2: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for FLOATOBJ {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for FLOATOBJ {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FLOATOBJ {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FLOATOBJ {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOATOBJ>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for FLOATOBJ {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FLOATOBJ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct FLOATOBJ_XFORM {
     pub eM11: f32,
     pub eM12: f32,
@@ -4053,34 +4053,34 @@ pub struct FLOATOBJ_XFORM {
     pub eDx: f32,
     pub eDy: f32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FLOATOBJ_XFORM {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for FLOATOBJ_XFORM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for FLOATOBJ_XFORM {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for FLOATOBJ_XFORM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOATOBJ_XFORM>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for FLOATOBJ_XFORM {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FLOATOBJ_XFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct FLOATOBJ_XFORM {
     pub eM11: FLOATOBJ,
     pub eM12: FLOATOBJ,
@@ -4089,91 +4089,91 @@ pub struct FLOATOBJ_XFORM {
     pub eDx: FLOATOBJ,
     pub eDy: FLOATOBJ,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for FLOATOBJ_XFORM {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for FLOATOBJ_XFORM {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FLOATOBJ_XFORM {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FLOATOBJ_XFORM {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOATOBJ_XFORM>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for FLOATOBJ_XFORM {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FLOATOBJ_XFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub union FLOAT_LONG {
     pub e: f32,
     pub l: i32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for FLOAT_LONG {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for FLOAT_LONG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for FLOAT_LONG {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for FLOAT_LONG {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOAT_LONG>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for FLOAT_LONG {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for FLOAT_LONG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub union FLOAT_LONG {
     pub e: u32,
     pub l: i32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for FLOAT_LONG {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for FLOAT_LONG {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for FLOAT_LONG {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for FLOAT_LONG {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLOAT_LONG>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for FLOAT_LONG {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for FLOAT_LONG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5601,7 +5601,7 @@ impl ::core::default::Default for IFIEXTRA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct IFIMETRICS {
     pub cjThis: u32,
@@ -5665,32 +5665,32 @@ pub struct IFIMETRICS {
     pub panose: super::super::Graphics::Gdi::PANOSE,
     pub Align: *mut ::core::ffi::c_void,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for IFIMETRICS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for IFIMETRICS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for IFIMETRICS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IFIMETRICS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFIMETRICS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for IFIMETRICS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for IFIMETRICS {
     fn default() -> Self {
@@ -5698,7 +5698,7 @@ impl ::core::default::Default for IFIMETRICS {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct IFIMETRICS {
     pub cjThis: u32,
@@ -5761,32 +5761,32 @@ pub struct IFIMETRICS {
     pub ulPanoseCulture: u32,
     pub panose: super::super::Graphics::Gdi::PANOSE,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for IFIMETRICS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::clone::Clone for IFIMETRICS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 unsafe impl ::windows::core::Abi for IFIMETRICS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::PartialEq for IFIMETRICS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IFIMETRICS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::cmp::Eq for IFIMETRICS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for IFIMETRICS {
     fn default() -> Self {
@@ -6124,7 +6124,7 @@ impl ::core::default::Default for LIGATURE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct LINEATTRS {
     pub fl: u32,
     pub iJoin: u32,
@@ -6135,34 +6135,34 @@ pub struct LINEATTRS {
     pub pstyle: *mut FLOAT_LONG,
     pub elStyleState: FLOAT_LONG,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for LINEATTRS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for LINEATTRS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for LINEATTRS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for LINEATTRS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEATTRS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for LINEATTRS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for LINEATTRS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct LINEATTRS {
     pub fl: u32,
     pub iJoin: u32,
@@ -6173,27 +6173,27 @@ pub struct LINEATTRS {
     pub pstyle: *mut FLOAT_LONG,
     pub elStyleState: FLOAT_LONG,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for LINEATTRS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for LINEATTRS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for LINEATTRS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for LINEATTRS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEATTRS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for LINEATTRS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for LINEATTRS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7504,64 +7504,64 @@ impl ::core::default::Default for PHYSICAL_MONITOR {
 pub const PHYSICAL_MONITOR_DESCRIPTION_SIZE: u32 = 128u32;
 pub const PLANAR_HC: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct POINTE {
     pub x: f32,
     pub y: f32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for POINTE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for POINTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for POINTE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for POINTE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for POINTE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for POINTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct POINTE {
     pub x: u32,
     pub y: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for POINTE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for POINTE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for POINTE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for POINTE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POINTE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for POINTE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for POINTE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9477,7 +9477,7 @@ pub const WO_RGN_UPDATE_ALL: u32 = 16u32;
 pub const WO_RGN_WINDOW: u32 = 32u32;
 pub const WO_SPRITE_NOTIFY: u32 = 128u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct XFORML {
     pub eM11: f32,
     pub eM12: f32,
@@ -9486,34 +9486,34 @@ pub struct XFORML {
     pub eDx: f32,
     pub eDy: f32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for XFORML {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for XFORML {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for XFORML {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for XFORML {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XFORML>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for XFORML {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for XFORML {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct XFORML {
     pub eM11: u32,
     pub eM12: u32,
@@ -9522,27 +9522,27 @@ pub struct XFORML {
     pub eDx: u32,
     pub eDy: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for XFORML {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for XFORML {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for XFORML {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for XFORML {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XFORML>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for XFORML {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for XFORML {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

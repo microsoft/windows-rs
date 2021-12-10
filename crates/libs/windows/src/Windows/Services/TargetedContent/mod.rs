@@ -336,13 +336,13 @@ pub struct ITargetedContentValueVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage_Streams")))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -953,14 +953,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
     fn try_from(value: TargetedContentFile) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&TargetedContentFile> for super::super::Storage::Streams::IRandomAccessStreamReference {
     type Error = ::windows::core::Error;
@@ -969,13 +967,11 @@ impl ::core::convert::TryFrom<&TargetedContentFile> for super::super::Storage::S
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for TargetedContentFile {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamReference> for &TargetedContentFile {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamReference> {

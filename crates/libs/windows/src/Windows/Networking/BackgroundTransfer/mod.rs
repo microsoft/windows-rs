@@ -150,8 +150,7 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCurrentDownloadsForGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(group: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -165,8 +164,7 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), group.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RequestUnconstrainedDownloadsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<DownloadOperation>>>(operations: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>> {
         Self::IBackgroundDownloaderUserConsent(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1204,8 +1202,7 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCurrentUploadsForGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(group: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1219,8 +1216,7 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), group.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RequestUnconstrainedUploadsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<UploadOperation>>>(operations: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>> {
         Self::IBackgroundUploaderUserConsent(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1682,11 +1678,11 @@ pub struct IBackgroundDownloaderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, requestbodyfile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, resultfile: ::windows::core::RawPtr, requestbodystream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage", feature = "Storage_Streams")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1776,9 +1772,9 @@ pub struct IBackgroundDownloaderStaticMethodsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1797,15 +1793,17 @@ pub struct IBackgroundDownloaderStaticMethods2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBackgroundDownloaderUserConsent(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderUserConsent {
     type Vtable = IBackgroundDownloaderUserConsentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d14e906_9266_4808_bd71_5925f2a3130a);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderUserConsentVtbl(
@@ -1815,8 +1813,8 @@ pub struct IBackgroundDownloaderUserConsentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[repr(transparent)]
 pub struct IBackgroundTransferBase(::windows::core::IUnknown);
@@ -1965,8 +1963,10 @@ pub struct IBackgroundTransferBaseVtbl(
     #[cfg(not(feature = "Security_Credentials"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
 );
@@ -2309,7 +2309,8 @@ pub struct IBackgroundTransferOperationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2440,15 +2441,15 @@ pub struct IBackgroundUploaderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sourcefile: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, sourcestream: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uri: ::windows::core::RawPtr, parts: ::windows::core::RawPtr, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, boundary: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2538,9 +2539,9 @@ pub struct IBackgroundUploaderStaticMethodsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2559,15 +2560,17 @@ pub struct IBackgroundUploaderStaticMethods2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IBackgroundUploaderUserConsent(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundUploaderUserConsent {
     type Vtable = IBackgroundUploaderUserConsentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb384cb_0760_461d_907f_5138f84d44c1);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderUserConsentVtbl(
@@ -2577,8 +2580,8 @@ pub struct IBackgroundUploaderUserConsentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2597,7 +2600,7 @@ pub struct IContentPrefetcherVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2695,9 +2698,9 @@ pub struct IDownloadOperation3Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Web"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Web")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Web")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Web"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Web")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2762,10 +2765,12 @@ pub struct IResponseInformationVtbl(
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IUnconstrainedTransferRequestResult(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IUnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnconstrainedTransferRequestResultVtbl(
@@ -2775,7 +2780,8 @@ pub struct IUnconstrainedTransferRequestResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2953,8 +2959,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Resp
 }
 unsafe impl ::core::marker::Send for ResponseInformation {}
 unsafe impl ::core::marker::Sync for ResponseInformation {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct UnconstrainedTransferRequestResult(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl UnconstrainedTransferRequestResult {
     #[cfg(feature = "deprecated")]
     pub fn IsUnconstrained(&self) -> ::windows::core::Result<bool> {
@@ -2965,68 +2973,84 @@ impl UnconstrainedTransferRequestResult {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for UnconstrainedTransferRequestResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for UnconstrainedTransferRequestResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for UnconstrainedTransferRequestResult {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for UnconstrainedTransferRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult;{4c24b81f-d944-4112-a98e-6a69522b7ebb})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for UnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<UnconstrainedTransferRequestResult> for ::windows::core::IUnknown {
     fn from(value: UnconstrainedTransferRequestResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&UnconstrainedTransferRequestResult> for ::windows::core::IUnknown {
     fn from(value: &UnconstrainedTransferRequestResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<UnconstrainedTransferRequestResult> for ::windows::core::IInspectable {
     fn from(value: UnconstrainedTransferRequestResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&UnconstrainedTransferRequestResult> for ::windows::core::IInspectable {
     fn from(value: &UnconstrainedTransferRequestResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for UnconstrainedTransferRequestResult {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for UnconstrainedTransferRequestResult {}
 #[repr(transparent)]
 pub struct UploadOperation(::windows::core::IUnknown);

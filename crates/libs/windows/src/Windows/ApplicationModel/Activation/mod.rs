@@ -4356,8 +4356,10 @@ impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerActivatedEventArgs2> for 
 }
 unsafe impl ::core::marker::Send for FileOpenPickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileOpenPickerActivatedEventArgs {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FileOpenPickerContinuationEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl FileOpenPickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -4396,8 +4398,7 @@ impl FileOpenPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -4406,156 +4407,188 @@ impl FileOpenPickerContinuationEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FileOpenPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for FileOpenPickerContinuationEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FileOpenPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FileOpenPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileOpenPickerContinuationEventArgs {
     type Vtable = IFileOpenPickerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FileOpenPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileOpenPickerContinuationEventArgs";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: FileOpenPickerContinuationEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FileOpenPickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: &FileOpenPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
         ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
     type Error = ::windows::core::Error;
     fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
         ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
         ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileOpenPickerContinuationEventArgs> for IFileOpenPickerContinuationEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileOpenPickerContinuationEventArgs> for IFileOpenPickerContinuationEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileOpenPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerContinuationEventArgs> for FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerContinuationEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IFileOpenPickerContinuationEventArgs> for &FileOpenPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IFileOpenPickerContinuationEventArgs> {
         ::core::convert::TryInto::<IFileOpenPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for FileOpenPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for FileOpenPickerContinuationEventArgs {}
 #[repr(transparent)]
 pub struct FileSavePickerActivatedEventArgs(::windows::core::IUnknown);
@@ -4763,8 +4796,10 @@ impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerActivatedEventArgs2> for 
 }
 unsafe impl ::core::marker::Send for FileSavePickerActivatedEventArgs {}
 unsafe impl ::core::marker::Sync for FileSavePickerActivatedEventArgs {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FileSavePickerContinuationEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl FileSavePickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -4803,8 +4838,7 @@ impl FileSavePickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -4813,159 +4847,193 @@ impl FileSavePickerContinuationEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FileSavePickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for FileSavePickerContinuationEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FileSavePickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FileSavePickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FileSavePickerContinuationEventArgs";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: FileSavePickerContinuationEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: FileSavePickerContinuationEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FileSavePickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: &FileSavePickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
         ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IActivatedEventArgsWithUser {
     type Error = ::windows::core::Error;
     fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IActivatedEventArgsWithUser {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
         ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IContinuationActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IContinuationActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
         ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FileSavePickerContinuationEventArgs> for IFileSavePickerContinuationEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FileSavePickerContinuationEventArgs> for IFileSavePickerContinuationEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FileSavePickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerContinuationEventArgs> for FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerContinuationEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IFileSavePickerContinuationEventArgs> for &FileSavePickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IFileSavePickerContinuationEventArgs> {
         ::core::convert::TryInto::<IFileSavePickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for FileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FolderPickerContinuationEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl FolderPickerContinuationEventArgs {
     pub fn Kind(&self) -> ::windows::core::Result<ActivationKind> {
         let this = &::windows::core::Interface::cast::<IActivatedEventArgs>(self)?;
@@ -5004,8 +5072,7 @@ impl FolderPickerContinuationEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::ValueSet>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn Folder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -5014,156 +5081,188 @@ impl FolderPickerContinuationEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FolderPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for FolderPickerContinuationEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FolderPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FolderPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FolderPickerContinuationEventArgs {
     type Vtable = IFolderPickerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FolderPickerContinuationEventArgs {
     const NAME: &'static str = "Windows.ApplicationModel.Activation.FolderPickerContinuationEventArgs";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: FolderPickerContinuationEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IUnknown {
     fn from(value: &FolderPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: FolderPickerContinuationEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FolderPickerContinuationEventArgs> for ::windows::core::IInspectable {
     fn from(value: &FolderPickerContinuationEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgs> for &FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgs> {
         ::core::convert::TryInto::<IActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
     type Error = ::windows::core::Error;
     fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IActivatedEventArgsWithUser {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IActivatedEventArgsWithUser> for &FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IActivatedEventArgsWithUser> {
         ::core::convert::TryInto::<IActivatedEventArgsWithUser>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IContinuationActivatedEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IContinuationActivatedEventArgs> {
         ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<FolderPickerContinuationEventArgs> for IFolderPickerContinuationEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&FolderPickerContinuationEventArgs> for IFolderPickerContinuationEventArgs {
     type Error = ::windows::core::Error;
     fn try_from(value: &FolderPickerContinuationEventArgs) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IFolderPickerContinuationEventArgs> for FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IFolderPickerContinuationEventArgs> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IFolderPickerContinuationEventArgs> for &FolderPickerContinuationEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, IFolderPickerContinuationEventArgs> {
         ::core::convert::TryInto::<IFolderPickerContinuationEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for FolderPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for FolderPickerContinuationEventArgs {}
 #[repr(transparent)]
 pub struct IActivatedEventArgs(::windows::core::IUnknown);
@@ -9012,7 +9111,7 @@ pub struct IFileActivatedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -9508,8 +9607,7 @@ pub struct IFileOpenPickerActivatedEventArgs2Vtbl(
 #[repr(transparent)]
 pub struct IFileOpenPickerContinuationEventArgs(::windows::core::IUnknown);
 impl IFileOpenPickerContinuationEventArgs {
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))]
     pub fn Files(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Storage::StorageFile>> {
         let this = self;
         unsafe {
@@ -9631,24 +9729,30 @@ impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &IF
         ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IFileOpenPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for IFileOpenPickerContinuationEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IFileOpenPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFileOpenPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9}");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileOpenPickerContinuationEventArgs {
     type Vtable = IFileOpenPickerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0fa3f3a_d4e8_4ad3_9c34_2308f32fcec9);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileOpenPickerContinuationEventArgsVtbl(
@@ -9658,8 +9762,8 @@ pub struct IFileOpenPickerContinuationEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage", feature = "deprecated")))] usize,
 );
 #[repr(transparent)]
 pub struct IFileSavePickerActivatedEventArgs(::windows::core::IUnknown);
@@ -9877,8 +9981,7 @@ pub struct IFileSavePickerActivatedEventArgs2Vtbl(
 #[repr(transparent)]
 pub struct IFileSavePickerContinuationEventArgs(::windows::core::IUnknown);
 impl IFileSavePickerContinuationEventArgs {
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
         unsafe {
@@ -10000,24 +10103,30 @@ impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &IF
         ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IFileSavePickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for IFileSavePickerContinuationEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IFileSavePickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFileSavePickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2c846fe1-3bad-4f33-8c8b-e46fae824b4b}");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileSavePickerContinuationEventArgs {
     type Vtable = IFileSavePickerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c846fe1_3bad_4f33_8c8b_e46fae824b4b);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileSavePickerContinuationEventArgsVtbl(
@@ -10027,14 +10136,13 @@ pub struct IFileSavePickerContinuationEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage"))] usize,
+    #[cfg(all(feature = "Storage", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Storage", feature = "deprecated")))] usize,
 );
 #[repr(transparent)]
 pub struct IFolderPickerContinuationEventArgs(::windows::core::IUnknown);
 impl IFolderPickerContinuationEventArgs {
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Storage")]
+    #[cfg(all(feature = "Storage", feature = "deprecated"))]
     pub fn Folder(&self) -> ::windows::core::Result<super::super::Storage::StorageFolder> {
         let this = self;
         unsafe {
@@ -10156,24 +10264,30 @@ impl<'a> ::windows::core::IntoParam<'a, IContinuationActivatedEventArgs> for &IF
         ::core::convert::TryInto::<IContinuationActivatedEventArgs>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for IFolderPickerContinuationEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for IFolderPickerContinuationEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IFolderPickerContinuationEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IFolderPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{51882366-9f4b-498f-beb0-42684f6e1c29}");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFolderPickerContinuationEventArgs {
     type Vtable = IFolderPickerContinuationEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51882366_9f4b_498f_beb0_42684f6e1c29);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFolderPickerContinuationEventArgsVtbl(
@@ -10183,8 +10297,8 @@ pub struct IFolderPickerContinuationEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Storage"))] usize,
+    #[cfg(all(feature = "Storage", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Storage", feature = "deprecated")))] usize,
 );
 #[repr(transparent)]
 pub struct ILaunchActivatedEventArgs(::windows::core::IUnknown);
@@ -12386,7 +12500,7 @@ pub struct ITileActivatedInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Notifications"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Notifications")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Notifications")))] usize,
 );
 #[repr(transparent)]
 pub struct IToastNotificationActivatedEventArgs(::windows::core::IUnknown);

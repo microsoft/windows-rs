@@ -1155,7 +1155,7 @@ pub struct IAppxBlockMapFileVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: *mut u64) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filestream: ::windows::core::RawPtr, isvalid: *mut super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxBlockMapFilesEnumerator(::windows::core::IUnknown);
@@ -2033,7 +2033,7 @@ pub struct IAppxBundleWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -2086,7 +2086,7 @@ pub struct IAppxBundleWriter2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxBundleWriter3(::windows::core::IUnknown);
@@ -2142,7 +2142,7 @@ pub struct IAppxBundleWriter3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hashmethodstring: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -2204,11 +2204,11 @@ pub struct IAppxBundleWriter4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxContentGroup(::windows::core::IUnknown);
@@ -2571,7 +2571,7 @@ pub struct IAppxEncryptedBundleWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -2624,7 +2624,7 @@ pub struct IAppxEncryptedBundleWriter2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxEncryptedBundleWriter3(::windows::core::IUnknown);
@@ -2680,9 +2680,9 @@ pub struct IAppxEncryptedBundleWriter3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, packagestream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, inputstream: ::windows::core::RawPtr, isdefaultapplicablepackage: super::super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxEncryptedPackageWriter(::windows::core::IUnknown);
@@ -2737,7 +2737,7 @@ pub struct IAppxEncryptedPackageWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -2790,7 +2790,7 @@ pub struct IAppxEncryptedPackageWriter2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxEncryptionFactory(::windows::core::IUnknown);
@@ -2874,19 +2874,19 @@ pub struct IAppxEncryptionFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO, packagereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, keyinfo: *const APPX_KEY_INFO, bundlereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
@@ -2941,7 +2941,7 @@ pub struct IAppxEncryptionFactory2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, contentgroupmapstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxEncryptionFactory3(::windows::core::IUnknown);
@@ -3007,13 +3007,13 @@ pub struct IAppxEncryptionFactory3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, manifeststream: ::windows::core::RawPtr, contentgroupmapstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, bundleversion: u64, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, bundlewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxEncryptionFactory4(::windows::core::IUnknown);
@@ -3065,7 +3065,7 @@ pub struct IAppxEncryptionFactory4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, outputstream: ::windows::core::RawPtr, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO, exemptedfiles: *const APPX_ENCRYPTED_EXEMPTIONS, memorylimit: u64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxFactory(::windows::core::IUnknown);
@@ -3138,7 +3138,7 @@ pub struct IAppxFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, outputstream: ::windows::core::RawPtr, settings: *const APPX_PACKAGE_SETTINGS, packagewriter: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, packagereader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, manifestreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3146,7 +3146,7 @@ pub struct IAppxFactoryVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputstream: ::windows::core::RawPtr, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, blockmapstream: ::windows::core::RawPtr, signaturefilename: super::super::super::Foundation::PWSTR, blockmapreader: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxFactory2(::windows::core::IUnknown);
@@ -6006,13 +6006,13 @@ pub struct IAppxPackageEditorVtbl(
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatedpackagestream: ::windows::core::RawPtr, baselinepackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updatedpackagestream: ::windows::core::RawPtr, baselineblockmapstream: ::windows::core::RawPtr, baselinepackagefullname: super::super::super::Foundation::PWSTR, deltapackagestream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselinepackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baselineencryptedpackagestream: ::windows::core::RawPtr, deltapackagestream: ::windows::core::RawPtr, updateoption: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_OPTION, settings: *const APPX_ENCRYPTED_PACKAGE_SETTINGS2, keyinfo: *const APPX_KEY_INFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagestream: ::windows::core::RawPtr, updatedmanifeststream: ::windows::core::RawPtr, ispackageencrypted: super::super::super::Foundation::BOOL, options: APPX_PACKAGE_EDITOR_UPDATE_PACKAGE_MANIFEST_OPTIONS) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxPackageReader(::windows::core::IUnknown);
@@ -6141,7 +6141,7 @@ pub struct IAppxPackageWriterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filename: super::super::super::Foundation::PWSTR, contenttype: super::super::super::Foundation::PWSTR, compressionoption: APPX_COMPRESSION_OPTION, inputstream: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, manifest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
@@ -6247,7 +6247,7 @@ pub struct IAppxPackageWriter3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filecount: u32, payloadfiles: *const APPX_PACKAGE_WRITER_PAYLOAD_STREAM, memorylimit: u64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IAppxPackagingDiagnosticEventSink(::windows::core::IUnknown);

@@ -1172,7 +1172,7 @@ pub struct IAudioProcessingObjectNotificationsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotifications: *mut *mut APO_NOTIFICATION_DESCRIPTOR, count: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aponotification: *const APO_NOTIFICATION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
 #[repr(transparent)]
 pub struct IAudioProcessingObjectRT(::windows::core::IUnknown);

@@ -2,10 +2,12 @@
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IRetailModeStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IRetailModeStatics {
     type Vtable = IRetailModeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ded029_fdda_43e7_93fb_e53ab6e89ec3);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IRetailModeStaticsVtbl(
@@ -15,7 +17,8 @@ pub struct IRetailModeStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 pub struct RetailMode {}
 impl RetailMode {

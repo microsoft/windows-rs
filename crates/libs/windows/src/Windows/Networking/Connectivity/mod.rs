@@ -430,8 +430,7 @@ impl ConnectionProfile {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NetworkAdapter>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetLocalUsage<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1) -> ::windows::core::Result<DataUsage> {
         let this = self;
         unsafe {
@@ -439,8 +438,7 @@ impl ConnectionProfile {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), starttime.into_param().abi(), endtime.into_param().abi(), &mut result__).from_abi::<DataUsage>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn GetLocalUsagePerRoamingStates<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, starttime: Param0, endtime: Param1, states: RoamingStates) -> ::windows::core::Result<DataUsage> {
         let this = self;
         unsafe {
@@ -1244,8 +1242,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataPlanUsage {}
 unsafe impl ::core::marker::Sync for DataPlanUsage {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct DataUsage(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl DataUsage {
     #[cfg(feature = "deprecated")]
     pub fn BytesSent(&self) -> ::windows::core::Result<u64> {
@@ -1264,68 +1264,84 @@ impl DataUsage {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for DataUsage {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for DataUsage {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for DataUsage {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for DataUsage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Connectivity.DataUsage;{c1431dd3-b146-4d39-b959-0c69b096c512})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DataUsage {
     type Vtable = IDataUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for DataUsage {
     const NAME: &'static str = "Windows.Networking.Connectivity.DataUsage";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<DataUsage> for ::windows::core::IUnknown {
     fn from(value: DataUsage) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&DataUsage> for ::windows::core::IUnknown {
     fn from(value: &DataUsage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DataUsage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DataUsage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<DataUsage> for ::windows::core::IInspectable {
     fn from(value: DataUsage) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&DataUsage> for ::windows::core::IInspectable {
     fn from(value: &DataUsage) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DataUsage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DataUsage {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for DataUsage {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for DataUsage {}
 #[repr(transparent)]
 pub struct DataUsageGranularity(pub i32);
@@ -1517,10 +1533,10 @@ pub struct IConnectionProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: RoamingStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[doc(hidden)]
@@ -1549,9 +1565,9 @@ pub struct IConnectionProfile2Vtbl(
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut DomainConnectivityLevel) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, granularity: DataUsageGranularity, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1570,7 +1586,7 @@ pub struct IConnectionProfile3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1589,7 +1605,7 @@ pub struct IConnectionProfile4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, starttime: super::super::Foundation::DateTime, endtime: super::super::Foundation::DateTime, states: NetworkUsageStates, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1803,10 +1819,12 @@ pub struct IDataPlanUsageVtbl(
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDataUsage(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IDataUsage {
     type Vtable = IDataUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1431dd3_b146_4d39_b959_0c69b096c512);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDataUsageVtbl(
@@ -1816,8 +1834,10 @@ pub struct IDataUsageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u64) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1952,7 +1972,7 @@ pub struct INetworkInformationStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprofilefilter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2174,7 +2194,7 @@ pub struct IProxyConfigurationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
 #[doc(hidden)]

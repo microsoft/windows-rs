@@ -577,8 +577,7 @@ impl DataReaderLoadOperation {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
-#[cfg(feature = "std")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl ::std::future::Future for DataReaderLoadOperation {
     type Output = ::windows::core::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -643,14 +642,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataReaderLoadOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: DataReaderLoadOperation) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -659,20 +656,17 @@ impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for DataReaderLoadOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &DataReaderLoadOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
         ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataReaderLoadOperation> for super::super::Foundation::IAsyncOperation<u32> {
     type Error = ::windows::core::Error;
@@ -681,7 +675,6 @@ impl ::core::convert::TryFrom<DataReaderLoadOperation> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Foundation::IAsyncOperation<u32> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataReaderLoadOperation) -> ::windows::core::Result<Self> {
@@ -689,13 +682,11 @@ impl ::core::convert::TryFrom<&DataReaderLoadOperation> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for DataReaderLoadOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for &DataReaderLoadOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
@@ -1085,8 +1076,7 @@ impl DataWriterStoreOperation {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
-#[cfg(feature = "std")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl ::std::future::Future for DataWriterStoreOperation {
     type Output = ::windows::core::Result<u32>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1151,14 +1141,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataWriterStoreOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: DataWriterStoreOperation) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -1167,20 +1155,17 @@ impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for DataWriterStoreOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncInfo> for &DataWriterStoreOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncInfo> {
         ::core::convert::TryInto::<super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<DataWriterStoreOperation> for super::super::Foundation::IAsyncOperation<u32> {
     type Error = ::windows::core::Error;
@@ -1189,7 +1174,6 @@ impl ::core::convert::TryFrom<DataWriterStoreOperation> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Foundation::IAsyncOperation<u32> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DataWriterStoreOperation) -> ::windows::core::Result<Self> {
@@ -1197,13 +1181,11 @@ impl ::core::convert::TryFrom<&DataWriterStoreOperation> for super::super::Found
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for DataWriterStoreOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IAsyncOperation<u32>> for &DataWriterStoreOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IAsyncOperation<u32>> {
@@ -2620,13 +2602,13 @@ pub struct IFileRandomAccessStreamStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, accessmode: super::FileAccessMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, accessmode: super::FileAccessMode, sharingoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, filepath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, openoptions: super::StorageOpenOptions, opendisposition: FileOpenDisposition, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
 );
 #[repr(transparent)]
 pub struct IInputStream(::windows::core::IUnknown);

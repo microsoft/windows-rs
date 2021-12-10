@@ -5,33 +5,33 @@ pub const ACTIVPROF_E_PROFILER_ABSENT: ::windows::core::HRESULT = ::windows::cor
 pub const ACTIVPROF_E_PROFILER_PRESENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220992i32);
 pub const ACTIVPROF_E_UNABLE_TO_APPLY_ACTION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147220990i32);
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct ADDRESS {
     pub Offset: u32,
     pub Segment: u16,
     pub Mode: ADDRESS_MODE,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for ADDRESS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for ADDRESS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for ADDRESS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for ADDRESS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADDRESS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for ADDRESS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -258,7 +258,7 @@ pub const FILTER_EXCLUDE_NOTHING: APPLICATION_NODE_EVENT_FILTER = 0i32;
 pub const FILTER_EXCLUDE_ANONYMOUS_CODE: APPLICATION_NODE_EVENT_FILTER = 1i32;
 pub const FILTER_EXCLUDE_EVAL_CODE: APPLICATION_NODE_EVENT_FILTER = 2i32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub struct ARM64_NT_CONTEXT {
     pub ContextFlags: u32,
     pub Cpsr: u32,
@@ -273,66 +273,66 @@ pub struct ARM64_NT_CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::marker::Copy for ARM64_NT_CONTEXT {}
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::clone::Clone for ARM64_NT_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for ARM64_NT_CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for ARM64_NT_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARM64_NT_CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for ARM64_NT_CONTEXT {}
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::default::Default for ARM64_NT_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::marker::Copy for ARM64_NT_CONTEXT_0 {}
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::clone::Clone for ARM64_NT_CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for ARM64_NT_CONTEXT_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for ARM64_NT_CONTEXT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARM64_NT_CONTEXT_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for ARM64_NT_CONTEXT_0 {}
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::default::Default for ARM64_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -366,27 +366,27 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::marker::Copy for ARM64_NT_CONTEXT_0_0 {}
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::clone::Clone for ARM64_NT_CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for ARM64_NT_CONTEXT_0_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for ARM64_NT_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARM64_NT_CONTEXT_0_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for ARM64_NT_CONTEXT_0_0 {}
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::default::Default for ARM64_NT_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1200,7 +1200,7 @@ pub const CHECKSUM_OPEN_FAILURE: u32 = 1u32;
 pub const CHECKSUM_SUCCESS: u32 = 0u32;
 pub const CHECKSUM_UNICODE_FAILURE: u32 = 4u32;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
     pub ContextFlags: u32,
@@ -1216,32 +1216,32 @@ pub struct CONTEXT {
     pub Wcr: [u32; 2],
     pub Wvr: [u64; 2],
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT {
     fn default() -> Self {
@@ -1249,38 +1249,38 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0 {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0 {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0 {
     fn default() -> Self {
@@ -1288,7 +1288,7 @@ impl ::core::default::Default for CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
@@ -1323,32 +1323,32 @@ pub struct CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0_0 {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0_0 {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0_0 {
     fn default() -> Self {
@@ -1356,7 +1356,7 @@ impl ::core::default::Default for CONTEXT_0_0 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
     pub P1Home: u64,
@@ -1406,32 +1406,32 @@ pub struct CONTEXT {
     pub LastExceptionToRip: u64,
     pub LastExceptionFromRip: u64,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT {
     fn default() -> Self {
@@ -1439,38 +1439,38 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0 {
     fn default() -> Self {
@@ -1478,7 +1478,7 @@ impl ::core::default::Default for CONTEXT_0 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
@@ -1500,32 +1500,32 @@ pub struct CONTEXT_0_0 {
     pub Xmm14: M128A,
     pub Xmm15: M128A,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0_0 {
     fn default() -> Self {
@@ -1533,7 +1533,7 @@ impl ::core::default::Default for CONTEXT_0_0 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT {
     pub ContextFlags: u32,
@@ -1562,32 +1562,32 @@ pub struct CONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT {
     fn default() -> Self {
@@ -1766,7 +1766,7 @@ pub unsafe fn CheckRemoteDebuggerPresent<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS64 {
     #[cfg(windows)]
@@ -1780,7 +1780,7 @@ pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filele
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn CheckSumMappedFile(baseaddress: *const ::core::ffi::c_void, filelength: u32, headersum: *mut u32, checksum: *mut u32) -> *mut IMAGE_NT_HEADERS32 {
     #[cfg(windows)]
@@ -4205,7 +4205,7 @@ pub const DEBUG_WAIT_DEFAULT: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type DIGEST_FUNCTION = ::core::option::Option<unsafe extern "system" fn(refdata: *mut ::core::ffi::c_void, pdata: *mut u8, dwlength: u32) -> super::super::super::Foundation::BOOL>;
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: usize,
@@ -4221,32 +4221,32 @@ pub struct DISPATCHER_CONTEXT {
     pub ControlPcIsUnwound: super::super::super::Foundation::BOOLEAN,
     pub NonVolatileRegisters: *mut u8,
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for DISPATCHER_CONTEXT {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for DISPATCHER_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPATCHER_CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for DISPATCHER_CONTEXT {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
@@ -4254,7 +4254,7 @@ impl ::core::default::Default for DISPATCHER_CONTEXT {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct DISPATCHER_CONTEXT {
     pub ControlPc: u64,
@@ -4269,32 +4269,32 @@ pub struct DISPATCHER_CONTEXT {
     pub ScopeIndex: u32,
     pub Fill0: u32,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for DISPATCHER_CONTEXT {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for DISPATCHER_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for DISPATCHER_CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for DISPATCHER_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISPATCHER_CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for DISPATCHER_CONTEXT {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for DISPATCHER_CONTEXT {
     fn default() -> Self {
@@ -5705,7 +5705,7 @@ pub unsafe fn EnumDirTreeW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumerateLoadedModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enumloadedmodulescallback: PENUMLOADED_MODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -6535,7 +6535,7 @@ impl ::core::default::Default for GET_TEB_ADDRESS {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn GetEnabledXStateFeatures() -> u64 {
     #[cfg(windows)]
@@ -6562,7 +6562,7 @@ pub unsafe fn GetErrorMode() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL {
@@ -6577,7 +6577,7 @@ pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imagec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetImageConfigInformation(loadedimage: *const LOADED_IMAGE, imageconfiginformation: *mut IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL {
@@ -6688,7 +6688,7 @@ pub unsafe fn GetTimestampForLoadedLibrary<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn GetXStateFeaturesMask(context: *const CONTEXT, featuremask: *mut u64) -> super::super::super::Foundation::BOOL {
@@ -6806,12 +6806,12 @@ pub struct IActiveScriptVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidtypelib: *const ::windows::core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstritemname: super::super::super::Foundation::PWSTR, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstidthread: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwwin32threadid: u32, pstidthread: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stidthread: u32, pstsstate: *mut SCRIPTTHREADSTATE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stidthread: u32, pexcepinfo: *const super::super::Com::EXCEPINFO, dwflags: u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppscript: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -6917,7 +6917,7 @@ pub struct IActiveScriptAuthorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::super::Foundation::PWSTR, dwflags: u32, pdisp: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultname: super::super::super::Foundation::PWSTR, pszcode: super::super::super::Foundation::PWSTR, pszitemname: super::super::super::Foundation::PWSTR, pszsubitemname: super::super::super::Foundation::PWSTR, pszeventname: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, dwcookie: u32, dwflags: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: super::super::super::Foundation::PWSTR, pszitemname: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, dwcookie: u32, dwflags: u32) -> ::windows::core::HRESULT,
@@ -6929,7 +6929,7 @@ pub struct IActiveScriptAuthorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppsp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pgrfasa: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisp: ::windows::core::RawPtr, pszitem: super::super::super::Foundation::PWSTR, pszsubitem: super::super::super::Foundation::PWSTR, pszevent: super::super::super::Foundation::PWSTR, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, rguidtypelib: *const ::windows::core::GUID, dwmajor: u32, dwminor: u32, dwflags: u32) -> ::windows::core::HRESULT,
@@ -6991,7 +6991,7 @@ pub struct IActiveScriptAuthorProcedureVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszcode: super::super::super::Foundation::PWSTR, pszformalparams: super::super::super::Foundation::PWSTR, pszprocedurename: super::super::super::Foundation::PWSTR, pszitemname: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, dwcookie: u32, dwflags: u32, pdispfor: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptDebug32(::windows::core::IUnknown);
@@ -7242,7 +7242,7 @@ pub struct IActiveScriptErrorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7329,7 +7329,7 @@ pub struct IActiveScriptError64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7422,7 +7422,7 @@ pub struct IActiveScriptErrorDebugVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -7643,9 +7643,9 @@ pub struct IActiveScriptParse32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: super::super::super::Foundation::PWSTR, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, pstrsubitemname: super::super::super::Foundation::PWSTR, pstreventname: super::super::super::Foundation::PWSTR, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut super::super::super::Foundation::BSTR, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptParse64(::windows::core::IUnknown);
@@ -7718,9 +7718,9 @@ pub struct IActiveScriptParse64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrdefaultname: super::super::super::Foundation::PWSTR, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, pstrsubitemname: super::super::super::Foundation::PWSTR, pstreventname: super::super::super::Foundation::PWSTR, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pbstrname: *mut super::super::super::Foundation::BSTR, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, pvarresult: *mut super::super::Com::VARIANT, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure2_32(::windows::core::IUnknown);
@@ -7793,7 +7793,7 @@ pub struct IActiveScriptParseProcedure2_32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure2_64(::windows::core::IUnknown);
@@ -7866,7 +7866,7 @@ pub struct IActiveScriptParseProcedure2_64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure32(::windows::core::IUnknown);
@@ -7919,7 +7919,7 @@ pub struct IActiveScriptParseProcedure32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedure64(::windows::core::IUnknown);
@@ -7972,7 +7972,7 @@ pub struct IActiveScriptParseProcedure64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstrprocedurename: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedureOld32(::windows::core::IUnknown);
@@ -8025,7 +8025,7 @@ pub struct IActiveScriptParseProcedureOld32Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u32, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptParseProcedureOld64(::windows::core::IUnknown);
@@ -8078,7 +8078,7 @@ pub struct IActiveScriptParseProcedureOld64Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrcode: super::super::super::Foundation::PWSTR, pstrformalparams: super::super::super::Foundation::PWSTR, pstritemname: super::super::super::Foundation::PWSTR, punkcontext: *mut ::core::ffi::c_void, pstrdelimiter: super::super::super::Foundation::PWSTR, dwsourcecontextcookie: u64, ulstartinglinenumber: u32, dwflags: u32, ppdisp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptProfilerCallback(::windows::core::IUnknown);
@@ -9055,9 +9055,9 @@ pub struct IActiveScriptPropertyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwproperty: u32, pvarindex: *const super::super::Com::VARIANT, pvarvalue: *const super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IActiveScriptSIPInfo(::windows::core::IUnknown);
@@ -9181,11 +9181,11 @@ pub struct IActiveScriptSiteVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, plcid: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrname: super::super::super::Foundation::PWSTR, dwreturnmask: u32, ppiunkitem: *mut *mut ::core::ffi::c_void, ppti: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrversion: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarresult: *const super::super::Com::VARIANT, pexcepinfo: *const super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ssscriptstate: SCRIPTSTATE) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pscripterror: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -9837,7 +9837,7 @@ pub struct IActiveScriptWinRTErrorDebugVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pexcepinfo: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsourcecontext: *mut u32, pullinenumber: *mut u32, plcharacterposition: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstrsourceline: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -10025,7 +10025,7 @@ pub struct IBindEventHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: super::super::super::Foundation::PWSTR, pdisp: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct ICodeAddressConcept(::windows::core::IUnknown);
@@ -10313,9 +10313,9 @@ pub struct IDataModelManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datamodel: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const super::super::Com::VARIANT, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::Com::VARIANT, r#type: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: ::windows::core::RawPtr, datamodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, datamodel: *mut ::windows::core::RawPtr, typesignature: *mut ::windows::core::RawPtr, wildcardmatches: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: ::windows::core::RawPtr, datamodel: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10493,9 +10493,9 @@ pub struct IDataModelManager2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datamodel: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, objectkind: ModelObjectKind, intrinsicdata: *const super::super::Com::VARIANT, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *const super::super::Com::VARIANT, r#type: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: ::windows::core::RawPtr, datamodel: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, r#type: ::windows::core::RawPtr, datamodel: *mut ::windows::core::RawPtr, typesignature: *mut ::windows::core::RawPtr, wildcardmatches: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, typesignature: ::windows::core::RawPtr, datamodel: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10513,7 +10513,7 @@ pub struct IDataModelManager2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, modelname: super::super::super::Foundation::PWSTR, subnamespacemodelname: super::super::super::Foundation::PWSTR, accessname: super::super::super::Foundation::PWSTR, metadata: ::windows::core::RawPtr, namespacemodelobject: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: ::windows::core::RawPtr, intrinsicdata: *const super::super::Com::VARIANT, r#type: ::windows::core::RawPtr, object: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IDataModelNameBinder(::windows::core::IUnknown);
@@ -17969,9 +17969,9 @@ pub struct IDebugControlVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -18515,9 +18515,9 @@ pub struct IDebugControl2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -19120,9 +19120,9 @@ pub struct IDebugControl3Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -19953,9 +19953,9 @@ pub struct IDebugControl4Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -20905,9 +20905,9 @@ pub struct IDebugControl5Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -21873,9 +21873,9 @@ pub struct IDebugControl6Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -22846,9 +22846,9 @@ pub struct IDebugControl7Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handle: u64, funcname: super::super::super::Foundation::PSTR, function: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *mut WINDBG_EXTENSION_APIS64) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Kernel")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, specificevents: *mut u32, specificexceptions: *mut u32, arbitraryexceptions: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32, buffer: super::super::super::Foundation::PSTR, buffersize: u32, textsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -25446,13 +25446,13 @@ pub struct IDebugExtendedPropertyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvalue: super::super::super::Foundation::PWSTR, nradix: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, refiid: *const ::windows::core::GUID, ppepi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdebugprop: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, pextendedpropertyinfo: *mut ExtendedDebugPropertyInfo) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppeepi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -25516,11 +25516,11 @@ pub struct IDebugFormatterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, nradix: u32, pbstrvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwstrvalue: super::super::super::Foundation::PWSTR, pvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: u16, ptdescarraytype: *const super::super::Com::TYPEDESC, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IDebugHelper(::windows::core::IUnknown);
@@ -25583,9 +25583,9 @@ pub struct IDebugHelperVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, bstrname: super::super::super::Foundation::PWSTR, pdat: ::windows::core::RawPtr, ppdob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvar: *const super::super::Com::VARIANT, bstrname: super::super::super::Foundation::PWSTR, pdat: ::windows::core::RawPtr, pdf: ::windows::core::RawPtr, ppdob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdisp: ::windows::core::RawPtr, ppscp: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
 );
@@ -25870,7 +25870,7 @@ pub struct IDebugHostConstantVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, containingmodule: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcomparisonsymbol: ::windows::core::RawPtr, comparisonflags: u32, pmatches: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IDebugHostContext(::windows::core::IUnknown);
@@ -26038,7 +26038,7 @@ pub struct IDebugHostDataVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, locationkind: *mut LocationKind) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IDebugHostErrorSink(::windows::core::IUnknown);
@@ -26415,7 +26415,7 @@ pub struct IDebugHostFieldVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, offset: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, location: *mut Location) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IDebugHostMemory(::windows::core::IUnknown);
@@ -28538,7 +28538,7 @@ pub struct IDebugPropertyVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, ppropertyinfo: *mut DebugPropertyInfo) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cinfos: u32, rgguidextendedinfo: *const ::windows::core::GUID, rgvar: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszvalue: super::super::super::Foundation::PWSTR, nradix: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwfieldspec: u32, nradix: u32, refiid: *const ::windows::core::GUID, ppepi: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -34335,7 +34335,7 @@ pub struct IEnumDebugExtendedPropertyInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32, rgextendedpropertyinfo: *mut ExtendedDebugPropertyInfo, pceltfetched: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, celt: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pedpe: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -35759,7 +35759,7 @@ impl ::core::default::Default for IMAGEHLP_CBA_READ_MEMORY {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub SizeOfStruct: u32,
@@ -35770,32 +35770,32 @@ pub struct IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     pub Reparse: super::super::super::Foundation::BOOLEAN,
     pub hFile: super::super::super::Foundation::HANDLE,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_DEFERRED_SYMBOL_LOAD {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_DEFERRED_SYMBOL_LOAD>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_DEFERRED_SYMBOL_LOAD {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOAD {
     fn default() -> Self {
@@ -35879,7 +35879,7 @@ impl ::core::default::Default for IMAGEHLP_DEFERRED_SYMBOL_LOADW64 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub SizeOfStruct: u32,
@@ -35887,32 +35887,32 @@ pub struct IMAGEHLP_DUPLICATE_SYMBOL {
     pub Symbol: *mut IMAGEHLP_SYMBOL,
     pub SelectedSymbol: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_DUPLICATE_SYMBOL {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_DUPLICATE_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_DUPLICATE_SYMBOL {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_DUPLICATE_SYMBOL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_DUPLICATE_SYMBOL>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_DUPLICATE_SYMBOL {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_DUPLICATE_SYMBOL {
     fn default() -> Self {
@@ -36009,7 +36009,7 @@ pub const hdSym: IMAGEHLP_HD_TYPE = 1i32;
 pub const hdSrc: IMAGEHLP_HD_TYPE = 2i32;
 pub const hdMax: IMAGEHLP_HD_TYPE = 3i32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINE {
     pub SizeOfStruct: u32,
@@ -36018,32 +36018,32 @@ pub struct IMAGEHLP_LINE {
     pub FileName: super::super::super::Foundation::PSTR,
     pub Address: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_LINE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_LINE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_LINE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_LINE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_LINE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_LINE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_LINE {
     fn default() -> Self {
@@ -36086,7 +36086,7 @@ impl ::core::default::Default for IMAGEHLP_LINE64 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_LINEW {
     pub SizeOfStruct: u32,
@@ -36095,32 +36095,32 @@ pub struct IMAGEHLP_LINEW {
     pub FileName: super::super::super::Foundation::PSTR,
     pub Address: u64,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_LINEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_LINEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_LINEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_LINEW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_LINEW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_LINEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_LINEW {
     fn default() -> Self {
@@ -36163,7 +36163,7 @@ impl ::core::default::Default for IMAGEHLP_LINEW64 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_MODULE {
     pub SizeOfStruct: u32,
@@ -36177,32 +36177,32 @@ pub struct IMAGEHLP_MODULE {
     pub ImageName: [super::super::super::Foundation::CHAR; 256],
     pub LoadedImageName: [super::super::super::Foundation::CHAR; 256],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_MODULE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_MODULE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_MODULE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_MODULE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_MODULE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_MODULE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_MODULE {
     fn default() -> Self {
@@ -36297,7 +36297,7 @@ impl ::core::default::Default for IMAGEHLP_MODULE64_EX {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_MODULEW {
     pub SizeOfStruct: u32,
     pub BaseOfImage: u32,
@@ -36310,27 +36310,27 @@ pub struct IMAGEHLP_MODULEW {
     pub ImageName: [u16; 256],
     pub LoadedImageName: [u16; 256],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for IMAGEHLP_MODULEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for IMAGEHLP_MODULEW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_MODULEW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for IMAGEHLP_MODULEW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_MODULEW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for IMAGEHLP_MODULEW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for IMAGEHLP_MODULEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -36503,7 +36503,7 @@ pub const BindForwarder64: IMAGEHLP_STATUS_REASON = 17i32;
 pub const BindForwarderNOT32: IMAGEHLP_STATUS_REASON = 18i32;
 pub const BindForwarderNOT64: IMAGEHLP_STATUS_REASON = 19i32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL {
     pub SizeOfStruct: u32,
@@ -36513,32 +36513,32 @@ pub struct IMAGEHLP_SYMBOL {
     pub MaxNameLength: u32,
     pub Name: [super::super::super::Foundation::CHAR; 1],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_SYMBOL {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOL {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_SYMBOL>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOL {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_SYMBOL {
     fn default() -> Self {
@@ -36614,7 +36614,7 @@ impl ::core::default::Default for IMAGEHLP_SYMBOL64_PACKAGE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_SYMBOLW {
     pub SizeOfStruct: u32,
     pub Address: u32,
@@ -36623,27 +36623,27 @@ pub struct IMAGEHLP_SYMBOLW {
     pub MaxNameLength: u32,
     pub Name: [u16; 1],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOLW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOLW {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_SYMBOLW {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOLW {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_SYMBOLW>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOLW {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for IMAGEHLP_SYMBOLW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -36704,32 +36704,32 @@ impl ::core::default::Default for IMAGEHLP_SYMBOLW64_PACKAGE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct IMAGEHLP_SYMBOLW_PACKAGE {
     pub sym: IMAGEHLP_SYMBOLW,
     pub name: [u16; 2001],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOLW_PACKAGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOLW_PACKAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_SYMBOLW_PACKAGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOLW_PACKAGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_SYMBOLW_PACKAGE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOLW_PACKAGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for IMAGEHLP_SYMBOLW_PACKAGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -36745,38 +36745,38 @@ pub const IMAGEHLP_SYMBOL_INFO_REGRELATIVE: u32 = 16u32;
 pub const IMAGEHLP_SYMBOL_INFO_TLSRELATIVE: u32 = 16384u32;
 pub const IMAGEHLP_SYMBOL_INFO_VALUEPRESENT: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IMAGEHLP_SYMBOL_PACKAGE {
     pub sym: IMAGEHLP_SYMBOL,
     pub name: [super::super::super::Foundation::CHAR; 2001],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for IMAGEHLP_SYMBOL_PACKAGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for IMAGEHLP_SYMBOL_PACKAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for IMAGEHLP_SYMBOL_PACKAGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IMAGEHLP_SYMBOL_PACKAGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGEHLP_SYMBOL_PACKAGE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IMAGEHLP_SYMBOL_PACKAGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for IMAGEHLP_SYMBOL_PACKAGE {
     fn default() -> Self {
@@ -37077,7 +37077,7 @@ impl ::core::default::Default for IMAGE_DEBUG_DIRECTORY {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct IMAGE_DEBUG_INFORMATION {
     pub List: super::super::Kernel::LIST_ENTRY,
@@ -37112,32 +37112,32 @@ pub struct IMAGE_DEBUG_INFORMATION {
     pub ReservedOriginalFunctionTableBaseAddress: u32,
     pub Reserved: [u32; 2],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for IMAGE_DEBUG_INFORMATION {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for IMAGE_DEBUG_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for IMAGE_DEBUG_INFORMATION {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for IMAGE_DEBUG_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IMAGE_DEBUG_INFORMATION>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for IMAGE_DEBUG_INFORMATION {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for IMAGE_DEBUG_INFORMATION {
     fn default() -> Self {
@@ -38553,9 +38553,9 @@ pub struct IModelObjectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, context: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: *mut ModelObjectKind) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vt: u16, intrinsicdata: *mut super::super::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: super::super::super::Foundation::PWSTR, object: *mut ::windows::core::RawPtr, metadata: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, key: super::super::super::Foundation::PWSTR, object: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -39041,7 +39041,7 @@ pub struct IPerPropertyBrowsing2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pclsidproppage: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, pcastrings: *mut super::super::Ole::CALPOLESTR, pcacookies: *mut super::super::Ole::CADWORD) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispid: i32, dwcookie: u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -39940,7 +39940,7 @@ pub struct IScriptEntryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isn: u32, dwcookie: u32, pszdelimiter: super::super::super::Foundation::PWSTR, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -40124,7 +40124,7 @@ pub struct IScriptNodeVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isn: u32, dwcookie: u32, pszdelimiter: super::super::super::Foundation::PWSTR, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IScriptScriptlet(::windows::core::IUnknown);
@@ -40338,7 +40338,7 @@ pub struct IScriptScriptletVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isn: u32, dwcookie: u32, pszdelimiter: super::super::super::Foundation::PWSTR, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pszdefaultname: super::super::super::Foundation::PWSTR, prgpsznames: *const super::super::super::Foundation::PWSTR, cpsznames: u32, pszevent: super::super::super::Foundation::PWSTR, pszdelimiter: super::super::super::Foundation::PWSTR, ptisignature: ::windows::core::RawPtr, imethodsignature: u32, isn: u32, dwcookie: u32, ppse: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbstr: *mut super::super::super::Foundation::BSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psz: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -40544,7 +40544,7 @@ pub struct ITridentEventSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pstrevent: super::super::super::Foundation::PWSTR, pdp: *const super::super::Com::DISPPARAMS, pvarres: *mut super::super::Com::VARIANT, pei: *mut super::super::Com::EXCEPINFO) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
 #[repr(transparent)]
 pub struct IWebAppDiagnosticsObjectInitialization(::windows::core::IUnknown);
@@ -40765,7 +40765,7 @@ pub unsafe fn ImageLoad<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS64 {
     #[cfg(windows)]
@@ -40779,7 +40779,7 @@ pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn ImageNtHeader(base: *const ::core::ffi::c_void) -> *mut IMAGE_NT_HEADERS32 {
     #[cfg(windows)]
@@ -40807,7 +40807,7 @@ pub unsafe fn ImageRemoveCertificate<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     #[cfg(windows)]
@@ -40821,7 +40821,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS64, base: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32) -> *mut IMAGE_SECTION_HEADER {
     #[cfg(windows)]
@@ -40835,7 +40835,7 @@ pub unsafe fn ImageRvaToSection(ntheaders: *const IMAGE_NT_HEADERS32, base: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -40849,7 +40849,7 @@ pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS64, base: *const ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[inline]
 pub unsafe fn ImageRvaToVa(ntheaders: *const IMAGE_NT_HEADERS32, base: *const ::core::ffi::c_void, rva: u32, lastrvasection: *const *const IMAGE_SECTION_HEADER) -> *mut ::core::ffi::c_void {
     #[cfg(windows)]
@@ -41292,7 +41292,7 @@ impl ::core::default::Default for KDDEBUGGER_DATA64 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct KDHELP {
     pub Thread: u32,
     pub ThCallbackStack: u32,
@@ -41307,27 +41307,27 @@ pub struct KDHELP {
     pub StackLimit: u32,
     pub Reserved: [u32; 5],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for KDHELP {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for KDHELP {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for KDHELP {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for KDHELP {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KDHELP>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for KDHELP {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for KDHELP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -41378,71 +41378,71 @@ pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_1: u32 = 0u32;
 pub const KD_SECONDARY_VERSION_AMD64_OBSOLETE_CONTEXT_2: u32 = 1u32;
 pub const KD_SECONDARY_VERSION_DEFAULT: u32 = 0u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Anonymous1: KNONVOLATILE_CONTEXT_POINTERS_0,
     pub Anonymous2: KNONVOLATILE_CONTEXT_POINTERS_1,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
     pub Xmm1: *mut M128A,
@@ -41461,66 +41461,66 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm14: *mut M128A,
     pub Xmm15: *mut M128A,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_0_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_0_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_1 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_1 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_1>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_1 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
     pub Rcx: *mut u64,
@@ -41539,65 +41539,65 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub R14: *mut u64,
     pub R15: *mut u64,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_1_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_1_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS {
     pub Dummy: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub X19: *mut u64,
     pub X20: *mut u64,
@@ -41620,27 +41620,27 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     pub D14: *mut u64,
     pub D15: *mut u64,
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_ARM64>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_ARM64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -41749,7 +41749,7 @@ impl ::core::default::Default for LDT_ENTRY_0_1 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LOADED_IMAGE {
     pub ModuleName: super::super::super::Foundation::PSTR,
@@ -41767,32 +41767,32 @@ pub struct LOADED_IMAGE {
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for LOADED_IMAGE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for LOADED_IMAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for LOADED_IMAGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for LOADED_IMAGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOADED_IMAGE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for LOADED_IMAGE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LOADED_IMAGE {
     fn default() -> Self {
@@ -41800,7 +41800,7 @@ impl ::core::default::Default for LOADED_IMAGE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct LOADED_IMAGE {
     pub ModuleName: super::super::super::Foundation::PSTR,
@@ -41818,32 +41818,32 @@ pub struct LOADED_IMAGE {
     pub Links: super::super::Kernel::LIST_ENTRY,
     pub SizeOfImage: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for LOADED_IMAGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for LOADED_IMAGE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for LOADED_IMAGE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for LOADED_IMAGE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LOADED_IMAGE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for LOADED_IMAGE {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LOADED_IMAGE {
     fn default() -> Self {
@@ -41894,7 +41894,7 @@ pub const LanguageUnknown: LanguageKind = 0i32;
 pub const LanguageC: LanguageKind = 1i32;
 pub const LanguageCPP: LanguageKind = 2i32;
 pub const LanguageAssembly: LanguageKind = 3i32;
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn LocateXStateFeature(context: *const CONTEXT, featureid: u32, length: *mut u32) -> *mut ::core::ffi::c_void {
@@ -43938,7 +43938,7 @@ impl ::core::default::Default for MINIDUMP_THREAD {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -43949,32 +43949,32 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_CALLBACK {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_CALLBACK>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
@@ -43982,7 +43982,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -43992,32 +43992,32 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_CALLBACK {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_CALLBACK>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
@@ -44025,7 +44025,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_CALLBACK {
     pub ThreadId: u32,
@@ -44035,32 +44035,32 @@ pub struct MINIDUMP_THREAD_CALLBACK {
     pub StackBase: u64,
     pub StackEnd: u64,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_CALLBACK {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_CALLBACK>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_CALLBACK {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_CALLBACK {
     fn default() -> Self {
@@ -44099,7 +44099,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -44112,32 +44112,32 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_EX_CALLBACK {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_EX_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_EX_CALLBACK>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
@@ -44145,7 +44145,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -44157,32 +44157,32 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_EX_CALLBACK {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_EX_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_EX_CALLBACK>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
@@ -44190,7 +44190,7 @@ impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub ThreadId: u32,
@@ -44202,32 +44202,32 @@ pub struct MINIDUMP_THREAD_EX_CALLBACK {
     pub BackingStoreBase: u64,
     pub BackingStoreEnd: u64,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for MINIDUMP_THREAD_EX_CALLBACK {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_THREAD_EX_CALLBACK {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for MINIDUMP_THREAD_EX_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_THREAD_EX_CALLBACK>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for MINIDUMP_THREAD_EX_CALLBACK {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for MINIDUMP_THREAD_EX_CALLBACK {
     fn default() -> Self {
@@ -45096,7 +45096,7 @@ pub type PDEBUG_STACK_PROVIDER_RECONSTRUCTSTACK = ::core::option::Option<unsafe 
 pub type PENUMDIRTREE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMDIRTREE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PENUMLOADED_MODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, modulebase: u32, modulesize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
@@ -45117,19 +45117,19 @@ pub type PFIND_DEBUG_FILE_CALLBACKW = ::core::option::Option<unsafe extern "syst
 pub type PFIND_EXE_FILE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFIND_EXE_FILE_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(filehandle: super::super::super::Foundation::HANDLE, filename: super::super::super::Foundation::PWSTR, callerdata: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFUNCTION_TABLE_ACCESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFUNCTION_TABLE_ACCESS_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(ahprocess: super::super::super::Foundation::HANDLE, addrbase: u64) -> *mut ::core::ffi::c_void>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_BASE_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PGET_MODULE_BASE_ROUTINE64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, address: u64) -> u64>;
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY>;
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 pub type PGET_RUNTIME_FUNCTION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(controlpc: u64, context: *const ::core::ffi::c_void) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY>;
 #[repr(C)]
 pub struct PHYSICAL {
@@ -45353,7 +45353,7 @@ impl ::core::default::Default for POINTER_SEARCH_PHYSICAL {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PREAD_PROCESS_MEMORY_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, lpbaseaddress: u32, lpbuffer: *mut ::core::ffi::c_void, nsize: u32, lpnumberofbytesread: *mut u32) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
@@ -45861,7 +45861,7 @@ pub type PSYMBOLSERVERWEXPROC = ::core::option::Option<unsafe extern "system" fn
 pub type PSYMBOL_FUNCENTRY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u32, usercontext: *const ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOL_FUNCENTRY_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, addrbase: u64, usercontext: u64) -> *mut ::core::ffi::c_void>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYMBOL_REGISTERED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, actioncode: u32, callbackdata: *const ::core::ffi::c_void, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
@@ -45875,7 +45875,7 @@ pub type PSYM_ENUMERATESYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern 
 pub type PSYM_ENUMLINES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFO, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMLINES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(lineinfo: *const SRCCODEINFOW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMMODULES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(modulename: super::super::super::Foundation::PSTR, baseofdll: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
@@ -45888,17 +45888,17 @@ pub type PSYM_ENUMPROCESSES_CALLBACK = ::core::option::Option<unsafe extern "sys
 pub type PSYM_ENUMSOURCEFILES_CALLBACK = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILE, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSOURCEFILES_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(psourcefile: *const SOURCEFILEW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACK64 = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACK64W = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u64, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PSYM_ENUMSYMBOLS_CALLBACKW = ::core::option::Option<unsafe extern "system" fn(symbolname: super::super::super::Foundation::PWSTR, symboladdress: u32, symbolsize: u32, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTRANSLATE_ADDRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(hprocess: super::super::super::Foundation::HANDLE, hthread: super::super::super::Foundation::HANDLE, lpaddr: *mut ADDRESS) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
@@ -46352,7 +46352,7 @@ pub unsafe fn ReportSymbolLoadSummary<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: usize) -> super::super::super::Foundation::BOOLEAN {
@@ -46367,7 +46367,7 @@ pub unsafe fn RtlAddFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, baseaddress: u64) -> super::super::super::Foundation::BOOLEAN {
@@ -46382,7 +46382,7 @@ pub unsafe fn RtlAddFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_E
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, entrycount: u32, maximumentrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     #[cfg(windows)]
@@ -46396,7 +46396,7 @@ pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[inline]
 pub unsafe fn RtlAddGrowableFunctionTable(dynamictable: *mut *mut ::core::ffi::c_void, functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY, entrycount: u32, maximumentrycount: u32, rangebase: usize, rangeend: usize) -> u32 {
     #[cfg(windows)]
@@ -46424,7 +46424,7 @@ pub unsafe fn RtlCaptureContext(contextrecord: *mut CONTEXT) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn RtlCaptureContext2(contextrecord: *mut CONTEXT) {
@@ -46452,7 +46452,7 @@ pub unsafe fn RtlCaptureStackBackTrace(framestoskip: u32, framestocapture: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
@@ -46467,7 +46467,7 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_ARM64_RUNTIME_F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTION_ENTRY) -> super::super::super::Foundation::BOOLEAN {
@@ -46482,7 +46482,7 @@ pub unsafe fn RtlDeleteFunctionTable(functiontable: *const IMAGE_RUNTIME_FUNCTIO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -46496,7 +46496,7 @@ pub unsafe fn RtlDeleteGrowableFunctionTable(dynamictable: *const ::core::ffi::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newentrycount: u32) {
     #[cfg(windows)]
@@ -46510,7 +46510,7 @@ pub unsafe fn RtlGrowFunctionTable(dynamictable: *mut ::core::ffi::c_void, newen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlInstallFunctionTableCallback<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(tableidentifier: u64, baseaddress: u64, length: u32, callback: PGET_RUNTIME_FUNCTION_CALLBACK, context: *const ::core::ffi::c_void, outofprocesscallbackdll: Param5) -> super::super::super::Foundation::BOOLEAN {
@@ -46525,7 +46525,7 @@ pub unsafe fn RtlInstallFunctionTableCallback<'a, Param5: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY {
     #[cfg(windows)]
@@ -46539,7 +46539,7 @@ pub unsafe fn RtlLookupFunctionEntry(controlpc: usize, imagebase: *mut usize, hi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[inline]
 pub unsafe fn RtlLookupFunctionEntry(controlpc: u64, imagebase: *mut u64, historytable: *mut UNWIND_HISTORY_TABLE) -> *mut IMAGE_RUNTIME_FUNCTION_ENTRY {
     #[cfg(windows)]
@@ -46608,7 +46608,7 @@ pub unsafe fn RtlUnwind(targetframe: *const ::core::ffi::c_void, targetip: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *const ::core::ffi::c_void, exceptionrecord: *const EXCEPTION_RECORD, returnvalue: *const ::core::ffi::c_void, contextrecord: *const CONTEXT, historytable: *const UNWIND_HISTORY_TABLE) {
@@ -46623,7 +46623,7 @@ pub unsafe fn RtlUnwindEx(targetframe: *const ::core::ffi::c_void, targetip: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: usize, controlpc: usize, functionentry: *const IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut usize, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS_ARM64) -> super::super::Kernel::EXCEPTION_ROUTINE {
@@ -46638,7 +46638,7 @@ pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, ima
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn RtlVirtualUnwind(handlertype: RTL_VIRTUAL_UNWIND_HANDLER_TYPE, imagebase: u64, controlpc: u64, functionentry: *const IMAGE_RUNTIME_FUNCTION_ENTRY, contextrecord: *mut CONTEXT, handlerdata: *mut *mut ::core::ffi::c_void, establisherframe: *mut u64, contextpointers: *mut KNONVOLATILE_CONTEXT_POINTERS) -> super::super::Kernel::EXCEPTION_ROUTINE {
@@ -46994,7 +46994,7 @@ pub const SSRVURI_UNC_FILEPTR: u32 = 64u32;
 pub const SSRVURI_UNC_MASK: u32 = 240u32;
 pub const SSRVURI_UNC_NORMAL: u32 = 16u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STACKFRAME {
     pub AddrPC: ADDRESS,
@@ -47009,32 +47009,32 @@ pub struct STACKFRAME {
     pub KdHelp: KDHELP,
     pub AddrBStore: ADDRESS,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STACKFRAME {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STACKFRAME {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STACKFRAME {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STACKFRAME {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STACKFRAME>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STACKFRAME {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STACKFRAME {
     fn default() -> Self {
@@ -47858,7 +47858,7 @@ pub unsafe fn SetErrorMode(umode: THREAD_ERROR_MODE) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY64) -> super::super::super::Foundation::BOOL {
@@ -47873,7 +47873,7 @@ pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imagecon
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetImageConfigInformation(loadedimage: *mut LOADED_IMAGE, imageconfiginformation: *const IMAGE_LOAD_CONFIG_DIRECTORY32) -> super::super::super::Foundation::BOOL {
@@ -47943,7 +47943,7 @@ pub unsafe fn SetUnhandledExceptionFilter(lptoplevelexceptionfilter: LPTOP_LEVEL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
 pub unsafe fn SetXStateFeaturesMask(context: *mut CONTEXT, featuremask: u64) -> super::super::super::Foundation::BOOL {
@@ -47964,7 +47964,7 @@ pub const Ambiguous: SignatureComparison = 1i32;
 pub const LessSpecific: SignatureComparison = 2i32;
 pub const MoreSpecific: SignatureComparison = 3i32;
 pub const Identical: SignatureComparison = 4i32;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StackWalk<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(machinetype: u32, hprocess: Param1, hthread: Param2, stackframe: *mut STACKFRAME, contextrecord: *mut ::core::ffi::c_void, readmemoryroutine: PREAD_PROCESS_MEMORY_ROUTINE, functiontableaccessroutine: PFUNCTION_TABLE_ACCESS_ROUTINE, getmodulebaseroutine: PGET_MODULE_BASE_ROUTINE, translateaddress: PTRANSLATE_ADDRESS_ROUTINE) -> super::super::super::Foundation::BOOL {
@@ -48413,7 +48413,7 @@ pub unsafe fn SymEnumTypesW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumerateModules<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, enummodulescallback: PSYM_ENUMMODULES_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48456,7 +48456,7 @@ pub unsafe fn SymEnumerateModulesW64<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumerateSymbols<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48485,7 +48485,7 @@ pub unsafe fn SymEnumerateSymbols64<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymEnumerateSymbolsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32, enumsymbolscallback: PSYM_ENUMSYMBOLS_CALLBACKW, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -48738,7 +48738,7 @@ pub unsafe fn SymFromTokenW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymFunctionTableAccess<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, addrbase: u32) -> *mut ::core::ffi::c_void {
@@ -48837,7 +48837,7 @@ pub unsafe fn SymGetHomeDirectoryW(r#type: IMAGEHLP_HD_TYPE, dir: super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, dwaddr: u32, pdwdisplacement: *mut u32, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL {
@@ -48908,7 +48908,7 @@ pub unsafe fn SymGetLineFromInlineContextW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineFromName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, modulename: Param1, filename: Param2, dwlinenumber: u32, pldisplacement: *mut i32, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL {
@@ -48951,7 +48951,7 @@ pub unsafe fn SymGetLineFromNameW64<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLineNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL {
@@ -48994,7 +48994,7 @@ pub unsafe fn SymGetLineNextW64<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetLinePrev<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, line: *mut IMAGEHLP_LINE) -> super::super::super::Foundation::BOOL {
@@ -49037,7 +49037,7 @@ pub unsafe fn SymGetLinePrevW64<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetModuleBase<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, dwaddr: u32) -> u32 {
@@ -49066,7 +49066,7 @@ pub unsafe fn SymGetModuleBase64<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetModuleInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULE) -> super::super::super::Foundation::BOOL {
@@ -49095,7 +49095,7 @@ pub unsafe fn SymGetModuleInfo64<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetModuleInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, dwaddr: u32, moduleinfo: *mut IMAGEHLP_MODULEW) -> super::super::super::Foundation::BOOL {
@@ -49403,7 +49403,7 @@ pub unsafe fn SymGetSourceVarFromTokenW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymFromAddr<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, dwaddr: u32, pdwdisplacement: *mut u32, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL {
@@ -49432,7 +49432,7 @@ pub unsafe fn SymGetSymFromAddr64<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymFromName<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, name: Param1, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL {
@@ -49461,7 +49461,7 @@ pub unsafe fn SymGetSymFromName64<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL {
@@ -49490,7 +49490,7 @@ pub unsafe fn SymGetSymNext64<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymGetSymPrev<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, symbol: *mut IMAGEHLP_SYMBOL) -> super::super::super::Foundation::BOOL {
@@ -49645,7 +49645,7 @@ pub unsafe fn SymInitializeW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymLoadModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PSTR>>(hprocess: Param0, hfile: Param1, imagename: Param2, modulename: Param3, baseofdll: u32, sizeofdll: u32) -> u32 {
@@ -49856,7 +49856,7 @@ pub unsafe fn SymRefreshModuleList<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymRegisterCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_REGISTERED_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -49899,7 +49899,7 @@ pub unsafe fn SymRegisterCallbackW64<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymRegisterFunctionEntryCallback<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, callbackfunction: PSYMBOL_FUNCENTRY_CALLBACK, usercontext: *const ::core::ffi::c_void) -> super::super::super::Foundation::BOOL {
@@ -50333,7 +50333,7 @@ pub unsafe fn SymSrvStoreSupplementW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnDName(sym: *const IMAGEHLP_SYMBOL, undecname: super::super::super::Foundation::PSTR, undecnamelength: u32) -> super::super::super::Foundation::BOOL {
@@ -50362,7 +50362,7 @@ pub unsafe fn SymUnDName64(sym: *const IMAGEHLP_SYMBOL64, undecname: super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SymUnloadModule<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(hprocess: Param0, baseofdll: u32) -> super::super::super::Foundation::BOOL {
@@ -50583,7 +50583,7 @@ impl ::core::default::Default for UNLOAD_DLL_DEBUG_INFO {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct UNWIND_HISTORY_TABLE {
     pub Count: u32,
     pub LocalHint: u8,
@@ -50594,91 +50594,91 @@ pub struct UNWIND_HISTORY_TABLE {
     pub HighAddress: usize,
     pub Entry: [UNWIND_HISTORY_TABLE_ENTRY; 12],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for UNWIND_HISTORY_TABLE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for UNWIND_HISTORY_TABLE {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for UNWIND_HISTORY_TABLE {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for UNWIND_HISTORY_TABLE {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNWIND_HISTORY_TABLE>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for UNWIND_HISTORY_TABLE {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for UNWIND_HISTORY_TABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY,
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::marker::Copy for UNWIND_HISTORY_TABLE_ENTRY {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::clone::Clone for UNWIND_HISTORY_TABLE_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 unsafe impl ::windows::core::Abi for UNWIND_HISTORY_TABLE_ENTRY {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::PartialEq for UNWIND_HISTORY_TABLE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNWIND_HISTORY_TABLE_ENTRY>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::Eq for UNWIND_HISTORY_TABLE_ENTRY {}
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 impl ::core::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 pub struct UNWIND_HISTORY_TABLE_ENTRY {
     pub ImageBase: usize,
     pub FunctionEntry: *mut IMAGE_RUNTIME_FUNCTION_ENTRY,
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for UNWIND_HISTORY_TABLE_ENTRY {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for UNWIND_HISTORY_TABLE_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for UNWIND_HISTORY_TABLE_ENTRY {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for UNWIND_HISTORY_TABLE_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNWIND_HISTORY_TABLE_ENTRY>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for UNWIND_HISTORY_TABLE_ENTRY {}
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for UNWIND_HISTORY_TABLE_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -52957,7 +52957,7 @@ impl ::core::default::Default for XSAVE_AREA_HEADER {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -52976,34 +52976,34 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [M128A; 16],
     pub Reserved4: [u8; 96],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for XSAVE_FORMAT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for XSAVE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for XSAVE_FORMAT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for XSAVE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XSAVE_FORMAT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for XSAVE_FORMAT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct XSAVE_FORMAT {
     pub ControlWord: u16,
     pub StatusWord: u16,
@@ -53022,27 +53022,27 @@ pub struct XSAVE_FORMAT {
     pub XmmRegisters: [M128A; 8],
     pub Reserved4: [u8; 224],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for XSAVE_FORMAT {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for XSAVE_FORMAT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for XSAVE_FORMAT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for XSAVE_FORMAT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XSAVE_FORMAT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for XSAVE_FORMAT {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for XSAVE_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53161,7 +53161,7 @@ impl ::core::default::Default for XSTATE_CONFIG_FEATURE_MSC_INFO {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -53169,34 +53169,34 @@ pub struct XSTATE_CONTEXT {
     pub Area: *mut XSAVE_AREA,
     pub Buffer: *mut ::core::ffi::c_void,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for XSTATE_CONTEXT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for XSTATE_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for XSTATE_CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for XSTATE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XSTATE_CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for XSTATE_CONTEXT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct XSTATE_CONTEXT {
     pub Mask: u64,
     pub Length: u32,
@@ -53206,27 +53206,27 @@ pub struct XSTATE_CONTEXT {
     pub Buffer: *mut ::core::ffi::c_void,
     pub Reserved3: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for XSTATE_CONTEXT {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for XSTATE_CONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for XSTATE_CONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for XSTATE_CONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<XSTATE_CONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for XSTATE_CONTEXT {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for XSTATE_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

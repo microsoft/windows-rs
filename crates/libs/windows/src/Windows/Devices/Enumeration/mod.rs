@@ -720,7 +720,6 @@ impl ::windows::core::RuntimeName for DeviceInformationCollection {
     const NAME: &'static str = "Windows.Devices.Enumeration.DeviceInformationCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for DeviceInformationCollection {
     type Item = DeviceInformation;
     type IntoIter = super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
@@ -728,7 +727,6 @@ impl ::core::iter::IntoIterator for DeviceInformationCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &DeviceInformationCollection {
     type Item = DeviceInformation;
@@ -786,14 +784,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceInformationCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DeviceInformationCollection> for super::super::Foundation::Collections::IIterable<DeviceInformation> {
     type Error = ::windows::core::Error;
@@ -802,20 +798,17 @@ impl ::core::convert::TryFrom<&DeviceInformationCollection> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<DeviceInformation>> for DeviceInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<DeviceInformation>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<DeviceInformation>> for &DeviceInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<DeviceInformation>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<DeviceInformation>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DeviceInformationCollection> for super::super::Foundation::Collections::IVectorView<DeviceInformation> {
     type Error = ::windows::core::Error;
@@ -824,7 +817,6 @@ impl ::core::convert::TryFrom<DeviceInformationCollection> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DeviceInformationCollection> for super::super::Foundation::Collections::IVectorView<DeviceInformation> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceInformationCollection) -> ::windows::core::Result<Self> {
@@ -832,13 +824,11 @@ impl ::core::convert::TryFrom<&DeviceInformationCollection> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> for DeviceInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> for &DeviceInformationCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVectorView<DeviceInformation>> {
@@ -2213,37 +2203,32 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Devi
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceThumbnail) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IContentTypeProvider {
     type Error = ::windows::core::Error;
@@ -2252,7 +2237,6 @@ impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Stream
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IContentTypeProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::core::Result<Self> {
@@ -2260,20 +2244,17 @@ impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Strea
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IContentTypeProvider> for DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IContentTypeProvider> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IContentTypeProvider> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IContentTypeProvider> {
         ::core::convert::TryInto::<super::super::Storage::Streams::IContentTypeProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IInputStream {
     type Error = ::windows::core::Error;
@@ -2282,7 +2263,6 @@ impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Stream
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IInputStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::core::Result<Self> {
@@ -2290,20 +2270,17 @@ impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Strea
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream> for DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IInputStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IInputStream> {
         ::core::convert::TryInto::<super::super::Storage::Streams::IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IOutputStream {
     type Error = ::windows::core::Error;
@@ -2312,7 +2289,6 @@ impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Stream
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IOutputStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::core::Result<Self> {
@@ -2320,20 +2296,17 @@ impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Strea
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream> for DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IOutputStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IOutputStream> {
         ::core::convert::TryInto::<super::super::Storage::Streams::IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStream {
     type Error = ::windows::core::Error;
@@ -2342,7 +2315,6 @@ impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Stream
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::core::Result<Self> {
@@ -2350,20 +2322,17 @@ impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Strea
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream> for DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStream> {
         ::core::convert::TryInto::<super::super::Storage::Streams::IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::core::Error;
@@ -2372,7 +2341,6 @@ impl ::core::convert::TryFrom<DeviceThumbnail> for super::super::Storage::Stream
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceThumbnail) -> ::windows::core::Result<Self> {
@@ -2380,13 +2348,11 @@ impl ::core::convert::TryFrom<&DeviceThumbnail> for super::super::Storage::Strea
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> for &DeviceThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
@@ -3112,9 +3078,9 @@ pub struct IDeviceInformationVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, updateinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3263,15 +3229,15 @@ pub struct IDeviceInformationStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -3296,9 +3262,9 @@ pub struct IDeviceInformationStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceclass: DeviceClass, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, deviceid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, aqsfilter: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, additionalproperties: ::windows::core::RawPtr, kind: DeviceInformationKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
@@ -3508,11 +3474,11 @@ pub struct IDevicePickerVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Popups")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Popups"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, selection: super::super::Foundation::Rect, placement: super::super::UI::Popups::Placement, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Popups")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Popups")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, device: ::windows::core::RawPtr, status: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, options: DevicePickerDisplayStatusOptions) -> ::windows::core::HRESULT,
 );
@@ -3673,7 +3639,7 @@ pub struct IDeviceWatcher2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedeventkinds: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Background", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "ApplicationModel_Background", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]

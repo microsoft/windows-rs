@@ -292,7 +292,7 @@ pub struct ISysStorageProviderHttpRequestProviderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Web_Http")))] usize,
 );
 #[repr(transparent)]
 pub struct SysStorageProviderEventReceivedEventArgs(::windows::core::IUnknown);

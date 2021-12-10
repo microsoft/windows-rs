@@ -1,9 +1,10 @@
 use super::*;
 
-pub fn gen_std_traits(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+pub fn gen_std_traits(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let phantoms = gen_phantoms(def, gen);
+    let cfg = cfg.gen(gen);
 
     quote! {
         #cfg
@@ -23,7 +24,8 @@ pub fn gen_std_traits(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStrea
     }
 }
 
-pub fn gen_interface_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+pub fn gen_interface_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
+    let cfg = cfg.gen(gen);
     if let Some(default) = def.default_interface() {
         let name = gen_type_ident(def, gen);
         let vtbl = gen_vtbl_ident(&default, gen);
@@ -53,7 +55,8 @@ pub fn gen_interface_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> Token
     }
 }
 
-pub fn gen_runtime_trait(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+pub fn gen_runtime_trait(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
+    let cfg = cfg.gen(gen);
     if def.is_winrt() {
         let name = gen_type_ident(def, gen);
         let constraints = gen_type_constraints(def, gen);
@@ -137,11 +140,12 @@ pub fn gen_vtbl_signature(def: &TypeDef, method: &MethodDef, gen: &Gen) -> Token
     quote! { (this: *mut ::core::ffi::c_void, #udt_return_type #(#params)* #trailing_return_type) #return_type }
 }
 
-pub fn gen_vtbl(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+pub fn gen_vtbl(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     // TODO: consider using parent field to avoid duplicating inherited vfptrs.
     // And then consider naming them to simplify traits and debugging.
     // Should the first param be the Vtbl type?
 
+    let cfg = cfg.gen(gen);
     let vtbl = gen_vtbl_ident(def, gen);
     let guid = gen_element_name(&ElementType::GUID, gen);
     let hresult = gen_element_name(&ElementType::HRESULT, gen);
@@ -158,17 +162,19 @@ pub fn gen_vtbl(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
                     }
 
                     let signature = gen_vtbl_signature(&def, &method, gen);
-                    let (feature_cfg, not_feature_cfg) = gen.method_cfg(&def, &method);
+                    let cfg = gen.method_cfg(&def, &method);
+                    let cfg_all = cfg.gen(gen);
+                    let cfg_not = cfg.gen_not(gen);
 
                     let signature = quote! { pub unsafe extern "system" fn #signature, };
 
-                    if feature_cfg.is_empty() {
+                    if cfg_all.is_empty() {
                         methods.combine(&signature);
                     } else {
                         methods.combine(&quote! {
-                            #feature_cfg
+                            #cfg_all
                             #signature
-                            #not_feature_cfg
+                            #cfg_not
                             usize,
                         });
                     }

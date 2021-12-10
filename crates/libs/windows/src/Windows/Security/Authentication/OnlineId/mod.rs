@@ -46,7 +46,7 @@ pub struct IOnlineIdAuthenticatorVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requests: ::windows::core::RawPtr, credentialprompttype: CredentialPromptType, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -942,8 +942,7 @@ impl SignOutUserOperation {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
-#[cfg(feature = "std")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl ::std::future::Future for SignOutUserOperation {
     type Output = ::windows::core::Result<()>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1008,14 +1007,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sign
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SignOutUserOperation> for super::super::super::Foundation::IAsyncAction {
     type Error = ::windows::core::Error;
     fn try_from(value: SignOutUserOperation) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Foundation::IAsyncAction {
     type Error = ::windows::core::Error;
@@ -1024,20 +1021,17 @@ impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncAction> for SignOutUserOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncAction> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncAction> for &SignOutUserOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncAction> {
         ::core::convert::TryInto::<super::super::super::Foundation::IAsyncAction>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<SignOutUserOperation> for super::super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -1046,7 +1040,6 @@ impl ::core::convert::TryFrom<SignOutUserOperation> for super::super::super::Fou
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: &SignOutUserOperation) -> ::windows::core::Result<Self> {
@@ -1054,13 +1047,11 @@ impl ::core::convert::TryFrom<&SignOutUserOperation> for super::super::super::Fo
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for SignOutUserOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for &SignOutUserOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
@@ -1174,8 +1165,7 @@ impl UserAuthenticationOperation {
         self.GetResults()
     }
 }
-#[cfg(feature = "Foundation")]
-#[cfg(feature = "std")]
+#[cfg(all(feature = "Foundation", feature = "std"))]
 impl ::std::future::Future for UserAuthenticationOperation {
     type Output = ::windows::core::Result<UserIdentity>;
     fn poll(self: ::std::pin::Pin<&mut Self>, context: &mut ::std::task::Context) -> ::std::task::Poll<Self::Output> {
@@ -1240,14 +1230,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &User
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UserAuthenticationOperation> for super::super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
     fn try_from(value: UserAuthenticationOperation) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::super::Foundation::IAsyncInfo {
     type Error = ::windows::core::Error;
@@ -1256,20 +1244,17 @@ impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for UserAuthenticationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncInfo> for &UserAuthenticationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncInfo> {
         ::core::convert::TryInto::<super::super::super::Foundation::IAsyncInfo>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<UserAuthenticationOperation> for super::super::super::Foundation::IAsyncOperation<UserIdentity> {
     type Error = ::windows::core::Error;
@@ -1278,7 +1263,6 @@ impl ::core::convert::TryFrom<UserAuthenticationOperation> for super::super::sup
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::super::Foundation::IAsyncOperation<UserIdentity> {
     type Error = ::windows::core::Error;
     fn try_from(value: &UserAuthenticationOperation) -> ::windows::core::Result<Self> {
@@ -1286,13 +1270,11 @@ impl ::core::convert::TryFrom<&UserAuthenticationOperation> for super::super::su
     }
 }
 #[cfg(feature = "Foundation")]
-#[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> for UserAuthenticationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
 #[cfg(feature = "Foundation")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> for &UserAuthenticationOperation {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::IAsyncOperation<UserIdentity>> {

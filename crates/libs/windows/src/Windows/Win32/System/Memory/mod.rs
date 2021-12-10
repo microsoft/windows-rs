@@ -867,7 +867,7 @@ pub unsafe fn LocalUnlock(hmem: isize) -> super::super::Foundation::BOOL {
 }
 pub const MEHC_PATROL_SCRUBBER_PRESENT: u32 = 1u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub AllocationBase: *mut ::core::ffi::c_void,
@@ -878,34 +878,34 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEMORY_BASIC_INFORMATION>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for MEMORY_BASIC_INFORMATION {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for MEMORY_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct MEMORY_BASIC_INFORMATION {
     pub BaseAddress: *mut ::core::ffi::c_void,
     pub AllocationBase: *mut ::core::ffi::c_void,
@@ -915,27 +915,27 @@ pub struct MEMORY_BASIC_INFORMATION {
     pub Protect: PAGE_PROTECTION_FLAGS,
     pub Type: PAGE_TYPE,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for MEMORY_BASIC_INFORMATION {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for MEMORY_BASIC_INFORMATION {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for MEMORY_BASIC_INFORMATION {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for MEMORY_BASIC_INFORMATION {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEMORY_BASIC_INFORMATION>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for MEMORY_BASIC_INFORMATION {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for MEMORY_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

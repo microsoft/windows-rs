@@ -32,7 +32,7 @@ pub struct IMiracastReceiverVtbl(
     #[cfg(feature = "ApplicationModel_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Core"))] usize,
     #[cfg(all(feature = "ApplicationModel_Core", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, view: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Core", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "ApplicationModel_Core", feature = "Foundation")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, transmitter: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );

@@ -316,7 +316,6 @@ impl ::windows::core::RuntimeName for BlockCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.BlockCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for BlockCollection {
     type Item = Block;
     type IntoIter = super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -324,7 +323,6 @@ impl ::core::iter::IntoIterator for BlockCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &BlockCollection {
     type Item = Block;
@@ -382,14 +380,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Bloc
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<BlockCollection> for super::super::super::Foundation::Collections::IIterable<Block> {
     type Error = ::windows::core::Error;
     fn try_from(value: BlockCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&BlockCollection> for super::super::super::Foundation::Collections::IIterable<Block> {
     type Error = ::windows::core::Error;
@@ -398,20 +394,17 @@ impl ::core::convert::TryFrom<&BlockCollection> for super::super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Block>> for BlockCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<Block>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Block>> for &BlockCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<Block>> {
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<Block>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<BlockCollection> for super::super::super::Foundation::Collections::IVector<Block> {
     type Error = ::windows::core::Error;
@@ -420,7 +413,6 @@ impl ::core::convert::TryFrom<BlockCollection> for super::super::super::Foundati
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&BlockCollection> for super::super::super::Foundation::Collections::IVector<Block> {
     type Error = ::windows::core::Error;
     fn try_from(value: &BlockCollection) -> ::windows::core::Result<Self> {
@@ -428,13 +420,11 @@ impl ::core::convert::TryFrom<&BlockCollection> for super::super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Block>> for BlockCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<Block>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Block>> for &BlockCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<Block>> {
@@ -3486,15 +3476,15 @@ pub struct ITextElement4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
@@ -4163,7 +4153,6 @@ impl ::windows::core::RuntimeName for InlineCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Documents.InlineCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for InlineCollection {
     type Item = Inline;
     type IntoIter = super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -4171,7 +4160,6 @@ impl ::core::iter::IntoIterator for InlineCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &InlineCollection {
     type Item = Inline;
@@ -4229,14 +4217,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Inli
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<InlineCollection> for super::super::super::Foundation::Collections::IIterable<Inline> {
     type Error = ::windows::core::Error;
     fn try_from(value: InlineCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&InlineCollection> for super::super::super::Foundation::Collections::IIterable<Inline> {
     type Error = ::windows::core::Error;
@@ -4245,20 +4231,17 @@ impl ::core::convert::TryFrom<&InlineCollection> for super::super::super::Founda
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Inline>> for InlineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<Inline>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<Inline>> for &InlineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<Inline>> {
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<Inline>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<InlineCollection> for super::super::super::Foundation::Collections::IVector<Inline> {
     type Error = ::windows::core::Error;
@@ -4267,7 +4250,6 @@ impl ::core::convert::TryFrom<InlineCollection> for super::super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&InlineCollection> for super::super::super::Foundation::Collections::IVector<Inline> {
     type Error = ::windows::core::Error;
     fn try_from(value: &InlineCollection) -> ::windows::core::Result<Self> {
@@ -4275,13 +4257,11 @@ impl ::core::convert::TryFrom<&InlineCollection> for super::super::super::Founda
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Inline>> for InlineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<Inline>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVector<Inline>> for &InlineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVector<Inline>> {

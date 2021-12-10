@@ -268,7 +268,7 @@ pub const VDMADDR_V86: u32 = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMBREAKTHREADPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE) -> super::super::Foundation::BOOL>;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct VDMCONTEXT {
     pub ContextFlags: u32,
@@ -297,32 +297,32 @@ pub struct VDMCONTEXT {
     pub SegSs: u32,
     pub ExtendedRegisters: [u8; 512],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for VDMCONTEXT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for VDMCONTEXT {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for VDMCONTEXT {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for VDMCONTEXT {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMCONTEXT>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for VDMCONTEXT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for VDMCONTEXT {
     fn default() -> Self {
@@ -410,10 +410,10 @@ pub const VDMEVENT_V86: u32 = 1u32;
 pub const VDMEVENT_VERBOSE: u32 = 16384u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMGETADDREXPRESSIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: *mut u16, param3: *mut u32, param4: *mut u16) -> super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMGETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
@@ -428,10 +428,10 @@ pub type VDMGETSEGMENTINFOPROC = ::core::option::Option<unsafe extern "system" f
 pub type VDMGETSELECTORMODULEPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u16, param3: *mut u32, param4: super::super::Foundation::PSTR, param5: u32, param6: super::super::Foundation::PSTR, param7: u32) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMGETSYMBOLPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: u16, param2: u32, param3: super::super::Foundation::BOOL, param4: super::super::Foundation::BOOL, param5: super::super::Foundation::PSTR, param6: *mut u32) -> super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut VDMLDT_ENTRY) -> super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type VDMGETTHREADSELECTORENTRYPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: u32, param3: *mut super::Diagnostics::Debug::LDT_ENTRY) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
@@ -443,130 +443,130 @@ pub type VDMISMODULELOADEDPROC = ::core::option::Option<unsafe extern "system" f
 #[cfg(feature = "Win32_Foundation")]
 pub type VDMKILLWOWPROC = ::core::option::Option<unsafe extern "system" fn() -> super::super::Foundation::BOOL>;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct VDMLDT_ENTRY {
     pub LimitLow: u16,
     pub BaseLow: u16,
     pub HighWord: VDMLDT_ENTRY_0,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for VDMLDT_ENTRY {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for VDMLDT_ENTRY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for VDMLDT_ENTRY {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub union VDMLDT_ENTRY_0 {
     pub Bytes: VDMLDT_ENTRY_0_1,
     pub Bits: VDMLDT_ENTRY_0_0,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for VDMLDT_ENTRY_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for VDMLDT_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for VDMLDT_ENTRY_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct VDMLDT_ENTRY_0_0 {
     pub _bitfield: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for VDMLDT_ENTRY_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_0 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_0>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for VDMLDT_ENTRY_0_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct VDMLDT_ENTRY_0_1 {
     pub BaseMid: u8,
     pub Flags1: u8,
     pub Flags2: u8,
     pub BaseHi: u8,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for VDMLDT_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for VDMLDT_ENTRY_0_1 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for VDMLDT_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<VDMLDT_ENTRY_0_1>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for VDMLDT_ENTRY_0_1 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for VDMLDT_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -578,10 +578,10 @@ pub type VDMMODULEFIRSTPROC = ::core::option::Option<unsafe extern "system" fn(p
 pub type VDMMODULENEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut MODULEENTRY, param3: DEBUGEVENTPROC, param4: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Threading"))]
 pub type VDMPROCESSEXCEPTIONPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut super::Diagnostics::Debug::DEBUG_EVENT) -> super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut VDMCONTEXT) -> super::super::Foundation::BOOL>;
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type VDMSETCONTEXTPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HANDLE, param1: super::super::Foundation::HANDLE, param2: *mut super::Diagnostics::Debug::CONTEXT) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]

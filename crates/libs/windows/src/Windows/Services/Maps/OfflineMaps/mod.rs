@@ -81,11 +81,11 @@ pub struct IOfflineMapPackageStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querypoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, queryboundingbox: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querycircle: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
 #[repr(transparent)]
 pub struct OfflineMapPackage(::windows::core::IUnknown);

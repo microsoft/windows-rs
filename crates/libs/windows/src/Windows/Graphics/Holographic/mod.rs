@@ -1049,16 +1049,17 @@ unsafe impl ::windows::core::RuntimeType for HolographicFramePresentWaitBehavior
 impl ::windows::core::DefaultType for HolographicFramePresentWaitBehavior {
     type DefaultType = Self;
 }
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct HolographicFramePresentationMonitor(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl HolographicFramePresentationMonitor {
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation_Collections")]
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn ReadReports(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<HolographicFramePresentationReport>> {
         let this = self;
         unsafe {
@@ -1067,100 +1068,117 @@ impl HolographicFramePresentationMonitor {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for HolographicFramePresentationMonitor {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for HolographicFramePresentationMonitor {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for HolographicFramePresentationMonitor {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationMonitor;{ca87256c-6fae-428e-bb83-25dfee51136b})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for HolographicFramePresentationMonitor {
     type Vtable = IHolographicFramePresentationMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca87256c_6fae_428e_bb83_25dfee51136b);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for HolographicFramePresentationMonitor {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationMonitor";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<HolographicFramePresentationMonitor> for ::windows::core::IUnknown {
     fn from(value: HolographicFramePresentationMonitor) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&HolographicFramePresentationMonitor> for ::windows::core::IUnknown {
     fn from(value: &HolographicFramePresentationMonitor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<HolographicFramePresentationMonitor> for ::windows::core::IInspectable {
     fn from(value: HolographicFramePresentationMonitor) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&HolographicFramePresentationMonitor> for ::windows::core::IInspectable {
     fn from(value: &HolographicFramePresentationMonitor) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<HolographicFramePresentationMonitor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: HolographicFramePresentationMonitor) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::convert::TryFrom<&HolographicFramePresentationMonitor> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &HolographicFramePresentationMonitor) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &HolographicFramePresentationMonitor {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for HolographicFramePresentationMonitor {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for HolographicFramePresentationMonitor {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct HolographicFramePresentationReport(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl HolographicFramePresentationReport {
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CompositorGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1168,8 +1186,7 @@ impl HolographicFramePresentationReport {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AppGpuDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1177,8 +1194,7 @@ impl HolographicFramePresentationReport {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn AppGpuOverrun(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
         unsafe {
@@ -1203,68 +1219,84 @@ impl HolographicFramePresentationReport {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for HolographicFramePresentationReport {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for HolographicFramePresentationReport {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for HolographicFramePresentationReport {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationReport;{80baf614-f2f4-4c8a-8de3-065c78f6d5de})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for HolographicFramePresentationReport {
     type Vtable = IHolographicFramePresentationReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for HolographicFramePresentationReport {
     const NAME: &'static str = "Windows.Graphics.Holographic.HolographicFramePresentationReport";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<HolographicFramePresentationReport> for ::windows::core::IUnknown {
     fn from(value: HolographicFramePresentationReport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&HolographicFramePresentationReport> for ::windows::core::IUnknown {
     fn from(value: &HolographicFramePresentationReport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for HolographicFramePresentationReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &HolographicFramePresentationReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<HolographicFramePresentationReport> for ::windows::core::IInspectable {
     fn from(value: HolographicFramePresentationReport) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&HolographicFramePresentationReport> for ::windows::core::IInspectable {
     fn from(value: &HolographicFramePresentationReport) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for HolographicFramePresentationReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &HolographicFramePresentationReport {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for HolographicFramePresentationReport {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for HolographicFramePresentationReport {}
 #[repr(transparent)]
 pub struct HolographicFrameRenderingReport(::windows::core::IUnknown);
@@ -2613,13 +2645,13 @@ pub struct IHolographicCameraPoseVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::Rect) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut HolographicStereoTransform) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
 );
@@ -2640,7 +2672,7 @@ pub struct IHolographicCameraPose2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, coordinatesystemtoviewtransform: HolographicStereoTransform) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, projectiontransform: HolographicStereoTransform) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftviewport: super::super::Foundation::Rect, rightviewport: super::super::Foundation::Rect) -> ::windows::core::HRESULT,
@@ -2663,11 +2695,11 @@ pub struct IHolographicCameraRenderingParametersVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, normal: super::super::Foundation::Numerics::Vector3, linearvelocity: super::super::Foundation::Numerics::Vector3) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX_Direct3D11"))] usize,
     #[cfg(feature = "Graphics_DirectX_Direct3D11")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -2921,10 +2953,12 @@ pub struct IHolographicFramePredictionVtbl(
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHolographicFramePresentationMonitor(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IHolographicFramePresentationMonitor {
     type Vtable = IHolographicFramePresentationMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca87256c_6fae_428e_bb83_25dfee51136b);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationMonitorVtbl(
@@ -2934,16 +2968,18 @@ pub struct IHolographicFramePresentationMonitorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation_Collections"))] usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IHolographicFramePresentationReport(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IHolographicFramePresentationReport {
     type Vtable = IHolographicFramePresentationReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80baf614_f2f4_4c8a_8de3_065c78f6d5de);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IHolographicFramePresentationReportVtbl(
@@ -2953,14 +2989,16 @@ pub struct IHolographicFramePresentationReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3071,7 +3109,7 @@ pub struct IHolographicQuadLayerFactoryVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, pixelformat: super::DirectX::DirectXPixelFormat, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics_DirectX")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3097,7 +3135,7 @@ pub struct IHolographicQuadLayerUpdateParametersVtbl(
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::Numerics::Vector2) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
     #[cfg(all(feature = "Foundation_Numerics", feature = "Perception_Spatial"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, coordinatesystem: ::windows::core::RawPtr, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
+    #[cfg(not(any(feature = "Foundation_Numerics", feature = "Perception_Spatial")))] usize,
     #[cfg(feature = "Foundation_Numerics")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: super::super::Foundation::Numerics::Vector3, orientation: super::super::Foundation::Numerics::Quaternion) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Numerics"))] usize,
 );
@@ -3174,7 +3212,8 @@ pub struct IHolographicSpace2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, requestedheadstartduration: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, maxqueuedreports: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3315,7 +3354,7 @@ pub struct IHolographicViewConfigurationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, size: super::super::Foundation::Size, result__: *mut super::super::Foundation::Size) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_DirectX")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Graphics_DirectX")))] usize,
     #[cfg(feature = "Graphics_DirectX")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_DirectX"))] usize,
     #[cfg(feature = "Graphics_DirectX")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::DirectX::DirectXPixelFormat) -> ::windows::core::HRESULT,

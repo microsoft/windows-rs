@@ -3254,8 +3254,10 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceConnectio
 }
 unsafe impl ::core::marker::Send for DeviceConnectionChangeTrigger {}
 unsafe impl ::core::marker::Sync for DeviceConnectionChangeTrigger {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct DeviceManufacturerNotificationTrigger(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl DeviceManufacturerNotificationTrigger {
     #[cfg(feature = "deprecated")]
     pub fn TriggerQualifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
@@ -3285,84 +3287,102 @@ impl DeviceManufacturerNotificationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for DeviceManufacturerNotificationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for DeviceManufacturerNotificationTrigger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for DeviceManufacturerNotificationTrigger {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for DeviceManufacturerNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger;{81278ab5-41ab-16da-86c2-7f7bf0912f5b})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DeviceManufacturerNotificationTrigger {
     type Vtable = IDeviceManufacturerNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for DeviceManufacturerNotificationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::core::IUnknown {
     fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<DeviceManufacturerNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: DeviceManufacturerNotificationTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&DeviceManufacturerNotificationTrigger> for ::windows::core::IInspectable {
     fn from(value: &DeviceManufacturerNotificationTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<DeviceManufacturerNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: DeviceManufacturerNotificationTrigger) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&DeviceManufacturerNotificationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: &DeviceManufacturerNotificationTrigger) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &DeviceManufacturerNotificationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
@@ -4266,10 +4286,10 @@ pub struct IActivitySensorTriggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Sensors", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Devices_Sensors", feature = "Foundation_Collections")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Sensors", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Sensors", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Devices_Sensors", feature = "Foundation_Collections")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
 #[doc(hidden)]
@@ -4397,7 +4417,7 @@ pub struct IApplicationTriggerVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -5707,7 +5727,7 @@ pub struct IBackgroundTaskRegistrationGroupVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "ApplicationModel_Activation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_Activation", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "ApplicationModel_Activation", feature = "Foundation")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -6183,10 +6203,12 @@ pub struct IDeviceConnectionChangeTriggerStaticsVtbl(
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceManufacturerNotificationTrigger(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTrigger {
     type Vtable = IDeviceManufacturerNotificationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81278ab5_41ab_16da_86c2_7f7bf0912f5b);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTriggerVtbl(
@@ -6196,16 +6218,20 @@ pub struct IDeviceManufacturerNotificationTriggerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct IDeviceManufacturerNotificationTriggerFactory(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IDeviceManufacturerNotificationTriggerFactory {
     type Vtable = IDeviceManufacturerNotificationTriggerFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7955de75_25bb_4153_a1a2_3029fcabb652);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDeviceManufacturerNotificationTriggerFactoryVtbl(
@@ -6215,7 +6241,8 @@ pub struct IDeviceManufacturerNotificationTriggerFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerqualifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, triggerqualifier: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, oneshot: bool, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6367,7 +6394,7 @@ pub struct IGattCharacteristicNotificationTriggerFactory2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, characteristic: ::windows::core::RawPtr, eventtriggeringmode: super::super::Devices::Bluetooth::Background::BluetoothEventTriggeringMode, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile")))] usize,
+    #[cfg(not(any(feature = "Devices_Bluetooth_Background", feature = "Devices_Bluetooth_GenericAttributeProfile")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6545,7 +6572,7 @@ pub struct IMediaProcessingTriggerVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, arguments: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -6708,10 +6735,12 @@ pub struct IRfcommConnectionTriggerVtbl(
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTrigger(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISecondaryAuthenticationFactorAuthenticationTriggerVtbl(
@@ -6888,7 +6917,7 @@ pub struct IStorageLibraryContentChangedTriggerStaticsVtbl(
     #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storagelibrary: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storagelibraries: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Storage")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Storage")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8773,8 +8802,10 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &RfcommConnectio
 }
 unsafe impl ::core::marker::Send for RfcommConnectionTrigger {}
 unsafe impl ::core::marker::Sync for RfcommConnectionTrigger {}
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SecondaryAuthenticationFactorAuthenticationTrigger(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl SecondaryAuthenticationFactorAuthenticationTrigger {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -8784,84 +8815,102 @@ impl SecondaryAuthenticationFactorAuthenticationTrigger {
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationTrigger {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger;{f237f327-5181-4f24-96a7-700a4e5fac62})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SecondaryAuthenticationFactorAuthenticationTrigger {
     type Vtable = ISecondaryAuthenticationFactorAuthenticationTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf237f327_5181_4f24_96a7_700a4e5fac62);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SecondaryAuthenticationFactorAuthenticationTrigger {
     const NAME: &'static str = "Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IUnknown {
     fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IUnknown {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IInspectable {
     fn from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SecondaryAuthenticationFactorAuthenticationTrigger> for ::windows::core::IInspectable {
     fn from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<SecondaryAuthenticationFactorAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: SecondaryAuthenticationFactorAuthenticationTrigger) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::TryFrom<&SecondaryAuthenticationFactorAuthenticationTrigger> for IBackgroundTrigger {
     type Error = ::windows::core::Error;
     fn try_from(value: &SecondaryAuthenticationFactorAuthenticationTrigger) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, IBackgroundTrigger> for &SecondaryAuthenticationFactorAuthenticationTrigger {
     fn into_param(self) -> ::windows::core::Param<'a, IBackgroundTrigger> {
         ::core::convert::TryInto::<IBackgroundTrigger>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)

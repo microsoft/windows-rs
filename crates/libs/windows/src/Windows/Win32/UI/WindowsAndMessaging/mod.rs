@@ -2953,7 +2953,7 @@ pub unsafe fn GetClassLongA<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClassLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX) -> usize {
@@ -2968,7 +2968,7 @@ pub unsafe fn GetClassLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClassLongPtrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX) -> usize {
@@ -3880,7 +3880,7 @@ pub unsafe fn GetWindowLongA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX) -> isize {
@@ -3895,7 +3895,7 @@ pub unsafe fn GetWindowLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowLongPtrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX) -> isize {
@@ -8675,7 +8675,7 @@ pub unsafe fn SetClassLongA<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClassLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize {
@@ -8690,7 +8690,7 @@ pub unsafe fn SetClassLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetClassLongPtrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: GET_CLASS_LONG_INDEX, dwnewlong: isize) -> usize {
@@ -9123,7 +9123,7 @@ pub unsafe fn SetWindowLongA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize {
@@ -9138,7 +9138,7 @@ pub unsafe fn SetWindowLongPtrA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowLongPtrW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, nindex: WINDOW_LONG_PTR_INDEX, dwnewlong: isize) -> isize {

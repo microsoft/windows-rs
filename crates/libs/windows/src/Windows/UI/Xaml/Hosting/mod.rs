@@ -1028,7 +1028,7 @@ pub struct IElementCompositionPreviewStaticsVtbl(
     #[cfg(feature = "UI_Composition")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, element: ::windows::core::RawPtr, visual: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))] usize,
     #[cfg(all(feature = "UI_Composition", feature = "UI_Xaml_Controls"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, scrollviewer: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "UI_Composition", feature = "UI_Xaml_Controls")))] usize,
+    #[cfg(not(any(feature = "UI_Composition", feature = "UI_Xaml_Controls")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1493,9 +1493,9 @@ pub struct IXamlUIPresenterStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtarget: ::windows::core::RawPtr, preferredplacement: super::Controls::Primitives::FlyoutPlacementMode, targetpreferredplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: *mut bool, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, placementtargetbounds: super::super::super::Foundation::Rect, controlsize: super::super::super::Foundation::Size, mincontrolsize: super::super::super::Foundation::Size, containerrect: super::super::super::Foundation::Rect, targetpreferredplacement: super::Controls::Primitives::FlyoutPlacementMode, allowfallbacks: bool, chosenplacement: *mut super::Controls::Primitives::FlyoutPlacementMode, result__: *mut super::super::super::Foundation::Rect) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
 );
 #[repr(transparent)]
 pub struct WindowsXamlManager(::windows::core::IUnknown);

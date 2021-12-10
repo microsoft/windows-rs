@@ -437,7 +437,6 @@ impl ::windows::core::RuntimeName for DnssdServiceInstanceCollection {
     const NAME: &'static str = "Windows.Networking.ServiceDiscovery.Dnssd.DnssdServiceInstanceCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for DnssdServiceInstanceCollection {
     type Item = DnssdServiceInstance;
     type IntoIter = super::super::super::Foundation::Collections::VectorViewIterator<Self::Item>;
@@ -445,7 +444,6 @@ impl ::core::iter::IntoIterator for DnssdServiceInstanceCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &DnssdServiceInstanceCollection {
     type Item = DnssdServiceInstance;
@@ -503,14 +501,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Dnss
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance> {
     type Error = ::windows::core::Error;
     fn try_from(value: DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance> {
     type Error = ::windows::core::Error;
@@ -519,20 +515,17 @@ impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> for DnssdServiceInstanceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> for &DnssdServiceInstanceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>> {
         ::core::convert::TryInto::<super::super::super::Foundation::Collections::IIterable<DnssdServiceInstance>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> {
     type Error = ::windows::core::Error;
@@ -541,7 +534,6 @@ impl ::core::convert::TryFrom<DnssdServiceInstanceCollection> for super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DnssdServiceInstanceCollection) -> ::windows::core::Result<Self> {
@@ -549,13 +541,11 @@ impl ::core::convert::TryFrom<&DnssdServiceInstanceCollection> for super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> for DnssdServiceInstanceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> for &DnssdServiceInstanceCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::Foundation::Collections::IVectorView<DnssdServiceInstance>> {
@@ -767,13 +757,13 @@ pub struct IDnssdServiceInstanceVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, socket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Networking_Sockets")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Networking_Sockets")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, socket: ::windows::core::RawPtr, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Networking_Sockets"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, socket: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Networking_Sockets")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Networking_Sockets")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, socket: ::windows::core::RawPtr, adapter: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Networking_Connectivity", feature = "Networking_Sockets")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]

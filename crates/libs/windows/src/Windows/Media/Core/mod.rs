@@ -1779,14 +1779,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Face
     }
 }
 #[cfg(feature = "Media_Effects")]
-#[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<FaceDetectionEffectDefinition> for super::Effects::IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: FaceDetectionEffectDefinition) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Media_Effects")]
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<&FaceDetectionEffectDefinition> for super::Effects::IVideoEffectDefinition {
     type Error = ::windows::core::Error;
@@ -1795,13 +1793,11 @@ impl ::core::convert::TryFrom<&FaceDetectionEffectDefinition> for super::Effects
     }
 }
 #[cfg(feature = "Media_Effects")]
-#[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> for FaceDetectionEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, super::Effects::IVideoEffectDefinition> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Media_Effects")]
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &FaceDetectionEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, super::Effects::IVideoEffectDefinition> {
@@ -2406,7 +2402,7 @@ pub struct ICodecQueryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: CodecKind, category: CodecCategory, subtype: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2599,7 +2595,7 @@ pub struct IFaceDetectionEffectFrameVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_FaceAnalysis")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Media_FaceAnalysis")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2638,7 +2634,7 @@ pub struct IHighDynamicRangeOutputVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Media_Devices_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Media_Devices_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Media_Devices_Core")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2723,10 +2719,10 @@ pub struct ILowLightFusionStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_Imaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "Graphics_Imaging")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "Graphics_Imaging")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, frameset: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections", feature = "Graphics_Imaging")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3650,9 +3646,9 @@ pub struct IMediaStreamSampleStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, buffer: ::windows::core::RawPtr, timestamp: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, stream: ::windows::core::RawPtr, count: u32, timestamp: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage_Streams")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Storage_Streams")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -3671,7 +3667,7 @@ pub struct IMediaStreamSampleStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, surface: ::windows::core::RawPtr, timestamp: super::super::Foundation::TimeSpan, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics_DirectX_Direct3D11")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -4193,7 +4189,7 @@ pub struct IMseSourceBufferVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: MseAppendMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::super::Foundation::TimeSpan) -> ::windows::core::HRESULT,
@@ -5134,7 +5130,7 @@ pub struct IVideoStabilizationEffectVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, controller: ::windows::core::RawPtr, desiredproperties: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties")))] usize,
+    #[cfg(not(any(feature = "Media_Capture", feature = "Media_Devices", feature = "Media_MediaProperties")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -7003,7 +6999,6 @@ impl ::windows::core::RuntimeName for MediaStreamSamplePropertySet {
     const NAME: &'static str = "Windows.Media.Core.MediaStreamSamplePropertySet";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for MediaStreamSamplePropertySet {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>;
     type IntoIter = super::super::Foundation::Collections::IIterator<Self::Item>;
@@ -7011,7 +7006,6 @@ impl ::core::iter::IntoIterator for MediaStreamSamplePropertySet {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &MediaStreamSamplePropertySet {
     type Item = super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>;
@@ -7069,14 +7063,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Medi
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
     fn try_from(value: MediaStreamSamplePropertySet) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>> {
     type Error = ::windows::core::Error;
@@ -7085,20 +7077,17 @@ impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> for MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> for &MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable> {
     type Error = ::windows::core::Error;
@@ -7107,7 +7096,6 @@ impl ::core::convert::TryFrom<MediaStreamSamplePropertySet> for super::super::Fo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable> {
     type Error = ::windows::core::Error;
     fn try_from(value: &MediaStreamSamplePropertySet) -> ::windows::core::Result<Self> {
@@ -7115,13 +7103,11 @@ impl ::core::convert::TryFrom<&MediaStreamSamplePropertySet> for super::super::F
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> for MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> for &MediaStreamSamplePropertySet {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
@@ -9433,14 +9419,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Scen
     }
 }
 #[cfg(feature = "Media_Effects")]
-#[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<SceneAnalysisEffectDefinition> for super::Effects::IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: SceneAnalysisEffectDefinition) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Media_Effects")]
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<&SceneAnalysisEffectDefinition> for super::Effects::IVideoEffectDefinition {
     type Error = ::windows::core::Error;
@@ -9449,13 +9433,11 @@ impl ::core::convert::TryFrom<&SceneAnalysisEffectDefinition> for super::Effects
     }
 }
 #[cfg(feature = "Media_Effects")]
-#[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> for SceneAnalysisEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, super::Effects::IVideoEffectDefinition> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Media_Effects")]
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &SceneAnalysisEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, super::Effects::IVideoEffectDefinition> {
@@ -12632,14 +12614,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Vide
     }
 }
 #[cfg(feature = "Media_Effects")]
-#[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<VideoStabilizationEffectDefinition> for super::Effects::IVideoEffectDefinition {
     type Error = ::windows::core::Error;
     fn try_from(value: VideoStabilizationEffectDefinition) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Media_Effects")]
 #[cfg(feature = "Media_Effects")]
 impl ::core::convert::TryFrom<&VideoStabilizationEffectDefinition> for super::Effects::IVideoEffectDefinition {
     type Error = ::windows::core::Error;
@@ -12648,13 +12628,11 @@ impl ::core::convert::TryFrom<&VideoStabilizationEffectDefinition> for super::Ef
     }
 }
 #[cfg(feature = "Media_Effects")]
-#[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> for VideoStabilizationEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, super::Effects::IVideoEffectDefinition> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Media_Effects")]
 #[cfg(feature = "Media_Effects")]
 impl<'a> ::windows::core::IntoParam<'a, super::Effects::IVideoEffectDefinition> for &VideoStabilizationEffectDefinition {
     fn into_param(self) -> ::windows::core::Param<'a, super::Effects::IVideoEffectDefinition> {

@@ -1377,7 +1377,6 @@ impl ::windows::core::RuntimeName for ColorKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for ColorKeyFrameCollection {
     type Item = ColorKeyFrame;
     type IntoIter = super::super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -1385,7 +1384,6 @@ impl ::core::iter::IntoIterator for ColorKeyFrameCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &ColorKeyFrameCollection {
     type Item = ColorKeyFrame;
@@ -1443,14 +1441,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Colo
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ColorKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: ColorKeyFrameCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&ColorKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame> {
     type Error = ::windows::core::Error;
@@ -1459,20 +1455,17 @@ impl ::core::convert::TryFrom<&ColorKeyFrameCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame>> for ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame>> for &ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame>> {
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IIterable<ColorKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ColorKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame> {
     type Error = ::windows::core::Error;
@@ -1481,7 +1474,6 @@ impl ::core::convert::TryFrom<ColorKeyFrameCollection> for super::super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&ColorKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ColorKeyFrameCollection) -> ::windows::core::Result<Self> {
@@ -1489,13 +1481,11 @@ impl ::core::convert::TryFrom<&ColorKeyFrameCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> for ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> for &ColorKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<ColorKeyFrame>> {
@@ -3598,7 +3588,6 @@ impl ::windows::core::RuntimeName for DoubleKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for DoubleKeyFrameCollection {
     type Item = DoubleKeyFrame;
     type IntoIter = super::super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -3606,7 +3595,6 @@ impl ::core::iter::IntoIterator for DoubleKeyFrameCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &DoubleKeyFrameCollection {
     type Item = DoubleKeyFrame;
@@ -3664,14 +3652,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Doub
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DoubleKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: DoubleKeyFrameCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DoubleKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame> {
     type Error = ::windows::core::Error;
@@ -3680,20 +3666,17 @@ impl ::core::convert::TryFrom<&DoubleKeyFrameCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame>> for DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame>> for &DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame>> {
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IIterable<DoubleKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DoubleKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame> {
     type Error = ::windows::core::Error;
@@ -3702,7 +3685,6 @@ impl ::core::convert::TryFrom<DoubleKeyFrameCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DoubleKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DoubleKeyFrameCollection) -> ::windows::core::Result<Self> {
@@ -3710,13 +3692,11 @@ impl ::core::convert::TryFrom<&DoubleKeyFrameCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> for DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> for &DoubleKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<DoubleKeyFrame>> {
@@ -10661,7 +10641,6 @@ impl ::windows::core::RuntimeName for ObjectKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for ObjectKeyFrameCollection {
     type Item = ObjectKeyFrame;
     type IntoIter = super::super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -10669,7 +10648,6 @@ impl ::core::iter::IntoIterator for ObjectKeyFrameCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &ObjectKeyFrameCollection {
     type Item = ObjectKeyFrame;
@@ -10727,14 +10705,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Obje
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ObjectKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: ObjectKeyFrameCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&ObjectKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame> {
     type Error = ::windows::core::Error;
@@ -10743,20 +10719,17 @@ impl ::core::convert::TryFrom<&ObjectKeyFrameCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame>> for ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame>> for &ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame>> {
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IIterable<ObjectKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<ObjectKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame> {
     type Error = ::windows::core::Error;
@@ -10765,7 +10738,6 @@ impl ::core::convert::TryFrom<ObjectKeyFrameCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&ObjectKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &ObjectKeyFrameCollection) -> ::windows::core::Result<Self> {
@@ -10773,13 +10745,11 @@ impl ::core::convert::TryFrom<&ObjectKeyFrameCollection> for super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> for ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> for &ObjectKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<ObjectKeyFrame>> {
@@ -11532,7 +11502,6 @@ impl ::windows::core::RuntimeName for PointKeyFrameCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for PointKeyFrameCollection {
     type Item = PointKeyFrame;
     type IntoIter = super::super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -11540,7 +11509,6 @@ impl ::core::iter::IntoIterator for PointKeyFrameCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &PointKeyFrameCollection {
     type Item = PointKeyFrame;
@@ -11598,14 +11566,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Poin
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PointKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: PointKeyFrameCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&PointKeyFrameCollection> for super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame> {
     type Error = ::windows::core::Error;
@@ -11614,20 +11580,17 @@ impl ::core::convert::TryFrom<&PointKeyFrameCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame>> for PointKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame>> for &PointKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame>> {
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IIterable<PointKeyFrame>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<PointKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<PointKeyFrame> {
     type Error = ::windows::core::Error;
@@ -11636,7 +11599,6 @@ impl ::core::convert::TryFrom<PointKeyFrameCollection> for super::super::super::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&PointKeyFrameCollection> for super::super::super::super::Foundation::Collections::IVector<PointKeyFrame> {
     type Error = ::windows::core::Error;
     fn try_from(value: &PointKeyFrameCollection) -> ::windows::core::Result<Self> {
@@ -11644,13 +11606,11 @@ impl ::core::convert::TryFrom<&PointKeyFrameCollection> for super::super::super:
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> for PointKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> for &PointKeyFrameCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<PointKeyFrame>> {
@@ -15761,7 +15721,6 @@ impl ::windows::core::RuntimeName for TimelineCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.TimelineCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for TimelineCollection {
     type Item = Timeline;
     type IntoIter = super::super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -15769,7 +15728,6 @@ impl ::core::iter::IntoIterator for TimelineCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &TimelineCollection {
     type Item = Timeline;
@@ -15827,14 +15785,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Time
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TimelineCollection> for super::super::super::super::Foundation::Collections::IIterable<Timeline> {
     type Error = ::windows::core::Error;
     fn try_from(value: TimelineCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TimelineCollection> for super::super::super::super::Foundation::Collections::IIterable<Timeline> {
     type Error = ::windows::core::Error;
@@ -15843,20 +15799,17 @@ impl ::core::convert::TryFrom<&TimelineCollection> for super::super::super::supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<Timeline>> for TimelineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<Timeline>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<Timeline>> for &TimelineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<Timeline>> {
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IIterable<Timeline>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TimelineCollection> for super::super::super::super::Foundation::Collections::IVector<Timeline> {
     type Error = ::windows::core::Error;
@@ -15865,7 +15818,6 @@ impl ::core::convert::TryFrom<TimelineCollection> for super::super::super::super
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TimelineCollection> for super::super::super::super::Foundation::Collections::IVector<Timeline> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TimelineCollection) -> ::windows::core::Result<Self> {
@@ -15873,13 +15825,11 @@ impl ::core::convert::TryFrom<&TimelineCollection> for super::super::super::supe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> for TimelineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> for &TimelineCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<Timeline>> {
@@ -16100,7 +16050,6 @@ impl ::windows::core::RuntimeName for TransitionCollection {
     const NAME: &'static str = "Windows.UI.Xaml.Media.Animation.TransitionCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for TransitionCollection {
     type Item = Transition;
     type IntoIter = super::super::super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -16108,7 +16057,6 @@ impl ::core::iter::IntoIterator for TransitionCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &TransitionCollection {
     type Item = Transition;
@@ -16166,14 +16114,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Tran
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TransitionCollection> for super::super::super::super::Foundation::Collections::IIterable<Transition> {
     type Error = ::windows::core::Error;
     fn try_from(value: TransitionCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TransitionCollection> for super::super::super::super::Foundation::Collections::IIterable<Transition> {
     type Error = ::windows::core::Error;
@@ -16182,20 +16128,17 @@ impl ::core::convert::TryFrom<&TransitionCollection> for super::super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<Transition>> for TransitionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<Transition>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IIterable<Transition>> for &TransitionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IIterable<Transition>> {
         ::core::convert::TryInto::<super::super::super::super::Foundation::Collections::IIterable<Transition>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TransitionCollection> for super::super::super::super::Foundation::Collections::IVector<Transition> {
     type Error = ::windows::core::Error;
@@ -16204,7 +16147,6 @@ impl ::core::convert::TryFrom<TransitionCollection> for super::super::super::sup
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TransitionCollection> for super::super::super::super::Foundation::Collections::IVector<Transition> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TransitionCollection) -> ::windows::core::Result<Self> {
@@ -16212,13 +16154,11 @@ impl ::core::convert::TryFrom<&TransitionCollection> for super::super::super::su
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> for TransitionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> for &TransitionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::super::super::Foundation::Collections::IVector<Transition>> {

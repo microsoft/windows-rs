@@ -7257,7 +7257,7 @@ pub unsafe fn WSACreateEvent() -> super::super::Foundation::HANDLE {
 }
 pub const WSADESCRIPTION_LEN: u32 = 256u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSAData {
     pub wVersion: u16,
@@ -7268,32 +7268,32 @@ pub struct WSAData {
     pub szDescription: [super::super::Foundation::CHAR; 257],
     pub szSystemStatus: [super::super::Foundation::CHAR; 129],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSAData {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSAData {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSAData {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSAData {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSAData>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WSAData {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WSAData {
     fn default() -> Self {
@@ -7301,7 +7301,7 @@ impl ::core::default::Default for WSAData {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSAData {
     pub wVersion: u16,
@@ -7312,32 +7312,32 @@ pub struct WSAData {
     pub iMaxUdpDg: u16,
     pub lpVendorInfo: super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WSAData {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WSAData {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WSAData {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WSAData {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WSAData>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WSAData {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WSAData {
     fn default() -> Self {
@@ -9171,7 +9171,7 @@ pub unsafe fn WSCDeinstallProvider(lpproviderid: *const ::windows::core::GUID, l
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCDeinstallProvider32(lpproviderid: *const ::windows::core::GUID, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -9199,7 +9199,7 @@ pub unsafe fn WSCEnableNSProvider<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCEnableNSProvider32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpproviderid: *const ::windows::core::GUID, fenable: Param1) -> i32 {
@@ -9214,7 +9214,7 @@ pub unsafe fn WSCEnableNSProvider32<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOW) -> i32 {
@@ -9229,7 +9229,7 @@ pub unsafe fn WSCEnumNameSpaceProviders32(lpdwbufferlength: *mut u32, lpnspbuffe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSCEnumNameSpaceProvidersEx32(lpdwbufferlength: *mut u32, lpnspbuffer: *mut WSANAMESPACE_INFOEXW) -> i32 {
@@ -9257,7 +9257,7 @@ pub unsafe fn WSCEnumProtocols(lpiprotocols: *const i32, lpprotocolbuffer: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCEnumProtocols32(lpiprotocols: *const i32, lpprotocolbuffer: *mut WSAPROTOCOL_INFOW, lpdwbufferlength: *mut u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -9298,7 +9298,7 @@ pub unsafe fn WSCGetProviderInfo(lpproviderid: *const ::windows::core::GUID, inf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCGetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *mut u8, infosize: *mut usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -9326,7 +9326,7 @@ pub unsafe fn WSCGetProviderPath(lpproviderid: *const ::windows::core::GUID, lps
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCGetProviderPath32(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: super::super::Foundation::PWSTR, lpproviderdllpathlen: *mut i32, lperrno: *mut i32) -> i32 {
@@ -9355,7 +9355,7 @@ pub unsafe fn WSCInstallNameSpace<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCInstallNameSpace32<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID) -> i32 {
@@ -9384,7 +9384,7 @@ pub unsafe fn WSCInstallNameSpaceEx<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
 #[inline]
 pub unsafe fn WSCInstallNameSpaceEx32<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszidentifier: Param0, lpszpathname: Param1, dwnamespace: u32, dwversion: u32, lpproviderid: *const ::windows::core::GUID, lpproviderspecific: *const super::super::System::Com::BLOB) -> i32 {
@@ -9413,7 +9413,7 @@ pub unsafe fn WSCInstallProvider<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
@@ -9428,7 +9428,7 @@ pub unsafe fn WSCInstallProvider64_32<'a, Param1: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCInstallProviderAndChains64_32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpszproviderdllpath32: Param2, lpszlspname: Param3, dwserviceflags: u32, lpprotocolinfolist: *mut WSAPROTOCOL_INFOW, dwnumberofentries: u32, lpdwcatalogentryid: *mut u32, lperrno: *mut i32) -> i32 {
@@ -9470,7 +9470,7 @@ pub unsafe fn WSCSetProviderInfo(lpproviderid: *const ::windows::core::GUID, inf
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCSetProviderInfo32(lpproviderid: *const ::windows::core::GUID, infotype: WSC_PROVIDER_INFO_TYPE, info: *const u8, infosize: usize, flags: u32, lperrno: *mut i32) -> i32 {
     #[cfg(windows)]
@@ -9497,7 +9497,7 @@ pub unsafe fn WSCUnInstallNameSpace(lpproviderid: *const ::windows::core::GUID) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCUnInstallNameSpace32(lpproviderid: *const ::windows::core::GUID) -> i32 {
     #[cfg(windows)]
@@ -9525,7 +9525,7 @@ pub unsafe fn WSCUpdateProvider<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WSCUpdateProvider32<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpproviderid: *const ::windows::core::GUID, lpszproviderdllpath: Param1, lpprotocolinfolist: *const WSAPROTOCOL_INFOW, dwnumberofentries: u32, lperrno: *mut i32) -> i32 {
@@ -9553,7 +9553,7 @@ pub unsafe fn WSCWriteNameSpaceOrder(lpproviderid: *mut ::windows::core::GUID, d
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCWriteNameSpaceOrder32(lpproviderid: *mut ::windows::core::GUID, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
@@ -9580,7 +9580,7 @@ pub unsafe fn WSCWriteProviderOrder(lpwdcatalogentryid: *mut u32, dwnumberofentr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn WSCWriteProviderOrder32(lpwdcatalogentryid: *mut u32, dwnumberofentries: u32) -> i32 {
     #[cfg(windows)]
@@ -10907,7 +10907,7 @@ pub unsafe fn sendto<'a, Param0: ::windows::core::IntoParam<'a, SOCKET>, Param1:
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct servent {
     pub s_name: super::super::Foundation::PSTR,
@@ -10915,32 +10915,32 @@ pub struct servent {
     pub s_proto: super::super::Foundation::PSTR,
     pub s_port: i16,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for servent {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for servent {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for servent {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for servent {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<servent>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for servent {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for servent {
     fn default() -> Self {
@@ -10948,7 +10948,7 @@ impl ::core::default::Default for servent {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct servent {
     pub s_name: super::super::Foundation::PSTR,
@@ -10956,32 +10956,32 @@ pub struct servent {
     pub s_port: i16,
     pub s_proto: super::super::Foundation::PSTR,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for servent {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for servent {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for servent {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for servent {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<servent>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for servent {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for servent {
     fn default() -> Self {

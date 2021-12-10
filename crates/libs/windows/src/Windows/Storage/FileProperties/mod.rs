@@ -377,11 +377,11 @@ pub struct IGeotagHelperStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, geolocator: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, file: ::windows::core::RawPtr, geopoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -592,9 +592,9 @@ pub struct IStorageItemExtraPropertiesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertiestoretrieve: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, propertiestosave: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
@@ -1570,37 +1570,32 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemThumbnail) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IContentTypeProvider {
     type Error = ::windows::core::Error;
@@ -1609,7 +1604,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IContent
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IContentTypeProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1617,20 +1611,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IConten
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IContentTypeProvider> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IContentTypeProvider> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IContentTypeProvider> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IContentTypeProvider> {
         ::core::convert::TryInto::<super::Streams::IContentTypeProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IInputStream {
     type Error = ::windows::core::Error;
@@ -1639,7 +1630,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IInputSt
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IInputStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1647,20 +1637,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IInputS
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IInputStream> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IInputStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IInputStream> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IInputStream> {
         ::core::convert::TryInto::<super::Streams::IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IOutputStream {
     type Error = ::windows::core::Error;
@@ -1669,7 +1656,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IOutputS
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IOutputStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1677,20 +1663,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IOutput
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IOutputStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IOutputStream> {
         ::core::convert::TryInto::<super::Streams::IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomAccessStream {
     type Error = ::windows::core::Error;
@@ -1699,7 +1682,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomA
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandomAccessStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1707,20 +1689,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandom
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStream> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStream> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStream> {
         ::core::convert::TryInto::<super::Streams::IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::core::Error;
@@ -1729,7 +1708,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomA
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1737,13 +1715,11 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandom
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStreamWithContentType> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStreamWithContentType> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStreamWithContentType> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStreamWithContentType> {

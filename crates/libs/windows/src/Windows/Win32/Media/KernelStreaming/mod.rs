@@ -5187,65 +5187,65 @@ impl ::core::default::Default for KSNODEPROPERTY {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
     pub ListenerId: *mut ::core::ffi::c_void,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSNODEPROPERTY_AUDIO_3D_LISTENER>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct KSNODEPROPERTY_AUDIO_3D_LISTENER {
     pub NodeProperty: KSNODEPROPERTY,
     pub ListenerId: *mut ::core::ffi::c_void,
     pub Reserved: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSNODEPROPERTY_AUDIO_3D_LISTENER>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for KSNODEPROPERTY_AUDIO_3D_LISTENER {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_3D_LISTENER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5305,67 +5305,67 @@ impl ::core::default::Default for KSNODEPROPERTY_AUDIO_DEV_SPECIFIC {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
     pub AppContext: *mut ::core::ffi::c_void,
     pub Length: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for KSNODEPROPERTY_AUDIO_PROPERTY {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSNODEPROPERTY_AUDIO_PROPERTY>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for KSNODEPROPERTY_AUDIO_PROPERTY {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct KSNODEPROPERTY_AUDIO_PROPERTY {
     pub NodeProperty: KSNODEPROPERTY,
     pub AppContext: *mut ::core::ffi::c_void,
     pub Length: u32,
     pub Reserved: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for KSNODEPROPERTY_AUDIO_PROPERTY {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for KSNODEPROPERTY_AUDIO_PROPERTY {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSNODEPROPERTY_AUDIO_PROPERTY>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for KSNODEPROPERTY_AUDIO_PROPERTY {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for KSNODEPROPERTY_AUDIO_PROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9809,7 +9809,7 @@ impl ::core::default::Default for KSSTREAMALLOCATOR_STATUS_EX {
 }
 pub const KSSTREAM_FAILUREEXCEPTION: u32 = 8192u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -9821,34 +9821,34 @@ pub struct KSSTREAM_HEADER {
     pub OptionsFlags: u32,
     pub Reserved: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for KSSTREAM_HEADER {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for KSSTREAM_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for KSSTREAM_HEADER {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for KSSTREAM_HEADER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSSTREAM_HEADER>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for KSSTREAM_HEADER {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for KSSTREAM_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct KSSTREAM_HEADER {
     pub Size: u32,
     pub TypeSpecificFlags: u32,
@@ -9859,27 +9859,27 @@ pub struct KSSTREAM_HEADER {
     pub Data: *mut ::core::ffi::c_void,
     pub OptionsFlags: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for KSSTREAM_HEADER {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for KSSTREAM_HEADER {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for KSSTREAM_HEADER {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for KSSTREAM_HEADER {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KSSTREAM_HEADER>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for KSSTREAM_HEADER {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for KSSTREAM_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

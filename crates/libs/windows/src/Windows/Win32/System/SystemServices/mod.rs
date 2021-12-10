@@ -6107,7 +6107,7 @@ pub const PERFSTATE_POLICY_CHANGE_IDEAL_AGGRESSIVE: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_INCREASE_MAX: u32 = 3u32;
 pub const PERFSTATE_POLICY_CHANGE_ROCKET: u32 = 2u32;
 pub const PERFSTATE_POLICY_CHANGE_SINGLE: u32 = 1u32;
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug", feature = "Win32_System_Kernel"))]
 pub type PEXCEPTION_FILTER = ::core::option::Option<unsafe extern "system" fn(exceptionpointers: *mut super::Diagnostics::Debug::EXCEPTION_POINTERS, establisherframe: *const ::core::ffi::c_void) -> i32>;
 pub const PF_ALPHA_BYTE_INSTRUCTIONS: u32 = 5u32;
@@ -6133,10 +6133,10 @@ pub const PF_TEMPORAL_LEVEL_2: u32 = 2u32;
 pub const PF_TEMPORAL_LEVEL_3: u32 = 3u32;
 pub type PIMAGE_TLS_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dllhandle: *mut ::core::ffi::c_void, reason: u32, reserved: *mut ::core::ffi::c_void)>;
 pub const POLICY_AUDIT_SUBCATEGORY_COUNT: u32 = 59u32;
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_ARM64_RUNTIME_FUNCTION_ENTRY) -> u32>;
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub type POUT_OF_PROCESS_FUNCTION_TABLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(process: super::super::Foundation::HANDLE, tableaddress: *const ::core::ffi::c_void, entries: *mut u32, functions: *mut *mut super::Diagnostics::Debug::IMAGE_RUNTIME_FUNCTION_ENTRY) -> u32>;
 pub const POWERBUTTON_ACTION_INDEX_HIBERNATE: u32 = 2u32;
@@ -8618,10 +8618,10 @@ pub const PRODUCT_XBOX_GAMEOS: u32 = 194u32;
 pub const PRODUCT_XBOX_NATIVEOS: u32 = 193u32;
 pub const PRODUCT_XBOX_SCARLETTHOSTOS: u32 = 197u32;
 pub const PRODUCT_XBOX_SYSTEMOS: u32 = 192u32;
-#[cfg(any(target_arch = "aarch64",))]
+#[cfg(target_arch = "aarch64")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: u64)>;
-#[cfg(any(target_arch = "x86_64",))]
+#[cfg(target_arch = "x86_64")]
 #[cfg(feature = "Win32_Foundation")]
 pub type PTERMINATION_HANDLER = ::core::option::Option<unsafe extern "system" fn(_abnormal_termination: super::super::Foundation::BOOLEAN, establisherframe: *mut ::core::ffi::c_void)>;
 pub type PUMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void)>;
@@ -8753,7 +8753,7 @@ impl ::core::default::Default for REARRANGE_FILE_DATA {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct REARRANGE_FILE_DATA32 {
     pub SourceStartingOffset: u64,
     pub TargetOffset: u64,
@@ -8761,27 +8761,27 @@ pub struct REARRANGE_FILE_DATA32 {
     pub Length: u32,
     pub Flags: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for REARRANGE_FILE_DATA32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for REARRANGE_FILE_DATA32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for REARRANGE_FILE_DATA32 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for REARRANGE_FILE_DATA32 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REARRANGE_FILE_DATA32>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for REARRANGE_FILE_DATA32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for REARRANGE_FILE_DATA32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

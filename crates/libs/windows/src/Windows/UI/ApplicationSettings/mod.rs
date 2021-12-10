@@ -528,7 +528,7 @@ pub struct IAccountsSettingsPaneCommandsRequestedEventArgsVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Popups")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -627,9 +627,9 @@ pub struct IAccountsSettingsPaneStatics3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
     #[cfg(all(feature = "Foundation", feature = "System"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, user: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "System")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "System")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -713,10 +713,12 @@ pub struct ISettingsCommandStaticsVtbl(
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISettingsPane(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISettingsPane {
     type Vtable = ISettingsPaneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsPaneVtbl(
@@ -726,18 +728,20 @@ pub struct ISettingsPaneVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, cookie: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISettingsPaneCommandsRequest(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequest {
     type Vtable = ISettingsPaneCommandsRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsPaneCommandsRequestVtbl(
@@ -747,16 +751,18 @@ pub struct ISettingsPaneCommandsRequestVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Popups")))] usize,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISettingsPaneCommandsRequestedEventArgs {
     type Vtable = ISettingsPaneCommandsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsPaneCommandsRequestedEventArgsVtbl(
@@ -766,15 +772,18 @@ pub struct ISettingsPaneCommandsRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
 pub struct ISettingsPaneStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for ISettingsPaneStatics {
     type Vtable = ISettingsPaneStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c6a52c5_ff19_471b_ba6b_f8f35694ad9a);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct ISettingsPaneStaticsVtbl(
@@ -784,9 +793,12 @@ pub struct ISettingsPaneStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SettingsEdgeLocation) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SettingsEdgeLocation) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1028,14 +1040,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Sett
     }
 }
 #[cfg(feature = "UI_Popups")]
-#[cfg(feature = "UI_Popups")]
 impl ::core::convert::TryFrom<SettingsCommand> for super::Popups::IUICommand {
     type Error = ::windows::core::Error;
     fn try_from(value: SettingsCommand) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "UI_Popups")]
 #[cfg(feature = "UI_Popups")]
 impl ::core::convert::TryFrom<&SettingsCommand> for super::Popups::IUICommand {
     type Error = ::windows::core::Error;
@@ -1044,13 +1054,11 @@ impl ::core::convert::TryFrom<&SettingsCommand> for super::Popups::IUICommand {
     }
 }
 #[cfg(feature = "UI_Popups")]
-#[cfg(feature = "UI_Popups")]
 impl<'a> ::windows::core::IntoParam<'a, super::Popups::IUICommand> for SettingsCommand {
     fn into_param(self) -> ::windows::core::Param<'a, super::Popups::IUICommand> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "UI_Popups")]
 #[cfg(feature = "UI_Popups")]
 impl<'a> ::windows::core::IntoParam<'a, super::Popups::IUICommand> for &SettingsCommand {
     fn into_param(self) -> ::windows::core::Param<'a, super::Popups::IUICommand> {
@@ -1084,11 +1092,12 @@ unsafe impl ::windows::core::RuntimeType for SettingsEdgeLocation {
 impl ::windows::core::DefaultType for SettingsEdgeLocation {
     type DefaultType = Self;
 }
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsPane(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl SettingsPane {
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn CommandsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<SettingsPane, SettingsPaneCommandsRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -1096,8 +1105,7 @@ impl SettingsPane {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveCommandsRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), cookie.into_param().abi()).ok() }
@@ -1125,72 +1133,87 @@ impl SettingsPane {
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SettingsPane {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for SettingsPane {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsPane {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPane;{b1cd0932-4570-4c69-8d38-89446561ace0})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPane {
     type Vtable = ISettingsPaneVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1cd0932_4570_4c69_8d38_89446561ace0);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SettingsPane {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPane";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SettingsPane> for ::windows::core::IUnknown {
     fn from(value: SettingsPane) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SettingsPane> for ::windows::core::IUnknown {
     fn from(value: &SettingsPane) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SettingsPane> for ::windows::core::IInspectable {
     fn from(value: SettingsPane) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SettingsPane> for ::windows::core::IInspectable {
     fn from(value: &SettingsPane) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsPane {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsPaneCommandsRequest(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl SettingsPaneCommandsRequest {
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups"))]
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Popups", feature = "deprecated"))]
     pub fn ApplicationCommands(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<SettingsCommand>> {
         let this = self;
         unsafe {
@@ -1199,69 +1222,85 @@ impl SettingsPaneCommandsRequest {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SettingsPaneCommandsRequest {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for SettingsPaneCommandsRequest {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsPaneCommandsRequest {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest;{44df23ae-5d6e-4068-a168-f47643182114})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPaneCommandsRequest {
     type Vtable = ISettingsPaneCommandsRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44df23ae_5d6e_4068_a168_f47643182114);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SettingsPaneCommandsRequest {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequest";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SettingsPaneCommandsRequest> for ::windows::core::IUnknown {
     fn from(value: SettingsPaneCommandsRequest) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SettingsPaneCommandsRequest> for ::windows::core::IUnknown {
     fn from(value: &SettingsPaneCommandsRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsPaneCommandsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsPaneCommandsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SettingsPaneCommandsRequest> for ::windows::core::IInspectable {
     fn from(value: SettingsPaneCommandsRequest) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SettingsPaneCommandsRequest> for ::windows::core::IInspectable {
     fn from(value: &SettingsPaneCommandsRequest) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SettingsPaneCommandsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsPaneCommandsRequest {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsPaneCommandsRequestedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl SettingsPaneCommandsRequestedEventArgs {
     #[cfg(feature = "deprecated")]
     pub fn Request(&self) -> ::windows::core::Result<SettingsPaneCommandsRequest> {
@@ -1272,62 +1311,76 @@ impl SettingsPaneCommandsRequestedEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SettingsPaneCommandsRequestedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for SettingsPaneCommandsRequestedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SettingsPaneCommandsRequestedEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SettingsPaneCommandsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs;{205f5d24-1b48-4629-a6ca-2fdfedafb75d})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SettingsPaneCommandsRequestedEventArgs {
     type Vtable = ISettingsPaneCommandsRequestedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x205f5d24_1b48_4629_a6ca_2fdfedafb75d);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for SettingsPaneCommandsRequestedEventArgs {
     const NAME: &'static str = "Windows.UI.ApplicationSettings.SettingsPaneCommandsRequestedEventArgs";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IUnknown {
     fn from(value: SettingsPaneCommandsRequestedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for SettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &SettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IInspectable {
     fn from(value: SettingsPaneCommandsRequestedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&SettingsPaneCommandsRequestedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &SettingsPaneCommandsRequestedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for SettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SettingsPaneCommandsRequestedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })

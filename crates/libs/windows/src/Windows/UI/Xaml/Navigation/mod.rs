@@ -289,7 +289,7 @@ pub struct IPageStackEntryFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcepagetype: ::core::mem::ManuallyDrop<super::Interop::TypeName>, parameter: *mut ::core::ffi::c_void, navigationtransitioninfo: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation")))] usize,
+    #[cfg(not(any(feature = "UI_Xaml_Interop", feature = "UI_Xaml_Media_Animation")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]

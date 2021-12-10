@@ -145,7 +145,7 @@ pub unsafe fn JsCreateArray(length: u32, result: *mut *mut ::core::ffi::c_void) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(runtime: *const ::core::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
@@ -160,7 +160,7 @@ pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsCreateContext<'a, Param1: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(runtime: *const ::core::ffi::c_void, debugapplication: Param1, newcontext: *mut *mut ::core::ffi::c_void) -> JsErrorCode {
@@ -1089,7 +1089,7 @@ pub unsafe fn JsSetRuntimeMemoryLimit(runtime: *const ::core::ffi::c_void, memor
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication64>>(debugapplication: Param0) -> JsErrorCode {
@@ -1104,7 +1104,7 @@ pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 #[inline]
 pub unsafe fn JsStartDebugging<'a, Param0: ::windows::core::IntoParam<'a, super::Diagnostics::Debug::IDebugApplication32>>(debugapplication: Param0) -> JsErrorCode {

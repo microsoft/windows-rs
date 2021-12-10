@@ -5485,7 +5485,7 @@ impl ::core::default::Default for D3D12_VIDEO_SIZE_RANGE {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: ::windows::core::GUID,
@@ -5493,34 +5493,34 @@ pub struct D3DCONTENTPROTECTIONCAPS {
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3DCONTENTPROTECTIONCAPS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for D3DCONTENTPROTECTIONCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(4))]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 pub struct D3DCONTENTPROTECTIONCAPS {
     pub Caps: u32,
     pub KeyExchangeType: ::windows::core::GUID,
@@ -5528,27 +5528,27 @@ pub struct D3DCONTENTPROTECTIONCAPS {
     pub BlockAlignmentSize: u32,
     pub ProtectedMemorySize: u64,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for D3DCONTENTPROTECTIONCAPS {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for D3DCONTENTPROTECTIONCAPS {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for D3DCONTENTPROTECTIONCAPS {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<D3DCONTENTPROTECTIONCAPS>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for D3DCONTENTPROTECTIONCAPS {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for D3DCONTENTPROTECTIONCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -8231,7 +8231,7 @@ impl ::core::default::Default for DXVA_DeinterlaceBltEx {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_DeinterlaceBltEx32 {
     pub Size: u32,
@@ -8244,32 +8244,32 @@ pub struct DXVA_DeinterlaceBltEx32 {
     pub DestinationFormat: u32,
     pub DestinationFlags: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXVA_DeinterlaceBltEx32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXVA_DeinterlaceBltEx32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVA_DeinterlaceBltEx32 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_DeinterlaceBltEx32 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_DeinterlaceBltEx32>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXVA_DeinterlaceBltEx32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXVA_DeinterlaceBltEx32 {
     fn default() -> Self {
@@ -8769,7 +8769,7 @@ impl ::core::default::Default for DXVA_VideoSample {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2 {
     pub Size: u32,
@@ -8783,32 +8783,32 @@ pub struct DXVA_VideoSample2 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXVA_VideoSample2 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXVA_VideoSample2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVA_VideoSample2 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoSample2>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXVA_VideoSample2 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXVA_VideoSample2 {
     fn default() -> Self {
@@ -8816,7 +8816,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample2 {
     pub rtStart: i64,
@@ -8828,32 +8828,32 @@ pub struct DXVA_VideoSample2 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXVA_VideoSample2 {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXVA_VideoSample2 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVA_VideoSample2 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_VideoSample2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoSample2>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXVA_VideoSample2 {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXVA_VideoSample2 {
     fn default() -> Self {
@@ -8861,7 +8861,7 @@ impl ::core::default::Default for DXVA_VideoSample2 {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DXVA_VideoSample32 {
     pub rtStart: i64,
@@ -8873,32 +8873,32 @@ pub struct DXVA_VideoSample32 {
     pub rcDst: super::super::Foundation::RECT,
     pub Palette: [DXVA_AYUVsample2; 16],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DXVA_VideoSample32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DXVA_VideoSample32 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DXVA_VideoSample32 {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DXVA_VideoSample32 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DXVA_VideoSample32>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DXVA_VideoSample32 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DXVA_VideoSample32 {
     fn default() -> Self {
@@ -9327,20 +9327,20 @@ pub struct ICodecAPIVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, valuemin: *mut super::super::System::Com::VARIANT, valuemax: *mut super::super::System::Com::VARIANT, steppingdelta: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, values: *mut *mut super::super::System::Com::VARIANT, valuescount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *const super::super::System::Com::VARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, userdata: isize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, api: *const ::windows::core::GUID, value: *mut super::super::System::Com::VARIANT, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, changedparam: *mut *mut ::windows::core::GUID, changedparamcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_System_Com")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, __midl__icodecapi0000: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_System_Com"))] usize,
@@ -9548,7 +9548,7 @@ pub struct ID3D12VideoDecodeCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -9560,7 +9560,7 @@ pub struct ID3D12VideoDecodeCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -9573,7 +9573,7 @@ pub struct ID3D12VideoDecodeCommandListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
@@ -9800,7 +9800,7 @@ pub struct ID3D12VideoDecodeCommandList1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -9812,7 +9812,7 @@ pub struct ID3D12VideoDecodeCommandList1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -9825,11 +9825,11 @@ pub struct ID3D12VideoDecodeCommandList1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[repr(transparent)]
 pub struct ID3D12VideoDecodeCommandList2(::windows::core::IUnknown);
@@ -10084,7 +10084,7 @@ pub struct ID3D12VideoDecodeCommandList2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -10096,7 +10096,7 @@ pub struct ID3D12VideoDecodeCommandList2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -10109,11 +10109,11 @@ pub struct ID3D12VideoDecodeCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdecoder: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_DECODE_OUTPUT_STREAM_ARGUMENTS1, pinputarguments: *const D3D12_VIDEO_DECODE_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
@@ -10268,7 +10268,7 @@ pub struct ID3D12VideoDecoderVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
@@ -10445,7 +10445,7 @@ pub struct ID3D12VideoDecoder1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_DESC),
@@ -10601,7 +10601,7 @@ pub struct ID3D12VideoDecoderHeapVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC),
@@ -10780,7 +10780,7 @@ pub struct ID3D12VideoDecoderHeap1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_DECODER_HEAP_DESC),
@@ -10854,7 +10854,7 @@ pub struct ID3D12VideoDeviceVtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[repr(transparent)]
 pub struct ID3D12VideoDevice1(::windows::core::IUnknown);
@@ -10953,11 +10953,11 @@ pub struct ID3D12VideoDevice1Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[repr(transparent)]
 pub struct ID3D12VideoDevice2(::windows::core::IUnknown);
@@ -11099,17 +11099,17 @@ pub struct ID3D12VideoDevice2Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::HRESULT,
@@ -11283,17 +11283,17 @@ pub struct ID3D12VideoDevice3Vtbl(
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Dxgi_Common"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_ESTIMATOR_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionestimator: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideomotionvectorheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_DECODER_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoder: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodecoderheapdesc: *const D3D12_VIDEO_DECODER_HEAP_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideodecoderheap: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nodemask: u32, poutputstreamdesc: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC, numinputstreamdescs: u32, pinputstreamdescs: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoprocessor: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdesc: *const D3D12_VIDEO_EXTENSION_COMMAND_DESC, pcreationparameters: *const ::core::ffi::c_void, creationparametersdatasizeinbytes: usize, pprotectedresourcesession: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppvideoextensioncommand: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize, poutputdata: *mut ::core::ffi::c_void, outputdatasizeinbytes: usize) -> ::windows::core::HRESULT,
@@ -11508,7 +11508,7 @@ pub struct ID3D12VideoEncodeCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -11520,7 +11520,7 @@ pub struct ID3D12VideoEncodeCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -11774,7 +11774,7 @@ pub struct ID3D12VideoEncodeCommandList1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -11786,7 +11786,7 @@ pub struct ID3D12VideoEncodeCommandList1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -12070,7 +12070,7 @@ pub struct ID3D12VideoEncodeCommandList2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -12082,7 +12082,7 @@ pub struct ID3D12VideoEncodeCommandList2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -12105,9 +12105,9 @@ pub struct ID3D12VideoEncodeCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pexecutionparameters: *const ::core::ffi::c_void, executionparameterssizeinbytes: usize),
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pencoder: ::windows::core::RawPtr, pheap: ::windows::core::RawPtr, pinputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_ENCODEFRAME_OUTPUT_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pinputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_INPUT_ARGUMENTS, poutputarguments: *const D3D12_VIDEO_ENCODER_RESOLVE_METADATA_OUTPUT_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Graphics_Direct3D12", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[repr(transparent)]
 pub struct ID3D12VideoEncoder(::windows::core::IUnknown);
@@ -12275,7 +12275,7 @@ pub struct ID3D12VideoEncoderVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -12452,7 +12452,7 @@ pub struct ID3D12VideoEncoderHeapVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
@@ -12615,7 +12615,7 @@ pub struct ID3D12VideoExtensionCommandVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_EXTENSION_COMMAND_DESC),
@@ -12774,7 +12774,7 @@ pub struct ID3D12VideoMotionEstimatorVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_ESTIMATOR_DESC),
@@ -12934,7 +12934,7 @@ pub struct ID3D12VideoMotionVectorHeapVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_MOTION_VECTOR_HEAP_DESC),
@@ -13140,7 +13140,7 @@ pub struct ID3D12VideoProcessCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -13152,7 +13152,7 @@ pub struct ID3D12VideoProcessCommandListVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -13165,7 +13165,7 @@ pub struct ID3D12VideoProcessCommandListVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
 );
@@ -13392,7 +13392,7 @@ pub struct ID3D12VideoProcessCommandList1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -13404,7 +13404,7 @@ pub struct ID3D12VideoProcessCommandList1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -13417,11 +13417,11 @@ pub struct ID3D12VideoProcessCommandList1Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
 );
 #[repr(transparent)]
 pub struct ID3D12VideoProcessCommandList2(::windows::core::IUnknown);
@@ -13676,7 +13676,7 @@ pub struct ID3D12VideoProcessCommandList2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> super::super::Graphics::Direct3D12::D3D12_COMMAND_LIST_TYPE,
@@ -13688,7 +13688,7 @@ pub struct ID3D12VideoProcessCommandList2Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numbarriers: u32, pbarriers: *const super::super::Graphics::Direct3D12::D3D12_RESOURCE_BARRIER),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presource: ::windows::core::RawPtr, pregion: *const super::super::Graphics::Direct3D12::D3D12_DISCARD_REGION),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqueryheap: ::windows::core::RawPtr, r#type: super::super::Graphics::Direct3D12::D3D12_QUERY_TYPE, index: u32),
@@ -13701,11 +13701,11 @@ pub struct ID3D12VideoProcessCommandList2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, metadata: u32, pdata: *const ::core::ffi::c_void, size: u32),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void),
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pparams: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_PARAMETER, pmodes: *const super::super::Graphics::Direct3D12::D3D12_WRITEBUFFERIMMEDIATE_MODE),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideoprocessor: ::windows::core::RawPtr, poutputarguments: *const D3D12_VIDEO_PROCESS_OUTPUT_STREAM_ARGUMENTS, numinputstreams: u32, pinputarguments: *const D3D12_VIDEO_PROCESS_INPUT_STREAM_ARGUMENTS1),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pprotectedresourcesession: ::windows::core::RawPtr),
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pextensioncommand: ::windows::core::RawPtr, pinitializationparameters: *const ::core::ffi::c_void, initializationparameterssizeinbytes: usize),
@@ -13871,15 +13871,15 @@ pub struct ID3D12VideoProcessorVtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numinputstreamdescs: u32, pinputstreamdescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
 #[repr(transparent)]
 pub struct ID3D12VideoProcessor1(::windows::core::IUnknown);
@@ -14064,15 +14064,15 @@ pub struct ID3D12VideoProcessor1Vtbl(
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D12")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D12")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppvdevice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D12"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, numinputstreamdescs: u32, pinputstreamdescs: *mut D3D12_VIDEO_PROCESS_INPUT_STREAM_DESC) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut D3D12_VIDEO_PROCESS_OUTPUT_STREAM_DESC),
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppprotectedsession: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -14153,7 +14153,7 @@ pub struct IDXVAHD_DeviceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, r#type: DXVAHD_SURFACE_TYPE, numsurfaces: u32, ppsurfaces: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcaps: *mut DXVAHD_VPDEVCAPS) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: u32, pformats: *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
@@ -14232,7 +14232,7 @@ pub struct IDXVAHD_VideoProcessorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, streamnumber: u32, state: DXVAHD_STREAM_STATE, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, poutputsurface: ::windows::core::RawPtr, outputframe: u32, streamcount: u32, pstreams: *const DXVAHD_STREAM_DATA) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
 #[repr(transparent)]
 pub struct IDirect3D9ExOverlayExtension(::windows::core::IUnknown);
@@ -14352,7 +14352,7 @@ pub struct IDirect3DAuthenticatedChannel9Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, datasize: u32, pdata: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputsize: u32, pinput: *const ::core::ffi::c_void, outputsize: u32, poutput: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, inputsize: u32, pinput: *const ::core::ffi::c_void, poutput: *mut super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNEL_CONFIGURE_OUTPUT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
 #[repr(transparent)]
 pub struct IDirect3DCryptoSession9(::windows::core::IUnknown);
@@ -14500,7 +14500,7 @@ pub struct IDirect3DDevice9VideoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, pcaps: *mut D3DCONTENTPROTECTIONCAPS) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, channeltype: super::super::Graphics::Direct3D9::D3DAUTHENTICATEDCHANNELTYPE, ppauthenticatedchannel: *mut ::windows::core::RawPtr, pchannelhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcryptotype: *const ::windows::core::GUID, pdecodeprofile: *const ::windows::core::GUID, ppcryptosession: *mut ::windows::core::RawPtr, pcryptohandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -14587,7 +14587,7 @@ pub struct IDirect3DDeviceManager9Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, ppdevice: *mut ::windows::core::RawPtr, fblock: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, fsavestate: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hdevice: super::super::Foundation::HANDLE, riid: *const ::windows::core::GUID, ppservice: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -14643,7 +14643,7 @@ pub struct IDirectXVideoAccelerationServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
 #[repr(transparent)]
 pub struct IDirectXVideoDecoder(::windows::core::IUnknown);
@@ -14812,7 +14812,7 @@ pub struct IDirectXVideoDecoderServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guid: *const ::windows::core::GUID, pcount: *mut u32, pformats: *mut *mut super::super::Graphics::Direct3D9::D3DFORMAT) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
@@ -14954,7 +14954,7 @@ pub struct IDirectXVideoProcessorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, procampcap: u32, prange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, filtersetting: u32, prange: *mut DXVA2_ValueRange) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prendertarget: ::windows::core::RawPtr, pbltparams: *const DXVA2_VideoProcessBltParams, psamples: *const DXVA2_VideoSample, numsamples: u32, phandlecomplete: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
 );
 #[repr(transparent)]
 pub struct IDirectXVideoProcessorService(::windows::core::IUnknown);
@@ -15061,7 +15061,7 @@ pub struct IDirectXVideoProcessorServiceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, width: u32, height: u32, backbuffers: u32, format: super::super::Graphics::Direct3D9::D3DFORMAT, pool: super::super::Graphics::Direct3D9::D3DPOOL, usage: u32, dxvatype: DXVA2_VideoRenderTargetType, ppsurface: *mut ::windows::core::RawPtr, psharedhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallbacks: *const ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Graphics_Direct3D9")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvideodesc: *const DXVA2_VideoDesc, pcount: *mut u32, pguids: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Graphics_Direct3D9"))] usize,
@@ -15860,7 +15860,7 @@ pub struct IMFASFIndexerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbindexdescriptor: *const u8, cbindexdescriptor: u32, fgenerateindex: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvarvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pindexidentifier: *const ASF_INDEX_IDENTIFIER, pcboffsetwithindata: *mut u64, phnsapproxtime: *mut i64, pdwpayloadnumberofstreamwithinpacket: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piasfpacketsample: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, picontentinfo: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcbindexwritespace: *mut u64) -> ::windows::core::HRESULT,
@@ -16268,10 +16268,10 @@ pub struct IMFASFProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -16288,7 +16288,7 @@ pub struct IMFASFProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -16303,7 +16303,7 @@ pub struct IMFASFProfileVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcstreams: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pwstreamnumber: *mut u16, ppistream: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -16615,10 +16615,10 @@ pub struct IMFASFStreamConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -16635,7 +16635,7 @@ pub struct IMFASFStreamConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -16650,7 +16650,7 @@ pub struct IMFASFStreamConfigVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstreamtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u16,
@@ -17028,10 +17028,10 @@ pub struct IMFActivateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -17048,7 +17048,7 @@ pub struct IMFActivateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -17063,7 +17063,7 @@ pub struct IMFActivateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -17428,10 +17428,10 @@ pub struct IMFAttributesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -17448,7 +17448,7 @@ pub struct IMFAttributesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -17463,7 +17463,7 @@ pub struct IMFAttributesVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -17684,10 +17684,10 @@ pub struct IMFAudioMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -17704,7 +17704,7 @@ pub struct IMFAudioMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -17719,7 +17719,7 @@ pub struct IMFAudioMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidmajortype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcompressed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -18293,7 +18293,7 @@ pub struct IMFByteStreamHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pqwbytes: *mut u64) -> ::windows::core::HRESULT,
@@ -20112,7 +20112,7 @@ pub struct IMFContentDecryptionModuleFactoryVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, contenttype: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: super::super::Foundation::PWSTR, configurations: *const ::windows::core::RawPtr, numconfigurations: u32, contentdecryptionmoduleaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFContentDecryptionModuleSession(::windows::core::IUnknown);
@@ -22688,7 +22688,7 @@ pub struct IMFMediaEngineClassFactory3Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, keysystem: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>, ppsupportedconfigurationsarray: *const ::windows::core::RawPtr, usize: u32, ppkeyaccess: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFMediaEngineClassFactory4(::windows::core::IUnknown);
@@ -23370,7 +23370,7 @@ pub struct IMFMediaEngineExVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, purl: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR>) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, statisticid: MF_MEDIA_ENGINE_STATISTIC, pstatistic: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psrc: *const MFVideoNormalizedRect, pdst: *const super::super::Foundation::RECT, pborderclr: *const MFARGB) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> f64,
@@ -23381,10 +23381,10 @@ pub struct IMFMediaEngineExVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, penabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, enabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -24326,10 +24326,10 @@ pub struct IMFMediaEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -24346,7 +24346,7 @@ pub struct IMFMediaEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -24361,13 +24361,13 @@ pub struct IMFMediaEventVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmet: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidextendedtype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrstatus: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFMediaEventGenerator(::windows::core::IUnknown);
@@ -24433,7 +24433,7 @@ pub struct IMFMediaEventGeneratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFMediaEventQueue(::windows::core::IUnknown);
@@ -24509,7 +24509,7 @@ pub struct IMFMediaEventQueueVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pevent: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, punk: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
@@ -25214,11 +25214,11 @@ pub struct IMFMediaSessionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsettopologyflags: u32, ptopology: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -25789,11 +25789,11 @@ pub struct IMFMediaSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -25957,11 +25957,11 @@ pub struct IMFMediaSource2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26106,11 +26106,11 @@ pub struct IMFMediaSourceExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresentationdescriptor: ::windows::core::RawPtr, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26512,7 +26512,7 @@ pub struct IMFMediaStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreamdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoken: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26639,7 +26639,7 @@ pub struct IMFMediaStream2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppstreamdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptoken: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -26959,10 +26959,10 @@ pub struct IMFMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -26979,7 +26979,7 @@ pub struct IMFMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -26994,7 +26994,7 @@ pub struct IMFMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidmajortype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcompressed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -27160,15 +27160,15 @@ pub struct IMFMetadataVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszrfc1766: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvlanguages: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, ppvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR, ppvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszname: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppvnames: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFMetadataProvider(::windows::core::IUnknown);
@@ -28162,10 +28162,10 @@ pub struct IMFOutputPolicyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -28182,7 +28182,7 @@ pub struct IMFOutputPolicyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -28197,7 +28197,7 @@ pub struct IMFOutputPolicyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwattributes: u32, guidoutputsubtype: ::windows::core::GUID, rgguidprotectionschemassupported: *const ::windows::core::GUID, cprotectionschemassupported: u32, pprequiredprotectionschemas: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidoriginatorid: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
@@ -28390,10 +28390,10 @@ pub struct IMFOutputSchemaVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -28410,7 +28410,7 @@ pub struct IMFOutputSchemaVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -28425,7 +28425,7 @@ pub struct IMFOutputSchemaVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidschematype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwval: *mut u32) -> ::windows::core::HRESULT,
@@ -28696,7 +28696,7 @@ pub struct IMFPMPHostAppVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, id: super::super::Foundation::PWSTR, pstream: ::windows::core::RawPtr, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFPMPServer(::windows::core::IUnknown);
@@ -28890,9 +28890,9 @@ pub struct IMFPMediaItemVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwuserdata: *mut usize) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwuserdata: usize) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *mut ::windows::core::GUID, pvstartvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: *mut ::windows::core::GUID, pvstopvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidstartpositiontype: *const ::windows::core::GUID, pvstartvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pguidstoppositiontype: *const ::windows::core::GUID, pvstopvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfhasvideo: *mut super::super::Foundation::BOOL, pfselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfhasaudio: *mut super::super::Foundation::BOOL, pfselected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -28900,16 +28900,16 @@ pub struct IMFPMediaItemVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfprotected: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pfenabled: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, fenabled: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidmfattribute: *const ::windows::core::GUID, pvvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcharacteristics: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediasink: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmetadatastore: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -29099,11 +29099,11 @@ pub struct IMFPMediaPlayerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvpositionvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidpositiontype: *const ::windows::core::GUID, pvdurationvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, flrate: f32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflrate: *mut f32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fforwarddirection: super::super::Foundation::BOOL, pflslowestrate: *mut f32, pflfastestrate: *mut f32) -> ::windows::core::HRESULT,
@@ -29696,10 +29696,10 @@ pub struct IMFPresentationDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -29716,7 +29716,7 @@ pub struct IMFPresentationDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -29731,7 +29731,7 @@ pub struct IMFPresentationDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwdescriptorcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, pfselected: *mut super::super::Foundation::BOOL, ppdescriptor: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -30821,7 +30821,7 @@ pub struct IMFSAMIStyleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvarstylearray: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszstyle: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppwszstyle: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -31126,10 +31126,10 @@ pub struct IMFSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -31146,7 +31146,7 @@ pub struct IMFSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -31161,7 +31161,7 @@ pub struct IMFSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsampleflags: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsampleflags: u32) -> ::windows::core::HRESULT,
@@ -31697,7 +31697,7 @@ pub struct IMFSchemeHandlerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
@@ -31851,7 +31851,7 @@ pub struct IMFSeekInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidtimeformat: *const ::windows::core::GUID, pvarstartposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarpreviouskeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT, pvarnextkeyframe: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFSensorActivitiesReport(::windows::core::IUnknown);
@@ -32659,10 +32659,10 @@ pub struct IMFSensorStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -32679,7 +32679,7 @@ pub struct IMFSensorStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -32694,7 +32694,7 @@ pub struct IMFSensorStreamVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwcount: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -33864,12 +33864,12 @@ pub struct IMFSourceReaderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: *mut u32, pdwstreamflags: *mut u32, plltimestamp: *mut i64, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFSourceReaderCallback(::windows::core::IUnknown);
@@ -34139,12 +34139,12 @@ pub struct IMFSourceReaderExVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ppmediatype: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pdwreserved: *mut u32, pmediatype: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtimeformat: *const ::windows::core::GUID, varposition: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, dwcontrolflags: u32, pdwactualstreamindex: *mut u32, pdwstreamflags: *mut u32, plltimestamp: *mut i64, ppsample: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidservice: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, guidattribute: *const ::windows::core::GUID, pvarattribute: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, pmediatype: ::windows::core::RawPtr, pdwstreamflags: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32, ptransformoractivate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwstreamindex: u32) -> ::windows::core::HRESULT,
@@ -34221,14 +34221,14 @@ pub struct IMFSourceResolverVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbytestream: ::windows::core::RawPtr, pwszurl: super::super::Foundation::PWSTR, dwflags: u32, pprops: ::windows::core::RawPtr, ppiunknowncancelcookie: *mut *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, pobjecttype: *mut MF_OBJECT_TYPE, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, piunknowncancelcookie: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
@@ -34604,10 +34604,10 @@ pub struct IMFSpatialAudioSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -34624,7 +34624,7 @@ pub struct IMFSpatialAudioSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -34639,7 +34639,7 @@ pub struct IMFSpatialAudioSampleVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwsampleflags: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwsampleflags: u32) -> ::windows::core::HRESULT,
@@ -34842,10 +34842,10 @@ pub struct IMFStreamDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -34862,7 +34862,7 @@ pub struct IMFStreamDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -34877,7 +34877,7 @@ pub struct IMFStreamDescriptorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstreamidentifier: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediatypehandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -34988,13 +34988,13 @@ pub struct IMFStreamSinkVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppevent: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, met: u32, guidextendedtype: *const ::windows::core::GUID, hrstatus: ::windows::core::HRESULT, pvvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppmediasink: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwidentifier: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pphandler: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psample: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, emarkertype: MFSTREAMSINK_MARKER_TYPE, pvarmarkervalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pvarcontextvalue: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -35165,11 +35165,11 @@ pub struct IMFTimecodeTranslateVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppropvartimecode: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, phnstime: *mut i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hnstime: i64, pcallback: ::windows::core::RawPtr, punkstate: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presult: ::windows::core::RawPtr, ppropvartimecode: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
 );
 #[repr(transparent)]
 pub struct IMFTimedText(::windows::core::IUnknown);
@@ -36571,10 +36571,10 @@ pub struct IMFTopologyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -36591,7 +36591,7 @@ pub struct IMFTopologyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -36606,7 +36606,7 @@ pub struct IMFTopologyVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pid: *mut u64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pnode: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -36849,10 +36849,10 @@ pub struct IMFTopologyNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -36869,7 +36869,7 @@ pub struct IMFTopologyNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -36884,7 +36884,7 @@ pub struct IMFTopologyNodeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -37985,10 +37985,10 @@ pub struct IMFVideoMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -38005,7 +38005,7 @@ pub struct IMFVideoMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -38020,7 +38020,7 @@ pub struct IMFVideoMediaTypeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pguidmajortype: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfcompressed: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
@@ -38094,7 +38094,7 @@ pub struct IMFVideoMixerBitmapVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmpparms: *const MFVideoAlphaBitmap) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Graphics_Direct3D9", feature = "Win32_Graphics_Gdi")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbmpparms: *const MFVideoAlphaBitmapParams) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -39473,10 +39473,10 @@ pub struct IMFVirtualCameraVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ptype: *mut MF_ATTRIBUTE_TYPE) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptheirs: ::windows::core::RawPtr, matchtype: MF_ATTRIBUTES_MATCH_TYPE, pbresult: *mut super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, punvalue: *mut u32) -> ::windows::core::HRESULT,
@@ -39493,7 +39493,7 @@ pub struct IMFVirtualCameraVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, ppbuf: *mut *mut u8, pcbsize: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, value: *const super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidkey: *const ::windows::core::GUID, unvalue: u32) -> ::windows::core::HRESULT,
@@ -39508,7 +39508,7 @@ pub struct IMFVirtualCameraVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcitems: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, unindex: u32, pguidkey: *mut ::windows::core::GUID, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, devicesourceinfo: super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
@@ -40624,7 +40624,7 @@ pub struct IWMCodecPrivateDataVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbdata: *mut u8, pcbdata: *mut u32) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
@@ -40681,7 +40681,7 @@ pub struct IWMCodecPropsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwformat: u32, pszname: super::super::Foundation::PWSTR, ptype: *mut WMT_PROP_DATATYPE, pvalue: *mut u8, pdwsize: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
@@ -40739,9 +40739,9 @@ pub struct IWMCodecStringsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szname: super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmt: *mut super::DxMediaObjects::DMO_MEDIA_TYPE, cchlength: u32, szdescription: super::super::Foundation::PWSTR, pcchlength: *mut u32) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
+    #[cfg(not(any(feature = "Win32_Foundation", feature = "Win32_Media_DxMediaObjects")))] usize,
 );
 #[repr(transparent)]
 pub struct IWMColorConvProps(::windows::core::IUnknown);

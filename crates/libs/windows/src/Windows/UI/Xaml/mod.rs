@@ -2779,7 +2779,6 @@ impl ::windows::core::RuntimeName for DependencyObjectCollection {
     const NAME: &'static str = "Windows.UI.Xaml.DependencyObjectCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for DependencyObjectCollection {
     type Item = DependencyObject;
     type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -2787,7 +2786,6 @@ impl ::core::iter::IntoIterator for DependencyObjectCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &DependencyObjectCollection {
     type Item = DependencyObject;
@@ -2845,14 +2843,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Depe
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DependencyObjectCollection> for super::super::Foundation::Collections::IIterable<DependencyObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: DependencyObjectCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DependencyObjectCollection> for super::super::Foundation::Collections::IIterable<DependencyObject> {
     type Error = ::windows::core::Error;
@@ -2861,20 +2857,17 @@ impl ::core::convert::TryFrom<&DependencyObjectCollection> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<DependencyObject>> for DependencyObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<DependencyObject>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<DependencyObject>> for &DependencyObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<DependencyObject>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<DependencyObject>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DependencyObjectCollection> for super::super::Foundation::Collections::IObservableVector<DependencyObject> {
     type Error = ::windows::core::Error;
@@ -2883,7 +2876,6 @@ impl ::core::convert::TryFrom<DependencyObjectCollection> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DependencyObjectCollection> for super::super::Foundation::Collections::IObservableVector<DependencyObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DependencyObjectCollection) -> ::windows::core::Result<Self> {
@@ -2891,20 +2883,17 @@ impl ::core::convert::TryFrom<&DependencyObjectCollection> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> for DependencyObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> for &DependencyObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IObservableVector<DependencyObject>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IObservableVector<DependencyObject>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<DependencyObjectCollection> for super::super::Foundation::Collections::IVector<DependencyObject> {
     type Error = ::windows::core::Error;
@@ -2913,7 +2902,6 @@ impl ::core::convert::TryFrom<DependencyObjectCollection> for super::super::Foun
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&DependencyObjectCollection> for super::super::Foundation::Collections::IVector<DependencyObject> {
     type Error = ::windows::core::Error;
     fn try_from(value: &DependencyObjectCollection) -> ::windows::core::Result<Self> {
@@ -2921,13 +2909,11 @@ impl ::core::convert::TryFrom<&DependencyObjectCollection> for super::super::Fou
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<DependencyObject>> for DependencyObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<DependencyObject>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<DependencyObject>> for &DependencyObjectCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<DependencyObject>> {
@@ -7007,7 +6993,7 @@ pub struct IApplicationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "ApplicationModel", feature = "Foundation")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -7037,11 +7023,11 @@ pub struct IApplication2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ApplicationRequiresPointerMode) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ApplicationRequiresPointerMode) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "ApplicationModel", feature = "Foundation")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "ApplicationModel", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel", feature = "Foundation")))] usize,
+    #[cfg(not(any(feature = "ApplicationModel", feature = "Foundation")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
@@ -7173,7 +7159,7 @@ pub struct IApplicationStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, component: *mut ::core::ffi::c_void, resourcelocator: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, component: *mut ::core::ffi::c_void, resourcelocator: ::windows::core::RawPtr, componentresourcelocation: Controls::Primitives::ComponentResourceLocation) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Controls_Primitives")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -8126,11 +8112,11 @@ pub struct IDragUIVtbl(
     #[cfg(feature = "UI_Xaml_Media_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmapimage: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media_Imaging"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media_Imaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmapimage: ::windows::core::RawPtr, anchorpoint: super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Media_Imaging")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Media_Imaging")))] usize,
     #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, anchorpoint: super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
 #[doc(hidden)]
@@ -8161,11 +8147,11 @@ pub struct IDragUIOverrideVtbl(
     #[cfg(feature = "UI_Xaml_Media_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmapimage: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media_Imaging"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Media_Imaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, bitmapimage: ::windows::core::RawPtr, anchorpoint: super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Media_Imaging")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Media_Imaging")))] usize,
     #[cfg(feature = "Graphics_Imaging")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Graphics_Imaging"))] usize,
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, softwarebitmap: ::windows::core::RawPtr, anchorpoint: super::super::Foundation::Point) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Graphics_Imaging")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -9879,9 +9865,9 @@ pub struct IUIElementVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: bool) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Media_Animation")))] usize,
     #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
     #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -9899,13 +9885,13 @@ pub struct IUIElementVtbl(
     #[cfg(feature = "UI_Xaml_Input")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Input::ManipulationModes) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))] usize,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Input")))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -9933,71 +9919,71 @@ pub struct IUIElementVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, availablesize: super::super::Foundation::Size) -> ::windows::core::HRESULT,
@@ -10098,7 +10084,7 @@ pub struct IUIElement3Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "UI_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pointerpoint: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "UI_Input")))] usize,
+    #[cfg(not(any(feature = "ApplicationModel_DataTransfer", feature = "Foundation", feature = "UI_Input")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -10129,7 +10115,7 @@ pub struct IUIElement4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
@@ -10137,15 +10123,15 @@ pub struct IUIElement4Vtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
@@ -10166,7 +10152,7 @@ pub struct IUIElement5Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
     #[cfg(feature = "UI_Xaml_Input")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut Input::KeyTipPlacementMode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))] usize,
     #[cfg(feature = "UI_Xaml_Input")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Input::KeyTipPlacementMode) -> ::windows::core::HRESULT,
@@ -10202,15 +10188,15 @@ pub struct IUIElement5Vtbl(
     #[cfg(feature = "UI_Xaml_Input")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: Input::KeyboardNavigationMode) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Input"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -10233,21 +10219,21 @@ pub struct IUIElement7Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation_Collections", feature = "UI_Xaml_Input")))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Xaml_Input"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Xaml_Input")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "UI_Xaml_Input")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, args: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
@@ -10372,7 +10358,7 @@ pub struct IUIElementOverridesVtbl(
     #[cfg(not(feature = "UI_Xaml_Automation_Peers"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, point: super::super::Foundation::Point, boundingrect: super::super::Foundation::Rect, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -11050,19 +11036,19 @@ pub struct IWindowVtbl(
     #[cfg(feature = "UI_Core")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Core"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Core")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Core")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Core")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(all(feature = "Foundation", feature = "UI_Core"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "UI_Core")))] usize,
+    #[cfg(not(any(feature = "Foundation", feature = "UI_Core")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
@@ -14350,7 +14336,6 @@ impl ::windows::core::RuntimeName for TriggerActionCollection {
     const NAME: &'static str = "Windows.UI.Xaml.TriggerActionCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for TriggerActionCollection {
     type Item = TriggerAction;
     type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -14358,7 +14343,6 @@ impl ::core::iter::IntoIterator for TriggerActionCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &TriggerActionCollection {
     type Item = TriggerAction;
@@ -14416,14 +14400,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Trig
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TriggerActionCollection> for super::super::Foundation::Collections::IIterable<TriggerAction> {
     type Error = ::windows::core::Error;
     fn try_from(value: TriggerActionCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TriggerActionCollection> for super::super::Foundation::Collections::IIterable<TriggerAction> {
     type Error = ::windows::core::Error;
@@ -14432,20 +14414,17 @@ impl ::core::convert::TryFrom<&TriggerActionCollection> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<TriggerAction>> for TriggerActionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<TriggerAction>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<TriggerAction>> for &TriggerActionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<TriggerAction>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<TriggerAction>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TriggerActionCollection> for super::super::Foundation::Collections::IVector<TriggerAction> {
     type Error = ::windows::core::Error;
@@ -14454,7 +14433,6 @@ impl ::core::convert::TryFrom<TriggerActionCollection> for super::super::Foundat
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TriggerActionCollection> for super::super::Foundation::Collections::IVector<TriggerAction> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TriggerActionCollection) -> ::windows::core::Result<Self> {
@@ -14462,13 +14440,11 @@ impl ::core::convert::TryFrom<&TriggerActionCollection> for super::super::Founda
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerAction>> for TriggerActionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<TriggerAction>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerAction>> for &TriggerActionCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<TriggerAction>> {
@@ -14682,7 +14658,6 @@ impl ::windows::core::RuntimeName for TriggerCollection {
     const NAME: &'static str = "Windows.UI.Xaml.TriggerCollection";
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for TriggerCollection {
     type Item = TriggerBase;
     type IntoIter = super::super::Foundation::Collections::VectorIterator<Self::Item>;
@@ -14690,7 +14665,6 @@ impl ::core::iter::IntoIterator for TriggerCollection {
         ::core::iter::IntoIterator::into_iter(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::iter::IntoIterator for &TriggerCollection {
     type Item = TriggerBase;
@@ -14748,14 +14722,12 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Trig
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TriggerCollection> for super::super::Foundation::Collections::IIterable<TriggerBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: TriggerCollection) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TriggerCollection> for super::super::Foundation::Collections::IIterable<TriggerBase> {
     type Error = ::windows::core::Error;
@@ -14764,20 +14736,17 @@ impl ::core::convert::TryFrom<&TriggerCollection> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<TriggerBase>> for TriggerCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<TriggerBase>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<TriggerBase>> for &TriggerCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IIterable<TriggerBase>> {
         ::core::convert::TryInto::<super::super::Foundation::Collections::IIterable<TriggerBase>>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<TriggerCollection> for super::super::Foundation::Collections::IVector<TriggerBase> {
     type Error = ::windows::core::Error;
@@ -14786,7 +14755,6 @@ impl ::core::convert::TryFrom<TriggerCollection> for super::super::Foundation::C
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl ::core::convert::TryFrom<&TriggerCollection> for super::super::Foundation::Collections::IVector<TriggerBase> {
     type Error = ::windows::core::Error;
     fn try_from(value: &TriggerCollection) -> ::windows::core::Result<Self> {
@@ -14794,13 +14762,11 @@ impl ::core::convert::TryFrom<&TriggerCollection> for super::super::Foundation::
     }
 }
 #[cfg(feature = "Foundation_Collections")]
-#[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerBase>> for TriggerCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<TriggerBase>> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Foundation_Collections")]
 #[cfg(feature = "Foundation_Collections")]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IVector<TriggerBase>> for &TriggerCollection {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::Collections::IVector<TriggerBase>> {

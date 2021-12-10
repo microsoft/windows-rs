@@ -1124,7 +1124,7 @@ pub const DECISION_LOCATION_NOT_FOUND: DECISION_LOCATION = 8i32;
 pub const DECISION_LOCATION_UNKNOWN: DECISION_LOCATION = 9i32;
 pub const DELAYLOAD_GPA_FAILURE: u32 = 4u32;
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DELAYLOAD_INFO {
     pub Size: u32,
@@ -1136,32 +1136,32 @@ pub struct DELAYLOAD_INFO {
     pub Unused: *mut ::core::ffi::c_void,
     pub LastError: u32,
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELAYLOAD_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DELAYLOAD_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_INFO>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DELAYLOAD_INFO {
     fn default() -> Self {
@@ -1169,7 +1169,7 @@ impl ::core::default::Default for DELAYLOAD_INFO {
     }
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DELAYLOAD_INFO {
     pub Size: u32,
@@ -1181,32 +1181,32 @@ pub struct DELAYLOAD_INFO {
     pub Unused: *mut ::core::ffi::c_void,
     pub LastError: u32,
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DELAYLOAD_INFO {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DELAYLOAD_INFO {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DELAYLOAD_INFO {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DELAYLOAD_INFO>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DELAYLOAD_INFO {}
-#[cfg(any(target_arch = "x86",))]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DELAYLOAD_INFO {
     fn default() -> Self {
@@ -1393,7 +1393,7 @@ pub const EVENPARITY: u32 = 2u32;
 pub const EVENTLOG_FULL_INFO: u32 = 0u32;
 pub const EditionUpgradeBroker: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4270827_4f39_45df_9288_12ff6b85a921);
 pub const EditionUpgradeHelper: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01776df3_b9af_4e50_9b1c_56e93116d704);
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnableProcessOptionalXStateFeatures(features: u64) -> super::super::Foundation::BOOL {
@@ -2143,7 +2143,7 @@ pub unsafe fn GetSystemRegistryQuota(pdwquotaallowed: *mut u32, pdwquotaused: *m
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86", target_arch = "x86_64",))]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn GetThreadEnabledXStateFeatures() -> u64 {
     #[cfg(windows)]
@@ -6669,32 +6669,32 @@ pub unsafe fn _lwrite<'a, Param1: ::windows::core::IntoParam<'a, super::super::F
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub struct tcp_request_query_information_ex32_xp {
     pub ID: TDIObjectID,
     pub Context: [u32; 4],
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for tcp_request_query_information_ex32_xp {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for tcp_request_query_information_ex32_xp {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for tcp_request_query_information_ex32_xp {
     type Abi = Self;
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for tcp_request_query_information_ex32_xp {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<tcp_request_query_information_ex32_xp>()) == 0 }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for tcp_request_query_information_ex32_xp {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for tcp_request_query_information_ex32_xp {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -6776,7 +6776,7 @@ impl ::core::default::Default for tcp_request_set_information_ex {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(windows)]
@@ -6790,7 +6790,7 @@ pub unsafe fn uaw_lstrcmpW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(windows)]
@@ -6804,7 +6804,7 @@ pub unsafe fn uaw_lstrcmpiW(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
     #[cfg(windows)]
@@ -6818,7 +6818,7 @@ pub unsafe fn uaw_lstrlenW(string: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16 {
     #[cfg(windows)]
@@ -6832,7 +6832,7 @@ pub unsafe fn uaw_wcschr(string: *const u16, character: u16) -> *mut u16 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16 {
     #[cfg(windows)]
@@ -6846,7 +6846,7 @@ pub unsafe fn uaw_wcscpy(destination: *mut u16, source: *const u16) -> *mut u16 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(windows)]
@@ -6860,7 +6860,7 @@ pub unsafe fn uaw_wcsicmp(string1: *const u16, string2: *const u16) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
     #[cfg(windows)]
@@ -6874,7 +6874,7 @@ pub unsafe fn uaw_wcslen(string: *const u16) -> usize {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[inline]
 pub unsafe fn uaw_wcsrchr(string: *const u16, character: u16) -> *mut u16 {
     #[cfg(windows)]
