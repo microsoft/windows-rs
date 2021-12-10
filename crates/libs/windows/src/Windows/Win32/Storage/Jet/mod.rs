@@ -33,51 +33,65 @@ impl ::core::default::Default for CONVERT_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_A_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_A_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONVERT_A_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONVERT_A_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_A_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CONVERT_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONVERT_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_A_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_A_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_A_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONVERT_A_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONVERT_A_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_A_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CONVERT_A_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONVERT_A_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -117,51 +131,65 @@ impl ::core::default::Default for CONVERT_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CONVERT_W_0 {
     pub fFlags: u32,
     pub Anonymous: CONVERT_W_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONVERT_W_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONVERT_W_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_W_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CONVERT_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONVERT_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct CONVERT_W_0_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CONVERT_W_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CONVERT_W_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CONVERT_W_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CONVERT_W_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONVERT_W_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CONVERT_W_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONVERT_W_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -309,25 +337,32 @@ impl ::core::default::Default for JET_BKLOGTIME_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_BKLOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKLOGTIME_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_BKLOGTIME_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_BKLOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKLOGTIME_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_BKLOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -367,25 +402,32 @@ impl ::core::default::Default for JET_BKLOGTIME_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_BKLOGTIME_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_BKLOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_BKLOGTIME_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_BKLOGTIME_1_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_BKLOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_BKLOGTIME_1_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_BKLOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_BKLOGTIME_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1438,52 +1480,66 @@ impl ::core::default::Default for JET_INDEXCREATE2_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_A_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE2_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE2_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_A_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_A_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE2_A_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_A_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE2_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE2_A_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1534,52 +1590,66 @@ impl ::core::default::Default for JET_INDEXCREATE2_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_W_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE2_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE2_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE2_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE2_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE2_W_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE2_W_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE2_W_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE2_W_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE2_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE2_W_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1630,26 +1700,33 @@ impl ::core::default::Default for JET_INDEXCREATE3_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_A_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_A_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE3_A_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE3_A_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE3_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE3_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1700,26 +1777,33 @@ impl ::core::default::Default for JET_INDEXCREATE3_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE3_W_0 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE3_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE3_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE3_W_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE3_W_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE3_W_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE3_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE3_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1769,52 +1853,66 @@ impl ::core::default::Default for JET_INDEXCREATE_A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE_A_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_A_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE_A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE_A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_A_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_A_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_A_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE_A_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_A_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE_A_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE_A_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1864,52 +1962,66 @@ impl ::core::default::Default for JET_INDEXCREATE_W {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_0 {
     pub lcid: u32,
     pub pidxunicode: *mut JET_UNICODEINDEX,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE_W_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_W_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE_W_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE_W_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union JET_INDEXCREATE_W_1 {
     pub cbVarSegMac: u32,
     pub ptuplelimits: *mut JET_TUPLELIMITS,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_INDEXCREATE_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_INDEXCREATE_W_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_INDEXCREATE_W_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_INDEXCREATE_W_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_INDEXCREATE_W_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_INDEXCREATE_W_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_INDEXCREATE_W_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2361,25 +2473,32 @@ impl ::core::default::Default for JET_LOGTIME_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_LOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_LOGTIME_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_LOGTIME_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGTIME_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGTIME_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_LOGTIME_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2419,25 +2538,32 @@ impl ::core::default::Default for JET_LOGTIME_1 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_Jet'*"]
+#[doc = "*Required features: 'Win32_Storage_Jet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct JET_LOGTIME_1_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for JET_LOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for JET_LOGTIME_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for JET_LOGTIME_1_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for JET_LOGTIME_1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<JET_LOGTIME_1_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for JET_LOGTIME_1_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for JET_LOGTIME_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

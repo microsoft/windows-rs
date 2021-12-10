@@ -3884,26 +3884,33 @@ impl ::core::default::Default for LDR_DATA_TABLE_ENTRY {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_WindowsProgramming'*"]
+#[doc = "*Required features: 'Win32_System_WindowsProgramming', 'Win32_Foundation', 'Win32_System_Kernel'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub union LDR_DATA_TABLE_ENTRY_0 {
     pub CheckSum: u32,
     pub Reserved6: *mut ::core::ffi::c_void,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::marker::Copy for LDR_DATA_TABLE_ENTRY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::clone::Clone for LDR_DATA_TABLE_ENTRY_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 unsafe impl ::windows::core::Abi for LDR_DATA_TABLE_ENTRY_0 {
     type Abi = Self;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::PartialEq for LDR_DATA_TABLE_ENTRY_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDR_DATA_TABLE_ENTRY_0>()) == 0 }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::cmp::Eq for LDR_DATA_TABLE_ENTRY_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for LDR_DATA_TABLE_ENTRY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

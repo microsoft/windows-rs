@@ -322,26 +322,33 @@ impl ::core::default::Default for CHARFORMAT2A {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_UI_Controls_RichEdit'*"]
+#[doc = "*Required features: 'Win32_UI_Controls_RichEdit', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union CHARFORMAT2A_0 {
     pub dwReserved: u32,
     pub dwCookie: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for CHARFORMAT2A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for CHARFORMAT2A_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for CHARFORMAT2A_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CHARFORMAT2A_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHARFORMAT2A_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CHARFORMAT2A_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CHARFORMAT2A_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

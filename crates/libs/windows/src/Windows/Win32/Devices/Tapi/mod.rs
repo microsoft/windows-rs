@@ -17070,35 +17070,43 @@ impl ::core::default::Default for LINEPROXYREQUEST_0 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_0 {
     pub dwAddressID: u32,
     pub dwAgentExtensionIDIndex: u32,
     pub dwSize: u32,
     pub Params: [u8; 1],
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_1 {
     pub hAgentSession: u32,
     pub dwAgentPINSize: u32,
@@ -17107,28 +17115,35 @@ pub struct LINEPROXYREQUEST_0_1 {
     pub GroupID: ::windows::core::GUID,
     pub dwWorkingAddressID: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_1 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_1 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_2 {
     pub hAgent: u32,
     pub dwAgentIDSize: u32,
@@ -17136,99 +17151,126 @@ pub struct LINEPROXYREQUEST_0_2 {
     pub dwAgentPINSize: u32,
     pub dwAgentPINOffset: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_2 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_2>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_3 {
     pub dwAddressID: u32,
     pub ActivityList: LINEAGENTACTIVITYLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_3 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_3 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_3>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_4 {
     pub dwAddressID: u32,
     pub AgentCaps: LINEAGENTCAPS,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_4 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_4 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_4 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_4>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_4 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_5 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_5 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_5 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_5 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_5 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_5>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_5 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -17301,314 +17343,398 @@ impl ::core::default::Default for LINEPROXYREQUEST_0_7 {
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_8 {
     pub hAgent: u32,
     pub SessionList: LINEAGENTSESSIONLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_8 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_8 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_8 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_8 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_8>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_8 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_8 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_9 {
     pub dwAddressID: u32,
     pub AgentStatus: LINEAGENTSTATUS,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_9 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_9 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_9 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_9 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_9>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_9 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_10 {
     pub GroupList: LINEAGENTGROUPLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_10 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_10 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_10 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_10 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_10>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_10 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_10 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_11 {
     pub dwQueueID: u32,
     pub QueueInfo: LINEQUEUEINFO,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_11 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_11 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_11 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_11 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_11>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_11 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_11 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_12 {
     pub GroupID: ::windows::core::GUID,
     pub QueueList: LINEQUEUELIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_12 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_12 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_12 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_12 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_12>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_12 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_12 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_13 {
     pub dwAddressID: u32,
     pub dwActivityID: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_13 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_13 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_13 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_13 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_13>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_13 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_13 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_14 {
     pub dwAddressID: u32,
     pub GroupList: LINEAGENTGROUPLIST,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_14 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_14 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_14 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_14 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_14>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_14 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_14 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_15 {
     pub hAgent: u32,
     pub dwMeasurementPeriod: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_15 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_15 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_15 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_15 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_15>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_15 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_15 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_16 {
     pub hAgentSession: u32,
     pub dwAgentSessionState: u32,
     pub dwNextAgentSessionState: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_16 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_16 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_16 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_16 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_16>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_16 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_16 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_17 {
     pub hAgent: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_17 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_17 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_17 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_17 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_17>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_17 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_17 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_18 {
     pub dwAddressID: u32,
     pub dwAgentState: u32,
     pub dwNextAgentState: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_18 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_18 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_18 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_18 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_18>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_18 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_18 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C, packed(1))]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct LINEPROXYREQUEST_0_19 {
     pub dwQueueID: u32,
     pub dwMeasurementPeriod: u32,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for LINEPROXYREQUEST_0_19 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for LINEPROXYREQUEST_0_19 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for LINEPROXYREQUEST_0_19 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for LINEPROXYREQUEST_0_19 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LINEPROXYREQUEST_0_19>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for LINEPROXYREQUEST_0_19 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for LINEPROXYREQUEST_0_19 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18160,57 +18286,70 @@ impl ::core::default::Default for MSP_EVENT_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_0 {
     pub Type: MSP_ADDRESS_EVENT,
     pub pTerminal: ::core::option::Option<ITTerminal>,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_0 {
     fn clone(&self) -> Self {
         Self { Type: self.Type, pTerminal: self.pTerminal.clone() }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_0 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.pTerminal == other.pTerminal
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_0 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_1 {
     pub pASRTerminal: ::core::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { pASRTerminal: self.pASRTerminal.clone(), hrErrorCode: self.hrErrorCode }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.pASRTerminal == other.pASRTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_1 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_2 {
     pub Type: MSP_CALL_EVENT,
     pub Cause: MSP_CALL_EVENT_CAUSE,
@@ -18218,27 +18357,33 @@ pub struct MSP_EVENT_INFO_0_2 {
     pub pTerminal: ::core::option::Option<ITTerminal>,
     pub hrError: ::windows::core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_2 {
     fn clone(&self) -> Self {
         Self { Type: self.Type, Cause: self.Cause, pStream: self.pStream.clone(), pTerminal: self.pTerminal.clone(), hrError: self.hrError }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_2 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_2 {
     fn eq(&self, other: &Self) -> bool {
         self.Type == other.Type && self.Cause == other.Cause && self.pStream == other.pStream && self.pTerminal == other.pTerminal && self.hrError == other.hrError
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_2 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_3 {
     pub pParentFileTerminal: ::core::option::Option<ITTerminal>,
     pub pFileTrack: ::core::option::Option<ITFileTrack>,
@@ -18246,6 +18391,7 @@ pub struct MSP_EVENT_INFO_0_3 {
     pub ftecEventCause: FT_STATE_EVENT_CAUSE,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
     fn clone(&self) -> Self {
         Self {
@@ -18257,15 +18403,19 @@ impl ::core::clone::Clone for MSP_EVENT_INFO_0_3 {
         }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_3 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_3 {
     fn eq(&self, other: &Self) -> bool {
         self.pParentFileTerminal == other.pParentFileTerminal && self.pFileTrack == other.pFileTrack && self.TerminalMediaState == other.TerminalMediaState && self.ftecEventCause == other.ftecEventCause && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_3 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -18303,76 +18453,95 @@ impl ::core::default::Default for MSP_EVENT_INFO_0_4 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_5 {
     pub pToneTerminal: ::core::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_5 {
     fn clone(&self) -> Self {
         Self { pToneTerminal: self.pToneTerminal.clone(), hrErrorCode: self.hrErrorCode }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_5 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_5 {
     fn eq(&self, other: &Self) -> bool {
         self.pToneTerminal == other.pToneTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_5 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_6 {
     pub dwBufferSize: u32,
     pub pBuffer: [u8; 1],
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::marker::Copy for MSP_EVENT_INFO_0_6 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_6 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_6 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_6 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSP_EVENT_INFO_0_6>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_6 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Devices_Tapi'*"]
+#[doc = "*Required features: 'Win32_Devices_Tapi', 'Win32_System_Com'*"]
+#[cfg(feature = "Win32_System_Com")]
 pub struct MSP_EVENT_INFO_0_7 {
     pub pTTSTerminal: ::core::option::Option<ITTerminal>,
     pub hrErrorCode: ::windows::core::HRESULT,
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::clone::Clone for MSP_EVENT_INFO_0_7 {
     fn clone(&self) -> Self {
         Self { pTTSTerminal: self.pTTSTerminal.clone(), hrErrorCode: self.hrErrorCode }
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 unsafe impl ::windows::core::Abi for MSP_EVENT_INFO_0_7 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::PartialEq for MSP_EVENT_INFO_0_7 {
     fn eq(&self, other: &Self) -> bool {
         self.pTTSTerminal == other.pTTSTerminal && self.hrErrorCode == other.hrErrorCode
     }
 }
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::cmp::Eq for MSP_EVENT_INFO_0_7 {}
+#[cfg(feature = "Win32_System_Com")]
 impl ::core::default::Default for MSP_EVENT_INFO_0_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

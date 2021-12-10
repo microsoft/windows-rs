@@ -6607,25 +6607,31 @@ impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Mmc'*"]
+#[doc = "*Required features: 'Win32_System_Mmc', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct RESULT_VIEW_TYPE_INFO_0_1 {
     pub dwOCXOptions: u32,
     pub pUnkControl: ::core::option::Option<::windows::core::IUnknown>,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for RESULT_VIEW_TYPE_INFO_0_1 {
     fn clone(&self) -> Self {
         Self { dwOCXOptions: self.dwOCXOptions, pUnkControl: self.pUnkControl.clone() }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for RESULT_VIEW_TYPE_INFO_0_1 {
     type Abi = ::core::mem::ManuallyDrop<Self>;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RESULT_VIEW_TYPE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         self.dwOCXOptions == other.dwOCXOptions && self.pUnkControl == other.pUnkControl
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RESULT_VIEW_TYPE_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for RESULT_VIEW_TYPE_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

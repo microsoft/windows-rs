@@ -2600,25 +2600,32 @@ impl ::core::default::Default for WS_ENDPOINT_POLICY_EXTENSION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WindowsWebServices'*"]
+#[doc = "*Required features: 'Win32_Networking_WindowsWebServices', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WS_ENDPOINT_POLICY_EXTENSION_0 {
     pub assertionValue: *mut WS_XML_BUFFER,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WS_ENDPOINT_POLICY_EXTENSION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WS_ENDPOINT_POLICY_EXTENSION_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WS_ENDPOINT_POLICY_EXTENSION_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WS_ENDPOINT_POLICY_EXTENSION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WS_ENDPOINT_POLICY_EXTENSION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -1151,25 +1151,32 @@ impl ::core::default::Default for MEM_EXTENDED_PARAMETER {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Memory'*"]
+#[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct MEM_EXTENDED_PARAMETER_0 {
     pub _bitfield: u64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MEM_EXTENDED_PARAMETER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MEM_EXTENDED_PARAMETER_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MEM_EXTENDED_PARAMETER_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_EXTENDED_PARAMETER_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MEM_EXTENDED_PARAMETER_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MEM_EXTENDED_PARAMETER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1642,28 +1649,35 @@ impl ::core::default::Default for PROCESS_HEAP_ENTRY_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Memory'*"]
+#[doc = "*Required features: 'Win32_System_Memory', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_HEAP_ENTRY_0_1 {
     pub dwCommittedSize: u32,
     pub dwUnCommittedSize: u32,
     pub lpFirstBlock: *mut ::core::ffi::c_void,
     pub lpLastBlock: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for PROCESS_HEAP_ENTRY_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for PROCESS_HEAP_ENTRY_0_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for PROCESS_HEAP_ENTRY_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_HEAP_ENTRY_0_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for PROCESS_HEAP_ENTRY_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROCESS_HEAP_ENTRY_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

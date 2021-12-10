@@ -3923,26 +3923,33 @@ impl ::core::default::Default for flow_desc {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_NetworkManagement_QoS'*"]
+#[doc = "*Required features: 'Win32_NetworkManagement_QoS', 'Win32_Networking_WinSock'*"]
+#[cfg(feature = "Win32_Networking_WinSock")]
 pub union flow_desc_0 {
     pub stspec: *mut SENDER_TSPEC,
     pub isflow: *mut IS_FLOWSPEC,
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::marker::Copy for flow_desc_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::clone::Clone for flow_desc_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 unsafe impl ::windows::core::Abi for flow_desc_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::PartialEq for flow_desc_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<flow_desc_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::cmp::Eq for flow_desc_0 {}
+#[cfg(feature = "Win32_Networking_WinSock")]
 impl ::core::default::Default for flow_desc_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

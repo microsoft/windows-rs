@@ -161,26 +161,40 @@ impl ::core::default::Default for DBID {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows::core::GUID,
     pub pguid: *mut ::windows::core::GUID,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DBID_0 {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DBID_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_0>()) == 0 }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DBID_0 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DBID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -188,31 +202,38 @@ impl ::core::default::Default for DBID_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DBID_1 {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DBID_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_1>()) == 0 }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DBID_1 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DBID_1 {
     fn default() -> Self {
@@ -261,26 +282,40 @@ impl ::core::default::Default for DBID {
     }
 }
 #[repr(C, packed(2))]
-#[doc = "*Required features: 'Win32_Storage_IndexServer'*"]
+#[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 pub union DBID_0 {
     pub guid: ::windows::core::GUID,
     pub pguid: *mut ::windows::core::GUID,
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_0 {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DBID_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DBID_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DBID_0 {}
+#[cfg(target_arch = "x86")]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DBID_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -288,31 +323,38 @@ impl ::core::default::Default for DBID_0 {
 }
 #[repr(C, packed(2))]
 #[doc = "*Required features: 'Win32_Storage_IndexServer', 'Win32_Foundation'*"]
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 pub union DBID_1 {
     pub pwszName: super::super::Foundation::PWSTR,
     pub ulPropid: u32,
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DBID_1 {}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DBID_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DBID_1 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DBID_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DBID_1>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DBID_1 {}
+#[cfg(target_arch = "x86")]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DBID_1 {
     fn default() -> Self {

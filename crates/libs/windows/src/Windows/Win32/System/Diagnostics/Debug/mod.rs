@@ -323,25 +323,32 @@ impl ::core::default::Default for ARM64_NT_CONTEXT {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub union ARM64_NT_CONTEXT_0 {
     pub Anonymous: ARM64_NT_CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::marker::Copy for ARM64_NT_CONTEXT_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::clone::Clone for ARM64_NT_CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for ARM64_NT_CONTEXT_0 {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for ARM64_NT_CONTEXT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARM64_NT_CONTEXT_0>()) == 0 }
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for ARM64_NT_CONTEXT_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::default::Default for ARM64_NT_CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -349,6 +356,7 @@ impl ::core::default::Default for ARM64_NT_CONTEXT_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 pub struct ARM64_NT_CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -382,21 +390,27 @@ pub struct ARM64_NT_CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::marker::Copy for ARM64_NT_CONTEXT_0_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::clone::Clone for ARM64_NT_CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for ARM64_NT_CONTEXT_0_0 {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for ARM64_NT_CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ARM64_NT_CONTEXT_0_0>()) == 0 }
     }
 }
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for ARM64_NT_CONTEXT_0_0 {}
+#[cfg(any(target_arch = "x86", target_arch = "x86_64"))]
 impl ::core::default::Default for ARM64_NT_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1809,33 +1823,49 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
     pub Anonymous: CONTEXT_0_0,
     pub X: [u64; 31],
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0 {}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0 {}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
     pub X0: u64,
     pub X1: u64,
@@ -1869,21 +1899,33 @@ pub struct CONTEXT_0_0 {
     pub Fp: u64,
     pub Lr: u64,
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0_0 {}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0_0 {}
+#[cfg(target_arch = "aarch64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1974,33 +2016,49 @@ impl ::core::default::Default for CONTEXT {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 pub union CONTEXT_0 {
     pub FltSave: XSAVE_FORMAT,
     pub Anonymous: CONTEXT_0_0,
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0 {}
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0 {}
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 pub struct CONTEXT_0_0 {
     pub Header: [M128A; 2],
     pub Legacy: [M128A; 8],
@@ -2021,21 +2079,33 @@ pub struct CONTEXT_0_0 {
     pub Xmm14: M128A,
     pub Xmm15: M128A,
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::marker::Copy for CONTEXT_0_0 {}
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::clone::Clone for CONTEXT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 unsafe impl ::windows::core::Abi for CONTEXT_0_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for CONTEXT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONTEXT_0_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for CONTEXT_0_0 {}
+#[cfg(target_arch = "x86_64")]
+#[cfg(feature = "Win32_System_Kernel")]
 impl ::core::default::Default for CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4763,52 +4833,66 @@ impl ::core::default::Default for DEBUG_VALUE_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_1 {
     pub LowPart: u64,
     pub HighPart: i64,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_VALUE_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEBUG_VALUE_0_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUG_VALUE_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEBUG_VALUE_0_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUG_VALUE_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_VALUE_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DEBUG_VALUE_0_2 {
     pub LowPart: u32,
     pub HighPart: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DEBUG_VALUE_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DEBUG_VALUE_0_2 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DEBUG_VALUE_0_2 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUG_VALUE_0_2 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEBUG_VALUE_0_2>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUG_VALUE_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEBUG_VALUE_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5082,26 +5166,33 @@ impl ::core::default::Default for DUMP_HEADER32 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DUMP_HEADER32_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR32,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DUMP_HEADER32_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUMP_HEADER32_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DUMP_HEADER32_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DUMP_HEADER32_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DUMP_HEADER32_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUMP_HEADER32_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DUMP_HEADER32_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -5175,26 +5266,33 @@ impl ::core::default::Default for DUMP_HEADER64 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DUMP_HEADER64_0 {
     pub PhysicalMemoryBlock: PHYSICAL_MEMORY_DESCRIPTOR64,
     pub PhysicalMemoryBlockBuffer: [u8; 700],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DUMP_HEADER64_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DUMP_HEADER64_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DUMP_HEADER64_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DUMP_HEADER64_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DUMP_HEADER64_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DUMP_HEADER64_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DUMP_HEADER64_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -42960,25 +43058,32 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(target_arch = "x86_64")]
 pub union KNONVOLATILE_CONTEXT_POINTERS_0 {
     pub FloatingContext: [*mut M128A; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_0_0,
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -42986,6 +43091,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm0: *mut M128A,
     pub Xmm1: *mut M128A,
@@ -43004,21 +43110,27 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     pub Xmm14: *mut M128A,
     pub Xmm15: *mut M128A,
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_0_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_0_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_0_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -43026,25 +43138,32 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_0_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(target_arch = "x86_64")]
 pub union KNONVOLATILE_CONTEXT_POINTERS_1 {
     pub IntegerContext: [*mut u64; 16],
     pub Anonymous: KNONVOLATILE_CONTEXT_POINTERS_1_0,
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_1 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_1 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_1>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_1 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -43052,6 +43171,7 @@ impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(target_arch = "x86_64")]
 pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub Rax: *mut u64,
     pub Rcx: *mut u64,
@@ -43070,21 +43190,27 @@ pub struct KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     pub R14: *mut u64,
     pub R15: *mut u64,
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for KNONVOLATILE_CONTEXT_POINTERS_1_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KNONVOLATILE_CONTEXT_POINTERS_1_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for KNONVOLATILE_CONTEXT_POINTERS_1_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for KNONVOLATILE_CONTEXT_POINTERS_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -43700,59 +43826,66 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0 {
     }
 }
 #[repr(C, packed(4))]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_0 {
     pub MemoryBase: u64,
     pub MemorySize: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::marker::Copy for MINIDUMP_CALLBACK_OUTPUT_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_OUTPUT_0_0 {
     type Abi = Self;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::PartialEq for MINIDUMP_CALLBACK_OUTPUT_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_CALLBACK_OUTPUT_0_0>()) == 0 }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::Eq for MINIDUMP_CALLBACK_OUTPUT_0_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
-#[cfg(feature = "Win32_Foundation")]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_1 {
     pub CheckCancel: super::super::super::Foundation::BOOL,
     pub Cancel: super::super::super::Foundation::BOOL,
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::marker::Copy for MINIDUMP_CALLBACK_OUTPUT_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_OUTPUT_0_1 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::PartialEq for MINIDUMP_CALLBACK_OUTPUT_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_CALLBACK_OUTPUT_0_1>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::Eq for MINIDUMP_CALLBACK_OUTPUT_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -43792,59 +43925,66 @@ impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Memory'*"]
-#[cfg(feature = "Win32_System_Memory")]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_3 {
     pub VmQueryStatus: ::windows::core::HRESULT,
     pub VmQueryResult: MINIDUMP_MEMORY_INFO,
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::marker::Copy for MINIDUMP_CALLBACK_OUTPUT_0_3 {}
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_OUTPUT_0_3 {
     type Abi = Self;
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::PartialEq for MINIDUMP_CALLBACK_OUTPUT_0_3 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_CALLBACK_OUTPUT_0_3>()) == 0 }
     }
 }
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::Eq for MINIDUMP_CALLBACK_OUTPUT_0_3 {}
-#[cfg(feature = "Win32_System_Memory")]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation', 'Win32_System_Memory'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 pub struct MINIDUMP_CALLBACK_OUTPUT_0_4 {
     pub VmReadStatus: ::windows::core::HRESULT,
     pub VmReadBytesCompleted: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::marker::Copy for MINIDUMP_CALLBACK_OUTPUT_0_4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::clone::Clone for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 unsafe impl ::windows::core::Abi for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     type Abi = Self;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::PartialEq for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIDUMP_CALLBACK_OUTPUT_0_4>()) == 0 }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::cmp::Eq for MINIDUMP_CALLBACK_OUTPUT_0_4 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Memory"))]
 impl ::core::default::Default for MINIDUMP_CALLBACK_OUTPUT_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -53412,28 +53552,35 @@ impl ::core::default::Default for WAITCHAIN_NODE_INFO_0_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
+#[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct WAITCHAIN_NODE_INFO_0_1 {
     pub ProcessId: u32,
     pub ThreadId: u32,
     pub WaitTime: u32,
     pub ContextSwitches: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WAITCHAIN_NODE_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WAITCHAIN_NODE_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WAITCHAIN_NODE_INFO_0_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WAITCHAIN_NODE_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WAITCHAIN_NODE_INFO_0_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WAITCHAIN_NODE_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WAITCHAIN_NODE_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

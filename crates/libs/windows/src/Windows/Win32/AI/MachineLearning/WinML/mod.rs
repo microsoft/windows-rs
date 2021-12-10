@@ -1243,28 +1243,35 @@ impl ::core::default::Default for MLOperatorAttributeNameValue {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MLOperatorAttributeNameValue_0 {
     pub reserved: *mut ::core::ffi::c_void,
     pub ints: *mut i64,
     pub strings: *mut *mut i8,
     pub floats: *mut f32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MLOperatorAttributeNameValue_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MLOperatorAttributeNameValue_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MLOperatorAttributeNameValue_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MLOperatorAttributeNameValue_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MLOperatorAttributeNameValue_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MLOperatorAttributeNameValue_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MLOperatorAttributeNameValue_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -2289,28 +2296,35 @@ impl ::core::default::Default for WINML_VARIABLE_DESC {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML'*"]
+#[doc = "*Required features: 'Win32_AI_MachineLearning_WinML', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union WINML_VARIABLE_DESC_0 {
     pub Tensor: WINML_TENSOR_VARIABLE_DESC,
     pub Sequence: WINML_SEQUENCE_VARIABLE_DESC,
     pub Map: WINML_MAP_VARIABLE_DESC,
     pub Image: WINML_IMAGE_VARIABLE_DESC,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for WINML_VARIABLE_DESC_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for WINML_VARIABLE_DESC_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for WINML_VARIABLE_DESC_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for WINML_VARIABLE_DESC_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINML_VARIABLE_DESC_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for WINML_VARIABLE_DESC_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINML_VARIABLE_DESC_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

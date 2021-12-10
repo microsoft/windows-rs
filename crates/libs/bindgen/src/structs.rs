@@ -5,10 +5,10 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
         return quote! {};
     }
 
-    gen_struct_with_name(def, def.name(), gen)
+    gen_struct_with_name(def, def.name(), &Cfg::new(), gen)
 }
 
-fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStream {
+fn gen_struct_with_name(def: &TypeDef, struct_name: &str, cfg:&Cfg, gen: &Gen) -> TokenStream {
     if !gen.sys {
         if let Some(replacement) = replacements::gen(def) {
             return replacement;
@@ -46,7 +46,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     }
 
     let is_union = def.is_union();
-    let cfg = gen.type_cfg(def);
+    let cfg = cfg.union(gen.type_cfg(def));
 
     let repr = if let Some(layout) = def.class_layout() {
         let packing = Literal::u32_unsuffixed(layout.packing_size());
@@ -104,7 +104,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen) -> TokenStr
     if let Some(nested_types) = def.nested_types() {
         for (index, (_, nested_type)) in nested_types.iter().enumerate() {
             let nested_name = format!("{}_{}", struct_name, index);
-            tokens.combine(&gen_struct_with_name(nested_type, &nested_name, gen));
+            tokens.combine(&gen_struct_with_name(nested_type, &nested_name, &cfg, gen));
         }
     }
 

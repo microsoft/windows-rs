@@ -394,26 +394,33 @@ impl ::core::default::Default for SIP_CAP_SET_V3 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union SIP_CAP_SET_V3_0 {
     pub dwFlags: u32,
     pub dwReserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SIP_CAP_SET_V3_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SIP_CAP_SET_V3_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SIP_CAP_SET_V3_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SIP_CAP_SET_V3_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SIP_CAP_SET_V3_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SIP_CAP_SET_V3_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SIP_CAP_SET_V3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

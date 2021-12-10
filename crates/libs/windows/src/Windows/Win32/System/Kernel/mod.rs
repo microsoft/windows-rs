@@ -299,26 +299,33 @@ impl ::core::default::Default for NT_TIB {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Kernel'*"]
+#[doc = "*Required features: 'Win32_System_Kernel', 'Win32_Foundation', 'Win32_System_Diagnostics_Debug'*"]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 pub union NT_TIB_0 {
     pub FiberData: *mut ::core::ffi::c_void,
     pub Version: u32,
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::marker::Copy for NT_TIB_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::clone::Clone for NT_TIB_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 unsafe impl ::windows::core::Abi for NT_TIB_0 {
     type Abi = Self;
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::cmp::PartialEq for NT_TIB_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NT_TIB_0>()) == 0 }
     }
 }
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::cmp::Eq for NT_TIB_0 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Diagnostics_Debug"))]
 impl ::core::default::Default for NT_TIB_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -814,25 +821,32 @@ impl ::core::default::Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "aarch64")]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
+#[cfg(target_arch = "aarch64")]
 impl ::core::marker::Copy for SLIST_HEADER_0 {}
+#[cfg(target_arch = "aarch64")]
 impl ::core::clone::Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "aarch64")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SLIST_HEADER_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::Eq for SLIST_HEADER_0 {}
+#[cfg(target_arch = "aarch64")]
 impl ::core::default::Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -840,25 +854,32 @@ impl ::core::default::Default for SLIST_HEADER_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "aarch64")]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
+#[cfg(target_arch = "aarch64")]
 impl ::core::marker::Copy for SLIST_HEADER_1 {}
+#[cfg(target_arch = "aarch64")]
 impl ::core::clone::Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "aarch64")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_1 {
     type Abi = Self;
 }
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SLIST_HEADER_1>()) == 0 }
     }
 }
+#[cfg(target_arch = "aarch64")]
 impl ::core::cmp::Eq for SLIST_HEADER_1 {}
+#[cfg(target_arch = "aarch64")]
 impl ::core::default::Default for SLIST_HEADER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -899,25 +920,32 @@ impl ::core::default::Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "x86_64")]
 pub struct SLIST_HEADER_0 {
     pub Alignment: u64,
     pub Region: u64,
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for SLIST_HEADER_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SLIST_HEADER_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for SLIST_HEADER_0 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -925,25 +953,32 @@ impl ::core::default::Default for SLIST_HEADER_0 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "x86_64")]
 pub struct SLIST_HEADER_1 {
     pub _bitfield1: u64,
     pub _bitfield2: u64,
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::marker::Copy for SLIST_HEADER_1 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::clone::Clone for SLIST_HEADER_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86_64")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_1 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SLIST_HEADER_1>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86_64")]
 impl ::core::cmp::Eq for SLIST_HEADER_1 {}
+#[cfg(target_arch = "x86_64")]
 impl ::core::default::Default for SLIST_HEADER_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -984,26 +1019,33 @@ impl ::core::default::Default for SLIST_HEADER {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Kernel'*"]
+#[cfg(target_arch = "x86")]
 pub struct SLIST_HEADER_0 {
     pub Next: SINGLE_LIST_ENTRY,
     pub Depth: u16,
     pub CpuId: u16,
 }
+#[cfg(target_arch = "x86")]
 impl ::core::marker::Copy for SLIST_HEADER_0 {}
+#[cfg(target_arch = "x86")]
 impl ::core::clone::Clone for SLIST_HEADER_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(target_arch = "x86")]
 unsafe impl ::windows::core::Abi for SLIST_HEADER_0 {
     type Abi = Self;
 }
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::PartialEq for SLIST_HEADER_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SLIST_HEADER_0>()) == 0 }
     }
 }
+#[cfg(target_arch = "x86")]
 impl ::core::cmp::Eq for SLIST_HEADER_0 {}
+#[cfg(target_arch = "x86")]
 impl ::core::default::Default for SLIST_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

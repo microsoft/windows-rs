@@ -4138,52 +4138,66 @@ impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+#[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union INTERNET_CACHE_CONFIG_INFOW_0 {
     pub Anonymous: INTERNET_CACHE_CONFIG_INFOW_0_0,
     pub CachePaths: [INTERNET_CACHE_CONFIG_PATH_ENTRYW; 1],
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOW_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOW_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+#[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INTERNET_CACHE_CONFIG_INFOW_0_0 {
     pub CachePath: [u16; 260],
     pub dwCacheSize: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_CONFIG_INFOW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_CONFIG_INFOW_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INTERNET_CACHE_CONFIG_INFOW_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_CONFIG_INFOW_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4376,26 +4390,33 @@ impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOA {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+#[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union INTERNET_CACHE_ENTRY_INFOA_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_ENTRY_INFOA_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_ENTRY_INFOA_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INTERNET_CACHE_ENTRY_INFOA_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4449,26 +4470,33 @@ impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOW {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_WinInet'*"]
+#[doc = "*Required features: 'Win32_Networking_WinInet', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union INTERNET_CACHE_ENTRY_INFOW_0 {
     pub dwReserved: u32,
     pub dwExemptDelta: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INTERNET_CACHE_ENTRY_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INTERNET_CACHE_ENTRY_INFOW_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INTERNET_CACHE_ENTRY_INFOW_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INTERNET_CACHE_ENTRY_INFOW_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INTERNET_CACHE_ENTRY_INFOW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

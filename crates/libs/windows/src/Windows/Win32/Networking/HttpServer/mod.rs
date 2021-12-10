@@ -532,26 +532,33 @@ impl ::core::default::Default for HTTP_DATA_CHUNK_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Networking_HttpServer'*"]
+#[doc = "*Required features: 'Win32_Networking_HttpServer', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct HTTP_DATA_CHUNK_0_3 {
     pub pBuffer: *mut ::core::ffi::c_void,
     pub BufferLength: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for HTTP_DATA_CHUNK_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for HTTP_DATA_CHUNK_0_3 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for HTTP_DATA_CHUNK_0_3 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for HTTP_DATA_CHUNK_0_3 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HTTP_DATA_CHUNK_0_3>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for HTTP_DATA_CHUNK_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HTTP_DATA_CHUNK_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

@@ -436,26 +436,33 @@ impl ::core::default::Default for ACTRL_OVERLAPPED {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union ACTRL_OVERLAPPED_0 {
     pub Provider: *mut ::core::ffi::c_void,
     pub Reserved1: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for ACTRL_OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for ACTRL_OVERLAPPED_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for ACTRL_OVERLAPPED_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ACTRL_OVERLAPPED_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACTRL_OVERLAPPED_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ACTRL_OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ACTRL_OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -744,26 +751,33 @@ impl ::core::default::Default for AUDIT_PARAM_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union AUDIT_PARAM_1 {
     pub Data1: usize,
     pub LogonId_HighPart: i32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUDIT_PARAM_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUDIT_PARAM_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUDIT_PARAM_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIT_PARAM_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIT_PARAM_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AUDIT_PARAM_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AUDIT_PARAM_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -1489,26 +1503,33 @@ impl ::core::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_Security_Authorization'*"]
+#[doc = "*Required features: 'Win32_Security_Authorization', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     pub pReserved: *mut ::core::ffi::c_void,
     pub pProviderGuid: *mut ::windows::core::GUID,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUTHZ_SOURCE_SCHEMA_REGISTRATION_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AUTHZ_SOURCE_SCHEMA_REGISTRATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

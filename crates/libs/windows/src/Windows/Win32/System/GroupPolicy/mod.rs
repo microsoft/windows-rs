@@ -7933,26 +7933,33 @@ impl ::core::default::Default for INSTALLSPEC_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_GroupPolicy'*"]
+#[doc = "*Required features: 'Win32_System_GroupPolicy', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct INSTALLSPEC_1 {
     pub Clsid: ::windows::core::GUID,
     pub ClsCtx: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for INSTALLSPEC_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for INSTALLSPEC_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for INSTALLSPEC_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for INSTALLSPEC_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTALLSPEC_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for INSTALLSPEC_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for INSTALLSPEC_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

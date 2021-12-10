@@ -2921,7 +2921,8 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Storage_FileSystem'*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_0 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -2931,28 +2932,35 @@ pub struct DEVICE_MEDIA_INFO_0_0 {
     pub NumberMediaSides: u32,
     pub MediaCharacteristics: u32,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for DEVICE_MEDIA_INFO_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_MEDIA_INFO_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::default::Default for DEVICE_MEDIA_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Storage_FileSystem'*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_1 {
     pub Cylinders: i64,
     pub MediaType: STORAGE_MEDIA_TYPE,
@@ -2962,21 +2970,27 @@ pub struct DEVICE_MEDIA_INFO_0_1 {
     pub NumberMediaSides: u32,
     pub MediaCharacteristics: u32,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for DEVICE_MEDIA_INFO_0_1 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_MEDIA_INFO_0_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_1 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::default::Default for DEVICE_MEDIA_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3019,51 +3033,65 @@ impl ::core::default::Default for DEVICE_MEDIA_INFO_0_2 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Storage_FileSystem'*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub union DEVICE_MEDIA_INFO_0_2_0 {
     pub ScsiInformation: DEVICE_MEDIA_INFO_0_2_0_0,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for DEVICE_MEDIA_INFO_0_2_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_2_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_2_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_MEDIA_INFO_0_2_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_2_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::default::Default for DEVICE_MEDIA_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Storage_FileSystem'*"]
+#[cfg(feature = "Win32_Storage_FileSystem")]
 pub struct DEVICE_MEDIA_INFO_0_2_0_0 {
     pub MediumType: u8,
     pub DensityCode: u8,
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::marker::Copy for DEVICE_MEDIA_INFO_0_2_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::clone::Clone for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 unsafe impl ::windows::core::Abi for DEVICE_MEDIA_INFO_0_2_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::PartialEq for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_MEDIA_INFO_0_2_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::cmp::Eq for DEVICE_MEDIA_INFO_0_2_0_0 {}
+#[cfg(feature = "Win32_Storage_FileSystem")]
 impl ::core::default::Default for DEVICE_MEDIA_INFO_0_2_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -3385,79 +3413,100 @@ impl ::core::default::Default for DISK_CACHE_INFORMATION {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DISK_CACHE_INFORMATION_0 {
     pub ScalarPrefetch: DISK_CACHE_INFORMATION_0_1,
     pub BlockPrefetch: DISK_CACHE_INFORMATION_0_0,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISK_CACHE_INFORMATION_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_CACHE_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_0 {
     pub Minimum: u16,
     pub Maximum: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISK_CACHE_INFORMATION_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_CACHE_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct DISK_CACHE_INFORMATION_0_1 {
     pub Minimum: u16,
     pub Maximum: u16,
     pub MaximumBlocks: u16,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DISK_CACHE_INFORMATION_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DISK_CACHE_INFORMATION_0_1 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DISK_CACHE_INFORMATION_0_1 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DISK_CACHE_INFORMATION_0_1 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISK_CACHE_INFORMATION_0_1>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DISK_CACHE_INFORMATION_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISK_CACHE_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -4086,26 +4135,33 @@ impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION_EX {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union DRIVE_LAYOUT_INFORMATION_EX_0 {
     pub Mbr: DRIVE_LAYOUT_INFORMATION_MBR,
     pub Gpt: DRIVE_LAYOUT_INFORMATION_GPT,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for DRIVE_LAYOUT_INFORMATION_EX_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for DRIVE_LAYOUT_INFORMATION_EX_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRIVE_LAYOUT_INFORMATION_EX_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRIVE_LAYOUT_INFORMATION_EX_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DRIVE_LAYOUT_INFORMATION_EX_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7292,26 +7348,33 @@ impl ::core::default::Default for MARK_HANDLE_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union MARK_HANDLE_INFO_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for MARK_HANDLE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for MARK_HANDLE_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for MARK_HANDLE_INFO_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MARK_HANDLE_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MARK_HANDLE_INFO_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MARK_HANDLE_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MARK_HANDLE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -7353,25 +7416,32 @@ impl ::core::default::Default for MARK_HANDLE_INFO32 {
 }
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 pub union MARK_HANDLE_INFO32_0 {
     pub UsnSourceInfo: u32,
     pub CopyNumber: u32,
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::marker::Copy for MARK_HANDLE_INFO32_0 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::clone::Clone for MARK_HANDLE_INFO32_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 unsafe impl ::windows::core::Abi for MARK_HANDLE_INFO32_0 {
     type Abi = Self;
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::PartialEq for MARK_HANDLE_INFO32_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MARK_HANDLE_INFO32_0>()) == 0 }
     }
 }
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::cmp::Eq for MARK_HANDLE_INFO32_0 {}
+#[cfg(any(target_arch = "aarch64", target_arch = "x86_64"))]
 impl ::core::default::Default for MARK_HANDLE_INFO32_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -9879,25 +9949,32 @@ impl ::core::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     pub _bitfield: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCM_BUS_RUNTIME_FW_ACTIVATION_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -13808,51 +13885,65 @@ impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union STORAGE_MINIPORT_DESCRIPTOR_0 {
     pub Anonymous: STORAGE_MINIPORT_DESCRIPTOR_0_0,
     pub AsBYTE: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_MINIPORT_DESCRIPTOR_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STORAGE_MINIPORT_DESCRIPTOR_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     pub _bitfield: u8,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STORAGE_MINIPORT_DESCRIPTOR_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_MINIPORT_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_MINIPORT_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
@@ -15587,26 +15678,33 @@ impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_Ioctl'*"]
+#[doc = "*Required features: 'Win32_System_Ioctl', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     pub OptimalOpenZoneCount: u32,
     pub Reserved: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STORAGE_ZONED_DEVICE_DESCRIPTOR_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }

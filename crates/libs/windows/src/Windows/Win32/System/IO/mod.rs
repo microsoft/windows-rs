@@ -188,52 +188,66 @@ impl ::core::default::Default for OVERLAPPED {
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_IO'*"]
+#[doc = "*Required features: 'Win32_System_IO', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub union OVERLAPPED_0 {
     pub Anonymous: OVERLAPPED_0_0,
     pub Pointer: *mut ::core::ffi::c_void,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OVERLAPPED_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OVERLAPPED_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OVERLAPPED_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OVERLAPPED_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
 #[repr(C)]
-#[doc = "*Required features: 'Win32_System_IO'*"]
+#[doc = "*Required features: 'Win32_System_IO', 'Win32_Foundation'*"]
+#[cfg(feature = "Win32_Foundation")]
 pub struct OVERLAPPED_0_0 {
     pub Offset: u32,
     pub OffsetHigh: u32,
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::marker::Copy for OVERLAPPED_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::clone::Clone for OVERLAPPED_0_0 {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 unsafe impl ::windows::core::Abi for OVERLAPPED_0_0 {
     type Abi = Self;
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for OVERLAPPED_0_0 {
     fn eq(&self, other: &Self) -> bool {
         unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<OVERLAPPED_0_0>()) == 0 }
     }
 }
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for OVERLAPPED_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for OVERLAPPED_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
