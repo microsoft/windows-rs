@@ -5,10 +5,10 @@ edition = "2018"
 publish = false
 
 [dependencies]
-windows = { path = "../../../.." }
+windows = { path = "../../../libs/windows" }
 
 [build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+windows = { path = "../../../libs/windows", features = ["build"] }
 
 [features]
 default = ["alloc"]

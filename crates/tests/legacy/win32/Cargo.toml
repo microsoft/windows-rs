@@ -5,14 +5,14 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-windows = { path = "../../../.." }
-gen = { package = "windows_gen", path = "../../../../crates/deps/gen" }
+windows = { path = "../../../libs/windows" }
+gen = { package = "windows_gen", path = "../../../../crates/libs/gen" }
 
 [dev-dependencies]
 helpers = { package = "test_helpers", path = "../helpers" }
 
 [build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+windows = { path = "../../../libs/windows", features = ["build"] }
 
 [features]
 default = ["alloc"]

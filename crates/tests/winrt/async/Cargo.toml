@@ -5,14 +5,14 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies.windows]
-path = "../../../.."
+path = "../../../libs/windows"
 features = [
     "std",
     "Foundation",
 ]
 
 [build-dependencies]
-windows = { path = "../../../..", features = ["build"] }
+windows = { path = "../../../libs/windows", features = ["build"] }
 
 [dev-dependencies]
 futures = "0.3"

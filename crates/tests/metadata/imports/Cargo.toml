@@ -5,4 +5,4 @@ authors = ["Microsoft"]
 edition = "2018"
 
 [dependencies]
-reader = { package = "windows_reader", path = "../../../../crates/deps/reader" }
+reader = { package = "windows_reader", path = "../../../../crates/libs/reader" }
