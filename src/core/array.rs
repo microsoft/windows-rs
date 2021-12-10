@@ -1,5 +1,5 @@
 use super::*;
-use bindings::Windows::Win32::System::Com::{CoTaskMemAlloc, CoTaskMemFree};
+use bindings::*;
 
 /// A WinRT array stores elements contiguously in a heap-allocated buffer.
 pub struct Array<T: RuntimeType> {

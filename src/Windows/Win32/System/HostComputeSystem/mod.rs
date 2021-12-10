@@ -1,17 +1,6 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCS_CREATE_OPTIONS(pub i32);
-pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = HCS_CREATE_OPTIONS(65536i32);
-impl ::core::convert::From<i32> for HCS_CREATE_OPTIONS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+pub type HCS_CREATE_OPTIONS = i32;
+pub const HcsCreateOptions_1: HCS_CREATE_OPTIONS = 65536i32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct HCS_CREATE_OPTIONS_1 {
@@ -23,32 +12,31 @@ pub struct HCS_CREATE_OPTIONS_1 {
     pub Callback: HCS_EVENT_CALLBACK,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl HCS_CREATE_OPTIONS_1 {}
+impl ::core::marker::Copy for HCS_CREATE_OPTIONS_1 {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::clone::Clone for HCS_CREATE_OPTIONS_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS_1 {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::PartialEq for HCS_CREATE_OPTIONS_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_CREATE_OPTIONS_1>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
+impl ::core::cmp::Eq for HCS_CREATE_OPTIONS_1 {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 impl ::core::default::Default for HCS_CREATE_OPTIONS_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::fmt::Debug for HCS_CREATE_OPTIONS_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HCS_CREATE_OPTIONS_1").field("Version", &self.Version).field("UserToken", &self.UserToken).field("SecurityDescriptor", &self.SecurityDescriptor).field("CallbackOptions", &self.CallbackOptions).field("CallbackContext", &self.CallbackContext).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::PartialEq for HCS_CREATE_OPTIONS_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.UserToken == other.UserToken && self.SecurityDescriptor == other.SecurityDescriptor && self.CallbackOptions == other.CallbackOptions && self.CallbackContext == other.CallbackContext && self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize)
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-impl ::core::cmp::Eq for HCS_CREATE_OPTIONS_1 {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-unsafe impl ::windows::core::Abi for HCS_CREATE_OPTIONS_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HCS_EVENT {
@@ -57,7 +45,25 @@ pub struct HCS_EVENT {
     pub Operation: HCS_OPERATION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HCS_EVENT {}
+impl ::core::marker::Copy for HCS_EVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HCS_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HCS_EVENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HCS_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_EVENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HCS_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HCS_EVENT {
     fn default() -> Self {
@@ -65,188 +71,69 @@ impl ::core::default::Default for HCS_EVENT {
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HCS_EVENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HCS_EVENT").field("Type", &self.Type).field("EventData", &self.EventData).field("Operation", &self.Operation).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HCS_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.EventData == other.EventData && self.Operation == other.Operation
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HCS_EVENT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HCS_EVENT {
-    type Abi = Self;
-}
-#[cfg(feature = "Win32_Foundation")]
 pub type HCS_EVENT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(event: *const HCS_EVENT, context: *const ::core::ffi::c_void)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCS_EVENT_OPTIONS(pub u32);
-pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(0u32);
-pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = HCS_EVENT_OPTIONS(1u32);
-impl ::core::convert::From<u32> for HCS_EVENT_OPTIONS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_EVENT_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for HCS_EVENT_OPTIONS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for HCS_EVENT_OPTIONS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for HCS_EVENT_OPTIONS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for HCS_EVENT_OPTIONS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for HCS_EVENT_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCS_EVENT_TYPE(pub i32);
-pub const HcsEventInvalid: HCS_EVENT_TYPE = HCS_EVENT_TYPE(0i32);
-pub const HcsEventSystemExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(1i32);
-pub const HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(2i32);
-pub const HcsEventSystemCrashReport: HCS_EVENT_TYPE = HCS_EVENT_TYPE(3i32);
-pub const HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = HCS_EVENT_TYPE(4i32);
-pub const HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = HCS_EVENT_TYPE(5i32);
-pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = HCS_EVENT_TYPE(6i32);
-pub const HcsEventProcessExited: HCS_EVENT_TYPE = HCS_EVENT_TYPE(65536i32);
-pub const HcsEventOperationCallback: HCS_EVENT_TYPE = HCS_EVENT_TYPE(16777216i32);
-pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = HCS_EVENT_TYPE(33554432i32);
-impl ::core::convert::From<i32> for HCS_EVENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_EVENT_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCS_NOTIFICATIONS(pub i32);
-pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(0i32);
-pub const HcsNotificationSystemExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(1i32);
-pub const HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(2i32);
-pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(3i32);
-pub const HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(4i32);
-pub const HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(5i32);
-pub const HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(6i32);
-pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(7i32);
-pub const HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(8i32);
-pub const HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(9i32);
-pub const HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-pub const HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(10i32);
-pub const HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(11i32);
-pub const HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(12i32);
-pub const HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(13i32);
-pub const HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(14i32);
-pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(15i32);
-pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16i32);
-pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(65536i32);
-pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(16777216i32);
-pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = HCS_NOTIFICATIONS(-268435456i32);
-impl ::core::convert::From<i32> for HCS_NOTIFICATIONS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_NOTIFICATIONS {
-    type Abi = Self;
-}
+pub type HCS_EVENT_OPTIONS = u32;
+pub const HcsEventOptionNone: HCS_EVENT_OPTIONS = 0u32;
+pub const HcsEventOptionEnableOperationCallbacks: HCS_EVENT_OPTIONS = 1u32;
+pub type HCS_EVENT_TYPE = i32;
+pub const HcsEventInvalid: HCS_EVENT_TYPE = 0i32;
+pub const HcsEventSystemExited: HCS_EVENT_TYPE = 1i32;
+pub const HcsEventSystemCrashInitiated: HCS_EVENT_TYPE = 2i32;
+pub const HcsEventSystemCrashReport: HCS_EVENT_TYPE = 3i32;
+pub const HcsEventSystemRdpEnhancedModeStateChanged: HCS_EVENT_TYPE = 4i32;
+pub const HcsEventSystemSiloJobCreated: HCS_EVENT_TYPE = 5i32;
+pub const HcsEventSystemGuestConnectionClosed: HCS_EVENT_TYPE = 6i32;
+pub const HcsEventProcessExited: HCS_EVENT_TYPE = 65536i32;
+pub const HcsEventOperationCallback: HCS_EVENT_TYPE = 16777216i32;
+pub const HcsEventServiceDisconnect: HCS_EVENT_TYPE = 33554432i32;
+pub type HCS_NOTIFICATIONS = i32;
+pub const HcsNotificationInvalid: HCS_NOTIFICATIONS = 0i32;
+pub const HcsNotificationSystemExited: HCS_NOTIFICATIONS = 1i32;
+pub const HcsNotificationSystemCreateCompleted: HCS_NOTIFICATIONS = 2i32;
+pub const HcsNotificationSystemStartCompleted: HCS_NOTIFICATIONS = 3i32;
+pub const HcsNotificationSystemPauseCompleted: HCS_NOTIFICATIONS = 4i32;
+pub const HcsNotificationSystemResumeCompleted: HCS_NOTIFICATIONS = 5i32;
+pub const HcsNotificationSystemCrashReport: HCS_NOTIFICATIONS = 6i32;
+pub const HcsNotificationSystemSiloJobCreated: HCS_NOTIFICATIONS = 7i32;
+pub const HcsNotificationSystemSaveCompleted: HCS_NOTIFICATIONS = 8i32;
+pub const HcsNotificationSystemRdpEnhancedModeStateChanged: HCS_NOTIFICATIONS = 9i32;
+pub const HcsNotificationSystemShutdownFailed: HCS_NOTIFICATIONS = 10i32;
+pub const HcsNotificationSystemShutdownCompleted: HCS_NOTIFICATIONS = 10i32;
+pub const HcsNotificationSystemGetPropertiesCompleted: HCS_NOTIFICATIONS = 11i32;
+pub const HcsNotificationSystemModifyCompleted: HCS_NOTIFICATIONS = 12i32;
+pub const HcsNotificationSystemCrashInitiated: HCS_NOTIFICATIONS = 13i32;
+pub const HcsNotificationSystemGuestConnectionClosed: HCS_NOTIFICATIONS = 14i32;
+pub const HcsNotificationSystemOperationCompletion: HCS_NOTIFICATIONS = 15i32;
+pub const HcsNotificationSystemPassThru: HCS_NOTIFICATIONS = 16i32;
+pub const HcsNotificationProcessExited: HCS_NOTIFICATIONS = 65536i32;
+pub const HcsNotificationServiceDisconnect: HCS_NOTIFICATIONS = 16777216i32;
+pub const HcsNotificationFlagsReserved: HCS_NOTIFICATIONS = -268435456i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type HCS_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: super::super::Foundation::PWSTR)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCS_NOTIFICATION_FLAGS(pub i32);
-pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(0i32);
-pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = HCS_NOTIFICATION_FLAGS(-2147483648i32);
-impl ::core::convert::From<i32> for HCS_NOTIFICATION_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_NOTIFICATION_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HCS_OPERATION(pub isize);
-impl ::core::default::Default for HCS_OPERATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HCS_OPERATION {}
-unsafe impl ::windows::core::Abi for HCS_OPERATION {
-    type Abi = Self;
-}
+pub type HCS_NOTIFICATION_FLAGS = i32;
+pub const HcsNotificationFlagSuccess: HCS_NOTIFICATION_FLAGS = 0i32;
+pub const HcsNotificationFlagFailure: HCS_NOTIFICATION_FLAGS = -2147483648i32;
+pub type HCS_OPERATION = isize;
 pub type HCS_OPERATION_COMPLETION = ::core::option::Option<unsafe extern "system" fn(operation: HCS_OPERATION, context: *const ::core::ffi::c_void)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCS_OPERATION_TYPE(pub i32);
-pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(-1i32);
-pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(0i32);
-pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(1i32);
-pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(2i32);
-pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(3i32);
-pub const HcsOperationTypePause: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(4i32);
-pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(5i32);
-pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(6i32);
-pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(7i32);
-pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(8i32);
-pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(9i32);
-pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(10i32);
-pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(11i32);
-pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(12i32);
-pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(13i32);
-pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(14i32);
-pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = HCS_OPERATION_TYPE(15i32);
-impl ::core::convert::From<i32> for HCS_OPERATION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCS_OPERATION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HCS_PROCESS(pub isize);
-impl ::core::default::Default for HCS_PROCESS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HCS_PROCESS {}
-unsafe impl ::windows::core::Abi for HCS_PROCESS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HCS_OPERATION_TYPE = i32;
+pub const HcsOperationTypeNone: HCS_OPERATION_TYPE = -1i32;
+pub const HcsOperationTypeEnumerate: HCS_OPERATION_TYPE = 0i32;
+pub const HcsOperationTypeCreate: HCS_OPERATION_TYPE = 1i32;
+pub const HcsOperationTypeStart: HCS_OPERATION_TYPE = 2i32;
+pub const HcsOperationTypeShutdown: HCS_OPERATION_TYPE = 3i32;
+pub const HcsOperationTypePause: HCS_OPERATION_TYPE = 4i32;
+pub const HcsOperationTypeResume: HCS_OPERATION_TYPE = 5i32;
+pub const HcsOperationTypeSave: HCS_OPERATION_TYPE = 6i32;
+pub const HcsOperationTypeTerminate: HCS_OPERATION_TYPE = 7i32;
+pub const HcsOperationTypeModify: HCS_OPERATION_TYPE = 8i32;
+pub const HcsOperationTypeGetProperties: HCS_OPERATION_TYPE = 9i32;
+pub const HcsOperationTypeCreateProcess: HCS_OPERATION_TYPE = 10i32;
+pub const HcsOperationTypeSignalProcess: HCS_OPERATION_TYPE = 11i32;
+pub const HcsOperationTypeGetProcessInfo: HCS_OPERATION_TYPE = 12i32;
+pub const HcsOperationTypeGetProcessProperties: HCS_OPERATION_TYPE = 13i32;
+pub const HcsOperationTypeModifyProcess: HCS_OPERATION_TYPE = 14i32;
+pub const HcsOperationTypeCrash: HCS_OPERATION_TYPE = 15i32;
+pub type HCS_PROCESS = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HCS_PROCESS_INFORMATION {
@@ -257,43 +144,32 @@ pub struct HCS_PROCESS_INFORMATION {
     pub StdError: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HCS_PROCESS_INFORMATION {}
+impl ::core::marker::Copy for HCS_PROCESS_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HCS_PROCESS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HCS_PROCESS_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HCS_PROCESS_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCS_PROCESS_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HCS_PROCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HCS_PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HCS_PROCESS_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HCS_PROCESS_INFORMATION").field("ProcessId", &self.ProcessId).field("Reserved", &self.Reserved).field("StdInput", &self.StdInput).field("StdOutput", &self.StdOutput).field("StdError", &self.StdError).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HCS_PROCESS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProcessId == other.ProcessId && self.Reserved == other.Reserved && self.StdInput == other.StdInput && self.StdOutput == other.StdOutput && self.StdError == other.StdError
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HCS_PROCESS_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HCS_PROCESS_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HCS_SYSTEM(pub isize);
-impl ::core::default::Default for HCS_SYSTEM {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HCS_SYSTEM {}
-unsafe impl ::windows::core::Abi for HCS_SYSTEM {
-    type Abi = Self;
-}
+pub type HCS_SYSTEM = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HcsAttachLayerStorageFilter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(layerpath: Param0, layerdata: Param1) -> ::windows::core::Result<()> {
@@ -329,7 +205,7 @@ pub unsafe fn HcsCloseComputeSystem<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn HcsCloseComputeSystem(computesystem: HCS_SYSTEM);
         }
-        ::core::mem::transmute(HcsCloseComputeSystem(computesystem.into_param().abi()))
+        HcsCloseComputeSystem(computesystem.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -342,7 +218,7 @@ pub unsafe fn HcsCloseOperation<'a, Param0: ::windows::core::IntoParam<'a, HCS_O
         extern "system" {
             fn HcsCloseOperation(operation: HCS_OPERATION);
         }
-        ::core::mem::transmute(HcsCloseOperation(operation.into_param().abi()))
+        HcsCloseOperation(operation.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -355,7 +231,7 @@ pub unsafe fn HcsCloseProcess<'a, Param0: ::windows::core::IntoParam<'a, HCS_PRO
         extern "system" {
             fn HcsCloseProcess(process: HCS_PROCESS);
         }
-        ::core::mem::transmute(HcsCloseProcess(process.into_param().abi()))
+        HcsCloseProcess(process.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -383,8 +259,8 @@ pub unsafe fn HcsCreateComputeSystem<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn HcsCreateComputeSystem(id: super::super::Foundation::PWSTR, configuration: super::super::Foundation::PWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HCS_SYSTEM as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsCreateComputeSystem(id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor), &mut result__).from_abi::<HCS_SYSTEM>(result__)
+        let mut result__: HCS_SYSTEM = ::core::mem::zeroed();
+        HcsCreateComputeSystem(id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(&mut result__)).from_abi::<HCS_SYSTEM>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -398,8 +274,8 @@ pub unsafe fn HcsCreateComputeSystemInNamespace<'a, Param0: ::windows::core::Int
         extern "system" {
             fn HcsCreateComputeSystemInNamespace(idnamespace: super::super::Foundation::PWSTR, id: super::super::Foundation::PWSTR, configuration: super::super::Foundation::PWSTR, operation: HCS_OPERATION, options: *const HCS_CREATE_OPTIONS, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HCS_SYSTEM as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsCreateComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(options), &mut result__).from_abi::<HCS_SYSTEM>(result__)
+        let mut result__: HCS_SYSTEM = ::core::mem::zeroed();
+        HcsCreateComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), configuration.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(options), ::core::mem::transmute(&mut result__)).from_abi::<HCS_SYSTEM>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -454,8 +330,8 @@ pub unsafe fn HcsCreateProcess<'a, Param0: ::windows::core::IntoParam<'a, HCS_SY
         extern "system" {
             fn HcsCreateProcess(computesystem: HCS_SYSTEM, processparameters: super::super::Foundation::PWSTR, operation: HCS_OPERATION, securitydescriptor: *const super::super::Security::SECURITY_DESCRIPTOR, process: *mut HCS_PROCESS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HCS_PROCESS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsCreateProcess(computesystem.into_param().abi(), processparameters.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor), &mut result__).from_abi::<HCS_PROCESS>(result__)
+        let mut result__: HCS_PROCESS = ::core::mem::zeroed();
+        HcsCreateProcess(computesystem.into_param().abi(), processparameters.into_param().abi(), operation.into_param().abi(), ::core::mem::transmute(securitydescriptor), ::core::mem::transmute(&mut result__)).from_abi::<HCS_PROCESS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -594,8 +470,8 @@ pub unsafe fn HcsGetLayerVhdMountPath<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn HcsGetLayerVhdMountPath(vhdhandle: super::super::Foundation::HANDLE, mountpath: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsGetLayerVhdMountPath(vhdhandle.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsGetLayerVhdMountPath(vhdhandle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -635,8 +511,8 @@ pub unsafe fn HcsGetOperationResult<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn HcsGetOperationResult(operation: HCS_OPERATION, resultdocument: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsGetOperationResult(operation.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsGetOperationResult(operation.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -717,8 +593,8 @@ pub unsafe fn HcsGetProcessorCompatibilityFromSavedState<'a, Param0: ::windows::
         extern "system" {
             fn HcsGetProcessorCompatibilityFromSavedState(runtimefilename: super::super::Foundation::PWSTR, processorfeaturesstring: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsGetProcessorCompatibilityFromSavedState(runtimefilename.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsGetProcessorCompatibilityFromSavedState(runtimefilename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -732,8 +608,8 @@ pub unsafe fn HcsGetServiceProperties<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn HcsGetServiceProperties(propertyquery: super::super::Foundation::PWSTR, result: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsGetServiceProperties(propertyquery.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsGetServiceProperties(propertyquery.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -845,8 +721,8 @@ pub unsafe fn HcsModifyServiceSettings<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn HcsModifyServiceSettings(settings: super::super::Foundation::PWSTR, result: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsModifyServiceSettings(settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsModifyServiceSettings(settings.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -860,8 +736,8 @@ pub unsafe fn HcsOpenComputeSystem<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn HcsOpenComputeSystem(id: super::super::Foundation::PWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HCS_SYSTEM as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsOpenComputeSystem(id.into_param().abi(), ::core::mem::transmute(requestedaccess), &mut result__).from_abi::<HCS_SYSTEM>(result__)
+        let mut result__: HCS_SYSTEM = ::core::mem::zeroed();
+        HcsOpenComputeSystem(id.into_param().abi(), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(&mut result__)).from_abi::<HCS_SYSTEM>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -875,8 +751,8 @@ pub unsafe fn HcsOpenComputeSystemInNamespace<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn HcsOpenComputeSystemInNamespace(idnamespace: super::super::Foundation::PWSTR, id: super::super::Foundation::PWSTR, requestedaccess: u32, computesystem: *mut HCS_SYSTEM) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HCS_SYSTEM as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsOpenComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), ::core::mem::transmute(requestedaccess), &mut result__).from_abi::<HCS_SYSTEM>(result__)
+        let mut result__: HCS_SYSTEM = ::core::mem::zeroed();
+        HcsOpenComputeSystemInNamespace(idnamespace.into_param().abi(), id.into_param().abi(), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(&mut result__)).from_abi::<HCS_SYSTEM>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -889,8 +765,8 @@ pub unsafe fn HcsOpenProcess<'a, Param0: ::windows::core::IntoParam<'a, HCS_SYST
         extern "system" {
             fn HcsOpenProcess(computesystem: HCS_SYSTEM, processid: u32, requestedaccess: u32, process: *mut HCS_PROCESS) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HCS_PROCESS as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsOpenProcess(computesystem.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(requestedaccess), &mut result__).from_abi::<HCS_PROCESS>(result__)
+        let mut result__: HCS_PROCESS = ::core::mem::zeroed();
+        HcsOpenProcess(computesystem.into_param().abi(), ::core::mem::transmute(processid), ::core::mem::transmute(requestedaccess), ::core::mem::transmute(&mut result__)).from_abi::<HCS_PROCESS>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1140,8 +1016,8 @@ pub unsafe fn HcsWaitForComputeSystemExit<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn HcsWaitForComputeSystemExit(computesystem: HCS_SYSTEM, timeoutms: u32, result: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsWaitForComputeSystemExit(computesystem.into_param().abi(), ::core::mem::transmute(timeoutms), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsWaitForComputeSystemExit(computesystem.into_param().abi(), ::core::mem::transmute(timeoutms), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1155,8 +1031,8 @@ pub unsafe fn HcsWaitForOperationResult<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn HcsWaitForOperationResult(operation: HCS_OPERATION, timeoutms: u32, resultdocument: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsWaitForOperationResult(operation.into_param().abi(), ::core::mem::transmute(timeoutms), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsWaitForOperationResult(operation.into_param().abi(), ::core::mem::transmute(timeoutms), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1184,8 +1060,8 @@ pub unsafe fn HcsWaitForProcessExit<'a, Param0: ::windows::core::IntoParam<'a, H
         extern "system" {
             fn HcsWaitForProcessExit(computesystem: HCS_PROCESS, timeoutms: u32, result: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcsWaitForProcessExit(computesystem.into_param().abi(), ::core::mem::transmute(timeoutms), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcsWaitForProcessExit(computesystem.into_param().abi(), ::core::mem::transmute(timeoutms), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

@@ -10,10 +10,116 @@ pub fn gen_ident(name: &str) -> TokenStream {
     }
 }
 
-pub fn gen_generic_ident(name: &str) -> TokenStream {
-    let len = name.len();
-    let len = name.as_bytes().get(len - 2).map_or_else(|| len, |c| if *c == b'`' { len - 2 } else { len });
-    gen_ident(&name[..len])
+pub fn gen_type_ident2(def: &TypeDef) -> TokenStream {
+    let mut name = gen_ident(def.name());
+
+    if def.generics.is_empty() {
+        name
+    } else {
+        name.0.truncate(name.0.len() - 2);
+        name
+    }
+}
+
+// TODO: use above instead
+pub fn gen_type_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_type_ident_impl(def, gen, "")
+}
+
+// TODO: use above instead
+pub fn gen_vtbl_ident(def: &TypeDef, gen: &Gen) -> TokenStream {
+    gen_type_ident_impl(def, gen, "Vtbl")
+}
+
+fn gen_type_ident_impl(def: &TypeDef, gen: &Gen, vtbl: &str) -> TokenStream {
+    let mut name = gen_ident(def.name());
+
+    if def.generics.is_empty() {
+        name.push_str(vtbl);
+        name
+    } else {
+        name.0.truncate(name.0.len() - 2);
+        name.push_str(vtbl);
+
+        if gen.sys {
+            name
+        } else {
+            name.push('<');
+
+            for g in &def.generics {
+                name.push_str(gen_element_name(g, gen).as_str());
+                name.push(',');
+            }
+
+            name.push('>');
+            name
+        }
+    }
+}
+
+pub fn gen_phantoms(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { ::core::marker::PhantomData::<#name>, }
+        })
+        .collect()
+}
+
+pub fn gen_type_generics(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { #name, }
+        })
+        .collect()
+}
+
+pub fn gen_type_constraints(def: &TypeDef, gen: &Gen) -> Vec<TokenStream> {
+    def.generics
+        .iter()
+        .map(|g| {
+            let name = gen_element_name(g, gen);
+            quote! { #name: ::windows::core::RuntimeType + 'static, }
+        })
+        .collect()
+}
+
+pub fn gen_guid_signature(def: &TypeDef, signature: &str, gen: &Gen) -> TokenStream {
+    let signature = Literal::byte_string(signature.as_bytes());
+
+    if def.generics.is_empty() {
+        return quote! { ::windows::core::ConstBuffer::from_slice(#signature) };
+    }
+
+    let generics = def.generics.iter().enumerate().map(|(index, g)| {
+        let g = gen_element_name(g, gen);
+        let semi = if index != def.generics.len() - 1 {
+            Some(quote! {
+                .push_slice(b";")
+            })
+        } else {
+            None
+        };
+
+        quote! {
+            .push_other(<#g as ::windows::core::RuntimeType>::SIGNATURE)
+            #semi
+        }
+    });
+
+    quote! {
+        {
+            ::windows::core::ConstBuffer::new()
+            .push_slice(b"pinterface(")
+            .push_slice(#signature)
+            .push_slice(b";")
+            #(#generics)*
+            .push_slice(b")")
+        }
+    }
 }
 
 pub fn gen_param_name(param: &Param) -> TokenStream {
@@ -67,6 +173,39 @@ pub fn gen_element_name(def: &ElementType, gen: &Gen) -> TokenStream {
         ElementType::Field(field) => field.name().into(),
         ElementType::TypeDef(t) => gen_type_name(t, gen),
         _ => unimplemented!(),
+    }
+}
+
+pub fn gen_abi_element_name(sig: &Signature, gen: &Gen) -> TokenStream {
+    match &sig.kind {
+        ElementType::String => {
+            quote! { ::core::mem::ManuallyDrop<::windows::core::HSTRING> }
+        }
+        ElementType::IUnknown | ElementType::IInspectable => {
+            quote! { *mut ::core::ffi::c_void }
+        }
+        ElementType::Array((kind, len)) => {
+            let name = gen_abi_sig(kind, gen);
+            let len = Literal::u32_unsuffixed(*len);
+            quote! { [#name; #len] }
+        }
+        ElementType::GenericParam(generic) => {
+            let name = gen_ident(generic);
+            quote! { <#name as ::windows::core::Abi>::Abi }
+        }
+        ElementType::TypeDef(def) => match def.kind() {
+            TypeKind::Enum => gen_type_name(def, gen),
+            TypeKind::Struct => {
+                let tokens = gen_type_name(def, gen);
+                if def.is_blittable() || sig.pointers > 0 {
+                    tokens
+                } else {
+                    quote! { ::core::mem::ManuallyDrop<#tokens> }
+                }
+            }
+            _ => quote! { ::windows::core::RawPtr },
+        },
+        _ => gen_element_name(&sig.kind, gen),
     }
 }
 

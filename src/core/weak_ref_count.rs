@@ -1,10 +1,7 @@
 #![allow(non_upper_case_globals, non_snake_case, non_camel_case_types, dead_code, unused_variables)]
 
 use super::*;
-use bindings::Windows::Win32::{
-    Foundation::E_NOINTERFACE,
-    System::WinRT::{IWeakReference, IWeakReferenceSource, IWeakReferenceSource_abi, IWeakReference_abi},
-};
+use bindings::*;
 use core::sync::atomic::{AtomicIsize, Ordering};
 
 #[doc(hidden)]
@@ -77,8 +74,8 @@ fn is_weak_ref(value: isize) -> bool {
 
 #[repr(C)]
 struct TearOff {
-    strong_vtable: *const IWeakReferenceSource_abi,
-    weak_vtable: *const IWeakReference_abi,
+    strong_vtable: *const IWeakReferenceSourceVtbl,
+    weak_vtable: *const IWeakReferenceVtbl,
     object: RawPtr,
     strong_count: RefCount,
     weak_count: RefCount,
@@ -102,9 +99,9 @@ impl TearOff {
         core::mem::transmute(tear_off)
     }
 
-    const STRONG_VTABLE: IWeakReferenceSource_abi = IWeakReferenceSource_abi(Self::StrongQueryInterface, Self::StrongAddRef, Self::StrongRelease, Self::StrongDowngrade);
+    const STRONG_VTABLE: IWeakReferenceSourceVtbl = IWeakReferenceSourceVtbl(Self::StrongQueryInterface, Self::StrongAddRef, Self::StrongRelease, Self::StrongDowngrade);
 
-    const WEAK_VTABLE: IWeakReference_abi = IWeakReference_abi(Self::WeakQueryInterface, Self::WeakAddRef, Self::WeakRelease, Self::WeakUpgrade);
+    const WEAK_VTABLE: IWeakReferenceVtbl = IWeakReferenceVtbl(Self::WeakQueryInterface, Self::WeakAddRef, Self::WeakRelease, Self::WeakUpgrade);
 
     unsafe fn from_strong_ptr<'a>(this: RawPtr) -> &'a mut Self {
         &mut *(this as *mut RawPtr as *mut Self)
@@ -119,7 +116,7 @@ impl TearOff {
     }
 
     unsafe fn query_interface(&self, iid: *const GUID, interface: *mut RawPtr) -> HRESULT {
-        ((*(*(self.object as *mut *mut _) as *mut IUnknown_abi)).0)(self.object, iid, interface)
+        ((*(*(self.object as *mut *mut _) as *mut IUnknownVtbl)).0)(self.object, iid, interface)
     }
 
     unsafe extern "system" fn StrongQueryInterface(ptr: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT {
@@ -176,7 +173,7 @@ impl TearOff {
 
         // Forward strong `Release` to the object so that it can destroy itself. It will then
         // decrement its weak reference and allow the tear-off to be released as needed.
-        ((*(*(this.object as *mut *mut _) as *mut IUnknown_abi)).2)((*this).object)
+        ((*(*(this.object as *mut *mut _) as *mut IUnknownVtbl)).2)((*this).object)
     }
 
     unsafe extern "system" fn WeakRelease(ptr: ::windows::core::RawPtr) -> u32 {

@@ -1,5 +1,5 @@
 use super::*;
-use bindings::Windows::Foundation::{IReference, IStringable, PropertyValue};
+use bindings::*;
 
 /// A WinRT object that may be used as a polymorphic stand-in for any WinRT class, interface, or boxed value.
 /// [`IInspectable`] represents the
@@ -21,10 +21,10 @@ impl IInspectable {
 }
 
 #[repr(C)]
-pub struct IInspectable_abi(pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT);
+pub struct IInspectableVtbl(pub unsafe extern "system" fn(this: RawPtr, iid: &GUID, interface: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr) -> u32, pub unsafe extern "system" fn(this: RawPtr, count: *mut u32, values: *mut *mut GUID) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut RawPtr) -> HRESULT, pub unsafe extern "system" fn(this: RawPtr, value: *mut i32) -> HRESULT);
 
 unsafe impl Interface for IInspectable {
-    type Vtable = IInspectable_abi;
+    type Vtable = IInspectableVtbl;
 
     const IID: GUID = GUID::from_u128(0xaf86e2e0_b12d_4c6a_9c5a_d7aa65101e90);
 }

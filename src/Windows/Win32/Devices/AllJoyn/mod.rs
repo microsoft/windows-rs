@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ALLJOYN_BIG_ENDIAN: u8 = 66u8;
 pub const ALLJOYN_CRED_CERT_CHAIN: u16 = 4u16;
 pub const ALLJOYN_CRED_EXPIRATION: u16 = 32u16;
@@ -162,448 +162,414 @@ pub unsafe fn QCC_StatusText(status: QStatus) -> super::super::Foundation::PSTR 
     unimplemented!("Unsupported target OS");
 }
 pub const QCC_TRUE: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct QStatus(pub i32);
-pub const ER_OK: QStatus = QStatus(0i32);
-pub const ER_FAIL: QStatus = QStatus(1i32);
-pub const ER_UTF_CONVERSION_FAILED: QStatus = QStatus(2i32);
-pub const ER_BUFFER_TOO_SMALL: QStatus = QStatus(3i32);
-pub const ER_OS_ERROR: QStatus = QStatus(4i32);
-pub const ER_OUT_OF_MEMORY: QStatus = QStatus(5i32);
-pub const ER_SOCKET_BIND_ERROR: QStatus = QStatus(6i32);
-pub const ER_INIT_FAILED: QStatus = QStatus(7i32);
-pub const ER_WOULDBLOCK: QStatus = QStatus(8i32);
-pub const ER_NOT_IMPLEMENTED: QStatus = QStatus(9i32);
-pub const ER_TIMEOUT: QStatus = QStatus(10i32);
-pub const ER_SOCK_OTHER_END_CLOSED: QStatus = QStatus(11i32);
-pub const ER_BAD_ARG_1: QStatus = QStatus(12i32);
-pub const ER_BAD_ARG_2: QStatus = QStatus(13i32);
-pub const ER_BAD_ARG_3: QStatus = QStatus(14i32);
-pub const ER_BAD_ARG_4: QStatus = QStatus(15i32);
-pub const ER_BAD_ARG_5: QStatus = QStatus(16i32);
-pub const ER_BAD_ARG_6: QStatus = QStatus(17i32);
-pub const ER_BAD_ARG_7: QStatus = QStatus(18i32);
-pub const ER_BAD_ARG_8: QStatus = QStatus(19i32);
-pub const ER_INVALID_ADDRESS: QStatus = QStatus(20i32);
-pub const ER_INVALID_DATA: QStatus = QStatus(21i32);
-pub const ER_READ_ERROR: QStatus = QStatus(22i32);
-pub const ER_WRITE_ERROR: QStatus = QStatus(23i32);
-pub const ER_OPEN_FAILED: QStatus = QStatus(24i32);
-pub const ER_PARSE_ERROR: QStatus = QStatus(25i32);
-pub const ER_END_OF_DATA: QStatus = QStatus(26i32);
-pub const ER_CONN_REFUSED: QStatus = QStatus(27i32);
-pub const ER_BAD_ARG_COUNT: QStatus = QStatus(28i32);
-pub const ER_WARNING: QStatus = QStatus(29i32);
-pub const ER_EOF: QStatus = QStatus(30i32);
-pub const ER_DEADLOCK: QStatus = QStatus(31i32);
-pub const ER_COMMON_ERRORS: QStatus = QStatus(4096i32);
-pub const ER_STOPPING_THREAD: QStatus = QStatus(4097i32);
-pub const ER_ALERTED_THREAD: QStatus = QStatus(4098i32);
-pub const ER_XML_MALFORMED: QStatus = QStatus(4099i32);
-pub const ER_AUTH_FAIL: QStatus = QStatus(4100i32);
-pub const ER_AUTH_USER_REJECT: QStatus = QStatus(4101i32);
-pub const ER_NO_SUCH_ALARM: QStatus = QStatus(4102i32);
-pub const ER_TIMER_FALLBEHIND: QStatus = QStatus(4103i32);
-pub const ER_SSL_ERRORS: QStatus = QStatus(4104i32);
-pub const ER_SSL_INIT: QStatus = QStatus(4105i32);
-pub const ER_SSL_CONNECT: QStatus = QStatus(4106i32);
-pub const ER_SSL_VERIFY: QStatus = QStatus(4107i32);
-pub const ER_EXTERNAL_THREAD: QStatus = QStatus(4108i32);
-pub const ER_CRYPTO_ERROR: QStatus = QStatus(4109i32);
-pub const ER_CRYPTO_TRUNCATED: QStatus = QStatus(4110i32);
-pub const ER_CRYPTO_KEY_UNAVAILABLE: QStatus = QStatus(4111i32);
-pub const ER_BAD_HOSTNAME: QStatus = QStatus(4112i32);
-pub const ER_CRYPTO_KEY_UNUSABLE: QStatus = QStatus(4113i32);
-pub const ER_EMPTY_KEY_BLOB: QStatus = QStatus(4114i32);
-pub const ER_CORRUPT_KEYBLOB: QStatus = QStatus(4115i32);
-pub const ER_INVALID_KEY_ENCODING: QStatus = QStatus(4116i32);
-pub const ER_DEAD_THREAD: QStatus = QStatus(4117i32);
-pub const ER_THREAD_RUNNING: QStatus = QStatus(4118i32);
-pub const ER_THREAD_STOPPING: QStatus = QStatus(4119i32);
-pub const ER_BAD_STRING_ENCODING: QStatus = QStatus(4120i32);
-pub const ER_CRYPTO_INSUFFICIENT_SECURITY: QStatus = QStatus(4121i32);
-pub const ER_CRYPTO_ILLEGAL_PARAMETERS: QStatus = QStatus(4122i32);
-pub const ER_CRYPTO_HASH_UNINITIALIZED: QStatus = QStatus(4123i32);
-pub const ER_THREAD_NO_WAIT: QStatus = QStatus(4124i32);
-pub const ER_TIMER_EXITING: QStatus = QStatus(4125i32);
-pub const ER_INVALID_GUID: QStatus = QStatus(4126i32);
-pub const ER_THREADPOOL_EXHAUSTED: QStatus = QStatus(4127i32);
-pub const ER_THREADPOOL_STOPPING: QStatus = QStatus(4128i32);
-pub const ER_INVALID_STREAM: QStatus = QStatus(4129i32);
-pub const ER_TIMER_FULL: QStatus = QStatus(4130i32);
-pub const ER_IODISPATCH_STOPPING: QStatus = QStatus(4131i32);
-pub const ER_SLAP_INVALID_PACKET_LEN: QStatus = QStatus(4132i32);
-pub const ER_SLAP_HDR_CHECKSUM_ERROR: QStatus = QStatus(4133i32);
-pub const ER_SLAP_INVALID_PACKET_TYPE: QStatus = QStatus(4134i32);
-pub const ER_SLAP_LEN_MISMATCH: QStatus = QStatus(4135i32);
-pub const ER_SLAP_PACKET_TYPE_MISMATCH: QStatus = QStatus(4136i32);
-pub const ER_SLAP_CRC_ERROR: QStatus = QStatus(4137i32);
-pub const ER_SLAP_ERROR: QStatus = QStatus(4138i32);
-pub const ER_SLAP_OTHER_END_CLOSED: QStatus = QStatus(4139i32);
-pub const ER_TIMER_NOT_ALLOWED: QStatus = QStatus(4140i32);
-pub const ER_NOT_CONN: QStatus = QStatus(4141i32);
-pub const ER_XML_CONVERTER_ERROR: QStatus = QStatus(8192i32);
-pub const ER_XML_INVALID_RULES_COUNT: QStatus = QStatus(8193i32);
-pub const ER_XML_INTERFACE_MEMBERS_MISSING: QStatus = QStatus(8194i32);
-pub const ER_XML_INVALID_MEMBER_TYPE: QStatus = QStatus(8195i32);
-pub const ER_XML_INVALID_MEMBER_ACTION: QStatus = QStatus(8196i32);
-pub const ER_XML_MEMBER_DENY_ACTION_WITH_OTHER: QStatus = QStatus(8197i32);
-pub const ER_XML_INVALID_ANNOTATIONS_COUNT: QStatus = QStatus(8198i32);
-pub const ER_XML_INVALID_ELEMENT_NAME: QStatus = QStatus(8199i32);
-pub const ER_XML_INVALID_ATTRIBUTE_VALUE: QStatus = QStatus(8200i32);
-pub const ER_XML_INVALID_SECURITY_LEVEL_ANNOTATION_VALUE: QStatus = QStatus(8201i32);
-pub const ER_XML_INVALID_ELEMENT_CHILDREN_COUNT: QStatus = QStatus(8202i32);
-pub const ER_XML_INVALID_POLICY_VERSION: QStatus = QStatus(8203i32);
-pub const ER_XML_INVALID_POLICY_SERIAL_NUMBER: QStatus = QStatus(8204i32);
-pub const ER_XML_INVALID_ACL_PEER_TYPE: QStatus = QStatus(8205i32);
-pub const ER_XML_INVALID_ACL_PEER_CHILDREN_COUNT: QStatus = QStatus(8206i32);
-pub const ER_XML_ACL_ALL_TYPE_PEER_WITH_OTHERS: QStatus = QStatus(8207i32);
-pub const ER_XML_INVALID_ACL_PEER_PUBLIC_KEY: QStatus = QStatus(8208i32);
-pub const ER_XML_ACL_PEER_NOT_UNIQUE: QStatus = QStatus(8209i32);
-pub const ER_XML_ACL_PEER_PUBLIC_KEY_SET: QStatus = QStatus(8210i32);
-pub const ER_XML_ACLS_MISSING: QStatus = QStatus(8211i32);
-pub const ER_XML_ACL_PEERS_MISSING: QStatus = QStatus(8212i32);
-pub const ER_XML_INVALID_OBJECT_PATH: QStatus = QStatus(8213i32);
-pub const ER_XML_INVALID_INTERFACE_NAME: QStatus = QStatus(8214i32);
-pub const ER_XML_INVALID_MEMBER_NAME: QStatus = QStatus(8215i32);
-pub const ER_XML_INVALID_MANIFEST_VERSION: QStatus = QStatus(8216i32);
-pub const ER_XML_INVALID_OID: QStatus = QStatus(8217i32);
-pub const ER_XML_INVALID_BASE64: QStatus = QStatus(8218i32);
-pub const ER_XML_INTERFACE_NAME_NOT_UNIQUE: QStatus = QStatus(8219i32);
-pub const ER_XML_MEMBER_NAME_NOT_UNIQUE: QStatus = QStatus(8220i32);
-pub const ER_XML_OBJECT_PATH_NOT_UNIQUE: QStatus = QStatus(8221i32);
-pub const ER_XML_ANNOTATION_NOT_UNIQUE: QStatus = QStatus(8222i32);
-pub const ER_NONE: QStatus = QStatus(65535i32);
-pub const ER_BUS_ERRORS: QStatus = QStatus(36864i32);
-pub const ER_BUS_READ_ERROR: QStatus = QStatus(36865i32);
-pub const ER_BUS_WRITE_ERROR: QStatus = QStatus(36866i32);
-pub const ER_BUS_BAD_VALUE_TYPE: QStatus = QStatus(36867i32);
-pub const ER_BUS_BAD_HEADER_FIELD: QStatus = QStatus(36868i32);
-pub const ER_BUS_BAD_SIGNATURE: QStatus = QStatus(36869i32);
-pub const ER_BUS_BAD_OBJ_PATH: QStatus = QStatus(36870i32);
-pub const ER_BUS_BAD_MEMBER_NAME: QStatus = QStatus(36871i32);
-pub const ER_BUS_BAD_INTERFACE_NAME: QStatus = QStatus(36872i32);
-pub const ER_BUS_BAD_ERROR_NAME: QStatus = QStatus(36873i32);
-pub const ER_BUS_BAD_BUS_NAME: QStatus = QStatus(36874i32);
-pub const ER_BUS_NAME_TOO_LONG: QStatus = QStatus(36875i32);
-pub const ER_BUS_BAD_LENGTH: QStatus = QStatus(36876i32);
-pub const ER_BUS_BAD_VALUE: QStatus = QStatus(36877i32);
-pub const ER_BUS_BAD_HDR_FLAGS: QStatus = QStatus(36878i32);
-pub const ER_BUS_BAD_BODY_LEN: QStatus = QStatus(36879i32);
-pub const ER_BUS_BAD_HEADER_LEN: QStatus = QStatus(36880i32);
-pub const ER_BUS_UNKNOWN_SERIAL: QStatus = QStatus(36881i32);
-pub const ER_BUS_UNKNOWN_PATH: QStatus = QStatus(36882i32);
-pub const ER_BUS_UNKNOWN_INTERFACE: QStatus = QStatus(36883i32);
-pub const ER_BUS_ESTABLISH_FAILED: QStatus = QStatus(36884i32);
-pub const ER_BUS_UNEXPECTED_SIGNATURE: QStatus = QStatus(36885i32);
-pub const ER_BUS_INTERFACE_MISSING: QStatus = QStatus(36886i32);
-pub const ER_BUS_PATH_MISSING: QStatus = QStatus(36887i32);
-pub const ER_BUS_MEMBER_MISSING: QStatus = QStatus(36888i32);
-pub const ER_BUS_REPLY_SERIAL_MISSING: QStatus = QStatus(36889i32);
-pub const ER_BUS_ERROR_NAME_MISSING: QStatus = QStatus(36890i32);
-pub const ER_BUS_INTERFACE_NO_SUCH_MEMBER: QStatus = QStatus(36891i32);
-pub const ER_BUS_NO_SUCH_OBJECT: QStatus = QStatus(36892i32);
-pub const ER_BUS_OBJECT_NO_SUCH_MEMBER: QStatus = QStatus(36893i32);
-pub const ER_BUS_OBJECT_NO_SUCH_INTERFACE: QStatus = QStatus(36894i32);
-pub const ER_BUS_NO_SUCH_INTERFACE: QStatus = QStatus(36895i32);
-pub const ER_BUS_MEMBER_NO_SUCH_SIGNATURE: QStatus = QStatus(36896i32);
-pub const ER_BUS_NOT_NUL_TERMINATED: QStatus = QStatus(36897i32);
-pub const ER_BUS_NO_SUCH_PROPERTY: QStatus = QStatus(36898i32);
-pub const ER_BUS_SET_WRONG_SIGNATURE: QStatus = QStatus(36899i32);
-pub const ER_BUS_PROPERTY_VALUE_NOT_SET: QStatus = QStatus(36900i32);
-pub const ER_BUS_PROPERTY_ACCESS_DENIED: QStatus = QStatus(36901i32);
-pub const ER_BUS_NO_TRANSPORTS: QStatus = QStatus(36902i32);
-pub const ER_BUS_BAD_TRANSPORT_ARGS: QStatus = QStatus(36903i32);
-pub const ER_BUS_NO_ROUTE: QStatus = QStatus(36904i32);
-pub const ER_BUS_NO_ENDPOINT: QStatus = QStatus(36905i32);
-pub const ER_BUS_BAD_SEND_PARAMETER: QStatus = QStatus(36906i32);
-pub const ER_BUS_UNMATCHED_REPLY_SERIAL: QStatus = QStatus(36907i32);
-pub const ER_BUS_BAD_SENDER_ID: QStatus = QStatus(36908i32);
-pub const ER_BUS_TRANSPORT_NOT_STARTED: QStatus = QStatus(36909i32);
-pub const ER_BUS_EMPTY_MESSAGE: QStatus = QStatus(36910i32);
-pub const ER_BUS_NOT_OWNER: QStatus = QStatus(36911i32);
-pub const ER_BUS_SET_PROPERTY_REJECTED: QStatus = QStatus(36912i32);
-pub const ER_BUS_CONNECT_FAILED: QStatus = QStatus(36913i32);
-pub const ER_BUS_REPLY_IS_ERROR_MESSAGE: QStatus = QStatus(36914i32);
-pub const ER_BUS_NOT_AUTHENTICATING: QStatus = QStatus(36915i32);
-pub const ER_BUS_NO_LISTENER: QStatus = QStatus(36916i32);
-pub const ER_BUS_NOT_ALLOWED: QStatus = QStatus(36918i32);
-pub const ER_BUS_WRITE_QUEUE_FULL: QStatus = QStatus(36919i32);
-pub const ER_BUS_ENDPOINT_CLOSING: QStatus = QStatus(36920i32);
-pub const ER_BUS_INTERFACE_MISMATCH: QStatus = QStatus(36921i32);
-pub const ER_BUS_MEMBER_ALREADY_EXISTS: QStatus = QStatus(36922i32);
-pub const ER_BUS_PROPERTY_ALREADY_EXISTS: QStatus = QStatus(36923i32);
-pub const ER_BUS_IFACE_ALREADY_EXISTS: QStatus = QStatus(36924i32);
-pub const ER_BUS_ERROR_RESPONSE: QStatus = QStatus(36925i32);
-pub const ER_BUS_BAD_XML: QStatus = QStatus(36926i32);
-pub const ER_BUS_BAD_CHILD_PATH: QStatus = QStatus(36927i32);
-pub const ER_BUS_OBJ_ALREADY_EXISTS: QStatus = QStatus(36928i32);
-pub const ER_BUS_OBJ_NOT_FOUND: QStatus = QStatus(36929i32);
-pub const ER_BUS_CANNOT_EXPAND_MESSAGE: QStatus = QStatus(36930i32);
-pub const ER_BUS_NOT_COMPRESSED: QStatus = QStatus(36931i32);
-pub const ER_BUS_ALREADY_CONNECTED: QStatus = QStatus(36932i32);
-pub const ER_BUS_NOT_CONNECTED: QStatus = QStatus(36933i32);
-pub const ER_BUS_ALREADY_LISTENING: QStatus = QStatus(36934i32);
-pub const ER_BUS_KEY_UNAVAILABLE: QStatus = QStatus(36935i32);
-pub const ER_BUS_TRUNCATED: QStatus = QStatus(36936i32);
-pub const ER_BUS_KEY_STORE_NOT_LOADED: QStatus = QStatus(36937i32);
-pub const ER_BUS_NO_AUTHENTICATION_MECHANISM: QStatus = QStatus(36938i32);
-pub const ER_BUS_BUS_ALREADY_STARTED: QStatus = QStatus(36939i32);
-pub const ER_BUS_BUS_NOT_STARTED: QStatus = QStatus(36940i32);
-pub const ER_BUS_KEYBLOB_OP_INVALID: QStatus = QStatus(36941i32);
-pub const ER_BUS_INVALID_HEADER_CHECKSUM: QStatus = QStatus(36942i32);
-pub const ER_BUS_MESSAGE_NOT_ENCRYPTED: QStatus = QStatus(36943i32);
-pub const ER_BUS_INVALID_HEADER_SERIAL: QStatus = QStatus(36944i32);
-pub const ER_BUS_TIME_TO_LIVE_EXPIRED: QStatus = QStatus(36945i32);
-pub const ER_BUS_HDR_EXPANSION_INVALID: QStatus = QStatus(36946i32);
-pub const ER_BUS_MISSING_COMPRESSION_TOKEN: QStatus = QStatus(36947i32);
-pub const ER_BUS_NO_PEER_GUID: QStatus = QStatus(36948i32);
-pub const ER_BUS_MESSAGE_DECRYPTION_FAILED: QStatus = QStatus(36949i32);
-pub const ER_BUS_SECURITY_FATAL: QStatus = QStatus(36950i32);
-pub const ER_BUS_KEY_EXPIRED: QStatus = QStatus(36951i32);
-pub const ER_BUS_CORRUPT_KEYSTORE: QStatus = QStatus(36952i32);
-pub const ER_BUS_NO_CALL_FOR_REPLY: QStatus = QStatus(36953i32);
-pub const ER_BUS_NOT_A_COMPLETE_TYPE: QStatus = QStatus(36954i32);
-pub const ER_BUS_POLICY_VIOLATION: QStatus = QStatus(36955i32);
-pub const ER_BUS_NO_SUCH_SERVICE: QStatus = QStatus(36956i32);
-pub const ER_BUS_TRANSPORT_NOT_AVAILABLE: QStatus = QStatus(36957i32);
-pub const ER_BUS_INVALID_AUTH_MECHANISM: QStatus = QStatus(36958i32);
-pub const ER_BUS_KEYSTORE_VERSION_MISMATCH: QStatus = QStatus(36959i32);
-pub const ER_BUS_BLOCKING_CALL_NOT_ALLOWED: QStatus = QStatus(36960i32);
-pub const ER_BUS_SIGNATURE_MISMATCH: QStatus = QStatus(36961i32);
-pub const ER_BUS_STOPPING: QStatus = QStatus(36962i32);
-pub const ER_BUS_METHOD_CALL_ABORTED: QStatus = QStatus(36963i32);
-pub const ER_BUS_CANNOT_ADD_INTERFACE: QStatus = QStatus(36964i32);
-pub const ER_BUS_CANNOT_ADD_HANDLER: QStatus = QStatus(36965i32);
-pub const ER_BUS_KEYSTORE_NOT_LOADED: QStatus = QStatus(36966i32);
-pub const ER_BUS_NO_SUCH_HANDLE: QStatus = QStatus(36971i32);
-pub const ER_BUS_HANDLES_NOT_ENABLED: QStatus = QStatus(36972i32);
-pub const ER_BUS_HANDLES_MISMATCH: QStatus = QStatus(36973i32);
-pub const ER_BUS_NO_SESSION: QStatus = QStatus(36975i32);
-pub const ER_BUS_ELEMENT_NOT_FOUND: QStatus = QStatus(36976i32);
-pub const ER_BUS_NOT_A_DICTIONARY: QStatus = QStatus(36977i32);
-pub const ER_BUS_WAIT_FAILED: QStatus = QStatus(36978i32);
-pub const ER_BUS_BAD_SESSION_OPTS: QStatus = QStatus(36980i32);
-pub const ER_BUS_CONNECTION_REJECTED: QStatus = QStatus(36981i32);
-pub const ER_DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER: QStatus = QStatus(36982i32);
-pub const ER_DBUS_REQUEST_NAME_REPLY_IN_QUEUE: QStatus = QStatus(36983i32);
-pub const ER_DBUS_REQUEST_NAME_REPLY_EXISTS: QStatus = QStatus(36984i32);
-pub const ER_DBUS_REQUEST_NAME_REPLY_ALREADY_OWNER: QStatus = QStatus(36985i32);
-pub const ER_DBUS_RELEASE_NAME_REPLY_RELEASED: QStatus = QStatus(36986i32);
-pub const ER_DBUS_RELEASE_NAME_REPLY_NON_EXISTENT: QStatus = QStatus(36987i32);
-pub const ER_DBUS_RELEASE_NAME_REPLY_NOT_OWNER: QStatus = QStatus(36988i32);
-pub const ER_DBUS_START_REPLY_ALREADY_RUNNING: QStatus = QStatus(36990i32);
-pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_ALREADY_EXISTS: QStatus = QStatus(36992i32);
-pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_FAILED: QStatus = QStatus(36993i32);
-pub const ER_ALLJOYN_JOINSESSION_REPLY_NO_SESSION: QStatus = QStatus(36995i32);
-pub const ER_ALLJOYN_JOINSESSION_REPLY_UNREACHABLE: QStatus = QStatus(36996i32);
-pub const ER_ALLJOYN_JOINSESSION_REPLY_CONNECT_FAILED: QStatus = QStatus(36997i32);
-pub const ER_ALLJOYN_JOINSESSION_REPLY_REJECTED: QStatus = QStatus(36998i32);
-pub const ER_ALLJOYN_JOINSESSION_REPLY_BAD_SESSION_OPTS: QStatus = QStatus(36999i32);
-pub const ER_ALLJOYN_JOINSESSION_REPLY_FAILED: QStatus = QStatus(37000i32);
-pub const ER_ALLJOYN_LEAVESESSION_REPLY_NO_SESSION: QStatus = QStatus(37002i32);
-pub const ER_ALLJOYN_LEAVESESSION_REPLY_FAILED: QStatus = QStatus(37003i32);
-pub const ER_ALLJOYN_ADVERTISENAME_REPLY_TRANSPORT_NOT_AVAILABLE: QStatus = QStatus(37004i32);
-pub const ER_ALLJOYN_ADVERTISENAME_REPLY_ALREADY_ADVERTISING: QStatus = QStatus(37005i32);
-pub const ER_ALLJOYN_ADVERTISENAME_REPLY_FAILED: QStatus = QStatus(37006i32);
-pub const ER_ALLJOYN_CANCELADVERTISENAME_REPLY_FAILED: QStatus = QStatus(37008i32);
-pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_TRANSPORT_NOT_AVAILABLE: QStatus = QStatus(37009i32);
-pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_ALREADY_DISCOVERING: QStatus = QStatus(37010i32);
-pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_FAILED: QStatus = QStatus(37011i32);
-pub const ER_ALLJOYN_CANCELFINDADVERTISEDNAME_REPLY_FAILED: QStatus = QStatus(37013i32);
-pub const ER_BUS_UNEXPECTED_DISPOSITION: QStatus = QStatus(37014i32);
-pub const ER_BUS_INTERFACE_ACTIVATED: QStatus = QStatus(37015i32);
-pub const ER_ALLJOYN_UNBINDSESSIONPORT_REPLY_BAD_PORT: QStatus = QStatus(37016i32);
-pub const ER_ALLJOYN_UNBINDSESSIONPORT_REPLY_FAILED: QStatus = QStatus(37017i32);
-pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_INVALID_OPTS: QStatus = QStatus(37018i32);
-pub const ER_ALLJOYN_JOINSESSION_REPLY_ALREADY_JOINED: QStatus = QStatus(37019i32);
-pub const ER_BUS_SELF_CONNECT: QStatus = QStatus(37020i32);
-pub const ER_BUS_SECURITY_NOT_ENABLED: QStatus = QStatus(37021i32);
-pub const ER_BUS_LISTENER_ALREADY_SET: QStatus = QStatus(37022i32);
-pub const ER_BUS_PEER_AUTH_VERSION_MISMATCH: QStatus = QStatus(37023i32);
-pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NOT_SUPPORTED: QStatus = QStatus(37024i32);
-pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NO_DEST_SUPPORT: QStatus = QStatus(37025i32);
-pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_FAILED: QStatus = QStatus(37026i32);
-pub const ER_ALLJOYN_ACCESS_PERMISSION_WARNING: QStatus = QStatus(37027i32);
-pub const ER_ALLJOYN_ACCESS_PERMISSION_ERROR: QStatus = QStatus(37028i32);
-pub const ER_BUS_DESTINATION_NOT_AUTHENTICATED: QStatus = QStatus(37029i32);
-pub const ER_BUS_ENDPOINT_REDIRECTED: QStatus = QStatus(37030i32);
-pub const ER_BUS_AUTHENTICATION_PENDING: QStatus = QStatus(37031i32);
-pub const ER_BUS_NOT_AUTHORIZED: QStatus = QStatus(37032i32);
-pub const ER_PACKET_BUS_NO_SUCH_CHANNEL: QStatus = QStatus(37033i32);
-pub const ER_PACKET_BAD_FORMAT: QStatus = QStatus(37034i32);
-pub const ER_PACKET_CONNECT_TIMEOUT: QStatus = QStatus(37035i32);
-pub const ER_PACKET_CHANNEL_FAIL: QStatus = QStatus(37036i32);
-pub const ER_PACKET_TOO_LARGE: QStatus = QStatus(37037i32);
-pub const ER_PACKET_BAD_PARAMETER: QStatus = QStatus(37038i32);
-pub const ER_PACKET_BAD_CRC: QStatus = QStatus(37039i32);
-pub const ER_RENDEZVOUS_SERVER_DEACTIVATED_USER: QStatus = QStatus(37067i32);
-pub const ER_RENDEZVOUS_SERVER_UNKNOWN_USER: QStatus = QStatus(37068i32);
-pub const ER_UNABLE_TO_CONNECT_TO_RENDEZVOUS_SERVER: QStatus = QStatus(37069i32);
-pub const ER_NOT_CONNECTED_TO_RENDEZVOUS_SERVER: QStatus = QStatus(37070i32);
-pub const ER_UNABLE_TO_SEND_MESSAGE_TO_RENDEZVOUS_SERVER: QStatus = QStatus(37071i32);
-pub const ER_INVALID_RENDEZVOUS_SERVER_INTERFACE_MESSAGE: QStatus = QStatus(37072i32);
-pub const ER_INVALID_PERSISTENT_CONNECTION_MESSAGE_RESPONSE: QStatus = QStatus(37073i32);
-pub const ER_INVALID_ON_DEMAND_CONNECTION_MESSAGE_RESPONSE: QStatus = QStatus(37074i32);
-pub const ER_INVALID_HTTP_METHOD_USED_FOR_RENDEZVOUS_SERVER_INTERFACE_MESSAGE: QStatus = QStatus(37075i32);
-pub const ER_RENDEZVOUS_SERVER_ERR500_INTERNAL_ERROR: QStatus = QStatus(37076i32);
-pub const ER_RENDEZVOUS_SERVER_ERR503_STATUS_UNAVAILABLE: QStatus = QStatus(37077i32);
-pub const ER_RENDEZVOUS_SERVER_ERR401_UNAUTHORIZED_REQUEST: QStatus = QStatus(37078i32);
-pub const ER_RENDEZVOUS_SERVER_UNRECOVERABLE_ERROR: QStatus = QStatus(37079i32);
-pub const ER_RENDEZVOUS_SERVER_ROOT_CERTIFICATE_UNINITIALIZED: QStatus = QStatus(37080i32);
-pub const ER_BUS_NO_SUCH_ANNOTATION: QStatus = QStatus(37081i32);
-pub const ER_BUS_ANNOTATION_ALREADY_EXISTS: QStatus = QStatus(37082i32);
-pub const ER_SOCK_CLOSING: QStatus = QStatus(37083i32);
-pub const ER_NO_SUCH_DEVICE: QStatus = QStatus(37084i32);
-pub const ER_P2P: QStatus = QStatus(37085i32);
-pub const ER_P2P_TIMEOUT: QStatus = QStatus(37086i32);
-pub const ER_P2P_NOT_CONNECTED: QStatus = QStatus(37087i32);
-pub const ER_BAD_TRANSPORT_MASK: QStatus = QStatus(37088i32);
-pub const ER_PROXIMITY_CONNECTION_ESTABLISH_FAIL: QStatus = QStatus(37089i32);
-pub const ER_PROXIMITY_NO_PEERS_FOUND: QStatus = QStatus(37090i32);
-pub const ER_BUS_OBJECT_NOT_REGISTERED: QStatus = QStatus(37091i32);
-pub const ER_P2P_DISABLED: QStatus = QStatus(37092i32);
-pub const ER_P2P_BUSY: QStatus = QStatus(37093i32);
-pub const ER_BUS_INCOMPATIBLE_DAEMON: QStatus = QStatus(37094i32);
-pub const ER_P2P_NO_GO: QStatus = QStatus(37095i32);
-pub const ER_P2P_NO_STA: QStatus = QStatus(37096i32);
-pub const ER_P2P_FORBIDDEN: QStatus = QStatus(37097i32);
-pub const ER_ALLJOYN_ONAPPSUSPEND_REPLY_FAILED: QStatus = QStatus(37098i32);
-pub const ER_ALLJOYN_ONAPPSUSPEND_REPLY_UNSUPPORTED: QStatus = QStatus(37099i32);
-pub const ER_ALLJOYN_ONAPPRESUME_REPLY_FAILED: QStatus = QStatus(37100i32);
-pub const ER_ALLJOYN_ONAPPRESUME_REPLY_UNSUPPORTED: QStatus = QStatus(37101i32);
-pub const ER_BUS_NO_SUCH_MESSAGE: QStatus = QStatus(37102i32);
-pub const ER_ALLJOYN_REMOVESESSIONMEMBER_REPLY_NO_SESSION: QStatus = QStatus(37103i32);
-pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_BINDER: QStatus = QStatus(37104i32);
-pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_MULTIPOINT: QStatus = QStatus(37105i32);
-pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_FOUND: QStatus = QStatus(37106i32);
-pub const ER_ALLJOYN_REMOVESESSIONMEMBER_INCOMPATIBLE_REMOTE_DAEMON: QStatus = QStatus(37107i32);
-pub const ER_ALLJOYN_REMOVESESSIONMEMBER_REPLY_FAILED: QStatus = QStatus(37108i32);
-pub const ER_BUS_REMOVED_BY_BINDER: QStatus = QStatus(37109i32);
-pub const ER_BUS_MATCH_RULE_NOT_FOUND: QStatus = QStatus(37110i32);
-pub const ER_ALLJOYN_PING_FAILED: QStatus = QStatus(37111i32);
-pub const ER_ALLJOYN_PING_REPLY_UNREACHABLE: QStatus = QStatus(37112i32);
-pub const ER_UDP_MSG_TOO_LONG: QStatus = QStatus(37113i32);
-pub const ER_UDP_DEMUX_NO_ENDPOINT: QStatus = QStatus(37114i32);
-pub const ER_UDP_NO_NETWORK: QStatus = QStatus(37115i32);
-pub const ER_UDP_UNEXPECTED_LENGTH: QStatus = QStatus(37116i32);
-pub const ER_UDP_UNEXPECTED_FLOW: QStatus = QStatus(37117i32);
-pub const ER_UDP_DISCONNECT: QStatus = QStatus(37118i32);
-pub const ER_UDP_NOT_IMPLEMENTED: QStatus = QStatus(37119i32);
-pub const ER_UDP_NO_LISTENER: QStatus = QStatus(37120i32);
-pub const ER_UDP_STOPPING: QStatus = QStatus(37121i32);
-pub const ER_ARDP_BACKPRESSURE: QStatus = QStatus(37122i32);
-pub const ER_UDP_BACKPRESSURE: QStatus = QStatus(37123i32);
-pub const ER_ARDP_INVALID_STATE: QStatus = QStatus(37124i32);
-pub const ER_ARDP_TTL_EXPIRED: QStatus = QStatus(37125i32);
-pub const ER_ARDP_PERSIST_TIMEOUT: QStatus = QStatus(37126i32);
-pub const ER_ARDP_PROBE_TIMEOUT: QStatus = QStatus(37127i32);
-pub const ER_ARDP_REMOTE_CONNECTION_RESET: QStatus = QStatus(37128i32);
-pub const ER_UDP_BUSHELLO: QStatus = QStatus(37129i32);
-pub const ER_UDP_MESSAGE: QStatus = QStatus(37130i32);
-pub const ER_UDP_INVALID: QStatus = QStatus(37131i32);
-pub const ER_UDP_UNSUPPORTED: QStatus = QStatus(37132i32);
-pub const ER_UDP_ENDPOINT_STALLED: QStatus = QStatus(37133i32);
-pub const ER_ARDP_INVALID_RESPONSE: QStatus = QStatus(37134i32);
-pub const ER_ARDP_INVALID_CONNECTION: QStatus = QStatus(37135i32);
-pub const ER_UDP_LOCAL_DISCONNECT: QStatus = QStatus(37136i32);
-pub const ER_UDP_EARLY_EXIT: QStatus = QStatus(37137i32);
-pub const ER_UDP_LOCAL_DISCONNECT_FAIL: QStatus = QStatus(37138i32);
-pub const ER_ARDP_DISCONNECTING: QStatus = QStatus(37139i32);
-pub const ER_ALLJOYN_PING_REPLY_INCOMPATIBLE_REMOTE_ROUTING_NODE: QStatus = QStatus(37140i32);
-pub const ER_ALLJOYN_PING_REPLY_TIMEOUT: QStatus = QStatus(37141i32);
-pub const ER_ALLJOYN_PING_REPLY_UNKNOWN_NAME: QStatus = QStatus(37142i32);
-pub const ER_ALLJOYN_PING_REPLY_FAILED: QStatus = QStatus(37143i32);
-pub const ER_TCP_MAX_UNTRUSTED: QStatus = QStatus(37144i32);
-pub const ER_ALLJOYN_PING_REPLY_IN_PROGRESS: QStatus = QStatus(37145i32);
-pub const ER_LANGUAGE_NOT_SUPPORTED: QStatus = QStatus(37146i32);
-pub const ER_ABOUT_FIELD_ALREADY_SPECIFIED: QStatus = QStatus(37147i32);
-pub const ER_UDP_NOT_DISCONNECTED: QStatus = QStatus(37148i32);
-pub const ER_UDP_ENDPOINT_NOT_STARTED: QStatus = QStatus(37149i32);
-pub const ER_UDP_ENDPOINT_REMOVED: QStatus = QStatus(37150i32);
-pub const ER_ARDP_VERSION_NOT_SUPPORTED: QStatus = QStatus(37151i32);
-pub const ER_CONNECTION_LIMIT_EXCEEDED: QStatus = QStatus(37152i32);
-pub const ER_ARDP_WRITE_BLOCKED: QStatus = QStatus(37153i32);
-pub const ER_PERMISSION_DENIED: QStatus = QStatus(37154i32);
-pub const ER_ABOUT_DEFAULT_LANGUAGE_NOT_SPECIFIED: QStatus = QStatus(37155i32);
-pub const ER_ABOUT_SESSIONPORT_NOT_BOUND: QStatus = QStatus(37156i32);
-pub const ER_ABOUT_ABOUTDATA_MISSING_REQUIRED_FIELD: QStatus = QStatus(37157i32);
-pub const ER_ABOUT_INVALID_ABOUTDATA_LISTENER: QStatus = QStatus(37158i32);
-pub const ER_BUS_PING_GROUP_NOT_FOUND: QStatus = QStatus(37159i32);
-pub const ER_BUS_REMOVED_BY_BINDER_SELF: QStatus = QStatus(37160i32);
-pub const ER_INVALID_CONFIG: QStatus = QStatus(37161i32);
-pub const ER_ABOUT_INVALID_ABOUTDATA_FIELD_VALUE: QStatus = QStatus(37162i32);
-pub const ER_ABOUT_INVALID_ABOUTDATA_FIELD_APPID_SIZE: QStatus = QStatus(37163i32);
-pub const ER_BUS_TRANSPORT_ACCESS_DENIED: QStatus = QStatus(37164i32);
-pub const ER_INVALID_CERTIFICATE: QStatus = QStatus(37165i32);
-pub const ER_CERTIFICATE_NOT_FOUND: QStatus = QStatus(37166i32);
-pub const ER_DUPLICATE_CERTIFICATE: QStatus = QStatus(37167i32);
-pub const ER_UNKNOWN_CERTIFICATE: QStatus = QStatus(37168i32);
-pub const ER_MISSING_DIGEST_IN_CERTIFICATE: QStatus = QStatus(37169i32);
-pub const ER_DIGEST_MISMATCH: QStatus = QStatus(37170i32);
-pub const ER_DUPLICATE_KEY: QStatus = QStatus(37171i32);
-pub const ER_NO_COMMON_TRUST: QStatus = QStatus(37172i32);
-pub const ER_MANIFEST_NOT_FOUND: QStatus = QStatus(37173i32);
-pub const ER_INVALID_CERT_CHAIN: QStatus = QStatus(37174i32);
-pub const ER_NO_TRUST_ANCHOR: QStatus = QStatus(37175i32);
-pub const ER_INVALID_APPLICATION_STATE: QStatus = QStatus(37176i32);
-pub const ER_FEATURE_NOT_AVAILABLE: QStatus = QStatus(37177i32);
-pub const ER_KEY_STORE_ALREADY_INITIALIZED: QStatus = QStatus(37178i32);
-pub const ER_KEY_STORE_ID_NOT_YET_SET: QStatus = QStatus(37179i32);
-pub const ER_POLICY_NOT_NEWER: QStatus = QStatus(37180i32);
-pub const ER_MANIFEST_REJECTED: QStatus = QStatus(37181i32);
-pub const ER_INVALID_CERTIFICATE_USAGE: QStatus = QStatus(37182i32);
-pub const ER_INVALID_SIGNAL_EMISSION_TYPE: QStatus = QStatus(37183i32);
-pub const ER_APPLICATION_STATE_LISTENER_ALREADY_EXISTS: QStatus = QStatus(37184i32);
-pub const ER_APPLICATION_STATE_LISTENER_NO_SUCH_LISTENER: QStatus = QStatus(37185i32);
-pub const ER_MANAGEMENT_ALREADY_STARTED: QStatus = QStatus(37186i32);
-pub const ER_MANAGEMENT_NOT_STARTED: QStatus = QStatus(37187i32);
-pub const ER_BUS_DESCRIPTION_ALREADY_EXISTS: QStatus = QStatus(37188i32);
-impl ::core::convert::From<i32> for QStatus {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for QStatus {
-    type Abi = Self;
-}
+pub type QStatus = i32;
+pub const ER_OK: QStatus = 0i32;
+pub const ER_FAIL: QStatus = 1i32;
+pub const ER_UTF_CONVERSION_FAILED: QStatus = 2i32;
+pub const ER_BUFFER_TOO_SMALL: QStatus = 3i32;
+pub const ER_OS_ERROR: QStatus = 4i32;
+pub const ER_OUT_OF_MEMORY: QStatus = 5i32;
+pub const ER_SOCKET_BIND_ERROR: QStatus = 6i32;
+pub const ER_INIT_FAILED: QStatus = 7i32;
+pub const ER_WOULDBLOCK: QStatus = 8i32;
+pub const ER_NOT_IMPLEMENTED: QStatus = 9i32;
+pub const ER_TIMEOUT: QStatus = 10i32;
+pub const ER_SOCK_OTHER_END_CLOSED: QStatus = 11i32;
+pub const ER_BAD_ARG_1: QStatus = 12i32;
+pub const ER_BAD_ARG_2: QStatus = 13i32;
+pub const ER_BAD_ARG_3: QStatus = 14i32;
+pub const ER_BAD_ARG_4: QStatus = 15i32;
+pub const ER_BAD_ARG_5: QStatus = 16i32;
+pub const ER_BAD_ARG_6: QStatus = 17i32;
+pub const ER_BAD_ARG_7: QStatus = 18i32;
+pub const ER_BAD_ARG_8: QStatus = 19i32;
+pub const ER_INVALID_ADDRESS: QStatus = 20i32;
+pub const ER_INVALID_DATA: QStatus = 21i32;
+pub const ER_READ_ERROR: QStatus = 22i32;
+pub const ER_WRITE_ERROR: QStatus = 23i32;
+pub const ER_OPEN_FAILED: QStatus = 24i32;
+pub const ER_PARSE_ERROR: QStatus = 25i32;
+pub const ER_END_OF_DATA: QStatus = 26i32;
+pub const ER_CONN_REFUSED: QStatus = 27i32;
+pub const ER_BAD_ARG_COUNT: QStatus = 28i32;
+pub const ER_WARNING: QStatus = 29i32;
+pub const ER_EOF: QStatus = 30i32;
+pub const ER_DEADLOCK: QStatus = 31i32;
+pub const ER_COMMON_ERRORS: QStatus = 4096i32;
+pub const ER_STOPPING_THREAD: QStatus = 4097i32;
+pub const ER_ALERTED_THREAD: QStatus = 4098i32;
+pub const ER_XML_MALFORMED: QStatus = 4099i32;
+pub const ER_AUTH_FAIL: QStatus = 4100i32;
+pub const ER_AUTH_USER_REJECT: QStatus = 4101i32;
+pub const ER_NO_SUCH_ALARM: QStatus = 4102i32;
+pub const ER_TIMER_FALLBEHIND: QStatus = 4103i32;
+pub const ER_SSL_ERRORS: QStatus = 4104i32;
+pub const ER_SSL_INIT: QStatus = 4105i32;
+pub const ER_SSL_CONNECT: QStatus = 4106i32;
+pub const ER_SSL_VERIFY: QStatus = 4107i32;
+pub const ER_EXTERNAL_THREAD: QStatus = 4108i32;
+pub const ER_CRYPTO_ERROR: QStatus = 4109i32;
+pub const ER_CRYPTO_TRUNCATED: QStatus = 4110i32;
+pub const ER_CRYPTO_KEY_UNAVAILABLE: QStatus = 4111i32;
+pub const ER_BAD_HOSTNAME: QStatus = 4112i32;
+pub const ER_CRYPTO_KEY_UNUSABLE: QStatus = 4113i32;
+pub const ER_EMPTY_KEY_BLOB: QStatus = 4114i32;
+pub const ER_CORRUPT_KEYBLOB: QStatus = 4115i32;
+pub const ER_INVALID_KEY_ENCODING: QStatus = 4116i32;
+pub const ER_DEAD_THREAD: QStatus = 4117i32;
+pub const ER_THREAD_RUNNING: QStatus = 4118i32;
+pub const ER_THREAD_STOPPING: QStatus = 4119i32;
+pub const ER_BAD_STRING_ENCODING: QStatus = 4120i32;
+pub const ER_CRYPTO_INSUFFICIENT_SECURITY: QStatus = 4121i32;
+pub const ER_CRYPTO_ILLEGAL_PARAMETERS: QStatus = 4122i32;
+pub const ER_CRYPTO_HASH_UNINITIALIZED: QStatus = 4123i32;
+pub const ER_THREAD_NO_WAIT: QStatus = 4124i32;
+pub const ER_TIMER_EXITING: QStatus = 4125i32;
+pub const ER_INVALID_GUID: QStatus = 4126i32;
+pub const ER_THREADPOOL_EXHAUSTED: QStatus = 4127i32;
+pub const ER_THREADPOOL_STOPPING: QStatus = 4128i32;
+pub const ER_INVALID_STREAM: QStatus = 4129i32;
+pub const ER_TIMER_FULL: QStatus = 4130i32;
+pub const ER_IODISPATCH_STOPPING: QStatus = 4131i32;
+pub const ER_SLAP_INVALID_PACKET_LEN: QStatus = 4132i32;
+pub const ER_SLAP_HDR_CHECKSUM_ERROR: QStatus = 4133i32;
+pub const ER_SLAP_INVALID_PACKET_TYPE: QStatus = 4134i32;
+pub const ER_SLAP_LEN_MISMATCH: QStatus = 4135i32;
+pub const ER_SLAP_PACKET_TYPE_MISMATCH: QStatus = 4136i32;
+pub const ER_SLAP_CRC_ERROR: QStatus = 4137i32;
+pub const ER_SLAP_ERROR: QStatus = 4138i32;
+pub const ER_SLAP_OTHER_END_CLOSED: QStatus = 4139i32;
+pub const ER_TIMER_NOT_ALLOWED: QStatus = 4140i32;
+pub const ER_NOT_CONN: QStatus = 4141i32;
+pub const ER_XML_CONVERTER_ERROR: QStatus = 8192i32;
+pub const ER_XML_INVALID_RULES_COUNT: QStatus = 8193i32;
+pub const ER_XML_INTERFACE_MEMBERS_MISSING: QStatus = 8194i32;
+pub const ER_XML_INVALID_MEMBER_TYPE: QStatus = 8195i32;
+pub const ER_XML_INVALID_MEMBER_ACTION: QStatus = 8196i32;
+pub const ER_XML_MEMBER_DENY_ACTION_WITH_OTHER: QStatus = 8197i32;
+pub const ER_XML_INVALID_ANNOTATIONS_COUNT: QStatus = 8198i32;
+pub const ER_XML_INVALID_ELEMENT_NAME: QStatus = 8199i32;
+pub const ER_XML_INVALID_ATTRIBUTE_VALUE: QStatus = 8200i32;
+pub const ER_XML_INVALID_SECURITY_LEVEL_ANNOTATION_VALUE: QStatus = 8201i32;
+pub const ER_XML_INVALID_ELEMENT_CHILDREN_COUNT: QStatus = 8202i32;
+pub const ER_XML_INVALID_POLICY_VERSION: QStatus = 8203i32;
+pub const ER_XML_INVALID_POLICY_SERIAL_NUMBER: QStatus = 8204i32;
+pub const ER_XML_INVALID_ACL_PEER_TYPE: QStatus = 8205i32;
+pub const ER_XML_INVALID_ACL_PEER_CHILDREN_COUNT: QStatus = 8206i32;
+pub const ER_XML_ACL_ALL_TYPE_PEER_WITH_OTHERS: QStatus = 8207i32;
+pub const ER_XML_INVALID_ACL_PEER_PUBLIC_KEY: QStatus = 8208i32;
+pub const ER_XML_ACL_PEER_NOT_UNIQUE: QStatus = 8209i32;
+pub const ER_XML_ACL_PEER_PUBLIC_KEY_SET: QStatus = 8210i32;
+pub const ER_XML_ACLS_MISSING: QStatus = 8211i32;
+pub const ER_XML_ACL_PEERS_MISSING: QStatus = 8212i32;
+pub const ER_XML_INVALID_OBJECT_PATH: QStatus = 8213i32;
+pub const ER_XML_INVALID_INTERFACE_NAME: QStatus = 8214i32;
+pub const ER_XML_INVALID_MEMBER_NAME: QStatus = 8215i32;
+pub const ER_XML_INVALID_MANIFEST_VERSION: QStatus = 8216i32;
+pub const ER_XML_INVALID_OID: QStatus = 8217i32;
+pub const ER_XML_INVALID_BASE64: QStatus = 8218i32;
+pub const ER_XML_INTERFACE_NAME_NOT_UNIQUE: QStatus = 8219i32;
+pub const ER_XML_MEMBER_NAME_NOT_UNIQUE: QStatus = 8220i32;
+pub const ER_XML_OBJECT_PATH_NOT_UNIQUE: QStatus = 8221i32;
+pub const ER_XML_ANNOTATION_NOT_UNIQUE: QStatus = 8222i32;
+pub const ER_NONE: QStatus = 65535i32;
+pub const ER_BUS_ERRORS: QStatus = 36864i32;
+pub const ER_BUS_READ_ERROR: QStatus = 36865i32;
+pub const ER_BUS_WRITE_ERROR: QStatus = 36866i32;
+pub const ER_BUS_BAD_VALUE_TYPE: QStatus = 36867i32;
+pub const ER_BUS_BAD_HEADER_FIELD: QStatus = 36868i32;
+pub const ER_BUS_BAD_SIGNATURE: QStatus = 36869i32;
+pub const ER_BUS_BAD_OBJ_PATH: QStatus = 36870i32;
+pub const ER_BUS_BAD_MEMBER_NAME: QStatus = 36871i32;
+pub const ER_BUS_BAD_INTERFACE_NAME: QStatus = 36872i32;
+pub const ER_BUS_BAD_ERROR_NAME: QStatus = 36873i32;
+pub const ER_BUS_BAD_BUS_NAME: QStatus = 36874i32;
+pub const ER_BUS_NAME_TOO_LONG: QStatus = 36875i32;
+pub const ER_BUS_BAD_LENGTH: QStatus = 36876i32;
+pub const ER_BUS_BAD_VALUE: QStatus = 36877i32;
+pub const ER_BUS_BAD_HDR_FLAGS: QStatus = 36878i32;
+pub const ER_BUS_BAD_BODY_LEN: QStatus = 36879i32;
+pub const ER_BUS_BAD_HEADER_LEN: QStatus = 36880i32;
+pub const ER_BUS_UNKNOWN_SERIAL: QStatus = 36881i32;
+pub const ER_BUS_UNKNOWN_PATH: QStatus = 36882i32;
+pub const ER_BUS_UNKNOWN_INTERFACE: QStatus = 36883i32;
+pub const ER_BUS_ESTABLISH_FAILED: QStatus = 36884i32;
+pub const ER_BUS_UNEXPECTED_SIGNATURE: QStatus = 36885i32;
+pub const ER_BUS_INTERFACE_MISSING: QStatus = 36886i32;
+pub const ER_BUS_PATH_MISSING: QStatus = 36887i32;
+pub const ER_BUS_MEMBER_MISSING: QStatus = 36888i32;
+pub const ER_BUS_REPLY_SERIAL_MISSING: QStatus = 36889i32;
+pub const ER_BUS_ERROR_NAME_MISSING: QStatus = 36890i32;
+pub const ER_BUS_INTERFACE_NO_SUCH_MEMBER: QStatus = 36891i32;
+pub const ER_BUS_NO_SUCH_OBJECT: QStatus = 36892i32;
+pub const ER_BUS_OBJECT_NO_SUCH_MEMBER: QStatus = 36893i32;
+pub const ER_BUS_OBJECT_NO_SUCH_INTERFACE: QStatus = 36894i32;
+pub const ER_BUS_NO_SUCH_INTERFACE: QStatus = 36895i32;
+pub const ER_BUS_MEMBER_NO_SUCH_SIGNATURE: QStatus = 36896i32;
+pub const ER_BUS_NOT_NUL_TERMINATED: QStatus = 36897i32;
+pub const ER_BUS_NO_SUCH_PROPERTY: QStatus = 36898i32;
+pub const ER_BUS_SET_WRONG_SIGNATURE: QStatus = 36899i32;
+pub const ER_BUS_PROPERTY_VALUE_NOT_SET: QStatus = 36900i32;
+pub const ER_BUS_PROPERTY_ACCESS_DENIED: QStatus = 36901i32;
+pub const ER_BUS_NO_TRANSPORTS: QStatus = 36902i32;
+pub const ER_BUS_BAD_TRANSPORT_ARGS: QStatus = 36903i32;
+pub const ER_BUS_NO_ROUTE: QStatus = 36904i32;
+pub const ER_BUS_NO_ENDPOINT: QStatus = 36905i32;
+pub const ER_BUS_BAD_SEND_PARAMETER: QStatus = 36906i32;
+pub const ER_BUS_UNMATCHED_REPLY_SERIAL: QStatus = 36907i32;
+pub const ER_BUS_BAD_SENDER_ID: QStatus = 36908i32;
+pub const ER_BUS_TRANSPORT_NOT_STARTED: QStatus = 36909i32;
+pub const ER_BUS_EMPTY_MESSAGE: QStatus = 36910i32;
+pub const ER_BUS_NOT_OWNER: QStatus = 36911i32;
+pub const ER_BUS_SET_PROPERTY_REJECTED: QStatus = 36912i32;
+pub const ER_BUS_CONNECT_FAILED: QStatus = 36913i32;
+pub const ER_BUS_REPLY_IS_ERROR_MESSAGE: QStatus = 36914i32;
+pub const ER_BUS_NOT_AUTHENTICATING: QStatus = 36915i32;
+pub const ER_BUS_NO_LISTENER: QStatus = 36916i32;
+pub const ER_BUS_NOT_ALLOWED: QStatus = 36918i32;
+pub const ER_BUS_WRITE_QUEUE_FULL: QStatus = 36919i32;
+pub const ER_BUS_ENDPOINT_CLOSING: QStatus = 36920i32;
+pub const ER_BUS_INTERFACE_MISMATCH: QStatus = 36921i32;
+pub const ER_BUS_MEMBER_ALREADY_EXISTS: QStatus = 36922i32;
+pub const ER_BUS_PROPERTY_ALREADY_EXISTS: QStatus = 36923i32;
+pub const ER_BUS_IFACE_ALREADY_EXISTS: QStatus = 36924i32;
+pub const ER_BUS_ERROR_RESPONSE: QStatus = 36925i32;
+pub const ER_BUS_BAD_XML: QStatus = 36926i32;
+pub const ER_BUS_BAD_CHILD_PATH: QStatus = 36927i32;
+pub const ER_BUS_OBJ_ALREADY_EXISTS: QStatus = 36928i32;
+pub const ER_BUS_OBJ_NOT_FOUND: QStatus = 36929i32;
+pub const ER_BUS_CANNOT_EXPAND_MESSAGE: QStatus = 36930i32;
+pub const ER_BUS_NOT_COMPRESSED: QStatus = 36931i32;
+pub const ER_BUS_ALREADY_CONNECTED: QStatus = 36932i32;
+pub const ER_BUS_NOT_CONNECTED: QStatus = 36933i32;
+pub const ER_BUS_ALREADY_LISTENING: QStatus = 36934i32;
+pub const ER_BUS_KEY_UNAVAILABLE: QStatus = 36935i32;
+pub const ER_BUS_TRUNCATED: QStatus = 36936i32;
+pub const ER_BUS_KEY_STORE_NOT_LOADED: QStatus = 36937i32;
+pub const ER_BUS_NO_AUTHENTICATION_MECHANISM: QStatus = 36938i32;
+pub const ER_BUS_BUS_ALREADY_STARTED: QStatus = 36939i32;
+pub const ER_BUS_BUS_NOT_STARTED: QStatus = 36940i32;
+pub const ER_BUS_KEYBLOB_OP_INVALID: QStatus = 36941i32;
+pub const ER_BUS_INVALID_HEADER_CHECKSUM: QStatus = 36942i32;
+pub const ER_BUS_MESSAGE_NOT_ENCRYPTED: QStatus = 36943i32;
+pub const ER_BUS_INVALID_HEADER_SERIAL: QStatus = 36944i32;
+pub const ER_BUS_TIME_TO_LIVE_EXPIRED: QStatus = 36945i32;
+pub const ER_BUS_HDR_EXPANSION_INVALID: QStatus = 36946i32;
+pub const ER_BUS_MISSING_COMPRESSION_TOKEN: QStatus = 36947i32;
+pub const ER_BUS_NO_PEER_GUID: QStatus = 36948i32;
+pub const ER_BUS_MESSAGE_DECRYPTION_FAILED: QStatus = 36949i32;
+pub const ER_BUS_SECURITY_FATAL: QStatus = 36950i32;
+pub const ER_BUS_KEY_EXPIRED: QStatus = 36951i32;
+pub const ER_BUS_CORRUPT_KEYSTORE: QStatus = 36952i32;
+pub const ER_BUS_NO_CALL_FOR_REPLY: QStatus = 36953i32;
+pub const ER_BUS_NOT_A_COMPLETE_TYPE: QStatus = 36954i32;
+pub const ER_BUS_POLICY_VIOLATION: QStatus = 36955i32;
+pub const ER_BUS_NO_SUCH_SERVICE: QStatus = 36956i32;
+pub const ER_BUS_TRANSPORT_NOT_AVAILABLE: QStatus = 36957i32;
+pub const ER_BUS_INVALID_AUTH_MECHANISM: QStatus = 36958i32;
+pub const ER_BUS_KEYSTORE_VERSION_MISMATCH: QStatus = 36959i32;
+pub const ER_BUS_BLOCKING_CALL_NOT_ALLOWED: QStatus = 36960i32;
+pub const ER_BUS_SIGNATURE_MISMATCH: QStatus = 36961i32;
+pub const ER_BUS_STOPPING: QStatus = 36962i32;
+pub const ER_BUS_METHOD_CALL_ABORTED: QStatus = 36963i32;
+pub const ER_BUS_CANNOT_ADD_INTERFACE: QStatus = 36964i32;
+pub const ER_BUS_CANNOT_ADD_HANDLER: QStatus = 36965i32;
+pub const ER_BUS_KEYSTORE_NOT_LOADED: QStatus = 36966i32;
+pub const ER_BUS_NO_SUCH_HANDLE: QStatus = 36971i32;
+pub const ER_BUS_HANDLES_NOT_ENABLED: QStatus = 36972i32;
+pub const ER_BUS_HANDLES_MISMATCH: QStatus = 36973i32;
+pub const ER_BUS_NO_SESSION: QStatus = 36975i32;
+pub const ER_BUS_ELEMENT_NOT_FOUND: QStatus = 36976i32;
+pub const ER_BUS_NOT_A_DICTIONARY: QStatus = 36977i32;
+pub const ER_BUS_WAIT_FAILED: QStatus = 36978i32;
+pub const ER_BUS_BAD_SESSION_OPTS: QStatus = 36980i32;
+pub const ER_BUS_CONNECTION_REJECTED: QStatus = 36981i32;
+pub const ER_DBUS_REQUEST_NAME_REPLY_PRIMARY_OWNER: QStatus = 36982i32;
+pub const ER_DBUS_REQUEST_NAME_REPLY_IN_QUEUE: QStatus = 36983i32;
+pub const ER_DBUS_REQUEST_NAME_REPLY_EXISTS: QStatus = 36984i32;
+pub const ER_DBUS_REQUEST_NAME_REPLY_ALREADY_OWNER: QStatus = 36985i32;
+pub const ER_DBUS_RELEASE_NAME_REPLY_RELEASED: QStatus = 36986i32;
+pub const ER_DBUS_RELEASE_NAME_REPLY_NON_EXISTENT: QStatus = 36987i32;
+pub const ER_DBUS_RELEASE_NAME_REPLY_NOT_OWNER: QStatus = 36988i32;
+pub const ER_DBUS_START_REPLY_ALREADY_RUNNING: QStatus = 36990i32;
+pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_ALREADY_EXISTS: QStatus = 36992i32;
+pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_FAILED: QStatus = 36993i32;
+pub const ER_ALLJOYN_JOINSESSION_REPLY_NO_SESSION: QStatus = 36995i32;
+pub const ER_ALLJOYN_JOINSESSION_REPLY_UNREACHABLE: QStatus = 36996i32;
+pub const ER_ALLJOYN_JOINSESSION_REPLY_CONNECT_FAILED: QStatus = 36997i32;
+pub const ER_ALLJOYN_JOINSESSION_REPLY_REJECTED: QStatus = 36998i32;
+pub const ER_ALLJOYN_JOINSESSION_REPLY_BAD_SESSION_OPTS: QStatus = 36999i32;
+pub const ER_ALLJOYN_JOINSESSION_REPLY_FAILED: QStatus = 37000i32;
+pub const ER_ALLJOYN_LEAVESESSION_REPLY_NO_SESSION: QStatus = 37002i32;
+pub const ER_ALLJOYN_LEAVESESSION_REPLY_FAILED: QStatus = 37003i32;
+pub const ER_ALLJOYN_ADVERTISENAME_REPLY_TRANSPORT_NOT_AVAILABLE: QStatus = 37004i32;
+pub const ER_ALLJOYN_ADVERTISENAME_REPLY_ALREADY_ADVERTISING: QStatus = 37005i32;
+pub const ER_ALLJOYN_ADVERTISENAME_REPLY_FAILED: QStatus = 37006i32;
+pub const ER_ALLJOYN_CANCELADVERTISENAME_REPLY_FAILED: QStatus = 37008i32;
+pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_TRANSPORT_NOT_AVAILABLE: QStatus = 37009i32;
+pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_ALREADY_DISCOVERING: QStatus = 37010i32;
+pub const ER_ALLJOYN_FINDADVERTISEDNAME_REPLY_FAILED: QStatus = 37011i32;
+pub const ER_ALLJOYN_CANCELFINDADVERTISEDNAME_REPLY_FAILED: QStatus = 37013i32;
+pub const ER_BUS_UNEXPECTED_DISPOSITION: QStatus = 37014i32;
+pub const ER_BUS_INTERFACE_ACTIVATED: QStatus = 37015i32;
+pub const ER_ALLJOYN_UNBINDSESSIONPORT_REPLY_BAD_PORT: QStatus = 37016i32;
+pub const ER_ALLJOYN_UNBINDSESSIONPORT_REPLY_FAILED: QStatus = 37017i32;
+pub const ER_ALLJOYN_BINDSESSIONPORT_REPLY_INVALID_OPTS: QStatus = 37018i32;
+pub const ER_ALLJOYN_JOINSESSION_REPLY_ALREADY_JOINED: QStatus = 37019i32;
+pub const ER_BUS_SELF_CONNECT: QStatus = 37020i32;
+pub const ER_BUS_SECURITY_NOT_ENABLED: QStatus = 37021i32;
+pub const ER_BUS_LISTENER_ALREADY_SET: QStatus = 37022i32;
+pub const ER_BUS_PEER_AUTH_VERSION_MISMATCH: QStatus = 37023i32;
+pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NOT_SUPPORTED: QStatus = 37024i32;
+pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_NO_DEST_SUPPORT: QStatus = 37025i32;
+pub const ER_ALLJOYN_SETLINKTIMEOUT_REPLY_FAILED: QStatus = 37026i32;
+pub const ER_ALLJOYN_ACCESS_PERMISSION_WARNING: QStatus = 37027i32;
+pub const ER_ALLJOYN_ACCESS_PERMISSION_ERROR: QStatus = 37028i32;
+pub const ER_BUS_DESTINATION_NOT_AUTHENTICATED: QStatus = 37029i32;
+pub const ER_BUS_ENDPOINT_REDIRECTED: QStatus = 37030i32;
+pub const ER_BUS_AUTHENTICATION_PENDING: QStatus = 37031i32;
+pub const ER_BUS_NOT_AUTHORIZED: QStatus = 37032i32;
+pub const ER_PACKET_BUS_NO_SUCH_CHANNEL: QStatus = 37033i32;
+pub const ER_PACKET_BAD_FORMAT: QStatus = 37034i32;
+pub const ER_PACKET_CONNECT_TIMEOUT: QStatus = 37035i32;
+pub const ER_PACKET_CHANNEL_FAIL: QStatus = 37036i32;
+pub const ER_PACKET_TOO_LARGE: QStatus = 37037i32;
+pub const ER_PACKET_BAD_PARAMETER: QStatus = 37038i32;
+pub const ER_PACKET_BAD_CRC: QStatus = 37039i32;
+pub const ER_RENDEZVOUS_SERVER_DEACTIVATED_USER: QStatus = 37067i32;
+pub const ER_RENDEZVOUS_SERVER_UNKNOWN_USER: QStatus = 37068i32;
+pub const ER_UNABLE_TO_CONNECT_TO_RENDEZVOUS_SERVER: QStatus = 37069i32;
+pub const ER_NOT_CONNECTED_TO_RENDEZVOUS_SERVER: QStatus = 37070i32;
+pub const ER_UNABLE_TO_SEND_MESSAGE_TO_RENDEZVOUS_SERVER: QStatus = 37071i32;
+pub const ER_INVALID_RENDEZVOUS_SERVER_INTERFACE_MESSAGE: QStatus = 37072i32;
+pub const ER_INVALID_PERSISTENT_CONNECTION_MESSAGE_RESPONSE: QStatus = 37073i32;
+pub const ER_INVALID_ON_DEMAND_CONNECTION_MESSAGE_RESPONSE: QStatus = 37074i32;
+pub const ER_INVALID_HTTP_METHOD_USED_FOR_RENDEZVOUS_SERVER_INTERFACE_MESSAGE: QStatus = 37075i32;
+pub const ER_RENDEZVOUS_SERVER_ERR500_INTERNAL_ERROR: QStatus = 37076i32;
+pub const ER_RENDEZVOUS_SERVER_ERR503_STATUS_UNAVAILABLE: QStatus = 37077i32;
+pub const ER_RENDEZVOUS_SERVER_ERR401_UNAUTHORIZED_REQUEST: QStatus = 37078i32;
+pub const ER_RENDEZVOUS_SERVER_UNRECOVERABLE_ERROR: QStatus = 37079i32;
+pub const ER_RENDEZVOUS_SERVER_ROOT_CERTIFICATE_UNINITIALIZED: QStatus = 37080i32;
+pub const ER_BUS_NO_SUCH_ANNOTATION: QStatus = 37081i32;
+pub const ER_BUS_ANNOTATION_ALREADY_EXISTS: QStatus = 37082i32;
+pub const ER_SOCK_CLOSING: QStatus = 37083i32;
+pub const ER_NO_SUCH_DEVICE: QStatus = 37084i32;
+pub const ER_P2P: QStatus = 37085i32;
+pub const ER_P2P_TIMEOUT: QStatus = 37086i32;
+pub const ER_P2P_NOT_CONNECTED: QStatus = 37087i32;
+pub const ER_BAD_TRANSPORT_MASK: QStatus = 37088i32;
+pub const ER_PROXIMITY_CONNECTION_ESTABLISH_FAIL: QStatus = 37089i32;
+pub const ER_PROXIMITY_NO_PEERS_FOUND: QStatus = 37090i32;
+pub const ER_BUS_OBJECT_NOT_REGISTERED: QStatus = 37091i32;
+pub const ER_P2P_DISABLED: QStatus = 37092i32;
+pub const ER_P2P_BUSY: QStatus = 37093i32;
+pub const ER_BUS_INCOMPATIBLE_DAEMON: QStatus = 37094i32;
+pub const ER_P2P_NO_GO: QStatus = 37095i32;
+pub const ER_P2P_NO_STA: QStatus = 37096i32;
+pub const ER_P2P_FORBIDDEN: QStatus = 37097i32;
+pub const ER_ALLJOYN_ONAPPSUSPEND_REPLY_FAILED: QStatus = 37098i32;
+pub const ER_ALLJOYN_ONAPPSUSPEND_REPLY_UNSUPPORTED: QStatus = 37099i32;
+pub const ER_ALLJOYN_ONAPPRESUME_REPLY_FAILED: QStatus = 37100i32;
+pub const ER_ALLJOYN_ONAPPRESUME_REPLY_UNSUPPORTED: QStatus = 37101i32;
+pub const ER_BUS_NO_SUCH_MESSAGE: QStatus = 37102i32;
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_REPLY_NO_SESSION: QStatus = 37103i32;
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_BINDER: QStatus = 37104i32;
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_MULTIPOINT: QStatus = 37105i32;
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_NOT_FOUND: QStatus = 37106i32;
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_INCOMPATIBLE_REMOTE_DAEMON: QStatus = 37107i32;
+pub const ER_ALLJOYN_REMOVESESSIONMEMBER_REPLY_FAILED: QStatus = 37108i32;
+pub const ER_BUS_REMOVED_BY_BINDER: QStatus = 37109i32;
+pub const ER_BUS_MATCH_RULE_NOT_FOUND: QStatus = 37110i32;
+pub const ER_ALLJOYN_PING_FAILED: QStatus = 37111i32;
+pub const ER_ALLJOYN_PING_REPLY_UNREACHABLE: QStatus = 37112i32;
+pub const ER_UDP_MSG_TOO_LONG: QStatus = 37113i32;
+pub const ER_UDP_DEMUX_NO_ENDPOINT: QStatus = 37114i32;
+pub const ER_UDP_NO_NETWORK: QStatus = 37115i32;
+pub const ER_UDP_UNEXPECTED_LENGTH: QStatus = 37116i32;
+pub const ER_UDP_UNEXPECTED_FLOW: QStatus = 37117i32;
+pub const ER_UDP_DISCONNECT: QStatus = 37118i32;
+pub const ER_UDP_NOT_IMPLEMENTED: QStatus = 37119i32;
+pub const ER_UDP_NO_LISTENER: QStatus = 37120i32;
+pub const ER_UDP_STOPPING: QStatus = 37121i32;
+pub const ER_ARDP_BACKPRESSURE: QStatus = 37122i32;
+pub const ER_UDP_BACKPRESSURE: QStatus = 37123i32;
+pub const ER_ARDP_INVALID_STATE: QStatus = 37124i32;
+pub const ER_ARDP_TTL_EXPIRED: QStatus = 37125i32;
+pub const ER_ARDP_PERSIST_TIMEOUT: QStatus = 37126i32;
+pub const ER_ARDP_PROBE_TIMEOUT: QStatus = 37127i32;
+pub const ER_ARDP_REMOTE_CONNECTION_RESET: QStatus = 37128i32;
+pub const ER_UDP_BUSHELLO: QStatus = 37129i32;
+pub const ER_UDP_MESSAGE: QStatus = 37130i32;
+pub const ER_UDP_INVALID: QStatus = 37131i32;
+pub const ER_UDP_UNSUPPORTED: QStatus = 37132i32;
+pub const ER_UDP_ENDPOINT_STALLED: QStatus = 37133i32;
+pub const ER_ARDP_INVALID_RESPONSE: QStatus = 37134i32;
+pub const ER_ARDP_INVALID_CONNECTION: QStatus = 37135i32;
+pub const ER_UDP_LOCAL_DISCONNECT: QStatus = 37136i32;
+pub const ER_UDP_EARLY_EXIT: QStatus = 37137i32;
+pub const ER_UDP_LOCAL_DISCONNECT_FAIL: QStatus = 37138i32;
+pub const ER_ARDP_DISCONNECTING: QStatus = 37139i32;
+pub const ER_ALLJOYN_PING_REPLY_INCOMPATIBLE_REMOTE_ROUTING_NODE: QStatus = 37140i32;
+pub const ER_ALLJOYN_PING_REPLY_TIMEOUT: QStatus = 37141i32;
+pub const ER_ALLJOYN_PING_REPLY_UNKNOWN_NAME: QStatus = 37142i32;
+pub const ER_ALLJOYN_PING_REPLY_FAILED: QStatus = 37143i32;
+pub const ER_TCP_MAX_UNTRUSTED: QStatus = 37144i32;
+pub const ER_ALLJOYN_PING_REPLY_IN_PROGRESS: QStatus = 37145i32;
+pub const ER_LANGUAGE_NOT_SUPPORTED: QStatus = 37146i32;
+pub const ER_ABOUT_FIELD_ALREADY_SPECIFIED: QStatus = 37147i32;
+pub const ER_UDP_NOT_DISCONNECTED: QStatus = 37148i32;
+pub const ER_UDP_ENDPOINT_NOT_STARTED: QStatus = 37149i32;
+pub const ER_UDP_ENDPOINT_REMOVED: QStatus = 37150i32;
+pub const ER_ARDP_VERSION_NOT_SUPPORTED: QStatus = 37151i32;
+pub const ER_CONNECTION_LIMIT_EXCEEDED: QStatus = 37152i32;
+pub const ER_ARDP_WRITE_BLOCKED: QStatus = 37153i32;
+pub const ER_PERMISSION_DENIED: QStatus = 37154i32;
+pub const ER_ABOUT_DEFAULT_LANGUAGE_NOT_SPECIFIED: QStatus = 37155i32;
+pub const ER_ABOUT_SESSIONPORT_NOT_BOUND: QStatus = 37156i32;
+pub const ER_ABOUT_ABOUTDATA_MISSING_REQUIRED_FIELD: QStatus = 37157i32;
+pub const ER_ABOUT_INVALID_ABOUTDATA_LISTENER: QStatus = 37158i32;
+pub const ER_BUS_PING_GROUP_NOT_FOUND: QStatus = 37159i32;
+pub const ER_BUS_REMOVED_BY_BINDER_SELF: QStatus = 37160i32;
+pub const ER_INVALID_CONFIG: QStatus = 37161i32;
+pub const ER_ABOUT_INVALID_ABOUTDATA_FIELD_VALUE: QStatus = 37162i32;
+pub const ER_ABOUT_INVALID_ABOUTDATA_FIELD_APPID_SIZE: QStatus = 37163i32;
+pub const ER_BUS_TRANSPORT_ACCESS_DENIED: QStatus = 37164i32;
+pub const ER_INVALID_CERTIFICATE: QStatus = 37165i32;
+pub const ER_CERTIFICATE_NOT_FOUND: QStatus = 37166i32;
+pub const ER_DUPLICATE_CERTIFICATE: QStatus = 37167i32;
+pub const ER_UNKNOWN_CERTIFICATE: QStatus = 37168i32;
+pub const ER_MISSING_DIGEST_IN_CERTIFICATE: QStatus = 37169i32;
+pub const ER_DIGEST_MISMATCH: QStatus = 37170i32;
+pub const ER_DUPLICATE_KEY: QStatus = 37171i32;
+pub const ER_NO_COMMON_TRUST: QStatus = 37172i32;
+pub const ER_MANIFEST_NOT_FOUND: QStatus = 37173i32;
+pub const ER_INVALID_CERT_CHAIN: QStatus = 37174i32;
+pub const ER_NO_TRUST_ANCHOR: QStatus = 37175i32;
+pub const ER_INVALID_APPLICATION_STATE: QStatus = 37176i32;
+pub const ER_FEATURE_NOT_AVAILABLE: QStatus = 37177i32;
+pub const ER_KEY_STORE_ALREADY_INITIALIZED: QStatus = 37178i32;
+pub const ER_KEY_STORE_ID_NOT_YET_SET: QStatus = 37179i32;
+pub const ER_POLICY_NOT_NEWER: QStatus = 37180i32;
+pub const ER_MANIFEST_REJECTED: QStatus = 37181i32;
+pub const ER_INVALID_CERTIFICATE_USAGE: QStatus = 37182i32;
+pub const ER_INVALID_SIGNAL_EMISSION_TYPE: QStatus = 37183i32;
+pub const ER_APPLICATION_STATE_LISTENER_ALREADY_EXISTS: QStatus = 37184i32;
+pub const ER_APPLICATION_STATE_LISTENER_NO_SUCH_LISTENER: QStatus = 37185i32;
+pub const ER_MANAGEMENT_ALREADY_STARTED: QStatus = 37186i32;
+pub const ER_MANAGEMENT_NOT_STARTED: QStatus = 37187i32;
+pub const ER_BUS_DESCRIPTION_ALREADY_EXISTS: QStatus = 37188i32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _alljoyn_abouticon_handle(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _alljoyn_abouticonobj_handle(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _alljoyn_abouticonproxy_handle(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_about_announced_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, version: u16, port: u16, objectdescriptionarg: alljoyn_msgarg, aboutdataarg: alljoyn_msgarg)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_about_announceflag(pub i32);
-pub const UNANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(0i32);
-pub const ANNOUNCED: alljoyn_about_announceflag = alljoyn_about_announceflag(1i32);
-impl ::core::convert::From<i32> for alljoyn_about_announceflag {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_about_announceflag {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_aboutdata(pub isize);
-impl ::core::default::Default for alljoyn_aboutdata {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_aboutdata {}
-unsafe impl ::windows::core::Abi for alljoyn_aboutdata {
-    type Abi = Self;
-}
+pub type alljoyn_about_announceflag = i32;
+pub const UNANNOUNCED: alljoyn_about_announceflag = 0i32;
+pub const ANNOUNCED: alljoyn_about_announceflag = 1i32;
+pub type alljoyn_aboutdata = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn alljoyn_aboutdata_create<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(defaultlanguage: Param0) -> alljoyn_aboutdata {
@@ -681,7 +647,7 @@ pub unsafe fn alljoyn_aboutdata_destroy<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_aboutdata_destroy(data: alljoyn_aboutdata);
         }
-        ::core::mem::transmute(alljoyn_aboutdata_destroy(data.into_param().abi()))
+        alljoyn_aboutdata_destroy(data.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1205,19 +1171,7 @@ pub unsafe fn alljoyn_aboutdata_setsupporturl<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_aboutdatalistener(pub isize);
-impl ::core::default::Default for alljoyn_aboutdatalistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_aboutdatalistener {}
-unsafe impl ::windows::core::Abi for alljoyn_aboutdatalistener {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type alljoyn_aboutdatalistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_aboutdatalistener_callbacks {
@@ -1225,30 +1179,30 @@ pub struct alljoyn_aboutdatalistener_callbacks {
     pub about_datalistener_getannouncedaboutdata: alljoyn_aboutdatalistener_getannouncedaboutdata_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_aboutdatalistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_aboutdatalistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_aboutdatalistener_callbacks {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_aboutdatalistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_aboutdatalistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_aboutdatalistener_callbacks").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_aboutdatalistener_callbacks {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_aboutdatalistener_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.about_datalistener_getaboutdata.map(|f| f as usize) == other.about_datalistener_getaboutdata.map(|f| f as usize) && self.about_datalistener_getannouncedaboutdata.map(|f| f as usize) == other.about_datalistener_getannouncedaboutdata.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_aboutdatalistener_callbacks>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_aboutdatalistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_aboutdatalistener_callbacks {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_aboutdatalistener_callbacks {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1272,7 +1226,7 @@ pub unsafe fn alljoyn_aboutdatalistener_destroy<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_aboutdatalistener_destroy(listener: alljoyn_aboutdatalistener);
         }
-        ::core::mem::transmute(alljoyn_aboutdatalistener_destroy(listener.into_param().abi()))
+        alljoyn_aboutdatalistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1288,7 +1242,7 @@ pub unsafe fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle) {
         extern "system" {
             fn alljoyn_abouticon_clear(icon: *mut _alljoyn_abouticon_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticon_clear(::core::mem::transmute(icon)))
+        alljoyn_abouticon_clear(::core::mem::transmute(icon))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1314,7 +1268,7 @@ pub unsafe fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle) {
         extern "system" {
             fn alljoyn_abouticon_destroy(icon: *mut _alljoyn_abouticon_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticon_destroy(::core::mem::transmute(icon)))
+        alljoyn_abouticon_destroy(::core::mem::transmute(icon))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1327,7 +1281,7 @@ pub unsafe fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle,
         extern "system" {
             fn alljoyn_abouticon_getcontent(icon: *mut _alljoyn_abouticon_handle, data: *const *const u8, size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_abouticon_getcontent(::core::mem::transmute(icon), ::core::mem::transmute(data), ::core::mem::transmute(size)))
+        alljoyn_abouticon_getcontent(::core::mem::transmute(icon), ::core::mem::transmute(data), ::core::mem::transmute(size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1340,7 +1294,7 @@ pub unsafe fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#t
         extern "system" {
             fn alljoyn_abouticon_geturl(icon: *mut _alljoyn_abouticon_handle, r#type: *const *const i8, url: *const *const i8);
         }
-        ::core::mem::transmute(alljoyn_abouticon_geturl(::core::mem::transmute(icon), ::core::mem::transmute(r#type), ::core::mem::transmute(url)))
+        alljoyn_abouticon_geturl(::core::mem::transmute(icon), ::core::mem::transmute(r#type), ::core::mem::transmute(url))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1407,7 +1361,7 @@ pub unsafe fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_hand
         extern "system" {
             fn alljoyn_abouticonobj_destroy(icon: *mut _alljoyn_abouticonobj_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticonobj_destroy(::core::mem::transmute(icon)))
+        alljoyn_abouticonobj_destroy(::core::mem::transmute(icon))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1434,7 +1388,7 @@ pub unsafe fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy
         extern "system" {
             fn alljoyn_abouticonproxy_destroy(proxy: *mut _alljoyn_abouticonproxy_handle);
         }
-        ::core::mem::transmute(alljoyn_abouticonproxy_destroy(::core::mem::transmute(proxy)))
+        alljoyn_abouticonproxy_destroy(::core::mem::transmute(proxy))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1465,49 +1419,37 @@ pub unsafe fn alljoyn_abouticonproxy_getversion(proxy: *mut _alljoyn_abouticonpr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_aboutlistener(pub isize);
-impl ::core::default::Default for alljoyn_aboutlistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_aboutlistener {}
-unsafe impl ::windows::core::Abi for alljoyn_aboutlistener {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type alljoyn_aboutlistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_aboutlistener_callback {
     pub about_listener_announced: alljoyn_about_announced_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_aboutlistener_callback {}
+impl ::core::marker::Copy for alljoyn_aboutlistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_aboutlistener_callback {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_aboutlistener_callback {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_aboutlistener_callback {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_aboutlistener_callback").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_aboutlistener_callback {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_aboutlistener_callback {
     fn eq(&self, other: &Self) -> bool {
-        self.about_listener_announced.map(|f| f as usize) == other.about_listener_announced.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_aboutlistener_callback>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_aboutlistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_aboutlistener_callback {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_aboutlistener_callback {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1531,23 +1473,12 @@ pub unsafe fn alljoyn_aboutlistener_destroy<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn alljoyn_aboutlistener_destroy(listener: alljoyn_aboutlistener);
         }
-        ::core::mem::transmute(alljoyn_aboutlistener_destroy(listener.into_param().abi()))
+        alljoyn_aboutlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_aboutobj(pub isize);
-impl ::core::default::Default for alljoyn_aboutobj {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_aboutobj {}
-unsafe impl ::windows::core::Abi for alljoyn_aboutobj {
-    type Abi = Self;
-}
+pub type alljoyn_aboutobj = isize;
 #[inline]
 pub unsafe fn alljoyn_aboutobj_announce<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobj>, Param2: ::windows::core::IntoParam<'a, alljoyn_aboutdata>>(obj: Param0, sessionport: u16, aboutdata: Param2) -> QStatus {
     #[cfg(windows)]
@@ -1595,7 +1526,7 @@ pub unsafe fn alljoyn_aboutobj_destroy<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_aboutobj_destroy(obj: alljoyn_aboutobj);
         }
-        ::core::mem::transmute(alljoyn_aboutobj_destroy(obj.into_param().abi()))
+        alljoyn_aboutobj_destroy(obj.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1613,18 +1544,7 @@ pub unsafe fn alljoyn_aboutobj_unannounce<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_aboutobjectdescription(pub isize);
-impl ::core::default::Default for alljoyn_aboutobjectdescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_aboutobjectdescription {}
-unsafe impl ::windows::core::Abi for alljoyn_aboutobjectdescription {
-    type Abi = Self;
-}
+pub type alljoyn_aboutobjectdescription = isize;
 #[inline]
 pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_aboutobjectdescription>>(description: Param0) {
     #[cfg(windows)]
@@ -1633,7 +1553,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_clear<'a, Param0: ::windows::core::
         extern "system" {
             fn alljoyn_aboutobjectdescription_clear(description: alljoyn_aboutobjectdescription);
         }
-        ::core::mem::transmute(alljoyn_aboutobjectdescription_clear(description.into_param().abi()))
+        alljoyn_aboutobjectdescription_clear(description.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1685,7 +1605,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_destroy<'a, Param0: ::windows::core
         extern "system" {
             fn alljoyn_aboutobjectdescription_destroy(description: alljoyn_aboutobjectdescription);
         }
-        ::core::mem::transmute(alljoyn_aboutobjectdescription_destroy(description.into_param().abi()))
+        alljoyn_aboutobjectdescription_destroy(description.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1786,18 +1706,7 @@ pub unsafe fn alljoyn_aboutobjectdescription_haspath<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_aboutproxy(pub isize);
-impl ::core::default::Default for alljoyn_aboutproxy {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_aboutproxy {}
-unsafe impl ::windows::core::Abi for alljoyn_aboutproxy {
-    type Abi = Self;
-}
+pub type alljoyn_aboutproxy = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn alljoyn_aboutproxy_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, busname: Param1, sessionid: u32) -> alljoyn_aboutproxy {
@@ -1820,7 +1729,7 @@ pub unsafe fn alljoyn_aboutproxy_destroy<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn alljoyn_aboutproxy_destroy(proxy: alljoyn_aboutproxy);
         }
-        ::core::mem::transmute(alljoyn_aboutproxy_destroy(proxy.into_param().abi()))
+        alljoyn_aboutproxy_destroy(proxy.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1865,57 +1774,35 @@ pub unsafe fn alljoyn_aboutproxy_getversion<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_applicationstate(pub i32);
-pub const NOT_CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(0i32);
-pub const CLAIMABLE: alljoyn_applicationstate = alljoyn_applicationstate(1i32);
-pub const CLAIMED: alljoyn_applicationstate = alljoyn_applicationstate(2i32);
-pub const NEED_UPDATE: alljoyn_applicationstate = alljoyn_applicationstate(3i32);
-impl ::core::convert::From<i32> for alljoyn_applicationstate {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_applicationstate {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_applicationstatelistener(pub isize);
-impl ::core::default::Default for alljoyn_applicationstatelistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_applicationstatelistener {}
-unsafe impl ::windows::core::Abi for alljoyn_applicationstatelistener {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type alljoyn_applicationstate = i32;
+pub const NOT_CLAIMABLE: alljoyn_applicationstate = 0i32;
+pub const CLAIMABLE: alljoyn_applicationstate = 1i32;
+pub const CLAIMED: alljoyn_applicationstate = 2i32;
+pub const NEED_UPDATE: alljoyn_applicationstate = 3i32;
+pub type alljoyn_applicationstatelistener = isize;
 #[repr(C)]
 pub struct alljoyn_applicationstatelistener_callbacks {
     pub state: alljoyn_applicationstatelistener_state_ptr,
 }
-impl alljoyn_applicationstatelistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_applicationstatelistener_callbacks {}
+impl ::core::clone::Clone for alljoyn_applicationstatelistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_applicationstatelistener_callbacks {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_applicationstatelistener_callbacks {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_applicationstatelistener_callbacks>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_applicationstatelistener_callbacks {}
 impl ::core::default::Default for alljoyn_applicationstatelistener_callbacks {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for alljoyn_applicationstatelistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_applicationstatelistener_callbacks").finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_applicationstatelistener_callbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.state.map(|f| f as usize) == other.state.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for alljoyn_applicationstatelistener_callbacks {}
-unsafe impl ::windows::core::Abi for alljoyn_applicationstatelistener_callbacks {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_applicationstatelistener_create(callbacks: *const alljoyn_applicationstatelistener_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_applicationstatelistener {
@@ -1938,27 +1825,15 @@ pub unsafe fn alljoyn_applicationstatelistener_destroy<'a, Param0: ::windows::co
         extern "system" {
             fn alljoyn_applicationstatelistener_destroy(listener: alljoyn_applicationstatelistener);
         }
-        ::core::mem::transmute(alljoyn_applicationstatelistener_destroy(listener.into_param().abi()))
+        alljoyn_applicationstatelistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
 pub type alljoyn_applicationstatelistener_state_ptr = ::core::option::Option<unsafe extern "system" fn(busname: *mut i8, publickey: *mut i8, applicationstate: alljoyn_applicationstate, context: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_authlistener(pub isize);
-impl ::core::default::Default for alljoyn_authlistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_authlistener {}
-unsafe impl ::windows::core::Abi for alljoyn_authlistener {
-    type Abi = Self;
-}
+pub type alljoyn_authlistener = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_authlistener_authenticationcomplete_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, authmechanism: super::super::Foundation::PSTR, peername: super::super::Foundation::PSTR, success: i32)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_authlistener_callbacks {
@@ -1968,30 +1843,30 @@ pub struct alljoyn_authlistener_callbacks {
     pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_authlistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_authlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_authlistener_callbacks {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_authlistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_authlistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_authlistener_callbacks").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_authlistener_callbacks {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_authlistener_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.request_credentials.map(|f| f as usize) == other.request_credentials.map(|f| f as usize) && self.verify_credentials.map(|f| f as usize) == other.verify_credentials.map(|f| f as usize) && self.security_violation.map(|f| f as usize) == other.security_violation.map(|f| f as usize) && self.authentication_complete.map(|f| f as usize) == other.authentication_complete.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_authlistener_callbacks>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_authlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_authlistener_callbacks {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_authlistener_callbacks {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2015,7 +1890,7 @@ pub unsafe fn alljoyn_authlistener_destroy<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn alljoyn_authlistener_destroy(listener: alljoyn_authlistener);
         }
-        ::core::mem::transmute(alljoyn_authlistener_destroy(listener.into_param().abi()))
+        alljoyn_authlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2068,7 +1943,6 @@ pub unsafe fn alljoyn_authlistener_verifycredentialsresponse<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_authlistenerasync_callbacks {
@@ -2078,30 +1952,30 @@ pub struct alljoyn_authlistenerasync_callbacks {
     pub authentication_complete: alljoyn_authlistener_authenticationcomplete_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_authlistenerasync_callbacks {}
+impl ::core::marker::Copy for alljoyn_authlistenerasync_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_authlistenerasync_callbacks {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_authlistenerasync_callbacks {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_authlistenerasync_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_authlistenerasync_callbacks").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_authlistenerasync_callbacks {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_authlistenerasync_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.request_credentials.map(|f| f as usize) == other.request_credentials.map(|f| f as usize) && self.verify_credentials.map(|f| f as usize) == other.verify_credentials.map(|f| f as usize) && self.security_violation.map(|f| f as usize) == other.security_violation.map(|f| f as usize) && self.authentication_complete.map(|f| f as usize) == other.authentication_complete.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_authlistenerasync_callbacks>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_authlistenerasync_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_authlistenerasync_callbacks {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_authlistenerasync_callbacks {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2125,23 +1999,12 @@ pub unsafe fn alljoyn_authlistenerasync_destroy<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_authlistenerasync_destroy(listener: alljoyn_authlistener);
         }
-        ::core::mem::transmute(alljoyn_authlistenerasync_destroy(listener.into_param().abi()))
+        alljoyn_authlistenerasync_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_autopinger(pub isize);
-impl ::core::default::Default for alljoyn_autopinger {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_autopinger {}
-unsafe impl ::windows::core::Abi for alljoyn_autopinger {
-    type Abi = Self;
-}
+pub type alljoyn_autopinger = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn alljoyn_autopinger_adddestination<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_autopinger>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(autopinger: Param0, group: Param1, destination: Param2) -> QStatus {
@@ -2165,7 +2028,7 @@ pub unsafe fn alljoyn_autopinger_addpinggroup<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_autopinger_addpinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR, listener: alljoyn_pinglistener, pinginterval: u32);
         }
-        ::core::mem::transmute(alljoyn_autopinger_addpinggroup(autopinger.into_param().abi(), group.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(pinginterval)))
+        alljoyn_autopinger_addpinggroup(autopinger.into_param().abi(), group.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(pinginterval))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2195,7 +2058,7 @@ pub unsafe fn alljoyn_autopinger_destroy<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn alljoyn_autopinger_destroy(autopinger: alljoyn_autopinger);
         }
-        ::core::mem::transmute(alljoyn_autopinger_destroy(autopinger.into_param().abi()))
+        alljoyn_autopinger_destroy(autopinger.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2208,7 +2071,7 @@ pub unsafe fn alljoyn_autopinger_pause<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_autopinger_pause(autopinger: alljoyn_autopinger);
         }
-        ::core::mem::transmute(alljoyn_autopinger_pause(autopinger.into_param().abi()))
+        alljoyn_autopinger_pause(autopinger.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2236,7 +2099,7 @@ pub unsafe fn alljoyn_autopinger_removepinggroup<'a, Param0: ::windows::core::In
         extern "system" {
             fn alljoyn_autopinger_removepinggroup(autopinger: alljoyn_autopinger, group: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_autopinger_removepinggroup(autopinger.into_param().abi(), group.into_param().abi()))
+        alljoyn_autopinger_removepinggroup(autopinger.into_param().abi(), group.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2249,7 +2112,7 @@ pub unsafe fn alljoyn_autopinger_resume<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_autopinger_resume(autopinger: alljoyn_autopinger);
         }
-        ::core::mem::transmute(alljoyn_autopinger_resume(autopinger.into_param().abi()))
+        alljoyn_autopinger_resume(autopinger.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2268,18 +2131,7 @@ pub unsafe fn alljoyn_autopinger_setpinginterval<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_busattachment(pub isize);
-impl ::core::default::Default for alljoyn_busattachment {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_busattachment {}
-unsafe impl ::windows::core::Abi for alljoyn_busattachment {
-    type Abi = Self;
-}
+pub type alljoyn_busattachment = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn alljoyn_busattachment_addlogonentry<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(bus: Param0, authmechanism: Param1, username: Param2, password: Param3) -> QStatus {
@@ -2426,7 +2278,7 @@ pub unsafe fn alljoyn_busattachment_clearkeystore<'a, Param0: ::windows::core::I
         extern "system" {
             fn alljoyn_busattachment_clearkeystore(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_clearkeystore(bus.into_param().abi()))
+        alljoyn_busattachment_clearkeystore(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2550,7 +2402,7 @@ pub unsafe fn alljoyn_busattachment_destroy<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn alljoyn_busattachment_destroy(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_destroy(bus.into_param().abi()))
+        alljoyn_busattachment_destroy(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2577,7 +2429,7 @@ pub unsafe fn alljoyn_busattachment_enableconcurrentcallbacks<'a, Param0: ::wind
         extern "system" {
             fn alljoyn_busattachment_enableconcurrentcallbacks(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_enableconcurrentcallbacks(bus.into_param().abi()))
+        alljoyn_busattachment_enableconcurrentcallbacks(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2956,7 +2808,7 @@ pub unsafe fn alljoyn_busattachment_registeraboutlistener<'a, Param0: ::windows:
         extern "system" {
             fn alljoyn_busattachment_registeraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_registeraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi()))
+        alljoyn_busattachment_registeraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2982,7 +2834,7 @@ pub unsafe fn alljoyn_busattachment_registerbuslistener<'a, Param0: ::windows::c
         extern "system" {
             fn alljoyn_busattachment_registerbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_registerbuslistener(bus.into_param().abi(), listener.into_param().abi()))
+        alljoyn_busattachment_registerbuslistener(bus.into_param().abi(), listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3266,7 +3118,7 @@ pub unsafe fn alljoyn_busattachment_unregisteraboutlistener<'a, Param0: ::window
         extern "system" {
             fn alljoyn_busattachment_unregisteraboutlistener(bus: alljoyn_busattachment, aboutlistener: alljoyn_aboutlistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisteraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi()))
+        alljoyn_busattachment_unregisteraboutlistener(bus.into_param().abi(), aboutlistener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3279,7 +3131,7 @@ pub unsafe fn alljoyn_busattachment_unregisterallaboutlisteners<'a, Param0: ::wi
         extern "system" {
             fn alljoyn_busattachment_unregisterallaboutlisteners(bus: alljoyn_busattachment);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisterallaboutlisteners(bus.into_param().abi()))
+        alljoyn_busattachment_unregisterallaboutlisteners(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3318,7 +3170,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbuslistener<'a, Param0: ::windows:
         extern "system" {
             fn alljoyn_busattachment_unregisterbuslistener(bus: alljoyn_busattachment, listener: alljoyn_buslistener);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisterbuslistener(bus.into_param().abi(), listener.into_param().abi()))
+        alljoyn_busattachment_unregisterbuslistener(bus.into_param().abi(), listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3331,7 +3183,7 @@ pub unsafe fn alljoyn_busattachment_unregisterbusobject<'a, Param0: ::windows::c
         extern "system" {
             fn alljoyn_busattachment_unregisterbusobject(bus: alljoyn_busattachment, object: alljoyn_busobject);
         }
-        ::core::mem::transmute(alljoyn_busattachment_unregisterbusobject(bus.into_param().abi(), object.into_param().abi()))
+        alljoyn_busattachment_unregisterbusobject(bus.into_param().abi(), object.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3391,23 +3243,11 @@ pub unsafe fn alljoyn_busattachment_whoimplements_interfaces<'a, Param0: ::windo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_buslistener(pub isize);
-impl ::core::default::Default for alljoyn_buslistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_buslistener {}
-unsafe impl ::windows::core::Abi for alljoyn_buslistener {
-    type Abi = Self;
-}
+pub type alljoyn_buslistener = isize;
 pub type alljoyn_buslistener_bus_disconnected_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_bus_prop_changed_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, prop_name: super::super::Foundation::PSTR, prop_value: alljoyn_msgarg)>;
 pub type alljoyn_buslistener_bus_stopping_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_buslistener_callbacks {
@@ -3421,30 +3261,30 @@ pub struct alljoyn_buslistener_callbacks {
     pub property_changed: alljoyn_buslistener_bus_prop_changed_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_buslistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_buslistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_buslistener_callbacks {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_buslistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_buslistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_buslistener_callbacks").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_buslistener_callbacks {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_buslistener_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.listener_registered.map(|f| f as usize) == other.listener_registered.map(|f| f as usize) && self.listener_unregistered.map(|f| f as usize) == other.listener_unregistered.map(|f| f as usize) && self.found_advertised_name.map(|f| f as usize) == other.found_advertised_name.map(|f| f as usize) && self.lost_advertised_name.map(|f| f as usize) == other.lost_advertised_name.map(|f| f as usize) && self.name_owner_changed.map(|f| f as usize) == other.name_owner_changed.map(|f| f as usize) && self.bus_stopping.map(|f| f as usize) == other.bus_stopping.map(|f| f as usize) && self.bus_disconnected.map(|f| f as usize) == other.bus_disconnected.map(|f| f as usize) && self.property_changed.map(|f| f as usize) == other.property_changed.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_buslistener_callbacks>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_buslistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_buslistener_callbacks {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_buslistener_callbacks {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3468,7 +3308,7 @@ pub unsafe fn alljoyn_buslistener_destroy<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn alljoyn_buslistener_destroy(listener: alljoyn_buslistener);
         }
-        ::core::mem::transmute(alljoyn_buslistener_destroy(listener.into_param().abi()))
+        alljoyn_buslistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3481,18 +3321,7 @@ pub type alljoyn_buslistener_listener_unregistered_ptr = ::core::option::Option<
 pub type alljoyn_buslistener_lost_advertised_name_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, name: super::super::Foundation::PSTR, transport: u16, nameprefix: super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_buslistener_name_owner_changed_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, busname: super::super::Foundation::PSTR, previousowner: super::super::Foundation::PSTR, newowner: super::super::Foundation::PSTR)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_busobject(pub isize);
-impl ::core::default::Default for alljoyn_busobject {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_busobject {}
-unsafe impl ::windows::core::Abi for alljoyn_busobject {
-    type Abi = Self;
-}
+pub type alljoyn_busobject = isize;
 #[inline]
 pub unsafe fn alljoyn_busobject_addinterface<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(bus: Param0, iface: Param1) -> QStatus {
     #[cfg(windows)]
@@ -3547,7 +3376,6 @@ pub unsafe fn alljoyn_busobject_addmethodhandlers<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_busobject_callbacks {
@@ -3557,30 +3385,30 @@ pub struct alljoyn_busobject_callbacks {
     pub object_unregistered: alljoyn_busobject_object_registration_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_busobject_callbacks {}
+impl ::core::marker::Copy for alljoyn_busobject_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_busobject_callbacks {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_busobject_callbacks {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_busobject_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_busobject_callbacks").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_busobject_callbacks {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_busobject_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.property_get.map(|f| f as usize) == other.property_get.map(|f| f as usize) && self.property_set.map(|f| f as usize) == other.property_set.map(|f| f as usize) && self.object_registered.map(|f| f as usize) == other.object_registered.map(|f| f as usize) && self.object_unregistered.map(|f| f as usize) == other.object_unregistered.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_busobject_callbacks>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_busobject_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_busobject_callbacks {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_busobject_callbacks {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[inline]
 pub unsafe fn alljoyn_busobject_cancelsessionlessmessage<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>>(bus: Param0, msg: Param1) -> QStatus {
@@ -3630,7 +3458,7 @@ pub unsafe fn alljoyn_busobject_destroy<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_busobject_destroy(bus: alljoyn_busobject);
         }
-        ::core::mem::transmute(alljoyn_busobject_destroy(bus.into_param().abi()))
+        alljoyn_busobject_destroy(bus.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3644,7 +3472,7 @@ pub unsafe fn alljoyn_busobject_emitpropertieschanged<'a, Param0: ::windows::cor
         extern "system" {
             fn alljoyn_busobject_emitpropertieschanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propnames: *const *const i8, numprops: usize, id: u32);
         }
-        ::core::mem::transmute(alljoyn_busobject_emitpropertieschanged(bus.into_param().abi(), ifcname.into_param().abi(), ::core::mem::transmute(propnames), ::core::mem::transmute(numprops), ::core::mem::transmute(id)))
+        alljoyn_busobject_emitpropertieschanged(bus.into_param().abi(), ifcname.into_param().abi(), ::core::mem::transmute(propnames), ::core::mem::transmute(numprops), ::core::mem::transmute(id))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3658,7 +3486,7 @@ pub unsafe fn alljoyn_busobject_emitpropertychanged<'a, Param0: ::windows::core:
         extern "system" {
             fn alljoyn_busobject_emitpropertychanged(bus: alljoyn_busobject, ifcname: super::super::Foundation::PSTR, propname: super::super::Foundation::PSTR, val: alljoyn_msgarg, id: u32);
         }
-        ::core::mem::transmute(alljoyn_busobject_emitpropertychanged(bus.into_param().abi(), ifcname.into_param().abi(), propname.into_param().abi(), val.into_param().abi(), ::core::mem::transmute(id)))
+        alljoyn_busobject_emitpropertychanged(bus.into_param().abi(), ifcname.into_param().abi(), propname.into_param().abi(), val.into_param().abi(), ::core::mem::transmute(id))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3730,7 +3558,6 @@ pub unsafe fn alljoyn_busobject_issecure<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_busobject_methodentry {
@@ -3738,30 +3565,30 @@ pub struct alljoyn_busobject_methodentry {
     pub method_handler: alljoyn_messagereceiver_methodhandler_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_busobject_methodentry {}
+impl ::core::marker::Copy for alljoyn_busobject_methodentry {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_busobject_methodentry {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_busobject_methodentry {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_busobject_methodentry {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_busobject_methodentry").field("member", &self.member).finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_busobject_methodentry {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_busobject_methodentry {
     fn eq(&self, other: &Self) -> bool {
-        self.member == other.member && self.method_handler.map(|f| f as usize) == other.method_handler.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_busobject_methodentry>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_busobject_methodentry {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_busobject_methodentry {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_busobject_methodentry {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[inline]
 pub unsafe fn alljoyn_busobject_methodreply_args<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_message>, Param2: ::windows::core::IntoParam<'a, alljoyn_msgarg>>(bus: Param0, msg: Param1, args: Param2, numargs: usize) -> QStatus {
@@ -3835,7 +3662,6 @@ pub unsafe fn alljoyn_busobject_signal<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_certificateid {
     pub serial: *mut u8,
@@ -3844,91 +3670,59 @@ pub struct alljoyn_certificateid {
     pub issuerAki: *mut u8,
     pub issuerAkiLen: usize,
 }
-impl alljoyn_certificateid {}
+impl ::core::marker::Copy for alljoyn_certificateid {}
+impl ::core::clone::Clone for alljoyn_certificateid {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_certificateid {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_certificateid {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_certificateid>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_certificateid {}
 impl ::core::default::Default for alljoyn_certificateid {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for alljoyn_certificateid {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_certificateid").field("serial", &self.serial).field("serialLen", &self.serialLen).field("issuerPublicKey", &self.issuerPublicKey).field("issuerAki", &self.issuerAki).field("issuerAkiLen", &self.issuerAkiLen).finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_certificateid {
-    fn eq(&self, other: &Self) -> bool {
-        self.serial == other.serial && self.serialLen == other.serialLen && self.issuerPublicKey == other.issuerPublicKey && self.issuerAki == other.issuerAki && self.issuerAkiLen == other.issuerAkiLen
-    }
-}
-impl ::core::cmp::Eq for alljoyn_certificateid {}
-unsafe impl ::windows::core::Abi for alljoyn_certificateid {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_certificateidarray {
     pub count: usize,
     pub ids: *mut alljoyn_certificateid,
 }
-impl alljoyn_certificateidarray {}
+impl ::core::marker::Copy for alljoyn_certificateidarray {}
+impl ::core::clone::Clone for alljoyn_certificateidarray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_certificateidarray {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_certificateidarray {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_certificateidarray>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_certificateidarray {}
 impl ::core::default::Default for alljoyn_certificateidarray {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for alljoyn_certificateidarray {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_certificateidarray").field("count", &self.count).field("ids", &self.ids).finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_certificateidarray {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.ids == other.ids
-    }
-}
-impl ::core::cmp::Eq for alljoyn_certificateidarray {}
-unsafe impl ::windows::core::Abi for alljoyn_certificateidarray {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_claimcapability_masks(pub i32);
-pub const CAPABLE_ECDHE_NULL: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(1i32);
-pub const CAPABLE_ECDHE_ECDSA: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(4i32);
-pub const CAPABLE_ECDHE_SPEKE: alljoyn_claimcapability_masks = alljoyn_claimcapability_masks(8i32);
-impl ::core::convert::From<i32> for alljoyn_claimcapability_masks {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_claimcapability_masks {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_claimcapabilityadditionalinfo_masks(pub i32);
-pub const PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(1i32);
-pub const PASSWORD_GENERATED_BY_APPLICATION: alljoyn_claimcapabilityadditionalinfo_masks = alljoyn_claimcapabilityadditionalinfo_masks(2i32);
-impl ::core::convert::From<i32> for alljoyn_claimcapabilityadditionalinfo_masks {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_claimcapabilityadditionalinfo_masks {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_credentials(pub isize);
-impl ::core::default::Default for alljoyn_credentials {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_credentials {}
-unsafe impl ::windows::core::Abi for alljoyn_credentials {
-    type Abi = Self;
-}
+pub type alljoyn_claimcapability_masks = i32;
+pub const CAPABLE_ECDHE_NULL: alljoyn_claimcapability_masks = 1i32;
+pub const CAPABLE_ECDHE_ECDSA: alljoyn_claimcapability_masks = 4i32;
+pub const CAPABLE_ECDHE_SPEKE: alljoyn_claimcapability_masks = 8i32;
+pub type alljoyn_claimcapabilityadditionalinfo_masks = i32;
+pub const PASSWORD_GENERATED_BY_SECURITY_MANAGER: alljoyn_claimcapabilityadditionalinfo_masks = 1i32;
+pub const PASSWORD_GENERATED_BY_APPLICATION: alljoyn_claimcapabilityadditionalinfo_masks = 2i32;
+pub type alljoyn_credentials = isize;
 #[inline]
 pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_credentials>>(cred: Param0) {
     #[cfg(windows)]
@@ -3937,7 +3731,7 @@ pub unsafe fn alljoyn_credentials_clear<'a, Param0: ::windows::core::IntoParam<'
         extern "system" {
             fn alljoyn_credentials_clear(cred: alljoyn_credentials);
         }
-        ::core::mem::transmute(alljoyn_credentials_clear(cred.into_param().abi()))
+        alljoyn_credentials_clear(cred.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3963,7 +3757,7 @@ pub unsafe fn alljoyn_credentials_destroy<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn alljoyn_credentials_destroy(cred: alljoyn_credentials);
         }
-        ::core::mem::transmute(alljoyn_credentials_destroy(cred.into_param().abi()))
+        alljoyn_credentials_destroy(cred.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4073,7 +3867,7 @@ pub unsafe fn alljoyn_credentials_setcertchain<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_credentials_setcertchain(cred: alljoyn_credentials, certchain: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setcertchain(cred.into_param().abi(), certchain.into_param().abi()))
+        alljoyn_credentials_setcertchain(cred.into_param().abi(), certchain.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4086,7 +3880,7 @@ pub unsafe fn alljoyn_credentials_setexpiration<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_credentials_setexpiration(cred: alljoyn_credentials, expiration: u32);
         }
-        ::core::mem::transmute(alljoyn_credentials_setexpiration(cred.into_param().abi(), ::core::mem::transmute(expiration)))
+        alljoyn_credentials_setexpiration(cred.into_param().abi(), ::core::mem::transmute(expiration))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4100,7 +3894,7 @@ pub unsafe fn alljoyn_credentials_setlogonentry<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_credentials_setlogonentry(cred: alljoyn_credentials, logonentry: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setlogonentry(cred.into_param().abi(), logonentry.into_param().abi()))
+        alljoyn_credentials_setlogonentry(cred.into_param().abi(), logonentry.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4114,7 +3908,7 @@ pub unsafe fn alljoyn_credentials_setpassword<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_credentials_setpassword(cred: alljoyn_credentials, pwd: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setpassword(cred.into_param().abi(), pwd.into_param().abi()))
+        alljoyn_credentials_setpassword(cred.into_param().abi(), pwd.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4128,7 +3922,7 @@ pub unsafe fn alljoyn_credentials_setprivatekey<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_credentials_setprivatekey(cred: alljoyn_credentials, pk: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setprivatekey(cred.into_param().abi(), pk.into_param().abi()))
+        alljoyn_credentials_setprivatekey(cred.into_param().abi(), pk.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4142,7 +3936,7 @@ pub unsafe fn alljoyn_credentials_setusername<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_credentials_setusername(cred: alljoyn_credentials, username: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_credentials_setusername(cred.into_param().abi(), username.into_param().abi()))
+        alljoyn_credentials_setusername(cred.into_param().abi(), username.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4201,18 +3995,7 @@ pub unsafe fn alljoyn_init() -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_interfacedescription(pub isize);
-impl ::core::default::Default for alljoyn_interfacedescription {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_interfacedescription {}
-unsafe impl ::windows::core::Abi for alljoyn_interfacedescription {
-    type Abi = Self;
-}
+pub type alljoyn_interfacedescription = isize;
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>>(iface: Param0) {
     #[cfg(windows)]
@@ -4221,7 +4004,7 @@ pub unsafe fn alljoyn_interfacedescription_activate<'a, Param0: ::windows::core:
         extern "system" {
             fn alljoyn_interfacedescription_activate(iface: alljoyn_interfacedescription);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_activate(iface.into_param().abi()))
+        alljoyn_interfacedescription_activate(iface.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4374,7 +4157,7 @@ pub unsafe fn alljoyn_interfacedescription_getannotationatindex<'a, Param0: ::wi
         extern "system" {
             fn alljoyn_interfacedescription_getannotationatindex(iface: alljoyn_interfacedescription, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_getannotationatindex(iface.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_getannotationatindex(iface.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4723,7 +4506,6 @@ pub unsafe fn alljoyn_interfacedescription_issecure<'a, Param0: ::windows::core:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_interfacedescription_member {
@@ -4736,30 +4518,30 @@ pub struct alljoyn_interfacedescription_member {
     pub internal_member: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_interfacedescription_member {}
+impl ::core::marker::Copy for alljoyn_interfacedescription_member {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_interfacedescription_member {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_interfacedescription_member {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_interfacedescription_member {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_interfacedescription_member").field("iface", &self.iface).field("memberType", &self.memberType).field("name", &self.name).field("signature", &self.signature).field("returnSignature", &self.returnSignature).field("argNames", &self.argNames).field("internal_member", &self.internal_member).finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_interfacedescription_member {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_interfacedescription_member {
     fn eq(&self, other: &Self) -> bool {
-        self.iface == other.iface && self.memberType == other.memberType && self.name == other.name && self.signature == other.signature && self.returnSignature == other.returnSignature && self.argNames == other.argNames && self.internal_member == other.internal_member
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_interfacedescription_member>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_interfacedescription_member {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_interfacedescription_member {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_interfacedescription_member {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4798,7 +4580,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getannotationatindex<'a, Param
         extern "system" {
             fn alljoyn_interfacedescription_member_getannotationatindex(member: alljoyn_interfacedescription_member, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_member_getannotationatindex(member.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_member_getannotationatindex(member.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4840,7 +4622,7 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationatindex<'a, Pa
         extern "system" {
             fn alljoyn_interfacedescription_member_getargannotationatindex(member: alljoyn_interfacedescription_member, argname: super::super::Foundation::PSTR, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_member_getargannotationatindex(member.into_param().abi(), argname.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_member_getargannotationatindex(member.into_param().abi(), argname.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4859,7 +4641,6 @@ pub unsafe fn alljoyn_interfacedescription_member_getargannotationscount<'a, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_interfacedescription_property {
@@ -4869,30 +4650,30 @@ pub struct alljoyn_interfacedescription_property {
     pub internal_property: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_interfacedescription_property {}
+impl ::core::marker::Copy for alljoyn_interfacedescription_property {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_interfacedescription_property {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_interfacedescription_property {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_interfacedescription_property {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_interfacedescription_property").field("name", &self.name).field("signature", &self.signature).field("access", &self.access).field("internal_property", &self.internal_property).finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_interfacedescription_property {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_interfacedescription_property {
     fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.signature == other.signature && self.access == other.access && self.internal_property == other.internal_property
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_interfacedescription_property>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_interfacedescription_property {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_interfacedescription_property {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_interfacedescription_property {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4931,7 +4712,7 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationatindex<'a, Par
         extern "system" {
             fn alljoyn_interfacedescription_property_getannotationatindex(property: alljoyn_interfacedescription_property, index: usize, name: super::super::Foundation::PSTR, name_size: *mut usize, value: super::super::Foundation::PSTR, value_size: *mut usize);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_property_getannotationatindex(property.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size)))
+        alljoyn_interfacedescription_property_getannotationatindex(property.into_param().abi(), ::core::mem::transmute(index), name.into_param().abi(), ::core::mem::transmute(name_size), value.into_param().abi(), ::core::mem::transmute(value_size))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4950,20 +4731,10 @@ pub unsafe fn alljoyn_interfacedescription_property_getannotationscount<'a, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_interfacedescription_securitypolicy(pub i32);
-pub const AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(0i32);
-pub const AJ_IFC_SECURITY_REQUIRED: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(1i32);
-pub const AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = alljoyn_interfacedescription_securitypolicy(2i32);
-impl ::core::convert::From<i32> for alljoyn_interfacedescription_securitypolicy {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_interfacedescription_securitypolicy {
-    type Abi = Self;
-}
+pub type alljoyn_interfacedescription_securitypolicy = i32;
+pub const AJ_IFC_SECURITY_INHERIT: alljoyn_interfacedescription_securitypolicy = 0i32;
+pub const AJ_IFC_SECURITY_REQUIRED: alljoyn_interfacedescription_securitypolicy = 1i32;
+pub const AJ_IFC_SECURITY_OFF: alljoyn_interfacedescription_securitypolicy = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn alljoyn_interfacedescription_setargdescription<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_interfacedescription>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(iface: Param0, member: Param1, argname: Param2, description: Param3) -> QStatus {
@@ -5001,7 +4772,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescription<'a, Param0: ::windows:
         extern "system" {
             fn alljoyn_interfacedescription_setdescription(iface: alljoyn_interfacedescription, description: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_setdescription(iface.into_param().abi(), description.into_param().abi()))
+        alljoyn_interfacedescription_setdescription(iface.into_param().abi(), description.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5029,7 +4800,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptionlanguage<'a, Param0: ::
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptionlanguage(iface: alljoyn_interfacedescription, language: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_setdescriptionlanguage(iface.into_param().abi(), language.into_param().abi()))
+        alljoyn_interfacedescription_setdescriptionlanguage(iface.into_param().abi(), language.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5043,7 +4814,7 @@ pub unsafe fn alljoyn_interfacedescription_setdescriptiontranslationcallback<'a,
         extern "system" {
             fn alljoyn_interfacedescription_setdescriptiontranslationcallback(iface: alljoyn_interfacedescription, translationcallback: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into_param().abi(), ::core::mem::transmute(translationcallback)))
+        alljoyn_interfacedescription_setdescriptiontranslationcallback(iface.into_param().abi(), ::core::mem::transmute(translationcallback))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5106,56 +4877,33 @@ pub unsafe fn alljoyn_interfacedescription_setpropertydescriptionforlanguage<'a,
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_interfacedescription_translation_callback_ptr = ::core::option::Option<unsafe extern "system" fn(sourcelanguage: super::super::Foundation::PSTR, targetlanguage: super::super::Foundation::PSTR, sourcetext: super::super::Foundation::PSTR) -> super::super::Foundation::PSTR>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_keystore(pub isize);
-impl ::core::default::Default for alljoyn_keystore {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_keystore {}
-unsafe impl ::windows::core::Abi for alljoyn_keystore {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_keystorelistener(pub isize);
-impl ::core::default::Default for alljoyn_keystorelistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_keystorelistener {}
-unsafe impl ::windows::core::Abi for alljoyn_keystorelistener {
-    type Abi = Self;
-}
+pub type alljoyn_keystore = isize;
+pub type alljoyn_keystorelistener = isize;
 pub type alljoyn_keystorelistener_acquireexclusivelock_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener) -> QStatus>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_keystorelistener_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
     pub store_request: alljoyn_keystorelistener_storerequest_ptr,
 }
-impl alljoyn_keystorelistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_keystorelistener_callbacks {}
+impl ::core::clone::Clone for alljoyn_keystorelistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_callbacks {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_keystorelistener_callbacks {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_keystorelistener_callbacks>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_keystorelistener_callbacks {}
 impl ::core::default::Default for alljoyn_keystorelistener_callbacks {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for alljoyn_keystorelistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_keystorelistener_callbacks").finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_keystorelistener_callbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.load_request.map(|f| f as usize) == other.load_request.map(|f| f as usize) && self.store_request.map(|f| f as usize) == other.store_request.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for alljoyn_keystorelistener_callbacks {}
-unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_callbacks {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_create(callbacks: *const alljoyn_keystorelistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_keystorelistener {
@@ -5178,7 +4926,7 @@ pub unsafe fn alljoyn_keystorelistener_destroy<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_keystorelistener_destroy(listener: alljoyn_keystorelistener);
         }
-        ::core::mem::transmute(alljoyn_keystorelistener_destroy(listener.into_param().abi()))
+        alljoyn_keystorelistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5214,7 +4962,6 @@ pub unsafe fn alljoyn_keystorelistener_putkeys<'a, Param0: ::windows::core::Into
 }
 pub type alljoyn_keystorelistener_releaseexclusivelock_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener)>;
 pub type alljoyn_keystorelistener_storerequest_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, listener: alljoyn_keystorelistener, keystore: alljoyn_keystore) -> QStatus>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
     pub load_request: alljoyn_keystorelistener_loadrequest_ptr,
@@ -5222,25 +4969,25 @@ pub struct alljoyn_keystorelistener_with_synchronization_callbacks {
     pub acquire_exclusive_lock: alljoyn_keystorelistener_acquireexclusivelock_ptr,
     pub release_exclusive_lock: alljoyn_keystorelistener_releaseexclusivelock_ptr,
 }
-impl alljoyn_keystorelistener_with_synchronization_callbacks {}
+impl ::core::marker::Copy for alljoyn_keystorelistener_with_synchronization_callbacks {}
+impl ::core::clone::Clone for alljoyn_keystorelistener_with_synchronization_callbacks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_with_synchronization_callbacks {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_keystorelistener_with_synchronization_callbacks {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_keystorelistener_with_synchronization_callbacks>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_keystorelistener_with_synchronization_callbacks {}
 impl ::core::default::Default for alljoyn_keystorelistener_with_synchronization_callbacks {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for alljoyn_keystorelistener_with_synchronization_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_keystorelistener_with_synchronization_callbacks").finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_keystorelistener_with_synchronization_callbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.load_request.map(|f| f as usize) == other.load_request.map(|f| f as usize) && self.store_request.map(|f| f as usize) == other.store_request.map(|f| f as usize) && self.acquire_exclusive_lock.map(|f| f as usize) == other.acquire_exclusive_lock.map(|f| f as usize) && self.release_exclusive_lock.map(|f| f as usize) == other.release_exclusive_lock.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for alljoyn_keystorelistener_with_synchronization_callbacks {}
-unsafe impl ::windows::core::Abi for alljoyn_keystorelistener_with_synchronization_callbacks {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *const alljoyn_keystorelistener_with_synchronization_callbacks, context: *mut ::core::ffi::c_void) -> alljoyn_keystorelistener {
@@ -5255,44 +5002,32 @@ pub unsafe fn alljoyn_keystorelistener_with_synchronization_create(callbacks: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct alljoyn_manifestarray {
     pub count: usize,
     pub xmls: *mut *mut i8,
 }
-impl alljoyn_manifestarray {}
+impl ::core::marker::Copy for alljoyn_manifestarray {}
+impl ::core::clone::Clone for alljoyn_manifestarray {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_manifestarray {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_manifestarray {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_manifestarray>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_manifestarray {}
 impl ::core::default::Default for alljoyn_manifestarray {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for alljoyn_manifestarray {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_manifestarray").field("count", &self.count).field("xmls", &self.xmls).finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_manifestarray {
-    fn eq(&self, other: &Self) -> bool {
-        self.count == other.count && self.xmls == other.xmls
-    }
-}
-impl ::core::cmp::Eq for alljoyn_manifestarray {}
-unsafe impl ::windows::core::Abi for alljoyn_manifestarray {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_message(pub isize);
-impl ::core::default::Default for alljoyn_message {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_message {}
-unsafe impl ::windows::core::Abi for alljoyn_message {
-    type Abi = Self;
-}
+pub type alljoyn_message = isize;
 #[inline]
 pub unsafe fn alljoyn_message_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0) -> alljoyn_message {
     #[cfg(windows)]
@@ -5328,7 +5063,7 @@ pub unsafe fn alljoyn_message_destroy<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn alljoyn_message_destroy(msg: alljoyn_message);
         }
-        ::core::mem::transmute(alljoyn_message_destroy(msg.into_param().abi()))
+        alljoyn_message_destroy(msg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5367,7 +5102,7 @@ pub unsafe fn alljoyn_message_getargs<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn alljoyn_message_getargs(msg: alljoyn_message, numargs: *mut usize, args: *mut alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_message_getargs(msg.into_param().abi(), ::core::mem::transmute(numargs), ::core::mem::transmute(args)))
+        alljoyn_message_getargs(msg.into_param().abi(), ::core::mem::transmute(numargs), ::core::mem::transmute(args))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5689,7 +5424,7 @@ pub unsafe fn alljoyn_message_setendianess(endian: i8) {
         extern "system" {
             fn alljoyn_message_setendianess(endian: i8);
         }
-        ::core::mem::transmute(alljoyn_message_setendianess(::core::mem::transmute(endian)))
+        alljoyn_message_setendianess(::core::mem::transmute(endian))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5713,34 +5448,13 @@ pub type alljoyn_messagereceiver_methodhandler_ptr = ::core::option::Option<unsa
 pub type alljoyn_messagereceiver_replyhandler_ptr = ::core::option::Option<unsafe extern "system" fn(message: alljoyn_message, context: *mut ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_messagereceiver_signalhandler_ptr = ::core::option::Option<unsafe extern "system" fn(member: *const alljoyn_interfacedescription_member, srcpath: super::super::Foundation::PSTR, message: alljoyn_message)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_messagetype(pub i32);
-pub const ALLJOYN_MESSAGE_INVALID: alljoyn_messagetype = alljoyn_messagetype(0i32);
-pub const ALLJOYN_MESSAGE_METHOD_CALL: alljoyn_messagetype = alljoyn_messagetype(1i32);
-pub const ALLJOYN_MESSAGE_METHOD_RET: alljoyn_messagetype = alljoyn_messagetype(2i32);
-pub const ALLJOYN_MESSAGE_ERROR: alljoyn_messagetype = alljoyn_messagetype(3i32);
-pub const ALLJOYN_MESSAGE_SIGNAL: alljoyn_messagetype = alljoyn_messagetype(4i32);
-impl ::core::convert::From<i32> for alljoyn_messagetype {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_messagetype {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_msgarg(pub isize);
-impl ::core::default::Default for alljoyn_msgarg {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_msgarg {}
-unsafe impl ::windows::core::Abi for alljoyn_msgarg {
-    type Abi = Self;
-}
+pub type alljoyn_messagetype = i32;
+pub const ALLJOYN_MESSAGE_INVALID: alljoyn_messagetype = 0i32;
+pub const ALLJOYN_MESSAGE_METHOD_CALL: alljoyn_messagetype = 1i32;
+pub const ALLJOYN_MESSAGE_METHOD_RET: alljoyn_messagetype = 2i32;
+pub const ALLJOYN_MESSAGE_ERROR: alljoyn_messagetype = 3i32;
+pub const ALLJOYN_MESSAGE_SIGNAL: alljoyn_messagetype = 4i32;
+pub type alljoyn_msgarg = isize;
 #[inline]
 pub unsafe fn alljoyn_msgarg_array_create(size: usize) -> alljoyn_msgarg {
     #[cfg(windows)]
@@ -5845,7 +5559,7 @@ pub unsafe fn alljoyn_msgarg_clear<'a, Param0: ::windows::core::IntoParam<'a, al
         extern "system" {
             fn alljoyn_msgarg_clear(arg: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_clear(arg.into_param().abi()))
+        alljoyn_msgarg_clear(arg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5858,7 +5572,7 @@ pub unsafe fn alljoyn_msgarg_clone<'a, Param0: ::windows::core::IntoParam<'a, al
         extern "system" {
             fn alljoyn_msgarg_clone(destination: alljoyn_msgarg, source: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_clone(destination.into_param().abi(), source.into_param().abi()))
+        alljoyn_msgarg_clone(destination.into_param().abi(), source.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5911,7 +5625,7 @@ pub unsafe fn alljoyn_msgarg_destroy<'a, Param0: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn alljoyn_msgarg_destroy(arg: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_destroy(arg.into_param().abi()))
+        alljoyn_msgarg_destroy(arg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5951,7 +5665,7 @@ pub unsafe fn alljoyn_msgarg_get_array_element<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_msgarg_get_array_element(arg: alljoyn_msgarg, index: usize, element: *mut alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_get_array_element(arg.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(element)))
+        alljoyn_msgarg_get_array_element(arg.into_param().abi(), ::core::mem::transmute(index), ::core::mem::transmute(element))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6767,7 +6481,7 @@ pub unsafe fn alljoyn_msgarg_stabilize<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_msgarg_stabilize(arg: alljoyn_msgarg);
         }
-        ::core::mem::transmute(alljoyn_msgarg_stabilize(arg.into_param().abi()))
+        alljoyn_msgarg_stabilize(arg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6786,18 +6500,7 @@ pub unsafe fn alljoyn_msgarg_tostring<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_observer(pub isize);
-impl ::core::default::Default for alljoyn_observer {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_observer {}
-unsafe impl ::windows::core::Abi for alljoyn_observer {
-    type Abi = Self;
-}
+pub type alljoyn_observer = isize;
 #[inline]
 pub unsafe fn alljoyn_observer_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_busattachment>>(bus: Param0, mandatoryinterfaces: *const *const i8, nummandatoryinterfaces: usize) -> alljoyn_observer {
     #[cfg(windows)]
@@ -6819,7 +6522,7 @@ pub unsafe fn alljoyn_observer_destroy<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn alljoyn_observer_destroy(observer: alljoyn_observer);
         }
-        ::core::mem::transmute(alljoyn_observer_destroy(observer.into_param().abi()))
+        alljoyn_observer_destroy(observer.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6874,7 +6577,7 @@ pub unsafe fn alljoyn_observer_registerlistener<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_observer_registerlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener, triggeronexisting: i32);
         }
-        ::core::mem::transmute(alljoyn_observer_registerlistener(observer.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(triggeronexisting)))
+        alljoyn_observer_registerlistener(observer.into_param().abi(), listener.into_param().abi(), ::core::mem::transmute(triggeronexisting))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6887,7 +6590,7 @@ pub unsafe fn alljoyn_observer_unregisteralllisteners<'a, Param0: ::windows::cor
         extern "system" {
             fn alljoyn_observer_unregisteralllisteners(observer: alljoyn_observer);
         }
-        ::core::mem::transmute(alljoyn_observer_unregisteralllisteners(observer.into_param().abi()))
+        alljoyn_observer_unregisteralllisteners(observer.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6900,48 +6603,36 @@ pub unsafe fn alljoyn_observer_unregisterlistener<'a, Param0: ::windows::core::I
         extern "system" {
             fn alljoyn_observer_unregisterlistener(observer: alljoyn_observer, listener: alljoyn_observerlistener);
         }
-        ::core::mem::transmute(alljoyn_observer_unregisterlistener(observer.into_param().abi(), listener.into_param().abi()))
+        alljoyn_observer_unregisterlistener(observer.into_param().abi(), listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_observerlistener(pub isize);
-impl ::core::default::Default for alljoyn_observerlistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_observerlistener {}
-unsafe impl ::windows::core::Abi for alljoyn_observerlistener {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type alljoyn_observerlistener = isize;
 #[repr(C)]
 pub struct alljoyn_observerlistener_callback {
     pub object_discovered: alljoyn_observer_object_discovered_ptr,
     pub object_lost: alljoyn_observer_object_lost_ptr,
 }
-impl alljoyn_observerlistener_callback {}
+impl ::core::marker::Copy for alljoyn_observerlistener_callback {}
+impl ::core::clone::Clone for alljoyn_observerlistener_callback {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_observerlistener_callback {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_observerlistener_callback {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_observerlistener_callback>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_observerlistener_callback {}
 impl ::core::default::Default for alljoyn_observerlistener_callback {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for alljoyn_observerlistener_callback {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_observerlistener_callback").finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_observerlistener_callback {
-    fn eq(&self, other: &Self) -> bool {
-        self.object_discovered.map(|f| f as usize) == other.object_discovered.map(|f| f as usize) && self.object_lost.map(|f| f as usize) == other.object_lost.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for alljoyn_observerlistener_callback {}
-unsafe impl ::windows::core::Abi for alljoyn_observerlistener_callback {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_observerlistener_create(callback: *const alljoyn_observerlistener_callback, context: *const ::core::ffi::c_void) -> alljoyn_observerlistener {
@@ -6964,7 +6655,7 @@ pub unsafe fn alljoyn_observerlistener_destroy<'a, Param0: ::windows::core::Into
         extern "system" {
             fn alljoyn_observerlistener_destroy(listener: alljoyn_observerlistener);
         }
-        ::core::mem::transmute(alljoyn_observerlistener_destroy(listener.into_param().abi()))
+        alljoyn_observerlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6983,19 +6674,7 @@ pub unsafe fn alljoyn_passwordmanager_setcredentials<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_permissionconfigurationlistener(pub isize);
-impl ::core::default::Default for alljoyn_permissionconfigurationlistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_permissionconfigurationlistener {}
-unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurationlistener {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type alljoyn_permissionconfigurationlistener = isize;
 #[repr(C)]
 pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub factory_reset: alljoyn_permissionconfigurationlistener_factoryreset_ptr,
@@ -7003,25 +6682,25 @@ pub struct alljoyn_permissionconfigurationlistener_callbacks {
     pub start_management: alljoyn_permissionconfigurationlistener_startmanagement_ptr,
     pub end_management: alljoyn_permissionconfigurationlistener_endmanagement_ptr,
 }
-impl alljoyn_permissionconfigurationlistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_permissionconfigurationlistener_callbacks {}
+impl ::core::clone::Clone for alljoyn_permissionconfigurationlistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurationlistener_callbacks {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for alljoyn_permissionconfigurationlistener_callbacks {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_permissionconfigurationlistener_callbacks>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for alljoyn_permissionconfigurationlistener_callbacks {}
 impl ::core::default::Default for alljoyn_permissionconfigurationlistener_callbacks {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for alljoyn_permissionconfigurationlistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_permissionconfigurationlistener_callbacks").finish()
-    }
-}
-impl ::core::cmp::PartialEq for alljoyn_permissionconfigurationlistener_callbacks {
-    fn eq(&self, other: &Self) -> bool {
-        self.factory_reset.map(|f| f as usize) == other.factory_reset.map(|f| f as usize) && self.policy_changed.map(|f| f as usize) == other.policy_changed.map(|f| f as usize) && self.start_management.map(|f| f as usize) == other.start_management.map(|f| f as usize) && self.end_management.map(|f| f as usize) == other.end_management.map(|f| f as usize)
-    }
-}
-impl ::core::cmp::Eq for alljoyn_permissionconfigurationlistener_callbacks {}
-unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurationlistener_callbacks {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurationlistener_create(callbacks: *const alljoyn_permissionconfigurationlistener_callbacks, context: *const ::core::ffi::c_void) -> alljoyn_permissionconfigurationlistener {
@@ -7044,7 +6723,7 @@ pub unsafe fn alljoyn_permissionconfigurationlistener_destroy<'a, Param0: ::wind
         extern "system" {
             fn alljoyn_permissionconfigurationlistener_destroy(listener: alljoyn_permissionconfigurationlistener);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurationlistener_destroy(listener.into_param().abi()))
+        alljoyn_permissionconfigurationlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7053,18 +6732,7 @@ pub type alljoyn_permissionconfigurationlistener_endmanagement_ptr = ::core::opt
 pub type alljoyn_permissionconfigurationlistener_factoryreset_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void) -> QStatus>;
 pub type alljoyn_permissionconfigurationlistener_policychanged_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
 pub type alljoyn_permissionconfigurationlistener_startmanagement_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_permissionconfigurator(pub isize);
-impl ::core::default::Default for alljoyn_permissionconfigurator {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_permissionconfigurator {}
-unsafe impl ::windows::core::Abi for alljoyn_permissionconfigurator {
-    type Abi = Self;
-}
+pub type alljoyn_permissionconfigurator = isize;
 #[inline]
 pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8) {
     #[cfg(windows)]
@@ -7073,7 +6741,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificatechain_destroy(certificat
         extern "system" {
             fn alljoyn_permissionconfigurator_certificatechain_destroy(certificatechain: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_certificatechain_destroy(::core::mem::transmute(certificatechain)))
+        alljoyn_permissionconfigurator_certificatechain_destroy(::core::mem::transmute(certificatechain))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7086,7 +6754,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateid_cleanup(certificateid: *mut alljoyn_certificateid);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_certificateid_cleanup(::core::mem::transmute(certificateid)))
+        alljoyn_permissionconfigurator_certificateid_cleanup(::core::mem::transmute(certificateid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7099,7 +6767,7 @@ pub unsafe fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certific
         extern "system" {
             fn alljoyn_permissionconfigurator_certificateidarray_cleanup(certificateidarray: *mut alljoyn_certificateidarray);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_certificateidarray_cleanup(::core::mem::transmute(certificateidarray)))
+        alljoyn_permissionconfigurator_certificateidarray_cleanup(::core::mem::transmute(certificateidarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7320,7 +6988,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray
         extern "system" {
             fn alljoyn_permissionconfigurator_manifestarray_cleanup(manifestarray: *mut alljoyn_manifestarray);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_manifestarray_cleanup(::core::mem::transmute(manifestarray)))
+        alljoyn_permissionconfigurator_manifestarray_cleanup(::core::mem::transmute(manifestarray))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7333,7 +7001,7 @@ pub unsafe fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifestte
         extern "system" {
             fn alljoyn_permissionconfigurator_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml)))
+        alljoyn_permissionconfigurator_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7346,7 +7014,7 @@ pub unsafe fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8) 
         extern "system" {
             fn alljoyn_permissionconfigurator_policy_destroy(policyxml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_policy_destroy(::core::mem::transmute(policyxml)))
+        alljoyn_permissionconfigurator_policy_destroy(::core::mem::transmute(policyxml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7359,7 +7027,7 @@ pub unsafe fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i
         extern "system" {
             fn alljoyn_permissionconfigurator_publickey_destroy(publickey: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_permissionconfigurator_publickey_destroy(::core::mem::transmute(publickey)))
+        alljoyn_permissionconfigurator_publickey_destroy(::core::mem::transmute(publickey))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7494,19 +7162,7 @@ pub unsafe fn alljoyn_permissionconfigurator_updatepolicy<'a, Param0: ::windows:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_pinglistener(pub isize);
-impl ::core::default::Default for alljoyn_pinglistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_pinglistener {}
-unsafe impl ::windows::core::Abi for alljoyn_pinglistener {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type alljoyn_pinglistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_pinglistener_callback {
@@ -7514,30 +7170,30 @@ pub struct alljoyn_pinglistener_callback {
     pub destination_lost: alljoyn_autopinger_destination_lost_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_pinglistener_callback {}
+impl ::core::marker::Copy for alljoyn_pinglistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_pinglistener_callback {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_pinglistener_callback {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_pinglistener_callback {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_pinglistener_callback").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_pinglistener_callback {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_pinglistener_callback {
     fn eq(&self, other: &Self) -> bool {
-        self.destination_found.map(|f| f as usize) == other.destination_found.map(|f| f as usize) && self.destination_lost.map(|f| f as usize) == other.destination_lost.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_pinglistener_callback>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_pinglistener_callback {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_pinglistener_callback {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_pinglistener_callback {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -7561,23 +7217,12 @@ pub unsafe fn alljoyn_pinglistener_destroy<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn alljoyn_pinglistener_destroy(listener: alljoyn_pinglistener);
         }
-        ::core::mem::transmute(alljoyn_pinglistener_destroy(listener.into_param().abi()))
+        alljoyn_pinglistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_proxybusobject(pub isize);
-impl ::core::default::Default for alljoyn_proxybusobject {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_proxybusobject {}
-unsafe impl ::windows::core::Abi for alljoyn_proxybusobject {
-    type Abi = Self;
-}
+pub type alljoyn_proxybusobject = isize;
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_addchild<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>, Param1: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxyobj: Param0, child: Param1) -> QStatus {
     #[cfg(windows)]
@@ -7667,7 +7312,7 @@ pub unsafe fn alljoyn_proxybusobject_destroy<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn alljoyn_proxybusobject_destroy(proxyobj: alljoyn_proxybusobject);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_destroy(proxyobj.into_param().abi()))
+        alljoyn_proxybusobject_destroy(proxyobj.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7680,7 +7325,7 @@ pub unsafe fn alljoyn_proxybusobject_enablepropertycaching<'a, Param0: ::windows
         extern "system" {
             fn alljoyn_proxybusobject_enablepropertycaching(proxyobj: alljoyn_proxybusobject);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_enablepropertycaching(proxyobj.into_param().abi()))
+        alljoyn_proxybusobject_enablepropertycaching(proxyobj.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8020,18 +7665,7 @@ pub unsafe fn alljoyn_proxybusobject_parsexml<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_proxybusobject_ref(pub isize);
-impl ::core::default::Default for alljoyn_proxybusobject_ref {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_proxybusobject_ref {}
-unsafe impl ::windows::core::Abi for alljoyn_proxybusobject_ref {
-    type Abi = Self;
-}
+pub type alljoyn_proxybusobject_ref = isize;
 #[inline]
 pub unsafe fn alljoyn_proxybusobject_ref_create<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_proxybusobject>>(proxy: Param0) -> alljoyn_proxybusobject_ref {
     #[cfg(windows)]
@@ -8053,7 +7687,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_decref<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_proxybusobject_ref_decref(r#ref: alljoyn_proxybusobject_ref);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_ref_decref(r#ref.into_param().abi()))
+        alljoyn_proxybusobject_ref_decref(r#ref.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8079,7 +7713,7 @@ pub unsafe fn alljoyn_proxybusobject_ref_incref<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_proxybusobject_ref_incref(r#ref: alljoyn_proxybusobject_ref);
         }
-        ::core::mem::transmute(alljoyn_proxybusobject_ref_incref(r#ref.into_param().abi()))
+        alljoyn_proxybusobject_ref_incref(r#ref.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8219,18 +7853,7 @@ pub unsafe fn alljoyn_routershutdown() -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_securityapplicationproxy(pub isize);
-impl ::core::default::Default for alljoyn_securityapplicationproxy {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_securityapplicationproxy {}
-unsafe impl ::windows::core::Abi for alljoyn_securityapplicationproxy {
-    type Abi = Self;
-}
+pub type alljoyn_securityapplicationproxy = isize;
 #[inline]
 pub unsafe fn alljoyn_securityapplicationproxy_claim<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_securityapplicationproxy>>(proxy: Param0, cakey: *mut i8, identitycertificatechain: *mut i8, groupid: *const u8, groupsize: usize, groupauthority: *mut i8, manifestsxmls: *mut *mut i8, manifestscount: usize) -> QStatus {
     #[cfg(windows)]
@@ -8278,7 +7901,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_destroy<'a, Param0: ::windows::co
         extern "system" {
             fn alljoyn_securityapplicationproxy_destroy(proxy: alljoyn_securityapplicationproxy);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_destroy(proxy.into_param().abi()))
+        alljoyn_securityapplicationproxy_destroy(proxy.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8291,7 +7914,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8) {
         extern "system" {
             fn alljoyn_securityapplicationproxy_digest_destroy(digest: *mut u8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_digest_destroy(::core::mem::transmute(digest)))
+        alljoyn_securityapplicationproxy_digest_destroy(::core::mem::transmute(digest))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8304,7 +7927,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey
         extern "system" {
             fn alljoyn_securityapplicationproxy_eccpublickey_destroy(eccpublickey: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_eccpublickey_destroy(::core::mem::transmute(eccpublickey)))
+        alljoyn_securityapplicationproxy_eccpublickey_destroy(::core::mem::transmute(eccpublickey))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8447,7 +8070,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxm
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifest_destroy(signedmanifestxml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_manifest_destroy(::core::mem::transmute(signedmanifestxml)))
+        alljoyn_securityapplicationproxy_manifest_destroy(::core::mem::transmute(signedmanifestxml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8460,7 +8083,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifest
         extern "system" {
             fn alljoyn_securityapplicationproxy_manifesttemplate_destroy(manifesttemplatexml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml)))
+        alljoyn_securityapplicationproxy_manifesttemplate_destroy(::core::mem::transmute(manifesttemplatexml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8473,7 +8096,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8
         extern "system" {
             fn alljoyn_securityapplicationproxy_policy_destroy(policyxml: *mut i8);
         }
-        ::core::mem::transmute(alljoyn_securityapplicationproxy_policy_destroy(::core::mem::transmute(policyxml)))
+        alljoyn_securityapplicationproxy_policy_destroy(::core::mem::transmute(policyxml))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8569,19 +8192,7 @@ pub unsafe fn alljoyn_securityapplicationproxy_updatepolicy<'a, Param0: ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_sessionlistener(pub isize);
-impl ::core::default::Default for alljoyn_sessionlistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_sessionlistener {}
-unsafe impl ::windows::core::Abi for alljoyn_sessionlistener {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type alljoyn_sessionlistener = isize;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_sessionlistener_callbacks {
@@ -8590,30 +8201,30 @@ pub struct alljoyn_sessionlistener_callbacks {
     pub session_member_removed: alljoyn_sessionlistener_sessionmemberremoved_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_sessionlistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_sessionlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_sessionlistener_callbacks {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_sessionlistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_sessionlistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_sessionlistener_callbacks").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_sessionlistener_callbacks {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_sessionlistener_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.session_lost.map(|f| f as usize) == other.session_lost.map(|f| f as usize) && self.session_member_added.map(|f| f as usize) == other.session_member_added.map(|f| f as usize) && self.session_member_removed.map(|f| f as usize) == other.session_member_removed.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_sessionlistener_callbacks>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_sessionlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_sessionlistener_callbacks {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_sessionlistener_callbacks {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8637,7 +8248,7 @@ pub unsafe fn alljoyn_sessionlistener_destroy<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_sessionlistener_destroy(listener: alljoyn_sessionlistener);
         }
-        ::core::mem::transmute(alljoyn_sessionlistener_destroy(listener.into_param().abi()))
+        alljoyn_sessionlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8647,35 +8258,14 @@ pub type alljoyn_sessionlistener_sessionlost_ptr = ::core::option::Option<unsafe
 pub type alljoyn_sessionlistener_sessionmemberadded_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionlistener_sessionmemberremoved_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionid: u32, uniquename: super::super::Foundation::PSTR)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_sessionlostreason(pub i32);
-pub const ALLJOYN_SESSIONLOST_INVALID: alljoyn_sessionlostreason = alljoyn_sessionlostreason(0i32);
-pub const ALLJOYN_SESSIONLOST_REMOTE_END_LEFT_SESSION: alljoyn_sessionlostreason = alljoyn_sessionlostreason(1i32);
-pub const ALLJOYN_SESSIONLOST_REMOTE_END_CLOSED_ABRUPTLY: alljoyn_sessionlostreason = alljoyn_sessionlostreason(2i32);
-pub const ALLJOYN_SESSIONLOST_REMOVED_BY_BINDER: alljoyn_sessionlostreason = alljoyn_sessionlostreason(3i32);
-pub const ALLJOYN_SESSIONLOST_LINK_TIMEOUT: alljoyn_sessionlostreason = alljoyn_sessionlostreason(4i32);
-pub const ALLJOYN_SESSIONLOST_REASON_OTHER: alljoyn_sessionlostreason = alljoyn_sessionlostreason(5i32);
-impl ::core::convert::From<i32> for alljoyn_sessionlostreason {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_sessionlostreason {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_sessionopts(pub isize);
-impl ::core::default::Default for alljoyn_sessionopts {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_sessionopts {}
-unsafe impl ::windows::core::Abi for alljoyn_sessionopts {
-    type Abi = Self;
-}
+pub type alljoyn_sessionlostreason = i32;
+pub const ALLJOYN_SESSIONLOST_INVALID: alljoyn_sessionlostreason = 0i32;
+pub const ALLJOYN_SESSIONLOST_REMOTE_END_LEFT_SESSION: alljoyn_sessionlostreason = 1i32;
+pub const ALLJOYN_SESSIONLOST_REMOTE_END_CLOSED_ABRUPTLY: alljoyn_sessionlostreason = 2i32;
+pub const ALLJOYN_SESSIONLOST_REMOVED_BY_BINDER: alljoyn_sessionlostreason = 3i32;
+pub const ALLJOYN_SESSIONLOST_LINK_TIMEOUT: alljoyn_sessionlostreason = 4i32;
+pub const ALLJOYN_SESSIONLOST_REASON_OTHER: alljoyn_sessionlostreason = 5i32;
+pub type alljoyn_sessionopts = isize;
 #[inline]
 pub unsafe fn alljoyn_sessionopts_cmp<'a, Param0: ::windows::core::IntoParam<'a, alljoyn_sessionopts>, Param1: ::windows::core::IntoParam<'a, alljoyn_sessionopts>>(one: Param0, other: Param1) -> i32 {
     #[cfg(windows)]
@@ -8710,7 +8300,7 @@ pub unsafe fn alljoyn_sessionopts_destroy<'a, Param0: ::windows::core::IntoParam
         extern "system" {
             fn alljoyn_sessionopts_destroy(opts: alljoyn_sessionopts);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_destroy(opts.into_param().abi()))
+        alljoyn_sessionopts_destroy(opts.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8788,7 +8378,7 @@ pub unsafe fn alljoyn_sessionopts_set_multipoint<'a, Param0: ::windows::core::In
         extern "system" {
             fn alljoyn_sessionopts_set_multipoint(opts: alljoyn_sessionopts, ismultipoint: i32);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_multipoint(opts.into_param().abi(), ::core::mem::transmute(ismultipoint)))
+        alljoyn_sessionopts_set_multipoint(opts.into_param().abi(), ::core::mem::transmute(ismultipoint))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8801,7 +8391,7 @@ pub unsafe fn alljoyn_sessionopts_set_proximity<'a, Param0: ::windows::core::Int
         extern "system" {
             fn alljoyn_sessionopts_set_proximity(opts: alljoyn_sessionopts, proximity: u8);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_proximity(opts.into_param().abi(), ::core::mem::transmute(proximity)))
+        alljoyn_sessionopts_set_proximity(opts.into_param().abi(), ::core::mem::transmute(proximity))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8814,7 +8404,7 @@ pub unsafe fn alljoyn_sessionopts_set_traffic<'a, Param0: ::windows::core::IntoP
         extern "system" {
             fn alljoyn_sessionopts_set_traffic(opts: alljoyn_sessionopts, traffic: u8);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_traffic(opts.into_param().abi(), ::core::mem::transmute(traffic)))
+        alljoyn_sessionopts_set_traffic(opts.into_param().abi(), ::core::mem::transmute(traffic))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8827,26 +8417,14 @@ pub unsafe fn alljoyn_sessionopts_set_transports<'a, Param0: ::windows::core::In
         extern "system" {
             fn alljoyn_sessionopts_set_transports(opts: alljoyn_sessionopts, transports: u16);
         }
-        ::core::mem::transmute(alljoyn_sessionopts_set_transports(opts.into_param().abi(), ::core::mem::transmute(transports)))
+        alljoyn_sessionopts_set_transports(opts.into_param().abi(), ::core::mem::transmute(transports))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct alljoyn_sessionportlistener(pub isize);
-impl ::core::default::Default for alljoyn_sessionportlistener {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for alljoyn_sessionportlistener {}
-unsafe impl ::windows::core::Abi for alljoyn_sessionportlistener {
-    type Abi = Self;
-}
+pub type alljoyn_sessionportlistener = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type alljoyn_sessionportlistener_acceptsessionjoiner_ptr = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, sessionport: u16, joiner: super::super::Foundation::PSTR, opts: alljoyn_sessionopts) -> i32>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct alljoyn_sessionportlistener_callbacks {
@@ -8854,30 +8432,30 @@ pub struct alljoyn_sessionportlistener_callbacks {
     pub session_joined: alljoyn_sessionportlistener_sessionjoined_ptr,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl alljoyn_sessionportlistener_callbacks {}
+impl ::core::marker::Copy for alljoyn_sessionportlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for alljoyn_sessionportlistener_callbacks {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for alljoyn_sessionportlistener_callbacks {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for alljoyn_sessionportlistener_callbacks {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("alljoyn_sessionportlistener_callbacks").finish()
-    }
+unsafe impl ::windows::core::Abi for alljoyn_sessionportlistener_callbacks {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for alljoyn_sessionportlistener_callbacks {
     fn eq(&self, other: &Self) -> bool {
-        self.accept_session_joiner.map(|f| f as usize) == other.accept_session_joiner.map(|f| f as usize) && self.session_joined.map(|f| f as usize) == other.session_joined.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<alljoyn_sessionportlistener_callbacks>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for alljoyn_sessionportlistener_callbacks {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for alljoyn_sessionportlistener_callbacks {
-    type Abi = Self;
+impl ::core::default::Default for alljoyn_sessionportlistener_callbacks {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -8901,7 +8479,7 @@ pub unsafe fn alljoyn_sessionportlistener_destroy<'a, Param0: ::windows::core::I
         extern "system" {
             fn alljoyn_sessionportlistener_destroy(listener: alljoyn_sessionportlistener);
         }
-        ::core::mem::transmute(alljoyn_sessionportlistener_destroy(listener.into_param().abi()))
+        alljoyn_sessionportlistener_destroy(listener.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8921,49 +8499,39 @@ pub unsafe fn alljoyn_shutdown() -> QStatus {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct alljoyn_typeid(pub i32);
-pub const ALLJOYN_INVALID: alljoyn_typeid = alljoyn_typeid(0i32);
-pub const ALLJOYN_ARRAY: alljoyn_typeid = alljoyn_typeid(97i32);
-pub const ALLJOYN_BOOLEAN: alljoyn_typeid = alljoyn_typeid(98i32);
-pub const ALLJOYN_DOUBLE: alljoyn_typeid = alljoyn_typeid(100i32);
-pub const ALLJOYN_DICT_ENTRY: alljoyn_typeid = alljoyn_typeid(101i32);
-pub const ALLJOYN_SIGNATURE: alljoyn_typeid = alljoyn_typeid(103i32);
-pub const ALLJOYN_HANDLE: alljoyn_typeid = alljoyn_typeid(104i32);
-pub const ALLJOYN_INT32: alljoyn_typeid = alljoyn_typeid(105i32);
-pub const ALLJOYN_INT16: alljoyn_typeid = alljoyn_typeid(110i32);
-pub const ALLJOYN_OBJECT_PATH: alljoyn_typeid = alljoyn_typeid(111i32);
-pub const ALLJOYN_UINT16: alljoyn_typeid = alljoyn_typeid(113i32);
-pub const ALLJOYN_STRUCT: alljoyn_typeid = alljoyn_typeid(114i32);
-pub const ALLJOYN_STRING: alljoyn_typeid = alljoyn_typeid(115i32);
-pub const ALLJOYN_UINT64: alljoyn_typeid = alljoyn_typeid(116i32);
-pub const ALLJOYN_UINT32: alljoyn_typeid = alljoyn_typeid(117i32);
-pub const ALLJOYN_VARIANT: alljoyn_typeid = alljoyn_typeid(118i32);
-pub const ALLJOYN_INT64: alljoyn_typeid = alljoyn_typeid(120i32);
-pub const ALLJOYN_BYTE: alljoyn_typeid = alljoyn_typeid(121i32);
-pub const ALLJOYN_STRUCT_OPEN: alljoyn_typeid = alljoyn_typeid(40i32);
-pub const ALLJOYN_STRUCT_CLOSE: alljoyn_typeid = alljoyn_typeid(41i32);
-pub const ALLJOYN_DICT_ENTRY_OPEN: alljoyn_typeid = alljoyn_typeid(123i32);
-pub const ALLJOYN_DICT_ENTRY_CLOSE: alljoyn_typeid = alljoyn_typeid(125i32);
-pub const ALLJOYN_BOOLEAN_ARRAY: alljoyn_typeid = alljoyn_typeid(25185i32);
-pub const ALLJOYN_DOUBLE_ARRAY: alljoyn_typeid = alljoyn_typeid(25697i32);
-pub const ALLJOYN_INT32_ARRAY: alljoyn_typeid = alljoyn_typeid(26977i32);
-pub const ALLJOYN_INT16_ARRAY: alljoyn_typeid = alljoyn_typeid(28257i32);
-pub const ALLJOYN_UINT16_ARRAY: alljoyn_typeid = alljoyn_typeid(29025i32);
-pub const ALLJOYN_UINT64_ARRAY: alljoyn_typeid = alljoyn_typeid(29793i32);
-pub const ALLJOYN_UINT32_ARRAY: alljoyn_typeid = alljoyn_typeid(30049i32);
-pub const ALLJOYN_INT64_ARRAY: alljoyn_typeid = alljoyn_typeid(30817i32);
-pub const ALLJOYN_BYTE_ARRAY: alljoyn_typeid = alljoyn_typeid(31073i32);
-pub const ALLJOYN_WILDCARD: alljoyn_typeid = alljoyn_typeid(42i32);
-impl ::core::convert::From<i32> for alljoyn_typeid {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for alljoyn_typeid {
-    type Abi = Self;
-}
+pub type alljoyn_typeid = i32;
+pub const ALLJOYN_INVALID: alljoyn_typeid = 0i32;
+pub const ALLJOYN_ARRAY: alljoyn_typeid = 97i32;
+pub const ALLJOYN_BOOLEAN: alljoyn_typeid = 98i32;
+pub const ALLJOYN_DOUBLE: alljoyn_typeid = 100i32;
+pub const ALLJOYN_DICT_ENTRY: alljoyn_typeid = 101i32;
+pub const ALLJOYN_SIGNATURE: alljoyn_typeid = 103i32;
+pub const ALLJOYN_HANDLE: alljoyn_typeid = 104i32;
+pub const ALLJOYN_INT32: alljoyn_typeid = 105i32;
+pub const ALLJOYN_INT16: alljoyn_typeid = 110i32;
+pub const ALLJOYN_OBJECT_PATH: alljoyn_typeid = 111i32;
+pub const ALLJOYN_UINT16: alljoyn_typeid = 113i32;
+pub const ALLJOYN_STRUCT: alljoyn_typeid = 114i32;
+pub const ALLJOYN_STRING: alljoyn_typeid = 115i32;
+pub const ALLJOYN_UINT64: alljoyn_typeid = 116i32;
+pub const ALLJOYN_UINT32: alljoyn_typeid = 117i32;
+pub const ALLJOYN_VARIANT: alljoyn_typeid = 118i32;
+pub const ALLJOYN_INT64: alljoyn_typeid = 120i32;
+pub const ALLJOYN_BYTE: alljoyn_typeid = 121i32;
+pub const ALLJOYN_STRUCT_OPEN: alljoyn_typeid = 40i32;
+pub const ALLJOYN_STRUCT_CLOSE: alljoyn_typeid = 41i32;
+pub const ALLJOYN_DICT_ENTRY_OPEN: alljoyn_typeid = 123i32;
+pub const ALLJOYN_DICT_ENTRY_CLOSE: alljoyn_typeid = 125i32;
+pub const ALLJOYN_BOOLEAN_ARRAY: alljoyn_typeid = 25185i32;
+pub const ALLJOYN_DOUBLE_ARRAY: alljoyn_typeid = 25697i32;
+pub const ALLJOYN_INT32_ARRAY: alljoyn_typeid = 26977i32;
+pub const ALLJOYN_INT16_ARRAY: alljoyn_typeid = 28257i32;
+pub const ALLJOYN_UINT16_ARRAY: alljoyn_typeid = 29025i32;
+pub const ALLJOYN_UINT64_ARRAY: alljoyn_typeid = 29793i32;
+pub const ALLJOYN_UINT32_ARRAY: alljoyn_typeid = 30049i32;
+pub const ALLJOYN_INT64_ARRAY: alljoyn_typeid = 30817i32;
+pub const ALLJOYN_BYTE_ARRAY: alljoyn_typeid = 31073i32;
+pub const ALLJOYN_WILDCARD: alljoyn_typeid = 42i32;
 #[inline]
 pub unsafe fn alljoyn_unity_deferred_callbacks_process() -> i32 {
     #[cfg(windows)]
@@ -8985,7 +8553,7 @@ pub unsafe fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_onl
         extern "system" {
             fn alljoyn_unity_set_deferred_callback_mainthread_only(mainthread_only: i32);
         }
-        ::core::mem::transmute(alljoyn_unity_set_deferred_callback_mainthread_only(::core::mem::transmute(mainthread_only)))
+        alljoyn_unity_set_deferred_callback_mainthread_only(::core::mem::transmute(mainthread_only))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

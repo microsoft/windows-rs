@@ -8,13 +8,13 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
     let impl_name = impl_type.ident.to_string();
     let interfaces = implements.interfaces();
 
-    let mut tokens = TokenStream::with_capacity();
+    let mut tokens = TokenStream::new();
     let mut vtable_idents = vec![];
     let mut vtable_ordinals = vec![];
-    let mut vtable_ctors = TokenStream::with_capacity();
-    let mut shims = TokenStream::with_capacity();
-    let mut queries = TokenStream::with_capacity();
-    let mut query_constants = TokenStream::with_capacity();
+    let mut vtable_ctors = TokenStream::new();
+    let mut shims = TokenStream::new();
+    let mut queries = TokenStream::new();
+    let mut query_constants = TokenStream::new();
     let gen = gen::Gen::absolute();
 
     let mut generics = BTreeSet::new();
@@ -176,7 +176,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             });
         }
 
-        let mut phantoms = TokenStream::with_capacity();
+        let mut phantoms = TokenStream::new();
 
         for _ in 0..def.generic_params().count() {
             phantoms.combine(&quote! { core::marker::PhantomData, })
@@ -249,7 +249,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         #[repr(C)]
         struct #box_ident<#(#generics,)*> where #constraints {
             base: ::core::option::Option<::windows::core::IInspectable>,
-            identity_vtable: *const ::windows::core::IInspectable_abi,
+            identity_vtable: *const ::windows::core::IInspectableVtbl,
             vtables: (#(*const #vtable_idents,)*),
             implementation: #impl_ident,
             count: ::windows::core::WeakRefCount,
@@ -258,7 +258,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             const VTABLES: (#(#vtable_idents,)*) = (
                 #vtable_ctors
             );
-            const IDENTITY_VTABLE: ::windows::core::IInspectable_abi = ::windows::core::IInspectable_abi(
+            const IDENTITY_VTABLE: ::windows::core::IInspectableVtbl = ::windows::core::IInspectableVtbl(
                 Self::identity_query_interface,
                 Self::identity_add_ref,
                 Self::identity_release,

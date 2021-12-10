@@ -23,7 +23,7 @@ impl Gen {
 
     pub fn namespace(&self, namespace: &str) -> TokenStream {
         if self.relative.is_empty() {
-            let mut tokens = TokenStream::with_capacity();
+            let mut tokens = TokenStream::new();
 
             for namespace in namespace.split('.') {
                 tokens.push_str(namespace);
@@ -58,7 +58,7 @@ impl Gen {
                 namespace.next();
             }
 
-            let mut tokens = TokenStream::with_capacity();
+            let mut tokens = TokenStream::new();
 
             for _ in 0..relative.count() {
                 tokens.push_str("super::");

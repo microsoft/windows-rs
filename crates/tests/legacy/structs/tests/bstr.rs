@@ -7,8 +7,7 @@ fn test() {
     a.m_bstrName = "Name".into();
     let b = a.clone();
 
-    assert_eq!(a, b);
+    assert!(a == b);
     assert_eq!(a.m_bstrName, "Name");
     assert_eq!(b.m_bstrName, "Name");
-    assert_ne!(a.m_bstrName.0, b.m_bstrName.0);
 }

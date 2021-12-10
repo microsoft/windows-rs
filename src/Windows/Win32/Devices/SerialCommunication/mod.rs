@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CDB_REPORT_BITS: u32 = 0u32;
 pub const CDB_REPORT_BYTES: u32 = 1u32;
 pub const COMDB_MAX_PORTS_ARBITRATED: u32 = 4096u32;
@@ -95,15 +95,4 @@ pub unsafe fn ComDBResizeDatabase<'a, Param0: ::windows::core::IntoParam<'a, HCO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HCOMDB(pub isize);
-impl ::core::default::Default for HCOMDB {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HCOMDB {}
-unsafe impl ::windows::core::Abi for HCOMDB {
-    type Abi = Self;
-}
+pub type HCOMDB = isize;

@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const FACILITY_NONE: u32 = 0u32;
 pub const FACILITY_WINBIO: u32 = 9u32;
 pub const GUID_DEVINTERFACE_BIOMETRIC_READER: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2b5183a_99ea_4cc3_ad6b_80ca8d715b80);
@@ -258,109 +258,90 @@ pub type PWINBIO_QUERY_SENSOR_INTERFACE_FN = ::core::option::Option<unsafe exter
 pub type PWINBIO_QUERY_STORAGE_INTERFACE_FN = ::core::option::Option<unsafe extern "system" fn(storageinterface: *mut *mut WINBIO_STORAGE_INTERFACE) -> ::windows::core::HRESULT>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PWINBIO_VERIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(verifycallbackcontext: *const ::core::ffi::c_void, operationstatus: ::windows::core::HRESULT, unitid: u32, r#match: super::super::Foundation::BOOLEAN, rejectdetail: u32)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_ACCOUNT_POLICY {
     pub Identity: WINBIO_IDENTITY,
     pub AntiSpoofBehavior: WINBIO_ANTI_SPOOF_POLICY_ACTION,
 }
-impl WINBIO_ACCOUNT_POLICY {}
+impl ::core::marker::Copy for WINBIO_ACCOUNT_POLICY {}
+impl ::core::clone::Clone for WINBIO_ACCOUNT_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_ACCOUNT_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_ACCOUNT_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ACCOUNT_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_ACCOUNT_POLICY {}
 impl ::core::default::Default for WINBIO_ACCOUNT_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_ACCOUNT_POLICY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_ACCOUNT_POLICY {}
-unsafe impl ::windows::core::Abi for WINBIO_ACCOUNT_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_ADAPTER_INTERFACE_VERSION {
     pub MajorVersion: u16,
     pub MinorVersion: u16,
 }
-impl WINBIO_ADAPTER_INTERFACE_VERSION {}
+impl ::core::marker::Copy for WINBIO_ADAPTER_INTERFACE_VERSION {}
+impl ::core::clone::Clone for WINBIO_ADAPTER_INTERFACE_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_ADAPTER_INTERFACE_VERSION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_ADAPTER_INTERFACE_VERSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ADAPTER_INTERFACE_VERSION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_ADAPTER_INTERFACE_VERSION {}
 impl ::core::default::Default for WINBIO_ADAPTER_INTERFACE_VERSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_ADAPTER_INTERFACE_VERSION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_ADAPTER_INTERFACE_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_ADAPTER_INTERFACE_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl ::core::cmp::Eq for WINBIO_ADAPTER_INTERFACE_VERSION {}
-unsafe impl ::windows::core::Abi for WINBIO_ADAPTER_INTERFACE_VERSION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_ANTI_SPOOF_POLICY {
     pub Action: WINBIO_ANTI_SPOOF_POLICY_ACTION,
     pub Source: WINBIO_POLICY_SOURCE,
 }
-impl WINBIO_ANTI_SPOOF_POLICY {}
+impl ::core::marker::Copy for WINBIO_ANTI_SPOOF_POLICY {}
+impl ::core::clone::Clone for WINBIO_ANTI_SPOOF_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_ANTI_SPOOF_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_ANTI_SPOOF_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ANTI_SPOOF_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_ANTI_SPOOF_POLICY {}
 impl ::core::default::Default for WINBIO_ANTI_SPOOF_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_ANTI_SPOOF_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_ANTI_SPOOF_POLICY").field("Action", &self.Action).field("Source", &self.Source).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_ANTI_SPOOF_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Action == other.Action && self.Source == other.Source
-    }
-}
-impl ::core::cmp::Eq for WINBIO_ANTI_SPOOF_POLICY {}
-unsafe impl ::windows::core::Abi for WINBIO_ANTI_SPOOF_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_ANTI_SPOOF_POLICY_ACTION(pub i32);
-pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(0i32);
-pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(1i32);
-pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = WINBIO_ANTI_SPOOF_POLICY_ACTION(2i32);
-impl ::core::convert::From<i32> for WINBIO_ANTI_SPOOF_POLICY_ACTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_ANTI_SPOOF_POLICY_ACTION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_ASYNC_NOTIFICATION_METHOD(pub i32);
-pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(0i32);
-pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(1i32);
-pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(2i32);
-pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = WINBIO_ASYNC_NOTIFICATION_METHOD(3i32);
-impl ::core::convert::From<i32> for WINBIO_ASYNC_NOTIFICATION_METHOD {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_NOTIFICATION_METHOD {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WINBIO_ANTI_SPOOF_POLICY_ACTION = i32;
+pub const WINBIO_ANTI_SPOOF_DISABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 0i32;
+pub const WINBIO_ANTI_SPOOF_ENABLE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 1i32;
+pub const WINBIO_ANTI_SPOOF_REMOVE: WINBIO_ANTI_SPOOF_POLICY_ACTION = 2i32;
+pub type WINBIO_ASYNC_NOTIFICATION_METHOD = i32;
+pub const WINBIO_ASYNC_NOTIFY_NONE: WINBIO_ASYNC_NOTIFICATION_METHOD = 0i32;
+pub const WINBIO_ASYNC_NOTIFY_CALLBACK: WINBIO_ASYNC_NOTIFICATION_METHOD = 1i32;
+pub const WINBIO_ASYNC_NOTIFY_MESSAGE: WINBIO_ASYNC_NOTIFICATION_METHOD = 2i32;
+pub const WINBIO_ASYNC_NOTIFY_MAXIMUM_VALUE: WINBIO_ASYNC_NOTIFICATION_METHOD = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT {
@@ -374,26 +355,31 @@ pub struct WINBIO_ASYNC_RESULT {
     pub Parameters: WINBIO_ASYNC_RESULT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINBIO_ASYNC_RESULT_0 {
@@ -420,26 +406,31 @@ pub union WINBIO_ASYNC_RESULT_0 {
     pub NotifyUnitStatusChange: WINBIO_ASYNC_RESULT_0_17,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_0 {
@@ -448,32 +439,31 @@ pub struct WINBIO_ASYNC_RESULT_0_0 {
     pub RejectDetail: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_0 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_CaptureSample_e__Struct").field("Sample", &self.Sample).field("SampleSize", &self.SampleSize).field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Sample == other.Sample && self.SampleSize == other.SampleSize && self.RejectDetail == other.RejectDetail
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_1 {
@@ -487,32 +477,31 @@ pub struct WINBIO_ASYNC_RESULT_0_1 {
     pub ReceiveDataSize: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_1 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ControlUnit_e__Struct").field("Component", &self.Component).field("ControlCode", &self.ControlCode).field("OperationStatus", &self.OperationStatus).field("SendBuffer", &self.SendBuffer).field("SendBufferSize", &self.SendBufferSize).field("ReceiveBuffer", &self.ReceiveBuffer).field("ReceiveBufferSize", &self.ReceiveBufferSize).field("ReceiveDataSize", &self.ReceiveDataSize).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Component == other.Component && self.ControlCode == other.ControlCode && self.OperationStatus == other.OperationStatus && self.SendBuffer == other.SendBuffer && self.SendBufferSize == other.SendBufferSize && self.ReceiveBuffer == other.ReceiveBuffer && self.ReceiveBufferSize == other.ReceiveBufferSize && self.ReceiveDataSize == other.ReceiveDataSize
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_2 {
@@ -520,90 +509,93 @@ pub struct WINBIO_ASYNC_RESULT_0_2 {
     pub SubFactor: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_2 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_2 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_3 {
     pub SubFactor: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_3 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnrollBegin_e__Struct").field("SubFactor", &self.SubFactor).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SubFactor == other.SubFactor
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_4 {
     pub RejectDetail: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_4 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_4 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_4 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_4 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_4 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_4>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_4 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_4 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_4 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnrollCapture_e__Struct").field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_4 {
-    fn eq(&self, other: &Self) -> bool {
-        self.RejectDetail == other.RejectDetail
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_4 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_4 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_5 {
@@ -611,58 +603,62 @@ pub struct WINBIO_ASYNC_RESULT_0_5 {
     pub IsNewTemplate: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_5 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_5 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_5 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_5 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_5 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_5>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_5 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_5 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_5 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_5 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_5 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_6 {
     pub SelectorValue: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_6 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_6 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_6 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_6 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_6 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_6>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_6 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_6 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_6 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnrollSelect_e__Struct").field("SelectorValue", &self.SelectorValue).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_6 {
-    fn eq(&self, other: &Self) -> bool {
-        self.SelectorValue == other.SelectorValue
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_6 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_6 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_7 {
@@ -670,32 +666,31 @@ pub struct WINBIO_ASYNC_RESULT_0_7 {
     pub UnitSchemaArray: *mut WINBIO_UNIT_SCHEMA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_7 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_7 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_7 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_7 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_7 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_7>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_7 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_7 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_7 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnumBiometricUnits_e__Struct").field("UnitCount", &self.UnitCount).field("UnitSchemaArray", &self.UnitSchemaArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_7 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitCount == other.UnitCount && self.UnitSchemaArray == other.UnitSchemaArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_7 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_7 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_8 {
@@ -703,32 +698,31 @@ pub struct WINBIO_ASYNC_RESULT_0_8 {
     pub StorageSchemaArray: *mut WINBIO_STORAGE_SCHEMA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_8 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_8 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_8 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_8 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_8 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_8>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_8 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_8 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_8 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnumDatabases_e__Struct").field("StorageCount", &self.StorageCount).field("StorageSchemaArray", &self.StorageSchemaArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_8 {
-    fn eq(&self, other: &Self) -> bool {
-        self.StorageCount == other.StorageCount && self.StorageSchemaArray == other.StorageSchemaArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_8 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_8 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_9 {
@@ -737,26 +731,31 @@ pub struct WINBIO_ASYNC_RESULT_0_9 {
     pub SubFactorArray: *mut u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_9 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_9 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_9 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_9 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_9 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_9>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_9 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_9 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_9 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_9 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_9 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_10 {
@@ -764,58 +763,62 @@ pub struct WINBIO_ASYNC_RESULT_0_10 {
     pub BspSchemaArray: *mut WINBIO_BSP_SCHEMA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_10 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_10 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_10 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_10 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_10 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_10>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_10 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_10 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_10 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnumServiceProviders_e__Struct").field("BspCount", &self.BspCount).field("BspSchemaArray", &self.BspSchemaArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_10 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BspCount == other.BspCount && self.BspSchemaArray == other.BspSchemaArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_10 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_10 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_11 {
     pub Event: WINBIO_EVENT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_11 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_11 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_11 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_11 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_11 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_11>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_11 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_11 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_11 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_11 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_11 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_12 {
@@ -827,26 +830,31 @@ pub struct WINBIO_ASYNC_RESULT_0_12 {
     pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_12 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_12 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_12 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_12 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_12 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_12>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_12 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_12 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_12 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_12 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_12 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_13 {
@@ -854,26 +862,31 @@ pub struct WINBIO_ASYNC_RESULT_0_13 {
     pub Policy: WINBIO_PROTECTION_POLICY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_13 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_13 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_13 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_13 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_13 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_13>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_13 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_13 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_13 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_13 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_13 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_14 {
@@ -883,26 +896,31 @@ pub struct WINBIO_ASYNC_RESULT_0_14 {
     pub Ticket: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_14 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_14 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_14 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_14 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_14 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_14>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_14 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_14 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_14 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_14 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_14 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_15 {
@@ -911,26 +929,31 @@ pub struct WINBIO_ASYNC_RESULT_0_15 {
     pub RejectDetail: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_15 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_15 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_15 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_15 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_15 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_15>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_15 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_15 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_15 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_15 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_15 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_16 {
@@ -939,64 +962,62 @@ pub struct WINBIO_ASYNC_RESULT_0_16 {
     pub PresenceArray: *mut WINBIO_PRESENCE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_16 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_16 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_16 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_16 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_16 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_16>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_16 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_16 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_16 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MonitorPresence_e__Struct").field("ChangeType", &self.ChangeType).field("PresenceCount", &self.PresenceCount).field("PresenceArray", &self.PresenceArray).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_16 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChangeType == other.ChangeType && self.PresenceCount == other.PresenceCount && self.PresenceArray == other.PresenceArray
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_16 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_16 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_17 {
     pub ExtendedStatus: WINBIO_EXTENDED_UNIT_STATUS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_17 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_17 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_17 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_17 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_17 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_17>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_17 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_17 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_17 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_NotifyUnitStatusChange_e__Struct").field("ExtendedStatus", &self.ExtendedStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_17 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ExtendedStatus == other.ExtendedStatus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_17 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_17 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_18 {
@@ -1008,26 +1029,31 @@ pub struct WINBIO_ASYNC_RESULT_0_18 {
     pub PropertyBuffer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_18 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_18 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_18 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_18 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_18 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_18>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_18 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_18 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_18 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_18 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_18 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_19 {
@@ -1036,32 +1062,31 @@ pub struct WINBIO_ASYNC_RESULT_0_19 {
     pub Ticket: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_19 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_19 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_19 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_19 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_19 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_19>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_19 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_19 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_19 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_VerifyAndReleaseTicket_e__Struct").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).field("Ticket", &self.Ticket).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_19 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Match == other.Match && self.RejectDetail == other.RejectDetail && self.Ticket == other.Ticket
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_19 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_19 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_ASYNC_RESULT_0_20 {
@@ -1069,32 +1094,31 @@ pub struct WINBIO_ASYNC_RESULT_0_20 {
     pub RejectDetail: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_ASYNC_RESULT_0_20 {}
+impl ::core::marker::Copy for WINBIO_ASYNC_RESULT_0_20 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_ASYNC_RESULT_0_20 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_20 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_20 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ASYNC_RESULT_0_20>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_20 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_ASYNC_RESULT_0_20 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_ASYNC_RESULT_0_20 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Verify_e__Struct").field("Match", &self.Match).field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_ASYNC_RESULT_0_20 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Match == other.Match && self.RejectDetail == other.RejectDetail
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_ASYNC_RESULT_0_20 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_ASYNC_RESULT_0_20 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub RecordLength: u64,
@@ -1113,43 +1137,26 @@ pub struct WINBIO_BDB_ANSI_381_HEADER {
     pub ImageCompressionAlg: u8,
     pub Reserved: u16,
 }
-impl WINBIO_BDB_ANSI_381_HEADER {}
+impl ::core::marker::Copy for WINBIO_BDB_ANSI_381_HEADER {}
+impl ::core::clone::Clone for WINBIO_BDB_ANSI_381_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BDB_ANSI_381_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_HEADER {}
 impl ::core::default::Default for WINBIO_BDB_ANSI_381_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BDB_ANSI_381_HEADER")
-            .field("RecordLength", &self.RecordLength)
-            .field("FormatIdentifier", &self.FormatIdentifier)
-            .field("VersionNumber", &self.VersionNumber)
-            .field("ProductId", &self.ProductId)
-            .field("CaptureDeviceId", &self.CaptureDeviceId)
-            .field("ImageAcquisitionLevel", &self.ImageAcquisitionLevel)
-            .field("HorizontalScanResolution", &self.HorizontalScanResolution)
-            .field("VerticalScanResolution", &self.VerticalScanResolution)
-            .field("HorizontalImageResolution", &self.HorizontalImageResolution)
-            .field("VerticalImageResolution", &self.VerticalImageResolution)
-            .field("ElementCount", &self.ElementCount)
-            .field("ScaleUnits", &self.ScaleUnits)
-            .field("PixelDepth", &self.PixelDepth)
-            .field("ImageCompressionAlg", &self.ImageCompressionAlg)
-            .field("Reserved", &self.Reserved)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.RecordLength == other.RecordLength && self.FormatIdentifier == other.FormatIdentifier && self.VersionNumber == other.VersionNumber && self.ProductId == other.ProductId && self.CaptureDeviceId == other.CaptureDeviceId && self.ImageAcquisitionLevel == other.ImageAcquisitionLevel && self.HorizontalScanResolution == other.HorizontalScanResolution && self.VerticalScanResolution == other.VerticalScanResolution && self.HorizontalImageResolution == other.HorizontalImageResolution && self.VerticalImageResolution == other.VerticalImageResolution && self.ElementCount == other.ElementCount && self.ScaleUnits == other.ScaleUnits && self.PixelDepth == other.PixelDepth && self.ImageCompressionAlg == other.ImageCompressionAlg && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_HEADER {}
-unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub BlockLength: u32,
@@ -1162,27 +1169,26 @@ pub struct WINBIO_BDB_ANSI_381_RECORD {
     pub ImpressionType: u8,
     pub Reserved: u8,
 }
-impl WINBIO_BDB_ANSI_381_RECORD {}
+impl ::core::marker::Copy for WINBIO_BDB_ANSI_381_RECORD {}
+impl ::core::clone::Clone for WINBIO_BDB_ANSI_381_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_RECORD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BDB_ANSI_381_RECORD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_RECORD {}
 impl ::core::default::Default for WINBIO_BDB_ANSI_381_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BDB_ANSI_381_RECORD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BDB_ANSI_381_RECORD").field("BlockLength", &self.BlockLength).field("HorizontalLineLength", &self.HorizontalLineLength).field("VerticalLineLength", &self.VerticalLineLength).field("Position", &self.Position).field("CountOfViews", &self.CountOfViews).field("ViewNumber", &self.ViewNumber).field("ImageQuality", &self.ImageQuality).field("ImpressionType", &self.ImpressionType).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BDB_ANSI_381_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.BlockLength == other.BlockLength && self.HorizontalLineLength == other.HorizontalLineLength && self.VerticalLineLength == other.VerticalLineLength && self.Position == other.Position && self.CountOfViews == other.CountOfViews && self.ViewNumber == other.ViewNumber && self.ImageQuality == other.ImageQuality && self.ImpressionType == other.ImpressionType && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BDB_ANSI_381_RECORD {}
-unsafe impl ::windows::core::Abi for WINBIO_BDB_ANSI_381_RECORD {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BIR {
     pub HeaderBlock: WINBIO_BIR_DATA,
@@ -1190,55 +1196,53 @@ pub struct WINBIO_BIR {
     pub VendorDataBlock: WINBIO_BIR_DATA,
     pub SignatureBlock: WINBIO_BIR_DATA,
 }
-impl WINBIO_BIR {}
+impl ::core::marker::Copy for WINBIO_BIR {}
+impl ::core::clone::Clone for WINBIO_BIR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BIR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BIR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BIR {}
 impl ::core::default::Default for WINBIO_BIR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BIR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BIR").field("HeaderBlock", &self.HeaderBlock).field("StandardDataBlock", &self.StandardDataBlock).field("VendorDataBlock", &self.VendorDataBlock).field("SignatureBlock", &self.SignatureBlock).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BIR {
-    fn eq(&self, other: &Self) -> bool {
-        self.HeaderBlock == other.HeaderBlock && self.StandardDataBlock == other.StandardDataBlock && self.VendorDataBlock == other.VendorDataBlock && self.SignatureBlock == other.SignatureBlock
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BIR {}
-unsafe impl ::windows::core::Abi for WINBIO_BIR {
-    type Abi = Self;
-}
 pub const WINBIO_BIR_ALGIN_SIZE: u32 = 8u32;
 pub const WINBIO_BIR_ALIGN_SIZE: u32 = 8u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BIR_DATA {
     pub Size: u32,
     pub Offset: u32,
 }
-impl WINBIO_BIR_DATA {}
+impl ::core::marker::Copy for WINBIO_BIR_DATA {}
+impl ::core::clone::Clone for WINBIO_BIR_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BIR_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BIR_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BIR_DATA {}
 impl ::core::default::Default for WINBIO_BIR_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BIR_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BIR_DATA").field("Size", &self.Size).field("Offset", &self.Offset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BIR_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Offset == other.Offset
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BIR_DATA {}
-unsafe impl ::windows::core::Abi for WINBIO_BIR_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BIR_HEADER {
     pub ValidFields: u16,
@@ -1254,92 +1258,76 @@ pub struct WINBIO_BIR_HEADER {
     pub BiometricDataFormat: WINBIO_REGISTERED_FORMAT,
     pub ProductId: WINBIO_REGISTERED_FORMAT,
 }
-impl WINBIO_BIR_HEADER {}
+impl ::core::marker::Copy for WINBIO_BIR_HEADER {}
+impl ::core::clone::Clone for WINBIO_BIR_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BIR_HEADER {}
 impl ::core::default::Default for WINBIO_BIR_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BIR_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BIR_HEADER")
-            .field("ValidFields", &self.ValidFields)
-            .field("HeaderVersion", &self.HeaderVersion)
-            .field("PatronHeaderVersion", &self.PatronHeaderVersion)
-            .field("DataFlags", &self.DataFlags)
-            .field("Type", &self.Type)
-            .field("Subtype", &self.Subtype)
-            .field("Purpose", &self.Purpose)
-            .field("DataQuality", &self.DataQuality)
-            .field("CreationDate", &self.CreationDate)
-            .field("ValidityPeriod", &self.ValidityPeriod)
-            .field("BiometricDataFormat", &self.BiometricDataFormat)
-            .field("ProductId", &self.ProductId)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ValidFields == other.ValidFields && self.HeaderVersion == other.HeaderVersion && self.PatronHeaderVersion == other.PatronHeaderVersion && self.DataFlags == other.DataFlags && self.Type == other.Type && self.Subtype == other.Subtype && self.Purpose == other.Purpose && self.DataQuality == other.DataQuality && self.CreationDate == other.CreationDate && self.ValidityPeriod == other.ValidityPeriod && self.BiometricDataFormat == other.BiometricDataFormat && self.ProductId == other.ProductId
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BIR_HEADER {}
-unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BIR_HEADER_0 {
     pub BeginDate: i64,
     pub EndDate: i64,
 }
-impl WINBIO_BIR_HEADER_0 {}
+impl ::core::marker::Copy for WINBIO_BIR_HEADER_0 {}
+impl ::core::clone::Clone for WINBIO_BIR_HEADER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BIR_HEADER_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BIR_HEADER_0 {}
 impl ::core::default::Default for WINBIO_BIR_HEADER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BIR_HEADER_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ValidityPeriod_e__Struct").field("BeginDate", &self.BeginDate).field("EndDate", &self.EndDate).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BIR_HEADER_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BeginDate == other.BeginDate && self.EndDate == other.EndDate
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BIR_HEADER_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_BIR_HEADER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BLANK_PAYLOAD {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::core::HRESULT,
 }
-impl WINBIO_BLANK_PAYLOAD {}
+impl ::core::marker::Copy for WINBIO_BLANK_PAYLOAD {}
+impl ::core::clone::Clone for WINBIO_BLANK_PAYLOAD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BLANK_PAYLOAD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BLANK_PAYLOAD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BLANK_PAYLOAD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BLANK_PAYLOAD {}
 impl ::core::default::Default for WINBIO_BLANK_PAYLOAD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BLANK_PAYLOAD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BLANK_PAYLOAD").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BLANK_PAYLOAD {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BLANK_PAYLOAD {}
-unsafe impl ::windows::core::Abi for WINBIO_BLANK_PAYLOAD {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_BSP_SCHEMA {
     pub BiometricFactor: u32,
@@ -1348,54 +1336,52 @@ pub struct WINBIO_BSP_SCHEMA {
     pub Vendor: [u16; 256],
     pub Version: WINBIO_VERSION,
 }
-impl WINBIO_BSP_SCHEMA {}
+impl ::core::marker::Copy for WINBIO_BSP_SCHEMA {}
+impl ::core::clone::Clone for WINBIO_BSP_SCHEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_BSP_SCHEMA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_BSP_SCHEMA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_BSP_SCHEMA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_BSP_SCHEMA {}
 impl ::core::default::Default for WINBIO_BSP_SCHEMA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_BSP_SCHEMA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_BSP_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("BspId", &self.BspId).field("Description", &self.Description).field("Vendor", &self.Vendor).field("Version", &self.Version).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_BSP_SCHEMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.BiometricFactor == other.BiometricFactor && self.BspId == other.BspId && self.Description == other.Description && self.Vendor == other.Vendor && self.Version == other.Version
-    }
-}
-impl ::core::cmp::Eq for WINBIO_BSP_SCHEMA {}
-unsafe impl ::windows::core::Abi for WINBIO_BSP_SCHEMA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_CALIBRATION_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::core::HRESULT,
     pub CalibrationData: WINBIO_DATA,
 }
-impl WINBIO_CALIBRATION_INFO {}
+impl ::core::marker::Copy for WINBIO_CALIBRATION_INFO {}
+impl ::core::clone::Clone for WINBIO_CALIBRATION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_CALIBRATION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_CALIBRATION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_CALIBRATION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_CALIBRATION_INFO {}
 impl ::core::default::Default for WINBIO_CALIBRATION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_CALIBRATION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_CALIBRATION_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("CalibrationData", &self.CalibrationData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_CALIBRATION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.CalibrationData == other.CalibrationData
-    }
-}
-impl ::core::cmp::Eq for WINBIO_CALIBRATION_INFO {}
-unsafe impl ::windows::core::Abi for WINBIO_CALIBRATION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_CAPTURE_DATA {
     pub PayloadSize: u32,
@@ -1404,27 +1390,26 @@ pub struct WINBIO_CAPTURE_DATA {
     pub RejectDetail: u32,
     pub CaptureData: WINBIO_DATA,
 }
-impl WINBIO_CAPTURE_DATA {}
+impl ::core::marker::Copy for WINBIO_CAPTURE_DATA {}
+impl ::core::clone::Clone for WINBIO_CAPTURE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_CAPTURE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_CAPTURE_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_CAPTURE_DATA {}
 impl ::core::default::Default for WINBIO_CAPTURE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_CAPTURE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_CAPTURE_DATA").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("RejectDetail", &self.RejectDetail).field("CaptureData", &self.CaptureData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_CAPTURE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.RejectDetail == other.RejectDetail && self.CaptureData == other.CaptureData
-    }
-}
-impl ::core::cmp::Eq for WINBIO_CAPTURE_DATA {}
-unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_CAPTURE_PARAMETERS {
     pub PayloadSize: u32,
@@ -1433,135 +1418,65 @@ pub struct WINBIO_CAPTURE_PARAMETERS {
     pub VendorFormat: ::windows::core::GUID,
     pub Flags: u8,
 }
-impl WINBIO_CAPTURE_PARAMETERS {}
+impl ::core::marker::Copy for WINBIO_CAPTURE_PARAMETERS {}
+impl ::core::clone::Clone for WINBIO_CAPTURE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_CAPTURE_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_CAPTURE_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_CAPTURE_PARAMETERS {}
 impl ::core::default::Default for WINBIO_CAPTURE_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_CAPTURE_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_CAPTURE_PARAMETERS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_CAPTURE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for WINBIO_CAPTURE_PARAMETERS {}
-unsafe impl ::windows::core::Abi for WINBIO_CAPTURE_PARAMETERS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_COMPONENT(pub u32);
-pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = WINBIO_COMPONENT(1u32);
-pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = WINBIO_COMPONENT(2u32);
-pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = WINBIO_COMPONENT(3u32);
-impl ::core::convert::From<u32> for WINBIO_COMPONENT {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_COMPONENT {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINBIO_COMPONENT {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINBIO_COMPONENT {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINBIO_COMPONENT {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINBIO_COMPONENT {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINBIO_COMPONENT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_CREDENTIAL_FORMAT(pub i32);
-pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(1i32);
-pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(2i32);
-pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = WINBIO_CREDENTIAL_FORMAT(3i32);
-impl ::core::convert::From<i32> for WINBIO_CREDENTIAL_FORMAT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_FORMAT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_CREDENTIAL_STATE(pub i32);
-pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(1i32);
-pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = WINBIO_CREDENTIAL_STATE(2i32);
-impl ::core::convert::From<i32> for WINBIO_CREDENTIAL_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_CREDENTIAL_TYPE(pub i32);
-pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(1i32);
-pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = WINBIO_CREDENTIAL_TYPE(-1i32);
-impl ::core::convert::From<i32> for WINBIO_CREDENTIAL_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_CREDENTIAL_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WINBIO_COMPONENT = u32;
+pub const WINBIO_COMPONENT_SENSOR: WINBIO_COMPONENT = 1u32;
+pub const WINBIO_COMPONENT_ENGINE: WINBIO_COMPONENT = 2u32;
+pub const WINBIO_COMPONENT_STORAGE: WINBIO_COMPONENT = 3u32;
+pub type WINBIO_CREDENTIAL_FORMAT = i32;
+pub const WINBIO_PASSWORD_GENERIC: WINBIO_CREDENTIAL_FORMAT = 1i32;
+pub const WINBIO_PASSWORD_PACKED: WINBIO_CREDENTIAL_FORMAT = 2i32;
+pub const WINBIO_PASSWORD_PROTECTED: WINBIO_CREDENTIAL_FORMAT = 3i32;
+pub type WINBIO_CREDENTIAL_STATE = i32;
+pub const WINBIO_CREDENTIAL_NOT_SET: WINBIO_CREDENTIAL_STATE = 1i32;
+pub const WINBIO_CREDENTIAL_SET: WINBIO_CREDENTIAL_STATE = 2i32;
+pub type WINBIO_CREDENTIAL_TYPE = i32;
+pub const WINBIO_CREDENTIAL_PASSWORD: WINBIO_CREDENTIAL_TYPE = 1i32;
+pub const WINBIO_CREDENTIAL_ALL: WINBIO_CREDENTIAL_TYPE = -1i32;
 #[repr(C)]
 pub struct WINBIO_DATA {
     pub Size: u32,
     pub Data: [u8; 1],
 }
-impl WINBIO_DATA {}
+impl ::core::marker::Copy for WINBIO_DATA {}
+impl ::core::clone::Clone for WINBIO_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_DATA {}
 impl ::core::default::Default for WINBIO_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_DATA").field("Size", &self.Size).field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for WINBIO_DATA {}
-unsafe impl ::windows::core::Abi for WINBIO_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_DIAGNOSTICS {
     pub PayloadSize: u32,
@@ -1569,27 +1484,26 @@ pub struct WINBIO_DIAGNOSTICS {
     pub SensorStatus: u32,
     pub VendorDiagnostics: WINBIO_DATA,
 }
-impl WINBIO_DIAGNOSTICS {}
+impl ::core::marker::Copy for WINBIO_DIAGNOSTICS {}
+impl ::core::clone::Clone for WINBIO_DIAGNOSTICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_DIAGNOSTICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_DIAGNOSTICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_DIAGNOSTICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_DIAGNOSTICS {}
 impl ::core::default::Default for WINBIO_DIAGNOSTICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_DIAGNOSTICS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_DIAGNOSTICS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("SensorStatus", &self.SensorStatus).field("VendorDiagnostics", &self.VendorDiagnostics).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_DIAGNOSTICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.SensorStatus == other.SensorStatus && self.VendorDiagnostics == other.VendorDiagnostics
-    }
-}
-impl ::core::cmp::Eq for WINBIO_DIAGNOSTICS {}
-unsafe impl ::windows::core::Abi for WINBIO_DIAGNOSTICS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub PayloadSize: u32,
@@ -1599,27 +1513,26 @@ pub struct WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     pub Flags: u8,
     pub NonceSize: u32,
 }
-impl WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
+impl ::core::marker::Copy for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
+impl ::core::clone::Clone for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ENCRYPTED_CAPTURE_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
 impl ::core::default::Default for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_ENCRYPTED_CAPTURE_PARAMS").field("PayloadSize", &self.PayloadSize).field("Purpose", &self.Purpose).field("Format", &self.Format).field("VendorFormat", &self.VendorFormat).field("Flags", &self.Flags).field("NonceSize", &self.NonceSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.Purpose == other.Purpose && self.Format == other.Format && self.VendorFormat == other.VendorFormat && self.Flags == other.Flags && self.NonceSize == other.NonceSize
-    }
-}
-impl ::core::cmp::Eq for WINBIO_ENCRYPTED_CAPTURE_PARAMS {}
-unsafe impl ::windows::core::Abi for WINBIO_ENCRYPTED_CAPTURE_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_ENGINE_INTERFACE {
@@ -1670,144 +1583,106 @@ pub struct WINBIO_ENGINE_INTERFACE {
     pub IdentifyFeatureSetAuthenticated: PIBIO_ENGINE_IDENTIFY_FEATURE_SET_AUTHENTICATED_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl WINBIO_ENGINE_INTERFACE {}
+impl ::core::marker::Copy for WINBIO_ENGINE_INTERFACE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for WINBIO_ENGINE_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for WINBIO_ENGINE_INTERFACE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for WINBIO_ENGINE_INTERFACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_ENGINE_INTERFACE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for WINBIO_ENGINE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_ENGINE_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for WINBIO_ENGINE_INTERFACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_ENGINE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_ENGINE_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Type == other.Type
-            && self.Size == other.Size
-            && self.AdapterId == other.AdapterId
-            && self.Attach.map(|f| f as usize) == other.Attach.map(|f| f as usize)
-            && self.Detach.map(|f| f as usize) == other.Detach.map(|f| f as usize)
-            && self.ClearContext.map(|f| f as usize) == other.ClearContext.map(|f| f as usize)
-            && self.QueryPreferredFormat.map(|f| f as usize) == other.QueryPreferredFormat.map(|f| f as usize)
-            && self.QueryIndexVectorSize.map(|f| f as usize) == other.QueryIndexVectorSize.map(|f| f as usize)
-            && self.QueryHashAlgorithms.map(|f| f as usize) == other.QueryHashAlgorithms.map(|f| f as usize)
-            && self.SetHashAlgorithm.map(|f| f as usize) == other.SetHashAlgorithm.map(|f| f as usize)
-            && self.QuerySampleHint.map(|f| f as usize) == other.QuerySampleHint.map(|f| f as usize)
-            && self.AcceptSampleData.map(|f| f as usize) == other.AcceptSampleData.map(|f| f as usize)
-            && self.ExportEngineData.map(|f| f as usize) == other.ExportEngineData.map(|f| f as usize)
-            && self.VerifyFeatureSet.map(|f| f as usize) == other.VerifyFeatureSet.map(|f| f as usize)
-            && self.IdentifyFeatureSet.map(|f| f as usize) == other.IdentifyFeatureSet.map(|f| f as usize)
-            && self.CreateEnrollment.map(|f| f as usize) == other.CreateEnrollment.map(|f| f as usize)
-            && self.UpdateEnrollment.map(|f| f as usize) == other.UpdateEnrollment.map(|f| f as usize)
-            && self.GetEnrollmentStatus.map(|f| f as usize) == other.GetEnrollmentStatus.map(|f| f as usize)
-            && self.GetEnrollmentHash.map(|f| f as usize) == other.GetEnrollmentHash.map(|f| f as usize)
-            && self.CheckForDuplicate.map(|f| f as usize) == other.CheckForDuplicate.map(|f| f as usize)
-            && self.CommitEnrollment.map(|f| f as usize) == other.CommitEnrollment.map(|f| f as usize)
-            && self.DiscardEnrollment.map(|f| f as usize) == other.DiscardEnrollment.map(|f| f as usize)
-            && self.ControlUnit.map(|f| f as usize) == other.ControlUnit.map(|f| f as usize)
-            && self.ControlUnitPrivileged.map(|f| f as usize) == other.ControlUnitPrivileged.map(|f| f as usize)
-            && self.NotifyPowerChange.map(|f| f as usize) == other.NotifyPowerChange.map(|f| f as usize)
-            && self.Reserved_1.map(|f| f as usize) == other.Reserved_1.map(|f| f as usize)
-            && self.PipelineInit.map(|f| f as usize) == other.PipelineInit.map(|f| f as usize)
-            && self.PipelineCleanup.map(|f| f as usize) == other.PipelineCleanup.map(|f| f as usize)
-            && self.Activate.map(|f| f as usize) == other.Activate.map(|f| f as usize)
-            && self.Deactivate.map(|f| f as usize) == other.Deactivate.map(|f| f as usize)
-            && self.QueryExtendedInfo.map(|f| f as usize) == other.QueryExtendedInfo.map(|f| f as usize)
-            && self.IdentifyAll.map(|f| f as usize) == other.IdentifyAll.map(|f| f as usize)
-            && self.SetEnrollmentSelector.map(|f| f as usize) == other.SetEnrollmentSelector.map(|f| f as usize)
-            && self.SetEnrollmentParameters.map(|f| f as usize) == other.SetEnrollmentParameters.map(|f| f as usize)
-            && self.QueryExtendedEnrollmentStatus.map(|f| f as usize) == other.QueryExtendedEnrollmentStatus.map(|f| f as usize)
-            && self.RefreshCache.map(|f| f as usize) == other.RefreshCache.map(|f| f as usize)
-            && self.SelectCalibrationFormat.map(|f| f as usize) == other.SelectCalibrationFormat.map(|f| f as usize)
-            && self.QueryCalibrationData.map(|f| f as usize) == other.QueryCalibrationData.map(|f| f as usize)
-            && self.SetAccountPolicy.map(|f| f as usize) == other.SetAccountPolicy.map(|f| f as usize)
-            && self.CreateKey.map(|f| f as usize) == other.CreateKey.map(|f| f as usize)
-            && self.IdentifyFeatureSetSecure.map(|f| f as usize) == other.IdentifyFeatureSetSecure.map(|f| f as usize)
-            && self.AcceptPrivateSensorTypeInfo.map(|f| f as usize) == other.AcceptPrivateSensorTypeInfo.map(|f| f as usize)
-            && self.CreateEnrollmentAuthenticated.map(|f| f as usize) == other.CreateEnrollmentAuthenticated.map(|f| f as usize)
-            && self.IdentifyFeatureSetAuthenticated.map(|f| f as usize) == other.IdentifyFeatureSetAuthenticated.map(|f| f as usize)
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_ENGINE_INTERFACE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for WINBIO_ENGINE_INTERFACE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EVENT {
     pub Type: u32,
     pub Parameters: WINBIO_EVENT_0,
 }
-impl WINBIO_EVENT {}
+impl ::core::marker::Copy for WINBIO_EVENT {}
+impl ::core::clone::Clone for WINBIO_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EVENT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EVENT {}
 impl ::core::default::Default for WINBIO_EVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_EVENT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT {}
-unsafe impl ::windows::core::Abi for WINBIO_EVENT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union WINBIO_EVENT_0 {
     pub Unclaimed: WINBIO_EVENT_0_2,
     pub UnclaimedIdentify: WINBIO_EVENT_0_1,
     pub Error: WINBIO_EVENT_0_0,
 }
-impl WINBIO_EVENT_0 {}
+impl ::core::marker::Copy for WINBIO_EVENT_0 {}
+impl ::core::clone::Clone for WINBIO_EVENT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EVENT_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EVENT_0 {}
 impl ::core::default::Default for WINBIO_EVENT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_EVENT_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EVENT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EVENT_0_0 {
     pub ErrorCode: ::windows::core::HRESULT,
 }
-impl WINBIO_EVENT_0_0 {}
+impl ::core::marker::Copy for WINBIO_EVENT_0_0 {}
+impl ::core::clone::Clone for WINBIO_EVENT_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EVENT_0_0 {}
 impl ::core::default::Default for WINBIO_EVENT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EVENT_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Error_e__Struct").field("ErrorCode", &self.ErrorCode).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EVENT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ErrorCode == other.ErrorCode
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT_0_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EVENT_0_1 {
     pub UnitId: u32,
@@ -1815,70 +1690,77 @@ pub struct WINBIO_EVENT_0_1 {
     pub SubFactor: u8,
     pub RejectDetail: u32,
 }
-impl WINBIO_EVENT_0_1 {}
+impl ::core::marker::Copy for WINBIO_EVENT_0_1 {}
+impl ::core::clone::Clone for WINBIO_EVENT_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EVENT_0_1 {}
 impl ::core::default::Default for WINBIO_EVENT_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_EVENT_0_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT_0_1 {}
-unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EVENT_0_2 {
     pub UnitId: u32,
     pub RejectDetail: u32,
 }
-impl WINBIO_EVENT_0_2 {}
+impl ::core::marker::Copy for WINBIO_EVENT_0_2 {}
+impl ::core::clone::Clone for WINBIO_EVENT_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EVENT_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EVENT_0_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EVENT_0_2 {}
 impl ::core::default::Default for WINBIO_EVENT_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EVENT_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Unclaimed_e__Struct").field("UnitId", &self.UnitId).field("RejectDetail", &self.RejectDetail).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EVENT_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.RejectDetail == other.RejectDetail
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EVENT_0_2 {}
-unsafe impl ::windows::core::Abi for WINBIO_EVENT_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO {
     pub GenericEngineCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_ENGINE_INFO_0,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Null: u32,
@@ -1887,99 +1769,100 @@ pub union WINBIO_EXTENDED_ENGINE_INFO_0 {
     pub Iris: WINBIO_EXTENDED_ENGINE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_ENGINE_INFO_0_3,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_0_0,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_FacialFeatures_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     pub Null: u32,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("Null", &self.Null).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Null == other.Null
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_1_0,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Fingerprint_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub GeneralSamples: u32,
@@ -1989,155 +1872,149 @@ pub struct WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     pub LeftEdge: u32,
     pub RightEdge: u32,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_1_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_2_0,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Iris_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     pub Null: u32,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_2_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("Null", &self.Null).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Null == other.Null
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_2_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     pub Capabilities: u32,
     pub EnrollmentRequirements: WINBIO_EXTENDED_ENGINE_INFO_0_3_0,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Voice_e__Struct").field("Capabilities", &self.Capabilities).field("EnrollmentRequirements", &self.EnrollmentRequirements).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.EnrollmentRequirements == other.EnrollmentRequirements
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     pub Null: u32,
 }
-impl WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENGINE_INFO_0_3_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_EnrollmentRequirements_e__Struct").field("Null", &self.Null).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Null == other.Null
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENGINE_INFO_0_3_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     pub Size: usize,
     pub SubFactor: u8,
 }
-impl WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_EXTENDED_ENROLLMENT_PARAMETERS").field("Size", &self.Size).field("SubFactor", &self.SubFactor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.SubFactor == other.SubFactor
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_PARAMETERS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
@@ -2149,26 +2026,31 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS {
     pub Specific: WINBIO_EXTENDED_ENROLLMENT_STATUS_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
@@ -2179,26 +2061,31 @@ pub union WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     pub Voice: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
@@ -2207,32 +2094,31 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     pub OpaqueEngineData: WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_FacialFeatures_e__Struct").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
@@ -2240,32 +2126,31 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     pub Data: [u32; 78],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_OpaqueEngineData_e__Struct").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AdapterId == other.AdapterId && self.Data == other.Data
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
@@ -2277,32 +2162,31 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     pub RightEdge: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Fingerprint_e__Struct").field("GeneralSamples", &self.GeneralSamples).field("Center", &self.Center).field("TopEdge", &self.TopEdge).field("BottomEdge", &self.BottomEdge).field("LeftEdge", &self.LeftEdge).field("RightEdge", &self.RightEdge).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.GeneralSamples == other.GeneralSamples && self.Center == other.Center && self.TopEdge == other.TopEdge && self.BottomEdge == other.BottomEdge && self.LeftEdge == other.LeftEdge && self.RightEdge == other.RightEdge
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
@@ -2317,42 +2201,31 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     pub StopCaptureAndShowCriticalFeedback: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Iris_e__Struct")
-            .field("EyeBoundingBox_1", &self.EyeBoundingBox_1)
-            .field("EyeBoundingBox_2", &self.EyeBoundingBox_2)
-            .field("PupilCenter_1", &self.PupilCenter_1)
-            .field("PupilCenter_2", &self.PupilCenter_2)
-            .field("Distance", &self.Distance)
-            .field("GridPointCompletionPercent", &self.GridPointCompletionPercent)
-            .field("GridPointIndex", &self.GridPointIndex)
-            .field("Point3D", &self.Point3D)
-            .field("StopCaptureAndShowCriticalFeedback", &self.StopCaptureAndShowCriticalFeedback)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance && self.GridPointCompletionPercent == other.GridPointCompletionPercent && self.GridPointIndex == other.GridPointIndex && self.Point3D == other.Point3D && self.StopCaptureAndShowCriticalFeedback == other.StopCaptureAndShowCriticalFeedback
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
@@ -2361,64 +2234,62 @@ pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     pub Z: f64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Point3D_e__Struct").field("X", &self.X).field("Y", &self.Y).field("Z", &self.Z).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.X == other.X && self.Y == other.Y && self.Z == other.Z
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_2_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     pub Reserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Voice_e__Struct").field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_ENROLLMENT_STATUS_0_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO {
@@ -2427,26 +2298,31 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO {
     pub Specific: WINBIO_EXTENDED_SENSOR_INFO_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_SENSOR_INFO {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
@@ -2457,26 +2333,31 @@ pub union WINBIO_EXTENDED_SENSOR_INFO_0 {
     pub Voice: WINBIO_EXTENDED_SENSOR_INFO_0_3,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_SENSOR_INFO_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
@@ -2486,32 +2367,31 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     pub HardwareInfo: WINBIO_EXTENDED_SENSOR_INFO_0_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_FacialFeatures_e__Struct").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).field("HardwareInfo", &self.HardwareInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation && self.HardwareInfo == other.HardwareInfo
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
@@ -2520,64 +2400,62 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     pub InfraredSensorRotationAngle: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_HardwareInfo_e__Struct").field("ColorSensorId", &self.ColorSensorId).field("InfraredSensorId", &self.InfraredSensorId).field("InfraredSensorRotationAngle", &self.InfraredSensorRotationAngle).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ColorSensorId == other.ColorSensorId && self.InfraredSensorId == other.InfraredSensorId && self.InfraredSensorRotationAngle == other.InfraredSensorRotationAngle
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     pub Reserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Fingerprint_e__Struct").field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
@@ -2586,86 +2464,88 @@ pub struct WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     pub MandatoryOrientation: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Iris_e__Struct").field("FrameSize", &self.FrameSize).field("FrameOffset", &self.FrameOffset).field("MandatoryOrientation", &self.MandatoryOrientation).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameSize == other.FrameSize && self.FrameOffset == other.FrameOffset && self.MandatoryOrientation == other.MandatoryOrientation
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     pub Reserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_SENSOR_INFO_0_3>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Voice_e__Struct").field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_EXTENDED_SENSOR_INFO_0_3 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_SENSOR_INFO_0_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO {
     pub GenericStorageCapabilities: u32,
     pub Factor: u32,
     pub Specific: WINBIO_EXTENDED_STORAGE_INFO_0,
 }
-impl WINBIO_EXTENDED_STORAGE_INFO {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Null: u32,
@@ -2674,232 +2554,231 @@ pub union WINBIO_EXTENDED_STORAGE_INFO_0 {
     pub Iris: WINBIO_EXTENDED_STORAGE_INFO_0_2,
     pub Voice: WINBIO_EXTENDED_STORAGE_INFO_0_3,
 }
-impl WINBIO_EXTENDED_STORAGE_INFO_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     pub Capabilities: u32,
 }
-impl WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_FacialFeatures_e__Struct").field("Capabilities", &self.Capabilities).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     pub Capabilities: u32,
 }
-impl WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Fingerprint_e__Struct").field("Capabilities", &self.Capabilities).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_1 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     pub Capabilities: u32,
 }
-impl WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Iris_e__Struct").field("Capabilities", &self.Capabilities).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_2 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     pub Capabilities: u32,
 }
-impl WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_STORAGE_INFO_0_3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
 impl ::core::default::Default for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Voice_e__Struct").field("Capabilities", &self.Capabilities).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_STORAGE_INFO_0_3 {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_STORAGE_INFO_0_3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_EXTENDED_UNIT_STATUS {
     pub Availability: u32,
     pub ReasonCode: u32,
 }
-impl WINBIO_EXTENDED_UNIT_STATUS {}
+impl ::core::marker::Copy for WINBIO_EXTENDED_UNIT_STATUS {}
+impl ::core::clone::Clone for WINBIO_EXTENDED_UNIT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_UNIT_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_EXTENDED_UNIT_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_EXTENDED_UNIT_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_EXTENDED_UNIT_STATUS {}
 impl ::core::default::Default for WINBIO_EXTENDED_UNIT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_EXTENDED_UNIT_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_EXTENDED_UNIT_STATUS").field("Availability", &self.Availability).field("ReasonCode", &self.ReasonCode).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_EXTENDED_UNIT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Availability == other.Availability && self.ReasonCode == other.ReasonCode
-    }
-}
-impl ::core::cmp::Eq for WINBIO_EXTENDED_UNIT_STATUS {}
-unsafe impl ::windows::core::Abi for WINBIO_EXTENDED_UNIT_STATUS {
-    type Abi = Self;
-}
-pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860995i32 as _);
-pub const WINBIO_E_AUTO_LOGON_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860989i32 as _);
-pub const WINBIO_E_BAD_CAPTURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861048i32 as _);
-pub const WINBIO_E_CALIBRATION_BUFFER_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860975i32 as _);
-pub const WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860976i32 as _);
-pub const WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860977i32 as _);
-pub const WINBIO_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861052i32 as _);
-pub const WINBIO_E_CAPTURE_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861050i32 as _);
-pub const WINBIO_E_CONFIGURATION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861005i32 as _);
-pub const WINBIO_E_CRED_PROV_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861008i32 as _);
-pub const WINBIO_E_CRED_PROV_NO_CREDENTIAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861007i32 as _);
-pub const WINBIO_E_CRED_PROV_SECURITY_LOCKOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860985i32 as _);
-pub const WINBIO_E_DATABASE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861034i32 as _);
-pub const WINBIO_E_DATABASE_BAD_INDEX_VECTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861022i32 as _);
-pub const WINBIO_E_DATABASE_CANT_CLOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861037i32 as _);
-pub const WINBIO_E_DATABASE_CANT_CREATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861039i32 as _);
-pub const WINBIO_E_DATABASE_CANT_ERASE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861036i32 as _);
-pub const WINBIO_E_DATABASE_CANT_FIND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861035i32 as _);
-pub const WINBIO_E_DATABASE_CANT_OPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861038i32 as _);
-pub const WINBIO_E_DATABASE_CORRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861030i32 as _);
-pub const WINBIO_E_DATABASE_EOF: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861023i32 as _);
-pub const WINBIO_E_DATABASE_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861032i32 as _);
-pub const WINBIO_E_DATABASE_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861031i32 as _);
-pub const WINBIO_E_DATABASE_NO_MORE_RECORDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861024i32 as _);
-pub const WINBIO_E_DATABASE_NO_RESULTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861025i32 as _);
-pub const WINBIO_E_DATABASE_NO_SUCH_RECORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861029i32 as _);
-pub const WINBIO_E_DATABASE_READ_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861027i32 as _);
-pub const WINBIO_E_DATABASE_WRITE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861026i32 as _);
-pub const WINBIO_E_DATA_COLLECTION_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861045i32 as _);
-pub const WINBIO_E_DATA_PROTECTION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860986i32 as _);
-pub const WINBIO_E_DEADLOCK_DETECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860992i32 as _);
-pub const WINBIO_E_DEVICE_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861040i32 as _);
-pub const WINBIO_E_DEVICE_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861002i32 as _);
-pub const WINBIO_E_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861006i32 as _);
-pub const WINBIO_E_DUPLICATE_ENROLLMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861028i32 as _);
-pub const WINBIO_E_DUPLICATE_TEMPLATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861013i32 as _);
-pub const WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860965i32 as _);
-pub const WINBIO_E_ENROLLMENT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861049i32 as _);
-pub const WINBIO_E_EVENT_MONITOR_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860999i32 as _);
-pub const WINBIO_E_FAST_USER_SWITCH_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861001i32 as _);
-pub const WINBIO_E_INCORRECT_BSP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861020i32 as _);
-pub const WINBIO_E_INCORRECT_SENSOR_POOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861019i32 as _);
-pub const WINBIO_E_INCORRECT_SESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860994i32 as _);
-pub const WINBIO_E_INSECURE_SENSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860969i32 as _);
-pub const WINBIO_E_INVALID_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860967i32 as _);
-pub const WINBIO_E_INVALID_BUFFER_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860968i32 as _);
-pub const WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860980i32 as _);
-pub const WINBIO_E_INVALID_CONTROL_CODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861047i32 as _);
-pub const WINBIO_E_INVALID_DEVICE_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861041i32 as _);
-pub const WINBIO_E_INVALID_KEY_IDENTIFIER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860974i32 as _);
-pub const WINBIO_E_INVALID_OPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861012i32 as _);
-pub const WINBIO_E_INVALID_PROPERTY_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860997i32 as _);
-pub const WINBIO_E_INVALID_PROPERTY_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860998i32 as _);
-pub const WINBIO_E_INVALID_SENSOR_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861017i32 as _);
-pub const WINBIO_E_INVALID_SUBFACTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860981i32 as _);
-pub const WINBIO_E_INVALID_TICKET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860988i32 as _);
-pub const WINBIO_E_INVALID_UNIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861054i32 as _);
-pub const WINBIO_E_KEY_CREATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860973i32 as _);
-pub const WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860972i32 as _);
-pub const WINBIO_E_LOCK_VIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861014i32 as _);
-pub const WINBIO_E_MAX_ERROR_COUNT_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860990i32 as _);
-pub const WINBIO_E_NOT_ACTIVE_CONSOLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861000i32 as _);
-pub const WINBIO_E_NO_CAPTURE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861018i32 as _);
-pub const WINBIO_E_NO_MATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861051i32 as _);
-pub const WINBIO_E_NO_PREBOOT_IDENTITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860991i32 as _);
-pub const WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860979i32 as _);
-pub const WINBIO_E_POLICY_PROTECTION_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860970i32 as _);
-pub const WINBIO_E_PRESENCE_MONITOR_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860982i32 as _);
-pub const WINBIO_E_PROPERTY_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860971i32 as _);
-pub const WINBIO_E_SAS_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861003i32 as _);
-pub const WINBIO_E_SELECTION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860983i32 as _);
-pub const WINBIO_E_SENSOR_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861004i32 as _);
-pub const WINBIO_E_SESSION_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861011i32 as _);
-pub const WINBIO_E_SESSION_HANDLE_CLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860993i32 as _);
-pub const WINBIO_E_TICKET_QUOTA_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860987i32 as _);
-pub const WINBIO_E_TRUSTLET_INTEGRITY_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860966i32 as _);
-pub const WINBIO_E_UNKNOWN_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861053i32 as _);
-pub const WINBIO_E_UNSUPPORTED_DATA_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861044i32 as _);
-pub const WINBIO_E_UNSUPPORTED_DATA_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861043i32 as _);
-pub const WINBIO_E_UNSUPPORTED_FACTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861055i32 as _);
-pub const WINBIO_E_UNSUPPORTED_POOL_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860984i32 as _);
-pub const WINBIO_E_UNSUPPORTED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860996i32 as _);
-pub const WINBIO_E_UNSUPPORTED_PURPOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861042i32 as _);
-pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860978i32 as _);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub const WINBIO_E_ADAPTER_INTEGRITY_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860995i32);
+pub const WINBIO_E_AUTO_LOGON_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860989i32);
+pub const WINBIO_E_BAD_CAPTURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861048i32);
+pub const WINBIO_E_CALIBRATION_BUFFER_INVALID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860975i32);
+pub const WINBIO_E_CALIBRATION_BUFFER_TOO_LARGE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860976i32);
+pub const WINBIO_E_CALIBRATION_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860977i32);
+pub const WINBIO_E_CANCELED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861052i32);
+pub const WINBIO_E_CAPTURE_ABORTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861050i32);
+pub const WINBIO_E_CONFIGURATION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861005i32);
+pub const WINBIO_E_CRED_PROV_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861008i32);
+pub const WINBIO_E_CRED_PROV_NO_CREDENTIAL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861007i32);
+pub const WINBIO_E_CRED_PROV_SECURITY_LOCKOUT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860985i32);
+pub const WINBIO_E_DATABASE_ALREADY_EXISTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861034i32);
+pub const WINBIO_E_DATABASE_BAD_INDEX_VECTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861022i32);
+pub const WINBIO_E_DATABASE_CANT_CLOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861037i32);
+pub const WINBIO_E_DATABASE_CANT_CREATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861039i32);
+pub const WINBIO_E_DATABASE_CANT_ERASE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861036i32);
+pub const WINBIO_E_DATABASE_CANT_FIND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861035i32);
+pub const WINBIO_E_DATABASE_CANT_OPEN: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861038i32);
+pub const WINBIO_E_DATABASE_CORRUPTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861030i32);
+pub const WINBIO_E_DATABASE_EOF: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861023i32);
+pub const WINBIO_E_DATABASE_FULL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861032i32);
+pub const WINBIO_E_DATABASE_LOCKED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861031i32);
+pub const WINBIO_E_DATABASE_NO_MORE_RECORDS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861024i32);
+pub const WINBIO_E_DATABASE_NO_RESULTS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861025i32);
+pub const WINBIO_E_DATABASE_NO_SUCH_RECORD: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861029i32);
+pub const WINBIO_E_DATABASE_READ_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861027i32);
+pub const WINBIO_E_DATABASE_WRITE_ERROR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861026i32);
+pub const WINBIO_E_DATA_COLLECTION_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861045i32);
+pub const WINBIO_E_DATA_PROTECTION_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860986i32);
+pub const WINBIO_E_DEADLOCK_DETECTED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860992i32);
+pub const WINBIO_E_DEVICE_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861040i32);
+pub const WINBIO_E_DEVICE_FAILURE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861002i32);
+pub const WINBIO_E_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861006i32);
+pub const WINBIO_E_DUPLICATE_ENROLLMENT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861028i32);
+pub const WINBIO_E_DUPLICATE_TEMPLATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861013i32);
+pub const WINBIO_E_ENROLLMENT_CANCELED_BY_SUSPEND: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860965i32);
+pub const WINBIO_E_ENROLLMENT_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861049i32);
+pub const WINBIO_E_EVENT_MONITOR_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860999i32);
+pub const WINBIO_E_FAST_USER_SWITCH_DISABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861001i32);
+pub const WINBIO_E_INCORRECT_BSP: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861020i32);
+pub const WINBIO_E_INCORRECT_SENSOR_POOL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861019i32);
+pub const WINBIO_E_INCORRECT_SESSION_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860994i32);
+pub const WINBIO_E_INSECURE_SENSOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860969i32);
+pub const WINBIO_E_INVALID_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860967i32);
+pub const WINBIO_E_INVALID_BUFFER_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860968i32);
+pub const WINBIO_E_INVALID_CALIBRATION_FORMAT_ARRAY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860980i32);
+pub const WINBIO_E_INVALID_CONTROL_CODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861047i32);
+pub const WINBIO_E_INVALID_DEVICE_STATE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861041i32);
+pub const WINBIO_E_INVALID_KEY_IDENTIFIER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860974i32);
+pub const WINBIO_E_INVALID_OPERATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861012i32);
+pub const WINBIO_E_INVALID_PROPERTY_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860997i32);
+pub const WINBIO_E_INVALID_PROPERTY_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860998i32);
+pub const WINBIO_E_INVALID_SENSOR_MODE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861017i32);
+pub const WINBIO_E_INVALID_SUBFACTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860981i32);
+pub const WINBIO_E_INVALID_TICKET: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860988i32);
+pub const WINBIO_E_INVALID_UNIT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861054i32);
+pub const WINBIO_E_KEY_CREATION_FAILED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860973i32);
+pub const WINBIO_E_KEY_IDENTIFIER_BUFFER_TOO_SMALL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860972i32);
+pub const WINBIO_E_LOCK_VIOLATION: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861014i32);
+pub const WINBIO_E_MAX_ERROR_COUNT_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860990i32);
+pub const WINBIO_E_NOT_ACTIVE_CONSOLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861000i32);
+pub const WINBIO_E_NO_CAPTURE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861018i32);
+pub const WINBIO_E_NO_MATCH: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861051i32);
+pub const WINBIO_E_NO_PREBOOT_IDENTITY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860991i32);
+pub const WINBIO_E_NO_SUPPORTED_CALIBRATION_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860979i32);
+pub const WINBIO_E_POLICY_PROTECTION_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860970i32);
+pub const WINBIO_E_PRESENCE_MONITOR_ACTIVE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860982i32);
+pub const WINBIO_E_PROPERTY_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860971i32);
+pub const WINBIO_E_SAS_ENABLED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861003i32);
+pub const WINBIO_E_SELECTION_REQUIRED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860983i32);
+pub const WINBIO_E_SENSOR_UNAVAILABLE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861004i32);
+pub const WINBIO_E_SESSION_BUSY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861011i32);
+pub const WINBIO_E_SESSION_HANDLE_CLOSED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860993i32);
+pub const WINBIO_E_TICKET_QUOTA_EXCEEDED: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860987i32);
+pub const WINBIO_E_TRUSTLET_INTEGRITY_FAIL: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860966i32);
+pub const WINBIO_E_UNKNOWN_ID: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861053i32);
+pub const WINBIO_E_UNSUPPORTED_DATA_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861044i32);
+pub const WINBIO_E_UNSUPPORTED_DATA_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861043i32);
+pub const WINBIO_E_UNSUPPORTED_FACTOR: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861055i32);
+pub const WINBIO_E_UNSUPPORTED_POOL_TYPE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860984i32);
+pub const WINBIO_E_UNSUPPORTED_PROPERTY: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860996i32);
+pub const WINBIO_E_UNSUPPORTED_PURPOSE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146861042i32);
+pub const WINBIO_E_UNSUPPORTED_SENSOR_CALIBRATION_FORMAT: ::windows::core::HRESULT = ::windows::core::HRESULT(-2146860978i32);
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_FP_BU_STATE {
@@ -2907,32 +2786,31 @@ pub struct WINBIO_FP_BU_STATE {
     pub CreationResult: ::windows::core::HRESULT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_FP_BU_STATE {}
+impl ::core::marker::Copy for WINBIO_FP_BU_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_FP_BU_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_FP_BU_STATE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_FP_BU_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_FP_BU_STATE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_FP_BU_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_FP_BU_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_FP_BU_STATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_FP_BU_STATE").field("SensorAttached", &self.SensorAttached).field("CreationResult", &self.CreationResult).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_FP_BU_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SensorAttached == other.SensorAttached && self.CreationResult == other.CreationResult
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_FP_BU_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_FP_BU_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_FRAMEWORK_INTERFACE {
@@ -2986,79 +2864,31 @@ pub struct WINBIO_FRAMEWORK_INTERFACE {
     pub DecryptSample: PIBIO_FRAMEWORK_VSM_DECRYPT_SAMPLE_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl WINBIO_FRAMEWORK_INTERFACE {}
+impl ::core::marker::Copy for WINBIO_FRAMEWORK_INTERFACE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for WINBIO_FRAMEWORK_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for WINBIO_FRAMEWORK_INTERFACE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for WINBIO_FRAMEWORK_INTERFACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_FRAMEWORK_INTERFACE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for WINBIO_FRAMEWORK_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_FRAMEWORK_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for WINBIO_FRAMEWORK_INTERFACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_FRAMEWORK_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_FRAMEWORK_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Type == other.Type
-            && self.Size == other.Size
-            && self.AdapterId == other.AdapterId
-            && self.SetUnitStatus.map(|f| f as usize) == other.SetUnitStatus.map(|f| f as usize)
-            && self.VsmStorageAttach.map(|f| f as usize) == other.VsmStorageAttach.map(|f| f as usize)
-            && self.VsmStorageDetach.map(|f| f as usize) == other.VsmStorageDetach.map(|f| f as usize)
-            && self.VsmStorageClearContext.map(|f| f as usize) == other.VsmStorageClearContext.map(|f| f as usize)
-            && self.VsmStorageCreateDatabase.map(|f| f as usize) == other.VsmStorageCreateDatabase.map(|f| f as usize)
-            && self.VsmStorageOpenDatabase.map(|f| f as usize) == other.VsmStorageOpenDatabase.map(|f| f as usize)
-            && self.VsmStorageCloseDatabase.map(|f| f as usize) == other.VsmStorageCloseDatabase.map(|f| f as usize)
-            && self.VsmStorageDeleteRecord.map(|f| f as usize) == other.VsmStorageDeleteRecord.map(|f| f as usize)
-            && self.VsmStorageNotifyPowerChange.map(|f| f as usize) == other.VsmStorageNotifyPowerChange.map(|f| f as usize)
-            && self.VsmStoragePipelineInit.map(|f| f as usize) == other.VsmStoragePipelineInit.map(|f| f as usize)
-            && self.VsmStoragePipelineCleanup.map(|f| f as usize) == other.VsmStoragePipelineCleanup.map(|f| f as usize)
-            && self.VsmStorageActivate.map(|f| f as usize) == other.VsmStorageActivate.map(|f| f as usize)
-            && self.VsmStorageDeactivate.map(|f| f as usize) == other.VsmStorageDeactivate.map(|f| f as usize)
-            && self.VsmStorageQueryExtendedInfo.map(|f| f as usize) == other.VsmStorageQueryExtendedInfo.map(|f| f as usize)
-            && self.VsmStorageCacheClear.map(|f| f as usize) == other.VsmStorageCacheClear.map(|f| f as usize)
-            && self.VsmStorageCacheImportBegin.map(|f| f as usize) == other.VsmStorageCacheImportBegin.map(|f| f as usize)
-            && self.VsmStorageCacheImportNext.map(|f| f as usize) == other.VsmStorageCacheImportNext.map(|f| f as usize)
-            && self.VsmStorageCacheImportEnd.map(|f| f as usize) == other.VsmStorageCacheImportEnd.map(|f| f as usize)
-            && self.VsmStorageCacheExportBegin.map(|f| f as usize) == other.VsmStorageCacheExportBegin.map(|f| f as usize)
-            && self.VsmStorageCacheExportNext.map(|f| f as usize) == other.VsmStorageCacheExportNext.map(|f| f as usize)
-            && self.VsmStorageCacheExportEnd.map(|f| f as usize) == other.VsmStorageCacheExportEnd.map(|f| f as usize)
-            && self.VsmSensorAttach.map(|f| f as usize) == other.VsmSensorAttach.map(|f| f as usize)
-            && self.VsmSensorDetach.map(|f| f as usize) == other.VsmSensorDetach.map(|f| f as usize)
-            && self.VsmSensorClearContext.map(|f| f as usize) == other.VsmSensorClearContext.map(|f| f as usize)
-            && self.VsmSensorPushDataToEngine.map(|f| f as usize) == other.VsmSensorPushDataToEngine.map(|f| f as usize)
-            && self.VsmSensorNotifyPowerChange.map(|f| f as usize) == other.VsmSensorNotifyPowerChange.map(|f| f as usize)
-            && self.VsmSensorPipelineInit.map(|f| f as usize) == other.VsmSensorPipelineInit.map(|f| f as usize)
-            && self.VsmSensorPipelineCleanup.map(|f| f as usize) == other.VsmSensorPipelineCleanup.map(|f| f as usize)
-            && self.VsmSensorActivate.map(|f| f as usize) == other.VsmSensorActivate.map(|f| f as usize)
-            && self.VsmSensorDeactivate.map(|f| f as usize) == other.VsmSensorDeactivate.map(|f| f as usize)
-            && self.VsmSensorAsyncImportRawBuffer.map(|f| f as usize) == other.VsmSensorAsyncImportRawBuffer.map(|f| f as usize)
-            && self.VsmSensorAsyncImportSecureBuffer.map(|f| f as usize) == other.VsmSensorAsyncImportSecureBuffer.map(|f| f as usize)
-            && self.Reserved1.map(|f| f as usize) == other.Reserved1.map(|f| f as usize)
-            && self.Reserved2.map(|f| f as usize) == other.Reserved2.map(|f| f as usize)
-            && self.Reserved3.map(|f| f as usize) == other.Reserved3.map(|f| f as usize)
-            && self.Reserved4.map(|f| f as usize) == other.Reserved4.map(|f| f as usize)
-            && self.Reserved5.map(|f| f as usize) == other.Reserved5.map(|f| f as usize)
-            && self.AllocateMemory.map(|f| f as usize) == other.AllocateMemory.map(|f| f as usize)
-            && self.FreeMemory.map(|f| f as usize) == other.FreeMemory.map(|f| f as usize)
-            && self.GetProperty.map(|f| f as usize) == other.GetProperty.map(|f| f as usize)
-            && self.LockAndValidateSecureBuffer.map(|f| f as usize) == other.LockAndValidateSecureBuffer.map(|f| f as usize)
-            && self.ReleaseSecureBuffer.map(|f| f as usize) == other.ReleaseSecureBuffer.map(|f| f as usize)
-            && self.QueryAuthorizedEnrollments.map(|f| f as usize) == other.QueryAuthorizedEnrollments.map(|f| f as usize)
-            && self.DecryptSample.map(|f| f as usize) == other.DecryptSample.map(|f| f as usize)
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_FRAMEWORK_INTERFACE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for WINBIO_FRAMEWORK_INTERFACE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_GESTURE_METADATA {
     pub Size: usize,
@@ -3066,75 +2896,77 @@ pub struct WINBIO_GESTURE_METADATA {
     pub MatchType: u32,
     pub ProtectionType: u32,
 }
-impl WINBIO_GESTURE_METADATA {}
+impl ::core::marker::Copy for WINBIO_GESTURE_METADATA {}
+impl ::core::clone::Clone for WINBIO_GESTURE_METADATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_GESTURE_METADATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_GESTURE_METADATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_GESTURE_METADATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_GESTURE_METADATA {}
 impl ::core::default::Default for WINBIO_GESTURE_METADATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_GESTURE_METADATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_GESTURE_METADATA").field("Size", &self.Size).field("BiometricType", &self.BiometricType).field("MatchType", &self.MatchType).field("ProtectionType", &self.ProtectionType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_GESTURE_METADATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.BiometricType == other.BiometricType && self.MatchType == other.MatchType && self.ProtectionType == other.ProtectionType
-    }
-}
-impl ::core::cmp::Eq for WINBIO_GESTURE_METADATA {}
-unsafe impl ::windows::core::Abi for WINBIO_GESTURE_METADATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_GET_INDICATOR {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::core::HRESULT,
     pub IndicatorStatus: u32,
 }
-impl WINBIO_GET_INDICATOR {}
+impl ::core::marker::Copy for WINBIO_GET_INDICATOR {}
+impl ::core::clone::Clone for WINBIO_GET_INDICATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_GET_INDICATOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_GET_INDICATOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_GET_INDICATOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_GET_INDICATOR {}
 impl ::core::default::Default for WINBIO_GET_INDICATOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_GET_INDICATOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_GET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("IndicatorStatus", &self.IndicatorStatus).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_GET_INDICATOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.IndicatorStatus == other.IndicatorStatus
-    }
-}
-impl ::core::cmp::Eq for WINBIO_GET_INDICATOR {}
-unsafe impl ::windows::core::Abi for WINBIO_GET_INDICATOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_IDENTITY {
     pub Type: u32,
     pub Value: WINBIO_IDENTITY_0,
 }
-impl WINBIO_IDENTITY {}
+impl ::core::marker::Copy for WINBIO_IDENTITY {}
+impl ::core::clone::Clone for WINBIO_IDENTITY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_IDENTITY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_IDENTITY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_IDENTITY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_IDENTITY {}
 impl ::core::default::Default for WINBIO_IDENTITY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_IDENTITY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_IDENTITY {}
-unsafe impl ::windows::core::Abi for WINBIO_IDENTITY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union WINBIO_IDENTITY_0 {
     pub Null: u32,
@@ -3143,78 +2975,80 @@ pub union WINBIO_IDENTITY_0 {
     pub AccountSid: WINBIO_IDENTITY_0_0,
     pub SecureId: [u8; 32],
 }
-impl WINBIO_IDENTITY_0 {}
+impl ::core::marker::Copy for WINBIO_IDENTITY_0 {}
+impl ::core::clone::Clone for WINBIO_IDENTITY_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_IDENTITY_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_IDENTITY_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_IDENTITY_0 {}
 impl ::core::default::Default for WINBIO_IDENTITY_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_IDENTITY_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_IDENTITY_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_IDENTITY_0_0 {
     pub Size: u32,
     pub Data: [u8; 68],
 }
-impl WINBIO_IDENTITY_0_0 {}
+impl ::core::marker::Copy for WINBIO_IDENTITY_0_0 {}
+impl ::core::clone::Clone for WINBIO_IDENTITY_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_IDENTITY_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_IDENTITY_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_IDENTITY_0_0 {}
 impl ::core::default::Default for WINBIO_IDENTITY_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_IDENTITY_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_AccountSid_e__Struct").field("Size", &self.Size).field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_IDENTITY_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for WINBIO_IDENTITY_0_0 {}
-unsafe impl ::windows::core::Abi for WINBIO_IDENTITY_0_0 {
-    type Abi = Self;
-}
-pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: ::windows::core::HRESULT = ::windows::core::HRESULT(589826i32 as _);
-pub const WINBIO_I_MORE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(589825i32 as _);
+pub const WINBIO_I_EXTENDED_STATUS_INFORMATION: ::windows::core::HRESULT = ::windows::core::HRESULT(589826i32);
+pub const WINBIO_I_MORE_DATA: ::windows::core::HRESULT = ::windows::core::HRESULT(589825i32);
 pub const WINBIO_MAX_STRING_LEN: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_NOTIFY_WAKE {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::core::HRESULT,
     pub Reason: u32,
 }
-impl WINBIO_NOTIFY_WAKE {}
+impl ::core::marker::Copy for WINBIO_NOTIFY_WAKE {}
+impl ::core::clone::Clone for WINBIO_NOTIFY_WAKE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_NOTIFY_WAKE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_NOTIFY_WAKE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_NOTIFY_WAKE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_NOTIFY_WAKE {}
 impl ::core::default::Default for WINBIO_NOTIFY_WAKE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_NOTIFY_WAKE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_NOTIFY_WAKE").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("Reason", &self.Reason).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_NOTIFY_WAKE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.Reason == other.Reason
-    }
-}
-impl ::core::cmp::Eq for WINBIO_NOTIFY_WAKE {}
-unsafe impl ::windows::core::Abi for WINBIO_NOTIFY_WAKE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_PIPELINE {
@@ -3230,99 +3064,39 @@ pub struct WINBIO_PIPELINE {
     pub FrameworkInterface: *mut WINBIO_FRAMEWORK_INTERFACE,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl WINBIO_PIPELINE {}
+impl ::core::marker::Copy for WINBIO_PIPELINE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for WINBIO_PIPELINE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for WINBIO_PIPELINE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for WINBIO_PIPELINE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PIPELINE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for WINBIO_PIPELINE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_PIPELINE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for WINBIO_PIPELINE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_PIPELINE")
-            .field("SensorHandle", &self.SensorHandle)
-            .field("EngineHandle", &self.EngineHandle)
-            .field("StorageHandle", &self.StorageHandle)
-            .field("SensorInterface", &self.SensorInterface)
-            .field("EngineInterface", &self.EngineInterface)
-            .field("StorageInterface", &self.StorageInterface)
-            .field("SensorContext", &self.SensorContext)
-            .field("EngineContext", &self.EngineContext)
-            .field("StorageContext", &self.StorageContext)
-            .field("FrameworkInterface", &self.FrameworkInterface)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_PIPELINE {
-    fn eq(&self, other: &Self) -> bool {
-        self.SensorHandle == other.SensorHandle && self.EngineHandle == other.EngineHandle && self.StorageHandle == other.StorageHandle && self.SensorInterface == other.SensorInterface && self.EngineInterface == other.EngineInterface && self.StorageInterface == other.StorageInterface && self.SensorContext == other.SensorContext && self.EngineContext == other.EngineContext && self.StorageContext == other.StorageContext && self.FrameworkInterface == other.FrameworkInterface
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_PIPELINE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for WINBIO_PIPELINE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_POLICY_SOURCE(pub i32);
-pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(0i32);
-pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(1i32);
-pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(2i32);
-pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = WINBIO_POLICY_SOURCE(3i32);
-impl ::core::convert::From<i32> for WINBIO_POLICY_SOURCE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_POLICY_SOURCE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_POOL(pub u32);
-pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = WINBIO_POOL(1u32);
-pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = WINBIO_POOL(2u32);
-impl ::core::convert::From<u32> for WINBIO_POOL {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_POOL {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINBIO_POOL {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINBIO_POOL {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINBIO_POOL {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINBIO_POOL {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINBIO_POOL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WINBIO_POLICY_SOURCE = i32;
+pub const WINBIO_POLICY_UNKNOWN: WINBIO_POLICY_SOURCE = 0i32;
+pub const WINBIO_POLICY_DEFAULT: WINBIO_POLICY_SOURCE = 1i32;
+pub const WINBIO_POLICY_LOCAL: WINBIO_POLICY_SOURCE = 2i32;
+pub const WINBIO_POLICY_ADMIN: WINBIO_POLICY_SOURCE = 3i32;
+pub type WINBIO_POOL = u32;
+pub const WINBIO_POOL_SYSTEM: WINBIO_POOL = 1u32;
+pub const WINBIO_POOL_PRIVATE: WINBIO_POOL = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE {
@@ -3337,26 +3111,31 @@ pub struct WINBIO_PRESENCE {
     pub Authorization: WINBIO_PRESENCE_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_PRESENCE {}
+impl ::core::marker::Copy for WINBIO_PRESENCE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_PRESENCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_PRESENCE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_PRESENCE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_PRESENCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_0 {
@@ -3364,32 +3143,31 @@ pub struct WINBIO_PRESENCE_0 {
     pub Data: [u8; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_PRESENCE_0 {}
+impl ::core::marker::Copy for WINBIO_PRESENCE_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_PRESENCE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_PRESENCE_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_PRESENCE_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Authorization_e__Struct").field("Size", &self.Size).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Data == other.Data
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union WINBIO_PRESENCE_PROPERTIES {
@@ -3397,26 +3175,31 @@ pub union WINBIO_PRESENCE_PROPERTIES {
     pub Iris: WINBIO_PRESENCE_PROPERTIES_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_PRESENCE_PROPERTIES {}
+impl ::core::marker::Copy for WINBIO_PRESENCE_PROPERTIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_PROPERTIES_0 {
@@ -3425,32 +3208,31 @@ pub struct WINBIO_PRESENCE_PROPERTIES_0 {
     pub OpaqueEngineData: WINBIO_PRESENCE_PROPERTIES_0_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_PRESENCE_PROPERTIES_0 {}
+impl ::core::marker::Copy for WINBIO_PRESENCE_PROPERTIES_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_FacialFeatures_e__Struct").field("BoundingBox", &self.BoundingBox).field("Distance", &self.Distance).field("OpaqueEngineData", &self.OpaqueEngineData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.BoundingBox == other.BoundingBox && self.Distance == other.Distance && self.OpaqueEngineData == other.OpaqueEngineData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
@@ -3458,32 +3240,31 @@ pub struct WINBIO_PRESENCE_PROPERTIES_0_0 {
     pub Data: [u32; 78],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_PRESENCE_PROPERTIES_0_0 {}
+impl ::core::marker::Copy for WINBIO_PRESENCE_PROPERTIES_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_OpaqueEngineData_e__Struct").field("AdapterId", &self.AdapterId).field("Data", &self.Data).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.AdapterId == other.AdapterId && self.Data == other.Data
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINBIO_PRESENCE_PROPERTIES_1 {
@@ -3494,59 +3275,57 @@ pub struct WINBIO_PRESENCE_PROPERTIES_1 {
     pub Distance: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINBIO_PRESENCE_PROPERTIES_1 {}
+impl ::core::marker::Copy for WINBIO_PRESENCE_PROPERTIES_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINBIO_PRESENCE_PROPERTIES_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRESENCE_PROPERTIES_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINBIO_PRESENCE_PROPERTIES_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINBIO_PRESENCE_PROPERTIES_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Iris_e__Struct").field("EyeBoundingBox_1", &self.EyeBoundingBox_1).field("EyeBoundingBox_2", &self.EyeBoundingBox_2).field("PupilCenter_1", &self.PupilCenter_1).field("PupilCenter_2", &self.PupilCenter_2).field("Distance", &self.Distance).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINBIO_PRESENCE_PROPERTIES_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EyeBoundingBox_1 == other.EyeBoundingBox_1 && self.EyeBoundingBox_2 == other.EyeBoundingBox_2 && self.PupilCenter_1 == other.PupilCenter_1 && self.PupilCenter_2 == other.PupilCenter_2 && self.Distance == other.Distance
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINBIO_PRESENCE_PROPERTIES_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINBIO_PRESENCE_PROPERTIES_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     pub PayloadSize: u32,
     pub WinBioHresult: ::windows::core::HRESULT,
     pub PrivateSensorTypeInfo: WINBIO_DATA,
 }
-impl WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
+impl ::core::marker::Copy for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
+impl ::core::clone::Clone for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PRIVATE_SENSOR_TYPE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
 impl ::core::default::Default for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_PRIVATE_SENSOR_TYPE_INFO").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("PrivateSensorTypeInfo", &self.PrivateSensorTypeInfo).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.PrivateSensorTypeInfo == other.PrivateSensorTypeInfo
-    }
-}
-impl ::core::cmp::Eq for WINBIO_PRIVATE_SENSOR_TYPE_INFO {}
-unsafe impl ::windows::core::Abi for WINBIO_PRIVATE_SENSOR_TYPE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_PROTECTION_POLICY {
     pub Version: u32,
@@ -3556,46 +3335,50 @@ pub struct WINBIO_PROTECTION_POLICY {
     pub PolicySize: usize,
     pub Policy: [u8; 128],
 }
-impl WINBIO_PROTECTION_POLICY {}
+impl ::core::marker::Copy for WINBIO_PROTECTION_POLICY {}
+impl ::core::clone::Clone for WINBIO_PROTECTION_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_PROTECTION_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_PROTECTION_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_PROTECTION_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_PROTECTION_POLICY {}
 impl ::core::default::Default for WINBIO_PROTECTION_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for WINBIO_PROTECTION_POLICY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for WINBIO_PROTECTION_POLICY {}
-unsafe impl ::windows::core::Abi for WINBIO_PROTECTION_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_REGISTERED_FORMAT {
     pub Owner: u16,
     pub Type: u16,
 }
-impl WINBIO_REGISTERED_FORMAT {}
+impl ::core::marker::Copy for WINBIO_REGISTERED_FORMAT {}
+impl ::core::clone::Clone for WINBIO_REGISTERED_FORMAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_REGISTERED_FORMAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_REGISTERED_FORMAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_REGISTERED_FORMAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_REGISTERED_FORMAT {}
 impl ::core::default::Default for WINBIO_REGISTERED_FORMAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for WINBIO_REGISTERED_FORMAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_REGISTERED_FORMAT").field("Owner", &self.Owner).field("Type", &self.Type).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_REGISTERED_FORMAT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Owner == other.Owner && self.Type == other.Type
-    }
-}
-impl ::core::cmp::Eq for WINBIO_REGISTERED_FORMAT {}
-unsafe impl ::windows::core::Abi for WINBIO_REGISTERED_FORMAT {
-    type Abi = Self;
 }
 pub const WINBIO_SCP_CURVE_FIELD_SIZE_V1: u32 = 32u32;
 pub const WINBIO_SCP_DIGEST_SIZE_V1: u32 = 32u32;
@@ -3606,7 +3389,6 @@ pub const WINBIO_SCP_PUBLIC_KEY_SIZE_V1: u32 = 65u32;
 pub const WINBIO_SCP_RANDOM_SIZE_V1: u32 = 32u32;
 pub const WINBIO_SCP_SIGNATURE_SIZE_V1: u32 = 64u32;
 pub const WINBIO_SCP_VERSION_1: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub Type: u32,
@@ -3614,27 +3396,26 @@ pub struct WINBIO_SECURE_BUFFER_HEADER_V1 {
     pub Flags: u32,
     pub ValidationTag: u64,
 }
-impl WINBIO_SECURE_BUFFER_HEADER_V1 {}
+impl ::core::marker::Copy for WINBIO_SECURE_BUFFER_HEADER_V1 {}
+impl ::core::clone::Clone for WINBIO_SECURE_BUFFER_HEADER_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_SECURE_BUFFER_HEADER_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_SECURE_BUFFER_HEADER_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SECURE_BUFFER_HEADER_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_SECURE_BUFFER_HEADER_V1 {}
 impl ::core::default::Default for WINBIO_SECURE_BUFFER_HEADER_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SECURE_BUFFER_HEADER_V1").field("Type", &self.Type).field("Size", &self.Size).field("Flags", &self.Flags).field("ValidationTag", &self.ValidationTag).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Size == other.Size && self.Flags == other.Flags && self.ValidationTag == other.ValidationTag
-    }
-}
-impl ::core::cmp::Eq for WINBIO_SECURE_BUFFER_HEADER_V1 {}
-unsafe impl ::windows::core::Abi for WINBIO_SECURE_BUFFER_HEADER_V1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub Size: u32,
@@ -3644,54 +3425,52 @@ pub struct WINBIO_SECURE_CONNECTION_DATA {
     pub IntermediateCA1Size: u32,
     pub IntermediateCA2Size: u32,
 }
-impl WINBIO_SECURE_CONNECTION_DATA {}
+impl ::core::marker::Copy for WINBIO_SECURE_CONNECTION_DATA {}
+impl ::core::clone::Clone for WINBIO_SECURE_CONNECTION_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SECURE_CONNECTION_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_DATA {}
 impl ::core::default::Default for WINBIO_SECURE_CONNECTION_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_SECURE_CONNECTION_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SECURE_CONNECTION_DATA").field("Size", &self.Size).field("Version", &self.Version).field("Flags", &self.Flags).field("ModelCertificateSize", &self.ModelCertificateSize).field("IntermediateCA1Size", &self.IntermediateCA1Size).field("IntermediateCA2Size", &self.IntermediateCA2Size).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.Size == other.Size && self.Version == other.Version && self.Flags == other.Flags && self.ModelCertificateSize == other.ModelCertificateSize && self.IntermediateCA1Size == other.IntermediateCA1Size && self.IntermediateCA2Size == other.IntermediateCA2Size
-    }
-}
-impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_DATA {}
-unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_SECURE_CONNECTION_PARAMS {
     pub PayloadSize: u32,
     pub Version: u16,
     pub Flags: u16,
 }
-impl WINBIO_SECURE_CONNECTION_PARAMS {}
+impl ::core::marker::Copy for WINBIO_SECURE_CONNECTION_PARAMS {}
+impl ::core::clone::Clone for WINBIO_SECURE_CONNECTION_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_PARAMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SECURE_CONNECTION_PARAMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_PARAMS {}
 impl ::core::default::Default for WINBIO_SECURE_CONNECTION_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_SECURE_CONNECTION_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SECURE_CONNECTION_PARAMS").field("PayloadSize", &self.PayloadSize).field("Version", &self.Version).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_SECURE_CONNECTION_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.Version == other.Version && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for WINBIO_SECURE_CONNECTION_PARAMS {}
-unsafe impl ::windows::core::Abi for WINBIO_SECURE_CONNECTION_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub PayloadSize: u32,
@@ -3707,40 +3486,26 @@ pub struct WINBIO_SENSOR_ATTRIBUTES {
     pub SupportedFormatEntries: u32,
     pub SupportedFormat: [WINBIO_REGISTERED_FORMAT; 1],
 }
-impl WINBIO_SENSOR_ATTRIBUTES {}
+impl ::core::marker::Copy for WINBIO_SENSOR_ATTRIBUTES {}
+impl ::core::clone::Clone for WINBIO_SENSOR_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_SENSOR_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SENSOR_ATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
 impl ::core::default::Default for WINBIO_SENSOR_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_SENSOR_ATTRIBUTES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SENSOR_ATTRIBUTES")
-            .field("PayloadSize", &self.PayloadSize)
-            .field("WinBioHresult", &self.WinBioHresult)
-            .field("WinBioVersion", &self.WinBioVersion)
-            .field("SensorType", &self.SensorType)
-            .field("SensorSubType", &self.SensorSubType)
-            .field("Capabilities", &self.Capabilities)
-            .field("ManufacturerName", &self.ManufacturerName)
-            .field("ModelName", &self.ModelName)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("FirmwareVersion", &self.FirmwareVersion)
-            .field("SupportedFormatEntries", &self.SupportedFormatEntries)
-            .field("SupportedFormat", &self.SupportedFormat)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_SENSOR_ATTRIBUTES {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.WinBioVersion == other.WinBioVersion && self.SensorType == other.SensorType && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.ManufacturerName == other.ManufacturerName && self.ModelName == other.ModelName && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion && self.SupportedFormatEntries == other.SupportedFormatEntries && self.SupportedFormat == other.SupportedFormat
-    }
-}
-impl ::core::cmp::Eq for WINBIO_SENSOR_ATTRIBUTES {}
-unsafe impl ::windows::core::Abi for WINBIO_SENSOR_ATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_SENSOR_INTERFACE {
@@ -3781,135 +3546,61 @@ pub struct WINBIO_SENSOR_INTERFACE {
     pub FinishNotifyWake: PIBIO_SENSOR_FINISH_NOTIFY_WAKE_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl WINBIO_SENSOR_INTERFACE {}
+impl ::core::marker::Copy for WINBIO_SENSOR_INTERFACE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for WINBIO_SENSOR_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for WINBIO_SENSOR_INTERFACE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for WINBIO_SENSOR_INTERFACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SENSOR_INTERFACE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for WINBIO_SENSOR_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_SENSOR_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for WINBIO_SENSOR_INTERFACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SENSOR_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_SENSOR_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Type == other.Type
-            && self.Size == other.Size
-            && self.AdapterId == other.AdapterId
-            && self.Attach.map(|f| f as usize) == other.Attach.map(|f| f as usize)
-            && self.Detach.map(|f| f as usize) == other.Detach.map(|f| f as usize)
-            && self.ClearContext.map(|f| f as usize) == other.ClearContext.map(|f| f as usize)
-            && self.QueryStatus.map(|f| f as usize) == other.QueryStatus.map(|f| f as usize)
-            && self.Reset.map(|f| f as usize) == other.Reset.map(|f| f as usize)
-            && self.SetMode.map(|f| f as usize) == other.SetMode.map(|f| f as usize)
-            && self.SetIndicatorStatus.map(|f| f as usize) == other.SetIndicatorStatus.map(|f| f as usize)
-            && self.GetIndicatorStatus.map(|f| f as usize) == other.GetIndicatorStatus.map(|f| f as usize)
-            && self.StartCapture.map(|f| f as usize) == other.StartCapture.map(|f| f as usize)
-            && self.FinishCapture.map(|f| f as usize) == other.FinishCapture.map(|f| f as usize)
-            && self.ExportSensorData.map(|f| f as usize) == other.ExportSensorData.map(|f| f as usize)
-            && self.Cancel.map(|f| f as usize) == other.Cancel.map(|f| f as usize)
-            && self.PushDataToEngine.map(|f| f as usize) == other.PushDataToEngine.map(|f| f as usize)
-            && self.ControlUnit.map(|f| f as usize) == other.ControlUnit.map(|f| f as usize)
-            && self.ControlUnitPrivileged.map(|f| f as usize) == other.ControlUnitPrivileged.map(|f| f as usize)
-            && self.NotifyPowerChange.map(|f| f as usize) == other.NotifyPowerChange.map(|f| f as usize)
-            && self.PipelineInit.map(|f| f as usize) == other.PipelineInit.map(|f| f as usize)
-            && self.PipelineCleanup.map(|f| f as usize) == other.PipelineCleanup.map(|f| f as usize)
-            && self.Activate.map(|f| f as usize) == other.Activate.map(|f| f as usize)
-            && self.Deactivate.map(|f| f as usize) == other.Deactivate.map(|f| f as usize)
-            && self.QueryExtendedInfo.map(|f| f as usize) == other.QueryExtendedInfo.map(|f| f as usize)
-            && self.QueryCalibrationFormats.map(|f| f as usize) == other.QueryCalibrationFormats.map(|f| f as usize)
-            && self.SetCalibrationFormat.map(|f| f as usize) == other.SetCalibrationFormat.map(|f| f as usize)
-            && self.AcceptCalibrationData.map(|f| f as usize) == other.AcceptCalibrationData.map(|f| f as usize)
-            && self.AsyncImportRawBuffer.map(|f| f as usize) == other.AsyncImportRawBuffer.map(|f| f as usize)
-            && self.AsyncImportSecureBuffer.map(|f| f as usize) == other.AsyncImportSecureBuffer.map(|f| f as usize)
-            && self.QueryPrivateSensorType.map(|f| f as usize) == other.QueryPrivateSensorType.map(|f| f as usize)
-            && self.ConnectSecure.map(|f| f as usize) == other.ConnectSecure.map(|f| f as usize)
-            && self.StartCaptureEx.map(|f| f as usize) == other.StartCaptureEx.map(|f| f as usize)
-            && self.StartNotifyWake.map(|f| f as usize) == other.StartNotifyWake.map(|f| f as usize)
-            && self.FinishNotifyWake.map(|f| f as usize) == other.FinishNotifyWake.map(|f| f as usize)
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_SENSOR_INTERFACE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for WINBIO_SENSOR_INTERFACE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINBIO_SETTING_SOURCE(pub u32);
-pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(0u32);
-pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(1u32);
-pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(3u32);
-pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = WINBIO_SETTING_SOURCE(2u32);
-impl ::core::convert::From<u32> for WINBIO_SETTING_SOURCE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINBIO_SETTING_SOURCE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINBIO_SETTING_SOURCE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINBIO_SETTING_SOURCE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINBIO_SETTING_SOURCE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINBIO_SETTING_SOURCE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINBIO_SETTING_SOURCE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WINBIO_SETTING_SOURCE = u32;
+pub const WINBIO_SETTING_SOURCE_INVALID: WINBIO_SETTING_SOURCE = 0u32;
+pub const WINBIO_SETTING_SOURCE_DEFAULT: WINBIO_SETTING_SOURCE = 1u32;
+pub const WINBIO_SETTING_SOURCE_LOCAL: WINBIO_SETTING_SOURCE = 3u32;
+pub const WINBIO_SETTING_SOURCE_POLICY: WINBIO_SETTING_SOURCE = 2u32;
 #[repr(C)]
 pub struct WINBIO_SET_INDICATOR {
     pub PayloadSize: u32,
     pub IndicatorStatus: u32,
 }
-impl WINBIO_SET_INDICATOR {}
+impl ::core::marker::Copy for WINBIO_SET_INDICATOR {}
+impl ::core::clone::Clone for WINBIO_SET_INDICATOR {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_SET_INDICATOR {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_SET_INDICATOR {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SET_INDICATOR>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_SET_INDICATOR {}
 impl ::core::default::Default for WINBIO_SET_INDICATOR {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_SET_INDICATOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SET_INDICATOR").field("PayloadSize", &self.PayloadSize).field("IndicatorStatus", &self.IndicatorStatus).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_SET_INDICATOR {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.IndicatorStatus == other.IndicatorStatus
-    }
-}
-impl ::core::cmp::Eq for WINBIO_SET_INDICATOR {}
-unsafe impl ::windows::core::Abi for WINBIO_SET_INDICATOR {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 pub struct WINBIO_STORAGE_INTERFACE {
@@ -3949,65 +3640,31 @@ pub struct WINBIO_STORAGE_INTERFACE {
     pub UpdateRecordCommit: PIBIO_STORAGE_UPDATE_RECORD_COMMIT_FN,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl WINBIO_STORAGE_INTERFACE {}
+impl ::core::marker::Copy for WINBIO_STORAGE_INTERFACE {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::clone::Clone for WINBIO_STORAGE_INTERFACE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+unsafe impl ::windows::core::Abi for WINBIO_STORAGE_INTERFACE {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::PartialEq for WINBIO_STORAGE_INTERFACE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_STORAGE_INTERFACE>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
+impl ::core::cmp::Eq for WINBIO_STORAGE_INTERFACE {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 impl ::core::default::Default for WINBIO_STORAGE_INTERFACE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::fmt::Debug for WINBIO_STORAGE_INTERFACE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_STORAGE_INTERFACE").field("Version", &self.Version).field("Type", &self.Type).field("Size", &self.Size).field("AdapterId", &self.AdapterId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::PartialEq for WINBIO_STORAGE_INTERFACE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version
-            && self.Type == other.Type
-            && self.Size == other.Size
-            && self.AdapterId == other.AdapterId
-            && self.Attach.map(|f| f as usize) == other.Attach.map(|f| f as usize)
-            && self.Detach.map(|f| f as usize) == other.Detach.map(|f| f as usize)
-            && self.ClearContext.map(|f| f as usize) == other.ClearContext.map(|f| f as usize)
-            && self.CreateDatabase.map(|f| f as usize) == other.CreateDatabase.map(|f| f as usize)
-            && self.EraseDatabase.map(|f| f as usize) == other.EraseDatabase.map(|f| f as usize)
-            && self.OpenDatabase.map(|f| f as usize) == other.OpenDatabase.map(|f| f as usize)
-            && self.CloseDatabase.map(|f| f as usize) == other.CloseDatabase.map(|f| f as usize)
-            && self.GetDataFormat.map(|f| f as usize) == other.GetDataFormat.map(|f| f as usize)
-            && self.GetDatabaseSize.map(|f| f as usize) == other.GetDatabaseSize.map(|f| f as usize)
-            && self.AddRecord.map(|f| f as usize) == other.AddRecord.map(|f| f as usize)
-            && self.DeleteRecord.map(|f| f as usize) == other.DeleteRecord.map(|f| f as usize)
-            && self.QueryBySubject.map(|f| f as usize) == other.QueryBySubject.map(|f| f as usize)
-            && self.QueryByContent.map(|f| f as usize) == other.QueryByContent.map(|f| f as usize)
-            && self.GetRecordCount.map(|f| f as usize) == other.GetRecordCount.map(|f| f as usize)
-            && self.FirstRecord.map(|f| f as usize) == other.FirstRecord.map(|f| f as usize)
-            && self.NextRecord.map(|f| f as usize) == other.NextRecord.map(|f| f as usize)
-            && self.GetCurrentRecord.map(|f| f as usize) == other.GetCurrentRecord.map(|f| f as usize)
-            && self.ControlUnit.map(|f| f as usize) == other.ControlUnit.map(|f| f as usize)
-            && self.ControlUnitPrivileged.map(|f| f as usize) == other.ControlUnitPrivileged.map(|f| f as usize)
-            && self.NotifyPowerChange.map(|f| f as usize) == other.NotifyPowerChange.map(|f| f as usize)
-            && self.PipelineInit.map(|f| f as usize) == other.PipelineInit.map(|f| f as usize)
-            && self.PipelineCleanup.map(|f| f as usize) == other.PipelineCleanup.map(|f| f as usize)
-            && self.Activate.map(|f| f as usize) == other.Activate.map(|f| f as usize)
-            && self.Deactivate.map(|f| f as usize) == other.Deactivate.map(|f| f as usize)
-            && self.QueryExtendedInfo.map(|f| f as usize) == other.QueryExtendedInfo.map(|f| f as usize)
-            && self.NotifyDatabaseChange.map(|f| f as usize) == other.NotifyDatabaseChange.map(|f| f as usize)
-            && self.Reserved1.map(|f| f as usize) == other.Reserved1.map(|f| f as usize)
-            && self.Reserved2.map(|f| f as usize) == other.Reserved2.map(|f| f as usize)
-            && self.UpdateRecordBegin.map(|f| f as usize) == other.UpdateRecordBegin.map(|f| f as usize)
-            && self.UpdateRecordCommit.map(|f| f as usize) == other.UpdateRecordCommit.map(|f| f as usize)
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-impl ::core::cmp::Eq for WINBIO_STORAGE_INTERFACE {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
-unsafe impl ::windows::core::Abi for WINBIO_STORAGE_INTERFACE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_STORAGE_RECORD {
     pub Identity: *mut WINBIO_IDENTITY,
@@ -4019,27 +3676,26 @@ pub struct WINBIO_STORAGE_RECORD {
     pub PayloadBlob: *mut u8,
     pub PayloadBlobSize: usize,
 }
-impl WINBIO_STORAGE_RECORD {}
+impl ::core::marker::Copy for WINBIO_STORAGE_RECORD {}
+impl ::core::clone::Clone for WINBIO_STORAGE_RECORD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_STORAGE_RECORD {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_STORAGE_RECORD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_STORAGE_RECORD>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_STORAGE_RECORD {}
 impl ::core::default::Default for WINBIO_STORAGE_RECORD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_STORAGE_RECORD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_STORAGE_RECORD").field("Identity", &self.Identity).field("SubFactor", &self.SubFactor).field("IndexVector", &self.IndexVector).field("IndexElementCount", &self.IndexElementCount).field("TemplateBlob", &self.TemplateBlob).field("TemplateBlobSize", &self.TemplateBlobSize).field("PayloadBlob", &self.PayloadBlob).field("PayloadBlobSize", &self.PayloadBlobSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_STORAGE_RECORD {
-    fn eq(&self, other: &Self) -> bool {
-        self.Identity == other.Identity && self.SubFactor == other.SubFactor && self.IndexVector == other.IndexVector && self.IndexElementCount == other.IndexElementCount && self.TemplateBlob == other.TemplateBlob && self.TemplateBlobSize == other.TemplateBlobSize && self.PayloadBlob == other.PayloadBlob && self.PayloadBlobSize == other.PayloadBlobSize
-    }
-}
-impl ::core::cmp::Eq for WINBIO_STORAGE_RECORD {}
-unsafe impl ::windows::core::Abi for WINBIO_STORAGE_RECORD {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_STORAGE_SCHEMA {
     pub BiometricFactor: u32,
@@ -4049,27 +3705,26 @@ pub struct WINBIO_STORAGE_SCHEMA {
     pub FilePath: [u16; 256],
     pub ConnectionString: [u16; 256],
 }
-impl WINBIO_STORAGE_SCHEMA {}
+impl ::core::marker::Copy for WINBIO_STORAGE_SCHEMA {}
+impl ::core::clone::Clone for WINBIO_STORAGE_SCHEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_STORAGE_SCHEMA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_STORAGE_SCHEMA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_STORAGE_SCHEMA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_STORAGE_SCHEMA {}
 impl ::core::default::Default for WINBIO_STORAGE_SCHEMA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_STORAGE_SCHEMA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_STORAGE_SCHEMA").field("BiometricFactor", &self.BiometricFactor).field("DatabaseId", &self.DatabaseId).field("DataFormat", &self.DataFormat).field("Attributes", &self.Attributes).field("FilePath", &self.FilePath).field("ConnectionString", &self.ConnectionString).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_STORAGE_SCHEMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.BiometricFactor == other.BiometricFactor && self.DatabaseId == other.DatabaseId && self.DataFormat == other.DataFormat && self.Attributes == other.Attributes && self.FilePath == other.FilePath && self.ConnectionString == other.ConnectionString
-    }
-}
-impl ::core::cmp::Eq for WINBIO_STORAGE_SCHEMA {}
-unsafe impl ::windows::core::Abi for WINBIO_STORAGE_SCHEMA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_SUPPORTED_ALGORITHMS {
     pub PayloadSize: u32,
@@ -4077,27 +3732,26 @@ pub struct WINBIO_SUPPORTED_ALGORITHMS {
     pub NumberOfAlgorithms: u32,
     pub AlgorithmData: WINBIO_DATA,
 }
-impl WINBIO_SUPPORTED_ALGORITHMS {}
+impl ::core::marker::Copy for WINBIO_SUPPORTED_ALGORITHMS {}
+impl ::core::clone::Clone for WINBIO_SUPPORTED_ALGORITHMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_SUPPORTED_ALGORITHMS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_SUPPORTED_ALGORITHMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_SUPPORTED_ALGORITHMS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_SUPPORTED_ALGORITHMS {}
 impl ::core::default::Default for WINBIO_SUPPORTED_ALGORITHMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_SUPPORTED_ALGORITHMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_SUPPORTED_ALGORITHMS").field("PayloadSize", &self.PayloadSize).field("WinBioHresult", &self.WinBioHresult).field("NumberOfAlgorithms", &self.NumberOfAlgorithms).field("AlgorithmData", &self.AlgorithmData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_SUPPORTED_ALGORITHMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.WinBioHresult == other.WinBioHresult && self.NumberOfAlgorithms == other.NumberOfAlgorithms && self.AlgorithmData == other.AlgorithmData
-    }
-}
-impl ::core::cmp::Eq for WINBIO_SUPPORTED_ALGORITHMS {}
-unsafe impl ::windows::core::Abi for WINBIO_SUPPORTED_ALGORITHMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_UNIT_SCHEMA {
     pub UnitId: u32,
@@ -4112,89 +3766,75 @@ pub struct WINBIO_UNIT_SCHEMA {
     pub SerialNumber: [u16; 256],
     pub FirmwareVersion: WINBIO_VERSION,
 }
-impl WINBIO_UNIT_SCHEMA {}
+impl ::core::marker::Copy for WINBIO_UNIT_SCHEMA {}
+impl ::core::clone::Clone for WINBIO_UNIT_SCHEMA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_UNIT_SCHEMA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_UNIT_SCHEMA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_UNIT_SCHEMA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_UNIT_SCHEMA {}
 impl ::core::default::Default for WINBIO_UNIT_SCHEMA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_UNIT_SCHEMA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_UNIT_SCHEMA")
-            .field("UnitId", &self.UnitId)
-            .field("PoolType", &self.PoolType)
-            .field("BiometricFactor", &self.BiometricFactor)
-            .field("SensorSubType", &self.SensorSubType)
-            .field("Capabilities", &self.Capabilities)
-            .field("DeviceInstanceId", &self.DeviceInstanceId)
-            .field("Description", &self.Description)
-            .field("Manufacturer", &self.Manufacturer)
-            .field("Model", &self.Model)
-            .field("SerialNumber", &self.SerialNumber)
-            .field("FirmwareVersion", &self.FirmwareVersion)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_UNIT_SCHEMA {
-    fn eq(&self, other: &Self) -> bool {
-        self.UnitId == other.UnitId && self.PoolType == other.PoolType && self.BiometricFactor == other.BiometricFactor && self.SensorSubType == other.SensorSubType && self.Capabilities == other.Capabilities && self.DeviceInstanceId == other.DeviceInstanceId && self.Description == other.Description && self.Manufacturer == other.Manufacturer && self.Model == other.Model && self.SerialNumber == other.SerialNumber && self.FirmwareVersion == other.FirmwareVersion
-    }
-}
-impl ::core::cmp::Eq for WINBIO_UNIT_SCHEMA {}
-unsafe impl ::windows::core::Abi for WINBIO_UNIT_SCHEMA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_UPDATE_FIRMWARE {
     pub PayloadSize: u32,
     pub FirmwareData: WINBIO_DATA,
 }
-impl WINBIO_UPDATE_FIRMWARE {}
+impl ::core::marker::Copy for WINBIO_UPDATE_FIRMWARE {}
+impl ::core::clone::Clone for WINBIO_UPDATE_FIRMWARE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_UPDATE_FIRMWARE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_UPDATE_FIRMWARE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_UPDATE_FIRMWARE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_UPDATE_FIRMWARE {}
 impl ::core::default::Default for WINBIO_UPDATE_FIRMWARE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for WINBIO_UPDATE_FIRMWARE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_UPDATE_FIRMWARE").field("PayloadSize", &self.PayloadSize).field("FirmwareData", &self.FirmwareData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_UPDATE_FIRMWARE {
-    fn eq(&self, other: &Self) -> bool {
-        self.PayloadSize == other.PayloadSize && self.FirmwareData == other.FirmwareData
-    }
-}
-impl ::core::cmp::Eq for WINBIO_UPDATE_FIRMWARE {}
-unsafe impl ::windows::core::Abi for WINBIO_UPDATE_FIRMWARE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WINBIO_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
 }
-impl WINBIO_VERSION {}
+impl ::core::marker::Copy for WINBIO_VERSION {}
+impl ::core::clone::Clone for WINBIO_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WINBIO_VERSION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WINBIO_VERSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINBIO_VERSION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WINBIO_VERSION {}
 impl ::core::default::Default for WINBIO_VERSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for WINBIO_VERSION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINBIO_VERSION").field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WINBIO_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion
-    }
-}
-impl ::core::cmp::Eq for WINBIO_VERSION {}
-unsafe impl ::windows::core::Abi for WINBIO_VERSION {
-    type Abi = Self;
 }
 pub const WINBIO_WBDI_MAJOR_VERSION: u32 = 1u32;
 pub const WINBIO_WBDI_MINOR_VERSION: u32 = 0u32;
@@ -4272,8 +3912,8 @@ pub unsafe fn WinBioAsyncOpenFramework<'a, Param1: ::windows::core::IntoParam<'a
         extern "system" {
             fn WinBioAsyncOpenFramework(notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, frameworkhandle: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioAsyncOpenFramework(::core::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::core::mem::transmute(messagecode), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(userdata), asynchronousopen.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        WinBioAsyncOpenFramework(::core::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::core::mem::transmute(messagecode), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(userdata), asynchronousopen.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4287,8 +3927,8 @@ pub unsafe fn WinBioAsyncOpenSession<'a, Param7: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn WinBioAsyncOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, notificationmethod: WINBIO_ASYNC_NOTIFICATION_METHOD, targetwindow: super::super::Foundation::HWND, messagecode: u32, callbackroutine: ::windows::core::RawPtr, userdata: *const ::core::ffi::c_void, asynchronousopen: super::super::Foundation::BOOL, sessionhandle: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioAsyncOpenSession(::core::mem::transmute(factor), ::core::mem::transmute(pooltype), ::core::mem::transmute(flags), ::core::mem::transmute(unitarray), ::core::mem::transmute(unitcount), ::core::mem::transmute(databaseid), ::core::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::core::mem::transmute(messagecode), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(userdata), asynchronousopen.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        WinBioAsyncOpenSession(::core::mem::transmute(factor), ::core::mem::transmute(pooltype), ::core::mem::transmute(flags), ::core::mem::transmute(unitarray), ::core::mem::transmute(unitcount), ::core::mem::transmute(databaseid), ::core::mem::transmute(notificationmethod), targetwindow.into_param().abi(), ::core::mem::transmute(messagecode), ::core::mem::transmute(callbackroutine), ::core::mem::transmute(userdata), asynchronousopen.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4418,8 +4058,8 @@ pub unsafe fn WinBioEnrollCapture(sessionhandle: u32) -> ::windows::core::Result
         extern "system" {
             fn WinBioEnrollCapture(sessionhandle: u32, rejectdetail: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioEnrollCapture(::core::mem::transmute(sessionhandle), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        WinBioEnrollCapture(::core::mem::transmute(sessionhandle), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4549,8 +4189,8 @@ pub unsafe fn WinBioGetCredentialState<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn WinBioGetCredentialState(identity: WINBIO_IDENTITY, r#type: WINBIO_CREDENTIAL_TYPE, credentialstate: *mut WINBIO_CREDENTIAL_STATE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <WINBIO_CREDENTIAL_STATE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioGetCredentialState(identity.into_param().abi(), ::core::mem::transmute(r#type), &mut result__).from_abi::<WINBIO_CREDENTIAL_STATE>(result__)
+        let mut result__: WINBIO_CREDENTIAL_STATE = ::core::mem::zeroed();
+        WinBioGetCredentialState(identity.into_param().abi(), ::core::mem::transmute(r#type), ::core::mem::transmute(&mut result__)).from_abi::<WINBIO_CREDENTIAL_STATE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4563,7 +4203,7 @@ pub unsafe fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SE
         extern "system" {
             fn WinBioGetDomainLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::core::mem::transmute(WinBioGetDomainLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
+        WinBioGetDomainLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4576,7 +4216,7 @@ pub unsafe fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTIN
         extern "system" {
             fn WinBioGetEnabledSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::core::mem::transmute(WinBioGetEnabledSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
+        WinBioGetEnabledSetting(::core::mem::transmute(value), ::core::mem::transmute(source))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4589,8 +4229,8 @@ pub unsafe fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY) -> 
         extern "system" {
             fn WinBioGetEnrolledFactors(accountowner: *const WINBIO_IDENTITY, enrolledfactors: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioGetEnrolledFactors(::core::mem::transmute(accountowner), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        WinBioGetEnrolledFactors(::core::mem::transmute(accountowner), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4603,7 +4243,7 @@ pub unsafe fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_
         extern "system" {
             fn WinBioGetLogonSetting(value: *mut u8, source: *mut WINBIO_SETTING_SOURCE);
         }
-        ::core::mem::transmute(WinBioGetLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source)))
+        WinBioGetLogonSetting(::core::mem::transmute(value), ::core::mem::transmute(source))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4681,8 +4321,8 @@ pub unsafe fn WinBioLocateSensor(sessionhandle: u32) -> ::windows::core::Result<
         extern "system" {
             fn WinBioLocateSensor(sessionhandle: u32, unitid: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioLocateSensor(::core::mem::transmute(sessionhandle), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        WinBioLocateSensor(::core::mem::transmute(sessionhandle), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4747,8 +4387,8 @@ pub unsafe fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, 
         extern "system" {
             fn WinBioOpenSession(factor: u32, pooltype: WINBIO_POOL, flags: u32, unitarray: *const u32, unitcount: usize, databaseid: *const ::windows::core::GUID, sessionhandle: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        WinBioOpenSession(::core::mem::transmute(factor), ::core::mem::transmute(pooltype), ::core::mem::transmute(flags), ::core::mem::transmute(unitarray), ::core::mem::transmute(unitcount), ::core::mem::transmute(databaseid), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        WinBioOpenSession(::core::mem::transmute(factor), ::core::mem::transmute(pooltype), ::core::mem::transmute(flags), ::core::mem::transmute(unitarray), ::core::mem::transmute(unitcount), ::core::mem::transmute(databaseid), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4911,11 +4551,8 @@ pub unsafe fn WinBioWait(sessionhandle: u32) -> ::windows::core::Result<()> {
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _WINIBIO_ENGINE_CONTEXT(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _WINIBIO_SENSOR_CONTEXT(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _WINIBIO_STORAGE_CONTEXT(pub u8);

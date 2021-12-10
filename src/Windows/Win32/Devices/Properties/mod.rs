@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_DevQuery_ObjectType: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x13673f42_a3d6_49f6_b4da_ae46e0c5237c), pid: 2u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
@@ -389,7 +389,6 @@ pub const DEVPKEY_DrvPkg_Model: super::super::UI::Shell::PropertiesSystem::PROPE
 pub const DEVPKEY_DrvPkg_VendorWebSite: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xcf73bb51_3abf_44a2_85e0_9a3dc7a12132), pid: 3u32 };
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const DEVPKEY_NAME: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0xb725f130_47ef_101a_a5f1_02608c9eebac), pid: 10u32 };
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVPROPCOMPKEY {
@@ -398,32 +397,31 @@ pub struct DEVPROPCOMPKEY {
     pub LocaleName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DEVPROPCOMPKEY {}
+impl ::core::marker::Copy for DEVPROPCOMPKEY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVPROPCOMPKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DEVPROPCOMPKEY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEVPROPCOMPKEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROPCOMPKEY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEVPROPCOMPKEY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVPROPCOMPKEY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEVPROPCOMPKEY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVPROPCOMPKEY").field("Key", &self.Key).field("Store", &self.Store).field("LocaleName", &self.LocaleName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DEVPROPCOMPKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Key == other.Key && self.Store == other.Store && self.LocaleName == other.LocaleName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DEVPROPCOMPKEY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVPROPCOMPKEY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVPROPERTY {
@@ -433,71 +431,60 @@ pub struct DEVPROPERTY {
     pub Buffer: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DEVPROPERTY {}
+impl ::core::marker::Copy for DEVPROPERTY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DEVPROPERTY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DEVPROPERTY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DEVPROPERTY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROPERTY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DEVPROPERTY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DEVPROPERTY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEVPROPERTY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVPROPERTY").field("CompKey", &self.CompKey).field("Type", &self.Type).field("BufferSize", &self.BufferSize).field("Buffer", &self.Buffer).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DEVPROPERTY {
-    fn eq(&self, other: &Self) -> bool {
-        self.CompKey == other.CompKey && self.Type == other.Type && self.BufferSize == other.BufferSize && self.Buffer == other.Buffer
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DEVPROPERTY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEVPROPERTY {
-    type Abi = Self;
-}
 pub const DEVPROPID_FIRST_USABLE: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DEVPROPKEY {
     pub fmtid: ::windows::core::GUID,
     pub pid: u32,
 }
-impl DEVPROPKEY {}
+impl ::core::marker::Copy for DEVPROPKEY {}
+impl ::core::clone::Clone for DEVPROPKEY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVPROPKEY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DEVPROPKEY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVPROPKEY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DEVPROPKEY {}
 impl ::core::default::Default for DEVPROPKEY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DEVPROPKEY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVPROPKEY").field("fmtid", &self.fmtid).field("pid", &self.pid).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DEVPROPKEY {
-    fn eq(&self, other: &Self) -> bool {
-        self.fmtid == other.fmtid && self.pid == other.pid
-    }
-}
-impl ::core::cmp::Eq for DEVPROPKEY {}
-unsafe impl ::windows::core::Abi for DEVPROPKEY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEVPROPSTORE(pub i32);
-pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = DEVPROPSTORE(0i32);
-pub const DEVPROP_STORE_USER: DEVPROPSTORE = DEVPROPSTORE(1i32);
-impl ::core::convert::From<i32> for DEVPROPSTORE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEVPROPSTORE {
-    type Abi = Self;
-}
+pub type DEVPROPSTORE = i32;
+pub const DEVPROP_STORE_SYSTEM: DEVPROPSTORE = 0i32;
+pub const DEVPROP_STORE_USER: DEVPROPSTORE = 1i32;
 pub const DEVPROP_MASK_TYPE: u32 = 4095u32;
 pub const DEVPROP_MASK_TYPEMOD: u32 = 61440u32;
 pub const DEVPROP_TYPEMOD_ARRAY: u32 = 4096u32;

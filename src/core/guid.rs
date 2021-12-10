@@ -1,7 +1,7 @@
 #![allow(clippy::many_single_char_names)]
 
 use super::*;
-use bindings::Windows::Win32::System::Com::CoCreateGuid;
+use bindings::*;
 
 /// A globally unique identifier [(GUID)](https://docs.microsoft.com/en-us/windows/win32/api/guiddef/ns-guiddef-guid)
 /// used to identify COM and WinRT interfaces.

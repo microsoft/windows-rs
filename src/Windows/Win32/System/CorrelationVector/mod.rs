@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CORRELATION_VECTOR {
@@ -7,30 +6,30 @@ pub struct CORRELATION_VECTOR {
     pub Vector: [super::super::Foundation::CHAR; 129],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CORRELATION_VECTOR {}
+impl ::core::marker::Copy for CORRELATION_VECTOR {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CORRELATION_VECTOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CORRELATION_VECTOR {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CORRELATION_VECTOR {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CORRELATION_VECTOR").field("Version", &self.Version).field("Vector", &self.Vector).finish()
-    }
+unsafe impl ::windows::core::Abi for CORRELATION_VECTOR {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CORRELATION_VECTOR {
     fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Vector == other.Vector
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CORRELATION_VECTOR>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CORRELATION_VECTOR {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CORRELATION_VECTOR {
-    type Abi = Self;
+impl ::core::default::Default for CORRELATION_VECTOR {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const RTL_CORRELATION_VECTOR_STRING_LENGTH: u32 = 129u32;
 pub const RTL_CORRELATION_VECTOR_V1_LENGTH: u32 = 64u32;

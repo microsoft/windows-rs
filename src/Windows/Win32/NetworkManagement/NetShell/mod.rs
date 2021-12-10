@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_ENTRY {
@@ -11,32 +10,31 @@ pub struct CMD_ENTRY {
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CMD_ENTRY {}
+impl ::core::marker::Copy for CMD_ENTRY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CMD_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CMD_ENTRY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CMD_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMD_ENTRY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CMD_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CMD_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CMD_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CMD_ENTRY").field("pwszCmdToken", &self.pwszCmdToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("dwCmdHlpToken", &self.dwCmdHlpToken).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CMD_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszCmdToken == other.pwszCmdToken && self.pfnCmdHandler.map(|f| f as usize) == other.pfnCmdHandler.map(|f| f as usize) && self.dwShortCmdHelpToken == other.dwShortCmdHelpToken && self.dwCmdHlpToken == other.dwCmdHlpToken && self.dwFlags == other.dwFlags && self.pOsVersionCheck.map(|f| f as usize) == other.pOsVersionCheck.map(|f| f as usize)
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CMD_ENTRY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMD_ENTRY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CMD_GROUP_ENTRY {
@@ -48,30 +46,30 @@ pub struct CMD_GROUP_ENTRY {
     pub pOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CMD_GROUP_ENTRY {}
+impl ::core::marker::Copy for CMD_GROUP_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CMD_GROUP_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CMD_GROUP_ENTRY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CMD_GROUP_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CMD_GROUP_ENTRY").field("pwszCmdGroupToken", &self.pwszCmdGroupToken).field("dwShortCmdHelpToken", &self.dwShortCmdHelpToken).field("ulCmdGroupSize", &self.ulCmdGroupSize).field("dwFlags", &self.dwFlags).field("pCmdGroup", &self.pCmdGroup).finish()
-    }
+unsafe impl ::windows::core::Abi for CMD_GROUP_ENTRY {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CMD_GROUP_ENTRY {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszCmdGroupToken == other.pwszCmdGroupToken && self.dwShortCmdHelpToken == other.dwShortCmdHelpToken && self.ulCmdGroupSize == other.ulCmdGroupSize && self.dwFlags == other.dwFlags && self.pCmdGroup == other.pCmdGroup && self.pOsVersionCheck.map(|f| f as usize) == other.pOsVersionCheck.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CMD_GROUP_ENTRY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CMD_GROUP_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CMD_GROUP_ENTRY {
-    type Abi = Self;
+impl ::core::default::Default for CMD_GROUP_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DEFAULT_CONTEXT_PRIORITY: u32 = 100u32;
 pub const ERROR_CMD_NOT_FOUND: u32 = 15004u32;
@@ -129,25 +127,14 @@ pub const NETSH_ERROR_END: u32 = 15019u32;
 pub const NETSH_MAX_CMD_TOKEN_LENGTH: u32 = 128u32;
 pub const NETSH_MAX_TOKEN_LENGTH: u32 = 64u32;
 pub const NETSH_VERSION_50: u32 = 20480u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NS_CMD_FLAGS(pub i32);
-pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = NS_CMD_FLAGS(1i32);
-pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = NS_CMD_FLAGS(2i32);
-pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = NS_CMD_FLAGS(8i32);
-pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = NS_CMD_FLAGS(16i32);
-pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = NS_CMD_FLAGS(32i32);
-pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = NS_CMD_FLAGS(65535i32);
-pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = NS_CMD_FLAGS(-2147483648i32);
-impl ::core::convert::From<i32> for NS_CMD_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NS_CMD_FLAGS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type NS_CMD_FLAGS = i32;
+pub const CMD_FLAG_PRIVATE: NS_CMD_FLAGS = 1i32;
+pub const CMD_FLAG_INTERACTIVE: NS_CMD_FLAGS = 2i32;
+pub const CMD_FLAG_LOCAL: NS_CMD_FLAGS = 8i32;
+pub const CMD_FLAG_ONLINE: NS_CMD_FLAGS = 16i32;
+pub const CMD_FLAG_HIDDEN: NS_CMD_FLAGS = 32i32;
+pub const CMD_FLAG_LIMIT_MASK: NS_CMD_FLAGS = 65535i32;
+pub const CMD_FLAG_PRIORITY: NS_CMD_FLAGS = -2147483648i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES {
@@ -167,26 +154,31 @@ pub struct NS_CONTEXT_ATTRIBUTES {
     pub pfnOsVersionCheck: PNS_OSVERSIONCHECK,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NS_CONTEXT_ATTRIBUTES {}
+impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_CONTEXT_ATTRIBUTES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union NS_CONTEXT_ATTRIBUTES_0 {
@@ -194,26 +186,31 @@ pub union NS_CONTEXT_ATTRIBUTES_0 {
     pub _ullAlign: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NS_CONTEXT_ATTRIBUTES_0 {}
+impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_CONTEXT_ATTRIBUTES_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
@@ -221,48 +218,37 @@ pub struct NS_CONTEXT_ATTRIBUTES_0_0 {
     pub dwReserved: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NS_CONTEXT_ATTRIBUTES_0_0 {}
+impl ::core::marker::Copy for NS_CONTEXT_ATTRIBUTES_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NS_CONTEXT_ATTRIBUTES_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_CONTEXT_ATTRIBUTES_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NS_CONTEXT_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NS_CONTEXT_ATTRIBUTES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NS_CONTEXT_ATTRIBUTES_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NS_CONTEXT_ATTRIBUTES_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NS_EVENTS(pub i32);
-pub const NS_EVENT_LOOP: NS_EVENTS = NS_EVENTS(65536i32);
-pub const NS_EVENT_LAST_N: NS_EVENTS = NS_EVENTS(1i32);
-pub const NS_EVENT_LAST_SECS: NS_EVENTS = NS_EVENTS(2i32);
-pub const NS_EVENT_FROM_N: NS_EVENTS = NS_EVENTS(4i32);
-pub const NS_EVENT_FROM_START: NS_EVENTS = NS_EVENTS(8i32);
-impl ::core::convert::From<i32> for NS_EVENTS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NS_EVENTS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type NS_EVENTS = i32;
+pub const NS_EVENT_LOOP: NS_EVENTS = 65536i32;
+pub const NS_EVENT_LAST_N: NS_EVENTS = 1i32;
+pub const NS_EVENT_LAST_SECS: NS_EVENTS = 2i32;
+pub const NS_EVENT_FROM_N: NS_EVENTS = 4i32;
+pub const NS_EVENT_FROM_START: NS_EVENTS = 8i32;
 #[repr(C)]
 pub struct NS_HELPER_ATTRIBUTES {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0,
@@ -270,99 +256,87 @@ pub struct NS_HELPER_ATTRIBUTES {
     pub pfnStart: PNS_HELPER_START_FN,
     pub pfnStop: PNS_HELPER_STOP_FN,
 }
-impl NS_HELPER_ATTRIBUTES {}
+impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES {}
+impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_HELPER_ATTRIBUTES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES {}
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES {}
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union NS_HELPER_ATTRIBUTES_0 {
     pub Anonymous: NS_HELPER_ATTRIBUTES_0_0,
     pub _ullAlign: u64,
 }
-impl NS_HELPER_ATTRIBUTES_0 {}
+impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES_0 {}
+impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_HELPER_ATTRIBUTES_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0 {}
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0 {}
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NS_HELPER_ATTRIBUTES_0_0 {
     pub dwVersion: u32,
     pub dwReserved: u32,
 }
-impl NS_HELPER_ATTRIBUTES_0_0 {}
+impl ::core::marker::Copy for NS_HELPER_ATTRIBUTES_0_0 {}
+impl ::core::clone::Clone for NS_HELPER_ATTRIBUTES_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NS_HELPER_ATTRIBUTES_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0_0 {}
 impl ::core::default::Default for NS_HELPER_ATTRIBUTES_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NS_HELPER_ATTRIBUTES_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("dwVersion", &self.dwVersion).field("dwReserved", &self.dwReserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NS_HELPER_ATTRIBUTES_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.dwReserved == other.dwReserved
-    }
-}
-impl ::core::cmp::Eq for NS_HELPER_ATTRIBUTES_0_0 {}
-unsafe impl ::windows::core::Abi for NS_HELPER_ATTRIBUTES_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NS_MODE_CHANGE(pub i32);
-pub const NETSH_COMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(0i32);
-pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = NS_MODE_CHANGE(1i32);
-pub const NETSH_FLUSH: NS_MODE_CHANGE = NS_MODE_CHANGE(2i32);
-pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = NS_MODE_CHANGE(3i32);
-pub const NETSH_SAVE: NS_MODE_CHANGE = NS_MODE_CHANGE(4i32);
-impl ::core::convert::From<i32> for NS_MODE_CHANGE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NS_MODE_CHANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NS_REQS(pub i32);
-pub const NS_REQ_ZERO: NS_REQS = NS_REQS(0i32);
-pub const NS_REQ_PRESENT: NS_REQS = NS_REQS(1i32);
-pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = NS_REQS(2i32);
-pub const NS_REQ_ONE_OR_MORE: NS_REQS = NS_REQS(3i32);
-impl ::core::convert::From<i32> for NS_REQS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NS_REQS {
-    type Abi = Self;
-}
+pub type NS_MODE_CHANGE = i32;
+pub const NETSH_COMMIT: NS_MODE_CHANGE = 0i32;
+pub const NETSH_UNCOMMIT: NS_MODE_CHANGE = 1i32;
+pub const NETSH_FLUSH: NS_MODE_CHANGE = 2i32;
+pub const NETSH_COMMIT_STATE: NS_MODE_CHANGE = 3i32;
+pub const NETSH_SAVE: NS_MODE_CHANGE = 4i32;
+pub type NS_REQS = i32;
+pub const NS_REQ_ZERO: NS_REQS = 0i32;
+pub const NS_REQ_PRESENT: NS_REQS = 1i32;
+pub const NS_REQ_ALLOW_MULTIPLE: NS_REQS = 2i32;
+pub const NS_REQ_ONE_OR_MORE: NS_REQS = 3i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_HANDLE_CMD = ::core::option::Option<unsafe extern "system" fn(pwszmachine: super::super::Foundation::PWSTR, ppwcarguments: *mut super::super::Foundation::PWSTR, dwcurrentindex: u32, dwargcount: u32, dwflags: u32, pvdata: *const ::core::ffi::c_void, pbdone: *mut super::super::Foundation::BOOL) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
@@ -461,7 +435,6 @@ pub unsafe fn RegisterHelper(pguidparentcontext: *const ::windows::core::GUID, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAG_TYPE {
@@ -470,32 +443,31 @@ pub struct TAG_TYPE {
     pub bPresent: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TAG_TYPE {}
+impl ::core::marker::Copy for TAG_TYPE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TAG_TYPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TAG_TYPE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TAG_TYPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TAG_TYPE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TAG_TYPE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TAG_TYPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TAG_TYPE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TAG_TYPE").field("pwszTag", &self.pwszTag).field("dwRequired", &self.dwRequired).field("bPresent", &self.bPresent).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TAG_TYPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.pwszTag == other.pwszTag && self.dwRequired == other.dwRequired && self.bPresent == other.bPresent
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TAG_TYPE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TAG_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_VALUE {
@@ -503,28 +475,28 @@ pub struct TOKEN_VALUE {
     pub dwValue: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TOKEN_VALUE {}
+impl ::core::marker::Copy for TOKEN_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TOKEN_VALUE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for TOKEN_VALUE {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TOKEN_VALUE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TOKEN_VALUE").field("pwszToken", &self.pwszToken).field("dwValue", &self.dwValue).finish()
-    }
+unsafe impl ::windows::core::Abi for TOKEN_VALUE {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TOKEN_VALUE {
     fn eq(&self, other: &Self) -> bool {
-        self.pwszToken == other.pwszToken && self.dwValue == other.dwValue
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TOKEN_VALUE>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TOKEN_VALUE {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TOKEN_VALUE {
-    type Abi = Self;
+impl ::core::default::Default for TOKEN_VALUE {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }

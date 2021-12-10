@@ -2,8 +2,11 @@
 pub enum InterfaceKind {
     Default,
     NonDefault,
-    Overridable,
     Static,
     Composable,
+    Base,
+
+    // TODO: only used by old gen
     Extend,
+    Overridable,
 }

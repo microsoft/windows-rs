@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0) -> ::windows::core::Result<super::super::Foundation::FILETIME> {
@@ -8,8 +8,8 @@ pub unsafe fn AcquireDeveloperLicense<'a, Param0: ::windows::core::IntoParam<'a,
         extern "system" {
             fn AcquireDeveloperLicense(hwndparent: super::super::Foundation::HWND, pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        AcquireDeveloperLicense(hwndparent.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
+        let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
+        AcquireDeveloperLicense(hwndparent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -23,8 +23,8 @@ pub unsafe fn CheckDeveloperLicense() -> ::windows::core::Result<super::super::F
         extern "system" {
             fn CheckDeveloperLicense(pexpiration: *mut super::super::Foundation::FILETIME) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::FILETIME as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        CheckDeveloperLicense(&mut result__).from_abi::<super::super::Foundation::FILETIME>(result__)
+        let mut result__: super::super::Foundation::FILETIME = ::core::mem::zeroed();
+        CheckDeveloperLicense(::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::FILETIME>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

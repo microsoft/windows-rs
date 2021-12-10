@@ -1,103 +1,43 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct COMPRESSOR_HANDLE(pub isize);
-impl ::core::default::Default for COMPRESSOR_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for COMPRESSOR_HANDLE {}
-unsafe impl ::windows::core::Abi for COMPRESSOR_HANDLE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COMPRESS_ALGORITHM(pub u32);
-pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(2u32);
-pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(3u32);
-pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(4u32);
-pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = COMPRESS_ALGORITHM(5u32);
-impl ::core::convert::From<u32> for COMPRESS_ALGORITHM {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COMPRESS_ALGORITHM {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for COMPRESS_ALGORITHM {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for COMPRESS_ALGORITHM {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COMPRESS_ALGORITHM {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COMPRESS_ALGORITHM {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for COMPRESS_ALGORITHM {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+pub type COMPRESSOR_HANDLE = isize;
+pub type COMPRESS_ALGORITHM = u32;
+pub const COMPRESS_ALGORITHM_MSZIP: COMPRESS_ALGORITHM = 2u32;
+pub const COMPRESS_ALGORITHM_XPRESS: COMPRESS_ALGORITHM = 3u32;
+pub const COMPRESS_ALGORITHM_XPRESS_HUFF: COMPRESS_ALGORITHM = 4u32;
+pub const COMPRESS_ALGORITHM_LZMS: COMPRESS_ALGORITHM = 5u32;
 pub const COMPRESS_ALGORITHM_INVALID: u32 = 0u32;
 pub const COMPRESS_ALGORITHM_MAX: u32 = 6u32;
 pub const COMPRESS_ALGORITHM_NULL: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct COMPRESS_ALLOCATION_ROUTINES {
     pub Allocate: PFN_COMPRESS_ALLOCATE,
     pub Free: PFN_COMPRESS_FREE,
     pub UserContext: *mut ::core::ffi::c_void,
 }
-impl COMPRESS_ALLOCATION_ROUTINES {}
+impl ::core::marker::Copy for COMPRESS_ALLOCATION_ROUTINES {}
+impl ::core::clone::Clone for COMPRESS_ALLOCATION_ROUTINES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMPRESS_ALLOCATION_ROUTINES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMPRESS_ALLOCATION_ROUTINES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
 impl ::core::default::Default for COMPRESS_ALLOCATION_ROUTINES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for COMPRESS_ALLOCATION_ROUTINES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMPRESS_ALLOCATION_ROUTINES").field("UserContext", &self.UserContext).finish()
-    }
-}
-impl ::core::cmp::PartialEq for COMPRESS_ALLOCATION_ROUTINES {
-    fn eq(&self, other: &Self) -> bool {
-        self.Allocate.map(|f| f as usize) == other.Allocate.map(|f| f as usize) && self.Free.map(|f| f as usize) == other.Free.map(|f| f as usize) && self.UserContext == other.UserContext
-    }
-}
-impl ::core::cmp::Eq for COMPRESS_ALLOCATION_ROUTINES {}
-unsafe impl ::windows::core::Abi for COMPRESS_ALLOCATION_ROUTINES {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COMPRESS_INFORMATION_CLASS(pub i32);
-pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(0i32);
-pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(1i32);
-pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = COMPRESS_INFORMATION_CLASS(2i32);
-impl ::core::convert::From<i32> for COMPRESS_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COMPRESS_INFORMATION_CLASS {
-    type Abi = Self;
-}
+pub type COMPRESS_INFORMATION_CLASS = i32;
+pub const COMPRESS_INFORMATION_CLASS_INVALID: COMPRESS_INFORMATION_CLASS = 0i32;
+pub const COMPRESS_INFORMATION_CLASS_BLOCK_SIZE: COMPRESS_INFORMATION_CLASS = 1i32;
+pub const COMPRESS_INFORMATION_CLASS_LEVEL: COMPRESS_INFORMATION_CLASS = 2i32;
 pub const COMPRESS_RAW: u32 = 536870912u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

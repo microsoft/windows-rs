@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 pub type DBGPRINT = ::core::option::Option<unsafe extern "system" fn(format: super::super::Foundation::PSTR) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
@@ -10,7 +10,6 @@ pub const LBER_ERROR: i32 = -1i32;
 pub const LBER_TRANSLATE_STRINGS: u32 = 4u32;
 pub const LBER_USE_DER: u32 = 1u32;
 pub const LBER_USE_INDEFINITE_LEN: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAPAPIFeatureInfoA {
@@ -19,32 +18,31 @@ pub struct LDAPAPIFeatureInfoA {
     pub ldapaif_version: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl LDAPAPIFeatureInfoA {}
+impl ::core::marker::Copy for LDAPAPIFeatureInfoA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LDAPAPIFeatureInfoA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIFeatureInfoA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LDAPAPIFeatureInfoA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LDAPAPIFeatureInfoA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LDAPAPIFeatureInfoA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LDAPAPIFeatureInfoA").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapaif_info_version == other.ldapaif_info_version && self.ldapaif_name == other.ldapaif_name && self.ldapaif_version == other.ldapaif_version
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LDAPAPIFeatureInfoA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAPAPIFeatureInfoW {
@@ -53,32 +51,31 @@ pub struct LDAPAPIFeatureInfoW {
     pub ldapaif_version: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl LDAPAPIFeatureInfoW {}
+impl ::core::marker::Copy for LDAPAPIFeatureInfoW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for LDAPAPIFeatureInfoW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPAPIFeatureInfoW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for LDAPAPIFeatureInfoW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for LDAPAPIFeatureInfoW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LDAPAPIFeatureInfoW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LDAPAPIFeatureInfoW").field("ldapaif_info_version", &self.ldapaif_info_version).field("ldapaif_name", &self.ldapaif_name).field("ldapaif_version", &self.ldapaif_version).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for LDAPAPIFeatureInfoW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapaif_info_version == other.ldapaif_info_version && self.ldapaif_name == other.ldapaif_name && self.ldapaif_version == other.ldapaif_version
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for LDAPAPIFeatureInfoW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPAPIFeatureInfoW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAPMessage {
@@ -97,44 +94,30 @@ pub struct LDAPMessage {
     pub ConnectionReferenced: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl LDAPMessage {}
+impl ::core::marker::Copy for LDAPMessage {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for LDAPMessage {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for LDAPMessage {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LDAPMessage {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LDAPMessage")
-            .field("lm_msgid", &self.lm_msgid)
-            .field("lm_msgtype", &self.lm_msgtype)
-            .field("lm_ber", &self.lm_ber)
-            .field("lm_chain", &self.lm_chain)
-            .field("lm_next", &self.lm_next)
-            .field("lm_time", &self.lm_time)
-            .field("Connection", &self.Connection)
-            .field("Request", &self.Request)
-            .field("lm_returncode", &self.lm_returncode)
-            .field("lm_referral", &self.lm_referral)
-            .field("lm_chased", &self.lm_chased)
-            .field("lm_eom", &self.lm_eom)
-            .field("ConnectionReferenced", &self.ConnectionReferenced)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for LDAPMessage {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAPMessage {
     fn eq(&self, other: &Self) -> bool {
-        self.lm_msgid == other.lm_msgid && self.lm_msgtype == other.lm_msgtype && self.lm_ber == other.lm_ber && self.lm_chain == other.lm_chain && self.lm_next == other.lm_next && self.lm_time == other.lm_time && self.Connection == other.Connection && self.Request == other.Request && self.lm_returncode == other.lm_returncode && self.lm_referral == other.lm_referral && self.lm_chased == other.lm_chased && self.lm_eom == other.lm_eom && self.ConnectionReferenced == other.ConnectionReferenced
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAPMessage>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LDAPMessage {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAPMessage {
-    type Abi = Self;
+impl ::core::default::Default for LDAPMessage {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const LDAP_ABANDON_CMD: i32 = 80i32;
 pub const LDAP_ADD_CMD: i32 = 104i32;
@@ -144,7 +127,6 @@ pub const LDAP_API_VERSION: u32 = 2004u32;
 pub const LDAP_AUTH_OTHERKIND: i32 = 134i32;
 pub const LDAP_AUTH_SASL: i32 = 131i32;
 pub const LDAP_AUTH_SIMPLE: i32 = 128i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAP_BERVAL {
@@ -152,30 +134,30 @@ pub struct LDAP_BERVAL {
     pub bv_val: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl LDAP_BERVAL {}
+impl ::core::marker::Copy for LDAP_BERVAL {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for LDAP_BERVAL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for LDAP_BERVAL {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LDAP_BERVAL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LDAP_BERVAL").field("bv_len", &self.bv_len).field("bv_val", &self.bv_val).finish()
-    }
+unsafe impl ::windows::core::Abi for LDAP_BERVAL {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAP_BERVAL {
     fn eq(&self, other: &Self) -> bool {
-        self.bv_len == other.bv_len && self.bv_val == other.bv_val
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_BERVAL>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LDAP_BERVAL {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAP_BERVAL {
-    type Abi = Self;
+impl ::core::default::Default for LDAP_BERVAL {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const LDAP_BIND_CMD: i32 = 96i32;
 pub const LDAP_CHASE_EXTERNAL_REFERRALS: u32 = 64u32;
@@ -272,7 +254,6 @@ pub const LDAP_OPT_TLS_INFO: u32 = 147u32;
 pub const LDAP_OPT_VERSION: u32 = 17u32;
 pub const LDAP_POLICYHINT_APPLY_FULLPWDPOLICY: u32 = 1u32;
 pub const LDAP_PORT: u32 = 389u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LDAP_REFERRAL_CALLBACK {
@@ -282,30 +263,30 @@ pub struct LDAP_REFERRAL_CALLBACK {
     pub DereferenceRoutine: DEREFERENCECONNECTION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl LDAP_REFERRAL_CALLBACK {}
+impl ::core::marker::Copy for LDAP_REFERRAL_CALLBACK {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for LDAP_REFERRAL_CALLBACK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for LDAP_REFERRAL_CALLBACK {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for LDAP_REFERRAL_CALLBACK {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LDAP_REFERRAL_CALLBACK").field("SizeOfCallbacks", &self.SizeOfCallbacks).finish()
-    }
+unsafe impl ::windows::core::Abi for LDAP_REFERRAL_CALLBACK {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for LDAP_REFERRAL_CALLBACK {
     fn eq(&self, other: &Self) -> bool {
-        self.SizeOfCallbacks == other.SizeOfCallbacks && self.QueryForConnection.map(|f| f as usize) == other.QueryForConnection.map(|f| f as usize) && self.NotifyRoutine.map(|f| f as usize) == other.NotifyRoutine.map(|f| f as usize) && self.DereferenceRoutine.map(|f| f as usize) == other.DereferenceRoutine.map(|f| f as usize)
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_REFERRAL_CALLBACK>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for LDAP_REFERRAL_CALLBACK {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for LDAP_REFERRAL_CALLBACK {
-    type Abi = Self;
+impl ::core::default::Default for LDAP_REFERRAL_CALLBACK {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const LDAP_RES_ADD: i32 = 105i32;
 pub const LDAP_RES_ANY: i32 = -1i32;
@@ -319,80 +300,70 @@ pub const LDAP_RES_REFERRAL: i32 = 115i32;
 pub const LDAP_RES_SEARCH_ENTRY: i32 = 100i32;
 pub const LDAP_RES_SEARCH_RESULT: i32 = 101i32;
 pub const LDAP_RES_SESSION: i32 = 114i32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct LDAP_RETCODE(pub i32);
-pub const LDAP_SUCCESS: LDAP_RETCODE = LDAP_RETCODE(0i32);
-pub const LDAP_OPERATIONS_ERROR: LDAP_RETCODE = LDAP_RETCODE(1i32);
-pub const LDAP_PROTOCOL_ERROR: LDAP_RETCODE = LDAP_RETCODE(2i32);
-pub const LDAP_TIMELIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(3i32);
-pub const LDAP_SIZELIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(4i32);
-pub const LDAP_COMPARE_FALSE: LDAP_RETCODE = LDAP_RETCODE(5i32);
-pub const LDAP_COMPARE_TRUE: LDAP_RETCODE = LDAP_RETCODE(6i32);
-pub const LDAP_AUTH_METHOD_NOT_SUPPORTED: LDAP_RETCODE = LDAP_RETCODE(7i32);
-pub const LDAP_STRONG_AUTH_REQUIRED: LDAP_RETCODE = LDAP_RETCODE(8i32);
-pub const LDAP_REFERRAL_V2: LDAP_RETCODE = LDAP_RETCODE(9i32);
-pub const LDAP_PARTIAL_RESULTS: LDAP_RETCODE = LDAP_RETCODE(9i32);
-pub const LDAP_REFERRAL: LDAP_RETCODE = LDAP_RETCODE(10i32);
-pub const LDAP_ADMIN_LIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(11i32);
-pub const LDAP_UNAVAILABLE_CRIT_EXTENSION: LDAP_RETCODE = LDAP_RETCODE(12i32);
-pub const LDAP_CONFIDENTIALITY_REQUIRED: LDAP_RETCODE = LDAP_RETCODE(13i32);
-pub const LDAP_SASL_BIND_IN_PROGRESS: LDAP_RETCODE = LDAP_RETCODE(14i32);
-pub const LDAP_NO_SUCH_ATTRIBUTE: LDAP_RETCODE = LDAP_RETCODE(16i32);
-pub const LDAP_UNDEFINED_TYPE: LDAP_RETCODE = LDAP_RETCODE(17i32);
-pub const LDAP_INAPPROPRIATE_MATCHING: LDAP_RETCODE = LDAP_RETCODE(18i32);
-pub const LDAP_CONSTRAINT_VIOLATION: LDAP_RETCODE = LDAP_RETCODE(19i32);
-pub const LDAP_ATTRIBUTE_OR_VALUE_EXISTS: LDAP_RETCODE = LDAP_RETCODE(20i32);
-pub const LDAP_INVALID_SYNTAX: LDAP_RETCODE = LDAP_RETCODE(21i32);
-pub const LDAP_NO_SUCH_OBJECT: LDAP_RETCODE = LDAP_RETCODE(32i32);
-pub const LDAP_ALIAS_PROBLEM: LDAP_RETCODE = LDAP_RETCODE(33i32);
-pub const LDAP_INVALID_DN_SYNTAX: LDAP_RETCODE = LDAP_RETCODE(34i32);
-pub const LDAP_IS_LEAF: LDAP_RETCODE = LDAP_RETCODE(35i32);
-pub const LDAP_ALIAS_DEREF_PROBLEM: LDAP_RETCODE = LDAP_RETCODE(36i32);
-pub const LDAP_INAPPROPRIATE_AUTH: LDAP_RETCODE = LDAP_RETCODE(48i32);
-pub const LDAP_INVALID_CREDENTIALS: LDAP_RETCODE = LDAP_RETCODE(49i32);
-pub const LDAP_INSUFFICIENT_RIGHTS: LDAP_RETCODE = LDAP_RETCODE(50i32);
-pub const LDAP_BUSY: LDAP_RETCODE = LDAP_RETCODE(51i32);
-pub const LDAP_UNAVAILABLE: LDAP_RETCODE = LDAP_RETCODE(52i32);
-pub const LDAP_UNWILLING_TO_PERFORM: LDAP_RETCODE = LDAP_RETCODE(53i32);
-pub const LDAP_LOOP_DETECT: LDAP_RETCODE = LDAP_RETCODE(54i32);
-pub const LDAP_SORT_CONTROL_MISSING: LDAP_RETCODE = LDAP_RETCODE(60i32);
-pub const LDAP_OFFSET_RANGE_ERROR: LDAP_RETCODE = LDAP_RETCODE(61i32);
-pub const LDAP_NAMING_VIOLATION: LDAP_RETCODE = LDAP_RETCODE(64i32);
-pub const LDAP_OBJECT_CLASS_VIOLATION: LDAP_RETCODE = LDAP_RETCODE(65i32);
-pub const LDAP_NOT_ALLOWED_ON_NONLEAF: LDAP_RETCODE = LDAP_RETCODE(66i32);
-pub const LDAP_NOT_ALLOWED_ON_RDN: LDAP_RETCODE = LDAP_RETCODE(67i32);
-pub const LDAP_ALREADY_EXISTS: LDAP_RETCODE = LDAP_RETCODE(68i32);
-pub const LDAP_NO_OBJECT_CLASS_MODS: LDAP_RETCODE = LDAP_RETCODE(69i32);
-pub const LDAP_RESULTS_TOO_LARGE: LDAP_RETCODE = LDAP_RETCODE(70i32);
-pub const LDAP_AFFECTS_MULTIPLE_DSAS: LDAP_RETCODE = LDAP_RETCODE(71i32);
-pub const LDAP_VIRTUAL_LIST_VIEW_ERROR: LDAP_RETCODE = LDAP_RETCODE(76i32);
-pub const LDAP_OTHER: LDAP_RETCODE = LDAP_RETCODE(80i32);
-pub const LDAP_SERVER_DOWN: LDAP_RETCODE = LDAP_RETCODE(81i32);
-pub const LDAP_LOCAL_ERROR: LDAP_RETCODE = LDAP_RETCODE(82i32);
-pub const LDAP_ENCODING_ERROR: LDAP_RETCODE = LDAP_RETCODE(83i32);
-pub const LDAP_DECODING_ERROR: LDAP_RETCODE = LDAP_RETCODE(84i32);
-pub const LDAP_TIMEOUT: LDAP_RETCODE = LDAP_RETCODE(85i32);
-pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = LDAP_RETCODE(86i32);
-pub const LDAP_FILTER_ERROR: LDAP_RETCODE = LDAP_RETCODE(87i32);
-pub const LDAP_USER_CANCELLED: LDAP_RETCODE = LDAP_RETCODE(88i32);
-pub const LDAP_PARAM_ERROR: LDAP_RETCODE = LDAP_RETCODE(89i32);
-pub const LDAP_NO_MEMORY: LDAP_RETCODE = LDAP_RETCODE(90i32);
-pub const LDAP_CONNECT_ERROR: LDAP_RETCODE = LDAP_RETCODE(91i32);
-pub const LDAP_NOT_SUPPORTED: LDAP_RETCODE = LDAP_RETCODE(92i32);
-pub const LDAP_NO_RESULTS_RETURNED: LDAP_RETCODE = LDAP_RETCODE(94i32);
-pub const LDAP_CONTROL_NOT_FOUND: LDAP_RETCODE = LDAP_RETCODE(93i32);
-pub const LDAP_MORE_RESULTS_TO_RETURN: LDAP_RETCODE = LDAP_RETCODE(95i32);
-pub const LDAP_CLIENT_LOOP: LDAP_RETCODE = LDAP_RETCODE(96i32);
-pub const LDAP_REFERRAL_LIMIT_EXCEEDED: LDAP_RETCODE = LDAP_RETCODE(97i32);
-impl ::core::convert::From<i32> for LDAP_RETCODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for LDAP_RETCODE {
-    type Abi = Self;
-}
+pub type LDAP_RETCODE = i32;
+pub const LDAP_SUCCESS: LDAP_RETCODE = 0i32;
+pub const LDAP_OPERATIONS_ERROR: LDAP_RETCODE = 1i32;
+pub const LDAP_PROTOCOL_ERROR: LDAP_RETCODE = 2i32;
+pub const LDAP_TIMELIMIT_EXCEEDED: LDAP_RETCODE = 3i32;
+pub const LDAP_SIZELIMIT_EXCEEDED: LDAP_RETCODE = 4i32;
+pub const LDAP_COMPARE_FALSE: LDAP_RETCODE = 5i32;
+pub const LDAP_COMPARE_TRUE: LDAP_RETCODE = 6i32;
+pub const LDAP_AUTH_METHOD_NOT_SUPPORTED: LDAP_RETCODE = 7i32;
+pub const LDAP_STRONG_AUTH_REQUIRED: LDAP_RETCODE = 8i32;
+pub const LDAP_REFERRAL_V2: LDAP_RETCODE = 9i32;
+pub const LDAP_PARTIAL_RESULTS: LDAP_RETCODE = 9i32;
+pub const LDAP_REFERRAL: LDAP_RETCODE = 10i32;
+pub const LDAP_ADMIN_LIMIT_EXCEEDED: LDAP_RETCODE = 11i32;
+pub const LDAP_UNAVAILABLE_CRIT_EXTENSION: LDAP_RETCODE = 12i32;
+pub const LDAP_CONFIDENTIALITY_REQUIRED: LDAP_RETCODE = 13i32;
+pub const LDAP_SASL_BIND_IN_PROGRESS: LDAP_RETCODE = 14i32;
+pub const LDAP_NO_SUCH_ATTRIBUTE: LDAP_RETCODE = 16i32;
+pub const LDAP_UNDEFINED_TYPE: LDAP_RETCODE = 17i32;
+pub const LDAP_INAPPROPRIATE_MATCHING: LDAP_RETCODE = 18i32;
+pub const LDAP_CONSTRAINT_VIOLATION: LDAP_RETCODE = 19i32;
+pub const LDAP_ATTRIBUTE_OR_VALUE_EXISTS: LDAP_RETCODE = 20i32;
+pub const LDAP_INVALID_SYNTAX: LDAP_RETCODE = 21i32;
+pub const LDAP_NO_SUCH_OBJECT: LDAP_RETCODE = 32i32;
+pub const LDAP_ALIAS_PROBLEM: LDAP_RETCODE = 33i32;
+pub const LDAP_INVALID_DN_SYNTAX: LDAP_RETCODE = 34i32;
+pub const LDAP_IS_LEAF: LDAP_RETCODE = 35i32;
+pub const LDAP_ALIAS_DEREF_PROBLEM: LDAP_RETCODE = 36i32;
+pub const LDAP_INAPPROPRIATE_AUTH: LDAP_RETCODE = 48i32;
+pub const LDAP_INVALID_CREDENTIALS: LDAP_RETCODE = 49i32;
+pub const LDAP_INSUFFICIENT_RIGHTS: LDAP_RETCODE = 50i32;
+pub const LDAP_BUSY: LDAP_RETCODE = 51i32;
+pub const LDAP_UNAVAILABLE: LDAP_RETCODE = 52i32;
+pub const LDAP_UNWILLING_TO_PERFORM: LDAP_RETCODE = 53i32;
+pub const LDAP_LOOP_DETECT: LDAP_RETCODE = 54i32;
+pub const LDAP_SORT_CONTROL_MISSING: LDAP_RETCODE = 60i32;
+pub const LDAP_OFFSET_RANGE_ERROR: LDAP_RETCODE = 61i32;
+pub const LDAP_NAMING_VIOLATION: LDAP_RETCODE = 64i32;
+pub const LDAP_OBJECT_CLASS_VIOLATION: LDAP_RETCODE = 65i32;
+pub const LDAP_NOT_ALLOWED_ON_NONLEAF: LDAP_RETCODE = 66i32;
+pub const LDAP_NOT_ALLOWED_ON_RDN: LDAP_RETCODE = 67i32;
+pub const LDAP_ALREADY_EXISTS: LDAP_RETCODE = 68i32;
+pub const LDAP_NO_OBJECT_CLASS_MODS: LDAP_RETCODE = 69i32;
+pub const LDAP_RESULTS_TOO_LARGE: LDAP_RETCODE = 70i32;
+pub const LDAP_AFFECTS_MULTIPLE_DSAS: LDAP_RETCODE = 71i32;
+pub const LDAP_VIRTUAL_LIST_VIEW_ERROR: LDAP_RETCODE = 76i32;
+pub const LDAP_OTHER: LDAP_RETCODE = 80i32;
+pub const LDAP_SERVER_DOWN: LDAP_RETCODE = 81i32;
+pub const LDAP_LOCAL_ERROR: LDAP_RETCODE = 82i32;
+pub const LDAP_ENCODING_ERROR: LDAP_RETCODE = 83i32;
+pub const LDAP_DECODING_ERROR: LDAP_RETCODE = 84i32;
+pub const LDAP_TIMEOUT: LDAP_RETCODE = 85i32;
+pub const LDAP_AUTH_UNKNOWN: LDAP_RETCODE = 86i32;
+pub const LDAP_FILTER_ERROR: LDAP_RETCODE = 87i32;
+pub const LDAP_USER_CANCELLED: LDAP_RETCODE = 88i32;
+pub const LDAP_PARAM_ERROR: LDAP_RETCODE = 89i32;
+pub const LDAP_NO_MEMORY: LDAP_RETCODE = 90i32;
+pub const LDAP_CONNECT_ERROR: LDAP_RETCODE = 91i32;
+pub const LDAP_NOT_SUPPORTED: LDAP_RETCODE = 92i32;
+pub const LDAP_NO_RESULTS_RETURNED: LDAP_RETCODE = 94i32;
+pub const LDAP_CONTROL_NOT_FOUND: LDAP_RETCODE = 93i32;
+pub const LDAP_MORE_RESULTS_TO_RETURN: LDAP_RETCODE = 95i32;
+pub const LDAP_CLIENT_LOOP: LDAP_RETCODE = 96i32;
+pub const LDAP_REFERRAL_LIMIT_EXCEEDED: LDAP_RETCODE = 97i32;
 pub const LDAP_SCOPE_BASE: u32 = 0u32;
 pub const LDAP_SCOPE_ONELEVEL: u32 = 1u32;
 pub const LDAP_SCOPE_SUBTREE: u32 = 2u32;
@@ -403,31 +374,30 @@ pub const LDAP_SSL_PORT: u32 = 636u32;
 pub const LDAP_SUBSTRING_ANY: i32 = 129i32;
 pub const LDAP_SUBSTRING_FINAL: i32 = 130i32;
 pub const LDAP_SUBSTRING_INITIAL: i32 = 128i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct LDAP_TIMEVAL {
     pub tv_sec: i32,
     pub tv_usec: i32,
 }
-impl LDAP_TIMEVAL {}
+impl ::core::marker::Copy for LDAP_TIMEVAL {}
+impl ::core::clone::Clone for LDAP_TIMEVAL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for LDAP_TIMEVAL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for LDAP_TIMEVAL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<LDAP_TIMEVAL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for LDAP_TIMEVAL {}
 impl ::core::default::Default for LDAP_TIMEVAL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for LDAP_TIMEVAL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("LDAP_TIMEVAL").field("tv_sec", &self.tv_sec).field("tv_usec", &self.tv_usec).finish()
-    }
-}
-impl ::core::cmp::PartialEq for LDAP_TIMEVAL {
-    fn eq(&self, other: &Self) -> bool {
-        self.tv_sec == other.tv_sec && self.tv_usec == other.tv_usec
-    }
-}
-impl ::core::cmp::Eq for LDAP_TIMEVAL {}
-unsafe impl ::windows::core::Abi for LDAP_TIMEVAL {
-    type Abi = Self;
 }
 pub const LDAP_UNBIND_CMD: i32 = 66i32;
 pub const LDAP_UNICODE: u32 = 1u32;
@@ -540,7 +510,7 @@ pub unsafe fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL) {
         extern "system" {
             fn ber_bvecfree(pberval: *mut *mut LDAP_BERVAL);
         }
-        ::core::mem::transmute(ber_bvecfree(::core::mem::transmute(pberval)))
+        ber_bvecfree(::core::mem::transmute(pberval))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -554,7 +524,7 @@ pub unsafe fn ber_bvfree(bv: *mut LDAP_BERVAL) {
         extern "system" {
             fn ber_bvfree(bv: *mut LDAP_BERVAL);
         }
-        ::core::mem::transmute(ber_bvfree(::core::mem::transmute(bv)))
+        ber_bvfree(::core::mem::transmute(bv))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -596,7 +566,7 @@ pub unsafe fn ber_free(pberelement: *mut berelement, fbuf: i32) {
         extern "system" {
             fn ber_free(pberelement: *mut berelement, fbuf: i32);
         }
-        ::core::mem::transmute(ber_free(::core::mem::transmute(pberelement), ::core::mem::transmute(fbuf)))
+        ber_free(::core::mem::transmute(pberelement), ::core::mem::transmute(fbuf))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -685,37 +655,36 @@ pub unsafe fn ber_skip_tag(pberelement: *mut berelement, plen: *mut u32) -> u32 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct berelement {
     pub opaque: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl berelement {}
+impl ::core::marker::Copy for berelement {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for berelement {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for berelement {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for berelement {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("berelement").field("opaque", &self.opaque).finish()
-    }
+unsafe impl ::windows::core::Abi for berelement {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for berelement {
     fn eq(&self, other: &Self) -> bool {
-        self.opaque == other.opaque
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<berelement>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for berelement {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for berelement {
-    type Abi = Self;
+impl ::core::default::Default for berelement {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -759,7 +728,6 @@ pub unsafe fn cldap_openW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldap {
@@ -781,49 +749,31 @@ pub struct ldap {
     pub ld_options: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldap {}
+impl ::core::marker::Copy for ldap {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldap {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldap {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldap {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldap>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldap {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldap {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldap {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldap")
-            .field("ld_sb", &self.ld_sb)
-            .field("ld_host", &self.ld_host)
-            .field("ld_version", &self.ld_version)
-            .field("ld_lberoptions", &self.ld_lberoptions)
-            .field("ld_deref", &self.ld_deref)
-            .field("ld_timelimit", &self.ld_timelimit)
-            .field("ld_sizelimit", &self.ld_sizelimit)
-            .field("ld_errno", &self.ld_errno)
-            .field("ld_matched", &self.ld_matched)
-            .field("ld_error", &self.ld_error)
-            .field("ld_msgid", &self.ld_msgid)
-            .field("Reserved3", &self.Reserved3)
-            .field("ld_cldaptries", &self.ld_cldaptries)
-            .field("ld_cldaptimeout", &self.ld_cldaptimeout)
-            .field("ld_refhoplimit", &self.ld_refhoplimit)
-            .field("ld_options", &self.ld_options)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldap {
-    fn eq(&self, other: &Self) -> bool {
-        self.ld_sb == other.ld_sb && self.ld_host == other.ld_host && self.ld_version == other.ld_version && self.ld_lberoptions == other.ld_lberoptions && self.ld_deref == other.ld_deref && self.ld_timelimit == other.ld_timelimit && self.ld_sizelimit == other.ld_sizelimit && self.ld_errno == other.ld_errno && self.ld_matched == other.ld_matched && self.ld_error == other.ld_error && self.ld_msgid == other.ld_msgid && self.Reserved3 == other.Reserved3 && self.ld_cldaptries == other.ld_cldaptries && self.ld_cldaptimeout == other.ld_cldaptimeout && self.ld_refhoplimit == other.ld_refhoplimit && self.ld_options == other.ld_options
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldap {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldap {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldap_0 {
@@ -833,30 +783,30 @@ pub struct ldap_0 {
     pub Reserved2: [u8; 24],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldap_0 {}
+impl ::core::marker::Copy for ldap_0 {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ldap_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for ldap_0 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldap_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_ld_sb_e__Struct").field("sb_sd", &self.sb_sd).field("Reserved1", &self.Reserved1).field("sb_naddr", &self.sb_naddr).field("Reserved2", &self.Reserved2).finish()
-    }
+unsafe impl ::windows::core::Abi for ldap_0 {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldap_0 {
     fn eq(&self, other: &Self) -> bool {
-        self.sb_sd == other.sb_sd && self.Reserved1 == other.Reserved1 && self.sb_naddr == other.sb_naddr && self.Reserved2 == other.Reserved2
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldap_0>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldap_0 {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldap_0 {
-    type Abi = Self;
+impl ::core::default::Default for ldap_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2449,7 +2399,7 @@ pub unsafe fn ldap_memfree<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn ldap_memfree(block: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ldap_memfree(block.into_param().abi()))
+        ldap_memfree(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2463,7 +2413,7 @@ pub unsafe fn ldap_memfreeA<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn ldap_memfreeA(block: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ldap_memfreeA(block.into_param().abi()))
+        ldap_memfreeA(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2477,7 +2427,7 @@ pub unsafe fn ldap_memfreeW<'a, Param0: ::windows::core::IntoParam<'a, super::su
         extern "system" {
             fn ldap_memfreeW(block: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(ldap_memfreeW(block.into_param().abi()))
+        ldap_memfreeW(block.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3177,7 +3127,7 @@ pub unsafe fn ldap_perror<'a, Param1: ::windows::core::IntoParam<'a, super::supe
         extern "system" {
             fn ldap_perror(ld: *mut ldap, msg: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(ldap_perror(::core::mem::transmute(ld), msg.into_param().abi()))
+        ldap_perror(::core::mem::transmute(ld), msg.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3638,7 +3588,7 @@ pub unsafe fn ldap_set_dbg_routine(debugprintroutine: DBGPRINT) {
         extern "system" {
             fn ldap_set_dbg_routine(debugprintroutine: ::windows::core::RawPtr);
         }
-        ::core::mem::transmute(ldap_set_dbg_routine(::core::mem::transmute(debugprintroutine)))
+        ldap_set_dbg_routine(::core::mem::transmute(debugprintroutine))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -3979,34 +3929,32 @@ pub unsafe fn ldap_value_free_len(vals: *mut *mut LDAP_BERVAL) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct ldap_version_info {
     pub lv_size: u32,
     pub lv_major: u32,
     pub lv_minor: u32,
 }
-impl ldap_version_info {}
+impl ::core::marker::Copy for ldap_version_info {}
+impl ::core::clone::Clone for ldap_version_info {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ldap_version_info {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ldap_version_info {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldap_version_info>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ldap_version_info {}
 impl ::core::default::Default for ldap_version_info {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for ldap_version_info {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldap_version_info").field("lv_size", &self.lv_size).field("lv_major", &self.lv_major).field("lv_minor", &self.lv_minor).finish()
-    }
-}
-impl ::core::cmp::PartialEq for ldap_version_info {
-    fn eq(&self, other: &Self) -> bool {
-        self.lv_size == other.lv_size && self.lv_major == other.lv_major && self.lv_minor == other.lv_minor
-    }
-}
-impl ::core::cmp::Eq for ldap_version_info {}
-unsafe impl ::windows::core::Abi for ldap_version_info {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapapiinfoA {
@@ -4018,32 +3966,31 @@ pub struct ldapapiinfoA {
     pub ldapai_vendor_version: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapapiinfoA {}
+impl ::core::marker::Copy for ldapapiinfoA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapapiinfoA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapapiinfoA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapapiinfoA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapapiinfoA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapapiinfoA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapapiinfoA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapapiinfoA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapapiinfoA").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapapiinfoA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapai_info_version == other.ldapai_info_version && self.ldapai_api_version == other.ldapai_api_version && self.ldapai_protocol_version == other.ldapai_protocol_version && self.ldapai_extensions == other.ldapai_extensions && self.ldapai_vendor_name == other.ldapai_vendor_name && self.ldapai_vendor_version == other.ldapai_vendor_version
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapapiinfoA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapapiinfoA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapapiinfoW {
@@ -4055,32 +4002,31 @@ pub struct ldapapiinfoW {
     pub ldapai_vendor_version: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapapiinfoW {}
+impl ::core::marker::Copy for ldapapiinfoW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapapiinfoW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapapiinfoW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapapiinfoW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapapiinfoW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapapiinfoW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapapiinfoW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapapiinfoW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapapiinfoW").field("ldapai_info_version", &self.ldapai_info_version).field("ldapai_api_version", &self.ldapai_api_version).field("ldapai_protocol_version", &self.ldapai_protocol_version).field("ldapai_extensions", &self.ldapai_extensions).field("ldapai_vendor_name", &self.ldapai_vendor_name).field("ldapai_vendor_version", &self.ldapai_vendor_version).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapapiinfoW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldapai_info_version == other.ldapai_info_version && self.ldapai_api_version == other.ldapai_api_version && self.ldapai_protocol_version == other.ldapai_protocol_version && self.ldapai_extensions == other.ldapai_extensions && self.ldapai_vendor_name == other.ldapai_vendor_name && self.ldapai_vendor_version == other.ldapai_vendor_version
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapapiinfoW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapapiinfoW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapcontrolA {
@@ -4089,32 +4035,31 @@ pub struct ldapcontrolA {
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapcontrolA {}
+impl ::core::marker::Copy for ldapcontrolA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapcontrolA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapcontrolA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapcontrolA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapcontrolA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapcontrolA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapcontrolA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapcontrolA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapcontrolA").field("ldctl_oid", &self.ldctl_oid).field("ldctl_value", &self.ldctl_value).field("ldctl_iscritical", &self.ldctl_iscritical).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapcontrolA {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldctl_oid == other.ldctl_oid && self.ldctl_value == other.ldctl_value && self.ldctl_iscritical == other.ldctl_iscritical
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapcontrolA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapcontrolA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapcontrolW {
@@ -4123,32 +4068,31 @@ pub struct ldapcontrolW {
     pub ldctl_iscritical: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapcontrolW {}
+impl ::core::marker::Copy for ldapcontrolW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapcontrolW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapcontrolW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapcontrolW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapcontrolW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapcontrolW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapcontrolW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapcontrolW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapcontrolW").field("ldctl_oid", &self.ldctl_oid).field("ldctl_value", &self.ldctl_value).field("ldctl_iscritical", &self.ldctl_iscritical).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapcontrolW {
-    fn eq(&self, other: &Self) -> bool {
-        self.ldctl_oid == other.ldctl_oid && self.ldctl_value == other.ldctl_value && self.ldctl_iscritical == other.ldctl_iscritical
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapcontrolW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapcontrolW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapmodA {
@@ -4157,26 +4101,31 @@ pub struct ldapmodA {
     pub mod_vals: ldapmodA_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapmodA {}
+impl ::core::marker::Copy for ldapmodA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapmodA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapmodA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapmodA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapmodA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapmodA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapmodA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union ldapmodA_0 {
@@ -4184,26 +4133,31 @@ pub union ldapmodA_0 {
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapmodA_0 {}
+impl ::core::marker::Copy for ldapmodA_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapmodA_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapmodA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodA_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapmodA_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapmodA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapmodA_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapmodA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapmodW {
@@ -4212,26 +4166,31 @@ pub struct ldapmodW {
     pub mod_vals: ldapmodW_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapmodW {}
+impl ::core::marker::Copy for ldapmodW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapmodW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapmodW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapmodW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapmodW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapmodW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapmodW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union ldapmodW_0 {
@@ -4239,29 +4198,33 @@ pub union ldapmodW_0 {
     pub modv_bvals: *mut *mut LDAP_BERVAL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapmodW_0 {}
+impl ::core::marker::Copy for ldapmodW_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapmodW_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapmodW_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapmodW_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapmodW_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapmodW_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapmodW_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapmodW_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapmodW_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapmodW_0 {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct ldapsearch(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapsortkeyA {
@@ -4270,32 +4233,31 @@ pub struct ldapsortkeyA {
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapsortkeyA {}
+impl ::core::marker::Copy for ldapsortkeyA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapsortkeyA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapsortkeyA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapsortkeyA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapsortkeyA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapsortkeyA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapsortkeyA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapsortkeyA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapsortkeyA").field("sk_attrtype", &self.sk_attrtype).field("sk_matchruleoid", &self.sk_matchruleoid).field("sk_reverseorder", &self.sk_reverseorder).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapsortkeyA {
-    fn eq(&self, other: &Self) -> bool {
-        self.sk_attrtype == other.sk_attrtype && self.sk_matchruleoid == other.sk_matchruleoid && self.sk_reverseorder == other.sk_reverseorder
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapsortkeyA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapsortkeyA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapsortkeyW {
@@ -4304,32 +4266,31 @@ pub struct ldapsortkeyW {
     pub sk_reverseorder: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapsortkeyW {}
+impl ::core::marker::Copy for ldapsortkeyW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ldapsortkeyW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ldapsortkeyW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ldapsortkeyW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapsortkeyW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ldapsortkeyW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ldapsortkeyW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapsortkeyW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapsortkeyW").field("sk_attrtype", &self.sk_attrtype).field("sk_matchruleoid", &self.sk_matchruleoid).field("sk_reverseorder", &self.sk_reverseorder).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ldapsortkeyW {
-    fn eq(&self, other: &Self) -> bool {
-        self.sk_attrtype == other.sk_attrtype && self.sk_matchruleoid == other.sk_matchruleoid && self.sk_reverseorder == other.sk_reverseorder
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ldapsortkeyW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapsortkeyW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ldapvlvinfo {
@@ -4343,28 +4304,28 @@ pub struct ldapvlvinfo {
     pub ldvlv_extradata: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ldapvlvinfo {}
+impl ::core::marker::Copy for ldapvlvinfo {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for ldapvlvinfo {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for ldapvlvinfo {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ldapvlvinfo {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ldapvlvinfo").field("ldvlv_version", &self.ldvlv_version).field("ldvlv_before_count", &self.ldvlv_before_count).field("ldvlv_after_count", &self.ldvlv_after_count).field("ldvlv_offset", &self.ldvlv_offset).field("ldvlv_count", &self.ldvlv_count).field("ldvlv_attrvalue", &self.ldvlv_attrvalue).field("ldvlv_context", &self.ldvlv_context).field("ldvlv_extradata", &self.ldvlv_extradata).finish()
-    }
+unsafe impl ::windows::core::Abi for ldapvlvinfo {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for ldapvlvinfo {
     fn eq(&self, other: &Self) -> bool {
-        self.ldvlv_version == other.ldvlv_version && self.ldvlv_before_count == other.ldvlv_before_count && self.ldvlv_after_count == other.ldvlv_after_count && self.ldvlv_offset == other.ldvlv_offset && self.ldvlv_count == other.ldvlv_count && self.ldvlv_attrvalue == other.ldvlv_attrvalue && self.ldvlv_context == other.ldvlv_context && self.ldvlv_extradata == other.ldvlv_extradata
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ldapvlvinfo>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for ldapvlvinfo {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ldapvlvinfo {
-    type Abi = Self;
+impl ::core::default::Default for ldapvlvinfo {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }

@@ -156,7 +156,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
         };
     }
 
-    let is_union = def.is_explicit();
+    let is_union = def.is_union();
 
     let (doc, cfg) = if cfg.is_empty() {
         let features = features(def, gen);
@@ -442,7 +442,7 @@ fn gen_sys_param(param: &MethodParam, gen: &Gen) -> TokenStream {
 }
 
 fn gen_sys_param_with_const(sig: &Signature, gen: &Gen, is_const: bool) -> TokenStream {
-    let mut tokens = TokenStream::with_capacity();
+    let mut tokens = TokenStream::new();
 
     for _ in 0..sig.pointers {
         if is_const {

@@ -1,15 +1,12 @@
 use super::*;
-use bindings::{
-    Windows::Win32::Foundation::PSTR,
-    Windows::Win32::System::LibraryLoader::{FreeLibrary, GetProcAddress, LoadLibraryA},
-};
+use bindings::*;
 
 // TODO: return Option to make calling this function easier
 pub fn delay_load(library: &[u8], function: &[u8]) -> RawPtr {
     unsafe {
         let library = LoadLibraryA(PSTR(library.as_ptr() as *mut _));
 
-        if library.is_invalid() {
+        if library == 0 {
             return core::ptr::null_mut();
         }
 

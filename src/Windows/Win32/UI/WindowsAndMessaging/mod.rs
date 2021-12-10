@@ -1,32 +1,30 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct ACCEL {
     pub fVirt: u8,
     pub key: u16,
     pub cmd: u16,
 }
-impl ACCEL {}
+impl ::core::marker::Copy for ACCEL {}
+impl ::core::clone::Clone for ACCEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACCEL {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACCEL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACCEL>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACCEL {}
 impl ::core::default::Default for ACCEL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for ACCEL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ACCEL").field("fVirt", &self.fVirt).field("key", &self.key).field("cmd", &self.cmd).finish()
-    }
-}
-impl ::core::cmp::PartialEq for ACCEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.fVirt == other.fVirt && self.key == other.key && self.cmd == other.cmd
-    }
-}
-impl ::core::cmp::Eq for ACCEL {}
-unsafe impl ::windows::core::Abi for ACCEL {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ALTTABINFO {
@@ -41,104 +39,65 @@ pub struct ALTTABINFO {
     pub ptStart: super::super::Foundation::POINT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ALTTABINFO {}
+impl ::core::marker::Copy for ALTTABINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ALTTABINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ALTTABINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ALTTABINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ALTTABINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ALTTABINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ALTTABINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ALTTABINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ALTTABINFO").field("cbSize", &self.cbSize).field("cItems", &self.cItems).field("cColumns", &self.cColumns).field("cRows", &self.cRows).field("iColFocus", &self.iColFocus).field("iRowFocus", &self.iRowFocus).field("cxItem", &self.cxItem).field("cyItem", &self.cyItem).field("ptStart", &self.ptStart).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ALTTABINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.cItems == other.cItems && self.cColumns == other.cColumns && self.cRows == other.cRows && self.iColFocus == other.iColFocus && self.iRowFocus == other.iRowFocus && self.cxItem == other.cxItem && self.cyItem == other.cyItem && self.ptStart == other.ptStart
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ALTTABINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ALTTABINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ANIMATE_WINDOW_FLAGS(pub u32);
-pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(131072u32);
-pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(524288u32);
-pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(16u32);
-pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(65536u32);
-pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(1u32);
-pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(2u32);
-pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(262144u32);
-pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(4u32);
-pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = ANIMATE_WINDOW_FLAGS(8u32);
-impl ::core::convert::From<u32> for ANIMATE_WINDOW_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ANIMATE_WINDOW_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for ANIMATE_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for ANIMATE_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ANIMATE_WINDOW_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ANIMATE_WINDOW_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for ANIMATE_WINDOW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type ANIMATE_WINDOW_FLAGS = u32;
+pub const AW_ACTIVATE: ANIMATE_WINDOW_FLAGS = 131072u32;
+pub const AW_BLEND: ANIMATE_WINDOW_FLAGS = 524288u32;
+pub const AW_CENTER: ANIMATE_WINDOW_FLAGS = 16u32;
+pub const AW_HIDE: ANIMATE_WINDOW_FLAGS = 65536u32;
+pub const AW_HOR_POSITIVE: ANIMATE_WINDOW_FLAGS = 1u32;
+pub const AW_HOR_NEGATIVE: ANIMATE_WINDOW_FLAGS = 2u32;
+pub const AW_SLIDE: ANIMATE_WINDOW_FLAGS = 262144u32;
+pub const AW_VER_POSITIVE: ANIMATE_WINDOW_FLAGS = 4u32;
+pub const AW_VER_NEGATIVE: ANIMATE_WINDOW_FLAGS = 8u32;
 #[repr(C)]
 pub struct ANIMATIONINFO {
     pub cbSize: u32,
     pub iMinAnimate: i32,
 }
-impl ANIMATIONINFO {}
+impl ::core::marker::Copy for ANIMATIONINFO {}
+impl ::core::clone::Clone for ANIMATIONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ANIMATIONINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ANIMATIONINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ANIMATIONINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ANIMATIONINFO {}
 impl ::core::default::Default for ANIMATIONINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for ANIMATIONINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ANIMATIONINFO").field("cbSize", &self.cbSize).field("iMinAnimate", &self.iMinAnimate).finish()
-    }
-}
-impl ::core::cmp::PartialEq for ANIMATIONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iMinAnimate == other.iMinAnimate
-    }
-}
-impl ::core::cmp::Eq for ANIMATIONINFO {}
-unsafe impl ::windows::core::Abi for ANIMATIONINFO {
-    type Abi = Self;
 }
 pub const ARW_DOWN: i32 = 4i32;
 pub const ARW_HIDE: i32 = 8i32;
@@ -149,7 +108,6 @@ pub const ARW_STARTRIGHT: i32 = 1i32;
 pub const ARW_STARTTOP: i32 = 2i32;
 pub const ARW_UP: i32 = 4i32;
 pub const ASFW_ANY: u32 = 4294967295u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AUDIODESCRIPTION {
@@ -158,30 +116,30 @@ pub struct AUDIODESCRIPTION {
     pub Locale: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl AUDIODESCRIPTION {}
+impl ::core::marker::Copy for AUDIODESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AUDIODESCRIPTION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for AUDIODESCRIPTION {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for AUDIODESCRIPTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("AUDIODESCRIPTION").field("cbSize", &self.cbSize).field("Enabled", &self.Enabled).field("Locale", &self.Locale).finish()
-    }
+unsafe impl ::windows::core::Abi for AUDIODESCRIPTION {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AUDIODESCRIPTION {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Enabled == other.Enabled && self.Locale == other.Locale
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AUDIODESCRIPTION>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AUDIODESCRIPTION {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AUDIODESCRIPTION {
-    type Abi = Self;
+impl ::core::default::Default for AUDIODESCRIPTION {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -377,47 +335,9 @@ pub unsafe fn BringWindowToTop<'a, Param0: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 pub const CALERT_SYSTEM: u32 = 6u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CASCADE_WINDOWS_HOW(pub u32);
-pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(2u32);
-pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = CASCADE_WINDOWS_HOW(4u32);
-impl ::core::convert::From<u32> for CASCADE_WINDOWS_HOW {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CASCADE_WINDOWS_HOW {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CASCADE_WINDOWS_HOW {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CASCADE_WINDOWS_HOW {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CASCADE_WINDOWS_HOW {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CASCADE_WINDOWS_HOW {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CASCADE_WINDOWS_HOW {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CASCADE_WINDOWS_HOW = u32;
+pub const MDITILE_SKIPDISABLED: CASCADE_WINDOWS_HOW = 2u32;
+pub const MDITILE_ZORDER: CASCADE_WINDOWS_HOW = 4u32;
 pub const CBN_CLOSEUP: u32 = 8u32;
 pub const CBN_DBLCLK: u32 = 2u32;
 pub const CBN_DROPDOWN: u32 = 7u32;
@@ -442,7 +362,6 @@ pub const CBS_OWNERDRAWVARIABLE: i32 = 32i32;
 pub const CBS_SIMPLE: i32 = 1i32;
 pub const CBS_SORT: i32 = 256i32;
 pub const CBS_UPPERCASE: i32 = 8192i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CBTACTIVATESTRUCT {
@@ -450,32 +369,31 @@ pub struct CBTACTIVATESTRUCT {
     pub hWndActive: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CBTACTIVATESTRUCT {}
+impl ::core::marker::Copy for CBTACTIVATESTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CBTACTIVATESTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CBTACTIVATESTRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CBTACTIVATESTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CBTACTIVATESTRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CBTACTIVATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CBTACTIVATESTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CBTACTIVATESTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CBTACTIVATESTRUCT").field("fMouse", &self.fMouse).field("hWndActive", &self.hWndActive).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CBTACTIVATESTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.fMouse == other.fMouse && self.hWndActive == other.hWndActive
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CBTACTIVATESTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CBTACTIVATESTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CBT_CREATEWNDA {
@@ -483,32 +401,31 @@ pub struct CBT_CREATEWNDA {
     pub hwndInsertAfter: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CBT_CREATEWNDA {}
+impl ::core::marker::Copy for CBT_CREATEWNDA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CBT_CREATEWNDA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CBT_CREATEWNDA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CBT_CREATEWNDA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CBT_CREATEWNDA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CBT_CREATEWNDA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CBT_CREATEWNDA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CBT_CREATEWNDA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CBT_CREATEWNDA").field("lpcs", &self.lpcs).field("hwndInsertAfter", &self.hwndInsertAfter).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CBT_CREATEWNDA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpcs == other.lpcs && self.hwndInsertAfter == other.hwndInsertAfter
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CBT_CREATEWNDA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CBT_CREATEWNDA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CBT_CREATEWNDW {
@@ -516,30 +433,30 @@ pub struct CBT_CREATEWNDW {
     pub hwndInsertAfter: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CBT_CREATEWNDW {}
+impl ::core::marker::Copy for CBT_CREATEWNDW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CBT_CREATEWNDW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CBT_CREATEWNDW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CBT_CREATEWNDW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CBT_CREATEWNDW").field("lpcs", &self.lpcs).field("hwndInsertAfter", &self.hwndInsertAfter).finish()
-    }
+unsafe impl ::windows::core::Abi for CBT_CREATEWNDW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CBT_CREATEWNDW {
     fn eq(&self, other: &Self) -> bool {
-        self.lpcs == other.lpcs && self.hwndInsertAfter == other.hwndInsertAfter
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CBT_CREATEWNDW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CBT_CREATEWNDW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CBT_CREATEWNDW {
-    type Abi = Self;
+impl ::core::default::Default for CBT_CREATEWNDW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const CB_ADDSTRING: u32 = 323u32;
 pub const CB_DELETESTRING: u32 = 324u32;
@@ -583,75 +500,35 @@ pub const CB_SETTOPINDEX: u32 = 348u32;
 pub const CB_SHOWDROPDOWN: u32 = 335u32;
 pub const CCHILDREN_SCROLLBAR: u32 = 5u32;
 pub const CCHILDREN_TITLEBAR: u32 = 5u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CHANGEFILTERSTRUCT {
     pub cbSize: u32,
     pub ExtStatus: MSGFLTINFO_STATUS,
 }
-impl CHANGEFILTERSTRUCT {}
+impl ::core::marker::Copy for CHANGEFILTERSTRUCT {}
+impl ::core::clone::Clone for CHANGEFILTERSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CHANGEFILTERSTRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CHANGEFILTERSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CHANGEFILTERSTRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CHANGEFILTERSTRUCT {}
 impl ::core::default::Default for CHANGEFILTERSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CHANGEFILTERSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CHANGEFILTERSTRUCT").field("cbSize", &self.cbSize).field("ExtStatus", &self.ExtStatus).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CHANGEFILTERSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ExtStatus == other.ExtStatus
-    }
-}
-impl ::core::cmp::Eq for CHANGEFILTERSTRUCT {}
-unsafe impl ::windows::core::Abi for CHANGEFILTERSTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(pub u32);
-pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(1u32);
-pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = CHANGE_WINDOW_MESSAGE_FILTER_FLAGS(2u32);
-impl ::core::convert::From<u32> for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CHANGE_WINDOW_MESSAGE_FILTER_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = u32;
+pub const MSGFLT_ADD: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = 1u32;
+pub const MSGFLT_REMOVE: CHANGE_WINDOW_MESSAGE_FILTER_FLAGS = 2u32;
 pub const CHILDID_SELF: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLIENTCREATESTRUCT {
@@ -659,30 +536,30 @@ pub struct CLIENTCREATESTRUCT {
     pub idFirstChild: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CLIENTCREATESTRUCT {}
+impl ::core::marker::Copy for CLIENTCREATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CLIENTCREATESTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CLIENTCREATESTRUCT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CLIENTCREATESTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CLIENTCREATESTRUCT").field("hWindowMenu", &self.hWindowMenu).field("idFirstChild", &self.idFirstChild).finish()
-    }
+unsafe impl ::windows::core::Abi for CLIENTCREATESTRUCT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CLIENTCREATESTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.hWindowMenu == other.hWindowMenu && self.idFirstChild == other.idFirstChild
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CLIENTCREATESTRUCT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CLIENTCREATESTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CLIENTCREATESTRUCT {
-    type Abi = Self;
+impl ::core::default::Default for CLIENTCREATESTRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const COLOR_BTNHIGHLIGHT: u32 = 20u32;
 pub const COLOR_BTNHILIGHT: u32 = 20u32;
@@ -693,7 +570,6 @@ pub const CONTACTVISUALIZATION_OFF: u32 = 0u32;
 pub const CONTACTVISUALIZATION_ON: u32 = 1u32;
 pub const CONTACTVISUALIZATION_PRESENTATIONMODE: u32 = 2u32;
 pub const CREATEPROCESS_MANIFEST_RESOURCE_ID: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATESTRUCTA {
@@ -711,32 +587,31 @@ pub struct CREATESTRUCTA {
     pub dwExStyle: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CREATESTRUCTA {}
+impl ::core::marker::Copy for CREATESTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CREATESTRUCTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CREATESTRUCTA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CREATESTRUCTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATESTRUCTA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CREATESTRUCTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CREATESTRUCTA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREATESTRUCTA").field("lpCreateParams", &self.lpCreateParams).field("hInstance", &self.hInstance).field("hMenu", &self.hMenu).field("hwndParent", &self.hwndParent).field("cy", &self.cy).field("cx", &self.cx).field("y", &self.y).field("x", &self.x).field("style", &self.style).field("lpszName", &self.lpszName).field("lpszClass", &self.lpszClass).field("dwExStyle", &self.dwExStyle).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CREATESTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpCreateParams == other.lpCreateParams && self.hInstance == other.hInstance && self.hMenu == other.hMenu && self.hwndParent == other.hwndParent && self.cy == other.cy && self.cx == other.cx && self.y == other.y && self.x == other.x && self.style == other.style && self.lpszName == other.lpszName && self.lpszClass == other.lpszClass && self.dwExStyle == other.dwExStyle
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CREATESTRUCTA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CREATESTRUCTA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CREATESTRUCTW {
@@ -754,30 +629,30 @@ pub struct CREATESTRUCTW {
     pub dwExStyle: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CREATESTRUCTW {}
+impl ::core::marker::Copy for CREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CREATESTRUCTW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CREATESTRUCTW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CREATESTRUCTW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CREATESTRUCTW").field("lpCreateParams", &self.lpCreateParams).field("hInstance", &self.hInstance).field("hMenu", &self.hMenu).field("hwndParent", &self.hwndParent).field("cy", &self.cy).field("cx", &self.cx).field("y", &self.y).field("x", &self.x).field("style", &self.style).field("lpszName", &self.lpszName).field("lpszClass", &self.lpszClass).field("dwExStyle", &self.dwExStyle).finish()
-    }
+unsafe impl ::windows::core::Abi for CREATESTRUCTW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CREATESTRUCTW {
     fn eq(&self, other: &Self) -> bool {
-        self.lpCreateParams == other.lpCreateParams && self.hInstance == other.hInstance && self.hMenu == other.hMenu && self.hwndParent == other.hwndParent && self.cy == other.cy && self.cx == other.cx && self.y == other.y && self.x == other.x && self.style == other.style && self.lpszName == other.lpszName && self.lpszClass == other.lpszClass && self.dwExStyle == other.dwExStyle
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CREATESTRUCTW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for CREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CREATESTRUCTW {
-    type Abi = Self;
+impl ::core::default::Default for CREATESTRUCTW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const CSOUND_SYSTEM: u32 = 16u32;
 pub const CTLCOLOR_BTN: u32 = 3u32;
@@ -788,7 +663,6 @@ pub const CTLCOLOR_MAX: u32 = 7u32;
 pub const CTLCOLOR_MSGBOX: u32 = 0u32;
 pub const CTLCOLOR_SCROLLBAR: u32 = 5u32;
 pub const CTLCOLOR_STATIC: u32 = 6u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CURSORINFO {
@@ -798,73 +672,34 @@ pub struct CURSORINFO {
     pub ptScreenPos: super::super::Foundation::POINT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CURSORINFO {}
+impl ::core::marker::Copy for CURSORINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CURSORINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CURSORINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CURSORINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CURSORINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CURSORINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CURSORINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CURSORINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CURSORINFO").field("cbSize", &self.cbSize).field("flags", &self.flags).field("hCursor", &self.hCursor).field("ptScreenPos", &self.ptScreenPos).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CURSORINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.flags == other.flags && self.hCursor == other.hCursor && self.ptScreenPos == other.ptScreenPos
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CURSORINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CURSORINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CURSORINFO_FLAGS(pub u32);
-pub const CURSOR_SHOWING: CURSORINFO_FLAGS = CURSORINFO_FLAGS(1u32);
-pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = CURSORINFO_FLAGS(2u32);
-impl ::core::convert::From<u32> for CURSORINFO_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CURSORINFO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CURSORINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CURSORINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CURSORINFO_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CURSORINFO_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CURSORINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CURSORINFO_FLAGS = u32;
+pub const CURSOR_SHOWING: CURSORINFO_FLAGS = 1u32;
+pub const CURSOR_SUPPRESSED: CURSORINFO_FLAGS = 2u32;
 #[repr(C)]
 pub struct CURSORSHAPE {
     pub xHotSpot: i32,
@@ -875,30 +710,29 @@ pub struct CURSORSHAPE {
     pub Planes: u8,
     pub BitsPixel: u8,
 }
-impl CURSORSHAPE {}
+impl ::core::marker::Copy for CURSORSHAPE {}
+impl ::core::clone::Clone for CURSORSHAPE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CURSORSHAPE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CURSORSHAPE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CURSORSHAPE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CURSORSHAPE {}
 impl ::core::default::Default for CURSORSHAPE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CURSORSHAPE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CURSORSHAPE").field("xHotSpot", &self.xHotSpot).field("yHotSpot", &self.yHotSpot).field("cx", &self.cx).field("cy", &self.cy).field("cbWidth", &self.cbWidth).field("Planes", &self.Planes).field("BitsPixel", &self.BitsPixel).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CURSORSHAPE {
-    fn eq(&self, other: &Self) -> bool {
-        self.xHotSpot == other.xHotSpot && self.yHotSpot == other.yHotSpot && self.cx == other.cx && self.cy == other.cy && self.cbWidth == other.cbWidth && self.Planes == other.Planes && self.BitsPixel == other.BitsPixel
-    }
-}
-impl ::core::cmp::Eq for CURSORSHAPE {}
-unsafe impl ::windows::core::Abi for CURSORSHAPE {
-    type Abi = Self;
-}
 pub const CURSOR_CREATION_SCALING_DEFAULT: u32 = 2u32;
 pub const CURSOR_CREATION_SCALING_NONE: u32 = 1u32;
 pub const CWF_CREATE_ONLY: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CWPRETSTRUCT {
@@ -909,32 +743,31 @@ pub struct CWPRETSTRUCT {
     pub hwnd: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CWPRETSTRUCT {}
+impl ::core::marker::Copy for CWPRETSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CWPRETSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CWPRETSTRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CWPRETSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CWPRETSTRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CWPRETSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CWPRETSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CWPRETSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CWPRETSTRUCT").field("lResult", &self.lResult).field("lParam", &self.lParam).field("wParam", &self.wParam).field("message", &self.message).field("hwnd", &self.hwnd).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CWPRETSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lResult == other.lResult && self.lParam == other.lParam && self.wParam == other.wParam && self.message == other.message && self.hwnd == other.hwnd
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CWPRETSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CWPRETSTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CWPSTRUCT {
@@ -944,74 +777,36 @@ pub struct CWPSTRUCT {
     pub hwnd: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CWPSTRUCT {}
+impl ::core::marker::Copy for CWPSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CWPSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CWPSTRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CWPSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CWPSTRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CWPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CWPSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CWPSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CWPSTRUCT").field("lParam", &self.lParam).field("wParam", &self.wParam).field("message", &self.message).field("hwnd", &self.hwnd).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CWPSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.lParam == other.lParam && self.wParam == other.wParam && self.message == other.message && self.hwnd == other.hwnd
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CWPSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CWPSTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CWP_FLAGS(pub u32);
-pub const CWP_ALL: CWP_FLAGS = CWP_FLAGS(0u32);
-pub const CWP_SKIPINVISIBLE: CWP_FLAGS = CWP_FLAGS(1u32);
-pub const CWP_SKIPDISABLED: CWP_FLAGS = CWP_FLAGS(2u32);
-pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = CWP_FLAGS(4u32);
-impl ::core::convert::From<u32> for CWP_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CWP_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CWP_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CWP_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CWP_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CWP_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CWP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CWP_FLAGS = u32;
+pub const CWP_ALL: CWP_FLAGS = 0u32;
+pub const CWP_SKIPINVISIBLE: CWP_FLAGS = 1u32;
+pub const CWP_SKIPDISABLED: CWP_FLAGS = 2u32;
+pub const CWP_SKIPTRANSPARENT: CWP_FLAGS = 4u32;
 pub const CW_USEDEFAULT: i32 = -2147483648i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -1833,7 +1628,6 @@ pub unsafe fn CreateWindowExW<'a, Param1: ::windows::core::IntoParam<'a, super::
 }
 pub const DCX_EXCLUDEUPDATE: i32 = 256i32;
 pub const DC_HASDEFID: u32 = 21323u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEBUGHOOKINFO {
@@ -1844,30 +1638,30 @@ pub struct DEBUGHOOKINFO {
     pub code: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DEBUGHOOKINFO {}
+impl ::core::marker::Copy for DEBUGHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DEBUGHOOKINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DEBUGHOOKINFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DEBUGHOOKINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEBUGHOOKINFO").field("idThread", &self.idThread).field("idThreadInstaller", &self.idThreadInstaller).field("lParam", &self.lParam).field("wParam", &self.wParam).field("code", &self.code).finish()
-    }
+unsafe impl ::windows::core::Abi for DEBUGHOOKINFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DEBUGHOOKINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.idThread == other.idThread && self.idThreadInstaller == other.idThreadInstaller && self.lParam == other.lParam && self.wParam == other.wParam && self.code == other.code
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEBUGHOOKINFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DEBUGHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DEBUGHOOKINFO {
-    type Abi = Self;
+impl ::core::default::Default for DEBUGHOOKINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DESKTOP_CREATEMENU: i32 = 4i32;
 pub const DESKTOP_CREATEWINDOW: i32 = 2i32;
@@ -1881,51 +1675,13 @@ pub const DESKTOP_WRITEOBJECTS: i32 = 128i32;
 pub const DEVICE_NOTIFY_ALL_INTERFACE_CLASSES: u32 = 4u32;
 pub const DF_ALLOWOTHERACCOUNTHOOK: i32 = 1i32;
 pub const DIFFERENCE: u32 = 11u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DI_FLAGS(pub u32);
-pub const DI_MASK: DI_FLAGS = DI_FLAGS(1u32);
-pub const DI_IMAGE: DI_FLAGS = DI_FLAGS(2u32);
-pub const DI_NORMAL: DI_FLAGS = DI_FLAGS(3u32);
-pub const DI_COMPAT: DI_FLAGS = DI_FLAGS(4u32);
-pub const DI_DEFAULTSIZE: DI_FLAGS = DI_FLAGS(8u32);
-pub const DI_NOMIRROR: DI_FLAGS = DI_FLAGS(16u32);
-impl ::core::convert::From<u32> for DI_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DI_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for DI_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for DI_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DI_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DI_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for DI_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type DI_FLAGS = u32;
+pub const DI_MASK: DI_FLAGS = 1u32;
+pub const DI_IMAGE: DI_FLAGS = 2u32;
+pub const DI_NORMAL: DI_FLAGS = 3u32;
+pub const DI_COMPAT: DI_FLAGS = 4u32;
+pub const DI_DEFAULTSIZE: DI_FLAGS = 8u32;
+pub const DI_NOMIRROR: DI_FLAGS = 16u32;
 pub const DLGC_BUTTON: u32 = 8192u32;
 pub const DLGC_DEFPUSHBUTTON: u32 = 16u32;
 pub const DLGC_HASSETSEL: u32 = 8u32;
@@ -1937,7 +1693,6 @@ pub const DLGC_WANTARROWS: u32 = 1u32;
 pub const DLGC_WANTCHARS: u32 = 128u32;
 pub const DLGC_WANTMESSAGE: u32 = 4u32;
 pub const DLGC_WANTTAB: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(2))]
 pub struct DLGITEMTEMPLATE {
     pub style: u32,
@@ -1948,24 +1703,28 @@ pub struct DLGITEMTEMPLATE {
     pub cy: i16,
     pub id: u16,
 }
-impl DLGITEMTEMPLATE {}
+impl ::core::marker::Copy for DLGITEMTEMPLATE {}
+impl ::core::clone::Clone for DLGITEMTEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DLGITEMTEMPLATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DLGITEMTEMPLATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLGITEMTEMPLATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DLGITEMTEMPLATE {}
 impl ::core::default::Default for DLGITEMTEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DLGITEMTEMPLATE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DLGITEMTEMPLATE {}
-unsafe impl ::windows::core::Abi for DLGITEMTEMPLATE {
-    type Abi = Self;
-}
 #[cfg(feature = "Win32_Foundation")]
 pub type DLGPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: super::super::Foundation::WPARAM, param3: super::super::Foundation::LPARAM) -> isize>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(2))]
 pub struct DLGTEMPLATE {
     pub style: u32,
@@ -1976,20 +1735,25 @@ pub struct DLGTEMPLATE {
     pub cx: i16,
     pub cy: i16,
 }
-impl DLGTEMPLATE {}
+impl ::core::marker::Copy for DLGTEMPLATE {}
+impl ::core::clone::Clone for DLGTEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DLGTEMPLATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DLGTEMPLATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DLGTEMPLATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DLGTEMPLATE {}
 impl ::core::default::Default for DLGTEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for DLGTEMPLATE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DLGTEMPLATE {}
-unsafe impl ::windows::core::Abi for DLGTEMPLATE {
-    type Abi = Self;
 }
 pub const DLGWINDOWEXTRA: u32 = 30u32;
 pub const DM_GETDEFID: u32 = 1024u32;
@@ -2004,7 +1768,6 @@ pub const DOF_PROGMAN: u32 = 1u32;
 pub const DOF_SHELLDATA: u32 = 2u32;
 pub const DO_DROPFILE: i32 = 1162627398i32;
 pub const DO_PRINTFILE: i32 = 1414419024i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DROPSTRUCT {
@@ -2016,30 +1779,30 @@ pub struct DROPSTRUCT {
     pub dwControlData: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DROPSTRUCT {}
+impl ::core::marker::Copy for DROPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DROPSTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DROPSTRUCT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DROPSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DROPSTRUCT").field("hwndSource", &self.hwndSource).field("hwndSink", &self.hwndSink).field("wFmt", &self.wFmt).field("dwData", &self.dwData).field("ptDrop", &self.ptDrop).field("dwControlData", &self.dwControlData).finish()
-    }
+unsafe impl ::windows::core::Abi for DROPSTRUCT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DROPSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.hwndSource == other.hwndSource && self.hwndSink == other.hwndSink && self.wFmt == other.wFmt && self.dwData == other.dwData && self.ptDrop == other.ptDrop && self.dwControlData == other.dwControlData
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DROPSTRUCT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DROPSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DROPSTRUCT {
-    type Abi = Self;
+impl ::core::default::Default for DROPSTRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DS_3DLOOK: i32 = 4i32;
 pub const DS_ABSALIGN: i32 = 1i32;
@@ -2279,7 +2042,7 @@ pub unsafe fn DestroyIndexedResults<'a, Param0: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn DestroyIndexedResults(resourceuri: super::super::Foundation::PWSTR, qualifiercount: u32, qualifiers: *const IndexedResourceQualifier);
         }
-        ::core::mem::transmute(DestroyIndexedResults(resourceuri.into_param().abi(), ::core::mem::transmute(qualifiercount), ::core::mem::transmute(qualifiers)))
+        DestroyIndexedResults(resourceuri.into_param().abi(), ::core::mem::transmute(qualifiercount), ::core::mem::transmute(qualifiers))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2306,7 +2069,7 @@ pub unsafe fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void
         extern "system" {
             fn DestroyResourceIndexer(resourceindexer: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DestroyResourceIndexer(::core::mem::transmute(resourceindexer)))
+        DestroyResourceIndexer(::core::mem::transmute(resourceindexer))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2389,7 +2152,7 @@ pub unsafe fn DisableProcessWindowsGhosting() {
         extern "system" {
             fn DisableProcessWindowsGhosting();
         }
-        ::core::mem::transmute(DisableProcessWindowsGhosting())
+        DisableProcessWindowsGhosting()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2482,19 +2245,9 @@ pub const EC_LEFTMARGIN: u32 = 1u32;
 pub const EC_RIGHTMARGIN: u32 = 2u32;
 pub const EC_USEFONTINFO: u32 = 65535u32;
 pub const EDD_GET_DEVICE_INTERFACE_NAME: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EDIT_CONTROL_FEATURE(pub i32);
-pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(0i32);
-pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = EDIT_CONTROL_FEATURE(1i32);
-impl ::core::convert::From<i32> for EDIT_CONTROL_FEATURE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EDIT_CONTROL_FEATURE {
-    type Abi = Self;
-}
+pub type EDIT_CONTROL_FEATURE = i32;
+pub const EDIT_CONTROL_FEATURE_ENTERPRISE_DATA_PROTECTION_PASTE_SUPPORT: EDIT_CONTROL_FEATURE = 0i32;
+pub const EDIT_CONTROL_FEATURE_PASTE_NOTIFICATIONS: EDIT_CONTROL_FEATURE = 1i32;
 pub const EDS_RAWMODE: u32 = 2u32;
 pub const EDS_ROTATEDMODE: u32 = 4u32;
 pub const EIMES_CANCELCOMPSTRINFOCUS: u32 = 2u32;
@@ -2530,7 +2283,6 @@ pub const ES_READONLY: i32 = 2048i32;
 pub const ES_RIGHT: i32 = 2i32;
 pub const ES_UPPERCASE: i32 = 8i32;
 pub const ES_WANTRETURN: i32 = 4096i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EVENTMSG {
@@ -2541,30 +2293,30 @@ pub struct EVENTMSG {
     pub hwnd: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl EVENTMSG {}
+impl ::core::marker::Copy for EVENTMSG {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for EVENTMSG {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for EVENTMSG {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for EVENTMSG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EVENTMSG").field("message", &self.message).field("paramL", &self.paramL).field("paramH", &self.paramH).field("time", &self.time).field("hwnd", &self.hwnd).finish()
-    }
+unsafe impl ::windows::core::Abi for EVENTMSG {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for EVENTMSG {
     fn eq(&self, other: &Self) -> bool {
-        self.message == other.message && self.paramL == other.paramL && self.paramH == other.paramH && self.time == other.time && self.hwnd == other.hwnd
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EVENTMSG>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for EVENTMSG {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for EVENTMSG {
-    type Abi = Self;
+impl ::core::default::Default for EVENTMSG {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const EVENT_AIA_END: u32 = 45055u32;
 pub const EVENT_AIA_START: u32 = 40960u32;
@@ -2830,7 +2582,6 @@ pub const FKF_FILTERKEYSON: u32 = 1u32;
 pub const FKF_HOTKEYACTIVE: u32 = 4u32;
 pub const FKF_HOTKEYSOUND: u32 = 16u32;
 pub const FKF_INDICATOR: u32 = 32u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FLASHWINFO {
@@ -2841,118 +2592,42 @@ pub struct FLASHWINFO {
     pub dwTimeout: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FLASHWINFO {}
+impl ::core::marker::Copy for FLASHWINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FLASHWINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FLASHWINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FLASHWINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FLASHWINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FLASHWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FLASHWINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FLASHWINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FLASHWINFO").field("cbSize", &self.cbSize).field("hwnd", &self.hwnd).field("dwFlags", &self.dwFlags).field("uCount", &self.uCount).field("dwTimeout", &self.dwTimeout).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FLASHWINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwnd == other.hwnd && self.dwFlags == other.dwFlags && self.uCount == other.uCount && self.dwTimeout == other.dwTimeout
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FLASHWINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FLASHWINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FLASHWINFO_FLAGS(pub u32);
-pub const FLASHW_ALL: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(3u32);
-pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(1u32);
-pub const FLASHW_STOP: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(0u32);
-pub const FLASHW_TIMER: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(4u32);
-pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(12u32);
-pub const FLASHW_TRAY: FLASHWINFO_FLAGS = FLASHWINFO_FLAGS(2u32);
-impl ::core::convert::From<u32> for FLASHWINFO_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FLASHWINFO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FLASHWINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FLASHWINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FLASHWINFO_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FLASHWINFO_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FLASHWINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type FLASHWINFO_FLAGS = u32;
+pub const FLASHW_ALL: FLASHWINFO_FLAGS = 3u32;
+pub const FLASHW_CAPTION: FLASHWINFO_FLAGS = 1u32;
+pub const FLASHW_STOP: FLASHWINFO_FLAGS = 0u32;
+pub const FLASHW_TIMER: FLASHWINFO_FLAGS = 4u32;
+pub const FLASHW_TIMERNOFG: FLASHWINFO_FLAGS = 12u32;
+pub const FLASHW_TRAY: FLASHWINFO_FLAGS = 2u32;
 pub const FNOINVERT: u32 = 2u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FOREGROUND_WINDOW_LOCK_CODE(pub u32);
-pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(1u32);
-pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = FOREGROUND_WINDOW_LOCK_CODE(2u32);
-impl ::core::convert::From<u32> for FOREGROUND_WINDOW_LOCK_CODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FOREGROUND_WINDOW_LOCK_CODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for FOREGROUND_WINDOW_LOCK_CODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for FOREGROUND_WINDOW_LOCK_CODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for FOREGROUND_WINDOW_LOCK_CODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for FOREGROUND_WINDOW_LOCK_CODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for FOREGROUND_WINDOW_LOCK_CODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type FOREGROUND_WINDOW_LOCK_CODE = u32;
+pub const LSFW_LOCK: FOREGROUND_WINDOW_LOCK_CODE = 1u32;
+pub const LSFW_UNLOCK: FOREGROUND_WINDOW_LOCK_CODE = 2u32;
 pub const FSHIFT: u32 = 4u32;
 pub const FVIRTKEY: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -3040,48 +2715,10 @@ pub unsafe fn FlashWindowEx(pfwi: *const FLASHWINFO) -> super::super::Foundation
     unimplemented!("Unsupported target OS");
 }
 pub const GCF_INCLUDE_ANCESTORS: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GDI_IMAGE_TYPE(pub u32);
-pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(0u32);
-pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(2u32);
-pub const IMAGE_ICON: GDI_IMAGE_TYPE = GDI_IMAGE_TYPE(1u32);
-impl ::core::convert::From<u32> for GDI_IMAGE_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GDI_IMAGE_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GDI_IMAGE_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GDI_IMAGE_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GDI_IMAGE_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GDI_IMAGE_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GDI_IMAGE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type GDI_IMAGE_TYPE = u32;
+pub const IMAGE_BITMAP: GDI_IMAGE_TYPE = 0u32;
+pub const IMAGE_CURSOR: GDI_IMAGE_TYPE = 2u32;
+pub const IMAGE_ICON: GDI_IMAGE_TYPE = 1u32;
 pub const GESTURECONFIGMAXCOUNT: u32 = 256u32;
 pub const GESTUREVISUALIZATION_DOUBLETAP: u32 = 2u32;
 pub const GESTUREVISUALIZATION_OFF: u32 = 0u32;
@@ -3090,170 +2727,45 @@ pub const GESTUREVISUALIZATION_PRESSANDHOLD: u32 = 8u32;
 pub const GESTUREVISUALIZATION_PRESSANDTAP: u32 = 4u32;
 pub const GESTUREVISUALIZATION_RIGHTTAP: u32 = 16u32;
 pub const GESTUREVISUALIZATION_TAP: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_ANCESTOR_FLAGS(pub u32);
-pub const GA_PARENT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(1u32);
-pub const GA_ROOT: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(2u32);
-pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = GET_ANCESTOR_FLAGS(3u32);
-impl ::core::convert::From<u32> for GET_ANCESTOR_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_ANCESTOR_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GET_ANCESTOR_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_ANCESTOR_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_ANCESTOR_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_ANCESTOR_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GET_ANCESTOR_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_CLASS_LONG_INDEX(pub i32);
-pub const GCW_ATOM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-32i32);
-pub const GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-20i32);
-pub const GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-18i32);
-pub const GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
-pub const GCL_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
-pub const GCL_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
-pub const GCL_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
-pub const GCL_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
-pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
-pub const GCL_STYLE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-26i32);
-pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
-pub const GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-10i32);
-pub const GCLP_HCURSOR: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-12i32);
-pub const GCLP_HICON: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-14i32);
-pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-34i32);
-pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-16i32);
-pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-8i32);
-pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = GET_CLASS_LONG_INDEX(-24i32);
-impl ::core::convert::From<i32> for GET_CLASS_LONG_INDEX {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_CLASS_LONG_INDEX {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_MENU_DEFAULT_ITEM_FLAGS(pub u32);
-pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(2u32);
-pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = GET_MENU_DEFAULT_ITEM_FLAGS(1u32);
-impl ::core::convert::From<u32> for GET_MENU_DEFAULT_ITEM_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_MENU_DEFAULT_ITEM_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GET_MENU_DEFAULT_ITEM_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_MENU_DEFAULT_ITEM_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_MENU_DEFAULT_ITEM_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GET_MENU_DEFAULT_ITEM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_WINDOW_CMD(pub u32);
-pub const GW_CHILD: GET_WINDOW_CMD = GET_WINDOW_CMD(5u32);
-pub const GW_ENABLEDPOPUP: GET_WINDOW_CMD = GET_WINDOW_CMD(6u32);
-pub const GW_HWNDFIRST: GET_WINDOW_CMD = GET_WINDOW_CMD(0u32);
-pub const GW_HWNDLAST: GET_WINDOW_CMD = GET_WINDOW_CMD(1u32);
-pub const GW_HWNDNEXT: GET_WINDOW_CMD = GET_WINDOW_CMD(2u32);
-pub const GW_HWNDPREV: GET_WINDOW_CMD = GET_WINDOW_CMD(3u32);
-pub const GW_OWNER: GET_WINDOW_CMD = GET_WINDOW_CMD(4u32);
-impl ::core::convert::From<u32> for GET_WINDOW_CMD {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_WINDOW_CMD {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GET_WINDOW_CMD {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_WINDOW_CMD {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_WINDOW_CMD {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_WINDOW_CMD {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GET_WINDOW_CMD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type GET_ANCESTOR_FLAGS = u32;
+pub const GA_PARENT: GET_ANCESTOR_FLAGS = 1u32;
+pub const GA_ROOT: GET_ANCESTOR_FLAGS = 2u32;
+pub const GA_ROOTOWNER: GET_ANCESTOR_FLAGS = 3u32;
+pub type GET_CLASS_LONG_INDEX = i32;
+pub const GCW_ATOM: GET_CLASS_LONG_INDEX = -32i32;
+pub const GCL_CBCLSEXTRA: GET_CLASS_LONG_INDEX = -20i32;
+pub const GCL_CBWNDEXTRA: GET_CLASS_LONG_INDEX = -18i32;
+pub const GCL_HBRBACKGROUND: GET_CLASS_LONG_INDEX = -10i32;
+pub const GCL_HCURSOR: GET_CLASS_LONG_INDEX = -12i32;
+pub const GCL_HICON: GET_CLASS_LONG_INDEX = -14i32;
+pub const GCL_HICONSM: GET_CLASS_LONG_INDEX = -34i32;
+pub const GCL_HMODULE: GET_CLASS_LONG_INDEX = -16i32;
+pub const GCL_MENUNAME: GET_CLASS_LONG_INDEX = -8i32;
+pub const GCL_STYLE: GET_CLASS_LONG_INDEX = -26i32;
+pub const GCL_WNDPROC: GET_CLASS_LONG_INDEX = -24i32;
+pub const GCLP_HBRBACKGROUND: GET_CLASS_LONG_INDEX = -10i32;
+pub const GCLP_HCURSOR: GET_CLASS_LONG_INDEX = -12i32;
+pub const GCLP_HICON: GET_CLASS_LONG_INDEX = -14i32;
+pub const GCLP_HICONSM: GET_CLASS_LONG_INDEX = -34i32;
+pub const GCLP_HMODULE: GET_CLASS_LONG_INDEX = -16i32;
+pub const GCLP_MENUNAME: GET_CLASS_LONG_INDEX = -8i32;
+pub const GCLP_WNDPROC: GET_CLASS_LONG_INDEX = -24i32;
+pub type GET_MENU_DEFAULT_ITEM_FLAGS = u32;
+pub const GMDI_GOINTOPOPUPS: GET_MENU_DEFAULT_ITEM_FLAGS = 2u32;
+pub const GMDI_USEDISABLED: GET_MENU_DEFAULT_ITEM_FLAGS = 1u32;
+pub type GET_WINDOW_CMD = u32;
+pub const GW_CHILD: GET_WINDOW_CMD = 5u32;
+pub const GW_ENABLEDPOPUP: GET_WINDOW_CMD = 6u32;
+pub const GW_HWNDFIRST: GET_WINDOW_CMD = 0u32;
+pub const GW_HWNDLAST: GET_WINDOW_CMD = 1u32;
+pub const GW_HWNDNEXT: GET_WINDOW_CMD = 2u32;
+pub const GW_HWNDPREV: GET_WINDOW_CMD = 3u32;
+pub const GW_OWNER: GET_WINDOW_CMD = 4u32;
 pub const GF_BEGIN: u32 = 1u32;
 pub const GF_END: u32 = 4u32;
 pub const GF_INERTIA: u32 = 2u32;
 pub const GIDC_ARRIVAL: u32 = 1u32;
 pub const GIDC_REMOVAL: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GUITHREADINFO {
@@ -3268,75 +2780,37 @@ pub struct GUITHREADINFO {
     pub rcCaret: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl GUITHREADINFO {}
+impl ::core::marker::Copy for GUITHREADINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GUITHREADINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for GUITHREADINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for GUITHREADINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GUITHREADINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for GUITHREADINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GUITHREADINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GUITHREADINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GUITHREADINFO").field("cbSize", &self.cbSize).field("flags", &self.flags).field("hwndActive", &self.hwndActive).field("hwndFocus", &self.hwndFocus).field("hwndCapture", &self.hwndCapture).field("hwndMenuOwner", &self.hwndMenuOwner).field("hwndMoveSize", &self.hwndMoveSize).field("hwndCaret", &self.hwndCaret).field("rcCaret", &self.rcCaret).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GUITHREADINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.flags == other.flags && self.hwndActive == other.hwndActive && self.hwndFocus == other.hwndFocus && self.hwndCapture == other.hwndCapture && self.hwndMenuOwner == other.hwndMenuOwner && self.hwndMoveSize == other.hwndMoveSize && self.hwndCaret == other.hwndCaret && self.rcCaret == other.rcCaret
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GUITHREADINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GUITHREADINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GUITHREADINFO_FLAGS(pub u32);
-pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(1u32);
-pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(4u32);
-pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(2u32);
-pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(16u32);
-pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = GUITHREADINFO_FLAGS(8u32);
-impl ::core::convert::From<u32> for GUITHREADINFO_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GUITHREADINFO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GUITHREADINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GUITHREADINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GUITHREADINFO_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GUITHREADINFO_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GUITHREADINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type GUITHREADINFO_FLAGS = u32;
+pub const GUI_CARETBLINKING: GUITHREADINFO_FLAGS = 1u32;
+pub const GUI_INMENUMODE: GUITHREADINFO_FLAGS = 4u32;
+pub const GUI_INMOVESIZE: GUITHREADINFO_FLAGS = 2u32;
+pub const GUI_POPUPMENUMODE: GUITHREADINFO_FLAGS = 16u32;
+pub const GUI_SYSTEMMENUMODE: GUITHREADINFO_FLAGS = 8u32;
 pub const GUI_16BITTASK: u32 = 0u32;
 pub const GWFS_INCLUDE_ANCESTORS: u32 = 1u32;
 pub const GW_MAX: u32 = 5u32;
@@ -4590,32 +4064,10 @@ pub unsafe fn GetWindowWord<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HACCEL(pub isize);
-impl ::core::default::Default for HACCEL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HACCEL {}
-unsafe impl ::windows::core::Abi for HACCEL {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HANDEDNESS(pub i32);
-pub const HANDEDNESS_LEFT: HANDEDNESS = HANDEDNESS(0i32);
-pub const HANDEDNESS_RIGHT: HANDEDNESS = HANDEDNESS(1i32);
-impl ::core::convert::From<i32> for HANDEDNESS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HANDEDNESS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HACCEL = isize;
+pub type HANDEDNESS = i32;
+pub const HANDEDNESS_LEFT: HANDEDNESS = 0i32;
+pub const HANDEDNESS_RIGHT: HANDEDNESS = 1i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HARDWAREHOOKSTRUCT {
@@ -4625,53 +4077,53 @@ pub struct HARDWAREHOOKSTRUCT {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HARDWAREHOOKSTRUCT {}
+impl ::core::marker::Copy for HARDWAREHOOKSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HARDWAREHOOKSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HARDWAREHOOKSTRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HARDWAREHOOKSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HARDWAREHOOKSTRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HARDWAREHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HARDWAREHOOKSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for HARDWAREHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HARDWAREHOOKSTRUCT").field("hwnd", &self.hwnd).field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HARDWAREHOOKSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.message == other.message && self.wParam == other.wParam && self.lParam == other.lParam
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HARDWAREHOOKSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HARDWAREHOOKSTRUCT {
-    type Abi = Self;
-}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(-1i32 as _);
+pub const HBMMENU_CALLBACK: super::super::Graphics::Gdi::HBITMAP = -1i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(5i32 as _);
+pub const HBMMENU_MBAR_CLOSE: super::super::Graphics::Gdi::HBITMAP = 5i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(6i32 as _);
+pub const HBMMENU_MBAR_CLOSE_D: super::super::Graphics::Gdi::HBITMAP = 6i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(3i32 as _);
+pub const HBMMENU_MBAR_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 3i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(7i32 as _);
+pub const HBMMENU_MBAR_MINIMIZE_D: super::super::Graphics::Gdi::HBITMAP = 7i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(2i32 as _);
+pub const HBMMENU_MBAR_RESTORE: super::super::Graphics::Gdi::HBITMAP = 2i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(8i32 as _);
+pub const HBMMENU_POPUP_CLOSE: super::super::Graphics::Gdi::HBITMAP = 8i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(10i32 as _);
+pub const HBMMENU_POPUP_MAXIMIZE: super::super::Graphics::Gdi::HBITMAP = 10i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(11i32 as _);
+pub const HBMMENU_POPUP_MINIMIZE: super::super::Graphics::Gdi::HBITMAP = 11i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(9i32 as _);
+pub const HBMMENU_POPUP_RESTORE: super::super::Graphics::Gdi::HBITMAP = 9i32 as _;
 #[cfg(feature = "Win32_Graphics_Gdi")]
-pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = super::super::Graphics::Gdi::HBITMAP(1i32 as _);
+pub const HBMMENU_SYSTEM: super::super::Graphics::Gdi::HBITMAP = 1i32 as _;
 pub const HCBT_ACTIVATE: u32 = 5u32;
 pub const HCBT_CLICKSKIPPED: u32 = 6u32;
 pub const HCBT_CREATEWND: u32 = 3u32;
@@ -4684,23 +4136,7 @@ pub const HCBT_SETFOCUS: u32 = 9u32;
 pub const HCBT_SYSCOMMAND: u32 = 8u32;
 pub const HCF_DEFAULTDESKTOP: u32 = 512u32;
 pub const HCF_LOGONDESKTOP: u32 = 256u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HCURSOR(pub isize);
-impl ::core::default::Default for HCURSOR {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HCURSOR {}
-unsafe impl ::windows::core::Abi for HCURSOR {
-    type Abi = Self;
-}
-impl<'a> ::windows::core::IntoParam<'a, HICON> for HCURSOR {
-    fn into_param(self) -> ::windows::core::Param<'a, HICON> {
-        ::windows::core::Param::Owned(HICON(self.0))
-    }
-}
+pub type HCURSOR = isize;
 pub const HC_ACTION: u32 = 0u32;
 pub const HC_GETNEXT: u32 = 1u32;
 pub const HC_NOREM: u32 = 3u32;
@@ -4731,45 +4167,12 @@ pub const HELP_TCARD: u32 = 32768u32;
 pub const HELP_TCARD_DATA: u32 = 16u32;
 pub const HELP_TCARD_OTHER_CALLER: u32 = 17u32;
 pub const HELP_WM_HELP: u32 = 12u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HHOOK(pub isize);
-impl ::core::default::Default for HHOOK {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HHOOK {}
-unsafe impl ::windows::core::Abi for HHOOK {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HICON(pub isize);
-impl ::core::default::Default for HICON {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HICON {}
-unsafe impl ::windows::core::Abi for HICON {
-    type Abi = Self;
-}
+pub type HHOOK = isize;
+pub type HICON = isize;
 pub const HIDE_WINDOW: u32 = 0u32;
 pub const HKL_NEXT: u32 = 1u32;
 pub const HKL_PREV: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HMENU(pub isize);
-impl ::core::default::Default for HMENU {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HMENU {}
-unsafe impl ::windows::core::Abi for HMENU {
-    type Abi = Self;
-}
+pub type HMENU = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type HOOKPROC = ::core::option::Option<unsafe extern "system" fn(code: i32, wparam: super::super::Foundation::WPARAM, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT>;
 pub const HSHELL_ACCESSIBILITYSTATE: u32 = 11u32;
@@ -4818,17 +4221,17 @@ pub const HTTRANSPARENT: i32 = -1i32;
 pub const HTVSCROLL: u32 = 7u32;
 pub const HTZOOM: u32 = 9u32;
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_BOTTOM: super::super::Foundation::HWND = super::super::Foundation::HWND(1i32 as _);
+pub const HWND_BOTTOM: super::super::Foundation::HWND = 1i32 as _;
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_DESKTOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
+pub const HWND_DESKTOP: super::super::Foundation::HWND = 0i32 as _;
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_MESSAGE: super::super::Foundation::HWND = super::super::Foundation::HWND(-3i32 as _);
+pub const HWND_MESSAGE: super::super::Foundation::HWND = -3i32 as _;
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_NOTOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-2i32 as _);
+pub const HWND_NOTOPMOST: super::super::Foundation::HWND = -2i32 as _;
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_TOP: super::super::Foundation::HWND = super::super::Foundation::HWND(0i32 as _);
+pub const HWND_TOP: super::super::Foundation::HWND = 0i32 as _;
 #[cfg(feature = "Win32_Foundation")]
-pub const HWND_TOPMOST: super::super::Foundation::HWND = super::super::Foundation::HWND(-1i32 as _);
+pub const HWND_TOPMOST: super::super::Foundation::HWND = -1i32 as _;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HideCaret<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
@@ -4857,7 +4260,6 @@ pub unsafe fn HiliteMenuItem<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONINFO {
@@ -4868,32 +4270,31 @@ pub struct ICONINFO {
     pub hbmColor: super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ICONINFO {}
+impl ::core::marker::Copy for ICONINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for ICONINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for ICONINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for ICONINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for ICONINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for ICONINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for ICONINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICONINFO").field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for ICONINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for ICONINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICONINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONINFOEXA {
@@ -4908,32 +4309,31 @@ pub struct ICONINFOEXA {
     pub szResName: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ICONINFOEXA {}
+impl ::core::marker::Copy for ICONINFOEXA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for ICONINFOEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for ICONINFOEXA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for ICONINFOEXA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONINFOEXA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for ICONINFOEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for ICONINFOEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for ICONINFOEXA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICONINFOEXA").field("cbSize", &self.cbSize).field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).field("wResID", &self.wResID).field("szModName", &self.szModName).field("szResName", &self.szResName).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for ICONINFOEXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor && self.wResID == other.wResID && self.szModName == other.szModName && self.szResName == other.szResName
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for ICONINFOEXA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICONINFOEXA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONINFOEXW {
@@ -4948,32 +4348,31 @@ pub struct ICONINFOEXW {
     pub szResName: [u16; 260],
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ICONINFOEXW {}
+impl ::core::marker::Copy for ICONINFOEXW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for ICONINFOEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for ICONINFOEXW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for ICONINFOEXW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONINFOEXW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for ICONINFOEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for ICONINFOEXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for ICONINFOEXW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICONINFOEXW").field("cbSize", &self.cbSize).field("fIcon", &self.fIcon).field("xHotspot", &self.xHotspot).field("yHotspot", &self.yHotspot).field("hbmMask", &self.hbmMask).field("hbmColor", &self.hbmColor).field("wResID", &self.wResID).field("szModName", &self.szModName).field("szResName", &self.szResName).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for ICONINFOEXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fIcon == other.fIcon && self.xHotspot == other.xHotspot && self.yHotspot == other.yHotspot && self.hbmMask == other.hbmMask && self.hbmColor == other.hbmColor && self.wResID == other.wResID && self.szModName == other.szModName && self.szResName == other.szResName
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for ICONINFOEXW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICONINFOEXW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct ICONMETRICSA {
@@ -4984,32 +4383,31 @@ pub struct ICONMETRICSA {
     pub lfFont: super::super::Graphics::Gdi::LOGFONTA,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ICONMETRICSA {}
+impl ::core::marker::Copy for ICONMETRICSA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for ICONMETRICSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for ICONMETRICSA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for ICONMETRICSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONMETRICSA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for ICONMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for ICONMETRICSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for ICONMETRICSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICONMETRICSA").field("cbSize", &self.cbSize).field("iHorzSpacing", &self.iHorzSpacing).field("iVertSpacing", &self.iVertSpacing).field("iTitleWrap", &self.iTitleWrap).field("lfFont", &self.lfFont).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for ICONMETRICSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iHorzSpacing == other.iHorzSpacing && self.iVertSpacing == other.iVertSpacing && self.iTitleWrap == other.iTitleWrap && self.lfFont == other.lfFont
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for ICONMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for ICONMETRICSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct ICONMETRICSW {
@@ -5020,30 +4418,30 @@ pub struct ICONMETRICSW {
     pub lfFont: super::super::Graphics::Gdi::LOGFONTW,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ICONMETRICSW {}
+impl ::core::marker::Copy for ICONMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::default::Default for ICONMETRICSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for ICONMETRICSW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for ICONMETRICSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ICONMETRICSW").field("cbSize", &self.cbSize).field("iHorzSpacing", &self.iHorzSpacing).field("iVertSpacing", &self.iVertSpacing).field("iTitleWrap", &self.iTitleWrap).field("lfFont", &self.lfFont).finish()
-    }
+unsafe impl ::windows::core::Abi for ICONMETRICSW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::PartialEq for ICONMETRICSW {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iHorzSpacing == other.iHorzSpacing && self.iVertSpacing == other.iVertSpacing && self.iTitleWrap == other.iTitleWrap && self.lfFont == other.lfFont
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ICONMETRICSW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::cmp::Eq for ICONMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for ICONMETRICSW {
-    type Abi = Self;
+impl ::core::default::Default for ICONMETRICSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const ICON_BIG: u32 = 1u32;
 pub const ICON_SMALL: u32 = 0u32;
@@ -5112,57 +4510,19 @@ pub const IDI_WARNING: u32 = 32515u32;
 #[cfg(feature = "Win32_Foundation")]
 pub const IDI_WINLOGO: super::super::Foundation::PWSTR = super::super::Foundation::PWSTR(32517u32 as _);
 pub const IMAGE_ENHMETAFILE: u32 = 3u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct IMAGE_FLAGS(pub u32);
-pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = IMAGE_FLAGS(8192u32);
-pub const LR_DEFAULTCOLOR: IMAGE_FLAGS = IMAGE_FLAGS(0u32);
-pub const LR_DEFAULTSIZE: IMAGE_FLAGS = IMAGE_FLAGS(64u32);
-pub const LR_LOADFROMFILE: IMAGE_FLAGS = IMAGE_FLAGS(16u32);
-pub const LR_LOADMAP3DCOLORS: IMAGE_FLAGS = IMAGE_FLAGS(4096u32);
-pub const LR_LOADTRANSPARENT: IMAGE_FLAGS = IMAGE_FLAGS(32u32);
-pub const LR_MONOCHROME: IMAGE_FLAGS = IMAGE_FLAGS(1u32);
-pub const LR_SHARED: IMAGE_FLAGS = IMAGE_FLAGS(32768u32);
-pub const LR_VGACOLOR: IMAGE_FLAGS = IMAGE_FLAGS(128u32);
-pub const LR_COPYDELETEORG: IMAGE_FLAGS = IMAGE_FLAGS(8u32);
-pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = IMAGE_FLAGS(16384u32);
-pub const LR_COPYRETURNORG: IMAGE_FLAGS = IMAGE_FLAGS(4u32);
-impl ::core::convert::From<u32> for IMAGE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for IMAGE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for IMAGE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for IMAGE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for IMAGE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for IMAGE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for IMAGE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type IMAGE_FLAGS = u32;
+pub const LR_CREATEDIBSECTION: IMAGE_FLAGS = 8192u32;
+pub const LR_DEFAULTCOLOR: IMAGE_FLAGS = 0u32;
+pub const LR_DEFAULTSIZE: IMAGE_FLAGS = 64u32;
+pub const LR_LOADFROMFILE: IMAGE_FLAGS = 16u32;
+pub const LR_LOADMAP3DCOLORS: IMAGE_FLAGS = 4096u32;
+pub const LR_LOADTRANSPARENT: IMAGE_FLAGS = 32u32;
+pub const LR_MONOCHROME: IMAGE_FLAGS = 1u32;
+pub const LR_SHARED: IMAGE_FLAGS = 32768u32;
+pub const LR_VGACOLOR: IMAGE_FLAGS = 128u32;
+pub const LR_COPYDELETEORG: IMAGE_FLAGS = 8u32;
+pub const LR_COPYFROMRESOURCE: IMAGE_FLAGS = 16384u32;
+pub const LR_COPYRETURNORG: IMAGE_FLAGS = 4u32;
 pub const INDEXID_CONTAINER: u32 = 0u32;
 pub const INDEXID_OBJECT: u32 = 0u32;
 pub const INPUTLANGCHANGE_BACKWARD: u32 = 4u32;
@@ -5218,7 +4578,6 @@ pub unsafe fn IndexFilePath<'a, Param1: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IndexedResourceQualifier {
@@ -5226,30 +4585,30 @@ pub struct IndexedResourceQualifier {
     pub value: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl IndexedResourceQualifier {}
+impl ::core::marker::Copy for IndexedResourceQualifier {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for IndexedResourceQualifier {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for IndexedResourceQualifier {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for IndexedResourceQualifier {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IndexedResourceQualifier").field("name", &self.name).field("value", &self.value).finish()
-    }
+unsafe impl ::windows::core::Abi for IndexedResourceQualifier {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for IndexedResourceQualifier {
     fn eq(&self, other: &Self) -> bool {
-        self.name == other.name && self.value == other.value
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IndexedResourceQualifier>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for IndexedResourceQualifier {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for IndexedResourceQualifier {
-    type Abi = Self;
+impl ::core::default::Default for IndexedResourceQualifier {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5615,7 +4974,6 @@ pub unsafe fn IsZoomed<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct KBDLLHOOKSTRUCT {
     pub vkCode: u32,
@@ -5624,70 +4982,32 @@ pub struct KBDLLHOOKSTRUCT {
     pub time: u32,
     pub dwExtraInfo: usize,
 }
-impl KBDLLHOOKSTRUCT {}
+impl ::core::marker::Copy for KBDLLHOOKSTRUCT {}
+impl ::core::clone::Clone for KBDLLHOOKSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for KBDLLHOOKSTRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for KBDLLHOOKSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<KBDLLHOOKSTRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for KBDLLHOOKSTRUCT {}
 impl ::core::default::Default for KBDLLHOOKSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for KBDLLHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("KBDLLHOOKSTRUCT").field("vkCode", &self.vkCode).field("scanCode", &self.scanCode).field("flags", &self.flags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
-impl ::core::cmp::PartialEq for KBDLLHOOKSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.vkCode == other.vkCode && self.scanCode == other.scanCode && self.flags == other.flags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
-    }
-}
-impl ::core::cmp::Eq for KBDLLHOOKSTRUCT {}
-unsafe impl ::windows::core::Abi for KBDLLHOOKSTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct KBDLLHOOKSTRUCT_FLAGS(pub u32);
-pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(1u32);
-pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(32u32);
-pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(128u32);
-pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(16u32);
-pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = KBDLLHOOKSTRUCT_FLAGS(2u32);
-impl ::core::convert::From<u32> for KBDLLHOOKSTRUCT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for KBDLLHOOKSTRUCT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for KBDLLHOOKSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for KBDLLHOOKSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for KBDLLHOOKSTRUCT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for KBDLLHOOKSTRUCT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for KBDLLHOOKSTRUCT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type KBDLLHOOKSTRUCT_FLAGS = u32;
+pub const LLKHF_EXTENDED: KBDLLHOOKSTRUCT_FLAGS = 1u32;
+pub const LLKHF_ALTDOWN: KBDLLHOOKSTRUCT_FLAGS = 32u32;
+pub const LLKHF_UP: KBDLLHOOKSTRUCT_FLAGS = 128u32;
+pub const LLKHF_INJECTED: KBDLLHOOKSTRUCT_FLAGS = 16u32;
+pub const LLKHF_LOWER_IL_INJECTED: KBDLLHOOKSTRUCT_FLAGS = 2u32;
 pub const KF_ALTDOWN: u32 = 8192u32;
 pub const KF_DLGMODE: u32 = 2048u32;
 pub const KF_EXTENDED: u32 = 256u32;
@@ -5709,47 +5029,9 @@ pub unsafe fn KillTimer<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct LAYERED_WINDOW_ATTRIBUTES_FLAGS(pub u32);
-pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(2u32);
-pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = LAYERED_WINDOW_ATTRIBUTES_FLAGS(1u32);
-impl ::core::convert::From<u32> for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for LAYERED_WINDOW_ATTRIBUTES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type LAYERED_WINDOW_ATTRIBUTES_FLAGS = u32;
+pub const LWA_ALPHA: LAYERED_WINDOW_ATTRIBUTES_FLAGS = 2u32;
+pub const LWA_COLORKEY: LAYERED_WINDOW_ATTRIBUTES_FLAGS = 1u32;
 pub const LBN_DBLCLK: u32 = 2u32;
 pub const LBN_ERRSPACE: i32 = -2i32;
 pub const LBN_KILLFOCUS: u32 = 5u32;
@@ -6115,7 +5397,6 @@ pub const MA_ACTIVATE: u32 = 1u32;
 pub const MA_ACTIVATEANDEAT: u32 = 2u32;
 pub const MA_NOACTIVATE: u32 = 3u32;
 pub const MA_NOACTIVATEANDEAT: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDICREATESTRUCTA {
@@ -6130,32 +5411,31 @@ pub struct MDICREATESTRUCTA {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MDICREATESTRUCTA {}
+impl ::core::marker::Copy for MDICREATESTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MDICREATESTRUCTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MDICREATESTRUCTA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MDICREATESTRUCTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDICREATESTRUCTA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MDICREATESTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MDICREATESTRUCTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MDICREATESTRUCTA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MDICREATESTRUCTA").field("szClass", &self.szClass).field("szTitle", &self.szTitle).field("hOwner", &self.hOwner).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("style", &self.style).field("lParam", &self.lParam).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MDICREATESTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.szClass == other.szClass && self.szTitle == other.szTitle && self.hOwner == other.hOwner && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.style == other.style && self.lParam == other.lParam
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MDICREATESTRUCTA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MDICREATESTRUCTA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDICREATESTRUCTW {
@@ -6170,32 +5450,31 @@ pub struct MDICREATESTRUCTW {
     pub lParam: super::super::Foundation::LPARAM,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MDICREATESTRUCTW {}
+impl ::core::marker::Copy for MDICREATESTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MDICREATESTRUCTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MDICREATESTRUCTW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MDICREATESTRUCTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDICREATESTRUCTW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MDICREATESTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MDICREATESTRUCTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MDICREATESTRUCTW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MDICREATESTRUCTW").field("szClass", &self.szClass).field("szTitle", &self.szTitle).field("hOwner", &self.hOwner).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("style", &self.style).field("lParam", &self.lParam).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MDICREATESTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.szClass == other.szClass && self.szTitle == other.szTitle && self.hOwner == other.hOwner && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.style == other.style && self.lParam == other.lParam
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MDICREATESTRUCTW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MDICREATESTRUCTW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MDINEXTMENU {
@@ -6204,33 +5483,32 @@ pub struct MDINEXTMENU {
     pub hwndNext: super::super::Foundation::HWND,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MDINEXTMENU {}
+impl ::core::marker::Copy for MDINEXTMENU {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MDINEXTMENU {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MDINEXTMENU {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MDINEXTMENU {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MDINEXTMENU>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MDINEXTMENU {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MDINEXTMENU {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MDINEXTMENU {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MDINEXTMENU").field("hmenuIn", &self.hmenuIn).field("hmenuNext", &self.hmenuNext).field("hwndNext", &self.hwndNext).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MDINEXTMENU {
-    fn eq(&self, other: &Self) -> bool {
-        self.hmenuIn == other.hmenuIn && self.hmenuNext == other.hmenuNext && self.hwndNext == other.hwndNext
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MDINEXTMENU {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MDINEXTMENU {
-    type Abi = Self;
-}
 pub const MDIS_ALLCHILDSTYLES: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MENUBARINFO {
@@ -6241,32 +5519,31 @@ pub struct MENUBARINFO {
     pub _bitfield: i32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MENUBARINFO {}
+impl ::core::marker::Copy for MENUBARINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MENUBARINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MENUBARINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MENUBARINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUBARINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MENUBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MENUBARINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MENUBARINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUBARINFO").field("cbSize", &self.cbSize).field("rcBar", &self.rcBar).field("hMenu", &self.hMenu).field("hwndMenu", &self.hwndMenu).field("_bitfield", &self._bitfield).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MENUBARINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rcBar == other.rcBar && self.hMenu == other.hMenu && self.hwndMenu == other.hwndMenu && self._bitfield == other._bitfield
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MENUBARINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MENUBARINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MENUGETOBJECTINFO {
     pub dwFlags: MENUGETOBJECTINFO_FLAGS,
@@ -6275,68 +5552,29 @@ pub struct MENUGETOBJECTINFO {
     pub riid: *mut ::core::ffi::c_void,
     pub pvObj: *mut ::core::ffi::c_void,
 }
-impl MENUGETOBJECTINFO {}
+impl ::core::marker::Copy for MENUGETOBJECTINFO {}
+impl ::core::clone::Clone for MENUGETOBJECTINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENUGETOBJECTINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MENUGETOBJECTINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUGETOBJECTINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MENUGETOBJECTINFO {}
 impl ::core::default::Default for MENUGETOBJECTINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MENUGETOBJECTINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUGETOBJECTINFO").field("dwFlags", &self.dwFlags).field("uPos", &self.uPos).field("hmenu", &self.hmenu).field("riid", &self.riid).field("pvObj", &self.pvObj).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MENUGETOBJECTINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwFlags == other.dwFlags && self.uPos == other.uPos && self.hmenu == other.hmenu && self.riid == other.riid && self.pvObj == other.pvObj
-    }
-}
-impl ::core::cmp::Eq for MENUGETOBJECTINFO {}
-unsafe impl ::windows::core::Abi for MENUGETOBJECTINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MENUGETOBJECTINFO_FLAGS(pub u32);
-pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(2u32);
-pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = MENUGETOBJECTINFO_FLAGS(1u32);
-impl ::core::convert::From<u32> for MENUGETOBJECTINFO_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MENUGETOBJECTINFO_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MENUGETOBJECTINFO_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MENUGETOBJECTINFO_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENUGETOBJECTINFO_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENUGETOBJECTINFO_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MENUGETOBJECTINFO_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MENUGETOBJECTINFO_FLAGS = u32;
+pub const MNGOF_BOTTOMGAP: MENUGETOBJECTINFO_FLAGS = 2u32;
+pub const MNGOF_TOPGAP: MENUGETOBJECTINFO_FLAGS = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct MENUINFO {
@@ -6349,122 +5587,45 @@ pub struct MENUINFO {
     pub dwMenuData: usize,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl MENUINFO {}
+impl ::core::marker::Copy for MENUINFO {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for MENUINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for MENUINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for MENUINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for MENUINFO {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for MENUINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for MENUINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUINFO").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("dwStyle", &self.dwStyle).field("cyMax", &self.cyMax).field("hbrBack", &self.hbrBack).field("dwContextHelpID", &self.dwContextHelpID).field("dwMenuData", &self.dwMenuData).finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for MENUINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fMask == other.fMask && self.dwStyle == other.dwStyle && self.cyMax == other.cyMax && self.hbrBack == other.hbrBack && self.dwContextHelpID == other.dwContextHelpID && self.dwMenuData == other.dwMenuData
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for MENUINFO {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for MENUINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MENUINFO_MASK(pub u32);
-pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = MENUINFO_MASK(2147483648u32);
-pub const MIM_BACKGROUND: MENUINFO_MASK = MENUINFO_MASK(2u32);
-pub const MIM_HELPID: MENUINFO_MASK = MENUINFO_MASK(4u32);
-pub const MIM_MAXHEIGHT: MENUINFO_MASK = MENUINFO_MASK(1u32);
-pub const MIM_MENUDATA: MENUINFO_MASK = MENUINFO_MASK(8u32);
-pub const MIM_STYLE: MENUINFO_MASK = MENUINFO_MASK(16u32);
-impl ::core::convert::From<u32> for MENUINFO_MASK {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MENUINFO_MASK {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MENUINFO_MASK {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MENUINFO_MASK {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENUINFO_MASK {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENUINFO_MASK {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MENUINFO_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MENUINFO_STYLE(pub u32);
-pub const MNS_AUTODISMISS: MENUINFO_STYLE = MENUINFO_STYLE(268435456u32);
-pub const MNS_CHECKORBMP: MENUINFO_STYLE = MENUINFO_STYLE(67108864u32);
-pub const MNS_DRAGDROP: MENUINFO_STYLE = MENUINFO_STYLE(536870912u32);
-pub const MNS_MODELESS: MENUINFO_STYLE = MENUINFO_STYLE(1073741824u32);
-pub const MNS_NOCHECK: MENUINFO_STYLE = MENUINFO_STYLE(2147483648u32);
-pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = MENUINFO_STYLE(134217728u32);
-impl ::core::convert::From<u32> for MENUINFO_STYLE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MENUINFO_STYLE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MENUINFO_STYLE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MENUINFO_STYLE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENUINFO_STYLE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENUINFO_STYLE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MENUINFO_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MENUINFO_MASK = u32;
+pub const MIM_APPLYTOSUBMENUS: MENUINFO_MASK = 2147483648u32;
+pub const MIM_BACKGROUND: MENUINFO_MASK = 2u32;
+pub const MIM_HELPID: MENUINFO_MASK = 4u32;
+pub const MIM_MAXHEIGHT: MENUINFO_MASK = 1u32;
+pub const MIM_MENUDATA: MENUINFO_MASK = 8u32;
+pub const MIM_STYLE: MENUINFO_MASK = 16u32;
+pub type MENUINFO_STYLE = u32;
+pub const MNS_AUTODISMISS: MENUINFO_STYLE = 268435456u32;
+pub const MNS_CHECKORBMP: MENUINFO_STYLE = 67108864u32;
+pub const MNS_DRAGDROP: MENUINFO_STYLE = 536870912u32;
+pub const MNS_MODELESS: MENUINFO_STYLE = 1073741824u32;
+pub const MNS_NOCHECK: MENUINFO_STYLE = 2147483648u32;
+pub const MNS_NOTIFYBYPOS: MENUINFO_STYLE = 134217728u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MENUITEMINFOA {
@@ -6482,32 +5643,31 @@ pub struct MENUITEMINFOA {
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl MENUITEMINFOA {}
+impl ::core::marker::Copy for MENUITEMINFOA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MENUITEMINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for MENUITEMINFOA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for MENUITEMINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMINFOA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for MENUITEMINFOA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MENUITEMINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for MENUITEMINFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUITEMINFOA").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hSubMenu", &self.hSubMenu).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("dwTypeData", &self.dwTypeData).field("cch", &self.cch).field("hbmpItem", &self.hbmpItem).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MENUITEMINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fMask == other.fMask && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hSubMenu == other.hSubMenu && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.dwTypeData == other.dwTypeData && self.cch == other.cch && self.hbmpItem == other.hbmpItem
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MENUITEMINFOA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for MENUITEMINFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct MENUITEMINFOW {
@@ -6525,476 +5685,270 @@ pub struct MENUITEMINFOW {
     pub hbmpItem: super::super::Graphics::Gdi::HBITMAP,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl MENUITEMINFOW {}
+impl ::core::marker::Copy for MENUITEMINFOW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for MENUITEMINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for MENUITEMINFOW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for MENUITEMINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMINFOW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for MENUITEMINFOW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for MENUITEMINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for MENUITEMINFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUITEMINFOW").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("fType", &self.fType).field("fState", &self.fState).field("wID", &self.wID).field("hSubMenu", &self.hSubMenu).field("hbmpChecked", &self.hbmpChecked).field("hbmpUnchecked", &self.hbmpUnchecked).field("dwItemData", &self.dwItemData).field("dwTypeData", &self.dwTypeData).field("cch", &self.cch).field("hbmpItem", &self.hbmpItem).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for MENUITEMINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fMask == other.fMask && self.fType == other.fType && self.fState == other.fState && self.wID == other.wID && self.hSubMenu == other.hSubMenu && self.hbmpChecked == other.hbmpChecked && self.hbmpUnchecked == other.hbmpUnchecked && self.dwItemData == other.dwItemData && self.dwTypeData == other.dwTypeData && self.cch == other.cch && self.hbmpItem == other.hbmpItem
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for MENUITEMINFOW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for MENUITEMINFOW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MENUITEMTEMPLATE {
     pub mtOption: u16,
     pub mtID: u16,
     pub mtString: [u16; 1],
 }
-impl MENUITEMTEMPLATE {}
+impl ::core::marker::Copy for MENUITEMTEMPLATE {}
+impl ::core::clone::Clone for MENUITEMTEMPLATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENUITEMTEMPLATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MENUITEMTEMPLATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMTEMPLATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MENUITEMTEMPLATE {}
 impl ::core::default::Default for MENUITEMTEMPLATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MENUITEMTEMPLATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUITEMTEMPLATE").field("mtOption", &self.mtOption).field("mtID", &self.mtID).field("mtString", &self.mtString).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MENUITEMTEMPLATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.mtOption == other.mtOption && self.mtID == other.mtID && self.mtString == other.mtString
-    }
-}
-impl ::core::cmp::Eq for MENUITEMTEMPLATE {}
-unsafe impl ::windows::core::Abi for MENUITEMTEMPLATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MENUITEMTEMPLATEHEADER {
     pub versionNumber: u16,
     pub offset: u16,
 }
-impl MENUITEMTEMPLATEHEADER {}
+impl ::core::marker::Copy for MENUITEMTEMPLATEHEADER {}
+impl ::core::clone::Clone for MENUITEMTEMPLATEHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MENUITEMTEMPLATEHEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MENUITEMTEMPLATEHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MENUITEMTEMPLATEHEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MENUITEMTEMPLATEHEADER {}
 impl ::core::default::Default for MENUITEMTEMPLATEHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MENUITEMTEMPLATEHEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MENUITEMTEMPLATEHEADER").field("versionNumber", &self.versionNumber).field("offset", &self.offset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MENUITEMTEMPLATEHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.versionNumber == other.versionNumber && self.offset == other.offset
-    }
-}
-impl ::core::cmp::Eq for MENUITEMTEMPLATEHEADER {}
-unsafe impl ::windows::core::Abi for MENUITEMTEMPLATEHEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MENU_ITEM_FLAGS(pub u32);
-pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_BYPOSITION: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1024u32);
-pub const MF_BITMAP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4u32);
-pub const MF_CHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8u32);
-pub const MF_DISABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2u32);
-pub const MF_ENABLED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_GRAYED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(1u32);
-pub const MF_MENUBARBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32u32);
-pub const MF_MENUBREAK: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(64u32);
-pub const MF_OWNERDRAW: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
-pub const MF_POPUP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16u32);
-pub const MF_SEPARATOR: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(2048u32);
-pub const MF_STRING: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_UNCHECKED: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_INSERT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_CHANGE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-pub const MF_APPEND: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(256u32);
-pub const MF_DELETE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
-pub const MF_REMOVE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
-pub const MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(512u32);
-pub const MF_UNHILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(0u32);
-pub const MF_HILITE: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-pub const MF_DEFAULT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(4096u32);
-pub const MF_SYSMENU: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(8192u32);
-pub const MF_HELP: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
-pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(16384u32);
-pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(32768u32);
-pub const MF_END: MENU_ITEM_FLAGS = MENU_ITEM_FLAGS(128u32);
-impl ::core::convert::From<u32> for MENU_ITEM_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MENU_ITEM_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MENU_ITEM_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MENU_ITEM_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENU_ITEM_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENU_ITEM_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MENU_ITEM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MENU_ITEM_MASK(pub u32);
-pub const MIIM_BITMAP: MENU_ITEM_MASK = MENU_ITEM_MASK(128u32);
-pub const MIIM_CHECKMARKS: MENU_ITEM_MASK = MENU_ITEM_MASK(8u32);
-pub const MIIM_DATA: MENU_ITEM_MASK = MENU_ITEM_MASK(32u32);
-pub const MIIM_FTYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(256u32);
-pub const MIIM_ID: MENU_ITEM_MASK = MENU_ITEM_MASK(2u32);
-pub const MIIM_STATE: MENU_ITEM_MASK = MENU_ITEM_MASK(1u32);
-pub const MIIM_STRING: MENU_ITEM_MASK = MENU_ITEM_MASK(64u32);
-pub const MIIM_SUBMENU: MENU_ITEM_MASK = MENU_ITEM_MASK(4u32);
-pub const MIIM_TYPE: MENU_ITEM_MASK = MENU_ITEM_MASK(16u32);
-impl ::core::convert::From<u32> for MENU_ITEM_MASK {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MENU_ITEM_MASK {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MENU_ITEM_MASK {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MENU_ITEM_MASK {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENU_ITEM_MASK {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENU_ITEM_MASK {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MENU_ITEM_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MENU_ITEM_STATE(pub u32);
-pub const MFS_GRAYED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
-pub const MFS_DISABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(3u32);
-pub const MFS_CHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(8u32);
-pub const MFS_HILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(128u32);
-pub const MFS_ENABLED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_UNCHECKED: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_UNHILITE: MENU_ITEM_STATE = MENU_ITEM_STATE(0u32);
-pub const MFS_DEFAULT: MENU_ITEM_STATE = MENU_ITEM_STATE(4096u32);
-impl ::core::convert::From<u32> for MENU_ITEM_STATE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MENU_ITEM_STATE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MENU_ITEM_STATE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MENU_ITEM_STATE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENU_ITEM_STATE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENU_ITEM_STATE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MENU_ITEM_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MENU_ITEM_TYPE(pub u32);
-pub const MFT_BITMAP: MENU_ITEM_TYPE = MENU_ITEM_TYPE(4u32);
-pub const MFT_MENUBARBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(32u32);
-pub const MFT_MENUBREAK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(64u32);
-pub const MFT_OWNERDRAW: MENU_ITEM_TYPE = MENU_ITEM_TYPE(256u32);
-pub const MFT_RADIOCHECK: MENU_ITEM_TYPE = MENU_ITEM_TYPE(512u32);
-pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = MENU_ITEM_TYPE(16384u32);
-pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = MENU_ITEM_TYPE(8192u32);
-pub const MFT_SEPARATOR: MENU_ITEM_TYPE = MENU_ITEM_TYPE(2048u32);
-pub const MFT_STRING: MENU_ITEM_TYPE = MENU_ITEM_TYPE(0u32);
-impl ::core::convert::From<u32> for MENU_ITEM_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MENU_ITEM_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MENU_ITEM_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MENU_ITEM_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MENU_ITEM_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MENU_ITEM_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MENU_ITEM_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MESSAGEBOX_RESULT(pub i32);
-pub const IDOK: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(1i32);
-pub const IDCANCEL: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(2i32);
-pub const IDABORT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(3i32);
-pub const IDRETRY: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(4i32);
-pub const IDIGNORE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(5i32);
-pub const IDYES: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(6i32);
-pub const IDNO: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(7i32);
-pub const IDCLOSE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(8i32);
-pub const IDHELP: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(9i32);
-pub const IDTRYAGAIN: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(10i32);
-pub const IDCONTINUE: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(11i32);
-pub const IDASYNC: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32001i32);
-pub const IDTIMEOUT: MESSAGEBOX_RESULT = MESSAGEBOX_RESULT(32000i32);
-impl ::core::convert::From<i32> for MESSAGEBOX_RESULT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MESSAGEBOX_RESULT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MESSAGEBOX_STYLE(pub u32);
-pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2u32);
-pub const MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(6u32);
-pub const MB_HELP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16384u32);
-pub const MB_OK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_OKCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1u32);
-pub const MB_RETRYCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(5u32);
-pub const MB_YESNO: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4u32);
-pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3u32);
-pub const MB_ICONHAND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_ICONQUESTION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32u32);
-pub const MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
-pub const MB_ICONASTERISK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
-pub const MB_USERICON: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(128u32);
-pub const MB_ICONWARNING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(48u32);
-pub const MB_ICONERROR: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_ICONINFORMATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(64u32);
-pub const MB_ICONSTOP: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(16u32);
-pub const MB_DEFBUTTON1: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_DEFBUTTON2: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(256u32);
-pub const MB_DEFBUTTON3: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(512u32);
-pub const MB_DEFBUTTON4: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(768u32);
-pub const MB_APPLMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(0u32);
-pub const MB_SYSTEMMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(4096u32);
-pub const MB_TASKMODAL: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(8192u32);
-pub const MB_NOFOCUS: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(32768u32);
-pub const MB_SETFOREGROUND: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(65536u32);
-pub const MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(131072u32);
-pub const MB_TOPMOST: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
-pub const MB_RIGHT: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(524288u32);
-pub const MB_RTLREADING: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(1048576u32);
-pub const MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(2097152u32);
-pub const MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(262144u32);
-pub const MB_TYPEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(15u32);
-pub const MB_ICONMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(240u32);
-pub const MB_DEFMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(3840u32);
-pub const MB_MODEMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(12288u32);
-pub const MB_MISCMASK: MESSAGEBOX_STYLE = MESSAGEBOX_STYLE(49152u32);
-impl ::core::convert::From<u32> for MESSAGEBOX_STYLE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MESSAGEBOX_STYLE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MESSAGEBOX_STYLE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MESSAGEBOX_STYLE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MESSAGEBOX_STYLE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MESSAGEBOX_STYLE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MESSAGEBOX_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MENU_ITEM_FLAGS = u32;
+pub const MF_BYCOMMAND: MENU_ITEM_FLAGS = 0u32;
+pub const MF_BYPOSITION: MENU_ITEM_FLAGS = 1024u32;
+pub const MF_BITMAP: MENU_ITEM_FLAGS = 4u32;
+pub const MF_CHECKED: MENU_ITEM_FLAGS = 8u32;
+pub const MF_DISABLED: MENU_ITEM_FLAGS = 2u32;
+pub const MF_ENABLED: MENU_ITEM_FLAGS = 0u32;
+pub const MF_GRAYED: MENU_ITEM_FLAGS = 1u32;
+pub const MF_MENUBARBREAK: MENU_ITEM_FLAGS = 32u32;
+pub const MF_MENUBREAK: MENU_ITEM_FLAGS = 64u32;
+pub const MF_OWNERDRAW: MENU_ITEM_FLAGS = 256u32;
+pub const MF_POPUP: MENU_ITEM_FLAGS = 16u32;
+pub const MF_SEPARATOR: MENU_ITEM_FLAGS = 2048u32;
+pub const MF_STRING: MENU_ITEM_FLAGS = 0u32;
+pub const MF_UNCHECKED: MENU_ITEM_FLAGS = 0u32;
+pub const MF_INSERT: MENU_ITEM_FLAGS = 0u32;
+pub const MF_CHANGE: MENU_ITEM_FLAGS = 128u32;
+pub const MF_APPEND: MENU_ITEM_FLAGS = 256u32;
+pub const MF_DELETE: MENU_ITEM_FLAGS = 512u32;
+pub const MF_REMOVE: MENU_ITEM_FLAGS = 4096u32;
+pub const MF_USECHECKBITMAPS: MENU_ITEM_FLAGS = 512u32;
+pub const MF_UNHILITE: MENU_ITEM_FLAGS = 0u32;
+pub const MF_HILITE: MENU_ITEM_FLAGS = 128u32;
+pub const MF_DEFAULT: MENU_ITEM_FLAGS = 4096u32;
+pub const MF_SYSMENU: MENU_ITEM_FLAGS = 8192u32;
+pub const MF_HELP: MENU_ITEM_FLAGS = 16384u32;
+pub const MF_RIGHTJUSTIFY: MENU_ITEM_FLAGS = 16384u32;
+pub const MF_MOUSESELECT: MENU_ITEM_FLAGS = 32768u32;
+pub const MF_END: MENU_ITEM_FLAGS = 128u32;
+pub type MENU_ITEM_MASK = u32;
+pub const MIIM_BITMAP: MENU_ITEM_MASK = 128u32;
+pub const MIIM_CHECKMARKS: MENU_ITEM_MASK = 8u32;
+pub const MIIM_DATA: MENU_ITEM_MASK = 32u32;
+pub const MIIM_FTYPE: MENU_ITEM_MASK = 256u32;
+pub const MIIM_ID: MENU_ITEM_MASK = 2u32;
+pub const MIIM_STATE: MENU_ITEM_MASK = 1u32;
+pub const MIIM_STRING: MENU_ITEM_MASK = 64u32;
+pub const MIIM_SUBMENU: MENU_ITEM_MASK = 4u32;
+pub const MIIM_TYPE: MENU_ITEM_MASK = 16u32;
+pub type MENU_ITEM_STATE = u32;
+pub const MFS_GRAYED: MENU_ITEM_STATE = 3u32;
+pub const MFS_DISABLED: MENU_ITEM_STATE = 3u32;
+pub const MFS_CHECKED: MENU_ITEM_STATE = 8u32;
+pub const MFS_HILITE: MENU_ITEM_STATE = 128u32;
+pub const MFS_ENABLED: MENU_ITEM_STATE = 0u32;
+pub const MFS_UNCHECKED: MENU_ITEM_STATE = 0u32;
+pub const MFS_UNHILITE: MENU_ITEM_STATE = 0u32;
+pub const MFS_DEFAULT: MENU_ITEM_STATE = 4096u32;
+pub type MENU_ITEM_TYPE = u32;
+pub const MFT_BITMAP: MENU_ITEM_TYPE = 4u32;
+pub const MFT_MENUBARBREAK: MENU_ITEM_TYPE = 32u32;
+pub const MFT_MENUBREAK: MENU_ITEM_TYPE = 64u32;
+pub const MFT_OWNERDRAW: MENU_ITEM_TYPE = 256u32;
+pub const MFT_RADIOCHECK: MENU_ITEM_TYPE = 512u32;
+pub const MFT_RIGHTJUSTIFY: MENU_ITEM_TYPE = 16384u32;
+pub const MFT_RIGHTORDER: MENU_ITEM_TYPE = 8192u32;
+pub const MFT_SEPARATOR: MENU_ITEM_TYPE = 2048u32;
+pub const MFT_STRING: MENU_ITEM_TYPE = 0u32;
+pub type MESSAGEBOX_RESULT = i32;
+pub const IDOK: MESSAGEBOX_RESULT = 1i32;
+pub const IDCANCEL: MESSAGEBOX_RESULT = 2i32;
+pub const IDABORT: MESSAGEBOX_RESULT = 3i32;
+pub const IDRETRY: MESSAGEBOX_RESULT = 4i32;
+pub const IDIGNORE: MESSAGEBOX_RESULT = 5i32;
+pub const IDYES: MESSAGEBOX_RESULT = 6i32;
+pub const IDNO: MESSAGEBOX_RESULT = 7i32;
+pub const IDCLOSE: MESSAGEBOX_RESULT = 8i32;
+pub const IDHELP: MESSAGEBOX_RESULT = 9i32;
+pub const IDTRYAGAIN: MESSAGEBOX_RESULT = 10i32;
+pub const IDCONTINUE: MESSAGEBOX_RESULT = 11i32;
+pub const IDASYNC: MESSAGEBOX_RESULT = 32001i32;
+pub const IDTIMEOUT: MESSAGEBOX_RESULT = 32000i32;
+pub type MESSAGEBOX_STYLE = u32;
+pub const MB_ABORTRETRYIGNORE: MESSAGEBOX_STYLE = 2u32;
+pub const MB_CANCELTRYCONTINUE: MESSAGEBOX_STYLE = 6u32;
+pub const MB_HELP: MESSAGEBOX_STYLE = 16384u32;
+pub const MB_OK: MESSAGEBOX_STYLE = 0u32;
+pub const MB_OKCANCEL: MESSAGEBOX_STYLE = 1u32;
+pub const MB_RETRYCANCEL: MESSAGEBOX_STYLE = 5u32;
+pub const MB_YESNO: MESSAGEBOX_STYLE = 4u32;
+pub const MB_YESNOCANCEL: MESSAGEBOX_STYLE = 3u32;
+pub const MB_ICONHAND: MESSAGEBOX_STYLE = 16u32;
+pub const MB_ICONQUESTION: MESSAGEBOX_STYLE = 32u32;
+pub const MB_ICONEXCLAMATION: MESSAGEBOX_STYLE = 48u32;
+pub const MB_ICONASTERISK: MESSAGEBOX_STYLE = 64u32;
+pub const MB_USERICON: MESSAGEBOX_STYLE = 128u32;
+pub const MB_ICONWARNING: MESSAGEBOX_STYLE = 48u32;
+pub const MB_ICONERROR: MESSAGEBOX_STYLE = 16u32;
+pub const MB_ICONINFORMATION: MESSAGEBOX_STYLE = 64u32;
+pub const MB_ICONSTOP: MESSAGEBOX_STYLE = 16u32;
+pub const MB_DEFBUTTON1: MESSAGEBOX_STYLE = 0u32;
+pub const MB_DEFBUTTON2: MESSAGEBOX_STYLE = 256u32;
+pub const MB_DEFBUTTON3: MESSAGEBOX_STYLE = 512u32;
+pub const MB_DEFBUTTON4: MESSAGEBOX_STYLE = 768u32;
+pub const MB_APPLMODAL: MESSAGEBOX_STYLE = 0u32;
+pub const MB_SYSTEMMODAL: MESSAGEBOX_STYLE = 4096u32;
+pub const MB_TASKMODAL: MESSAGEBOX_STYLE = 8192u32;
+pub const MB_NOFOCUS: MESSAGEBOX_STYLE = 32768u32;
+pub const MB_SETFOREGROUND: MESSAGEBOX_STYLE = 65536u32;
+pub const MB_DEFAULT_DESKTOP_ONLY: MESSAGEBOX_STYLE = 131072u32;
+pub const MB_TOPMOST: MESSAGEBOX_STYLE = 262144u32;
+pub const MB_RIGHT: MESSAGEBOX_STYLE = 524288u32;
+pub const MB_RTLREADING: MESSAGEBOX_STYLE = 1048576u32;
+pub const MB_SERVICE_NOTIFICATION: MESSAGEBOX_STYLE = 2097152u32;
+pub const MB_SERVICE_NOTIFICATION_NT3X: MESSAGEBOX_STYLE = 262144u32;
+pub const MB_TYPEMASK: MESSAGEBOX_STYLE = 15u32;
+pub const MB_ICONMASK: MESSAGEBOX_STYLE = 240u32;
+pub const MB_DEFMASK: MESSAGEBOX_STYLE = 3840u32;
+pub const MB_MODEMASK: MESSAGEBOX_STYLE = 12288u32;
+pub const MB_MISCMASK: MESSAGEBOX_STYLE = 49152u32;
 #[repr(C)]
 pub struct MESSAGE_RESOURCE_BLOCK {
     pub LowId: u32,
     pub HighId: u32,
     pub OffsetToEntries: u32,
 }
-impl MESSAGE_RESOURCE_BLOCK {}
+impl ::core::marker::Copy for MESSAGE_RESOURCE_BLOCK {}
+impl ::core::clone::Clone for MESSAGE_RESOURCE_BLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_BLOCK {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_BLOCK {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MESSAGE_RESOURCE_BLOCK>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MESSAGE_RESOURCE_BLOCK {}
 impl ::core::default::Default for MESSAGE_RESOURCE_BLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MESSAGE_RESOURCE_BLOCK {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MESSAGE_RESOURCE_BLOCK").field("LowId", &self.LowId).field("HighId", &self.HighId).field("OffsetToEntries", &self.OffsetToEntries).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_BLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.LowId == other.LowId && self.HighId == other.HighId && self.OffsetToEntries == other.OffsetToEntries
-    }
-}
-impl ::core::cmp::Eq for MESSAGE_RESOURCE_BLOCK {}
-unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_BLOCK {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MESSAGE_RESOURCE_DATA {
     pub NumberOfBlocks: u32,
     pub Blocks: [MESSAGE_RESOURCE_BLOCK; 1],
 }
-impl MESSAGE_RESOURCE_DATA {}
+impl ::core::marker::Copy for MESSAGE_RESOURCE_DATA {}
+impl ::core::clone::Clone for MESSAGE_RESOURCE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MESSAGE_RESOURCE_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MESSAGE_RESOURCE_DATA {}
 impl ::core::default::Default for MESSAGE_RESOURCE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MESSAGE_RESOURCE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MESSAGE_RESOURCE_DATA").field("NumberOfBlocks", &self.NumberOfBlocks).field("Blocks", &self.Blocks).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfBlocks == other.NumberOfBlocks && self.Blocks == other.Blocks
-    }
-}
-impl ::core::cmp::Eq for MESSAGE_RESOURCE_DATA {}
-unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MESSAGE_RESOURCE_ENTRY {
     pub Length: u16,
     pub Flags: u16,
     pub Text: [u8; 1],
 }
-impl MESSAGE_RESOURCE_ENTRY {}
+impl ::core::marker::Copy for MESSAGE_RESOURCE_ENTRY {}
+impl ::core::clone::Clone for MESSAGE_RESOURCE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MESSAGE_RESOURCE_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MESSAGE_RESOURCE_ENTRY {}
 impl ::core::default::Default for MESSAGE_RESOURCE_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MESSAGE_RESOURCE_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MESSAGE_RESOURCE_ENTRY").field("Length", &self.Length).field("Flags", &self.Flags).field("Text", &self.Text).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MESSAGE_RESOURCE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Length == other.Length && self.Flags == other.Flags && self.Text == other.Text
-    }
-}
-impl ::core::cmp::Eq for MESSAGE_RESOURCE_ENTRY {}
-unsafe impl ::windows::core::Abi for MESSAGE_RESOURCE_ENTRY {
-    type Abi = Self;
-}
 pub const METRICS_USEDEFAULT: i32 = -1i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MINIMIZEDMETRICS {
     pub cbSize: u32,
@@ -7003,43 +5957,32 @@ pub struct MINIMIZEDMETRICS {
     pub iVertGap: i32,
     pub iArrange: MINIMIZEDMETRICS_ARRANGE,
 }
-impl MINIMIZEDMETRICS {}
+impl ::core::marker::Copy for MINIMIZEDMETRICS {}
+impl ::core::clone::Clone for MINIMIZEDMETRICS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MINIMIZEDMETRICS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINIMIZEDMETRICS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MINIMIZEDMETRICS {}
 impl ::core::default::Default for MINIMIZEDMETRICS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MINIMIZEDMETRICS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MINIMIZEDMETRICS").field("cbSize", &self.cbSize).field("iWidth", &self.iWidth).field("iHorzGap", &self.iHorzGap).field("iVertGap", &self.iVertGap).field("iArrange", &self.iArrange).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MINIMIZEDMETRICS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iWidth == other.iWidth && self.iHorzGap == other.iHorzGap && self.iVertGap == other.iVertGap && self.iArrange == other.iArrange
-    }
-}
-impl ::core::cmp::Eq for MINIMIZEDMETRICS {}
-unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MINIMIZEDMETRICS_ARRANGE(pub i32);
-pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(0i32);
-pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(1i32);
-pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(2i32);
-pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = MINIMIZEDMETRICS_ARRANGE(3i32);
-impl ::core::convert::From<i32> for MINIMIZEDMETRICS_ARRANGE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MINIMIZEDMETRICS_ARRANGE {
-    type Abi = Self;
-}
+pub type MINIMIZEDMETRICS_ARRANGE = i32;
+pub const ARW_BOTTOMLEFT: MINIMIZEDMETRICS_ARRANGE = 0i32;
+pub const ARW_BOTTOMRIGHT: MINIMIZEDMETRICS_ARRANGE = 1i32;
+pub const ARW_TOPLEFT: MINIMIZEDMETRICS_ARRANGE = 2i32;
+pub const ARW_TOPRIGHT: MINIMIZEDMETRICS_ARRANGE = 3i32;
 pub const MINIMUM_RESERVED_MANIFEST_RESOURCE_ID: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MINMAXINFO {
@@ -7050,30 +5993,30 @@ pub struct MINMAXINFO {
     pub ptMaxTrackSize: super::super::Foundation::POINT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MINMAXINFO {}
+impl ::core::marker::Copy for MINMAXINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MINMAXINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for MINMAXINFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MINMAXINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MINMAXINFO").field("ptReserved", &self.ptReserved).field("ptMaxSize", &self.ptMaxSize).field("ptMaxPosition", &self.ptMaxPosition).field("ptMinTrackSize", &self.ptMinTrackSize).field("ptMaxTrackSize", &self.ptMaxTrackSize).finish()
-    }
+unsafe impl ::windows::core::Abi for MINMAXINFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MINMAXINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.ptReserved == other.ptReserved && self.ptMaxSize == other.ptMaxSize && self.ptMaxPosition == other.ptMaxPosition && self.ptMinTrackSize == other.ptMinTrackSize && self.ptMaxTrackSize == other.ptMaxTrackSize
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MINMAXINFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MINMAXINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MINMAXINFO {
-    type Abi = Self;
+impl ::core::default::Default for MINMAXINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const MIN_LOGICALDPIOVERRIDE: i32 = -2i32;
 pub const MKF_AVAILABLE: u32 = 2u32;
@@ -7106,7 +6049,6 @@ pub const MNGO_NOERROR: u32 = 1u32;
 pub const MNGO_NOINTERFACE: u32 = 0u32;
 pub const MN_GETHMENU: u32 = 481u32;
 pub const MONITORINFOF_PRIMARY: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOUSEHOOKSTRUCT {
@@ -7116,32 +6058,31 @@ pub struct MOUSEHOOKSTRUCT {
     pub dwExtraInfo: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MOUSEHOOKSTRUCT {}
+impl ::core::marker::Copy for MOUSEHOOKSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MOUSEHOOKSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEHOOKSTRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MOUSEHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MOUSEHOOKSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MOUSEHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MOUSEHOOKSTRUCT").field("pt", &self.pt).field("hwnd", &self.hwnd).field("wHitTestCode", &self.wHitTestCode).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.pt == other.pt && self.hwnd == other.hwnd && self.wHitTestCode == other.wHitTestCode && self.dwExtraInfo == other.dwExtraInfo
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MOUSEHOOKSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MOUSEHOOKSTRUCTEX {
@@ -7149,76 +6090,37 @@ pub struct MOUSEHOOKSTRUCTEX {
     pub mouseData: MOUSEHOOKSTRUCTEX_MOUSE_DATA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MOUSEHOOKSTRUCTEX {}
+impl ::core::marker::Copy for MOUSEHOOKSTRUCTEX {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MOUSEHOOKSTRUCTEX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCTEX {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCTEX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MOUSEHOOKSTRUCTEX>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MOUSEHOOKSTRUCTEX {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MOUSEHOOKSTRUCTEX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MOUSEHOOKSTRUCTEX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MOUSEHOOKSTRUCTEX").field("__AnonymousBase_winuser_L1166_C46", &self.__AnonymousBase_winuser_L1166_C46).field("mouseData", &self.mouseData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MOUSEHOOKSTRUCTEX {
-    fn eq(&self, other: &Self) -> bool {
-        self.__AnonymousBase_winuser_L1166_C46 == other.__AnonymousBase_winuser_L1166_C46 && self.mouseData == other.mouseData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MOUSEHOOKSTRUCTEX {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCTEX {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MOUSEHOOKSTRUCTEX_MOUSE_DATA(pub u32);
-pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(1u32);
-pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = MOUSEHOOKSTRUCTEX_MOUSE_DATA(2u32);
-impl ::core::convert::From<u32> for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MOUSEHOOKSTRUCTEX_MOUSE_DATA {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type MOUSEHOOKSTRUCTEX_MOUSE_DATA = u32;
+pub const XBUTTON1: MOUSEHOOKSTRUCTEX_MOUSE_DATA = 1u32;
+pub const XBUTTON2: MOUSEHOOKSTRUCTEX_MOUSE_DATA = 2u32;
 pub const MOUSEWHEEL_ROUTING_FOCUS: u32 = 0u32;
 pub const MOUSEWHEEL_ROUTING_HYBRID: u32 = 1u32;
 pub const MOUSEWHEEL_ROUTING_MOUSE_POS: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSG {
@@ -7230,34 +6132,33 @@ pub struct MSG {
     pub pt: super::super::Foundation::POINT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MSG {}
+impl ::core::marker::Copy for MSG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MSG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MSG {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MSG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSG>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MSG {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MSG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MSG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSG").field("hwnd", &self.hwnd).field("message", &self.message).field("wParam", &self.wParam).field("lParam", &self.lParam).field("time", &self.time).field("pt", &self.pt).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MSG {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.message == other.message && self.wParam == other.wParam && self.lParam == other.lParam && self.time == other.time && self.pt == other.pt
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MSG {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSG {
-    type Abi = Self;
-}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub type MSGBOXCALLBACK = ::core::option::Option<unsafe extern "system" fn(lphelpinfo: *mut super::Shell::HELPINFO)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSA {
@@ -7273,32 +6174,31 @@ pub struct MSGBOXPARAMSA {
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl MSGBOXPARAMSA {}
+impl ::core::marker::Copy for MSGBOXPARAMSA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::clone::Clone for MSGBOXPARAMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+unsafe impl ::windows::core::Abi for MSGBOXPARAMSA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::PartialEq for MSGBOXPARAMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSGBOXPARAMSA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::Eq for MSGBOXPARAMSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::default::Default for MSGBOXPARAMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::fmt::Debug for MSGBOXPARAMSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSGBOXPARAMSA").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("dwLanguageId", &self.dwLanguageId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::PartialEq for MSGBOXPARAMSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.lpszText == other.lpszText && self.lpszCaption == other.lpszCaption && self.dwStyle == other.dwStyle && self.lpszIcon == other.lpszIcon && self.dwContextHelpId == other.dwContextHelpId && self.lpfnMsgBoxCallback.map(|f| f as usize) == other.lpfnMsgBoxCallback.map(|f| f as usize) && self.dwLanguageId == other.dwLanguageId
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::Eq for MSGBOXPARAMSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-unsafe impl ::windows::core::Abi for MSGBOXPARAMSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 pub struct MSGBOXPARAMSW {
@@ -7314,74 +6214,36 @@ pub struct MSGBOXPARAMSW {
     pub dwLanguageId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl MSGBOXPARAMSW {}
+impl ::core::marker::Copy for MSGBOXPARAMSW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::clone::Clone for MSGBOXPARAMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+unsafe impl ::windows::core::Abi for MSGBOXPARAMSW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::PartialEq for MSGBOXPARAMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSGBOXPARAMSW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
+impl ::core::cmp::Eq for MSGBOXPARAMSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
 impl ::core::default::Default for MSGBOXPARAMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::fmt::Debug for MSGBOXPARAMSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSGBOXPARAMSW").field("cbSize", &self.cbSize).field("hwndOwner", &self.hwndOwner).field("hInstance", &self.hInstance).field("lpszText", &self.lpszText).field("lpszCaption", &self.lpszCaption).field("dwStyle", &self.dwStyle).field("lpszIcon", &self.lpszIcon).field("dwContextHelpId", &self.dwContextHelpId).field("dwLanguageId", &self.dwLanguageId).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::PartialEq for MSGBOXPARAMSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hwndOwner == other.hwndOwner && self.hInstance == other.hInstance && self.lpszText == other.lpszText && self.lpszCaption == other.lpszCaption && self.dwStyle == other.dwStyle && self.lpszIcon == other.lpszIcon && self.dwContextHelpId == other.dwContextHelpId && self.lpfnMsgBoxCallback.map(|f| f as usize) == other.lpfnMsgBoxCallback.map(|f| f as usize) && self.dwLanguageId == other.dwLanguageId
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-impl ::core::cmp::Eq for MSGBOXPARAMSW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
-unsafe impl ::windows::core::Abi for MSGBOXPARAMSW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MSGFLTINFO_STATUS(pub u32);
-pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(0u32);
-pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(3u32);
-pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(1u32);
-pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = MSGFLTINFO_STATUS(2u32);
-impl ::core::convert::From<u32> for MSGFLTINFO_STATUS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MSGFLTINFO_STATUS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MSGFLTINFO_STATUS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MSGFLTINFO_STATUS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MSGFLTINFO_STATUS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MSGFLTINFO_STATUS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MSGFLTINFO_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type MSGFLTINFO_STATUS = u32;
+pub const MSGFLTINFO_NONE: MSGFLTINFO_STATUS = 0u32;
+pub const MSGFLTINFO_ALLOWED_HIGHER: MSGFLTINFO_STATUS = 3u32;
+pub const MSGFLTINFO_ALREADYALLOWED_FORWND: MSGFLTINFO_STATUS = 1u32;
+pub const MSGFLTINFO_ALREADYDISALLOWED_FORWND: MSGFLTINFO_STATUS = 2u32;
 pub const MSGF_DIALOGBOX: u32 = 0u32;
 pub const MSGF_MAX: u32 = 8u32;
 pub const MSGF_MENU: u32 = 2u32;
@@ -7389,50 +6251,11 @@ pub const MSGF_MESSAGEBOX: u32 = 1u32;
 pub const MSGF_NEXTWINDOW: u32 = 6u32;
 pub const MSGF_SCROLLBAR: u32 = 5u32;
 pub const MSGF_USER: u32 = 4096u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(pub u32);
-pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(0u32);
-pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(2u32);
-pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(4u32);
-pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS(1u32);
-impl ::core::convert::From<u32> for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = u32;
+pub const MWMO_NONE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 0u32;
+pub const MWMO_ALERTABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 2u32;
+pub const MWMO_INPUTAVAILABLE: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 4u32;
+pub const MWMO_WAITALL: MSG_WAIT_FOR_MULTIPLE_OBJECTS_EX_FLAGS = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MSLLHOOKSTRUCT {
@@ -7443,30 +6266,30 @@ pub struct MSLLHOOKSTRUCT {
     pub dwExtraInfo: usize,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MSLLHOOKSTRUCT {}
+impl ::core::marker::Copy for MSLLHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MSLLHOOKSTRUCT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for MSLLHOOKSTRUCT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MSLLHOOKSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MSLLHOOKSTRUCT").field("pt", &self.pt).field("mouseData", &self.mouseData).field("flags", &self.flags).field("time", &self.time).field("dwExtraInfo", &self.dwExtraInfo).finish()
-    }
+unsafe impl ::windows::core::Abi for MSLLHOOKSTRUCT {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MSLLHOOKSTRUCT {
     fn eq(&self, other: &Self) -> bool {
-        self.pt == other.pt && self.mouseData == other.mouseData && self.flags == other.flags && self.time == other.time && self.dwExtraInfo == other.dwExtraInfo
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MSLLHOOKSTRUCT>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MSLLHOOKSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MSLLHOOKSTRUCT {
-    type Abi = Self;
+impl ::core::default::Default for MSLLHOOKSTRUCT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -7829,20 +6652,10 @@ pub unsafe fn MrmDumpPriFileInMemory<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MrmDumpType(pub i32);
-pub const MrmDumpType_Basic: MrmDumpType = MrmDumpType(0i32);
-pub const MrmDumpType_Detailed: MrmDumpType = MrmDumpType(1i32);
-pub const MrmDumpType_Schema: MrmDumpType = MrmDumpType(2i32);
-impl ::core::convert::From<i32> for MrmDumpType {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MrmDumpType {
-    type Abi = Self;
-}
+pub type MrmDumpType = i32;
+pub const MrmDumpType_Basic: MrmDumpType = 0i32;
+pub const MrmDumpType_Detailed: MrmDumpType = 1i32;
+pub const MrmDumpType_Schema: MrmDumpType = 2i32;
 #[inline]
 pub unsafe fn MrmFreeMemory(data: *const u8) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -7865,8 +6678,8 @@ pub unsafe fn MrmGetPriFileContentChecksum<'a, Param0: ::windows::core::IntoPara
         extern "system" {
             fn MrmGetPriFileContentChecksum(prifile: super::super::Foundation::PWSTR, checksum: *mut u32) -> ::windows::core::HRESULT;
         }
-        let mut result__: <u32 as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        MrmGetPriFileContentChecksum(prifile.into_param().abi(), &mut result__).from_abi::<u32>(result__)
+        let mut result__: u32 = ::core::mem::zeroed();
+        MrmGetPriFileContentChecksum(prifile.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -7941,48 +6754,18 @@ pub unsafe fn MrmIndexString<'a, Param0: ::windows::core::IntoParam<'a, MrmResou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MrmIndexerFlags(pub i32);
-pub const MrmIndexerFlagsNone: MrmIndexerFlags = MrmIndexerFlags(0i32);
-pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = MrmIndexerFlags(1i32);
-pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = MrmIndexerFlags(2i32);
-impl ::core::convert::From<i32> for MrmIndexerFlags {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MrmIndexerFlags {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MrmPackagingMode(pub i32);
-pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = MrmPackagingMode(0i32);
-pub const MrmPackagingModeAutoSplit: MrmPackagingMode = MrmPackagingMode(1i32);
-pub const MrmPackagingModeResourcePack: MrmPackagingMode = MrmPackagingMode(2i32);
-impl ::core::convert::From<i32> for MrmPackagingMode {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MrmPackagingMode {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MrmPackagingOptions(pub i32);
-pub const MrmPackagingOptionsNone: MrmPackagingOptions = MrmPackagingOptions(0i32);
-pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = MrmPackagingOptions(1i32);
-pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = MrmPackagingOptions(2i32);
-impl ::core::convert::From<i32> for MrmPackagingOptions {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MrmPackagingOptions {
-    type Abi = Self;
-}
+pub type MrmIndexerFlags = i32;
+pub const MrmIndexerFlagsNone: MrmIndexerFlags = 0i32;
+pub const MrmIndexerFlagsAutoMerge: MrmIndexerFlags = 1i32;
+pub const MrmIndexerFlagsCreateContentChecksum: MrmIndexerFlags = 2i32;
+pub type MrmPackagingMode = i32;
+pub const MrmPackagingModeStandaloneFile: MrmPackagingMode = 0i32;
+pub const MrmPackagingModeAutoSplit: MrmPackagingMode = 1i32;
+pub const MrmPackagingModeResourcePack: MrmPackagingMode = 2i32;
+pub type MrmPackagingOptions = i32;
+pub const MrmPackagingOptionsNone: MrmPackagingOptions = 0i32;
+pub const MrmPackagingOptionsOmitSchemaFromResourcePacks: MrmPackagingOptions = 1i32;
+pub const MrmPackagingOptionsSplitLanguageVariants: MrmPackagingOptions = 2i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MrmPeekResourceIndexerMessages<'a, Param0: ::windows::core::IntoParam<'a, MrmResourceIndexerHandle>>(handle: Param0, messages: *mut *mut MrmResourceIndexerMessage, nummsgs: *mut u32) -> ::windows::core::Result<()> {
@@ -7997,46 +6780,34 @@ pub unsafe fn MrmPeekResourceIndexerMessages<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MrmPlatformVersion(pub i32);
-pub const MrmPlatformVersion_Default: MrmPlatformVersion = MrmPlatformVersion(0i32);
-pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = MrmPlatformVersion(17432576i32);
-pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = MrmPlatformVersion(17432581i32);
-impl ::core::convert::From<i32> for MrmPlatformVersion {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MrmPlatformVersion {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MrmPlatformVersion = i32;
+pub const MrmPlatformVersion_Default: MrmPlatformVersion = 0i32;
+pub const MrmPlatformVersion_Windows10_0_0_0: MrmPlatformVersion = 17432576i32;
+pub const MrmPlatformVersion_Windows10_0_0_5: MrmPlatformVersion = 17432581i32;
 #[repr(C)]
 pub struct MrmResourceIndexerHandle {
     pub handle: *mut ::core::ffi::c_void,
 }
-impl MrmResourceIndexerHandle {}
+impl ::core::marker::Copy for MrmResourceIndexerHandle {}
+impl ::core::clone::Clone for MrmResourceIndexerHandle {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MrmResourceIndexerHandle {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MrmResourceIndexerHandle {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MrmResourceIndexerHandle>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MrmResourceIndexerHandle {}
 impl ::core::default::Default for MrmResourceIndexerHandle {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MrmResourceIndexerHandle {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MrmResourceIndexerHandle").field("handle", &self.handle).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MrmResourceIndexerHandle {
-    fn eq(&self, other: &Self) -> bool {
-        self.handle == other.handle
-    }
-}
-impl ::core::cmp::Eq for MrmResourceIndexerHandle {}
-unsafe impl ::windows::core::Abi for MrmResourceIndexerHandle {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MrmResourceIndexerMessage {
@@ -8045,46 +6816,36 @@ pub struct MrmResourceIndexerMessage {
     pub text: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MrmResourceIndexerMessage {}
+impl ::core::marker::Copy for MrmResourceIndexerMessage {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for MrmResourceIndexerMessage {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MrmResourceIndexerMessage {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for MrmResourceIndexerMessage {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MrmResourceIndexerMessage>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for MrmResourceIndexerMessage {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for MrmResourceIndexerMessage {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for MrmResourceIndexerMessage {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MrmResourceIndexerMessage").field("severity", &self.severity).field("id", &self.id).field("text", &self.text).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for MrmResourceIndexerMessage {
-    fn eq(&self, other: &Self) -> bool {
-        self.severity == other.severity && self.id == other.id && self.text == other.text
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for MrmResourceIndexerMessage {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MrmResourceIndexerMessage {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MrmResourceIndexerMessageSeverity(pub i32);
-pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(0i32);
-pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(1i32);
-pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(2i32);
-pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = MrmResourceIndexerMessageSeverity(3i32);
-impl ::core::convert::From<i32> for MrmResourceIndexerMessageSeverity {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MrmResourceIndexerMessageSeverity {
-    type Abi = Self;
-}
+pub type MrmResourceIndexerMessageSeverity = i32;
+pub const MrmResourceIndexerMessageSeverityVerbose: MrmResourceIndexerMessageSeverity = 0i32;
+pub const MrmResourceIndexerMessageSeverityInfo: MrmResourceIndexerMessageSeverity = 1i32;
+pub const MrmResourceIndexerMessageSeverityWarning: MrmResourceIndexerMessageSeverity = 2i32;
+pub const MrmResourceIndexerMessageSeverityError: MrmResourceIndexerMessageSeverity = 3i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MsgWaitForMultipleObjects<'a, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(ncount: u32, phandles: *const super::super::Foundation::HANDLE, fwaitall: Param2, dwmilliseconds: u32, dwwakemask: QUEUE_STATUS_FLAGS) -> u32 {
@@ -8117,7 +6878,6 @@ pub unsafe fn MsgWaitForMultipleObjectsEx(ncount: u32, phandles: *const super::s
 pub type NAMEENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]
 pub type NAMEENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PWSTR, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NCCALCSIZE_PARAMS {
@@ -8125,30 +6885,30 @@ pub struct NCCALCSIZE_PARAMS {
     pub lppos: *mut WINDOWPOS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NCCALCSIZE_PARAMS {}
+impl ::core::marker::Copy for NCCALCSIZE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for NCCALCSIZE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for NCCALCSIZE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NCCALCSIZE_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NCCALCSIZE_PARAMS").field("rgrc", &self.rgrc).field("lppos", &self.lppos).finish()
-    }
+unsafe impl ::windows::core::Abi for NCCALCSIZE_PARAMS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for NCCALCSIZE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.rgrc == other.rgrc && self.lppos == other.lppos
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NCCALCSIZE_PARAMS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for NCCALCSIZE_PARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NCCALCSIZE_PARAMS {
-    type Abi = Self;
+impl ::core::default::Default for NCCALCSIZE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const NFR_ANSI: u32 = 1u32;
 pub const NFR_UNICODE: u32 = 2u32;
@@ -8160,7 +6920,6 @@ pub const NID_INTEGRATED_PEN: u32 = 4u32;
 pub const NID_INTEGRATED_TOUCH: u32 = 1u32;
 pub const NID_MULTI_INPUT: u32 = 64u32;
 pub const NID_READY: u32 = 128u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct NONCLIENTMETRICSA {
@@ -8182,49 +6941,31 @@ pub struct NONCLIENTMETRICSA {
     pub iPaddedBorderWidth: i32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl NONCLIENTMETRICSA {}
+impl ::core::marker::Copy for NONCLIENTMETRICSA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for NONCLIENTMETRICSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for NONCLIENTMETRICSA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for NONCLIENTMETRICSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NONCLIENTMETRICSA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for NONCLIENTMETRICSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for NONCLIENTMETRICSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for NONCLIENTMETRICSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NONCLIENTMETRICSA")
-            .field("cbSize", &self.cbSize)
-            .field("iBorderWidth", &self.iBorderWidth)
-            .field("iScrollWidth", &self.iScrollWidth)
-            .field("iScrollHeight", &self.iScrollHeight)
-            .field("iCaptionWidth", &self.iCaptionWidth)
-            .field("iCaptionHeight", &self.iCaptionHeight)
-            .field("lfCaptionFont", &self.lfCaptionFont)
-            .field("iSmCaptionWidth", &self.iSmCaptionWidth)
-            .field("iSmCaptionHeight", &self.iSmCaptionHeight)
-            .field("lfSmCaptionFont", &self.lfSmCaptionFont)
-            .field("iMenuWidth", &self.iMenuWidth)
-            .field("iMenuHeight", &self.iMenuHeight)
-            .field("lfMenuFont", &self.lfMenuFont)
-            .field("lfStatusFont", &self.lfStatusFont)
-            .field("lfMessageFont", &self.lfMessageFont)
-            .field("iPaddedBorderWidth", &self.iPaddedBorderWidth)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for NONCLIENTMETRICSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iBorderWidth == other.iBorderWidth && self.iScrollWidth == other.iScrollWidth && self.iScrollHeight == other.iScrollHeight && self.iCaptionWidth == other.iCaptionWidth && self.iCaptionHeight == other.iCaptionHeight && self.lfCaptionFont == other.lfCaptionFont && self.iSmCaptionWidth == other.iSmCaptionWidth && self.iSmCaptionHeight == other.iSmCaptionHeight && self.lfSmCaptionFont == other.lfSmCaptionFont && self.iMenuWidth == other.iMenuWidth && self.iMenuHeight == other.iMenuHeight && self.lfMenuFont == other.lfMenuFont && self.lfStatusFont == other.lfStatusFont && self.lfMessageFont == other.lfMessageFont && self.iPaddedBorderWidth == other.iPaddedBorderWidth
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for NONCLIENTMETRICSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for NONCLIENTMETRICSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Graphics_Gdi")]
 pub struct NONCLIENTMETRICSW {
@@ -8246,73 +6987,46 @@ pub struct NONCLIENTMETRICSW {
     pub iPaddedBorderWidth: i32,
 }
 #[cfg(feature = "Win32_Graphics_Gdi")]
-impl NONCLIENTMETRICSW {}
+impl ::core::marker::Copy for NONCLIENTMETRICSW {}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::clone::Clone for NONCLIENTMETRICSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+unsafe impl ::windows::core::Abi for NONCLIENTMETRICSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::PartialEq for NONCLIENTMETRICSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NONCLIENTMETRICSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Graphics_Gdi")]
+impl ::core::cmp::Eq for NONCLIENTMETRICSW {}
 #[cfg(feature = "Win32_Graphics_Gdi")]
 impl ::core::default::Default for NONCLIENTMETRICSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::fmt::Debug for NONCLIENTMETRICSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NONCLIENTMETRICSW")
-            .field("cbSize", &self.cbSize)
-            .field("iBorderWidth", &self.iBorderWidth)
-            .field("iScrollWidth", &self.iScrollWidth)
-            .field("iScrollHeight", &self.iScrollHeight)
-            .field("iCaptionWidth", &self.iCaptionWidth)
-            .field("iCaptionHeight", &self.iCaptionHeight)
-            .field("lfCaptionFont", &self.lfCaptionFont)
-            .field("iSmCaptionWidth", &self.iSmCaptionWidth)
-            .field("iSmCaptionHeight", &self.iSmCaptionHeight)
-            .field("lfSmCaptionFont", &self.lfSmCaptionFont)
-            .field("iMenuWidth", &self.iMenuWidth)
-            .field("iMenuHeight", &self.iMenuHeight)
-            .field("lfMenuFont", &self.lfMenuFont)
-            .field("lfStatusFont", &self.lfStatusFont)
-            .field("lfMessageFont", &self.lfMessageFont)
-            .field("iPaddedBorderWidth", &self.iPaddedBorderWidth)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::PartialEq for NONCLIENTMETRICSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.iBorderWidth == other.iBorderWidth && self.iScrollWidth == other.iScrollWidth && self.iScrollHeight == other.iScrollHeight && self.iCaptionWidth == other.iCaptionWidth && self.iCaptionHeight == other.iCaptionHeight && self.lfCaptionFont == other.lfCaptionFont && self.iSmCaptionWidth == other.iSmCaptionWidth && self.iSmCaptionHeight == other.iSmCaptionHeight && self.lfSmCaptionFont == other.lfSmCaptionFont && self.iMenuWidth == other.iMenuWidth && self.iMenuHeight == other.iMenuHeight && self.lfMenuFont == other.lfMenuFont && self.lfStatusFont == other.lfStatusFont && self.lfMessageFont == other.lfMessageFont && self.iPaddedBorderWidth == other.iPaddedBorderWidth
-    }
-}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-impl ::core::cmp::Eq for NONCLIENTMETRICSW {}
-#[cfg(feature = "Win32_Graphics_Gdi")]
-unsafe impl ::windows::core::Abi for NONCLIENTMETRICSW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct OBJECT_IDENTIFIER(pub i32);
-pub const OBJID_WINDOW: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(0i32);
-pub const OBJID_SYSMENU: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-1i32);
-pub const OBJID_TITLEBAR: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-2i32);
-pub const OBJID_MENU: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-3i32);
-pub const OBJID_CLIENT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-4i32);
-pub const OBJID_VSCROLL: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-5i32);
-pub const OBJID_HSCROLL: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-6i32);
-pub const OBJID_SIZEGRIP: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-7i32);
-pub const OBJID_CARET: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-8i32);
-pub const OBJID_CURSOR: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-9i32);
-pub const OBJID_ALERT: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-10i32);
-pub const OBJID_SOUND: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-11i32);
-pub const OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-12i32);
-pub const OBJID_NATIVEOM: OBJECT_IDENTIFIER = OBJECT_IDENTIFIER(-16i32);
-impl ::core::convert::From<i32> for OBJECT_IDENTIFIER {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for OBJECT_IDENTIFIER {
-    type Abi = Self;
-}
+pub type OBJECT_IDENTIFIER = i32;
+pub const OBJID_WINDOW: OBJECT_IDENTIFIER = 0i32;
+pub const OBJID_SYSMENU: OBJECT_IDENTIFIER = -1i32;
+pub const OBJID_TITLEBAR: OBJECT_IDENTIFIER = -2i32;
+pub const OBJID_MENU: OBJECT_IDENTIFIER = -3i32;
+pub const OBJID_CLIENT: OBJECT_IDENTIFIER = -4i32;
+pub const OBJID_VSCROLL: OBJECT_IDENTIFIER = -5i32;
+pub const OBJID_HSCROLL: OBJECT_IDENTIFIER = -6i32;
+pub const OBJID_SIZEGRIP: OBJECT_IDENTIFIER = -7i32;
+pub const OBJID_CARET: OBJECT_IDENTIFIER = -8i32;
+pub const OBJID_CURSOR: OBJECT_IDENTIFIER = -9i32;
+pub const OBJID_ALERT: OBJECT_IDENTIFIER = -10i32;
+pub const OBJID_SOUND: OBJECT_IDENTIFIER = -11i32;
+pub const OBJID_QUERYCLASSNAMEIDX: OBJECT_IDENTIFIER = -12i32;
+pub const OBJID_NATIVEOM: OBJECT_IDENTIFIER = -16i32;
 pub const OBM_BTNCORNERS: u32 = 32758u32;
 pub const OBM_BTSIZE: u32 = 32761u32;
 pub const OBM_CHECK: u32 = 32760u32;
@@ -8474,52 +7188,14 @@ pub const PDC_ORIENTATION_90: u32 = 8u32;
 pub const PDC_ORIGIN: u32 = 1024u32;
 pub const PDC_REMOVAL: u32 = 2u32;
 pub const PDC_RESOLUTION: u32 = 512u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PEEK_MESSAGE_REMOVE_TYPE(pub u32);
-pub const PM_NOREMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(0u32);
-pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(1u32);
-pub const PM_NOYIELD: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2u32);
-pub const PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(67567616u32);
-pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(9961472u32);
-pub const PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(2097152u32);
-pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = PEEK_MESSAGE_REMOVE_TYPE(4194304u32);
-impl ::core::convert::From<u32> for PEEK_MESSAGE_REMOVE_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PEEK_MESSAGE_REMOVE_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PEEK_MESSAGE_REMOVE_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PEEK_MESSAGE_REMOVE_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PEEK_MESSAGE_REMOVE_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PEEK_MESSAGE_REMOVE_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PEEK_MESSAGE_REMOVE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type PEEK_MESSAGE_REMOVE_TYPE = u32;
+pub const PM_NOREMOVE: PEEK_MESSAGE_REMOVE_TYPE = 0u32;
+pub const PM_REMOVE: PEEK_MESSAGE_REMOVE_TYPE = 1u32;
+pub const PM_NOYIELD: PEEK_MESSAGE_REMOVE_TYPE = 2u32;
+pub const PM_QS_INPUT: PEEK_MESSAGE_REMOVE_TYPE = 67567616u32;
+pub const PM_QS_POSTMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 9961472u32;
+pub const PM_QS_PAINT: PEEK_MESSAGE_REMOVE_TYPE = 2097152u32;
+pub const PM_QS_SENDMESSAGE: PEEK_MESSAGE_REMOVE_TYPE = 4194304u32;
 pub const PENARBITRATIONTYPE_FIS: u32 = 2u32;
 pub const PENARBITRATIONTYPE_MAX: u32 = 4u32;
 pub const PENARBITRATIONTYPE_NONE: u32 = 0u32;
@@ -8541,22 +7217,12 @@ pub const PEN_MASK_TILT_X: u32 = 4u32;
 pub const PEN_MASK_TILT_Y: u32 = 8u32;
 pub const PMB_ACTIVE: u32 = 1u32;
 pub const POINTER_DEVICE_PRODUCT_STRING_MAX: u32 = 520u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POINTER_INPUT_TYPE(pub i32);
-pub const PT_POINTER: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(1i32);
-pub const PT_TOUCH: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(2i32);
-pub const PT_PEN: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(3i32);
-pub const PT_MOUSE: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(4i32);
-pub const PT_TOUCHPAD: POINTER_INPUT_TYPE = POINTER_INPUT_TYPE(5i32);
-impl ::core::convert::From<i32> for POINTER_INPUT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POINTER_INPUT_TYPE {
-    type Abi = Self;
-}
+pub type POINTER_INPUT_TYPE = i32;
+pub const PT_POINTER: POINTER_INPUT_TYPE = 1i32;
+pub const PT_TOUCH: POINTER_INPUT_TYPE = 2i32;
+pub const PT_PEN: POINTER_INPUT_TYPE = 3i32;
+pub const PT_MOUSE: POINTER_INPUT_TYPE = 4i32;
+pub const PT_TOUCHPAD: POINTER_INPUT_TYPE = 5i32;
 pub const POINTER_MESSAGE_FLAG_CANCELED: u32 = 32768u32;
 pub const POINTER_MESSAGE_FLAG_CONFIDENCE: u32 = 16384u32;
 pub const POINTER_MESSAGE_FLAG_FIFTHBUTTON: u32 = 256u32;
@@ -8670,7 +7336,7 @@ pub unsafe fn PostQuitMessage(nexitcode: i32) {
         extern "system" {
             fn PostQuitMessage(nexitcode: i32);
         }
-        ::core::mem::transmute(PostQuitMessage(::core::mem::transmute(nexitcode)))
+        PostQuitMessage(::core::mem::transmute(nexitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -8733,59 +7399,21 @@ pub unsafe fn PrivateExtractIconsW<'a, Param0: ::windows::core::IntoParam<'a, su
 }
 pub const QS_POINTER: u32 = 4096u32;
 pub const QS_TOUCH: u32 = 2048u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct QUEUE_STATUS_FLAGS(pub u32);
-pub const QS_ALLEVENTS: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1215u32);
-pub const QS_ALLINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1279u32);
-pub const QS_ALLPOSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(256u32);
-pub const QS_HOTKEY: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(128u32);
-pub const QS_INPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1031u32);
-pub const QS_KEY: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1u32);
-pub const QS_MOUSE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(6u32);
-pub const QS_MOUSEBUTTON: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(4u32);
-pub const QS_MOUSEMOVE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(2u32);
-pub const QS_PAINT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(32u32);
-pub const QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(8u32);
-pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(1024u32);
-pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(64u32);
-pub const QS_TIMER: QUEUE_STATUS_FLAGS = QUEUE_STATUS_FLAGS(16u32);
-impl ::core::convert::From<u32> for QUEUE_STATUS_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for QUEUE_STATUS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for QUEUE_STATUS_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for QUEUE_STATUS_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for QUEUE_STATUS_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for QUEUE_STATUS_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for QUEUE_STATUS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type QUEUE_STATUS_FLAGS = u32;
+pub const QS_ALLEVENTS: QUEUE_STATUS_FLAGS = 1215u32;
+pub const QS_ALLINPUT: QUEUE_STATUS_FLAGS = 1279u32;
+pub const QS_ALLPOSTMESSAGE: QUEUE_STATUS_FLAGS = 256u32;
+pub const QS_HOTKEY: QUEUE_STATUS_FLAGS = 128u32;
+pub const QS_INPUT: QUEUE_STATUS_FLAGS = 1031u32;
+pub const QS_KEY: QUEUE_STATUS_FLAGS = 1u32;
+pub const QS_MOUSE: QUEUE_STATUS_FLAGS = 6u32;
+pub const QS_MOUSEBUTTON: QUEUE_STATUS_FLAGS = 4u32;
+pub const QS_MOUSEMOVE: QUEUE_STATUS_FLAGS = 2u32;
+pub const QS_PAINT: QUEUE_STATUS_FLAGS = 32u32;
+pub const QS_POSTMESSAGE: QUEUE_STATUS_FLAGS = 8u32;
+pub const QS_RAWINPUT: QUEUE_STATUS_FLAGS = 1024u32;
+pub const QS_SENDMESSAGE: QUEUE_STATUS_FLAGS = 64u32;
+pub const QS_TIMER: QUEUE_STATUS_FLAGS = 16u32;
 pub const RES_CURSOR: u32 = 2u32;
 pub const RES_ICON: u32 = 1u32;
 pub const RIDEV_EXMODEMASK: u32 = 240u32;
@@ -9108,7 +7736,6 @@ pub const SB_THUMBPOSITION: u32 = 4u32;
 pub const SB_THUMBTRACK: u32 = 5u32;
 pub const SB_TOP: u32 = 6u32;
 pub const SCF_ISSECURE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SCROLLBARINFO {
@@ -9121,75 +7748,36 @@ pub struct SCROLLBARINFO {
     pub rgstate: [u32; 6],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SCROLLBARINFO {}
+impl ::core::marker::Copy for SCROLLBARINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SCROLLBARINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SCROLLBARINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SCROLLBARINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCROLLBARINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SCROLLBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SCROLLBARINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SCROLLBARINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCROLLBARINFO").field("cbSize", &self.cbSize).field("rcScrollBar", &self.rcScrollBar).field("dxyLineButton", &self.dxyLineButton).field("xyThumbTop", &self.xyThumbTop).field("xyThumbBottom", &self.xyThumbBottom).field("reserved", &self.reserved).field("rgstate", &self.rgstate).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SCROLLBARINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rcScrollBar == other.rcScrollBar && self.dxyLineButton == other.dxyLineButton && self.xyThumbTop == other.xyThumbTop && self.xyThumbBottom == other.xyThumbBottom && self.reserved == other.reserved && self.rgstate == other.rgstate
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SCROLLBARINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SCROLLBARINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SCROLLBAR_CONSTANTS(pub u32);
-pub const SB_CTL: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(2u32);
-pub const SB_HORZ: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(0u32);
-pub const SB_VERT: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(1u32);
-pub const SB_BOTH: SCROLLBAR_CONSTANTS = SCROLLBAR_CONSTANTS(3u32);
-impl ::core::convert::From<u32> for SCROLLBAR_CONSTANTS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SCROLLBAR_CONSTANTS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SCROLLBAR_CONSTANTS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SCROLLBAR_CONSTANTS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SCROLLBAR_CONSTANTS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SCROLLBAR_CONSTANTS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SCROLLBAR_CONSTANTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SCROLLBAR_CONSTANTS = u32;
+pub const SB_CTL: SCROLLBAR_CONSTANTS = 2u32;
+pub const SB_HORZ: SCROLLBAR_CONSTANTS = 0u32;
+pub const SB_VERT: SCROLLBAR_CONSTANTS = 1u32;
+pub const SB_BOTH: SCROLLBAR_CONSTANTS = 3u32;
 #[repr(C)]
 pub struct SCROLLINFO {
     pub cbSize: u32,
@@ -9200,71 +7788,33 @@ pub struct SCROLLINFO {
     pub nPos: i32,
     pub nTrackPos: i32,
 }
-impl SCROLLINFO {}
+impl ::core::marker::Copy for SCROLLINFO {}
+impl ::core::clone::Clone for SCROLLINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SCROLLINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SCROLLINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SCROLLINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SCROLLINFO {}
 impl ::core::default::Default for SCROLLINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SCROLLINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SCROLLINFO").field("cbSize", &self.cbSize).field("fMask", &self.fMask).field("nMin", &self.nMin).field("nMax", &self.nMax).field("nPage", &self.nPage).field("nPos", &self.nPos).field("nTrackPos", &self.nTrackPos).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SCROLLINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.fMask == other.fMask && self.nMin == other.nMin && self.nMax == other.nMax && self.nPage == other.nPage && self.nPos == other.nPos && self.nTrackPos == other.nTrackPos
-    }
-}
-impl ::core::cmp::Eq for SCROLLINFO {}
-unsafe impl ::windows::core::Abi for SCROLLINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SCROLLINFO_MASK(pub u32);
-pub const SIF_ALL: SCROLLINFO_MASK = SCROLLINFO_MASK(23u32);
-pub const SIF_DISABLENOSCROLL: SCROLLINFO_MASK = SCROLLINFO_MASK(8u32);
-pub const SIF_PAGE: SCROLLINFO_MASK = SCROLLINFO_MASK(2u32);
-pub const SIF_POS: SCROLLINFO_MASK = SCROLLINFO_MASK(4u32);
-pub const SIF_RANGE: SCROLLINFO_MASK = SCROLLINFO_MASK(1u32);
-pub const SIF_TRACKPOS: SCROLLINFO_MASK = SCROLLINFO_MASK(16u32);
-impl ::core::convert::From<u32> for SCROLLINFO_MASK {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SCROLLINFO_MASK {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SCROLLINFO_MASK {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SCROLLINFO_MASK {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SCROLLINFO_MASK {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SCROLLINFO_MASK {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SCROLLINFO_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SCROLLINFO_MASK = u32;
+pub const SIF_ALL: SCROLLINFO_MASK = 23u32;
+pub const SIF_DISABLENOSCROLL: SCROLLINFO_MASK = 8u32;
+pub const SIF_PAGE: SCROLLINFO_MASK = 2u32;
+pub const SIF_POS: SCROLLINFO_MASK = 4u32;
+pub const SIF_RANGE: SCROLLINFO_MASK = 1u32;
+pub const SIF_TRACKPOS: SCROLLINFO_MASK = 16u32;
 pub const SC_ARRANGE: u32 = 61712u32;
 pub const SC_CLOSE: u32 = 61536u32;
 pub const SC_CONTEXTHELP: u32 = 61824u32;
@@ -9288,106 +7838,29 @@ pub const SC_VSCROLL: u32 = 61552u32;
 pub const SC_ZOOM: u32 = 61488u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type SENDASYNCPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: super::super::Foundation::LRESULT)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SEND_MESSAGE_TIMEOUT_FLAGS(pub u32);
-pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(2u32);
-pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(1u32);
-pub const SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(0u32);
-pub const SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(8u32);
-pub const SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = SEND_MESSAGE_TIMEOUT_FLAGS(32u32);
-impl ::core::convert::From<u32> for SEND_MESSAGE_TIMEOUT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SEND_MESSAGE_TIMEOUT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SEND_MESSAGE_TIMEOUT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SET_WINDOW_POS_FLAGS(pub u32);
-pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16384u32);
-pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8192u32);
-pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
-pub const SWP_FRAMECHANGED: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(32u32);
-pub const SWP_HIDEWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(128u32);
-pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(16u32);
-pub const SWP_NOCOPYBITS: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(256u32);
-pub const SWP_NOMOVE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(2u32);
-pub const SWP_NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
-pub const SWP_NOREDRAW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(8u32);
-pub const SWP_NOREPOSITION: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
-pub const SWP_NOSENDCHANGING: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1024u32);
-pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(1u32);
-pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(4u32);
-pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(64u32);
-pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = SET_WINDOW_POS_FLAGS(512u32);
-impl ::core::convert::From<u32> for SET_WINDOW_POS_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SET_WINDOW_POS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SET_WINDOW_POS_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SET_WINDOW_POS_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SET_WINDOW_POS_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SET_WINDOW_POS_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SET_WINDOW_POS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SEND_MESSAGE_TIMEOUT_FLAGS = u32;
+pub const SMTO_ABORTIFHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = 2u32;
+pub const SMTO_BLOCK: SEND_MESSAGE_TIMEOUT_FLAGS = 1u32;
+pub const SMTO_NORMAL: SEND_MESSAGE_TIMEOUT_FLAGS = 0u32;
+pub const SMTO_NOTIMEOUTIFNOTHUNG: SEND_MESSAGE_TIMEOUT_FLAGS = 8u32;
+pub const SMTO_ERRORONEXIT: SEND_MESSAGE_TIMEOUT_FLAGS = 32u32;
+pub type SET_WINDOW_POS_FLAGS = u32;
+pub const SWP_ASYNCWINDOWPOS: SET_WINDOW_POS_FLAGS = 16384u32;
+pub const SWP_DEFERERASE: SET_WINDOW_POS_FLAGS = 8192u32;
+pub const SWP_DRAWFRAME: SET_WINDOW_POS_FLAGS = 32u32;
+pub const SWP_FRAMECHANGED: SET_WINDOW_POS_FLAGS = 32u32;
+pub const SWP_HIDEWINDOW: SET_WINDOW_POS_FLAGS = 128u32;
+pub const SWP_NOACTIVATE: SET_WINDOW_POS_FLAGS = 16u32;
+pub const SWP_NOCOPYBITS: SET_WINDOW_POS_FLAGS = 256u32;
+pub const SWP_NOMOVE: SET_WINDOW_POS_FLAGS = 2u32;
+pub const SWP_NOOWNERZORDER: SET_WINDOW_POS_FLAGS = 512u32;
+pub const SWP_NOREDRAW: SET_WINDOW_POS_FLAGS = 8u32;
+pub const SWP_NOREPOSITION: SET_WINDOW_POS_FLAGS = 512u32;
+pub const SWP_NOSENDCHANGING: SET_WINDOW_POS_FLAGS = 1024u32;
+pub const SWP_NOSIZE: SET_WINDOW_POS_FLAGS = 1u32;
+pub const SWP_NOZORDER: SET_WINDOW_POS_FLAGS = 4u32;
+pub const SWP_SHOWWINDOW: SET_WINDOW_POS_FLAGS = 64u32;
+pub const SWP__NOOWNERZORDER: SET_WINDOW_POS_FLAGS = 512u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHELLHOOKINFO {
@@ -9395,97 +7868,59 @@ pub struct SHELLHOOKINFO {
     pub rc: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SHELLHOOKINFO {}
+impl ::core::marker::Copy for SHELLHOOKINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SHELLHOOKINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SHELLHOOKINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SHELLHOOKINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SHELLHOOKINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SHELLHOOKINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SHELLHOOKINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SHELLHOOKINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SHELLHOOKINFO").field("hwnd", &self.hwnd).field("rc", &self.rc).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SHELLHOOKINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.rc == other.rc
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SHELLHOOKINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SHELLHOOKINFO {
-    type Abi = Self;
-}
 pub const SHOW_FULLSCREEN: u32 = 3u32;
 pub const SHOW_ICONWINDOW: u32 = 2u32;
 pub const SHOW_OPENNOACTIVATE: u32 = 4u32;
 pub const SHOW_OPENWINDOW: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SHOW_WINDOW_CMD(pub u32);
-pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
-pub const SW_HIDE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(0u32);
-pub const SW_MAXIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-pub const SW_MINIMIZE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(6u32);
-pub const SW_RESTORE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(9u32);
-pub const SW_SHOW: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(5u32);
-pub const SW_SHOWDEFAULT: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(10u32);
-pub const SW_SHOWMAXIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-pub const SW_SHOWMINIMIZED: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-pub const SW_SHOWMINNOACTIVE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(7u32);
-pub const SW_SHOWNA: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(8u32);
-pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_NORMAL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_MAX: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(11u32);
-pub const SW_PARENTCLOSING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_OTHERZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-pub const SW_PARENTOPENING: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(3u32);
-pub const SW_OTHERUNZOOM: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(1u32);
-pub const SW_INVALIDATE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(2u32);
-pub const SW_ERASE: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(4u32);
-pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = SHOW_WINDOW_CMD(16u32);
-impl ::core::convert::From<u32> for SHOW_WINDOW_CMD {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SHOW_WINDOW_CMD {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SHOW_WINDOW_CMD {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SHOW_WINDOW_CMD {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SHOW_WINDOW_CMD {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SHOW_WINDOW_CMD {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SHOW_WINDOW_CMD {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SHOW_WINDOW_CMD = u32;
+pub const SW_FORCEMINIMIZE: SHOW_WINDOW_CMD = 11u32;
+pub const SW_HIDE: SHOW_WINDOW_CMD = 0u32;
+pub const SW_MAXIMIZE: SHOW_WINDOW_CMD = 3u32;
+pub const SW_MINIMIZE: SHOW_WINDOW_CMD = 6u32;
+pub const SW_RESTORE: SHOW_WINDOW_CMD = 9u32;
+pub const SW_SHOW: SHOW_WINDOW_CMD = 5u32;
+pub const SW_SHOWDEFAULT: SHOW_WINDOW_CMD = 10u32;
+pub const SW_SHOWMAXIMIZED: SHOW_WINDOW_CMD = 3u32;
+pub const SW_SHOWMINIMIZED: SHOW_WINDOW_CMD = 2u32;
+pub const SW_SHOWMINNOACTIVE: SHOW_WINDOW_CMD = 7u32;
+pub const SW_SHOWNA: SHOW_WINDOW_CMD = 8u32;
+pub const SW_SHOWNOACTIVATE: SHOW_WINDOW_CMD = 4u32;
+pub const SW_SHOWNORMAL: SHOW_WINDOW_CMD = 1u32;
+pub const SW_NORMAL: SHOW_WINDOW_CMD = 1u32;
+pub const SW_MAX: SHOW_WINDOW_CMD = 11u32;
+pub const SW_PARENTCLOSING: SHOW_WINDOW_CMD = 1u32;
+pub const SW_OTHERZOOM: SHOW_WINDOW_CMD = 2u32;
+pub const SW_PARENTOPENING: SHOW_WINDOW_CMD = 3u32;
+pub const SW_OTHERUNZOOM: SHOW_WINDOW_CMD = 4u32;
+pub const SW_SCROLLCHILDREN: SHOW_WINDOW_CMD = 1u32;
+pub const SW_INVALIDATE: SHOW_WINDOW_CMD = 2u32;
+pub const SW_ERASE: SHOW_WINDOW_CMD = 4u32;
+pub const SW_SMOOTHSCROLL: SHOW_WINDOW_CMD = 16u32;
 pub const SIZEFULLSCREEN: u32 = 2u32;
 pub const SIZEICONIC: u32 = 1u32;
 pub const SIZENORMAL: u32 = 0u32;
@@ -9587,9 +8022,9 @@ pub const STN_CLICKED: u32 = 0u32;
 pub const STN_DBLCLK: u32 = 1u32;
 pub const STN_DISABLE: u32 = 3u32;
 pub const STN_ENABLE: u32 = 2u32;
-pub const STRSAFE_E_END_OF_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024858i32 as _);
-pub const STRSAFE_E_INSUFFICIENT_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024774i32 as _);
-pub const STRSAFE_E_INVALID_PARAMETER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024809i32 as _);
+pub const STRSAFE_E_END_OF_FILE: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024858i32);
+pub const STRSAFE_E_INSUFFICIENT_BUFFER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024774i32);
+pub const STRSAFE_E_INVALID_PARAMETER: ::windows::core::HRESULT = ::windows::core::HRESULT(-2147024809i32);
 pub const STRSAFE_FILL_BEHIND_NULL: u32 = 512u32;
 pub const STRSAFE_FILL_ON_FAILURE: u32 = 1024u32;
 pub const STRSAFE_IGNORE_NULLS: u32 = 256u32;
@@ -9597,616 +8032,425 @@ pub const STRSAFE_MAX_CCH: u32 = 2147483647u32;
 pub const STRSAFE_NO_TRUNCATION: u32 = 4096u32;
 pub const STRSAFE_NULL_ON_FAILURE: u32 = 2048u32;
 pub const STRSAFE_USE_SECURE_CRT: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct STYLESTRUCT {
     pub styleOld: u32,
     pub styleNew: u32,
 }
-impl STYLESTRUCT {}
+impl ::core::marker::Copy for STYLESTRUCT {}
+impl ::core::clone::Clone for STYLESTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for STYLESTRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for STYLESTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STYLESTRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for STYLESTRUCT {}
 impl ::core::default::Default for STYLESTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for STYLESTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STYLESTRUCT").field("styleOld", &self.styleOld).field("styleNew", &self.styleNew).finish()
-    }
-}
-impl ::core::cmp::PartialEq for STYLESTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.styleOld == other.styleOld && self.styleNew == other.styleNew
-    }
-}
-impl ::core::cmp::Eq for STYLESTRUCT {}
-unsafe impl ::windows::core::Abi for STYLESTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYSTEM_CURSOR_ID(pub u32);
-pub const OCR_APPSTARTING: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32650u32);
-pub const OCR_NORMAL: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32512u32);
-pub const OCR_CROSS: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32515u32);
-pub const OCR_HAND: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32649u32);
-pub const OCR_HELP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32651u32);
-pub const OCR_IBEAM: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32513u32);
-pub const OCR_NO: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32648u32);
-pub const OCR_SIZEALL: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32646u32);
-pub const OCR_SIZENESW: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32643u32);
-pub const OCR_SIZENS: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32645u32);
-pub const OCR_SIZENWSE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32642u32);
-pub const OCR_SIZEWE: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32644u32);
-pub const OCR_UP: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32516u32);
-pub const OCR_WAIT: SYSTEM_CURSOR_ID = SYSTEM_CURSOR_ID(32514u32);
-impl ::core::convert::From<u32> for SYSTEM_CURSOR_ID {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEM_CURSOR_ID {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SYSTEM_CURSOR_ID {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SYSTEM_CURSOR_ID {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYSTEM_CURSOR_ID {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYSTEM_CURSOR_ID {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SYSTEM_CURSOR_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYSTEM_METRICS_INDEX(pub u32);
-pub const SM_ARRANGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(56u32);
-pub const SM_CLEANBOOT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(67u32);
-pub const SM_CMONITORS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(80u32);
-pub const SM_CMOUSEBUTTONS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(43u32);
-pub const SM_CONVERTIBLESLATEMODE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8195u32);
-pub const SM_CXBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(5u32);
-pub const SM_CXCURSOR: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(13u32);
-pub const SM_CXDLGFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(7u32);
-pub const SM_CXDOUBLECLK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(36u32);
-pub const SM_CXDRAG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(68u32);
-pub const SM_CXEDGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(45u32);
-pub const SM_CXFIXEDFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(7u32);
-pub const SM_CXFOCUSBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(83u32);
-pub const SM_CXFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(32u32);
-pub const SM_CXFULLSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(16u32);
-pub const SM_CXHSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(21u32);
-pub const SM_CXHTHUMB: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(10u32);
-pub const SM_CXICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(11u32);
-pub const SM_CXICONSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(38u32);
-pub const SM_CXMAXIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(61u32);
-pub const SM_CXMAXTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(59u32);
-pub const SM_CXMENUCHECK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(71u32);
-pub const SM_CXMENUSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(54u32);
-pub const SM_CXMIN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(28u32);
-pub const SM_CXMINIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(57u32);
-pub const SM_CXMINSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(47u32);
-pub const SM_CXMINTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(34u32);
-pub const SM_CXPADDEDBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(92u32);
-pub const SM_CXSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(0u32);
-pub const SM_CXSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(30u32);
-pub const SM_CXSIZEFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(32u32);
-pub const SM_CXSMICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(49u32);
-pub const SM_CXSMSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(52u32);
-pub const SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(78u32);
-pub const SM_CXVSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(2u32);
-pub const SM_CYBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(6u32);
-pub const SM_CYCAPTION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(4u32);
-pub const SM_CYCURSOR: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(14u32);
-pub const SM_CYDLGFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8u32);
-pub const SM_CYDOUBLECLK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(37u32);
-pub const SM_CYDRAG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(69u32);
-pub const SM_CYEDGE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(46u32);
-pub const SM_CYFIXEDFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8u32);
-pub const SM_CYFOCUSBORDER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(84u32);
-pub const SM_CYFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(33u32);
-pub const SM_CYFULLSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(17u32);
-pub const SM_CYHSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(3u32);
-pub const SM_CYICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(12u32);
-pub const SM_CYICONSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(39u32);
-pub const SM_CYKANJIWINDOW: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(18u32);
-pub const SM_CYMAXIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(62u32);
-pub const SM_CYMAXTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(60u32);
-pub const SM_CYMENU: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(15u32);
-pub const SM_CYMENUCHECK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(72u32);
-pub const SM_CYMENUSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(55u32);
-pub const SM_CYMIN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(29u32);
-pub const SM_CYMINIMIZED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(58u32);
-pub const SM_CYMINSPACING: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(48u32);
-pub const SM_CYMINTRACK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(35u32);
-pub const SM_CYSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(1u32);
-pub const SM_CYSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(31u32);
-pub const SM_CYSIZEFRAME: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(33u32);
-pub const SM_CYSMCAPTION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(51u32);
-pub const SM_CYSMICON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(50u32);
-pub const SM_CYSMSIZE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(53u32);
-pub const SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(79u32);
-pub const SM_CYVSCROLL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(20u32);
-pub const SM_CYVTHUMB: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(9u32);
-pub const SM_DBCSENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(42u32);
-pub const SM_DEBUG: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(22u32);
-pub const SM_DIGITIZER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(94u32);
-pub const SM_IMMENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(82u32);
-pub const SM_MAXIMUMTOUCHES: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(95u32);
-pub const SM_MEDIACENTER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(87u32);
-pub const SM_MENUDROPALIGNMENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(40u32);
-pub const SM_MIDEASTENABLED: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(74u32);
-pub const SM_MOUSEPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(19u32);
-pub const SM_MOUSEHORIZONTALWHEELPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(91u32);
-pub const SM_MOUSEWHEELPRESENT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(75u32);
-pub const SM_NETWORK: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(63u32);
-pub const SM_PENWINDOWS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(41u32);
-pub const SM_REMOTECONTROL: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8193u32);
-pub const SM_REMOTESESSION: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(4096u32);
-pub const SM_SAMEDISPLAYFORMAT: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(81u32);
-pub const SM_SECURE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(44u32);
-pub const SM_SERVERR2: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(89u32);
-pub const SM_SHOWSOUNDS: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(70u32);
-pub const SM_SHUTTINGDOWN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8192u32);
-pub const SM_SLOWMACHINE: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(73u32);
-pub const SM_STARTER: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(88u32);
-pub const SM_SWAPBUTTON: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(23u32);
-pub const SM_SYSTEMDOCKED_: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(8196u32);
-pub const SM_TABLETPC: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(86u32);
-pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(76u32);
-pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = SYSTEM_METRICS_INDEX(77u32);
-impl ::core::convert::From<u32> for SYSTEM_METRICS_INDEX {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEM_METRICS_INDEX {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SYSTEM_METRICS_INDEX {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SYSTEM_METRICS_INDEX {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYSTEM_METRICS_INDEX {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYSTEM_METRICS_INDEX {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SYSTEM_METRICS_INDEX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYSTEM_PARAMETERS_INFO_ACTION(pub u32);
-pub const SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(1u32);
-pub const SPI_SETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(2u32);
-pub const SPI_GETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(3u32);
-pub const SPI_SETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4u32);
-pub const SPI_GETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(5u32);
-pub const SPI_SETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(6u32);
-pub const SPI_GETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(10u32);
-pub const SPI_SETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(11u32);
-pub const SPI_LANGDRIVER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(12u32);
-pub const SPI_ICONHORIZONTALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(13u32);
-pub const SPI_GETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(14u32);
-pub const SPI_SETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(15u32);
-pub const SPI_GETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(16u32);
-pub const SPI_SETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(17u32);
-pub const SPI_GETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(18u32);
-pub const SPI_SETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(19u32);
-pub const SPI_SETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(20u32);
-pub const SPI_SETDESKPATTERN: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(21u32);
-pub const SPI_GETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(22u32);
-pub const SPI_SETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(23u32);
-pub const SPI_ICONVERTICALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(24u32);
-pub const SPI_GETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(25u32);
-pub const SPI_SETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(26u32);
-pub const SPI_GETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(27u32);
-pub const SPI_SETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(28u32);
-pub const SPI_SETDOUBLECLKWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(29u32);
-pub const SPI_SETDOUBLECLKHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(30u32);
-pub const SPI_GETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(31u32);
-pub const SPI_SETDOUBLECLICKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(32u32);
-pub const SPI_SETMOUSEBUTTONSWAP: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(33u32);
-pub const SPI_SETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(34u32);
-pub const SPI_GETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(35u32);
-pub const SPI_SETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(36u32);
-pub const SPI_SETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(37u32);
-pub const SPI_GETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(38u32);
-pub const SPI_GETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(41u32);
-pub const SPI_SETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(42u32);
-pub const SPI_GETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(43u32);
-pub const SPI_SETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(44u32);
-pub const SPI_GETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(45u32);
-pub const SPI_SETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(46u32);
-pub const SPI_SETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(47u32);
-pub const SPI_GETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(48u32);
-pub const SPI_SETPENWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(49u32);
-pub const SPI_GETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(66u32);
-pub const SPI_SETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(67u32);
-pub const SPI_GETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(68u32);
-pub const SPI_SETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(69u32);
-pub const SPI_GETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(70u32);
-pub const SPI_SETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(71u32);
-pub const SPI_GETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(72u32);
-pub const SPI_SETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(73u32);
-pub const SPI_GETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(74u32);
-pub const SPI_SETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(75u32);
-pub const SPI_SETDRAGWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(76u32);
-pub const SPI_SETDRAGHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(77u32);
-pub const SPI_SETHANDHELD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(78u32);
-pub const SPI_GETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(79u32);
-pub const SPI_GETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(80u32);
-pub const SPI_SETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(81u32);
-pub const SPI_SETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(82u32);
-pub const SPI_GETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(83u32);
-pub const SPI_GETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(84u32);
-pub const SPI_SETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(85u32);
-pub const SPI_SETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(86u32);
-pub const SPI_SETCURSORS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(87u32);
-pub const SPI_SETICONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(88u32);
-pub const SPI_GETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(89u32);
-pub const SPI_SETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(90u32);
-pub const SPI_SETLANGTOGGLE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(91u32);
-pub const SPI_GETWINDOWSEXTENSION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(92u32);
-pub const SPI_SETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(93u32);
-pub const SPI_GETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(94u32);
-pub const SPI_SETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(97u32);
-pub const SPI_SCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(97u32);
-pub const SPI_GETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(50u32);
-pub const SPI_SETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(51u32);
-pub const SPI_GETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(52u32);
-pub const SPI_SETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(53u32);
-pub const SPI_GETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(54u32);
-pub const SPI_SETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(55u32);
-pub const SPI_GETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(56u32);
-pub const SPI_SETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(57u32);
-pub const SPI_GETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(58u32);
-pub const SPI_SETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(59u32);
-pub const SPI_GETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(60u32);
-pub const SPI_SETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(61u32);
-pub const SPI_GETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(62u32);
-pub const SPI_SETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(63u32);
-pub const SPI_GETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(64u32);
-pub const SPI_SETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(65u32);
-pub const SPI_GETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(95u32);
-pub const SPI_SETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(96u32);
-pub const SPI_GETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(98u32);
-pub const SPI_SETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(99u32);
-pub const SPI_GETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(100u32);
-pub const SPI_SETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(101u32);
-pub const SPI_GETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(102u32);
-pub const SPI_SETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(103u32);
-pub const SPI_GETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(104u32);
-pub const SPI_SETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(105u32);
-pub const SPI_GETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(106u32);
-pub const SPI_SETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(107u32);
-pub const SPI_GETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(108u32);
-pub const SPI_SETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(109u32);
-pub const SPI_GETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(110u32);
-pub const SPI_SETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(111u32);
-pub const SPI_GETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(112u32);
-pub const SPI_SETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(113u32);
-pub const SPI_GETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(114u32);
-pub const SPI_GETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(115u32);
-pub const SPI_GETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(116u32);
-pub const SPI_SETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(117u32);
-pub const SPI_GETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(118u32);
-pub const SPI_SETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(119u32);
-pub const SPI_GETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(120u32);
-pub const SPI_SETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(121u32);
-pub const SPI_GETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(122u32);
-pub const SPI_SETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(123u32);
-pub const SPI_GETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(124u32);
-pub const SPI_SETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(125u32);
-pub const SPI_GETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(126u32);
-pub const SPI_SETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(127u32);
-pub const SPI_GETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(128u32);
-pub const SPI_SETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(129u32);
-pub const SPI_GETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(130u32);
-pub const SPI_SETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(131u32);
-pub const SPI_GETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(132u32);
-pub const SPI_SETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(133u32);
-pub const SPI_GETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(134u32);
-pub const SPI_SETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(135u32);
-pub const SPI_GETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(136u32);
-pub const SPI_SETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(137u32);
-pub const SPI_GETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(138u32);
-pub const SPI_SETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(139u32);
-pub const SPI_GETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(140u32);
-pub const SPI_SETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(141u32);
-pub const SPI_GETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(142u32);
-pub const SPI_SETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(143u32);
-pub const SPI_GETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(144u32);
-pub const SPI_SETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(145u32);
-pub const SPI_GETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(156u32);
-pub const SPI_SETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(157u32);
-pub const SPI_GETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(158u32);
-pub const SPI_SETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(159u32);
-pub const SPI_GETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(162u32);
-pub const SPI_SETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(163u32);
-pub const SPI_GETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4096u32);
-pub const SPI_SETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4097u32);
-pub const SPI_GETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4098u32);
-pub const SPI_SETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4099u32);
-pub const SPI_GETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4100u32);
-pub const SPI_SETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4101u32);
-pub const SPI_GETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4102u32);
-pub const SPI_SETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4103u32);
-pub const SPI_GETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4104u32);
-pub const SPI_SETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4105u32);
-pub const SPI_GETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4106u32);
-pub const SPI_SETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4107u32);
-pub const SPI_GETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4106u32);
-pub const SPI_SETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4107u32);
-pub const SPI_GETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4108u32);
-pub const SPI_SETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4109u32);
-pub const SPI_GETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4110u32);
-pub const SPI_SETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4111u32);
-pub const SPI_GETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4114u32);
-pub const SPI_SETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4115u32);
-pub const SPI_GETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4116u32);
-pub const SPI_SETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4117u32);
-pub const SPI_GETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4118u32);
-pub const SPI_SETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4119u32);
-pub const SPI_GETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4120u32);
-pub const SPI_SETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4121u32);
-pub const SPI_GETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4122u32);
-pub const SPI_SETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4123u32);
-pub const SPI_GETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4124u32);
-pub const SPI_SETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4125u32);
-pub const SPI_GETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4126u32);
-pub const SPI_SETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4127u32);
-pub const SPI_GETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4128u32);
-pub const SPI_SETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4129u32);
-pub const SPI_GETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4130u32);
-pub const SPI_SETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4131u32);
-pub const SPI_GETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4132u32);
-pub const SPI_SETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4133u32);
-pub const SPI_GETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4134u32);
-pub const SPI_SETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4135u32);
-pub const SPI_GETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4158u32);
-pub const SPI_SETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4159u32);
-pub const SPI_GETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4160u32);
-pub const SPI_SETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4161u32);
-pub const SPI_GETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4162u32);
-pub const SPI_SETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4163u32);
-pub const SPI_GETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4168u32);
-pub const SPI_SETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4169u32);
-pub const SPI_GETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4170u32);
-pub const SPI_SETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4171u32);
-pub const SPI_GETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4172u32);
-pub const SPI_SETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4173u32);
-pub const SPI_GETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4174u32);
-pub const SPI_SETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4175u32);
-pub const SPI_GETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4176u32);
-pub const SPI_SETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(4177u32);
-pub const SPI_GETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8192u32);
-pub const SPI_SETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8193u32);
-pub const SPI_GETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8194u32);
-pub const SPI_SETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8195u32);
-pub const SPI_GETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8196u32);
-pub const SPI_SETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8197u32);
-pub const SPI_GETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8198u32);
-pub const SPI_SETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8199u32);
-pub const SPI_GETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8200u32);
-pub const SPI_SETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8201u32);
-pub const SPI_GETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8202u32);
-pub const SPI_SETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8203u32);
-pub const SPI_GETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8204u32);
-pub const SPI_SETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8205u32);
-pub const SPI_GETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8206u32);
-pub const SPI_SETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8207u32);
-pub const SPI_GETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8208u32);
-pub const SPI_SETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8209u32);
-pub const SPI_GETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8210u32);
-pub const SPI_SETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8211u32);
-pub const SPI_GETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8212u32);
-pub const SPI_SETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8213u32);
-pub const SPI_GETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8214u32);
-pub const SPI_SETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8215u32);
-pub const SPI_GETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8216u32);
-pub const SPI_SETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8217u32);
-pub const SPI_GETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8218u32);
-pub const SPI_SETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8219u32);
-pub const SPI_GETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8220u32);
-pub const SPI_SETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8221u32);
-pub const SPI_GETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8222u32);
-pub const SPI_SETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8223u32);
-pub const SPI_GETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8224u32);
-pub const SPI_SETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8225u32);
-pub const SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8226u32);
-pub const SPI_SETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8227u32);
-pub const SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8228u32);
-pub const SPI_SETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = SYSTEM_PARAMETERS_INFO_ACTION(8229u32);
-impl ::core::convert::From<u32> for SYSTEM_PARAMETERS_INFO_ACTION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEM_PARAMETERS_INFO_ACTION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_ACTION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_ACTION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_ACTION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_ACTION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SYSTEM_PARAMETERS_INFO_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(pub u32);
-pub const SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(1u32);
-pub const SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
-pub const SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS(2u32);
-impl ::core::convert::From<u32> for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYS_COLOR_INDEX(pub u32);
-pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(21u32);
-pub const COLOR_3DFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
-pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(22u32);
-pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
-pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(10u32);
-pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(2u32);
-pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(12u32);
-pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
-pub const COLOR_BTNFACE: SYS_COLOR_INDEX = SYS_COLOR_INDEX(15u32);
-pub const _COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const _COLOR_BTNHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(20u32);
-pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(16u32);
-pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(18u32);
-pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(9u32);
-pub const COLOR_DESKTOP: SYS_COLOR_INDEX = SYS_COLOR_INDEX(1u32);
-pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(27u32);
-pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(28u32);
-pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(17u32);
-pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(13u32);
-pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(14u32);
-pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(26u32);
-pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = SYS_COLOR_INDEX(11u32);
-pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = SYS_COLOR_INDEX(3u32);
-pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(19u32);
-pub const COLOR_INFOBK: SYS_COLOR_INDEX = SYS_COLOR_INDEX(24u32);
-pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(23u32);
-pub const COLOR_MENU: SYS_COLOR_INDEX = SYS_COLOR_INDEX(4u32);
-pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(29u32);
-pub const COLOR_MENUBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(30u32);
-pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(7u32);
-pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = SYS_COLOR_INDEX(0u32);
-pub const COLOR_WINDOW: SYS_COLOR_INDEX = SYS_COLOR_INDEX(5u32);
-pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = SYS_COLOR_INDEX(6u32);
-pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = SYS_COLOR_INDEX(8u32);
-impl ::core::convert::From<u32> for SYS_COLOR_INDEX {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYS_COLOR_INDEX {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SYS_COLOR_INDEX {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SYS_COLOR_INDEX {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SYS_COLOR_INDEX {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SYS_COLOR_INDEX {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SYS_COLOR_INDEX {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SYSTEM_CURSOR_ID = u32;
+pub const OCR_APPSTARTING: SYSTEM_CURSOR_ID = 32650u32;
+pub const OCR_NORMAL: SYSTEM_CURSOR_ID = 32512u32;
+pub const OCR_CROSS: SYSTEM_CURSOR_ID = 32515u32;
+pub const OCR_HAND: SYSTEM_CURSOR_ID = 32649u32;
+pub const OCR_HELP: SYSTEM_CURSOR_ID = 32651u32;
+pub const OCR_IBEAM: SYSTEM_CURSOR_ID = 32513u32;
+pub const OCR_NO: SYSTEM_CURSOR_ID = 32648u32;
+pub const OCR_SIZEALL: SYSTEM_CURSOR_ID = 32646u32;
+pub const OCR_SIZENESW: SYSTEM_CURSOR_ID = 32643u32;
+pub const OCR_SIZENS: SYSTEM_CURSOR_ID = 32645u32;
+pub const OCR_SIZENWSE: SYSTEM_CURSOR_ID = 32642u32;
+pub const OCR_SIZEWE: SYSTEM_CURSOR_ID = 32644u32;
+pub const OCR_UP: SYSTEM_CURSOR_ID = 32516u32;
+pub const OCR_WAIT: SYSTEM_CURSOR_ID = 32514u32;
+pub type SYSTEM_METRICS_INDEX = u32;
+pub const SM_ARRANGE: SYSTEM_METRICS_INDEX = 56u32;
+pub const SM_CLEANBOOT: SYSTEM_METRICS_INDEX = 67u32;
+pub const SM_CMONITORS: SYSTEM_METRICS_INDEX = 80u32;
+pub const SM_CMOUSEBUTTONS: SYSTEM_METRICS_INDEX = 43u32;
+pub const SM_CONVERTIBLESLATEMODE: SYSTEM_METRICS_INDEX = 8195u32;
+pub const SM_CXBORDER: SYSTEM_METRICS_INDEX = 5u32;
+pub const SM_CXCURSOR: SYSTEM_METRICS_INDEX = 13u32;
+pub const SM_CXDLGFRAME: SYSTEM_METRICS_INDEX = 7u32;
+pub const SM_CXDOUBLECLK: SYSTEM_METRICS_INDEX = 36u32;
+pub const SM_CXDRAG: SYSTEM_METRICS_INDEX = 68u32;
+pub const SM_CXEDGE: SYSTEM_METRICS_INDEX = 45u32;
+pub const SM_CXFIXEDFRAME: SYSTEM_METRICS_INDEX = 7u32;
+pub const SM_CXFOCUSBORDER: SYSTEM_METRICS_INDEX = 83u32;
+pub const SM_CXFRAME: SYSTEM_METRICS_INDEX = 32u32;
+pub const SM_CXFULLSCREEN: SYSTEM_METRICS_INDEX = 16u32;
+pub const SM_CXHSCROLL: SYSTEM_METRICS_INDEX = 21u32;
+pub const SM_CXHTHUMB: SYSTEM_METRICS_INDEX = 10u32;
+pub const SM_CXICON: SYSTEM_METRICS_INDEX = 11u32;
+pub const SM_CXICONSPACING: SYSTEM_METRICS_INDEX = 38u32;
+pub const SM_CXMAXIMIZED: SYSTEM_METRICS_INDEX = 61u32;
+pub const SM_CXMAXTRACK: SYSTEM_METRICS_INDEX = 59u32;
+pub const SM_CXMENUCHECK: SYSTEM_METRICS_INDEX = 71u32;
+pub const SM_CXMENUSIZE: SYSTEM_METRICS_INDEX = 54u32;
+pub const SM_CXMIN: SYSTEM_METRICS_INDEX = 28u32;
+pub const SM_CXMINIMIZED: SYSTEM_METRICS_INDEX = 57u32;
+pub const SM_CXMINSPACING: SYSTEM_METRICS_INDEX = 47u32;
+pub const SM_CXMINTRACK: SYSTEM_METRICS_INDEX = 34u32;
+pub const SM_CXPADDEDBORDER: SYSTEM_METRICS_INDEX = 92u32;
+pub const SM_CXSCREEN: SYSTEM_METRICS_INDEX = 0u32;
+pub const SM_CXSIZE: SYSTEM_METRICS_INDEX = 30u32;
+pub const SM_CXSIZEFRAME: SYSTEM_METRICS_INDEX = 32u32;
+pub const SM_CXSMICON: SYSTEM_METRICS_INDEX = 49u32;
+pub const SM_CXSMSIZE: SYSTEM_METRICS_INDEX = 52u32;
+pub const SM_CXVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 78u32;
+pub const SM_CXVSCROLL: SYSTEM_METRICS_INDEX = 2u32;
+pub const SM_CYBORDER: SYSTEM_METRICS_INDEX = 6u32;
+pub const SM_CYCAPTION: SYSTEM_METRICS_INDEX = 4u32;
+pub const SM_CYCURSOR: SYSTEM_METRICS_INDEX = 14u32;
+pub const SM_CYDLGFRAME: SYSTEM_METRICS_INDEX = 8u32;
+pub const SM_CYDOUBLECLK: SYSTEM_METRICS_INDEX = 37u32;
+pub const SM_CYDRAG: SYSTEM_METRICS_INDEX = 69u32;
+pub const SM_CYEDGE: SYSTEM_METRICS_INDEX = 46u32;
+pub const SM_CYFIXEDFRAME: SYSTEM_METRICS_INDEX = 8u32;
+pub const SM_CYFOCUSBORDER: SYSTEM_METRICS_INDEX = 84u32;
+pub const SM_CYFRAME: SYSTEM_METRICS_INDEX = 33u32;
+pub const SM_CYFULLSCREEN: SYSTEM_METRICS_INDEX = 17u32;
+pub const SM_CYHSCROLL: SYSTEM_METRICS_INDEX = 3u32;
+pub const SM_CYICON: SYSTEM_METRICS_INDEX = 12u32;
+pub const SM_CYICONSPACING: SYSTEM_METRICS_INDEX = 39u32;
+pub const SM_CYKANJIWINDOW: SYSTEM_METRICS_INDEX = 18u32;
+pub const SM_CYMAXIMIZED: SYSTEM_METRICS_INDEX = 62u32;
+pub const SM_CYMAXTRACK: SYSTEM_METRICS_INDEX = 60u32;
+pub const SM_CYMENU: SYSTEM_METRICS_INDEX = 15u32;
+pub const SM_CYMENUCHECK: SYSTEM_METRICS_INDEX = 72u32;
+pub const SM_CYMENUSIZE: SYSTEM_METRICS_INDEX = 55u32;
+pub const SM_CYMIN: SYSTEM_METRICS_INDEX = 29u32;
+pub const SM_CYMINIMIZED: SYSTEM_METRICS_INDEX = 58u32;
+pub const SM_CYMINSPACING: SYSTEM_METRICS_INDEX = 48u32;
+pub const SM_CYMINTRACK: SYSTEM_METRICS_INDEX = 35u32;
+pub const SM_CYSCREEN: SYSTEM_METRICS_INDEX = 1u32;
+pub const SM_CYSIZE: SYSTEM_METRICS_INDEX = 31u32;
+pub const SM_CYSIZEFRAME: SYSTEM_METRICS_INDEX = 33u32;
+pub const SM_CYSMCAPTION: SYSTEM_METRICS_INDEX = 51u32;
+pub const SM_CYSMICON: SYSTEM_METRICS_INDEX = 50u32;
+pub const SM_CYSMSIZE: SYSTEM_METRICS_INDEX = 53u32;
+pub const SM_CYVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 79u32;
+pub const SM_CYVSCROLL: SYSTEM_METRICS_INDEX = 20u32;
+pub const SM_CYVTHUMB: SYSTEM_METRICS_INDEX = 9u32;
+pub const SM_DBCSENABLED: SYSTEM_METRICS_INDEX = 42u32;
+pub const SM_DEBUG: SYSTEM_METRICS_INDEX = 22u32;
+pub const SM_DIGITIZER: SYSTEM_METRICS_INDEX = 94u32;
+pub const SM_IMMENABLED: SYSTEM_METRICS_INDEX = 82u32;
+pub const SM_MAXIMUMTOUCHES: SYSTEM_METRICS_INDEX = 95u32;
+pub const SM_MEDIACENTER: SYSTEM_METRICS_INDEX = 87u32;
+pub const SM_MENUDROPALIGNMENT: SYSTEM_METRICS_INDEX = 40u32;
+pub const SM_MIDEASTENABLED: SYSTEM_METRICS_INDEX = 74u32;
+pub const SM_MOUSEPRESENT: SYSTEM_METRICS_INDEX = 19u32;
+pub const SM_MOUSEHORIZONTALWHEELPRESENT: SYSTEM_METRICS_INDEX = 91u32;
+pub const SM_MOUSEWHEELPRESENT: SYSTEM_METRICS_INDEX = 75u32;
+pub const SM_NETWORK: SYSTEM_METRICS_INDEX = 63u32;
+pub const SM_PENWINDOWS: SYSTEM_METRICS_INDEX = 41u32;
+pub const SM_REMOTECONTROL: SYSTEM_METRICS_INDEX = 8193u32;
+pub const SM_REMOTESESSION: SYSTEM_METRICS_INDEX = 4096u32;
+pub const SM_SAMEDISPLAYFORMAT: SYSTEM_METRICS_INDEX = 81u32;
+pub const SM_SECURE: SYSTEM_METRICS_INDEX = 44u32;
+pub const SM_SERVERR2: SYSTEM_METRICS_INDEX = 89u32;
+pub const SM_SHOWSOUNDS: SYSTEM_METRICS_INDEX = 70u32;
+pub const SM_SHUTTINGDOWN: SYSTEM_METRICS_INDEX = 8192u32;
+pub const SM_SLOWMACHINE: SYSTEM_METRICS_INDEX = 73u32;
+pub const SM_STARTER: SYSTEM_METRICS_INDEX = 88u32;
+pub const SM_SWAPBUTTON: SYSTEM_METRICS_INDEX = 23u32;
+pub const SM_SYSTEMDOCKED_: SYSTEM_METRICS_INDEX = 8196u32;
+pub const SM_TABLETPC: SYSTEM_METRICS_INDEX = 86u32;
+pub const SM_XVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 76u32;
+pub const SM_YVIRTUALSCREEN: SYSTEM_METRICS_INDEX = 77u32;
+pub type SYSTEM_PARAMETERS_INFO_ACTION = u32;
+pub const SPI_GETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = 1u32;
+pub const SPI_SETBEEP: SYSTEM_PARAMETERS_INFO_ACTION = 2u32;
+pub const SPI_GETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = 3u32;
+pub const SPI_SETMOUSE: SYSTEM_PARAMETERS_INFO_ACTION = 4u32;
+pub const SPI_GETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = 5u32;
+pub const SPI_SETBORDER: SYSTEM_PARAMETERS_INFO_ACTION = 6u32;
+pub const SPI_GETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = 10u32;
+pub const SPI_SETKEYBOARDSPEED: SYSTEM_PARAMETERS_INFO_ACTION = 11u32;
+pub const SPI_LANGDRIVER: SYSTEM_PARAMETERS_INFO_ACTION = 12u32;
+pub const SPI_ICONHORIZONTALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = 13u32;
+pub const SPI_GETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 14u32;
+pub const SPI_SETSCREENSAVETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 15u32;
+pub const SPI_GETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 16u32;
+pub const SPI_SETSCREENSAVEACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 17u32;
+pub const SPI_GETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = 18u32;
+pub const SPI_SETGRIDGRANULARITY: SYSTEM_PARAMETERS_INFO_ACTION = 19u32;
+pub const SPI_SETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = 20u32;
+pub const SPI_SETDESKPATTERN: SYSTEM_PARAMETERS_INFO_ACTION = 21u32;
+pub const SPI_GETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 22u32;
+pub const SPI_SETKEYBOARDDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 23u32;
+pub const SPI_ICONVERTICALSPACING: SYSTEM_PARAMETERS_INFO_ACTION = 24u32;
+pub const SPI_GETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = 25u32;
+pub const SPI_SETICONTITLEWRAP: SYSTEM_PARAMETERS_INFO_ACTION = 26u32;
+pub const SPI_GETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = 27u32;
+pub const SPI_SETMENUDROPALIGNMENT: SYSTEM_PARAMETERS_INFO_ACTION = 28u32;
+pub const SPI_SETDOUBLECLKWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 29u32;
+pub const SPI_SETDOUBLECLKHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 30u32;
+pub const SPI_GETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = 31u32;
+pub const SPI_SETDOUBLECLICKTIME: SYSTEM_PARAMETERS_INFO_ACTION = 32u32;
+pub const SPI_SETMOUSEBUTTONSWAP: SYSTEM_PARAMETERS_INFO_ACTION = 33u32;
+pub const SPI_SETICONTITLELOGFONT: SYSTEM_PARAMETERS_INFO_ACTION = 34u32;
+pub const SPI_GETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = 35u32;
+pub const SPI_SETFASTTASKSWITCH: SYSTEM_PARAMETERS_INFO_ACTION = 36u32;
+pub const SPI_SETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = 37u32;
+pub const SPI_GETDRAGFULLWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = 38u32;
+pub const SPI_GETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 41u32;
+pub const SPI_SETNONCLIENTMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 42u32;
+pub const SPI_GETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 43u32;
+pub const SPI_SETMINIMIZEDMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 44u32;
+pub const SPI_GETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 45u32;
+pub const SPI_SETICONMETRICS: SYSTEM_PARAMETERS_INFO_ACTION = 46u32;
+pub const SPI_SETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = 47u32;
+pub const SPI_GETWORKAREA: SYSTEM_PARAMETERS_INFO_ACTION = 48u32;
+pub const SPI_SETPENWINDOWS: SYSTEM_PARAMETERS_INFO_ACTION = 49u32;
+pub const SPI_GETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 66u32;
+pub const SPI_SETHIGHCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 67u32;
+pub const SPI_GETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = 68u32;
+pub const SPI_SETKEYBOARDPREF: SYSTEM_PARAMETERS_INFO_ACTION = 69u32;
+pub const SPI_GETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = 70u32;
+pub const SPI_SETSCREENREADER: SYSTEM_PARAMETERS_INFO_ACTION = 71u32;
+pub const SPI_GETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 72u32;
+pub const SPI_SETANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 73u32;
+pub const SPI_GETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = 74u32;
+pub const SPI_SETFONTSMOOTHING: SYSTEM_PARAMETERS_INFO_ACTION = 75u32;
+pub const SPI_SETDRAGWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 76u32;
+pub const SPI_SETDRAGHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 77u32;
+pub const SPI_SETHANDHELD: SYSTEM_PARAMETERS_INFO_ACTION = 78u32;
+pub const SPI_GETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 79u32;
+pub const SPI_GETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 80u32;
+pub const SPI_SETLOWPOWERTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 81u32;
+pub const SPI_SETPOWEROFFTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 82u32;
+pub const SPI_GETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 83u32;
+pub const SPI_GETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 84u32;
+pub const SPI_SETLOWPOWERACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 85u32;
+pub const SPI_SETPOWEROFFACTIVE: SYSTEM_PARAMETERS_INFO_ACTION = 86u32;
+pub const SPI_SETCURSORS: SYSTEM_PARAMETERS_INFO_ACTION = 87u32;
+pub const SPI_SETICONS: SYSTEM_PARAMETERS_INFO_ACTION = 88u32;
+pub const SPI_GETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = 89u32;
+pub const SPI_SETDEFAULTINPUTLANG: SYSTEM_PARAMETERS_INFO_ACTION = 90u32;
+pub const SPI_SETLANGTOGGLE: SYSTEM_PARAMETERS_INFO_ACTION = 91u32;
+pub const SPI_GETWINDOWSEXTENSION: SYSTEM_PARAMETERS_INFO_ACTION = 92u32;
+pub const SPI_SETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = 93u32;
+pub const SPI_GETMOUSETRAILS: SYSTEM_PARAMETERS_INFO_ACTION = 94u32;
+pub const SPI_SETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = 97u32;
+pub const SPI_SCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = 97u32;
+pub const SPI_GETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 50u32;
+pub const SPI_SETFILTERKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 51u32;
+pub const SPI_GETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 52u32;
+pub const SPI_SETTOGGLEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 53u32;
+pub const SPI_GETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 54u32;
+pub const SPI_SETMOUSEKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 55u32;
+pub const SPI_GETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = 56u32;
+pub const SPI_SETSHOWSOUNDS: SYSTEM_PARAMETERS_INFO_ACTION = 57u32;
+pub const SPI_GETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 58u32;
+pub const SPI_SETSTICKYKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 59u32;
+pub const SPI_GETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 60u32;
+pub const SPI_SETACCESSTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 61u32;
+pub const SPI_GETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 62u32;
+pub const SPI_SETSERIALKEYS: SYSTEM_PARAMETERS_INFO_ACTION = 63u32;
+pub const SPI_GETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = 64u32;
+pub const SPI_SETSOUNDSENTRY: SYSTEM_PARAMETERS_INFO_ACTION = 65u32;
+pub const SPI_GETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = 95u32;
+pub const SPI_SETSNAPTODEFBUTTON: SYSTEM_PARAMETERS_INFO_ACTION = 96u32;
+pub const SPI_GETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 98u32;
+pub const SPI_SETMOUSEHOVERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 99u32;
+pub const SPI_GETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 100u32;
+pub const SPI_SETMOUSEHOVERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 101u32;
+pub const SPI_GETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = 102u32;
+pub const SPI_SETMOUSEHOVERTIME: SYSTEM_PARAMETERS_INFO_ACTION = 103u32;
+pub const SPI_GETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = 104u32;
+pub const SPI_SETWHEELSCROLLLINES: SYSTEM_PARAMETERS_INFO_ACTION = 105u32;
+pub const SPI_GETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 106u32;
+pub const SPI_SETMENUSHOWDELAY: SYSTEM_PARAMETERS_INFO_ACTION = 107u32;
+pub const SPI_GETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = 108u32;
+pub const SPI_SETWHEELSCROLLCHARS: SYSTEM_PARAMETERS_INFO_ACTION = 109u32;
+pub const SPI_GETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = 110u32;
+pub const SPI_SETSHOWIMEUI: SYSTEM_PARAMETERS_INFO_ACTION = 111u32;
+pub const SPI_GETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = 112u32;
+pub const SPI_SETMOUSESPEED: SYSTEM_PARAMETERS_INFO_ACTION = 113u32;
+pub const SPI_GETSCREENSAVERRUNNING: SYSTEM_PARAMETERS_INFO_ACTION = 114u32;
+pub const SPI_GETDESKWALLPAPER: SYSTEM_PARAMETERS_INFO_ACTION = 115u32;
+pub const SPI_GETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = 116u32;
+pub const SPI_SETAUDIODESCRIPTION: SYSTEM_PARAMETERS_INFO_ACTION = 117u32;
+pub const SPI_GETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = 118u32;
+pub const SPI_SETSCREENSAVESECURE: SYSTEM_PARAMETERS_INFO_ACTION = 119u32;
+pub const SPI_GETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 120u32;
+pub const SPI_SETHUNGAPPTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 121u32;
+pub const SPI_GETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 122u32;
+pub const SPI_SETWAITTOKILLTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 123u32;
+pub const SPI_GETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 124u32;
+pub const SPI_SETWAITTOKILLSERVICETIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 125u32;
+pub const SPI_GETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 126u32;
+pub const SPI_SETMOUSEDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 127u32;
+pub const SPI_GETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 128u32;
+pub const SPI_SETPENDOCKTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 129u32;
+pub const SPI_GETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = 130u32;
+pub const SPI_SETWINARRANGING: SYSTEM_PARAMETERS_INFO_ACTION = 131u32;
+pub const SPI_GETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 132u32;
+pub const SPI_SETMOUSEDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 133u32;
+pub const SPI_GETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 134u32;
+pub const SPI_SETPENDRAGOUTTHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 135u32;
+pub const SPI_GETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 136u32;
+pub const SPI_SETMOUSESIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 137u32;
+pub const SPI_GETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 138u32;
+pub const SPI_SETPENSIDEMOVETHRESHOLD: SYSTEM_PARAMETERS_INFO_ACTION = 139u32;
+pub const SPI_GETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = 140u32;
+pub const SPI_SETDRAGFROMMAXIMIZE: SYSTEM_PARAMETERS_INFO_ACTION = 141u32;
+pub const SPI_GETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = 142u32;
+pub const SPI_SETSNAPSIZING: SYSTEM_PARAMETERS_INFO_ACTION = 143u32;
+pub const SPI_GETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = 144u32;
+pub const SPI_SETDOCKMOVING: SYSTEM_PARAMETERS_INFO_ACTION = 145u32;
+pub const SPI_GETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 156u32;
+pub const SPI_SETTOUCHPREDICTIONPARAMETERS: SYSTEM_PARAMETERS_INFO_ACTION = 157u32;
+pub const SPI_GETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = 158u32;
+pub const SPI_SETLOGICALDPIOVERRIDE: SYSTEM_PARAMETERS_INFO_ACTION = 159u32;
+pub const SPI_GETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = 162u32;
+pub const SPI_SETMENURECT: SYSTEM_PARAMETERS_INFO_ACTION = 163u32;
+pub const SPI_GETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4096u32;
+pub const SPI_SETACTIVEWINDOWTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4097u32;
+pub const SPI_GETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4098u32;
+pub const SPI_SETMENUANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4099u32;
+pub const SPI_GETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4100u32;
+pub const SPI_SETCOMBOBOXANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4101u32;
+pub const SPI_GETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = 4102u32;
+pub const SPI_SETLISTBOXSMOOTHSCROLLING: SYSTEM_PARAMETERS_INFO_ACTION = 4103u32;
+pub const SPI_GETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = 4104u32;
+pub const SPI_SETGRADIENTCAPTIONS: SYSTEM_PARAMETERS_INFO_ACTION = 4105u32;
+pub const SPI_GETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = 4106u32;
+pub const SPI_SETKEYBOARDCUES: SYSTEM_PARAMETERS_INFO_ACTION = 4107u32;
+pub const SPI_GETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = 4106u32;
+pub const SPI_SETMENUUNDERLINES: SYSTEM_PARAMETERS_INFO_ACTION = 4107u32;
+pub const SPI_GETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = 4108u32;
+pub const SPI_SETACTIVEWNDTRKZORDER: SYSTEM_PARAMETERS_INFO_ACTION = 4109u32;
+pub const SPI_GETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4110u32;
+pub const SPI_SETHOTTRACKING: SYSTEM_PARAMETERS_INFO_ACTION = 4111u32;
+pub const SPI_GETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4114u32;
+pub const SPI_SETMENUFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4115u32;
+pub const SPI_GETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4116u32;
+pub const SPI_SETSELECTIONFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4117u32;
+pub const SPI_GETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4118u32;
+pub const SPI_SETTOOLTIPANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4119u32;
+pub const SPI_GETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4120u32;
+pub const SPI_SETTOOLTIPFADE: SYSTEM_PARAMETERS_INFO_ACTION = 4121u32;
+pub const SPI_GETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4122u32;
+pub const SPI_SETCURSORSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4123u32;
+pub const SPI_GETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = 4124u32;
+pub const SPI_SETMOUSESONAR: SYSTEM_PARAMETERS_INFO_ACTION = 4125u32;
+pub const SPI_GETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = 4126u32;
+pub const SPI_SETMOUSECLICKLOCK: SYSTEM_PARAMETERS_INFO_ACTION = 4127u32;
+pub const SPI_GETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = 4128u32;
+pub const SPI_SETMOUSEVANISH: SYSTEM_PARAMETERS_INFO_ACTION = 4129u32;
+pub const SPI_GETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = 4130u32;
+pub const SPI_SETFLATMENU: SYSTEM_PARAMETERS_INFO_ACTION = 4131u32;
+pub const SPI_GETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4132u32;
+pub const SPI_SETDROPSHADOW: SYSTEM_PARAMETERS_INFO_ACTION = 4133u32;
+pub const SPI_GETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = 4134u32;
+pub const SPI_SETBLOCKSENDINPUTRESETS: SYSTEM_PARAMETERS_INFO_ACTION = 4135u32;
+pub const SPI_GETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = 4158u32;
+pub const SPI_SETUIEFFECTS: SYSTEM_PARAMETERS_INFO_ACTION = 4159u32;
+pub const SPI_GETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = 4160u32;
+pub const SPI_SETDISABLEOVERLAPPEDCONTENT: SYSTEM_PARAMETERS_INFO_ACTION = 4161u32;
+pub const SPI_GETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4162u32;
+pub const SPI_SETCLIENTAREAANIMATION: SYSTEM_PARAMETERS_INFO_ACTION = 4163u32;
+pub const SPI_GETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 4168u32;
+pub const SPI_SETCLEARTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 4169u32;
+pub const SPI_GETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = 4170u32;
+pub const SPI_SETSPEECHRECOGNITION: SYSTEM_PARAMETERS_INFO_ACTION = 4171u32;
+pub const SPI_GETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = 4172u32;
+pub const SPI_SETCARETBROWSING: SYSTEM_PARAMETERS_INFO_ACTION = 4173u32;
+pub const SPI_GETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = 4174u32;
+pub const SPI_SETTHREADLOCALINPUTSETTINGS: SYSTEM_PARAMETERS_INFO_ACTION = 4175u32;
+pub const SPI_GETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = 4176u32;
+pub const SPI_SETSYSTEMLANGUAGEBAR: SYSTEM_PARAMETERS_INFO_ACTION = 4177u32;
+pub const SPI_GETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8192u32;
+pub const SPI_SETFOREGROUNDLOCKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8193u32;
+pub const SPI_GETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8194u32;
+pub const SPI_SETACTIVEWNDTRKTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8195u32;
+pub const SPI_GETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = 8196u32;
+pub const SPI_SETFOREGROUNDFLASHCOUNT: SYSTEM_PARAMETERS_INFO_ACTION = 8197u32;
+pub const SPI_GETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8198u32;
+pub const SPI_SETCARETWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8199u32;
+pub const SPI_GETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = 8200u32;
+pub const SPI_SETMOUSECLICKLOCKTIME: SYSTEM_PARAMETERS_INFO_ACTION = 8201u32;
+pub const SPI_GETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8202u32;
+pub const SPI_SETFONTSMOOTHINGTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8203u32;
+pub const SPI_GETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 8204u32;
+pub const SPI_SETFONTSMOOTHINGCONTRAST: SYSTEM_PARAMETERS_INFO_ACTION = 8205u32;
+pub const SPI_GETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8206u32;
+pub const SPI_SETFOCUSBORDERWIDTH: SYSTEM_PARAMETERS_INFO_ACTION = 8207u32;
+pub const SPI_GETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 8208u32;
+pub const SPI_SETFOCUSBORDERHEIGHT: SYSTEM_PARAMETERS_INFO_ACTION = 8209u32;
+pub const SPI_GETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = 8210u32;
+pub const SPI_SETFONTSMOOTHINGORIENTATION: SYSTEM_PARAMETERS_INFO_ACTION = 8211u32;
+pub const SPI_GETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = 8212u32;
+pub const SPI_SETMINIMUMHITRADIUS: SYSTEM_PARAMETERS_INFO_ACTION = 8213u32;
+pub const SPI_GETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = 8214u32;
+pub const SPI_SETMESSAGEDURATION: SYSTEM_PARAMETERS_INFO_ACTION = 8215u32;
+pub const SPI_GETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8216u32;
+pub const SPI_SETCONTACTVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8217u32;
+pub const SPI_GETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8218u32;
+pub const SPI_SETGESTUREVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8219u32;
+pub const SPI_GETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = 8220u32;
+pub const SPI_SETMOUSEWHEELROUTING: SYSTEM_PARAMETERS_INFO_ACTION = 8221u32;
+pub const SPI_GETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8222u32;
+pub const SPI_SETPENVISUALIZATION: SYSTEM_PARAMETERS_INFO_ACTION = 8223u32;
+pub const SPI_GETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8224u32;
+pub const SPI_SETPENARBITRATIONTYPE: SYSTEM_PARAMETERS_INFO_ACTION = 8225u32;
+pub const SPI_GETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8226u32;
+pub const SPI_SETCARETTIMEOUT: SYSTEM_PARAMETERS_INFO_ACTION = 8227u32;
+pub const SPI_GETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = 8228u32;
+pub const SPI_SETHANDEDNESS: SYSTEM_PARAMETERS_INFO_ACTION = 8229u32;
+pub type SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = u32;
+pub const SPIF_UPDATEINIFILE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 1u32;
+pub const SPIF_SENDCHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 2u32;
+pub const SPIF_SENDWININICHANGE: SYSTEM_PARAMETERS_INFO_UPDATE_FLAGS = 2u32;
+pub type SYS_COLOR_INDEX = u32;
+pub const COLOR_3DDKSHADOW: SYS_COLOR_INDEX = 21u32;
+pub const COLOR_3DFACE: SYS_COLOR_INDEX = 15u32;
+pub const COLOR_3DHIGHLIGHT: SYS_COLOR_INDEX = 20u32;
+pub const COLOR_3DHILIGHT: SYS_COLOR_INDEX = 20u32;
+pub const COLOR_3DLIGHT: SYS_COLOR_INDEX = 22u32;
+pub const COLOR_3DSHADOW: SYS_COLOR_INDEX = 16u32;
+pub const COLOR_ACTIVEBORDER: SYS_COLOR_INDEX = 10u32;
+pub const COLOR_ACTIVECAPTION: SYS_COLOR_INDEX = 2u32;
+pub const COLOR_APPWORKSPACE: SYS_COLOR_INDEX = 12u32;
+pub const COLOR_BACKGROUND: SYS_COLOR_INDEX = 1u32;
+pub const COLOR_BTNFACE: SYS_COLOR_INDEX = 15u32;
+pub const _COLOR_BTNHIGHLIGHT: SYS_COLOR_INDEX = 20u32;
+pub const _COLOR_BTNHILIGHT: SYS_COLOR_INDEX = 20u32;
+pub const COLOR_BTNSHADOW: SYS_COLOR_INDEX = 16u32;
+pub const COLOR_BTNTEXT: SYS_COLOR_INDEX = 18u32;
+pub const COLOR_CAPTIONTEXT: SYS_COLOR_INDEX = 9u32;
+pub const COLOR_DESKTOP: SYS_COLOR_INDEX = 1u32;
+pub const COLOR_GRADIENTACTIVECAPTION: SYS_COLOR_INDEX = 27u32;
+pub const COLOR_GRADIENTINACTIVECAPTION: SYS_COLOR_INDEX = 28u32;
+pub const COLOR_GRAYTEXT: SYS_COLOR_INDEX = 17u32;
+pub const COLOR_HIGHLIGHT: SYS_COLOR_INDEX = 13u32;
+pub const COLOR_HIGHLIGHTTEXT: SYS_COLOR_INDEX = 14u32;
+pub const COLOR_HOTLIGHT: SYS_COLOR_INDEX = 26u32;
+pub const COLOR_INACTIVEBORDER: SYS_COLOR_INDEX = 11u32;
+pub const COLOR_INACTIVECAPTION: SYS_COLOR_INDEX = 3u32;
+pub const COLOR_INACTIVECAPTIONTEXT: SYS_COLOR_INDEX = 19u32;
+pub const COLOR_INFOBK: SYS_COLOR_INDEX = 24u32;
+pub const COLOR_INFOTEXT: SYS_COLOR_INDEX = 23u32;
+pub const COLOR_MENU: SYS_COLOR_INDEX = 4u32;
+pub const COLOR_MENUHILIGHT: SYS_COLOR_INDEX = 29u32;
+pub const COLOR_MENUBAR: SYS_COLOR_INDEX = 30u32;
+pub const COLOR_MENUTEXT: SYS_COLOR_INDEX = 7u32;
+pub const COLOR_SCROLLBAR: SYS_COLOR_INDEX = 0u32;
+pub const COLOR_WINDOW: SYS_COLOR_INDEX = 5u32;
+pub const COLOR_WINDOWFRAME: SYS_COLOR_INDEX = 6u32;
+pub const COLOR_WINDOWTEXT: SYS_COLOR_INDEX = 8u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 #[inline]
 pub unsafe fn ScrollDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HDC>, Param5: ::windows::core::IntoParam<'a, super::super::Graphics::Gdi::HRGN>>(hdc: Param0, dx: i32, dy: i32, lprcscroll: *const super::super::Foundation::RECT, lprcclip: *const super::super::Foundation::RECT, hrgnupdate: Param5, lprcupdate: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -10538,7 +8782,7 @@ pub unsafe fn SetDebugErrorLevel(dwlevel: u32) {
         extern "system" {
             fn SetDebugErrorLevel(dwlevel: u32);
         }
-        ::core::mem::transmute(SetDebugErrorLevel(::core::mem::transmute(dwlevel)))
+        SetDebugErrorLevel(::core::mem::transmute(dwlevel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11142,7 +9386,7 @@ pub unsafe fn SwitchToThisWindow<'a, Param0: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn SwitchToThisWindow(hwnd: super::super::Foundation::HWND, funknown: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(SwitchToThisWindow(hwnd.into_param().abi(), funknown.into_param().abi()))
+        SwitchToThisWindow(hwnd.into_param().abi(), funknown.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -11175,54 +9419,15 @@ pub unsafe fn SystemParametersInfoW(uiaction: SYSTEM_PARAMETERS_INFO_ACTION, uip
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TILE_WINDOWS_HOW(pub u32);
-pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(1u32);
-pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = TILE_WINDOWS_HOW(0u32);
-impl ::core::convert::From<u32> for TILE_WINDOWS_HOW {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TILE_WINDOWS_HOW {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for TILE_WINDOWS_HOW {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for TILE_WINDOWS_HOW {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TILE_WINDOWS_HOW {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TILE_WINDOWS_HOW {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for TILE_WINDOWS_HOW {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type TILE_WINDOWS_HOW = u32;
+pub const MDITILE_HORIZONTAL: TILE_WINDOWS_HOW = 1u32;
+pub const MDITILE_VERTICAL: TILE_WINDOWS_HOW = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type TIMERPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: u32, param2: usize, param3: u32)>;
 pub const TIMERV_COALESCING_MAX: u32 = 2147483637u32;
 pub const TIMERV_COALESCING_MIN: u32 = 1u32;
 pub const TIMERV_DEFAULT_COALESCING: u32 = 0u32;
 pub const TIMERV_NO_COALESCING: u32 = 4294967295u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TITLEBARINFO {
@@ -11231,32 +9436,31 @@ pub struct TITLEBARINFO {
     pub rgstate: [u32; 6],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TITLEBARINFO {}
+impl ::core::marker::Copy for TITLEBARINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TITLEBARINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TITLEBARINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TITLEBARINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TITLEBARINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TITLEBARINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TITLEBARINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TITLEBARINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TITLEBARINFO").field("cbSize", &self.cbSize).field("rcTitleBar", &self.rcTitleBar).field("rgstate", &self.rgstate).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TITLEBARINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rcTitleBar == other.rcTitleBar && self.rgstate == other.rgstate
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TITLEBARINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TITLEBARINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TITLEBARINFOEX {
@@ -11266,30 +9470,30 @@ pub struct TITLEBARINFOEX {
     pub rgrect: [super::super::Foundation::RECT; 6],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TITLEBARINFOEX {}
+impl ::core::marker::Copy for TITLEBARINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for TITLEBARINFOEX {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for TITLEBARINFOEX {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TITLEBARINFOEX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TITLEBARINFOEX").field("cbSize", &self.cbSize).field("rcTitleBar", &self.rcTitleBar).field("rgstate", &self.rgstate).field("rgrect", &self.rgrect).finish()
-    }
+unsafe impl ::windows::core::Abi for TITLEBARINFOEX {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for TITLEBARINFOEX {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rcTitleBar == other.rcTitleBar && self.rgstate == other.rgstate && self.rgrect == other.rgrect
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TITLEBARINFOEX>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for TITLEBARINFOEX {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TITLEBARINFOEX {
-    type Abi = Self;
+impl ::core::default::Default for TITLEBARINFOEX {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const TKF_AVAILABLE: u32 = 2u32;
 pub const TKF_CONFIRMHOTKEY: u32 = 8u32;
@@ -11315,7 +9519,6 @@ pub const TOUCH_MASK_CONTACTAREA: u32 = 1u32;
 pub const TOUCH_MASK_NONE: u32 = 0u32;
 pub const TOUCH_MASK_ORIENTATION: u32 = 2u32;
 pub const TOUCH_MASK_PRESSURE: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TPMPARAMS {
@@ -11323,90 +9526,52 @@ pub struct TPMPARAMS {
     pub rcExclude: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl TPMPARAMS {}
+impl ::core::marker::Copy for TPMPARAMS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for TPMPARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for TPMPARAMS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for TPMPARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TPMPARAMS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for TPMPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for TPMPARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for TPMPARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TPMPARAMS").field("cbSize", &self.cbSize).field("rcExclude", &self.rcExclude).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for TPMPARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rcExclude == other.rcExclude
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for TPMPARAMS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for TPMPARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TRACK_POPUP_MENU_FLAGS(pub u32);
-pub const TPM_LEFTBUTTON: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_RIGHTBUTTON: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(2u32);
-pub const TPM_LEFTALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4u32);
-pub const TPM_RIGHTALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8u32);
-pub const TPM_TOPALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_VCENTERALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16u32);
-pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32u32);
-pub const TPM_HORIZONTAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(0u32);
-pub const TPM_VERTICAL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(64u32);
-pub const TPM_NONOTIFY: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(128u32);
-pub const TPM_RETURNCMD: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(256u32);
-pub const TPM_RECURSE: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(1u32);
-pub const TPM_HORPOSANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(1024u32);
-pub const TPM_HORNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(2048u32);
-pub const TPM_VERPOSANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(4096u32);
-pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(8192u32);
-pub const TPM_NOANIMATION: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(16384u32);
-pub const TPM_LAYOUTRTL: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(32768u32);
-pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = TRACK_POPUP_MENU_FLAGS(65536u32);
-impl ::core::convert::From<u32> for TRACK_POPUP_MENU_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TRACK_POPUP_MENU_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for TRACK_POPUP_MENU_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for TRACK_POPUP_MENU_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for TRACK_POPUP_MENU_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for TRACK_POPUP_MENU_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for TRACK_POPUP_MENU_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type TRACK_POPUP_MENU_FLAGS = u32;
+pub const TPM_LEFTBUTTON: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_RIGHTBUTTON: TRACK_POPUP_MENU_FLAGS = 2u32;
+pub const TPM_LEFTALIGN: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_CENTERALIGN: TRACK_POPUP_MENU_FLAGS = 4u32;
+pub const TPM_RIGHTALIGN: TRACK_POPUP_MENU_FLAGS = 8u32;
+pub const TPM_TOPALIGN: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_VCENTERALIGN: TRACK_POPUP_MENU_FLAGS = 16u32;
+pub const TPM_BOTTOMALIGN: TRACK_POPUP_MENU_FLAGS = 32u32;
+pub const TPM_HORIZONTAL: TRACK_POPUP_MENU_FLAGS = 0u32;
+pub const TPM_VERTICAL: TRACK_POPUP_MENU_FLAGS = 64u32;
+pub const TPM_NONOTIFY: TRACK_POPUP_MENU_FLAGS = 128u32;
+pub const TPM_RETURNCMD: TRACK_POPUP_MENU_FLAGS = 256u32;
+pub const TPM_RECURSE: TRACK_POPUP_MENU_FLAGS = 1u32;
+pub const TPM_HORPOSANIMATION: TRACK_POPUP_MENU_FLAGS = 1024u32;
+pub const TPM_HORNEGANIMATION: TRACK_POPUP_MENU_FLAGS = 2048u32;
+pub const TPM_VERPOSANIMATION: TRACK_POPUP_MENU_FLAGS = 4096u32;
+pub const TPM_VERNEGANIMATION: TRACK_POPUP_MENU_FLAGS = 8192u32;
+pub const TPM_NOANIMATION: TRACK_POPUP_MENU_FLAGS = 16384u32;
+pub const TPM_LAYOUTRTL: TRACK_POPUP_MENU_FLAGS = 32768u32;
+pub const TPM_WORKAREA: TRACK_POPUP_MENU_FLAGS = 65536u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TileWindows<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndparent: Param0, whow: TILE_WINDOWS_HOW, lprect: *const super::super::Foundation::RECT, ckids: u32, lpkids: *const super::super::Foundation::HWND) -> u16 {
@@ -11421,7 +9586,6 @@ pub unsafe fn TileWindows<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TouchPredictionParameters {
     pub cbSize: u32,
@@ -11429,25 +9593,25 @@ pub struct TouchPredictionParameters {
     pub dwSampleTime: u32,
     pub bUseHWTimeStamp: u32,
 }
-impl TouchPredictionParameters {}
+impl ::core::marker::Copy for TouchPredictionParameters {}
+impl ::core::clone::Clone for TouchPredictionParameters {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TouchPredictionParameters {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TouchPredictionParameters {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TouchPredictionParameters>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TouchPredictionParameters {}
 impl ::core::default::Default for TouchPredictionParameters {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for TouchPredictionParameters {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TouchPredictionParameters").field("cbSize", &self.cbSize).field("dwLatency", &self.dwLatency).field("dwSampleTime", &self.dwSampleTime).field("bUseHWTimeStamp", &self.bUseHWTimeStamp).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TouchPredictionParameters {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.dwLatency == other.dwLatency && self.dwSampleTime == other.dwSampleTime && self.bUseHWTimeStamp == other.bUseHWTimeStamp
-    }
-}
-impl ::core::cmp::Eq for TouchPredictionParameters {}
-unsafe impl ::windows::core::Abi for TouchPredictionParameters {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -11541,7 +9705,6 @@ pub const UIS_INITIALIZE: u32 = 3u32;
 pub const UIS_SET: u32 = 1u32;
 pub const UNICODE_NOCHAR: u32 = 65535u32;
 pub const UOI_TIMERPROC_EXCEPTION_SUPPRESSION: u32 = 7u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct UPDATELAYEREDWINDOWINFO {
@@ -11557,74 +9720,36 @@ pub struct UPDATELAYEREDWINDOWINFO {
     pub prcDirty: *mut super::super::Foundation::RECT,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl UPDATELAYEREDWINDOWINFO {}
+impl ::core::marker::Copy for UPDATELAYEREDWINDOWINFO {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for UPDATELAYEREDWINDOWINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for UPDATELAYEREDWINDOWINFO {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for UPDATELAYEREDWINDOWINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UPDATELAYEREDWINDOWINFO>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for UPDATELAYEREDWINDOWINFO {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for UPDATELAYEREDWINDOWINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for UPDATELAYEREDWINDOWINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UPDATELAYEREDWINDOWINFO").field("cbSize", &self.cbSize).field("hdcDst", &self.hdcDst).field("pptDst", &self.pptDst).field("psize", &self.psize).field("hdcSrc", &self.hdcSrc).field("pptSrc", &self.pptSrc).field("crKey", &self.crKey).field("pblend", &self.pblend).field("dwFlags", &self.dwFlags).field("prcDirty", &self.prcDirty).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for UPDATELAYEREDWINDOWINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.hdcDst == other.hdcDst && self.pptDst == other.pptDst && self.psize == other.psize && self.hdcSrc == other.hdcSrc && self.pptSrc == other.pptSrc && self.crKey == other.crKey && self.pblend == other.pblend && self.dwFlags == other.dwFlags && self.prcDirty == other.prcDirty
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for UPDATELAYEREDWINDOWINFO {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for UPDATELAYEREDWINDOWINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct UPDATE_LAYERED_WINDOW_FLAGS(pub u32);
-pub const ULW_ALPHA: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(2u32);
-pub const ULW_COLORKEY: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(1u32);
-pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(4u32);
-pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = UPDATE_LAYERED_WINDOW_FLAGS(8u32);
-impl ::core::convert::From<u32> for UPDATE_LAYERED_WINDOW_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for UPDATE_LAYERED_WINDOW_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for UPDATE_LAYERED_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for UPDATE_LAYERED_WINDOW_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UPDATE_LAYERED_WINDOW_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UPDATE_LAYERED_WINDOW_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for UPDATE_LAYERED_WINDOW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type UPDATE_LAYERED_WINDOW_FLAGS = u32;
+pub const ULW_ALPHA: UPDATE_LAYERED_WINDOW_FLAGS = 2u32;
+pub const ULW_COLORKEY: UPDATE_LAYERED_WINDOW_FLAGS = 1u32;
+pub const ULW_OPAQUE: UPDATE_LAYERED_WINDOW_FLAGS = 4u32;
+pub const ULW_EX_NORESIZE: UPDATE_LAYERED_WINDOW_FLAGS = 8u32;
 pub const USER_DEFAULT_SCREEN_DPI: u32 = 96u32;
 pub const USER_TIMER_MAXIMUM: u32 = 2147483647u32;
 pub const USER_TIMER_MINIMUM: u32 = 10u32;
@@ -11721,7 +9846,6 @@ pub const WH_MAX: u32 = 14u32;
 pub const WH_MAXHOOK: u32 = 14u32;
 pub const WH_MIN: i32 = -1i32;
 pub const WH_MINHOOK: i32 = -1i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWINFO {
@@ -11737,32 +9861,31 @@ pub struct WINDOWINFO {
     pub wCreatorVersion: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINDOWINFO {}
+impl ::core::marker::Copy for WINDOWINFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINDOWINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINDOWINFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINDOWINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINDOWINFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINDOWINFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINDOWINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINDOWINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINDOWINFO").field("cbSize", &self.cbSize).field("rcWindow", &self.rcWindow).field("rcClient", &self.rcClient).field("dwStyle", &self.dwStyle).field("dwExStyle", &self.dwExStyle).field("dwWindowStatus", &self.dwWindowStatus).field("cxWindowBorders", &self.cxWindowBorders).field("cyWindowBorders", &self.cyWindowBorders).field("atomWindowType", &self.atomWindowType).field("wCreatorVersion", &self.wCreatorVersion).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINDOWINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.rcWindow == other.rcWindow && self.rcClient == other.rcClient && self.dwStyle == other.dwStyle && self.dwExStyle == other.dwExStyle && self.dwWindowStatus == other.dwWindowStatus && self.cxWindowBorders == other.cxWindowBorders && self.cyWindowBorders == other.cyWindowBorders && self.atomWindowType == other.atomWindowType && self.wCreatorVersion == other.wCreatorVersion
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINDOWINFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINDOWINFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWPLACEMENT {
@@ -11774,74 +9897,35 @@ pub struct WINDOWPLACEMENT {
     pub rcNormalPosition: super::super::Foundation::RECT,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINDOWPLACEMENT {}
+impl ::core::marker::Copy for WINDOWPLACEMENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINDOWPLACEMENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINDOWPLACEMENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINDOWPLACEMENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINDOWPLACEMENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINDOWPLACEMENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINDOWPLACEMENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINDOWPLACEMENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINDOWPLACEMENT").field("length", &self.length).field("flags", &self.flags).field("showCmd", &self.showCmd).field("ptMinPosition", &self.ptMinPosition).field("ptMaxPosition", &self.ptMaxPosition).field("rcNormalPosition", &self.rcNormalPosition).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINDOWPLACEMENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.length == other.length && self.flags == other.flags && self.showCmd == other.showCmd && self.ptMinPosition == other.ptMinPosition && self.ptMaxPosition == other.ptMaxPosition && self.rcNormalPosition == other.rcNormalPosition
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINDOWPLACEMENT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINDOWPLACEMENT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINDOWPLACEMENT_FLAGS(pub u32);
-pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(4u32);
-pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(2u32);
-pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = WINDOWPLACEMENT_FLAGS(1u32);
-impl ::core::convert::From<u32> for WINDOWPLACEMENT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINDOWPLACEMENT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINDOWPLACEMENT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINDOWPLACEMENT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINDOWPLACEMENT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINDOWPLACEMENT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINDOWPLACEMENT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type WINDOWPLACEMENT_FLAGS = u32;
+pub const WPF_ASYNCWINDOWPLACEMENT: WINDOWPLACEMENT_FLAGS = 4u32;
+pub const WPF_RESTORETOMAXIMIZED: WINDOWPLACEMENT_FLAGS = 2u32;
+pub const WPF_SETMINPOSITION: WINDOWPLACEMENT_FLAGS = 1u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WINDOWPOS {
@@ -11854,297 +9938,125 @@ pub struct WINDOWPOS {
     pub flags: SET_WINDOW_POS_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl WINDOWPOS {}
+impl ::core::marker::Copy for WINDOWPOS {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for WINDOWPOS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for WINDOWPOS {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for WINDOWPOS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WINDOWPOS>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for WINDOWPOS {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for WINDOWPOS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for WINDOWPOS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WINDOWPOS").field("hwnd", &self.hwnd).field("hwndInsertAfter", &self.hwndInsertAfter).field("x", &self.x).field("y", &self.y).field("cx", &self.cx).field("cy", &self.cy).field("flags", &self.flags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for WINDOWPOS {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwnd == other.hwnd && self.hwndInsertAfter == other.hwndInsertAfter && self.x == other.x && self.y == other.y && self.cx == other.cx && self.cy == other.cy && self.flags == other.flags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for WINDOWPOS {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for WINDOWPOS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINDOWS_HOOK_ID(pub i32);
-pub const WH_CALLWNDPROC: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(4i32);
-pub const WH_CALLWNDPROCRET: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(12i32);
-pub const WH_CBT: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(5i32);
-pub const WH_DEBUG: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(9i32);
-pub const WH_FOREGROUNDIDLE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(11i32);
-pub const WH_GETMESSAGE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(3i32);
-pub const WH_JOURNALPLAYBACK: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(1i32);
-pub const WH_JOURNALRECORD: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(0i32);
-pub const WH_KEYBOARD: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(2i32);
-pub const WH_KEYBOARD_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(13i32);
-pub const WH_MOUSE: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(7i32);
-pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(14i32);
-pub const WH_MSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(-1i32);
-pub const WH_SHELL: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(10i32);
-pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = WINDOWS_HOOK_ID(6i32);
-impl ::core::convert::From<i32> for WINDOWS_HOOK_ID {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINDOWS_HOOK_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINDOW_DISPLAY_AFFINITY(pub u32);
-pub const WDA_NONE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(0u32);
-pub const WDA_MONITOR: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(1u32);
-pub const WDA_EXCLUDEFROMCAPTURE: WINDOW_DISPLAY_AFFINITY = WINDOW_DISPLAY_AFFINITY(17u32);
-impl ::core::convert::From<u32> for WINDOW_DISPLAY_AFFINITY {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINDOW_DISPLAY_AFFINITY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINDOW_DISPLAY_AFFINITY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINDOW_DISPLAY_AFFINITY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINDOW_DISPLAY_AFFINITY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINDOW_DISPLAY_AFFINITY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINDOW_DISPLAY_AFFINITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINDOW_EX_STYLE(pub u32);
-pub const WS_EX_DLGMODALFRAME: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1u32);
-pub const WS_EX_NOPARENTNOTIFY: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4u32);
-pub const WS_EX_TOPMOST: WINDOW_EX_STYLE = WINDOW_EX_STYLE(8u32);
-pub const WS_EX_ACCEPTFILES: WINDOW_EX_STYLE = WINDOW_EX_STYLE(16u32);
-pub const WS_EX_TRANSPARENT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(32u32);
-pub const WS_EX_MDICHILD: WINDOW_EX_STYLE = WINDOW_EX_STYLE(64u32);
-pub const WS_EX_TOOLWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(128u32);
-pub const WS_EX_WINDOWEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(256u32);
-pub const WS_EX_CLIENTEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(512u32);
-pub const WS_EX_CONTEXTHELP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1024u32);
-pub const WS_EX_RIGHT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4096u32);
-pub const WS_EX_LEFT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
-pub const WS_EX_RTLREADING: WINDOW_EX_STYLE = WINDOW_EX_STYLE(8192u32);
-pub const WS_EX_LTRREADING: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
-pub const WS_EX_LEFTSCROLLBAR: WINDOW_EX_STYLE = WINDOW_EX_STYLE(16384u32);
-pub const WS_EX_RIGHTSCROLLBAR: WINDOW_EX_STYLE = WINDOW_EX_STYLE(0u32);
-pub const WS_EX_CONTROLPARENT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(65536u32);
-pub const WS_EX_STATICEDGE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(131072u32);
-pub const WS_EX_APPWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(262144u32);
-pub const WS_EX_OVERLAPPEDWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(768u32);
-pub const WS_EX_PALETTEWINDOW: WINDOW_EX_STYLE = WINDOW_EX_STYLE(392u32);
-pub const WS_EX_LAYERED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(524288u32);
-pub const WS_EX_NOINHERITLAYOUT: WINDOW_EX_STYLE = WINDOW_EX_STYLE(1048576u32);
-pub const WS_EX_NOREDIRECTIONBITMAP: WINDOW_EX_STYLE = WINDOW_EX_STYLE(2097152u32);
-pub const WS_EX_LAYOUTRTL: WINDOW_EX_STYLE = WINDOW_EX_STYLE(4194304u32);
-pub const WS_EX_COMPOSITED: WINDOW_EX_STYLE = WINDOW_EX_STYLE(33554432u32);
-pub const WS_EX_NOACTIVATE: WINDOW_EX_STYLE = WINDOW_EX_STYLE(134217728u32);
-impl ::core::convert::From<u32> for WINDOW_EX_STYLE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINDOW_EX_STYLE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINDOW_EX_STYLE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINDOW_EX_STYLE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINDOW_EX_STYLE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINDOW_EX_STYLE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINDOW_EX_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINDOW_LONG_PTR_INDEX(pub i32);
-pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-20i32);
-pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
-pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
-pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
-pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-16i32);
-pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
-pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
-pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-6i32);
-pub const GWL_ID: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-12i32);
-pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-21i32);
-pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-4i32);
-pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = WINDOW_LONG_PTR_INDEX(-8i32);
-impl ::core::convert::From<i32> for WINDOW_LONG_PTR_INDEX {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINDOW_LONG_PTR_INDEX {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINDOW_MESSAGE_FILTER_ACTION(pub u32);
-pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(1u32);
-pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(2u32);
-pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = WINDOW_MESSAGE_FILTER_ACTION(0u32);
-impl ::core::convert::From<u32> for WINDOW_MESSAGE_FILTER_ACTION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINDOW_MESSAGE_FILTER_ACTION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINDOW_MESSAGE_FILTER_ACTION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINDOW_MESSAGE_FILTER_ACTION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINDOW_MESSAGE_FILTER_ACTION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINDOW_MESSAGE_FILTER_ACTION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINDOW_MESSAGE_FILTER_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WINDOW_STYLE(pub u32);
-pub const WS_OVERLAPPED: WINDOW_STYLE = WINDOW_STYLE(0u32);
-pub const WS_POPUP: WINDOW_STYLE = WINDOW_STYLE(2147483648u32);
-pub const WS_CHILD: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
-pub const WS_MINIMIZE: WINDOW_STYLE = WINDOW_STYLE(536870912u32);
-pub const WS_VISIBLE: WINDOW_STYLE = WINDOW_STYLE(268435456u32);
-pub const WS_DISABLED: WINDOW_STYLE = WINDOW_STYLE(134217728u32);
-pub const WS_CLIPSIBLINGS: WINDOW_STYLE = WINDOW_STYLE(67108864u32);
-pub const WS_CLIPCHILDREN: WINDOW_STYLE = WINDOW_STYLE(33554432u32);
-pub const WS_MAXIMIZE: WINDOW_STYLE = WINDOW_STYLE(16777216u32);
-pub const WS_CAPTION: WINDOW_STYLE = WINDOW_STYLE(12582912u32);
-pub const WS_BORDER: WINDOW_STYLE = WINDOW_STYLE(8388608u32);
-pub const WS_DLGFRAME: WINDOW_STYLE = WINDOW_STYLE(4194304u32);
-pub const WS_VSCROLL: WINDOW_STYLE = WINDOW_STYLE(2097152u32);
-pub const WS_HSCROLL: WINDOW_STYLE = WINDOW_STYLE(1048576u32);
-pub const WS_SYSMENU: WINDOW_STYLE = WINDOW_STYLE(524288u32);
-pub const WS_THICKFRAME: WINDOW_STYLE = WINDOW_STYLE(262144u32);
-pub const WS_GROUP: WINDOW_STYLE = WINDOW_STYLE(131072u32);
-pub const WS_TABSTOP: WINDOW_STYLE = WINDOW_STYLE(65536u32);
-pub const WS_MINIMIZEBOX: WINDOW_STYLE = WINDOW_STYLE(131072u32);
-pub const WS_MAXIMIZEBOX: WINDOW_STYLE = WINDOW_STYLE(65536u32);
-pub const WS_TILED: WINDOW_STYLE = WINDOW_STYLE(0u32);
-pub const WS_ICONIC: WINDOW_STYLE = WINDOW_STYLE(536870912u32);
-pub const WS_SIZEBOX: WINDOW_STYLE = WINDOW_STYLE(262144u32);
-pub const WS_TILEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
-pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = WINDOW_STYLE(13565952u32);
-pub const WS_POPUPWINDOW: WINDOW_STYLE = WINDOW_STYLE(2156396544u32);
-pub const WS_CHILDWINDOW: WINDOW_STYLE = WINDOW_STYLE(1073741824u32);
-pub const WS_ACTIVECAPTION: WINDOW_STYLE = WINDOW_STYLE(1u32);
-impl ::core::convert::From<u32> for WINDOW_STYLE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WINDOW_STYLE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WINDOW_STYLE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WINDOW_STYLE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WINDOW_STYLE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WINDOW_STYLE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WINDOW_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WINDOWS_HOOK_ID = i32;
+pub const WH_CALLWNDPROC: WINDOWS_HOOK_ID = 4i32;
+pub const WH_CALLWNDPROCRET: WINDOWS_HOOK_ID = 12i32;
+pub const WH_CBT: WINDOWS_HOOK_ID = 5i32;
+pub const WH_DEBUG: WINDOWS_HOOK_ID = 9i32;
+pub const WH_FOREGROUNDIDLE: WINDOWS_HOOK_ID = 11i32;
+pub const WH_GETMESSAGE: WINDOWS_HOOK_ID = 3i32;
+pub const WH_JOURNALPLAYBACK: WINDOWS_HOOK_ID = 1i32;
+pub const WH_JOURNALRECORD: WINDOWS_HOOK_ID = 0i32;
+pub const WH_KEYBOARD: WINDOWS_HOOK_ID = 2i32;
+pub const WH_KEYBOARD_LL: WINDOWS_HOOK_ID = 13i32;
+pub const WH_MOUSE: WINDOWS_HOOK_ID = 7i32;
+pub const WH_MOUSE_LL: WINDOWS_HOOK_ID = 14i32;
+pub const WH_MSGFILTER: WINDOWS_HOOK_ID = -1i32;
+pub const WH_SHELL: WINDOWS_HOOK_ID = 10i32;
+pub const WH_SYSMSGFILTER: WINDOWS_HOOK_ID = 6i32;
+pub type WINDOW_DISPLAY_AFFINITY = u32;
+pub const WDA_NONE: WINDOW_DISPLAY_AFFINITY = 0u32;
+pub const WDA_MONITOR: WINDOW_DISPLAY_AFFINITY = 1u32;
+pub const WDA_EXCLUDEFROMCAPTURE: WINDOW_DISPLAY_AFFINITY = 17u32;
+pub type WINDOW_EX_STYLE = u32;
+pub const WS_EX_DLGMODALFRAME: WINDOW_EX_STYLE = 1u32;
+pub const WS_EX_NOPARENTNOTIFY: WINDOW_EX_STYLE = 4u32;
+pub const WS_EX_TOPMOST: WINDOW_EX_STYLE = 8u32;
+pub const WS_EX_ACCEPTFILES: WINDOW_EX_STYLE = 16u32;
+pub const WS_EX_TRANSPARENT: WINDOW_EX_STYLE = 32u32;
+pub const WS_EX_MDICHILD: WINDOW_EX_STYLE = 64u32;
+pub const WS_EX_TOOLWINDOW: WINDOW_EX_STYLE = 128u32;
+pub const WS_EX_WINDOWEDGE: WINDOW_EX_STYLE = 256u32;
+pub const WS_EX_CLIENTEDGE: WINDOW_EX_STYLE = 512u32;
+pub const WS_EX_CONTEXTHELP: WINDOW_EX_STYLE = 1024u32;
+pub const WS_EX_RIGHT: WINDOW_EX_STYLE = 4096u32;
+pub const WS_EX_LEFT: WINDOW_EX_STYLE = 0u32;
+pub const WS_EX_RTLREADING: WINDOW_EX_STYLE = 8192u32;
+pub const WS_EX_LTRREADING: WINDOW_EX_STYLE = 0u32;
+pub const WS_EX_LEFTSCROLLBAR: WINDOW_EX_STYLE = 16384u32;
+pub const WS_EX_RIGHTSCROLLBAR: WINDOW_EX_STYLE = 0u32;
+pub const WS_EX_CONTROLPARENT: WINDOW_EX_STYLE = 65536u32;
+pub const WS_EX_STATICEDGE: WINDOW_EX_STYLE = 131072u32;
+pub const WS_EX_APPWINDOW: WINDOW_EX_STYLE = 262144u32;
+pub const WS_EX_OVERLAPPEDWINDOW: WINDOW_EX_STYLE = 768u32;
+pub const WS_EX_PALETTEWINDOW: WINDOW_EX_STYLE = 392u32;
+pub const WS_EX_LAYERED: WINDOW_EX_STYLE = 524288u32;
+pub const WS_EX_NOINHERITLAYOUT: WINDOW_EX_STYLE = 1048576u32;
+pub const WS_EX_NOREDIRECTIONBITMAP: WINDOW_EX_STYLE = 2097152u32;
+pub const WS_EX_LAYOUTRTL: WINDOW_EX_STYLE = 4194304u32;
+pub const WS_EX_COMPOSITED: WINDOW_EX_STYLE = 33554432u32;
+pub const WS_EX_NOACTIVATE: WINDOW_EX_STYLE = 134217728u32;
+pub type WINDOW_LONG_PTR_INDEX = i32;
+pub const GWL_EXSTYLE: WINDOW_LONG_PTR_INDEX = -20i32;
+pub const GWLP_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6i32;
+pub const GWLP_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8i32;
+pub const GWLP_ID: WINDOW_LONG_PTR_INDEX = -12i32;
+pub const GWL_STYLE: WINDOW_LONG_PTR_INDEX = -16i32;
+pub const GWLP_USERDATA: WINDOW_LONG_PTR_INDEX = -21i32;
+pub const GWLP_WNDPROC: WINDOW_LONG_PTR_INDEX = -4i32;
+pub const GWL_HINSTANCE: WINDOW_LONG_PTR_INDEX = -6i32;
+pub const GWL_ID: WINDOW_LONG_PTR_INDEX = -12i32;
+pub const GWL_USERDATA: WINDOW_LONG_PTR_INDEX = -21i32;
+pub const GWL_WNDPROC: WINDOW_LONG_PTR_INDEX = -4i32;
+pub const GWL_HWNDPARENT: WINDOW_LONG_PTR_INDEX = -8i32;
+pub type WINDOW_MESSAGE_FILTER_ACTION = u32;
+pub const MSGFLT_ALLOW: WINDOW_MESSAGE_FILTER_ACTION = 1u32;
+pub const MSGFLT_DISALLOW: WINDOW_MESSAGE_FILTER_ACTION = 2u32;
+pub const MSGFLT_RESET: WINDOW_MESSAGE_FILTER_ACTION = 0u32;
+pub type WINDOW_STYLE = u32;
+pub const WS_OVERLAPPED: WINDOW_STYLE = 0u32;
+pub const WS_POPUP: WINDOW_STYLE = 2147483648u32;
+pub const WS_CHILD: WINDOW_STYLE = 1073741824u32;
+pub const WS_MINIMIZE: WINDOW_STYLE = 536870912u32;
+pub const WS_VISIBLE: WINDOW_STYLE = 268435456u32;
+pub const WS_DISABLED: WINDOW_STYLE = 134217728u32;
+pub const WS_CLIPSIBLINGS: WINDOW_STYLE = 67108864u32;
+pub const WS_CLIPCHILDREN: WINDOW_STYLE = 33554432u32;
+pub const WS_MAXIMIZE: WINDOW_STYLE = 16777216u32;
+pub const WS_CAPTION: WINDOW_STYLE = 12582912u32;
+pub const WS_BORDER: WINDOW_STYLE = 8388608u32;
+pub const WS_DLGFRAME: WINDOW_STYLE = 4194304u32;
+pub const WS_VSCROLL: WINDOW_STYLE = 2097152u32;
+pub const WS_HSCROLL: WINDOW_STYLE = 1048576u32;
+pub const WS_SYSMENU: WINDOW_STYLE = 524288u32;
+pub const WS_THICKFRAME: WINDOW_STYLE = 262144u32;
+pub const WS_GROUP: WINDOW_STYLE = 131072u32;
+pub const WS_TABSTOP: WINDOW_STYLE = 65536u32;
+pub const WS_MINIMIZEBOX: WINDOW_STYLE = 131072u32;
+pub const WS_MAXIMIZEBOX: WINDOW_STYLE = 65536u32;
+pub const WS_TILED: WINDOW_STYLE = 0u32;
+pub const WS_ICONIC: WINDOW_STYLE = 536870912u32;
+pub const WS_SIZEBOX: WINDOW_STYLE = 262144u32;
+pub const WS_TILEDWINDOW: WINDOW_STYLE = 13565952u32;
+pub const WS_OVERLAPPEDWINDOW: WINDOW_STYLE = 13565952u32;
+pub const WS_POPUPWINDOW: WINDOW_STYLE = 2156396544u32;
+pub const WS_CHILDWINDOW: WINDOW_STYLE = 1073741824u32;
+pub const WS_ACTIVECAPTION: WINDOW_STYLE = 1u32;
 pub const WINEVENT_INCONTEXT: u32 = 4u32;
 pub const WINEVENT_OUTOFCONTEXT: u32 = 0u32;
 pub const WINEVENT_SKIPOWNPROCESS: u32 = 2u32;
@@ -12416,7 +10328,6 @@ pub const WM_WTSSESSION_CHANGE: u32 = 689u32;
 pub const WM_XBUTTONDBLCLK: u32 = 525u32;
 pub const WM_XBUTTONDOWN: u32 = 523u32;
 pub const WM_XBUTTONUP: u32 = 524u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSA {
@@ -12432,32 +10343,31 @@ pub struct WNDCLASSA {
     pub lpszClassName: super::super::Foundation::PSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl WNDCLASSA {}
+impl ::core::marker::Copy for WNDCLASSA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for WNDCLASSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for WNDCLASSA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for WNDCLASSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for WNDCLASSA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for WNDCLASSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSA").field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for WNDCLASSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSEXA {
@@ -12475,32 +10385,31 @@ pub struct WNDCLASSEXA {
     pub hIconSm: HICON,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl WNDCLASSEXA {}
+impl ::core::marker::Copy for WNDCLASSEXA {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for WNDCLASSEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for WNDCLASSEXA {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for WNDCLASSEXA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSEXA>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for WNDCLASSEXA {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for WNDCLASSEXA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSEXA").field("cbSize", &self.cbSize).field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSEXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName && self.hIconSm == other.hIconSm
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSEXA {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for WNDCLASSEXA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSEXW {
@@ -12518,32 +10427,31 @@ pub struct WNDCLASSEXW {
     pub hIconSm: HICON,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl WNDCLASSEXW {}
+impl ::core::marker::Copy for WNDCLASSEXW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for WNDCLASSEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for WNDCLASSEXW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for WNDCLASSEXW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSEXW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for WNDCLASSEXW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSEXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for WNDCLASSEXW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSEXW").field("cbSize", &self.cbSize).field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).field("hIconSm", &self.hIconSm).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSEXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName && self.hIconSm == other.hIconSm
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSEXW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for WNDCLASSEXW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 pub struct WNDCLASSW {
@@ -12559,83 +10467,45 @@ pub struct WNDCLASSW {
     pub lpszClassName: super::super::Foundation::PWSTR,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl WNDCLASSW {}
+impl ::core::marker::Copy for WNDCLASSW {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::clone::Clone for WNDCLASSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+unsafe impl ::windows::core::Abi for WNDCLASSW {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::PartialEq for WNDCLASSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WNDCLASSW>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
+impl ::core::cmp::Eq for WNDCLASSW {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::default::Default for WNDCLASSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::fmt::Debug for WNDCLASSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WNDCLASSW").field("style", &self.style).field("cbClsExtra", &self.cbClsExtra).field("cbWndExtra", &self.cbWndExtra).field("hInstance", &self.hInstance).field("hIcon", &self.hIcon).field("hCursor", &self.hCursor).field("hbrBackground", &self.hbrBackground).field("lpszMenuName", &self.lpszMenuName).field("lpszClassName", &self.lpszClassName).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::PartialEq for WNDCLASSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.style == other.style && self.lpfnWndProc.map(|f| f as usize) == other.lpfnWndProc.map(|f| f as usize) && self.cbClsExtra == other.cbClsExtra && self.cbWndExtra == other.cbWndExtra && self.hInstance == other.hInstance && self.hIcon == other.hIcon && self.hCursor == other.hCursor && self.hbrBackground == other.hbrBackground && self.lpszMenuName == other.lpszMenuName && self.lpszClassName == other.lpszClassName
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-impl ::core::cmp::Eq for WNDCLASSW {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
-unsafe impl ::windows::core::Abi for WNDCLASSW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WNDCLASS_STYLES(pub u32);
-pub const CS_VREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(1u32);
-pub const CS_HREDRAW: WNDCLASS_STYLES = WNDCLASS_STYLES(2u32);
-pub const CS_DBLCLKS: WNDCLASS_STYLES = WNDCLASS_STYLES(8u32);
-pub const CS_OWNDC: WNDCLASS_STYLES = WNDCLASS_STYLES(32u32);
-pub const CS_CLASSDC: WNDCLASS_STYLES = WNDCLASS_STYLES(64u32);
-pub const CS_PARENTDC: WNDCLASS_STYLES = WNDCLASS_STYLES(128u32);
-pub const CS_NOCLOSE: WNDCLASS_STYLES = WNDCLASS_STYLES(512u32);
-pub const CS_SAVEBITS: WNDCLASS_STYLES = WNDCLASS_STYLES(2048u32);
-pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = WNDCLASS_STYLES(4096u32);
-pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = WNDCLASS_STYLES(8192u32);
-pub const CS_GLOBALCLASS: WNDCLASS_STYLES = WNDCLASS_STYLES(16384u32);
-pub const CS_IME: WNDCLASS_STYLES = WNDCLASS_STYLES(65536u32);
-pub const CS_DROPSHADOW: WNDCLASS_STYLES = WNDCLASS_STYLES(131072u32);
-impl ::core::convert::From<u32> for WNDCLASS_STYLES {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WNDCLASS_STYLES {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WNDCLASS_STYLES {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WNDCLASS_STYLES {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WNDCLASS_STYLES {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WNDCLASS_STYLES {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WNDCLASS_STYLES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WNDCLASS_STYLES = u32;
+pub const CS_VREDRAW: WNDCLASS_STYLES = 1u32;
+pub const CS_HREDRAW: WNDCLASS_STYLES = 2u32;
+pub const CS_DBLCLKS: WNDCLASS_STYLES = 8u32;
+pub const CS_OWNDC: WNDCLASS_STYLES = 32u32;
+pub const CS_CLASSDC: WNDCLASS_STYLES = 64u32;
+pub const CS_PARENTDC: WNDCLASS_STYLES = 128u32;
+pub const CS_NOCLOSE: WNDCLASS_STYLES = 512u32;
+pub const CS_SAVEBITS: WNDCLASS_STYLES = 2048u32;
+pub const CS_BYTEALIGNCLIENT: WNDCLASS_STYLES = 4096u32;
+pub const CS_BYTEALIGNWINDOW: WNDCLASS_STYLES = 8192u32;
+pub const CS_GLOBALCLASS: WNDCLASS_STYLES = 16384u32;
+pub const CS_IME: WNDCLASS_STYLES = 65536u32;
+pub const CS_DROPSHADOW: WNDCLASS_STYLES = 131072u32;
 #[cfg(feature = "Win32_Foundation")]
 pub type WNDENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[cfg(feature = "Win32_Foundation")]

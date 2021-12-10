@@ -57,6 +57,89 @@ impl TypeDef {
         self.interface_impls().filter_map(move |i| if let ElementType::TypeDef(def) = i.generic_interface(&self.generics) { Some(def) } else { None })
     }
 
+    pub fn required_interfaces(&self) -> Vec<Self> {
+        fn walk(result: &mut Vec<TypeDef>, parent: &TypeDef) {
+            for child in parent.interface_impls() {
+                if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
+                    if !result.iter().any(|element| element == &def) {
+                        walk(result, &def);
+                        result.push(def);
+                    }
+                }
+            }
+        }
+
+        let mut result = vec![];
+        walk(&mut result, self);
+        result.sort_by(|a, b| a.name().cmp(b.name()));
+        result
+    }
+
+    pub fn class_interfaces(&self) -> Vec<(Self, InterfaceKind)> {
+        fn walk(result: &mut Vec<(TypeDef, InterfaceKind)>, parent: &TypeDef, is_base: bool) {
+            for child in parent.interface_impls() {
+                if let ElementType::TypeDef(def) = child.generic_interface(&parent.generics) {
+                    let kind = if !is_base && child.is_default() {
+                        InterfaceKind::Default
+                    } else if child.is_overridable() {
+                        continue;
+                    } else if is_base {
+                        InterfaceKind::Base
+                    } else {
+                        InterfaceKind::NonDefault
+                    };
+
+                    let mut found = false;
+
+                    for existing in result.iter_mut() {
+                        if existing.0 == def {
+                            found = true;
+
+                            if kind == InterfaceKind::Default {
+                                existing.1 = kind;
+                            }
+                        }
+                    }
+
+                    if !found {
+                        walk(result, &def, is_base);
+                        result.push((def, kind));
+                    }
+                }
+            }
+        }
+
+        let mut result = vec![];
+        walk(&mut result, self, false);
+
+        for base in self.bases() {
+            walk(&mut result, &base, true);
+        }
+
+        for attribute in self.attributes() {
+            match attribute.name() {
+                "StaticAttribute" | "ActivatableAttribute" => {
+                    for (_, arg) in attribute.args() {
+                        if let ConstantValue::TypeDef(def) = arg {
+                            result.push((def, InterfaceKind::Static));
+                            break;
+                        }
+                    }
+                }
+                "ComposableAttribute" => {
+                    if let Some(def) = attribute.composable_type() {
+                        result.push((def, InterfaceKind::Composable));
+                    }
+                }
+                _ => {}
+            }
+        }
+
+        // TODO: need to sort by hierarchy as well?
+        result.sort_by(|a, b| a.0.name().cmp(b.0.name()));
+        result
+    }
+
     pub fn is_packed(&self) -> bool {
         if self.kind() != TypeKind::Struct {
             return false;
@@ -211,7 +294,7 @@ impl TypeDef {
         self.kind() == TypeKind::Enum
     }
 
-    pub fn is_explicit(&self) -> bool {
+    pub fn is_union(&self) -> bool {
         self.row.u32(0) & 0b1_0000 != 0
     }
 
@@ -220,7 +303,7 @@ impl TypeDef {
             return false;
         }
 
-        if self.is_explicit() {
+        if self.is_union() {
             true
         } else {
             self.fields().any(|f| f.signature(Some(self)).has_explicit())
@@ -341,6 +424,41 @@ impl TypeDef {
         }
 
         (result, inspectable)
+    }
+
+    pub fn vtable_types(&self) -> Vec<ElementType> {
+        let mut result = Vec::new();
+
+        if self.is_winrt() {
+            result.push(ElementType::IUnknown);
+            if self.kind() != TypeKind::Delegate {
+                result.push(ElementType::IInspectable);
+            }
+        } else {
+            let mut next = self.clone();
+
+            while let Some(base) = next.interface_impls().map(|i| i.generic_interface(&[])).next() {
+                match base {
+                    ElementType::TypeDef(ref def) => {
+                        next = def.clone();
+                        result.insert(0, base);
+                    }
+                    ElementType::IInspectable => {
+                        result.insert(0, ElementType::IUnknown);
+                        result.insert(1, ElementType::IInspectable);
+                        break;
+                    }
+                    ElementType::IUnknown => {
+                        result.insert(0, ElementType::IUnknown);
+                        break;
+                    }
+                    _ => unimplemented!(),
+                }
+            }
+        }
+
+        result.push(ElementType::TypeDef(self.clone()));
+        result
     }
 
     pub fn fields(&self) -> impl Iterator<Item = Field> {

@@ -13,7 +13,7 @@ pub fn gen_turbo_abi_name(def: &TypeDef, gen: &Gen) -> TokenStream {
 }
 
 fn to_abi_ident(name: &str) -> TokenStream {
-    format_token!("{}_abi", name)
+    format_token!("{}Vtbl", name)
 }
 
 pub fn gen_name(def: &ElementType, gen: &Gen) -> TokenStream {

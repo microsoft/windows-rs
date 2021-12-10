@@ -1,56 +1,58 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
 }
-impl IPNG_ADDRESS {}
+impl ::core::marker::Copy for IPNG_ADDRESS {}
+impl ::core::clone::Clone for IPNG_ADDRESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IPNG_ADDRESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IPNG_ADDRESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IPNG_ADDRESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IPNG_ADDRESS {}
 impl ::core::default::Default for IPNG_ADDRESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IPNG_ADDRESS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IPNG_ADDRESS {}
-unsafe impl ::windows::core::Abi for IPNG_ADDRESS {
-    type Abi = Self;
-}
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
 pub const MCAST_API_VERSION_0: i32 = 0i32;
 pub const MCAST_API_VERSION_1: i32 = 1i32;
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MCAST_CLIENT_UID {
     pub ClientUID: *mut u8,
     pub ClientUIDLength: u32,
 }
-impl MCAST_CLIENT_UID {}
+impl ::core::marker::Copy for MCAST_CLIENT_UID {}
+impl ::core::clone::Clone for MCAST_CLIENT_UID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCAST_CLIENT_UID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_CLIENT_UID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCAST_CLIENT_UID {}
 impl ::core::default::Default for MCAST_CLIENT_UID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MCAST_CLIENT_UID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MCAST_CLIENT_UID").field("ClientUID", &self.ClientUID).field("ClientUIDLength", &self.ClientUIDLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MCAST_CLIENT_UID {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClientUID == other.ClientUID && self.ClientUIDLength == other.ClientUIDLength
-    }
-}
-impl ::core::cmp::Eq for MCAST_CLIENT_UID {}
-unsafe impl ::windows::core::Abi for MCAST_CLIENT_UID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MCAST_LEASE_REQUEST {
     pub LeaseStartTime: i32,
@@ -62,22 +64,26 @@ pub struct MCAST_LEASE_REQUEST {
     pub AddrCount: u16,
     pub pAddrBuf: *mut u8,
 }
-impl MCAST_LEASE_REQUEST {}
+impl ::core::marker::Copy for MCAST_LEASE_REQUEST {}
+impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCAST_LEASE_REQUEST {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCAST_LEASE_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_LEASE_REQUEST>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCAST_LEASE_REQUEST {}
 impl ::core::default::Default for MCAST_LEASE_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MCAST_LEASE_REQUEST {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MCAST_LEASE_REQUEST {}
-unsafe impl ::windows::core::Abi for MCAST_LEASE_REQUEST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MCAST_LEASE_RESPONSE {
     pub LeaseStartTime: i32,
@@ -86,44 +92,52 @@ pub struct MCAST_LEASE_RESPONSE {
     pub AddrCount: u16,
     pub pAddrBuf: *mut u8,
 }
-impl MCAST_LEASE_RESPONSE {}
+impl ::core::marker::Copy for MCAST_LEASE_RESPONSE {}
+impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCAST_LEASE_RESPONSE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCAST_LEASE_RESPONSE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_LEASE_RESPONSE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCAST_LEASE_RESPONSE {}
 impl ::core::default::Default for MCAST_LEASE_RESPONSE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MCAST_LEASE_RESPONSE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MCAST_LEASE_RESPONSE {}
-unsafe impl ::windows::core::Abi for MCAST_LEASE_RESPONSE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MCAST_SCOPE_CTX {
     pub ScopeID: IPNG_ADDRESS,
     pub Interface: IPNG_ADDRESS,
     pub ServerID: IPNG_ADDRESS,
 }
-impl MCAST_SCOPE_CTX {}
+impl ::core::marker::Copy for MCAST_SCOPE_CTX {}
+impl ::core::clone::Clone for MCAST_SCOPE_CTX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MCAST_SCOPE_CTX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MCAST_SCOPE_CTX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_SCOPE_CTX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MCAST_SCOPE_CTX {}
 impl ::core::default::Default for MCAST_SCOPE_CTX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MCAST_SCOPE_CTX {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MCAST_SCOPE_CTX {}
-unsafe impl ::windows::core::Abi for MCAST_SCOPE_CTX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCAST_SCOPE_ENTRY {
@@ -133,24 +147,30 @@ pub struct MCAST_SCOPE_ENTRY {
     pub ScopeDesc: super::super::Foundation::UNICODE_STRING,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl MCAST_SCOPE_ENTRY {}
+impl ::core::marker::Copy for MCAST_SCOPE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for MCAST_SCOPE_ENTRY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for MCAST_SCOPE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for MCAST_SCOPE_ENTRY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for MCAST_SCOPE_ENTRY {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MCAST_SCOPE_ENTRY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for MCAST_SCOPE_ENTRY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for MCAST_SCOPE_ENTRY {
-    type Abi = Self;
+impl ::core::default::Default for MCAST_SCOPE_ENTRY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[inline]
 pub unsafe fn McastApiCleanup() {
@@ -160,7 +180,7 @@ pub unsafe fn McastApiCleanup() {
         extern "system" {
             fn McastApiCleanup();
         }
-        ::core::mem::transmute(McastApiCleanup())
+        McastApiCleanup()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

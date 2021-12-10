@@ -1,6 +1,5 @@
 use super::*;
 
-// TODO: avoid Clone + PartialEq
 pub trait DefaultType: Sized + Clone + PartialEq {
     type DefaultType: Sized + Clone + PartialEq;
 

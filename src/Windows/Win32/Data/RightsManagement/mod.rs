@@ -1,18 +1,8 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const DRMACTSERVINFOVERSION: u32 = 0u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRMATTESTTYPE(pub i32);
-pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = DRMATTESTTYPE(0i32);
-pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = DRMATTESTTYPE(1i32);
-impl ::core::convert::From<i32> for DRMATTESTTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRMATTESTTYPE {
-    type Abi = Self;
-}
+pub type DRMATTESTTYPE = i32;
+pub const DRMATTESTTYPE_FULLENVIRONMENT: DRMATTESTTYPE = 0i32;
+pub const DRMATTESTTYPE_HASHONLY: DRMATTESTTYPE = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DRMAcquireAdvisories<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlicensestorage: u32, wszlicense: Param1, wszurl: Param2, pvcontext: *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -111,7 +101,6 @@ pub unsafe fn DRMAttest<'a, Param1: ::windows::core::IntoParam<'a, super::super:
     unimplemented!("Unsupported target OS");
 }
 pub const DRMBINDINGFLAGS_IGNORE_VALIDITY_INTERVALS: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRMBOUNDLICENSEPARAMS {
@@ -127,41 +116,30 @@ pub struct DRMBOUNDLICENSEPARAMS {
     pub dwFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DRMBOUNDLICENSEPARAMS {}
+impl ::core::marker::Copy for DRMBOUNDLICENSEPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DRMBOUNDLICENSEPARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DRMBOUNDLICENSEPARAMS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRMBOUNDLICENSEPARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRMBOUNDLICENSEPARAMS")
-            .field("uVersion", &self.uVersion)
-            .field("hEnablingPrincipal", &self.hEnablingPrincipal)
-            .field("hSecureStore", &self.hSecureStore)
-            .field("wszRightsRequested", &self.wszRightsRequested)
-            .field("wszRightsGroup", &self.wszRightsGroup)
-            .field("idResource", &self.idResource)
-            .field("cAuthenticatorCount", &self.cAuthenticatorCount)
-            .field("rghAuthenticators", &self.rghAuthenticators)
-            .field("wszDefaultEnablingPrincipalCredentials", &self.wszDefaultEnablingPrincipalCredentials)
-            .field("dwFlags", &self.dwFlags)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for DRMBOUNDLICENSEPARAMS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRMBOUNDLICENSEPARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.hEnablingPrincipal == other.hEnablingPrincipal && self.hSecureStore == other.hSecureStore && self.wszRightsRequested == other.wszRightsRequested && self.wszRightsGroup == other.wszRightsGroup && self.idResource == other.idResource && self.cAuthenticatorCount == other.cAuthenticatorCount && self.rghAuthenticators == other.rghAuthenticators && self.wszDefaultEnablingPrincipalCredentials == other.wszDefaultEnablingPrincipalCredentials && self.dwFlags == other.dwFlags
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRMBOUNDLICENSEPARAMS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRMBOUNDLICENSEPARAMS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRMBOUNDLICENSEPARAMS {
-    type Abi = Self;
+impl ::core::default::Default for DRMBOUNDLICENSEPARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DRMBOUNDLICENSEPARAMSVERSION: u32 = 1u32;
 pub type DRMCALLBACK = ::core::option::Option<unsafe extern "system" fn(param0: DRM_STATUS_MSG, param1: ::windows::core::HRESULT, param2: *mut ::core::ffi::c_void, param3: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
@@ -505,23 +483,13 @@ pub unsafe fn DRMDuplicateSession(hsessionin: u32, phsessionout: *mut u32) -> ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRMENCODINGTYPE(pub i32);
-pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = DRMENCODINGTYPE(0i32);
-pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = DRMENCODINGTYPE(1i32);
-pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = DRMENCODINGTYPE(2i32);
-pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = DRMENCODINGTYPE(3i32);
-pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = DRMENCODINGTYPE(4i32);
-pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = DRMENCODINGTYPE(5i32);
-impl ::core::convert::From<i32> for DRMENCODINGTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRMENCODINGTYPE {
-    type Abi = Self;
-}
+pub type DRMENCODINGTYPE = i32;
+pub const DRMENCODINGTYPE_BASE64: DRMENCODINGTYPE = 0i32;
+pub const DRMENCODINGTYPE_STRING: DRMENCODINGTYPE = 1i32;
+pub const DRMENCODINGTYPE_LONG: DRMENCODINGTYPE = 2i32;
+pub const DRMENCODINGTYPE_TIME: DRMENCODINGTYPE = 3i32;
+pub const DRMENCODINGTYPE_UINT: DRMENCODINGTYPE = 4i32;
+pub const DRMENCODINGTYPE_RAW: DRMENCODINGTYPE = 5i32;
 pub const DRMENVHANDLE_INVALID: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -564,19 +532,9 @@ pub unsafe fn DRMEnumerateLicense(hsession: u32, uflags: u32, uindex: u32, pfsha
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRMGLOBALOPTIONS(pub i32);
-pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(0i32);
-pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = DRMGLOBALOPTIONS(1i32);
-impl ::core::convert::From<i32> for DRMGLOBALOPTIONS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRMGLOBALOPTIONS {
-    type Abi = Self;
-}
+pub type DRMGLOBALOPTIONS = i32;
+pub const DRMGLOBALOPTIONS_USE_WINHTTP: DRMGLOBALOPTIONS = 0i32;
+pub const DRMGLOBALOPTIONS_USE_SERVERSECURITYPROCESSOR: DRMGLOBALOPTIONS = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DRMGetApplicationSpecificData(hissuancelicense: u32, uindex: u32, punamelength: *mut u32, wszname: super::super::Foundation::PWSTR, puvaluelength: *mut u32, wszvalue: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -1056,7 +1014,6 @@ pub unsafe fn DRMGetUsers(hissuancelicense: u32, uindex: u32, phuser: *mut u32) 
 }
 pub const DRMHANDLE_INVALID: u32 = 0u32;
 pub const DRMHSESSION_INVALID: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRMID {
@@ -1065,30 +1022,30 @@ pub struct DRMID {
     pub wszID: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DRMID {}
+impl ::core::marker::Copy for DRMID {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DRMID {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DRMID {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRMID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRMID").field("uVersion", &self.uVersion).field("wszIDType", &self.wszIDType).field("wszID", &self.wszID).finish()
-    }
+unsafe impl ::windows::core::Abi for DRMID {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRMID {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.wszIDType == other.wszIDType && self.wszID == other.wszID
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRMID>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRMID {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRMID {
-    type Abi = Self;
+impl ::core::default::Default for DRMID {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DRMIDVERSION: u32 = 0u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -1219,31 +1176,11 @@ pub unsafe fn DRMRepair() -> ::windows::core::Result<()> {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRMSECURITYPROVIDERTYPE(pub i32);
-pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = DRMSECURITYPROVIDERTYPE(0i32);
-impl ::core::convert::From<i32> for DRMSECURITYPROVIDERTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRMSECURITYPROVIDERTYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRMSPECTYPE(pub i32);
-pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = DRMSPECTYPE(0i32);
-pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = DRMSPECTYPE(1i32);
-impl ::core::convert::From<i32> for DRMSPECTYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRMSPECTYPE {
-    type Abi = Self;
-}
+pub type DRMSECURITYPROVIDERTYPE = i32;
+pub const DRMSECURITYPROVIDERTYPE_SOFTWARESECREP: DRMSECURITYPROVIDERTYPE = 0i32;
+pub type DRMSPECTYPE = i32;
+pub const DRMSPECTYPE_UNKNOWN: DRMSPECTYPE = 0i32;
+pub const DRMSPECTYPE_FILENAME: DRMSPECTYPE = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DRMSetApplicationSpecificData<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hissuancelicense: u32, fdelete: Param1, wszname: Param2, wszvalue: Param3) -> ::windows::core::Result<()> {
@@ -1352,19 +1289,9 @@ pub unsafe fn DRMSetUsagePolicy<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRMTIMETYPE(pub i32);
-pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = DRMTIMETYPE(0i32);
-pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = DRMTIMETYPE(1i32);
-impl ::core::convert::From<i32> for DRMTIMETYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRMTIMETYPE {
-    type Abi = Self;
-}
+pub type DRMTIMETYPE = i32;
+pub const DRMTIMETYPE_SYSTEMUTC: DRMTIMETYPE = 0i32;
+pub const DRMTIMETYPE_SYSTEMLOCAL: DRMTIMETYPE = 1i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DRMVerify<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(wszdata: Param0, pcattesteddata: *mut u32, wszattesteddata: super::super::Foundation::PWSTR, petype: *mut DRMATTESTTYPE, pcprincipal: *mut u32, wszprincipal: super::super::Foundation::PWSTR, pcmanifest: *mut u32, wszmanifest: super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
@@ -1386,7 +1313,6 @@ pub const DRM_ACTIVATE_MACHINE: u32 = 1u32;
 pub const DRM_ACTIVATE_SHARED_GROUPIDENTITY: u32 = 32u32;
 pub const DRM_ACTIVATE_SILENT: u32 = 16u32;
 pub const DRM_ACTIVATE_TEMPORARY: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRM_ACTSERV_INFO {
@@ -1395,30 +1321,30 @@ pub struct DRM_ACTSERV_INFO {
     pub wszURL: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DRM_ACTSERV_INFO {}
+impl ::core::marker::Copy for DRM_ACTSERV_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DRM_ACTSERV_INFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DRM_ACTSERV_INFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRM_ACTSERV_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRM_ACTSERV_INFO").field("uVersion", &self.uVersion).field("wszPubKey", &self.wszPubKey).field("wszURL", &self.wszURL).finish()
-    }
+unsafe impl ::windows::core::Abi for DRM_ACTSERV_INFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRM_ACTSERV_INFO {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.wszPubKey == other.wszPubKey && self.wszURL == other.wszURL
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_ACTSERV_INFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRM_ACTSERV_INFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRM_ACTSERV_INFO {
-    type Abi = Self;
+impl ::core::default::Default for DRM_ACTSERV_INFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DRM_ADD_LICENSE_NOPERSIST: u32 = 0u32;
 pub const DRM_ADD_LICENSE_PERSIST: u32 = 1u32;
@@ -1431,7 +1357,6 @@ pub const DRM_AL_NONSILENT: u32 = 1u32;
 pub const DRM_AL_NOPERSIST: u32 = 2u32;
 pub const DRM_AL_NOUI: u32 = 16u32;
 pub const DRM_AUTO_GENERATE_KEY: u32 = 16u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DRM_CLIENT_VERSION_INFO {
     pub uStructVersion: u32,
@@ -1440,40 +1365,30 @@ pub struct DRM_CLIENT_VERSION_INFO {
     pub wszProductId: [u16; 256],
     pub wszProductDescription: [u16; 256],
 }
-impl DRM_CLIENT_VERSION_INFO {}
+impl ::core::marker::Copy for DRM_CLIENT_VERSION_INFO {}
+impl ::core::clone::Clone for DRM_CLIENT_VERSION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DRM_CLIENT_VERSION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DRM_CLIENT_VERSION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_CLIENT_VERSION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DRM_CLIENT_VERSION_INFO {}
 impl ::core::default::Default for DRM_CLIENT_VERSION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DRM_CLIENT_VERSION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRM_CLIENT_VERSION_INFO").field("uStructVersion", &self.uStructVersion).field("dwVersion", &self.dwVersion).field("wszHierarchy", &self.wszHierarchy).field("wszProductId", &self.wszProductId).field("wszProductDescription", &self.wszProductDescription).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DRM_CLIENT_VERSION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.uStructVersion == other.uStructVersion && self.dwVersion == other.dwVersion && self.wszHierarchy == other.wszHierarchy && self.wszProductId == other.wszProductId && self.wszProductDescription == other.wszProductDescription
-    }
-}
-impl ::core::cmp::Eq for DRM_CLIENT_VERSION_INFO {}
-unsafe impl ::windows::core::Abi for DRM_CLIENT_VERSION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRM_DISTRIBUTION_POINT_INFO(pub i32);
-pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(0i32);
-pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(1i32);
-pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = DRM_DISTRIBUTION_POINT_INFO(2i32);
-impl ::core::convert::From<i32> for DRM_DISTRIBUTION_POINT_INFO {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_DISTRIBUTION_POINT_INFO {
-    type Abi = Self;
-}
+pub type DRM_DISTRIBUTION_POINT_INFO = i32;
+pub const DRM_DISTRIBUTION_POINT_LICENSE_ACQUISITION: DRM_DISTRIBUTION_POINT_INFO = 0i32;
+pub const DRM_DISTRIBUTION_POINT_PUBLISHING: DRM_DISTRIBUTION_POINT_INFO = 1i32;
+pub const DRM_DISTRIBUTION_POINT_REFERRAL_INFO: DRM_DISTRIBUTION_POINT_INFO = 2i32;
 pub const DRM_EL_CLIENTLICENSOR: u32 = 128u32;
 pub const DRM_EL_CLIENTLICENSOR_LID: u32 = 256u32;
 pub const DRM_EL_EUL: u32 = 32u32;
@@ -1490,7 +1405,6 @@ pub const DRM_EL_REVOCATIONLIST: u32 = 1024u32;
 pub const DRM_EL_REVOCATIONLIST_LID: u32 = 2048u32;
 pub const DRM_EL_SPECIFIED_CLIENTLICENSOR: u32 = 512u32;
 pub const DRM_EL_SPECIFIED_GROUPIDENTITY: u32 = 16u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DRM_LICENSE_ACQ_DATA {
@@ -1502,30 +1416,30 @@ pub struct DRM_LICENSE_ACQ_DATA {
     pub wszFriendlyName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DRM_LICENSE_ACQ_DATA {}
+impl ::core::marker::Copy for DRM_LICENSE_ACQ_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for DRM_LICENSE_ACQ_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for DRM_LICENSE_ACQ_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DRM_LICENSE_ACQ_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DRM_LICENSE_ACQ_DATA").field("uVersion", &self.uVersion).field("wszURL", &self.wszURL).field("wszLocalFilename", &self.wszLocalFilename).field("pbPostData", &self.pbPostData).field("dwPostDataSize", &self.dwPostDataSize).field("wszFriendlyName", &self.wszFriendlyName).finish()
-    }
+unsafe impl ::windows::core::Abi for DRM_LICENSE_ACQ_DATA {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for DRM_LICENSE_ACQ_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.uVersion == other.uVersion && self.wszURL == other.wszURL && self.wszLocalFilename == other.wszLocalFilename && self.pbPostData == other.pbPostData && self.dwPostDataSize == other.dwPostDataSize && self.wszFriendlyName == other.wszFriendlyName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DRM_LICENSE_ACQ_DATA>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for DRM_LICENSE_ACQ_DATA {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DRM_LICENSE_ACQ_DATA {
-    type Abi = Self;
+impl ::core::default::Default for DRM_LICENSE_ACQ_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DRM_LOCKBOXTYPE_BLACKBOX: u32 = 2u32;
 pub const DRM_LOCKBOXTYPE_DEFAULT: u32 = 2u32;
@@ -1544,38 +1458,18 @@ pub const DRM_SERVICE_TYPE_SILENT: u32 = 16u32;
 pub const DRM_SIGN_CANCEL: u32 = 4u32;
 pub const DRM_SIGN_OFFLINE: u32 = 2u32;
 pub const DRM_SIGN_ONLINE: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRM_STATUS_MSG(pub i32);
-pub const DRM_MSG_ACTIVATE_MACHINE: DRM_STATUS_MSG = DRM_STATUS_MSG(0i32);
-pub const DRM_MSG_ACTIVATE_GROUPIDENTITY: DRM_STATUS_MSG = DRM_STATUS_MSG(1i32);
-pub const DRM_MSG_ACQUIRE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(2i32);
-pub const DRM_MSG_ACQUIRE_ADVISORY: DRM_STATUS_MSG = DRM_STATUS_MSG(3i32);
-pub const DRM_MSG_SIGN_ISSUANCE_LICENSE: DRM_STATUS_MSG = DRM_STATUS_MSG(4i32);
-pub const DRM_MSG_ACQUIRE_CLIENTLICENSOR: DRM_STATUS_MSG = DRM_STATUS_MSG(5i32);
-pub const DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE: DRM_STATUS_MSG = DRM_STATUS_MSG(6i32);
-impl ::core::convert::From<i32> for DRM_STATUS_MSG {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_STATUS_MSG {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DRM_USAGEPOLICY_TYPE(pub i32);
-pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(0i32);
-pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(1i32);
-pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(2i32);
-pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = DRM_USAGEPOLICY_TYPE(3i32);
-impl ::core::convert::From<i32> for DRM_USAGEPOLICY_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DRM_USAGEPOLICY_TYPE {
-    type Abi = Self;
-}
+pub type DRM_STATUS_MSG = i32;
+pub const DRM_MSG_ACTIVATE_MACHINE: DRM_STATUS_MSG = 0i32;
+pub const DRM_MSG_ACTIVATE_GROUPIDENTITY: DRM_STATUS_MSG = 1i32;
+pub const DRM_MSG_ACQUIRE_LICENSE: DRM_STATUS_MSG = 2i32;
+pub const DRM_MSG_ACQUIRE_ADVISORY: DRM_STATUS_MSG = 3i32;
+pub const DRM_MSG_SIGN_ISSUANCE_LICENSE: DRM_STATUS_MSG = 4i32;
+pub const DRM_MSG_ACQUIRE_CLIENTLICENSOR: DRM_STATUS_MSG = 5i32;
+pub const DRM_MSG_ACQUIRE_ISSUANCE_LICENSE_TEMPLATE: DRM_STATUS_MSG = 6i32;
+pub type DRM_USAGEPOLICY_TYPE = i32;
+pub const DRM_USAGEPOLICY_TYPE_BYNAME: DRM_USAGEPOLICY_TYPE = 0i32;
+pub const DRM_USAGEPOLICY_TYPE_BYPUBLICKEY: DRM_USAGEPOLICY_TYPE = 1i32;
+pub const DRM_USAGEPOLICY_TYPE_BYDIGEST: DRM_USAGEPOLICY_TYPE = 2i32;
+pub const DRM_USAGEPOLICY_TYPE_OSEXCLUSION: DRM_USAGEPOLICY_TYPE = 3i32;
 pub const MSDRM_CLIENT_ZONE: u32 = 52992u32;
 pub const MSDRM_POLICY_ZONE: u32 = 37632u32;

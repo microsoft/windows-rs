@@ -1,60 +1,29 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCN_NOTIFICATIONS(pub i32);
-pub const HcnNotificationInvalid: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(0i32);
-pub const HcnNotificationNetworkPreCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(1i32);
-pub const HcnNotificationNetworkCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(2i32);
-pub const HcnNotificationNetworkPreDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(3i32);
-pub const HcnNotificationNetworkDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(4i32);
-pub const HcnNotificationNamespaceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(5i32);
-pub const HcnNotificationNamespaceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(6i32);
-pub const HcnNotificationGuestNetworkServiceCreate: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(7i32);
-pub const HcnNotificationGuestNetworkServiceDelete: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(8i32);
-pub const HcnNotificationNetworkEndpointAttached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(9i32);
-pub const HcnNotificationNetworkEndpointDetached: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16i32);
-pub const HcnNotificationGuestNetworkServiceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(17i32);
-pub const HcnNotificationGuestNetworkServiceInterfaceStateChanged: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(18i32);
-pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(16777216i32);
-pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = HCN_NOTIFICATIONS(-268435456i32);
-impl ::core::convert::From<i32> for HCN_NOTIFICATIONS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_NOTIFICATIONS {
-    type Abi = Self;
-}
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+pub type HCN_NOTIFICATIONS = i32;
+pub const HcnNotificationInvalid: HCN_NOTIFICATIONS = 0i32;
+pub const HcnNotificationNetworkPreCreate: HCN_NOTIFICATIONS = 1i32;
+pub const HcnNotificationNetworkCreate: HCN_NOTIFICATIONS = 2i32;
+pub const HcnNotificationNetworkPreDelete: HCN_NOTIFICATIONS = 3i32;
+pub const HcnNotificationNetworkDelete: HCN_NOTIFICATIONS = 4i32;
+pub const HcnNotificationNamespaceCreate: HCN_NOTIFICATIONS = 5i32;
+pub const HcnNotificationNamespaceDelete: HCN_NOTIFICATIONS = 6i32;
+pub const HcnNotificationGuestNetworkServiceCreate: HCN_NOTIFICATIONS = 7i32;
+pub const HcnNotificationGuestNetworkServiceDelete: HCN_NOTIFICATIONS = 8i32;
+pub const HcnNotificationNetworkEndpointAttached: HCN_NOTIFICATIONS = 9i32;
+pub const HcnNotificationNetworkEndpointDetached: HCN_NOTIFICATIONS = 16i32;
+pub const HcnNotificationGuestNetworkServiceStateChanged: HCN_NOTIFICATIONS = 17i32;
+pub const HcnNotificationGuestNetworkServiceInterfaceStateChanged: HCN_NOTIFICATIONS = 18i32;
+pub const HcnNotificationServiceDisconnect: HCN_NOTIFICATIONS = 16777216i32;
+pub const HcnNotificationFlagsReserved: HCN_NOTIFICATIONS = -268435456i32;
 #[cfg(feature = "Win32_Foundation")]
 pub type HCN_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(notificationtype: u32, context: *const ::core::ffi::c_void, notificationstatus: ::windows::core::HRESULT, notificationdata: super::super::Foundation::PWSTR)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCN_PORT_ACCESS(pub i32);
-pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = HCN_PORT_ACCESS(1i32);
-pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = HCN_PORT_ACCESS(2i32);
-impl ::core::convert::From<i32> for HCN_PORT_ACCESS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_PORT_ACCESS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct HCN_PORT_PROTOCOL(pub i32);
-pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(1i32);
-pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(2i32);
-pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = HCN_PORT_PROTOCOL(3i32);
-impl ::core::convert::From<i32> for HCN_PORT_PROTOCOL {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for HCN_PORT_PROTOCOL {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HCN_PORT_ACCESS = i32;
+pub const HCN_PORT_ACCESS_EXCLUSIVE: HCN_PORT_ACCESS = 1i32;
+pub const HCN_PORT_ACCESS_SHARED: HCN_PORT_ACCESS = 2i32;
+pub type HCN_PORT_PROTOCOL = i32;
+pub const HCN_PORT_PROTOCOL_TCP: HCN_PORT_PROTOCOL = 1i32;
+pub const HCN_PORT_PROTOCOL_UDP: HCN_PORT_PROTOCOL = 2i32;
+pub const HCN_PORT_PROTOCOL_BOTH: HCN_PORT_PROTOCOL = 3i32;
 #[repr(C)]
 pub struct HCN_PORT_RANGE_ENTRY {
     pub OwningPartitionId: ::windows::core::GUID,
@@ -67,51 +36,50 @@ pub struct HCN_PORT_RANGE_ENTRY {
     pub StartingPort: u16,
     pub EndingPort: u16,
 }
-impl HCN_PORT_RANGE_ENTRY {}
+impl ::core::marker::Copy for HCN_PORT_RANGE_ENTRY {}
+impl ::core::clone::Clone for HCN_PORT_RANGE_ENTRY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_ENTRY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
 impl ::core::default::Default for HCN_PORT_RANGE_ENTRY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for HCN_PORT_RANGE_ENTRY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HCN_PORT_RANGE_ENTRY").field("OwningPartitionId", &self.OwningPartitionId).field("TargetPartitionId", &self.TargetPartitionId).field("Protocol", &self.Protocol).field("Priority", &self.Priority).field("ReservationType", &self.ReservationType).field("SharingFlags", &self.SharingFlags).field("DeliveryMode", &self.DeliveryMode).field("StartingPort", &self.StartingPort).field("EndingPort", &self.EndingPort).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HCN_PORT_RANGE_ENTRY {
-    fn eq(&self, other: &Self) -> bool {
-        self.OwningPartitionId == other.OwningPartitionId && self.TargetPartitionId == other.TargetPartitionId && self.Protocol == other.Protocol && self.Priority == other.Priority && self.ReservationType == other.ReservationType && self.SharingFlags == other.SharingFlags && self.DeliveryMode == other.DeliveryMode && self.StartingPort == other.StartingPort && self.EndingPort == other.EndingPort
-    }
-}
-impl ::core::cmp::Eq for HCN_PORT_RANGE_ENTRY {}
-unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_ENTRY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct HCN_PORT_RANGE_RESERVATION {
     pub startingPort: u16,
     pub endingPort: u16,
 }
-impl HCN_PORT_RANGE_RESERVATION {}
+impl ::core::marker::Copy for HCN_PORT_RANGE_RESERVATION {}
+impl ::core::clone::Clone for HCN_PORT_RANGE_RESERVATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HCN_PORT_RANGE_RESERVATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}
 impl ::core::default::Default for HCN_PORT_RANGE_RESERVATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for HCN_PORT_RANGE_RESERVATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("HCN_PORT_RANGE_RESERVATION").field("startingPort", &self.startingPort).field("endingPort", &self.endingPort).finish()
-    }
-}
-impl ::core::cmp::PartialEq for HCN_PORT_RANGE_RESERVATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.startingPort == other.startingPort && self.endingPort == other.endingPort
-    }
-}
-impl ::core::cmp::Eq for HCN_PORT_RANGE_RESERVATION {}
-unsafe impl ::windows::core::Abi for HCN_PORT_RANGE_RESERVATION {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn HcnCloseEndpoint(endpoint: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -257,8 +225,8 @@ pub unsafe fn HcnDeleteEndpoint(id: *const ::windows::core::GUID) -> ::windows::
         extern "system" {
             fn HcnDeleteEndpoint(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnDeleteEndpoint(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnDeleteEndpoint(::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -272,8 +240,8 @@ pub unsafe fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID) -> 
         extern "system" {
             fn HcnDeleteGuestNetworkService(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnDeleteGuestNetworkService(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnDeleteGuestNetworkService(::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -287,8 +255,8 @@ pub unsafe fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID) -> ::windo
         extern "system" {
             fn HcnDeleteLoadBalancer(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnDeleteLoadBalancer(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnDeleteLoadBalancer(::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -302,8 +270,8 @@ pub unsafe fn HcnDeleteNamespace(id: *const ::windows::core::GUID) -> ::windows:
         extern "system" {
             fn HcnDeleteNamespace(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnDeleteNamespace(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnDeleteNamespace(::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -317,8 +285,8 @@ pub unsafe fn HcnDeleteNetwork(id: *const ::windows::core::GUID) -> ::windows::c
         extern "system" {
             fn HcnDeleteNetwork(id: *const ::windows::core::GUID, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnDeleteNetwork(::core::mem::transmute(id), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnDeleteNetwork(::core::mem::transmute(id), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -400,7 +368,7 @@ pub unsafe fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RAN
         extern "system" {
             fn HcnFreeGuestNetworkPortReservations(portentries: *mut HCN_PORT_RANGE_ENTRY);
         }
-        ::core::mem::transmute(HcnFreeGuestNetworkPortReservations(::core::mem::transmute(portentries)))
+        HcnFreeGuestNetworkPortReservations(::core::mem::transmute(portentries))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -414,8 +382,8 @@ pub unsafe fn HcnModifyEndpoint<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn HcnModifyEndpoint(endpoint: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnModifyEndpoint(::core::mem::transmute(endpoint), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnModifyEndpoint(::core::mem::transmute(endpoint), settings.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -429,8 +397,8 @@ pub unsafe fn HcnModifyGuestNetworkService<'a, Param1: ::windows::core::IntoPara
         extern "system" {
             fn HcnModifyGuestNetworkService(guestnetworkservice: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnModifyGuestNetworkService(::core::mem::transmute(guestnetworkservice), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnModifyGuestNetworkService(::core::mem::transmute(guestnetworkservice), settings.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -444,8 +412,8 @@ pub unsafe fn HcnModifyLoadBalancer<'a, Param1: ::windows::core::IntoParam<'a, s
         extern "system" {
             fn HcnModifyLoadBalancer(loadbalancer: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnModifyLoadBalancer(::core::mem::transmute(loadbalancer), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnModifyLoadBalancer(::core::mem::transmute(loadbalancer), settings.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -459,8 +427,8 @@ pub unsafe fn HcnModifyNamespace<'a, Param1: ::windows::core::IntoParam<'a, supe
         extern "system" {
             fn HcnModifyNamespace(namespace: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnModifyNamespace(::core::mem::transmute(namespace), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnModifyNamespace(::core::mem::transmute(namespace), settings.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -474,8 +442,8 @@ pub unsafe fn HcnModifyNetwork<'a, Param1: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn HcnModifyNetwork(network: *const ::core::ffi::c_void, settings: super::super::Foundation::PWSTR, errorrecord: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnModifyNetwork(::core::mem::transmute(network), settings.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        HcnModifyNetwork(::core::mem::transmute(network), settings.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -643,8 +611,8 @@ pub unsafe fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::co
         extern "system" {
             fn HcnReserveGuestNetworkServicePort(guestnetworkservice: *const ::core::ffi::c_void, protocol: HCN_PORT_PROTOCOL, access: HCN_PORT_ACCESS, port: u16, portreservationhandle: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        HcnReserveGuestNetworkServicePort(::core::mem::transmute(guestnetworkservice), ::core::mem::transmute(protocol), ::core::mem::transmute(access), ::core::mem::transmute(port), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        HcnReserveGuestNetworkServicePort(::core::mem::transmute(guestnetworkservice), ::core::mem::transmute(protocol), ::core::mem::transmute(access), ::core::mem::transmute(port), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

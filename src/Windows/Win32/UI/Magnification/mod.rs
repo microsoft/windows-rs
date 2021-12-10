@@ -1,30 +1,28 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct MAGCOLOREFFECT {
     pub transform: [f32; 25],
 }
-impl MAGCOLOREFFECT {}
+impl ::core::marker::Copy for MAGCOLOREFFECT {}
+impl ::core::clone::Clone for MAGCOLOREFFECT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MAGCOLOREFFECT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MAGCOLOREFFECT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MAGCOLOREFFECT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MAGCOLOREFFECT {}
 impl ::core::default::Default for MAGCOLOREFFECT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MAGCOLOREFFECT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MAGCOLOREFFECT").field("transform", &self.transform).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MAGCOLOREFFECT {
-    fn eq(&self, other: &Self) -> bool {
-        self.transform == other.transform
-    }
-}
-impl ::core::cmp::Eq for MAGCOLOREFFECT {}
-unsafe impl ::windows::core::Abi for MAGCOLOREFFECT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MAGIMAGEHEADER {
     pub width: u32,
@@ -34,50 +32,49 @@ pub struct MAGIMAGEHEADER {
     pub offset: u32,
     pub cbSize: usize,
 }
-impl MAGIMAGEHEADER {}
+impl ::core::marker::Copy for MAGIMAGEHEADER {}
+impl ::core::clone::Clone for MAGIMAGEHEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MAGIMAGEHEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MAGIMAGEHEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MAGIMAGEHEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MAGIMAGEHEADER {}
 impl ::core::default::Default for MAGIMAGEHEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MAGIMAGEHEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MAGIMAGEHEADER").field("width", &self.width).field("height", &self.height).field("format", &self.format).field("stride", &self.stride).field("offset", &self.offset).field("cbSize", &self.cbSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MAGIMAGEHEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.width == other.width && self.height == other.height && self.format == other.format && self.stride == other.stride && self.offset == other.offset && self.cbSize == other.cbSize
-    }
-}
-impl ::core::cmp::Eq for MAGIMAGEHEADER {}
-unsafe impl ::windows::core::Abi for MAGIMAGEHEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MAGTRANSFORM {
     pub v: [f32; 9],
 }
-impl MAGTRANSFORM {}
+impl ::core::marker::Copy for MAGTRANSFORM {}
+impl ::core::clone::Clone for MAGTRANSFORM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MAGTRANSFORM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MAGTRANSFORM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MAGTRANSFORM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MAGTRANSFORM {}
 impl ::core::default::Default for MAGTRANSFORM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for MAGTRANSFORM {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MAGTRANSFORM").field("v", &self.v).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MAGTRANSFORM {
-    fn eq(&self, other: &Self) -> bool {
-        self.v == other.v
-    }
-}
-impl ::core::cmp::Eq for MAGTRANSFORM {}
-unsafe impl ::windows::core::Abi for MAGTRANSFORM {
-    type Abi = Self;
 }
 pub const MS_CLIPAROUNDCURSOR: i32 = 2i32;
 pub const MS_INVERTCOLORS: i32 = 4i32;

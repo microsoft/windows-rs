@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct ACPI_REAL_TIME {
     pub Year: u16,
@@ -14,31 +13,30 @@ pub struct ACPI_REAL_TIME {
     pub DayLight: u8,
     pub Reserved1: [u8; 3],
 }
-impl ACPI_REAL_TIME {}
+impl ::core::marker::Copy for ACPI_REAL_TIME {}
+impl ::core::clone::Clone for ACPI_REAL_TIME {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ACPI_REAL_TIME {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ACPI_REAL_TIME {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ACPI_REAL_TIME>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ACPI_REAL_TIME {}
 impl ::core::default::Default for ACPI_REAL_TIME {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for ACPI_REAL_TIME {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ACPI_REAL_TIME").field("Year", &self.Year).field("Month", &self.Month).field("Day", &self.Day).field("Hour", &self.Hour).field("Minute", &self.Minute).field("Second", &self.Second).field("Valid", &self.Valid).field("Milliseconds", &self.Milliseconds).field("TimeZone", &self.TimeZone).field("DayLight", &self.DayLight).field("Reserved1", &self.Reserved1).finish()
-    }
-}
-impl ::core::cmp::PartialEq for ACPI_REAL_TIME {
-    fn eq(&self, other: &Self) -> bool {
-        self.Year == other.Year && self.Month == other.Month && self.Day == other.Day && self.Hour == other.Hour && self.Minute == other.Minute && self.Second == other.Second && self.Valid == other.Valid && self.Milliseconds == other.Milliseconds && self.TimeZone == other.TimeZone && self.DayLight == other.DayLight && self.Reserved1 == other.Reserved1
-    }
-}
-impl ::core::cmp::Eq for ACPI_REAL_TIME {}
-unsafe impl ::windows::core::Abi for ACPI_REAL_TIME {
-    type Abi = Self;
-}
 pub const ACPI_TIME_ADJUST_DAYLIGHT: u32 = 1u32;
 pub const ACPI_TIME_IN_DAYLIGHT: u32 = 2u32;
 pub const ACPI_TIME_ZONE_UNKNOWN: u32 = 2047u32;
 pub const ACTIVE_COOLING: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSleep: SYSTEM_POWER_STATE,
@@ -48,81 +46,78 @@ pub struct ADMINISTRATOR_POWER_POLICY {
     pub MinSpindownTimeout: u32,
     pub MaxSpindownTimeout: u32,
 }
-impl ADMINISTRATOR_POWER_POLICY {}
+impl ::core::marker::Copy for ADMINISTRATOR_POWER_POLICY {}
+impl ::core::clone::Clone for ADMINISTRATOR_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for ADMINISTRATOR_POWER_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for ADMINISTRATOR_POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ADMINISTRATOR_POWER_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for ADMINISTRATOR_POWER_POLICY {}
 impl ::core::default::Default for ADMINISTRATOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for ADMINISTRATOR_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ADMINISTRATOR_POWER_POLICY").field("MinSleep", &self.MinSleep).field("MaxSleep", &self.MaxSleep).field("MinVideoTimeout", &self.MinVideoTimeout).field("MaxVideoTimeout", &self.MaxVideoTimeout).field("MinSpindownTimeout", &self.MinSpindownTimeout).field("MaxSpindownTimeout", &self.MaxSpindownTimeout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for ADMINISTRATOR_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.MinSleep == other.MinSleep && self.MaxSleep == other.MaxSleep && self.MinVideoTimeout == other.MinVideoTimeout && self.MaxVideoTimeout == other.MaxVideoTimeout && self.MinSpindownTimeout == other.MinSpindownTimeout && self.MaxSpindownTimeout == other.MaxSpindownTimeout
-    }
-}
-impl ::core::cmp::Eq for ADMINISTRATOR_POWER_POLICY {}
-unsafe impl ::windows::core::Abi for ADMINISTRATOR_POWER_POLICY {
-    type Abi = Self;
-}
 pub const BATTERY_CAPACITY_RELATIVE: u32 = 1073741824u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub VaData: [u32; 1],
 }
-impl BATTERY_CHARGER_STATUS {}
+impl ::core::marker::Copy for BATTERY_CHARGER_STATUS {}
+impl ::core::clone::Clone for BATTERY_CHARGER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_CHARGER_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_CHARGER_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_CHARGER_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_CHARGER_STATUS {}
 impl ::core::default::Default for BATTERY_CHARGER_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_CHARGER_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_CHARGER_STATUS").field("Type", &self.Type).field("VaData", &self.VaData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_CHARGER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.VaData == other.VaData
-    }
-}
-impl ::core::cmp::Eq for BATTERY_CHARGER_STATUS {}
-unsafe impl ::windows::core::Abi for BATTERY_CHARGER_STATUS {
-    type Abi = Self;
-}
 pub const BATTERY_CHARGING: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_CHARGING_SOURCE {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
     pub MaxCurrent: u32,
 }
-impl BATTERY_CHARGING_SOURCE {}
+impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE {}
+impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_CHARGING_SOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_CHARGING_SOURCE {}
 impl ::core::default::Default for BATTERY_CHARGING_SOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_CHARGING_SOURCE").field("Type", &self.Type).field("MaxCurrent", &self.MaxCurrent).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.MaxCurrent == other.MaxCurrent
-    }
-}
-impl ::core::cmp::Eq for BATTERY_CHARGING_SOURCE {}
-unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
@@ -130,46 +125,36 @@ pub struct BATTERY_CHARGING_SOURCE_INFORMATION {
     pub SourceOnline: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl BATTERY_CHARGING_SOURCE_INFORMATION {}
+impl ::core::marker::Copy for BATTERY_CHARGING_SOURCE_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for BATTERY_CHARGING_SOURCE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_CHARGING_SOURCE_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for BATTERY_CHARGING_SOURCE_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for BATTERY_CHARGING_SOURCE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for BATTERY_CHARGING_SOURCE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_CHARGING_SOURCE_INFORMATION").field("Type", &self.Type).field("SourceOnline", &self.SourceOnline).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for BATTERY_CHARGING_SOURCE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.SourceOnline == other.SourceOnline
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for BATTERY_CHARGING_SOURCE_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct BATTERY_CHARGING_SOURCE_TYPE(pub i32);
-pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(1i32);
-pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(2i32);
-pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(3i32);
-pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = BATTERY_CHARGING_SOURCE_TYPE(4i32);
-impl ::core::convert::From<i32> for BATTERY_CHARGING_SOURCE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for BATTERY_CHARGING_SOURCE_TYPE {
-    type Abi = Self;
-}
+pub type BATTERY_CHARGING_SOURCE_TYPE = i32;
+pub const BatteryChargingSourceType_AC: BATTERY_CHARGING_SOURCE_TYPE = 1i32;
+pub const BatteryChargingSourceType_USB: BATTERY_CHARGING_SOURCE_TYPE = 2i32;
+pub const BatteryChargingSourceType_Wireless: BATTERY_CHARGING_SOURCE_TYPE = 3i32;
+pub const BatteryChargingSourceType_Max: BATTERY_CHARGING_SOURCE_TYPE = 4i32;
 pub const BATTERY_CLASS_MAJOR_VERSION: u32 = 1u32;
 pub const BATTERY_CLASS_MINOR_VERSION: u32 = 0u32;
 pub const BATTERY_CLASS_MINOR_VERSION_1: u32 = 1u32;
@@ -177,7 +162,6 @@ pub const BATTERY_CRITICAL: u32 = 8u32;
 pub const BATTERY_CYCLE_COUNT_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef98db24_0014_4c25_a50b_c724ae5cd371);
 pub const BATTERY_DISCHARGING: u32 = 2u32;
 pub const BATTERY_FULL_CHARGED_CAPACITY_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40b40565_96f7_4435_8694_97e0e4395905);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_INFORMATION {
     pub Capabilities: u32,
@@ -191,129 +175,116 @@ pub struct BATTERY_INFORMATION {
     pub CriticalBias: u32,
     pub CycleCount: u32,
 }
-impl BATTERY_INFORMATION {}
+impl ::core::marker::Copy for BATTERY_INFORMATION {}
+impl ::core::clone::Clone for BATTERY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_INFORMATION {}
 impl ::core::default::Default for BATTERY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_INFORMATION").field("Capabilities", &self.Capabilities).field("Technology", &self.Technology).field("Reserved", &self.Reserved).field("Chemistry", &self.Chemistry).field("DesignedCapacity", &self.DesignedCapacity).field("FullChargedCapacity", &self.FullChargedCapacity).field("DefaultAlert1", &self.DefaultAlert1).field("DefaultAlert2", &self.DefaultAlert2).field("CriticalBias", &self.CriticalBias).field("CycleCount", &self.CycleCount).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Capabilities == other.Capabilities && self.Technology == other.Technology && self.Reserved == other.Reserved && self.Chemistry == other.Chemistry && self.DesignedCapacity == other.DesignedCapacity && self.FullChargedCapacity == other.FullChargedCapacity && self.DefaultAlert1 == other.DefaultAlert1 && self.DefaultAlert2 == other.DefaultAlert2 && self.CriticalBias == other.CriticalBias && self.CycleCount == other.CycleCount
-    }
-}
-impl ::core::cmp::Eq for BATTERY_INFORMATION {}
-unsafe impl ::windows::core::Abi for BATTERY_INFORMATION {
-    type Abi = Self;
-}
 pub const BATTERY_IS_SHORT_TERM: u32 = 536870912u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_MANUFACTURE_DATE {
     pub Day: u8,
     pub Month: u8,
     pub Year: u16,
 }
-impl BATTERY_MANUFACTURE_DATE {}
+impl ::core::marker::Copy for BATTERY_MANUFACTURE_DATE {}
+impl ::core::clone::Clone for BATTERY_MANUFACTURE_DATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_MANUFACTURE_DATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_MANUFACTURE_DATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_MANUFACTURE_DATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_MANUFACTURE_DATE {}
 impl ::core::default::Default for BATTERY_MANUFACTURE_DATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_MANUFACTURE_DATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_MANUFACTURE_DATE").field("Day", &self.Day).field("Month", &self.Month).field("Year", &self.Year).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_MANUFACTURE_DATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Day == other.Day && self.Month == other.Month && self.Year == other.Year
-    }
-}
-impl ::core::cmp::Eq for BATTERY_MANUFACTURE_DATE {}
-unsafe impl ::windows::core::Abi for BATTERY_MANUFACTURE_DATE {
-    type Abi = Self;
-}
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_1: u32 = 1u32;
 pub const BATTERY_MINIPORT_UPDATE_DATA_VER_2: u32 = 2u32;
 pub const BATTERY_POWER_ON_LINE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_QUERY_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_QUERY_INFORMATION_LEVEL,
     pub AtRate: u32,
 }
-impl BATTERY_QUERY_INFORMATION {}
+impl ::core::marker::Copy for BATTERY_QUERY_INFORMATION {}
+impl ::core::clone::Clone for BATTERY_QUERY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_QUERY_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_QUERY_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_QUERY_INFORMATION {}
 impl ::core::default::Default for BATTERY_QUERY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_QUERY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_QUERY_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("AtRate", &self.AtRate).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_QUERY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BatteryTag == other.BatteryTag && self.InformationLevel == other.InformationLevel && self.AtRate == other.AtRate
-    }
-}
-impl ::core::cmp::Eq for BATTERY_QUERY_INFORMATION {}
-unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct BATTERY_QUERY_INFORMATION_LEVEL(pub i32);
-pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(0i32);
-pub const BatteryGranularityInformation: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(1i32);
-pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(2i32);
-pub const BatteryEstimatedTime: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(3i32);
-pub const BatteryDeviceName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(4i32);
-pub const BatteryManufactureDate: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(5i32);
-pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(6i32);
-pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(7i32);
-pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = BATTERY_QUERY_INFORMATION_LEVEL(8i32);
-impl ::core::convert::From<i32> for BATTERY_QUERY_INFORMATION_LEVEL {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for BATTERY_QUERY_INFORMATION_LEVEL {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type BATTERY_QUERY_INFORMATION_LEVEL = i32;
+pub const BatteryInformation: BATTERY_QUERY_INFORMATION_LEVEL = 0i32;
+pub const BatteryGranularityInformation: BATTERY_QUERY_INFORMATION_LEVEL = 1i32;
+pub const BatteryTemperature: BATTERY_QUERY_INFORMATION_LEVEL = 2i32;
+pub const BatteryEstimatedTime: BATTERY_QUERY_INFORMATION_LEVEL = 3i32;
+pub const BatteryDeviceName: BATTERY_QUERY_INFORMATION_LEVEL = 4i32;
+pub const BatteryManufactureDate: BATTERY_QUERY_INFORMATION_LEVEL = 5i32;
+pub const BatteryManufactureName: BATTERY_QUERY_INFORMATION_LEVEL = 6i32;
+pub const BatteryUniqueID: BATTERY_QUERY_INFORMATION_LEVEL = 7i32;
+pub const BatterySerialNumber: BATTERY_QUERY_INFORMATION_LEVEL = 8i32;
 #[repr(C)]
 pub struct BATTERY_REPORTING_SCALE {
     pub Granularity: u32,
     pub Capacity: u32,
 }
-impl BATTERY_REPORTING_SCALE {}
+impl ::core::marker::Copy for BATTERY_REPORTING_SCALE {}
+impl ::core::clone::Clone for BATTERY_REPORTING_SCALE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_REPORTING_SCALE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_REPORTING_SCALE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_REPORTING_SCALE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_REPORTING_SCALE {}
 impl ::core::default::Default for BATTERY_REPORTING_SCALE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for BATTERY_REPORTING_SCALE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_REPORTING_SCALE").field("Granularity", &self.Granularity).field("Capacity", &self.Capacity).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_REPORTING_SCALE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Granularity == other.Granularity && self.Capacity == other.Capacity
-    }
-}
-impl ::core::cmp::Eq for BATTERY_REPORTING_SCALE {}
-unsafe impl ::windows::core::Abi for BATTERY_REPORTING_SCALE {
-    type Abi = Self;
 }
 pub const BATTERY_RUNTIME_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x535a3767_1ac2_49bc_a077_3f7a02e40aec);
 pub const BATTERY_SEALED: u32 = 268435456u32;
@@ -321,52 +292,40 @@ pub const BATTERY_SET_CHARGER_ID_SUPPORTED: u32 = 8u32;
 pub const BATTERY_SET_CHARGE_SUPPORTED: u32 = 1u32;
 pub const BATTERY_SET_CHARGINGSOURCE_SUPPORTED: u32 = 4u32;
 pub const BATTERY_SET_DISCHARGE_SUPPORTED: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_SET_INFORMATION {
     pub BatteryTag: u32,
     pub InformationLevel: BATTERY_SET_INFORMATION_LEVEL,
     pub Buffer: [u8; 1],
 }
-impl BATTERY_SET_INFORMATION {}
+impl ::core::marker::Copy for BATTERY_SET_INFORMATION {}
+impl ::core::clone::Clone for BATTERY_SET_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_SET_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_SET_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_SET_INFORMATION {}
 impl ::core::default::Default for BATTERY_SET_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_SET_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_SET_INFORMATION").field("BatteryTag", &self.BatteryTag).field("InformationLevel", &self.InformationLevel).field("Buffer", &self.Buffer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_SET_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.BatteryTag == other.BatteryTag && self.InformationLevel == other.InformationLevel && self.Buffer == other.Buffer
-    }
-}
-impl ::core::cmp::Eq for BATTERY_SET_INFORMATION {}
-unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct BATTERY_SET_INFORMATION_LEVEL(pub i32);
-pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(0i32);
-pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(1i32);
-pub const BatteryDischarge: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(2i32);
-pub const BatteryChargingSource: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(3i32);
-pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(4i32);
-pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = BATTERY_SET_INFORMATION_LEVEL(5i32);
-impl ::core::convert::From<i32> for BATTERY_SET_INFORMATION_LEVEL {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for BATTERY_SET_INFORMATION_LEVEL {
-    type Abi = Self;
-}
+pub type BATTERY_SET_INFORMATION_LEVEL = i32;
+pub const BatteryCriticalBias: BATTERY_SET_INFORMATION_LEVEL = 0i32;
+pub const BatteryCharge: BATTERY_SET_INFORMATION_LEVEL = 1i32;
+pub const BatteryDischarge: BATTERY_SET_INFORMATION_LEVEL = 2i32;
+pub const BatteryChargingSource: BATTERY_SET_INFORMATION_LEVEL = 3i32;
+pub const BatteryChargerId: BATTERY_SET_INFORMATION_LEVEL = 4i32;
+pub const BatteryChargerStatus: BATTERY_SET_INFORMATION_LEVEL = 5i32;
 pub const BATTERY_STATIC_DATA_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05e1e463_e4e2_4ea9_80cb_9bd4b3ca0655);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_STATUS {
     pub PowerState: u32,
@@ -374,25 +333,25 @@ pub struct BATTERY_STATUS {
     pub Voltage: u32,
     pub Rate: i32,
 }
-impl BATTERY_STATUS {}
+impl ::core::marker::Copy for BATTERY_STATUS {}
+impl ::core::clone::Clone for BATTERY_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_STATUS {}
 impl ::core::default::Default for BATTERY_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for BATTERY_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_STATUS").field("PowerState", &self.PowerState).field("Capacity", &self.Capacity).field("Voltage", &self.Voltage).field("Rate", &self.Rate).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.PowerState == other.PowerState && self.Capacity == other.Capacity && self.Voltage == other.Voltage && self.Rate == other.Rate
-    }
-}
-impl ::core::cmp::Eq for BATTERY_STATUS {}
-unsafe impl ::windows::core::Abi for BATTERY_STATUS {
-    type Abi = Self;
 }
 pub const BATTERY_STATUS_CHANGE_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcddfa0c3_7c5b_4e43_a034_059fa5b84364);
 pub const BATTERY_STATUS_WMI_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc4670d1_ebbf_416e_87ce_374a4ebc111a);
@@ -405,7 +364,6 @@ pub const BATTERY_UNKNOWN_CURRENT: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_RATE: u32 = 2147483648u32;
 pub const BATTERY_UNKNOWN_TIME: u32 = 4294967295u32;
 pub const BATTERY_UNKNOWN_VOLTAGE: u32 = 4294967295u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_USB_CHARGER_STATUS {
     pub Type: BATTERY_CHARGING_SOURCE_TYPE,
@@ -418,29 +376,28 @@ pub struct BATTERY_USB_CHARGER_STATUS {
     pub PowerSourceInformation: *mut ::core::ffi::c_void,
     pub OemCharger: ::windows::core::GUID,
 }
-impl BATTERY_USB_CHARGER_STATUS {}
+impl ::core::marker::Copy for BATTERY_USB_CHARGER_STATUS {}
+impl ::core::clone::Clone for BATTERY_USB_CHARGER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_USB_CHARGER_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_USB_CHARGER_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_USB_CHARGER_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_USB_CHARGER_STATUS {}
 impl ::core::default::Default for BATTERY_USB_CHARGER_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_USB_CHARGER_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_USB_CHARGER_STATUS").field("Type", &self.Type).field("Reserved", &self.Reserved).field("Flags", &self.Flags).field("MaxCurrent", &self.MaxCurrent).field("Voltage", &self.Voltage).field("PortType", &self.PortType).field("PortId", &self.PortId).field("PowerSourceInformation", &self.PowerSourceInformation).field("OemCharger", &self.OemCharger).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_USB_CHARGER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Reserved == other.Reserved && self.Flags == other.Flags && self.MaxCurrent == other.MaxCurrent && self.Voltage == other.Voltage && self.PortType == other.PortType && self.PortId == other.PortId && self.PowerSourceInformation == other.PowerSourceInformation && self.OemCharger == other.OemCharger
-    }
-}
-impl ::core::cmp::Eq for BATTERY_USB_CHARGER_STATUS {}
-unsafe impl ::windows::core::Abi for BATTERY_USB_CHARGER_STATUS {
-    type Abi = Self;
-}
 pub const BATTERY_USB_CHARGER_STATUS_FN_DEFAULT_USB: u32 = 1u32;
 pub const BATTERY_USB_CHARGER_STATUS_UCM_PD: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BATTERY_WAIT_STATUS {
     pub BatteryTag: u32,
@@ -449,27 +406,26 @@ pub struct BATTERY_WAIT_STATUS {
     pub LowCapacity: u32,
     pub HighCapacity: u32,
 }
-impl BATTERY_WAIT_STATUS {}
+impl ::core::marker::Copy for BATTERY_WAIT_STATUS {}
+impl ::core::clone::Clone for BATTERY_WAIT_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BATTERY_WAIT_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BATTERY_WAIT_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BATTERY_WAIT_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BATTERY_WAIT_STATUS {}
 impl ::core::default::Default for BATTERY_WAIT_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for BATTERY_WAIT_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("BATTERY_WAIT_STATUS").field("BatteryTag", &self.BatteryTag).field("Timeout", &self.Timeout).field("PowerState", &self.PowerState).field("LowCapacity", &self.LowCapacity).field("HighCapacity", &self.HighCapacity).finish()
-    }
-}
-impl ::core::cmp::PartialEq for BATTERY_WAIT_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.BatteryTag == other.BatteryTag && self.Timeout == other.Timeout && self.PowerState == other.PowerState && self.LowCapacity == other.LowCapacity && self.HighCapacity == other.HighCapacity
-    }
-}
-impl ::core::cmp::Eq for BATTERY_WAIT_STATUS {}
-unsafe impl ::windows::core::Abi for BATTERY_WAIT_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CM_POWER_DATA {
     pub PD_Size: u32,
@@ -481,25 +437,25 @@ pub struct CM_POWER_DATA {
     pub PD_PowerStateMapping: [DEVICE_POWER_STATE; 7],
     pub PD_DeepestSystemWake: SYSTEM_POWER_STATE,
 }
-impl CM_POWER_DATA {}
+impl ::core::marker::Copy for CM_POWER_DATA {}
+impl ::core::clone::Clone for CM_POWER_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_POWER_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CM_POWER_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_POWER_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CM_POWER_DATA {}
 impl ::core::default::Default for CM_POWER_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for CM_POWER_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CM_POWER_DATA").field("PD_Size", &self.PD_Size).field("PD_MostRecentPowerState", &self.PD_MostRecentPowerState).field("PD_Capabilities", &self.PD_Capabilities).field("PD_D1Latency", &self.PD_D1Latency).field("PD_D2Latency", &self.PD_D2Latency).field("PD_D3Latency", &self.PD_D3Latency).field("PD_PowerStateMapping", &self.PD_PowerStateMapping).field("PD_DeepestSystemWake", &self.PD_DeepestSystemWake).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CM_POWER_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.PD_Size == other.PD_Size && self.PD_MostRecentPowerState == other.PD_MostRecentPowerState && self.PD_Capabilities == other.PD_Capabilities && self.PD_D1Latency == other.PD_D1Latency && self.PD_D2Latency == other.PD_D2Latency && self.PD_D3Latency == other.PD_D3Latency && self.PD_PowerStateMapping == other.PD_PowerStateMapping && self.PD_DeepestSystemWake == other.PD_DeepestSystemWake
-    }
-}
-impl ::core::cmp::Eq for CM_POWER_DATA {}
-unsafe impl ::windows::core::Abi for CM_POWER_DATA {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn CallNtPowerInformation(informationlevel: POWER_INFORMATION_LEVEL, inputbuffer: *const ::core::ffi::c_void, inputbufferlength: u32, outputbuffer: *mut ::core::ffi::c_void, outputbufferlength: u32) -> i32 {
@@ -537,49 +493,38 @@ pub const DEVICEPOWER_FILTER_WAKEENABLED: u32 = 134217728u32;
 pub const DEVICEPOWER_FILTER_WAKEPROGRAMMABLE: u32 = 67108864u32;
 pub const DEVICEPOWER_HARDWAREID: u32 = 2147483648u32;
 pub const DEVICEPOWER_SET_WAKEENABLED: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     pub Callback: PDEVICE_NOTIFY_CALLBACK_ROUTINE,
     pub Context: *mut ::core::ffi::c_void,
 }
-impl DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
+impl ::core::marker::Copy for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
+impl ::core::clone::Clone for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
 impl ::core::default::Default for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS").field("Context", &self.Context).finish()
-    }
-}
-impl ::core::cmp::PartialEq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.Callback.map(|f| f as usize) == other.Callback.map(|f| f as usize) && self.Context == other.Context
-    }
-}
-impl ::core::cmp::Eq for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {}
-unsafe impl ::windows::core::Abi for DEVICE_NOTIFY_SUBSCRIBE_PARAMETERS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DEVICE_POWER_STATE(pub i32);
-pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = DEVICE_POWER_STATE(0i32);
-pub const PowerDeviceD0: DEVICE_POWER_STATE = DEVICE_POWER_STATE(1i32);
-pub const PowerDeviceD1: DEVICE_POWER_STATE = DEVICE_POWER_STATE(2i32);
-pub const PowerDeviceD2: DEVICE_POWER_STATE = DEVICE_POWER_STATE(3i32);
-pub const PowerDeviceD3: DEVICE_POWER_STATE = DEVICE_POWER_STATE(4i32);
-pub const PowerDeviceMaximum: DEVICE_POWER_STATE = DEVICE_POWER_STATE(5i32);
-impl ::core::convert::From<i32> for DEVICE_POWER_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DEVICE_POWER_STATE {
-    type Abi = Self;
-}
+pub type DEVICE_POWER_STATE = i32;
+pub const PowerDeviceUnspecified: DEVICE_POWER_STATE = 0i32;
+pub const PowerDeviceD0: DEVICE_POWER_STATE = 1i32;
+pub const PowerDeviceD1: DEVICE_POWER_STATE = 2i32;
+pub const PowerDeviceD2: DEVICE_POWER_STATE = 3i32;
+pub const PowerDeviceD3: DEVICE_POWER_STATE = 4i32;
+pub const PowerDeviceMaximum: DEVICE_POWER_STATE = 5i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeletePwrScheme(uiid: u32) -> super::super::Foundation::BOOLEAN {
@@ -650,143 +595,118 @@ pub unsafe fn DevicePowerSetDeviceState<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EFFECTIVE_POWER_MODE(pub i32);
-pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(0i32);
-pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(1i32);
-pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(2i32);
-pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(3i32);
-pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(4i32);
-pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(5i32);
-pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = EFFECTIVE_POWER_MODE(6i32);
-impl ::core::convert::From<i32> for EFFECTIVE_POWER_MODE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EFFECTIVE_POWER_MODE {
-    type Abi = Self;
-}
+pub type EFFECTIVE_POWER_MODE = i32;
+pub const EffectivePowerModeBatterySaver: EFFECTIVE_POWER_MODE = 0i32;
+pub const EffectivePowerModeBetterBattery: EFFECTIVE_POWER_MODE = 1i32;
+pub const EffectivePowerModeBalanced: EFFECTIVE_POWER_MODE = 2i32;
+pub const EffectivePowerModeHighPerformance: EFFECTIVE_POWER_MODE = 3i32;
+pub const EffectivePowerModeMaxPerformance: EFFECTIVE_POWER_MODE = 4i32;
+pub const EffectivePowerModeGameMode: EFFECTIVE_POWER_MODE = 5i32;
+pub const EffectivePowerModeMixedReality: EFFECTIVE_POWER_MODE = 6i32;
 pub type EFFECTIVE_POWER_MODE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(mode: EFFECTIVE_POWER_MODE, context: *const ::core::ffi::c_void)>;
 pub const EFFECTIVE_POWER_MODE_V1: u32 = 1u32;
 pub const EFFECTIVE_POWER_MODE_V2: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EMI_CHANNEL_MEASUREMENT_DATA {
     pub AbsoluteEnergy: u64,
     pub AbsoluteTime: u64,
 }
-impl EMI_CHANNEL_MEASUREMENT_DATA {}
+impl ::core::marker::Copy for EMI_CHANNEL_MEASUREMENT_DATA {}
+impl ::core::clone::Clone for EMI_CHANNEL_MEASUREMENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_CHANNEL_MEASUREMENT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EMI_CHANNEL_MEASUREMENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_CHANNEL_MEASUREMENT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EMI_CHANNEL_MEASUREMENT_DATA {}
 impl ::core::default::Default for EMI_CHANNEL_MEASUREMENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EMI_CHANNEL_MEASUREMENT_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_CHANNEL_MEASUREMENT_DATA").field("AbsoluteEnergy", &self.AbsoluteEnergy).field("AbsoluteTime", &self.AbsoluteTime).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EMI_CHANNEL_MEASUREMENT_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.AbsoluteEnergy == other.AbsoluteEnergy && self.AbsoluteTime == other.AbsoluteTime
-    }
-}
-impl ::core::cmp::Eq for EMI_CHANNEL_MEASUREMENT_DATA {}
-unsafe impl ::windows::core::Abi for EMI_CHANNEL_MEASUREMENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EMI_CHANNEL_V2 {
     pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
     pub ChannelNameSize: u16,
     pub ChannelName: [u16; 1],
 }
-impl EMI_CHANNEL_V2 {}
+impl ::core::marker::Copy for EMI_CHANNEL_V2 {}
+impl ::core::clone::Clone for EMI_CHANNEL_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_CHANNEL_V2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EMI_CHANNEL_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_CHANNEL_V2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EMI_CHANNEL_V2 {}
 impl ::core::default::Default for EMI_CHANNEL_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EMI_CHANNEL_V2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_CHANNEL_V2").field("MeasurementUnit", &self.MeasurementUnit).field("ChannelNameSize", &self.ChannelNameSize).field("ChannelName", &self.ChannelName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EMI_CHANNEL_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MeasurementUnit == other.MeasurementUnit && self.ChannelNameSize == other.ChannelNameSize && self.ChannelName == other.ChannelName
-    }
-}
-impl ::core::cmp::Eq for EMI_CHANNEL_V2 {}
-unsafe impl ::windows::core::Abi for EMI_CHANNEL_V2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EMI_MEASUREMENT_DATA_V2 {
     pub ChannelData: [EMI_CHANNEL_MEASUREMENT_DATA; 1],
 }
-impl EMI_MEASUREMENT_DATA_V2 {}
+impl ::core::marker::Copy for EMI_MEASUREMENT_DATA_V2 {}
+impl ::core::clone::Clone for EMI_MEASUREMENT_DATA_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_DATA_V2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EMI_MEASUREMENT_DATA_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_MEASUREMENT_DATA_V2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EMI_MEASUREMENT_DATA_V2 {}
 impl ::core::default::Default for EMI_MEASUREMENT_DATA_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EMI_MEASUREMENT_DATA_V2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_MEASUREMENT_DATA_V2").field("ChannelData", &self.ChannelData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EMI_MEASUREMENT_DATA_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ChannelData == other.ChannelData
-    }
-}
-impl ::core::cmp::Eq for EMI_MEASUREMENT_DATA_V2 {}
-unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_DATA_V2 {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EMI_MEASUREMENT_UNIT(pub i32);
-pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = EMI_MEASUREMENT_UNIT(0i32);
-impl ::core::convert::From<i32> for EMI_MEASUREMENT_UNIT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EMI_MEASUREMENT_UNIT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type EMI_MEASUREMENT_UNIT = i32;
+pub const EmiMeasurementUnitPicowattHours: EMI_MEASUREMENT_UNIT = 0i32;
 #[repr(C)]
 pub struct EMI_METADATA_SIZE {
     pub MetadataSize: u32,
 }
-impl EMI_METADATA_SIZE {}
+impl ::core::marker::Copy for EMI_METADATA_SIZE {}
+impl ::core::clone::Clone for EMI_METADATA_SIZE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_METADATA_SIZE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EMI_METADATA_SIZE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_METADATA_SIZE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EMI_METADATA_SIZE {}
 impl ::core::default::Default for EMI_METADATA_SIZE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EMI_METADATA_SIZE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_METADATA_SIZE").field("MetadataSize", &self.MetadataSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EMI_METADATA_SIZE {
-    fn eq(&self, other: &Self) -> bool {
-        self.MetadataSize == other.MetadataSize
-    }
-}
-impl ::core::cmp::Eq for EMI_METADATA_SIZE {}
-unsafe impl ::windows::core::Abi for EMI_METADATA_SIZE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EMI_METADATA_V1 {
     pub MeasurementUnit: EMI_MEASUREMENT_UNIT,
@@ -796,27 +716,26 @@ pub struct EMI_METADATA_V1 {
     pub MeteredHardwareNameSize: u16,
     pub MeteredHardwareName: [u16; 1],
 }
-impl EMI_METADATA_V1 {}
+impl ::core::marker::Copy for EMI_METADATA_V1 {}
+impl ::core::clone::Clone for EMI_METADATA_V1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_METADATA_V1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EMI_METADATA_V1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_METADATA_V1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EMI_METADATA_V1 {}
 impl ::core::default::Default for EMI_METADATA_V1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EMI_METADATA_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_METADATA_V1").field("MeasurementUnit", &self.MeasurementUnit).field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("MeteredHardwareNameSize", &self.MeteredHardwareNameSize).field("MeteredHardwareName", &self.MeteredHardwareName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EMI_METADATA_V1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.MeasurementUnit == other.MeasurementUnit && self.HardwareOEM == other.HardwareOEM && self.HardwareModel == other.HardwareModel && self.HardwareRevision == other.HardwareRevision && self.MeteredHardwareNameSize == other.MeteredHardwareNameSize && self.MeteredHardwareName == other.MeteredHardwareName
-    }
-}
-impl ::core::cmp::Eq for EMI_METADATA_V1 {}
-unsafe impl ::windows::core::Abi for EMI_METADATA_V1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EMI_METADATA_V2 {
     pub HardwareOEM: [u16; 16],
@@ -825,98 +744,59 @@ pub struct EMI_METADATA_V2 {
     pub ChannelCount: u16,
     pub Channels: [EMI_CHANNEL_V2; 1],
 }
-impl EMI_METADATA_V2 {}
+impl ::core::marker::Copy for EMI_METADATA_V2 {}
+impl ::core::clone::Clone for EMI_METADATA_V2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_METADATA_V2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EMI_METADATA_V2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_METADATA_V2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EMI_METADATA_V2 {}
 impl ::core::default::Default for EMI_METADATA_V2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EMI_METADATA_V2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_METADATA_V2").field("HardwareOEM", &self.HardwareOEM).field("HardwareModel", &self.HardwareModel).field("HardwareRevision", &self.HardwareRevision).field("ChannelCount", &self.ChannelCount).field("Channels", &self.Channels).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EMI_METADATA_V2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.HardwareOEM == other.HardwareOEM && self.HardwareModel == other.HardwareModel && self.HardwareRevision == other.HardwareRevision && self.ChannelCount == other.ChannelCount && self.Channels == other.Channels
-    }
-}
-impl ::core::cmp::Eq for EMI_METADATA_V2 {}
-unsafe impl ::windows::core::Abi for EMI_METADATA_V2 {
-    type Abi = Self;
-}
 pub const EMI_NAME_MAX: u32 = 16u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct EMI_VERSION {
     pub EmiVersion: u16,
 }
-impl EMI_VERSION {}
+impl ::core::marker::Copy for EMI_VERSION {}
+impl ::core::clone::Clone for EMI_VERSION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for EMI_VERSION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for EMI_VERSION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<EMI_VERSION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for EMI_VERSION {}
 impl ::core::default::Default for EMI_VERSION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for EMI_VERSION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("EMI_VERSION").field("EmiVersion", &self.EmiVersion).finish()
-    }
-}
-impl ::core::cmp::PartialEq for EMI_VERSION {
-    fn eq(&self, other: &Self) -> bool {
-        self.EmiVersion == other.EmiVersion
-    }
-}
-impl ::core::cmp::Eq for EMI_VERSION {}
-unsafe impl ::windows::core::Abi for EMI_VERSION {
-    type Abi = Self;
-}
 pub const EMI_VERSION_V1: u32 = 1u32;
 pub const EMI_VERSION_V2: u32 = 2u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct EXECUTION_STATE(pub u32);
-pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(64u32);
-pub const ES_CONTINUOUS: EXECUTION_STATE = EXECUTION_STATE(2147483648u32);
-pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(2u32);
-pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = EXECUTION_STATE(1u32);
-pub const ES_USER_PRESENT: EXECUTION_STATE = EXECUTION_STATE(4u32);
-impl ::core::convert::From<u32> for EXECUTION_STATE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for EXECUTION_STATE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for EXECUTION_STATE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for EXECUTION_STATE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for EXECUTION_STATE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for EXECUTION_STATE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for EXECUTION_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type EXECUTION_STATE = u32;
+pub const ES_AWAYMODE_REQUIRED: EXECUTION_STATE = 64u32;
+pub const ES_CONTINUOUS: EXECUTION_STATE = 2147483648u32;
+pub const ES_DISPLAY_REQUIRED: EXECUTION_STATE = 2u32;
+pub const ES_SYSTEM_REQUIRED: EXECUTION_STATE = 1u32;
+pub const ES_USER_PRESENT: EXECUTION_STATE = 4u32;
 pub const EnableMultiBatteryDisplay: u32 = 2u32;
 pub const EnablePasswordLogon: u32 = 4u32;
 pub const EnableSysTrayBatteryMeter: u32 = 1u32;
@@ -936,7 +816,6 @@ pub unsafe fn EnumPwrSchemes<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub Revision: u32,
@@ -944,27 +823,26 @@ pub struct GLOBAL_MACHINE_POWER_POLICY {
     pub LidOpenWakeDc: SYSTEM_POWER_STATE,
     pub BroadcastCapacityResolution: u32,
 }
-impl GLOBAL_MACHINE_POWER_POLICY {}
+impl ::core::marker::Copy for GLOBAL_MACHINE_POWER_POLICY {}
+impl ::core::clone::Clone for GLOBAL_MACHINE_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for GLOBAL_MACHINE_POWER_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for GLOBAL_MACHINE_POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBAL_MACHINE_POWER_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for GLOBAL_MACHINE_POWER_POLICY {}
 impl ::core::default::Default for GLOBAL_MACHINE_POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for GLOBAL_MACHINE_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GLOBAL_MACHINE_POWER_POLICY").field("Revision", &self.Revision).field("LidOpenWakeAc", &self.LidOpenWakeAc).field("LidOpenWakeDc", &self.LidOpenWakeDc).field("BroadcastCapacityResolution", &self.BroadcastCapacityResolution).finish()
-    }
-}
-impl ::core::cmp::PartialEq for GLOBAL_MACHINE_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.LidOpenWakeAc == other.LidOpenWakeAc && self.LidOpenWakeDc == other.LidOpenWakeDc && self.BroadcastCapacityResolution == other.BroadcastCapacityResolution
-    }
-}
-impl ::core::cmp::Eq for GLOBAL_MACHINE_POWER_POLICY {}
-unsafe impl ::windows::core::Abi for GLOBAL_MACHINE_POWER_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GLOBAL_POWER_POLICY {
@@ -972,32 +850,31 @@ pub struct GLOBAL_POWER_POLICY {
     pub mach: GLOBAL_MACHINE_POWER_POLICY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl GLOBAL_POWER_POLICY {}
+impl ::core::marker::Copy for GLOBAL_POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for GLOBAL_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for GLOBAL_POWER_POLICY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for GLOBAL_POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBAL_POWER_POLICY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for GLOBAL_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for GLOBAL_POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GLOBAL_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GLOBAL_POWER_POLICY").field("user", &self.user).field("mach", &self.mach).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for GLOBAL_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.user == other.user && self.mach == other.mach
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for GLOBAL_POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GLOBAL_POWER_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GLOBAL_USER_POWER_POLICY {
@@ -1012,30 +889,30 @@ pub struct GLOBAL_USER_POWER_POLICY {
     pub GlobalFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl GLOBAL_USER_POWER_POLICY {}
+impl ::core::marker::Copy for GLOBAL_USER_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for GLOBAL_USER_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for GLOBAL_USER_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for GLOBAL_USER_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("GLOBAL_USER_POWER_POLICY").field("Revision", &self.Revision).field("PowerButtonAc", &self.PowerButtonAc).field("PowerButtonDc", &self.PowerButtonDc).field("SleepButtonAc", &self.SleepButtonAc).field("SleepButtonDc", &self.SleepButtonDc).field("LidCloseAc", &self.LidCloseAc).field("LidCloseDc", &self.LidCloseDc).field("DischargePolicy", &self.DischargePolicy).field("GlobalFlags", &self.GlobalFlags).finish()
-    }
+unsafe impl ::windows::core::Abi for GLOBAL_USER_POWER_POLICY {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for GLOBAL_USER_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.PowerButtonAc == other.PowerButtonAc && self.PowerButtonDc == other.PowerButtonDc && self.SleepButtonAc == other.SleepButtonAc && self.SleepButtonDc == other.SleepButtonDc && self.LidCloseAc == other.LidCloseAc && self.LidCloseDc == other.LidCloseDc && self.DischargePolicy == other.DischargePolicy && self.GlobalFlags == other.GlobalFlags
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<GLOBAL_USER_POWER_POLICY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for GLOBAL_USER_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for GLOBAL_USER_POWER_POLICY {
-    type Abi = Self;
+impl ::core::default::Default for GLOBAL_USER_POWER_POLICY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const GUID_CLASS_INPUT: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1e55b2_f16f_11cf_88cb_001111000030);
 pub const GUID_DEVICE_ACPI_TIME: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97f99bf6_4497_4f18_bb22_4b9fb2fbef9c);
@@ -1135,18 +1012,7 @@ pub unsafe fn GetSystemPowerStatus(lpsystempowerstatus: *mut SYSTEM_POWER_STATUS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HPOWERNOTIFY(pub isize);
-impl ::core::default::Default for HPOWERNOTIFY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HPOWERNOTIFY {}
-unsafe impl ::windows::core::Abi for HPOWERNOTIFY {
-    type Abi = Self;
-}
+pub type HPOWERNOTIFY = isize;
 pub const IOCTL_ACPI_GET_REAL_TIME: u32 = 2703888u32;
 pub const IOCTL_ACPI_SET_REAL_TIME: u32 = 2720276u32;
 pub const IOCTL_BATTERY_CHARGING_SOURCE_CHANGE: u32 = 2703440u32;
@@ -1245,20 +1111,9 @@ pub unsafe fn IsSystemResumeAutomatic() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct LATENCY_TIME(pub i32);
-pub const LT_DONT_CARE: LATENCY_TIME = LATENCY_TIME(0i32);
-pub const LT_LOWEST_LATENCY: LATENCY_TIME = LATENCY_TIME(1i32);
-impl ::core::convert::From<i32> for LATENCY_TIME {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for LATENCY_TIME {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type LATENCY_TIME = i32;
+pub const LT_DONT_CARE: LATENCY_TIME = 0i32;
+pub const LT_LOWEST_LATENCY: LATENCY_TIME = 1i32;
 #[repr(C)]
 pub struct MACHINE_POWER_POLICY {
     pub Revision: u32,
@@ -1276,67 +1131,51 @@ pub struct MACHINE_POWER_POLICY {
     pub OverThrottledAc: POWER_ACTION_POLICY,
     pub OverThrottledDc: POWER_ACTION_POLICY,
 }
-impl MACHINE_POWER_POLICY {}
+impl ::core::marker::Copy for MACHINE_POWER_POLICY {}
+impl ::core::clone::Clone for MACHINE_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MACHINE_POWER_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MACHINE_POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MACHINE_POWER_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MACHINE_POWER_POLICY {}
 impl ::core::default::Default for MACHINE_POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MACHINE_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MACHINE_POWER_POLICY")
-            .field("Revision", &self.Revision)
-            .field("MinSleepAc", &self.MinSleepAc)
-            .field("MinSleepDc", &self.MinSleepDc)
-            .field("ReducedLatencySleepAc", &self.ReducedLatencySleepAc)
-            .field("ReducedLatencySleepDc", &self.ReducedLatencySleepDc)
-            .field("DozeTimeoutAc", &self.DozeTimeoutAc)
-            .field("DozeTimeoutDc", &self.DozeTimeoutDc)
-            .field("DozeS4TimeoutAc", &self.DozeS4TimeoutAc)
-            .field("DozeS4TimeoutDc", &self.DozeS4TimeoutDc)
-            .field("MinThrottleAc", &self.MinThrottleAc)
-            .field("MinThrottleDc", &self.MinThrottleDc)
-            .field("pad1", &self.pad1)
-            .field("OverThrottledAc", &self.OverThrottledAc)
-            .field("OverThrottledDc", &self.OverThrottledDc)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for MACHINE_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.MinSleepAc == other.MinSleepAc && self.MinSleepDc == other.MinSleepDc && self.ReducedLatencySleepAc == other.ReducedLatencySleepAc && self.ReducedLatencySleepDc == other.ReducedLatencySleepDc && self.DozeTimeoutAc == other.DozeTimeoutAc && self.DozeTimeoutDc == other.DozeTimeoutDc && self.DozeS4TimeoutAc == other.DozeS4TimeoutAc && self.DozeS4TimeoutDc == other.DozeS4TimeoutDc && self.MinThrottleAc == other.MinThrottleAc && self.MinThrottleDc == other.MinThrottleDc && self.pad1 == other.pad1 && self.OverThrottledAc == other.OverThrottledAc && self.OverThrottledDc == other.OverThrottledDc
-    }
-}
-impl ::core::cmp::Eq for MACHINE_POWER_POLICY {}
-unsafe impl ::windows::core::Abi for MACHINE_POWER_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MACHINE_PROCESSOR_POWER_POLICY {
     pub Revision: u32,
     pub ProcessorPolicyAc: PROCESSOR_POWER_POLICY,
     pub ProcessorPolicyDc: PROCESSOR_POWER_POLICY,
 }
-impl MACHINE_PROCESSOR_POWER_POLICY {}
+impl ::core::marker::Copy for MACHINE_PROCESSOR_POWER_POLICY {}
+impl ::core::clone::Clone for MACHINE_PROCESSOR_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MACHINE_PROCESSOR_POWER_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MACHINE_PROCESSOR_POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MACHINE_PROCESSOR_POWER_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MACHINE_PROCESSOR_POWER_POLICY {}
 impl ::core::default::Default for MACHINE_PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for MACHINE_PROCESSOR_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MACHINE_PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("ProcessorPolicyAc", &self.ProcessorPolicyAc).field("ProcessorPolicyDc", &self.ProcessorPolicyDc).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MACHINE_PROCESSOR_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.ProcessorPolicyAc == other.ProcessorPolicyAc && self.ProcessorPolicyDc == other.ProcessorPolicyDc
-    }
-}
-impl ::core::cmp::Eq for MACHINE_PROCESSOR_POWER_POLICY {}
-unsafe impl ::windows::core::Abi for MACHINE_PROCESSOR_POWER_POLICY {
-    type Abi = Self;
 }
 pub const MAX_ACTIVE_COOLING_LEVELS: u32 = 10u32;
 pub const MAX_BATTERY_STRING_SIZE: u32 = 128u32;
@@ -1352,338 +1191,219 @@ pub const PDCAP_WAKE_FROM_S1_SUPPORTED: u32 = 2097152u32;
 pub const PDCAP_WAKE_FROM_S2_SUPPORTED: u32 = 4194304u32;
 pub const PDCAP_WAKE_FROM_S3_SUPPORTED: u32 = 8388608u32;
 pub type PDEVICE_NOTIFY_CALLBACK_ROUTINE = ::core::option::Option<unsafe extern "system" fn(context: *const ::core::ffi::c_void, r#type: u32, setting: *const ::core::ffi::c_void) -> u32>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct POWERBROADCAST_SETTING {
     pub PowerSetting: ::windows::core::GUID,
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl POWERBROADCAST_SETTING {}
+impl ::core::marker::Copy for POWERBROADCAST_SETTING {}
+impl ::core::clone::Clone for POWERBROADCAST_SETTING {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWERBROADCAST_SETTING {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for POWERBROADCAST_SETTING {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POWERBROADCAST_SETTING>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for POWERBROADCAST_SETTING {}
 impl ::core::default::Default for POWERBROADCAST_SETTING {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for POWERBROADCAST_SETTING {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POWERBROADCAST_SETTING").field("PowerSetting", &self.PowerSetting).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for POWERBROADCAST_SETTING {
-    fn eq(&self, other: &Self) -> bool {
-        self.PowerSetting == other.PowerSetting && self.DataLength == other.DataLength && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for POWERBROADCAST_SETTING {}
-unsafe impl ::windows::core::Abi for POWERBROADCAST_SETTING {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_ACTION(pub i32);
-pub const PowerActionNone: POWER_ACTION = POWER_ACTION(0i32);
-pub const PowerActionReserved: POWER_ACTION = POWER_ACTION(1i32);
-pub const PowerActionSleep: POWER_ACTION = POWER_ACTION(2i32);
-pub const PowerActionHibernate: POWER_ACTION = POWER_ACTION(3i32);
-pub const PowerActionShutdown: POWER_ACTION = POWER_ACTION(4i32);
-pub const PowerActionShutdownReset: POWER_ACTION = POWER_ACTION(5i32);
-pub const PowerActionShutdownOff: POWER_ACTION = POWER_ACTION(6i32);
-pub const PowerActionWarmEject: POWER_ACTION = POWER_ACTION(7i32);
-pub const PowerActionDisplayOff: POWER_ACTION = POWER_ACTION(8i32);
-impl ::core::convert::From<i32> for POWER_ACTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_ACTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type POWER_ACTION = i32;
+pub const PowerActionNone: POWER_ACTION = 0i32;
+pub const PowerActionReserved: POWER_ACTION = 1i32;
+pub const PowerActionSleep: POWER_ACTION = 2i32;
+pub const PowerActionHibernate: POWER_ACTION = 3i32;
+pub const PowerActionShutdown: POWER_ACTION = 4i32;
+pub const PowerActionShutdownReset: POWER_ACTION = 5i32;
+pub const PowerActionShutdownOff: POWER_ACTION = 6i32;
+pub const PowerActionWarmEject: POWER_ACTION = 7i32;
+pub const PowerActionDisplayOff: POWER_ACTION = 8i32;
 #[repr(C)]
 pub struct POWER_ACTION_POLICY {
     pub Action: POWER_ACTION,
     pub Flags: u32,
     pub EventCode: POWER_ACTION_POLICY_EVENT_CODE,
 }
-impl POWER_ACTION_POLICY {}
+impl ::core::marker::Copy for POWER_ACTION_POLICY {}
+impl ::core::clone::Clone for POWER_ACTION_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for POWER_ACTION_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POWER_ACTION_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for POWER_ACTION_POLICY {}
 impl ::core::default::Default for POWER_ACTION_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for POWER_ACTION_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POWER_ACTION_POLICY").field("Action", &self.Action).field("Flags", &self.Flags).field("EventCode", &self.EventCode).finish()
-    }
-}
-impl ::core::cmp::PartialEq for POWER_ACTION_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Action == other.Action && self.Flags == other.Flags && self.EventCode == other.EventCode
-    }
-}
-impl ::core::cmp::Eq for POWER_ACTION_POLICY {}
-unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_ACTION_POLICY_EVENT_CODE(pub u32);
-pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2147483648u32);
-pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(4u32);
-pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(2u32);
-pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(1u32);
-pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(8u32);
-pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = POWER_ACTION_POLICY_EVENT_CODE(16u32);
-impl ::core::convert::From<u32> for POWER_ACTION_POLICY_EVENT_CODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_ACTION_POLICY_EVENT_CODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for POWER_ACTION_POLICY_EVENT_CODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for POWER_ACTION_POLICY_EVENT_CODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for POWER_ACTION_POLICY_EVENT_CODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for POWER_ACTION_POLICY_EVENT_CODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for POWER_ACTION_POLICY_EVENT_CODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type POWER_ACTION_POLICY_EVENT_CODE = u32;
+pub const POWER_FORCE_TRIGGER_RESET: POWER_ACTION_POLICY_EVENT_CODE = 2147483648u32;
+pub const POWER_LEVEL_USER_NOTIFY_EXEC: POWER_ACTION_POLICY_EVENT_CODE = 4u32;
+pub const POWER_LEVEL_USER_NOTIFY_SOUND: POWER_ACTION_POLICY_EVENT_CODE = 2u32;
+pub const POWER_LEVEL_USER_NOTIFY_TEXT: POWER_ACTION_POLICY_EVENT_CODE = 1u32;
+pub const POWER_USER_NOTIFY_BUTTON: POWER_ACTION_POLICY_EVENT_CODE = 8u32;
+pub const POWER_USER_NOTIFY_SHUTDOWN: POWER_ACTION_POLICY_EVENT_CODE = 16u32;
 pub const POWER_ATTRIBUTE_HIDE: u32 = 1u32;
 pub const POWER_ATTRIBUTE_SHOW_AOAC: u32 = 2u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_DATA_ACCESSOR(pub i32);
-pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(0i32);
-pub const ACCESS_DC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(1i32);
-pub const ACCESS_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(2i32);
-pub const ACCESS_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(3i32);
-pub const ACCESS_POSSIBLE_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(4i32);
-pub const ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(5i32);
-pub const ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(6i32);
-pub const ACCESS_DEFAULT_AC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(7i32);
-pub const ACCESS_DEFAULT_DC_POWER_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(8i32);
-pub const ACCESS_POSSIBLE_VALUE_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(9i32);
-pub const ACCESS_POSSIBLE_VALUE_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(10i32);
-pub const ACCESS_POSSIBLE_VALUE_INCREMENT: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(11i32);
-pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(12i32);
-pub const ACCESS_ICON_RESOURCE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(13i32);
-pub const ACCESS_DEFAULT_SECURITY_DESCRIPTOR: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(14i32);
-pub const ACCESS_ATTRIBUTES: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(15i32);
-pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(16i32);
-pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(17i32);
-pub const ACCESS_INDIVIDUAL_SETTING: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(18i32);
-pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(19i32);
-pub const ACCESS_CREATE_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(20i32);
-pub const ACCESS_AC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(21i32);
-pub const ACCESS_DC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(22i32);
-pub const ACCESS_AC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(23i32);
-pub const ACCESS_DC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(24i32);
-pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(25i32);
-pub const ACCESS_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(26i32);
-pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = POWER_DATA_ACCESSOR(27i32);
-impl ::core::convert::From<i32> for POWER_DATA_ACCESSOR {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_DATA_ACCESSOR {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_INFORMATION_LEVEL(pub i32);
-pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(0i32);
-pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(1i32);
-pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(2i32);
-pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(3i32);
-pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(4i32);
-pub const SystemBatteryState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(5i32);
-pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(6i32);
-pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(7i32);
-pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(8i32);
-pub const AdministratorPowerPolicy: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(9i32);
-pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(10i32);
-pub const ProcessorInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(11i32);
-pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(12i32);
-pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(13i32);
-pub const LastWakeTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(14i32);
-pub const LastSleepTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(15i32);
-pub const SystemExecutionState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(16i32);
-pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(17i32);
-pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(18i32);
-pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(19i32);
-pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(20i32);
-pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(21i32);
-pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(22i32);
-pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(23i32);
-pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(24i32);
-pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(25i32);
-pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(26i32);
-pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(27i32);
-pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(28i32);
-pub const SystemVideoState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(29i32);
-pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(30i32);
-pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(31i32);
-pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(32i32);
-pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(33i32);
-pub const ProcessorCap: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(34i32);
-pub const SystemWakeSource: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(35i32);
-pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(36i32);
-pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(37i32);
-pub const ProcessorLoad: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(38i32);
-pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(39i32);
-pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(40i32);
-pub const SessionPowerInit: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(41i32);
-pub const SessionDisplayState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(42i32);
-pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(43i32);
-pub const PowerRequestAction: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(44i32);
-pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(45i32);
-pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(46i32);
-pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(47i32);
-pub const GroupPark: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(48i32);
-pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(49i32);
-pub const WakeTimerList: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(50i32);
-pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(51i32);
-pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(52i32);
-pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(53i32);
-pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(54i32);
-pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(55i32);
-pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(56i32);
-pub const UserPresence: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(57i32);
-pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(58i32);
-pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(59i32);
-pub const IdleResiliency: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(60i32);
-pub const SessionRITState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(61i32);
-pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(62i32);
-pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(63i32);
-pub const SessionLockState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(64i32);
-pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(65i32);
-pub const PlatformInformation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(66i32);
-pub const PdcInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(67i32);
-pub const MonitorInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(68i32);
-pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(69i32);
-pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(70i32);
-pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(71i32);
-pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(72i32);
-pub const ScreenOff: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(73i32);
-pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(74i32);
-pub const PlatformRole: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(75i32);
-pub const LastResumePerformance: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(76i32);
-pub const DisplayBurst: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(77i32);
-pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(78i32);
-pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(79i32);
-pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(80i32);
-pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(81i32);
-pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(82i32);
-pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(83i32);
-pub const ThermalEvent: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(84i32);
-pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(85i32);
-pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(86i32);
-pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(87i32);
-pub const ThermalStandby: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(88i32);
-pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(89i32);
-pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(90i32);
-pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(91i32);
-pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(92i32);
-pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(93i32);
-pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(94i32);
-pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(95i32);
-pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(96i32);
-pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = POWER_INFORMATION_LEVEL(97i32);
-impl ::core::convert::From<i32> for POWER_INFORMATION_LEVEL {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_INFORMATION_LEVEL {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_PLATFORM_ROLE(pub i32);
-pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(0i32);
-pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(1i32);
-pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(2i32);
-pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(3i32);
-pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(4i32);
-pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(5i32);
-pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(6i32);
-pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(7i32);
-pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(8i32);
-pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = POWER_PLATFORM_ROLE(9i32);
-impl ::core::convert::From<i32> for POWER_PLATFORM_ROLE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_PLATFORM_ROLE_VERSION(pub u32);
-pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(1u32);
-pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = POWER_PLATFORM_ROLE_VERSION(2u32);
-impl ::core::convert::From<u32> for POWER_PLATFORM_ROLE_VERSION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_PLATFORM_ROLE_VERSION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for POWER_PLATFORM_ROLE_VERSION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for POWER_PLATFORM_ROLE_VERSION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for POWER_PLATFORM_ROLE_VERSION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for POWER_PLATFORM_ROLE_VERSION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for POWER_PLATFORM_ROLE_VERSION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type POWER_DATA_ACCESSOR = i32;
+pub const ACCESS_AC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = 0i32;
+pub const ACCESS_DC_POWER_SETTING_INDEX: POWER_DATA_ACCESSOR = 1i32;
+pub const ACCESS_FRIENDLY_NAME: POWER_DATA_ACCESSOR = 2i32;
+pub const ACCESS_DESCRIPTION: POWER_DATA_ACCESSOR = 3i32;
+pub const ACCESS_POSSIBLE_POWER_SETTING: POWER_DATA_ACCESSOR = 4i32;
+pub const ACCESS_POSSIBLE_POWER_SETTING_FRIENDLY_NAME: POWER_DATA_ACCESSOR = 5i32;
+pub const ACCESS_POSSIBLE_POWER_SETTING_DESCRIPTION: POWER_DATA_ACCESSOR = 6i32;
+pub const ACCESS_DEFAULT_AC_POWER_SETTING: POWER_DATA_ACCESSOR = 7i32;
+pub const ACCESS_DEFAULT_DC_POWER_SETTING: POWER_DATA_ACCESSOR = 8i32;
+pub const ACCESS_POSSIBLE_VALUE_MIN: POWER_DATA_ACCESSOR = 9i32;
+pub const ACCESS_POSSIBLE_VALUE_MAX: POWER_DATA_ACCESSOR = 10i32;
+pub const ACCESS_POSSIBLE_VALUE_INCREMENT: POWER_DATA_ACCESSOR = 11i32;
+pub const ACCESS_POSSIBLE_VALUE_UNITS: POWER_DATA_ACCESSOR = 12i32;
+pub const ACCESS_ICON_RESOURCE: POWER_DATA_ACCESSOR = 13i32;
+pub const ACCESS_DEFAULT_SECURITY_DESCRIPTOR: POWER_DATA_ACCESSOR = 14i32;
+pub const ACCESS_ATTRIBUTES: POWER_DATA_ACCESSOR = 15i32;
+pub const ACCESS_SCHEME: POWER_DATA_ACCESSOR = 16i32;
+pub const ACCESS_SUBGROUP: POWER_DATA_ACCESSOR = 17i32;
+pub const ACCESS_INDIVIDUAL_SETTING: POWER_DATA_ACCESSOR = 18i32;
+pub const ACCESS_ACTIVE_SCHEME: POWER_DATA_ACCESSOR = 19i32;
+pub const ACCESS_CREATE_SCHEME: POWER_DATA_ACCESSOR = 20i32;
+pub const ACCESS_AC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = 21i32;
+pub const ACCESS_DC_POWER_SETTING_MAX: POWER_DATA_ACCESSOR = 22i32;
+pub const ACCESS_AC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = 23i32;
+pub const ACCESS_DC_POWER_SETTING_MIN: POWER_DATA_ACCESSOR = 24i32;
+pub const ACCESS_PROFILE: POWER_DATA_ACCESSOR = 25i32;
+pub const ACCESS_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = 26i32;
+pub const ACCESS_ACTIVE_OVERLAY_SCHEME: POWER_DATA_ACCESSOR = 27i32;
+pub type POWER_INFORMATION_LEVEL = i32;
+pub const SystemPowerPolicyAc: POWER_INFORMATION_LEVEL = 0i32;
+pub const SystemPowerPolicyDc: POWER_INFORMATION_LEVEL = 1i32;
+pub const VerifySystemPolicyAc: POWER_INFORMATION_LEVEL = 2i32;
+pub const VerifySystemPolicyDc: POWER_INFORMATION_LEVEL = 3i32;
+pub const SystemPowerCapabilities: POWER_INFORMATION_LEVEL = 4i32;
+pub const SystemBatteryState: POWER_INFORMATION_LEVEL = 5i32;
+pub const SystemPowerStateHandler: POWER_INFORMATION_LEVEL = 6i32;
+pub const ProcessorStateHandler: POWER_INFORMATION_LEVEL = 7i32;
+pub const SystemPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 8i32;
+pub const AdministratorPowerPolicy: POWER_INFORMATION_LEVEL = 9i32;
+pub const SystemReserveHiberFile: POWER_INFORMATION_LEVEL = 10i32;
+pub const ProcessorInformation: POWER_INFORMATION_LEVEL = 11i32;
+pub const SystemPowerInformation: POWER_INFORMATION_LEVEL = 12i32;
+pub const ProcessorStateHandler2: POWER_INFORMATION_LEVEL = 13i32;
+pub const LastWakeTime: POWER_INFORMATION_LEVEL = 14i32;
+pub const LastSleepTime: POWER_INFORMATION_LEVEL = 15i32;
+pub const SystemExecutionState: POWER_INFORMATION_LEVEL = 16i32;
+pub const SystemPowerStateNotifyHandler: POWER_INFORMATION_LEVEL = 17i32;
+pub const ProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 18i32;
+pub const ProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 19i32;
+pub const VerifyProcessorPowerPolicyAc: POWER_INFORMATION_LEVEL = 20i32;
+pub const VerifyProcessorPowerPolicyDc: POWER_INFORMATION_LEVEL = 21i32;
+pub const ProcessorPowerPolicyCurrent: POWER_INFORMATION_LEVEL = 22i32;
+pub const SystemPowerStateLogging: POWER_INFORMATION_LEVEL = 23i32;
+pub const SystemPowerLoggingEntry: POWER_INFORMATION_LEVEL = 24i32;
+pub const SetPowerSettingValue: POWER_INFORMATION_LEVEL = 25i32;
+pub const NotifyUserPowerSetting: POWER_INFORMATION_LEVEL = 26i32;
+pub const PowerInformationLevelUnused0: POWER_INFORMATION_LEVEL = 27i32;
+pub const SystemMonitorHiberBootPowerOff: POWER_INFORMATION_LEVEL = 28i32;
+pub const SystemVideoState: POWER_INFORMATION_LEVEL = 29i32;
+pub const TraceApplicationPowerMessage: POWER_INFORMATION_LEVEL = 30i32;
+pub const TraceApplicationPowerMessageEnd: POWER_INFORMATION_LEVEL = 31i32;
+pub const ProcessorPerfStates: POWER_INFORMATION_LEVEL = 32i32;
+pub const ProcessorIdleStates: POWER_INFORMATION_LEVEL = 33i32;
+pub const ProcessorCap: POWER_INFORMATION_LEVEL = 34i32;
+pub const SystemWakeSource: POWER_INFORMATION_LEVEL = 35i32;
+pub const SystemHiberFileInformation: POWER_INFORMATION_LEVEL = 36i32;
+pub const TraceServicePowerMessage: POWER_INFORMATION_LEVEL = 37i32;
+pub const ProcessorLoad: POWER_INFORMATION_LEVEL = 38i32;
+pub const PowerShutdownNotification: POWER_INFORMATION_LEVEL = 39i32;
+pub const MonitorCapabilities: POWER_INFORMATION_LEVEL = 40i32;
+pub const SessionPowerInit: POWER_INFORMATION_LEVEL = 41i32;
+pub const SessionDisplayState: POWER_INFORMATION_LEVEL = 42i32;
+pub const PowerRequestCreate: POWER_INFORMATION_LEVEL = 43i32;
+pub const PowerRequestAction: POWER_INFORMATION_LEVEL = 44i32;
+pub const GetPowerRequestList: POWER_INFORMATION_LEVEL = 45i32;
+pub const ProcessorInformationEx: POWER_INFORMATION_LEVEL = 46i32;
+pub const NotifyUserModeLegacyPowerEvent: POWER_INFORMATION_LEVEL = 47i32;
+pub const GroupPark: POWER_INFORMATION_LEVEL = 48i32;
+pub const ProcessorIdleDomains: POWER_INFORMATION_LEVEL = 49i32;
+pub const WakeTimerList: POWER_INFORMATION_LEVEL = 50i32;
+pub const SystemHiberFileSize: POWER_INFORMATION_LEVEL = 51i32;
+pub const ProcessorIdleStatesHv: POWER_INFORMATION_LEVEL = 52i32;
+pub const ProcessorPerfStatesHv: POWER_INFORMATION_LEVEL = 53i32;
+pub const ProcessorPerfCapHv: POWER_INFORMATION_LEVEL = 54i32;
+pub const ProcessorSetIdle: POWER_INFORMATION_LEVEL = 55i32;
+pub const LogicalProcessorIdling: POWER_INFORMATION_LEVEL = 56i32;
+pub const UserPresence: POWER_INFORMATION_LEVEL = 57i32;
+pub const PowerSettingNotificationName: POWER_INFORMATION_LEVEL = 58i32;
+pub const GetPowerSettingValue: POWER_INFORMATION_LEVEL = 59i32;
+pub const IdleResiliency: POWER_INFORMATION_LEVEL = 60i32;
+pub const SessionRITState: POWER_INFORMATION_LEVEL = 61i32;
+pub const SessionConnectNotification: POWER_INFORMATION_LEVEL = 62i32;
+pub const SessionPowerCleanup: POWER_INFORMATION_LEVEL = 63i32;
+pub const SessionLockState: POWER_INFORMATION_LEVEL = 64i32;
+pub const SystemHiberbootState: POWER_INFORMATION_LEVEL = 65i32;
+pub const PlatformInformation: POWER_INFORMATION_LEVEL = 66i32;
+pub const PdcInvocation: POWER_INFORMATION_LEVEL = 67i32;
+pub const MonitorInvocation: POWER_INFORMATION_LEVEL = 68i32;
+pub const FirmwareTableInformationRegistered: POWER_INFORMATION_LEVEL = 69i32;
+pub const SetShutdownSelectedTime: POWER_INFORMATION_LEVEL = 70i32;
+pub const SuspendResumeInvocation: POWER_INFORMATION_LEVEL = 71i32;
+pub const PlmPowerRequestCreate: POWER_INFORMATION_LEVEL = 72i32;
+pub const ScreenOff: POWER_INFORMATION_LEVEL = 73i32;
+pub const CsDeviceNotification: POWER_INFORMATION_LEVEL = 74i32;
+pub const PlatformRole: POWER_INFORMATION_LEVEL = 75i32;
+pub const LastResumePerformance: POWER_INFORMATION_LEVEL = 76i32;
+pub const DisplayBurst: POWER_INFORMATION_LEVEL = 77i32;
+pub const ExitLatencySamplingPercentage: POWER_INFORMATION_LEVEL = 78i32;
+pub const RegisterSpmPowerSettings: POWER_INFORMATION_LEVEL = 79i32;
+pub const PlatformIdleStates: POWER_INFORMATION_LEVEL = 80i32;
+pub const ProcessorIdleVeto: POWER_INFORMATION_LEVEL = 81i32;
+pub const PlatformIdleVeto: POWER_INFORMATION_LEVEL = 82i32;
+pub const SystemBatteryStatePrecise: POWER_INFORMATION_LEVEL = 83i32;
+pub const ThermalEvent: POWER_INFORMATION_LEVEL = 84i32;
+pub const PowerRequestActionInternal: POWER_INFORMATION_LEVEL = 85i32;
+pub const BatteryDeviceState: POWER_INFORMATION_LEVEL = 86i32;
+pub const PowerInformationInternal: POWER_INFORMATION_LEVEL = 87i32;
+pub const ThermalStandby: POWER_INFORMATION_LEVEL = 88i32;
+pub const SystemHiberFileType: POWER_INFORMATION_LEVEL = 89i32;
+pub const PhysicalPowerButtonPress: POWER_INFORMATION_LEVEL = 90i32;
+pub const QueryPotentialDripsConstraint: POWER_INFORMATION_LEVEL = 91i32;
+pub const EnergyTrackerCreate: POWER_INFORMATION_LEVEL = 92i32;
+pub const EnergyTrackerQuery: POWER_INFORMATION_LEVEL = 93i32;
+pub const UpdateBlackBoxRecorder: POWER_INFORMATION_LEVEL = 94i32;
+pub const SessionAllowExternalDmaDevices: POWER_INFORMATION_LEVEL = 95i32;
+pub const SendSuspendResumeNotification: POWER_INFORMATION_LEVEL = 96i32;
+pub const PowerInformationLevelMaximum: POWER_INFORMATION_LEVEL = 97i32;
+pub type POWER_PLATFORM_ROLE = i32;
+pub const PlatformRoleUnspecified: POWER_PLATFORM_ROLE = 0i32;
+pub const PlatformRoleDesktop: POWER_PLATFORM_ROLE = 1i32;
+pub const PlatformRoleMobile: POWER_PLATFORM_ROLE = 2i32;
+pub const PlatformRoleWorkstation: POWER_PLATFORM_ROLE = 3i32;
+pub const PlatformRoleEnterpriseServer: POWER_PLATFORM_ROLE = 4i32;
+pub const PlatformRoleSOHOServer: POWER_PLATFORM_ROLE = 5i32;
+pub const PlatformRoleAppliancePC: POWER_PLATFORM_ROLE = 6i32;
+pub const PlatformRolePerformanceServer: POWER_PLATFORM_ROLE = 7i32;
+pub const PlatformRoleSlate: POWER_PLATFORM_ROLE = 8i32;
+pub const PlatformRoleMaximum: POWER_PLATFORM_ROLE = 9i32;
+pub type POWER_PLATFORM_ROLE_VERSION = u32;
+pub const POWER_PLATFORM_ROLE_V1: POWER_PLATFORM_ROLE_VERSION = 1u32;
+pub const POWER_PLATFORM_ROLE_V2: POWER_PLATFORM_ROLE_VERSION = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POWER_POLICY {
@@ -1691,118 +1411,68 @@ pub struct POWER_POLICY {
     pub mach: MACHINE_POWER_POLICY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl POWER_POLICY {}
+impl ::core::marker::Copy for POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for POWER_POLICY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<POWER_POLICY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("POWER_POLICY").field("user", &self.user).field("mach", &self.mach).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.user == other.user && self.mach == other.mach
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for POWER_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_REQUEST_TYPE(pub i32);
-pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(0i32);
-pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(1i32);
-pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(2i32);
-pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = POWER_REQUEST_TYPE(3i32);
-impl ::core::convert::From<i32> for POWER_REQUEST_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_REQUEST_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(pub u32);
-pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(1u32);
-pub const DEVICE_NOTIFY_CALLBACK: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(2u32);
-pub const DEVICE_NOTIFY_WINDOW_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = POWER_SETTING_REGISTER_NOTIFICATION_FLAGS(0u32);
-impl ::core::convert::From<u32> for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for POWER_SETTING_REGISTER_NOTIFICATION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type POWER_REQUEST_TYPE = i32;
+pub const PowerRequestDisplayRequired: POWER_REQUEST_TYPE = 0i32;
+pub const PowerRequestSystemRequired: POWER_REQUEST_TYPE = 1i32;
+pub const PowerRequestAwayModeRequired: POWER_REQUEST_TYPE = 2i32;
+pub const PowerRequestExecutionRequired: POWER_REQUEST_TYPE = 3i32;
+pub type POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = u32;
+pub const DEVICE_NOTIFY_SERVICE_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 1u32;
+pub const DEVICE_NOTIFY_CALLBACK: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 2u32;
+pub const DEVICE_NOTIFY_WINDOW_HANDLE: POWER_SETTING_REGISTER_NOTIFICATION_FLAGS = 0u32;
 #[cfg(feature = "Win32_UI_Shell_PropertiesSystem")]
 pub const PROCESSOR_NUMBER_PKEY: super::super::UI::Shell::PropertiesSystem::PROPERTYKEY = super::super::UI::Shell::PropertiesSystem::PROPERTYKEY { fmtid: ::windows::core::GUID::from_u128(0x5724c81d_d5af_4c1f_a103_a06e28f204c6), pid: 1u32 };
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESSOR_OBJECT_INFO {
     pub PhysicalID: u32,
     pub PBlkAddress: u32,
     pub PBlkLength: u8,
 }
-impl PROCESSOR_OBJECT_INFO {}
+impl ::core::marker::Copy for PROCESSOR_OBJECT_INFO {}
+impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_OBJECT_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESSOR_OBJECT_INFO {}
 impl ::core::default::Default for PROCESSOR_OBJECT_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESSOR_OBJECT_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESSOR_OBJECT_INFO").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalID == other.PhysicalID && self.PBlkAddress == other.PBlkAddress && self.PBlkLength == other.PBlkLength
-    }
-}
-impl ::core::cmp::Eq for PROCESSOR_OBJECT_INFO {}
-unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PhysicalID: u32,
@@ -1810,27 +1480,26 @@ pub struct PROCESSOR_OBJECT_INFO_EX {
     pub PBlkLength: u8,
     pub InitialApicId: u32,
 }
-impl PROCESSOR_OBJECT_INFO_EX {}
+impl ::core::marker::Copy for PROCESSOR_OBJECT_INFO_EX {}
+impl ::core::clone::Clone for PROCESSOR_OBJECT_INFO_EX {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO_EX {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO_EX {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_OBJECT_INFO_EX>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESSOR_OBJECT_INFO_EX {}
 impl ::core::default::Default for PROCESSOR_OBJECT_INFO_EX {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESSOR_OBJECT_INFO_EX {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESSOR_OBJECT_INFO_EX").field("PhysicalID", &self.PhysicalID).field("PBlkAddress", &self.PBlkAddress).field("PBlkLength", &self.PBlkLength).field("InitialApicId", &self.InitialApicId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESSOR_OBJECT_INFO_EX {
-    fn eq(&self, other: &Self) -> bool {
-        self.PhysicalID == other.PhysicalID && self.PBlkAddress == other.PBlkAddress && self.PBlkLength == other.PBlkLength && self.InitialApicId == other.InitialApicId
-    }
-}
-impl ::core::cmp::Eq for PROCESSOR_OBJECT_INFO_EX {}
-unsafe impl ::windows::core::Abi for PROCESSOR_OBJECT_INFO_EX {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESSOR_POWER_POLICY {
     pub Revision: u32,
@@ -1840,27 +1509,26 @@ pub struct PROCESSOR_POWER_POLICY {
     pub PolicyCount: u32,
     pub Policy: [PROCESSOR_POWER_POLICY_INFO; 3],
 }
-impl PROCESSOR_POWER_POLICY {}
+impl ::core::marker::Copy for PROCESSOR_POWER_POLICY {}
+impl ::core::clone::Clone for PROCESSOR_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_POWER_POLICY>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESSOR_POWER_POLICY {}
 impl ::core::default::Default for PROCESSOR_POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESSOR_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESSOR_POWER_POLICY").field("Revision", &self.Revision).field("DynamicThrottle", &self.DynamicThrottle).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).field("PolicyCount", &self.PolicyCount).field("Policy", &self.Policy).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision && self.DynamicThrottle == other.DynamicThrottle && self.Spare == other.Spare && self._bitfield == other._bitfield && self.PolicyCount == other.PolicyCount && self.Policy == other.Policy
-    }
-}
-impl ::core::cmp::Eq for PROCESSOR_POWER_POLICY {}
-unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESSOR_POWER_POLICY_INFO {
     pub TimeCheck: u32,
@@ -1871,25 +1539,25 @@ pub struct PROCESSOR_POWER_POLICY_INFO {
     pub Spare: [u8; 2],
     pub _bitfield: u32,
 }
-impl PROCESSOR_POWER_POLICY_INFO {}
+impl ::core::marker::Copy for PROCESSOR_POWER_POLICY_INFO {}
+impl ::core::clone::Clone for PROCESSOR_POWER_POLICY_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESSOR_POWER_POLICY_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESSOR_POWER_POLICY_INFO {}
 impl ::core::default::Default for PROCESSOR_POWER_POLICY_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for PROCESSOR_POWER_POLICY_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESSOR_POWER_POLICY_INFO").field("TimeCheck", &self.TimeCheck).field("DemoteLimit", &self.DemoteLimit).field("PromoteLimit", &self.PromoteLimit).field("DemotePercent", &self.DemotePercent).field("PromotePercent", &self.PromotePercent).field("Spare", &self.Spare).field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESSOR_POWER_POLICY_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimeCheck == other.TimeCheck && self.DemoteLimit == other.DemoteLimit && self.PromoteLimit == other.PromoteLimit && self.DemotePercent == other.DemotePercent && self.PromotePercent == other.PromotePercent && self.Spare == other.Spare && self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for PROCESSOR_POWER_POLICY_INFO {}
-unsafe impl ::windows::core::Abi for PROCESSOR_POWER_POLICY_INFO {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 pub type PWRSCHEMESENUMPROC = ::core::option::Option<unsafe extern "system" fn(index: u32, namesize: u32, name: super::super::Foundation::PWSTR, descriptionsize: u32, description: super::super::Foundation::PWSTR, policy: *const POWER_POLICY, context: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOLEAN>;
@@ -2833,7 +2501,6 @@ pub unsafe fn RequestWakeupLatency(latency: LATENCY_TIME) -> super::super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SET_POWER_SETTING_VALUE {
     pub Version: u32,
@@ -2842,27 +2509,26 @@ pub struct SET_POWER_SETTING_VALUE {
     pub DataLength: u32,
     pub Data: [u8; 1],
 }
-impl SET_POWER_SETTING_VALUE {}
+impl ::core::marker::Copy for SET_POWER_SETTING_VALUE {}
+impl ::core::clone::Clone for SET_POWER_SETTING_VALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SET_POWER_SETTING_VALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SET_POWER_SETTING_VALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SET_POWER_SETTING_VALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SET_POWER_SETTING_VALUE {}
 impl ::core::default::Default for SET_POWER_SETTING_VALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SET_POWER_SETTING_VALUE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SET_POWER_SETTING_VALUE").field("Version", &self.Version).field("Guid", &self.Guid).field("PowerCondition", &self.PowerCondition).field("DataLength", &self.DataLength).field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SET_POWER_SETTING_VALUE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Guid == other.Guid && self.PowerCondition == other.PowerCondition && self.DataLength == other.DataLength && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for SET_POWER_SETTING_VALUE {}
-unsafe impl ::windows::core::Abi for SET_POWER_SETTING_VALUE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_BATTERY_STATE {
@@ -2880,45 +2546,31 @@ pub struct SYSTEM_BATTERY_STATE {
     pub DefaultAlert2: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SYSTEM_BATTERY_STATE {}
+impl ::core::marker::Copy for SYSTEM_BATTERY_STATE {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_BATTERY_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SYSTEM_BATTERY_STATE {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SYSTEM_BATTERY_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_BATTERY_STATE>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SYSTEM_BATTERY_STATE {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SYSTEM_BATTERY_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SYSTEM_BATTERY_STATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYSTEM_BATTERY_STATE")
-            .field("AcOnLine", &self.AcOnLine)
-            .field("BatteryPresent", &self.BatteryPresent)
-            .field("Charging", &self.Charging)
-            .field("Discharging", &self.Discharging)
-            .field("Spare1", &self.Spare1)
-            .field("Tag", &self.Tag)
-            .field("MaxCapacity", &self.MaxCapacity)
-            .field("RemainingCapacity", &self.RemainingCapacity)
-            .field("Rate", &self.Rate)
-            .field("EstimatedTime", &self.EstimatedTime)
-            .field("DefaultAlert1", &self.DefaultAlert1)
-            .field("DefaultAlert2", &self.DefaultAlert2)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SYSTEM_BATTERY_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.AcOnLine == other.AcOnLine && self.BatteryPresent == other.BatteryPresent && self.Charging == other.Charging && self.Discharging == other.Discharging && self.Spare1 == other.Spare1 && self.Tag == other.Tag && self.MaxCapacity == other.MaxCapacity && self.RemainingCapacity == other.RemainingCapacity && self.Rate == other.Rate && self.EstimatedTime == other.EstimatedTime && self.DefaultAlert1 == other.DefaultAlert1 && self.DefaultAlert2 == other.DefaultAlert2
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SYSTEM_BATTERY_STATE {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_BATTERY_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_CAPABILITIES {
@@ -2957,113 +2609,36 @@ pub struct SYSTEM_POWER_CAPABILITIES {
     pub DefaultLowLatencyWake: SYSTEM_POWER_STATE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SYSTEM_POWER_CAPABILITIES {}
+impl ::core::marker::Copy for SYSTEM_POWER_CAPABILITIES {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_POWER_CAPABILITIES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SYSTEM_POWER_CAPABILITIES {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SYSTEM_POWER_CAPABILITIES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_CAPABILITIES>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SYSTEM_POWER_CAPABILITIES {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SYSTEM_POWER_CAPABILITIES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SYSTEM_POWER_CAPABILITIES {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYSTEM_POWER_CAPABILITIES")
-            .field("PowerButtonPresent", &self.PowerButtonPresent)
-            .field("SleepButtonPresent", &self.SleepButtonPresent)
-            .field("LidPresent", &self.LidPresent)
-            .field("SystemS1", &self.SystemS1)
-            .field("SystemS2", &self.SystemS2)
-            .field("SystemS3", &self.SystemS3)
-            .field("SystemS4", &self.SystemS4)
-            .field("SystemS5", &self.SystemS5)
-            .field("HiberFilePresent", &self.HiberFilePresent)
-            .field("FullWake", &self.FullWake)
-            .field("VideoDimPresent", &self.VideoDimPresent)
-            .field("ApmPresent", &self.ApmPresent)
-            .field("UpsPresent", &self.UpsPresent)
-            .field("ThermalControl", &self.ThermalControl)
-            .field("ProcessorThrottle", &self.ProcessorThrottle)
-            .field("ProcessorMinThrottle", &self.ProcessorMinThrottle)
-            .field("ProcessorMaxThrottle", &self.ProcessorMaxThrottle)
-            .field("FastSystemS4", &self.FastSystemS4)
-            .field("Hiberboot", &self.Hiberboot)
-            .field("WakeAlarmPresent", &self.WakeAlarmPresent)
-            .field("AoAc", &self.AoAc)
-            .field("DiskSpinDown", &self.DiskSpinDown)
-            .field("HiberFileType", &self.HiberFileType)
-            .field("AoAcConnectivitySupported", &self.AoAcConnectivitySupported)
-            .field("spare3", &self.spare3)
-            .field("SystemBatteriesPresent", &self.SystemBatteriesPresent)
-            .field("BatteriesAreShortTerm", &self.BatteriesAreShortTerm)
-            .field("BatteryScale", &self.BatteryScale)
-            .field("AcOnLineWake", &self.AcOnLineWake)
-            .field("SoftLidWake", &self.SoftLidWake)
-            .field("RtcWake", &self.RtcWake)
-            .field("MinDeviceWakeState", &self.MinDeviceWakeState)
-            .field("DefaultLowLatencyWake", &self.DefaultLowLatencyWake)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SYSTEM_POWER_CAPABILITIES {
-    fn eq(&self, other: &Self) -> bool {
-        self.PowerButtonPresent == other.PowerButtonPresent
-            && self.SleepButtonPresent == other.SleepButtonPresent
-            && self.LidPresent == other.LidPresent
-            && self.SystemS1 == other.SystemS1
-            && self.SystemS2 == other.SystemS2
-            && self.SystemS3 == other.SystemS3
-            && self.SystemS4 == other.SystemS4
-            && self.SystemS5 == other.SystemS5
-            && self.HiberFilePresent == other.HiberFilePresent
-            && self.FullWake == other.FullWake
-            && self.VideoDimPresent == other.VideoDimPresent
-            && self.ApmPresent == other.ApmPresent
-            && self.UpsPresent == other.UpsPresent
-            && self.ThermalControl == other.ThermalControl
-            && self.ProcessorThrottle == other.ProcessorThrottle
-            && self.ProcessorMinThrottle == other.ProcessorMinThrottle
-            && self.ProcessorMaxThrottle == other.ProcessorMaxThrottle
-            && self.FastSystemS4 == other.FastSystemS4
-            && self.Hiberboot == other.Hiberboot
-            && self.WakeAlarmPresent == other.WakeAlarmPresent
-            && self.AoAc == other.AoAc
-            && self.DiskSpinDown == other.DiskSpinDown
-            && self.HiberFileType == other.HiberFileType
-            && self.AoAcConnectivitySupported == other.AoAcConnectivitySupported
-            && self.spare3 == other.spare3
-            && self.SystemBatteriesPresent == other.SystemBatteriesPresent
-            && self.BatteriesAreShortTerm == other.BatteriesAreShortTerm
-            && self.BatteryScale == other.BatteryScale
-            && self.AcOnLineWake == other.AcOnLineWake
-            && self.SoftLidWake == other.SoftLidWake
-            && self.RtcWake == other.RtcWake
-            && self.MinDeviceWakeState == other.MinDeviceWakeState
-            && self.DefaultLowLatencyWake == other.DefaultLowLatencyWake
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SYSTEM_POWER_CAPABILITIES {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_CAPABILITIES {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYSTEM_POWER_CONDITION(pub i32);
-pub const PoAc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(0i32);
-pub const PoDc: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(1i32);
-pub const PoHot: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(2i32);
-pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = SYSTEM_POWER_CONDITION(3i32);
-impl ::core::convert::From<i32> for SYSTEM_POWER_CONDITION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_CONDITION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SYSTEM_POWER_CONDITION = i32;
+pub const PoAc: SYSTEM_POWER_CONDITION = 0i32;
+pub const PoDc: SYSTEM_POWER_CONDITION = 1i32;
+pub const PoHot: SYSTEM_POWER_CONDITION = 2i32;
+pub const PoConditionMaximum: SYSTEM_POWER_CONDITION = 3i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_LEVEL {
@@ -3074,32 +2649,31 @@ pub struct SYSTEM_POWER_LEVEL {
     pub MinSystemState: SYSTEM_POWER_STATE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SYSTEM_POWER_LEVEL {}
+impl ::core::marker::Copy for SYSTEM_POWER_LEVEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_POWER_LEVEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SYSTEM_POWER_LEVEL {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SYSTEM_POWER_LEVEL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_LEVEL>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SYSTEM_POWER_LEVEL {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SYSTEM_POWER_LEVEL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SYSTEM_POWER_LEVEL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYSTEM_POWER_LEVEL").field("Enable", &self.Enable).field("Spare", &self.Spare).field("BatteryLevel", &self.BatteryLevel).field("PowerPolicy", &self.PowerPolicy).field("MinSystemState", &self.MinSystemState).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SYSTEM_POWER_LEVEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.Enable == other.Enable && self.Spare == other.Spare && self.BatteryLevel == other.BatteryLevel && self.PowerPolicy == other.PowerPolicy && self.MinSystemState == other.MinSystemState
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SYSTEM_POWER_LEVEL {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_LEVEL {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SYSTEM_POWER_POLICY {
@@ -3133,107 +2707,40 @@ pub struct SYSTEM_POWER_POLICY {
     pub OverThrottled: POWER_ACTION_POLICY,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SYSTEM_POWER_POLICY {}
+impl ::core::marker::Copy for SYSTEM_POWER_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SYSTEM_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SYSTEM_POWER_POLICY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SYSTEM_POWER_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_POLICY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SYSTEM_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SYSTEM_POWER_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SYSTEM_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYSTEM_POWER_POLICY")
-            .field("Revision", &self.Revision)
-            .field("PowerButton", &self.PowerButton)
-            .field("SleepButton", &self.SleepButton)
-            .field("LidClose", &self.LidClose)
-            .field("LidOpenWake", &self.LidOpenWake)
-            .field("Reserved", &self.Reserved)
-            .field("Idle", &self.Idle)
-            .field("IdleTimeout", &self.IdleTimeout)
-            .field("IdleSensitivity", &self.IdleSensitivity)
-            .field("DynamicThrottle", &self.DynamicThrottle)
-            .field("Spare2", &self.Spare2)
-            .field("MinSleep", &self.MinSleep)
-            .field("MaxSleep", &self.MaxSleep)
-            .field("ReducedLatencySleep", &self.ReducedLatencySleep)
-            .field("WinLogonFlags", &self.WinLogonFlags)
-            .field("Spare3", &self.Spare3)
-            .field("DozeS4Timeout", &self.DozeS4Timeout)
-            .field("BroadcastCapacityResolution", &self.BroadcastCapacityResolution)
-            .field("DischargePolicy", &self.DischargePolicy)
-            .field("VideoTimeout", &self.VideoTimeout)
-            .field("VideoDimDisplay", &self.VideoDimDisplay)
-            .field("VideoReserved", &self.VideoReserved)
-            .field("SpindownTimeout", &self.SpindownTimeout)
-            .field("OptimizeForPower", &self.OptimizeForPower)
-            .field("FanThrottleTolerance", &self.FanThrottleTolerance)
-            .field("ForcedThrottle", &self.ForcedThrottle)
-            .field("MinThrottle", &self.MinThrottle)
-            .field("OverThrottled", &self.OverThrottled)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SYSTEM_POWER_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision
-            && self.PowerButton == other.PowerButton
-            && self.SleepButton == other.SleepButton
-            && self.LidClose == other.LidClose
-            && self.LidOpenWake == other.LidOpenWake
-            && self.Reserved == other.Reserved
-            && self.Idle == other.Idle
-            && self.IdleTimeout == other.IdleTimeout
-            && self.IdleSensitivity == other.IdleSensitivity
-            && self.DynamicThrottle == other.DynamicThrottle
-            && self.Spare2 == other.Spare2
-            && self.MinSleep == other.MinSleep
-            && self.MaxSleep == other.MaxSleep
-            && self.ReducedLatencySleep == other.ReducedLatencySleep
-            && self.WinLogonFlags == other.WinLogonFlags
-            && self.Spare3 == other.Spare3
-            && self.DozeS4Timeout == other.DozeS4Timeout
-            && self.BroadcastCapacityResolution == other.BroadcastCapacityResolution
-            && self.DischargePolicy == other.DischargePolicy
-            && self.VideoTimeout == other.VideoTimeout
-            && self.VideoDimDisplay == other.VideoDimDisplay
-            && self.VideoReserved == other.VideoReserved
-            && self.SpindownTimeout == other.SpindownTimeout
-            && self.OptimizeForPower == other.OptimizeForPower
-            && self.FanThrottleTolerance == other.FanThrottleTolerance
-            && self.ForcedThrottle == other.ForcedThrottle
-            && self.MinThrottle == other.MinThrottle
-            && self.OverThrottled == other.OverThrottled
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SYSTEM_POWER_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SYSTEM_POWER_STATE(pub i32);
-pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(0i32);
-pub const PowerSystemWorking: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(1i32);
-pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(2i32);
-pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(3i32);
-pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(4i32);
-pub const PowerSystemHibernate: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(5i32);
-pub const PowerSystemShutdown: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(6i32);
-pub const PowerSystemMaximum: SYSTEM_POWER_STATE = SYSTEM_POWER_STATE(7i32);
-impl ::core::convert::From<i32> for SYSTEM_POWER_STATE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SYSTEM_POWER_STATE = i32;
+pub const PowerSystemUnspecified: SYSTEM_POWER_STATE = 0i32;
+pub const PowerSystemWorking: SYSTEM_POWER_STATE = 1i32;
+pub const PowerSystemSleeping1: SYSTEM_POWER_STATE = 2i32;
+pub const PowerSystemSleeping2: SYSTEM_POWER_STATE = 3i32;
+pub const PowerSystemSleeping3: SYSTEM_POWER_STATE = 4i32;
+pub const PowerSystemHibernate: SYSTEM_POWER_STATE = 5i32;
+pub const PowerSystemShutdown: SYSTEM_POWER_STATE = 6i32;
+pub const PowerSystemMaximum: SYSTEM_POWER_STATE = 7i32;
 #[repr(C)]
 pub struct SYSTEM_POWER_STATUS {
     pub ACLineStatus: u8,
@@ -3243,25 +2750,25 @@ pub struct SYSTEM_POWER_STATUS {
     pub BatteryLifeTime: u32,
     pub BatteryFullLifeTime: u32,
 }
-impl SYSTEM_POWER_STATUS {}
+impl ::core::marker::Copy for SYSTEM_POWER_STATUS {}
+impl ::core::clone::Clone for SYSTEM_POWER_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SYSTEM_POWER_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SYSTEM_POWER_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SYSTEM_POWER_STATUS {}
 impl ::core::default::Default for SYSTEM_POWER_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for SYSTEM_POWER_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SYSTEM_POWER_STATUS").field("ACLineStatus", &self.ACLineStatus).field("BatteryFlag", &self.BatteryFlag).field("BatteryLifePercent", &self.BatteryLifePercent).field("SystemStatusFlag", &self.SystemStatusFlag).field("BatteryLifeTime", &self.BatteryLifeTime).field("BatteryFullLifeTime", &self.BatteryFullLifeTime).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SYSTEM_POWER_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ACLineStatus == other.ACLineStatus && self.BatteryFlag == other.BatteryFlag && self.BatteryLifePercent == other.BatteryLifePercent && self.SystemStatusFlag == other.SystemStatusFlag && self.BatteryLifeTime == other.BatteryLifeTime && self.BatteryFullLifeTime == other.BatteryFullLifeTime
-    }
-}
-impl ::core::cmp::Eq for SYSTEM_POWER_STATUS {}
-unsafe impl ::windows::core::Abi for SYSTEM_POWER_STATUS {
-    type Abi = Self;
 }
 pub const SYS_BUTTON_LID: u32 = 4u32;
 pub const SYS_BUTTON_LID_CHANGED: u32 = 524288u32;
@@ -3329,7 +2836,6 @@ pub unsafe fn SetThreadExecutionState(esflags: EXECUTION_STATE) -> EXECUTION_STA
 }
 pub const THERMAL_COOLING_INTERFACE_VERSION: u32 = 1u32;
 pub const THERMAL_DEVICE_INTERFACE_VERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct THERMAL_EVENT {
@@ -3341,33 +2847,32 @@ pub struct THERMAL_EVENT {
     pub Initiator: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl THERMAL_EVENT {}
+impl ::core::marker::Copy for THERMAL_EVENT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for THERMAL_EVENT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for THERMAL_EVENT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for THERMAL_EVENT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_EVENT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for THERMAL_EVENT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for THERMAL_EVENT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for THERMAL_EVENT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("THERMAL_EVENT").field("Version", &self.Version).field("Size", &self.Size).field("Type", &self.Type).field("Temperature", &self.Temperature).field("TripPointTemperature", &self.TripPointTemperature).field("Initiator", &self.Initiator).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for THERMAL_EVENT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Size == other.Size && self.Type == other.Type && self.Temperature == other.Temperature && self.TripPointTemperature == other.TripPointTemperature && self.Initiator == other.Initiator
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for THERMAL_EVENT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for THERMAL_EVENT {
-    type Abi = Self;
-}
 pub const THERMAL_EVENT_VERSION: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct THERMAL_INFORMATION {
     pub ThermalStamp: u32,
@@ -3381,38 +2886,26 @@ pub struct THERMAL_INFORMATION {
     pub ActiveTripPointCount: u8,
     pub ActiveTripPoint: [u32; 10],
 }
-impl THERMAL_INFORMATION {}
+impl ::core::marker::Copy for THERMAL_INFORMATION {}
+impl ::core::clone::Clone for THERMAL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for THERMAL_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for THERMAL_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for THERMAL_INFORMATION {}
 impl ::core::default::Default for THERMAL_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for THERMAL_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("THERMAL_INFORMATION")
-            .field("ThermalStamp", &self.ThermalStamp)
-            .field("ThermalConstant1", &self.ThermalConstant1)
-            .field("ThermalConstant2", &self.ThermalConstant2)
-            .field("Processors", &self.Processors)
-            .field("SamplingPeriod", &self.SamplingPeriod)
-            .field("CurrentTemperature", &self.CurrentTemperature)
-            .field("PassiveTripPoint", &self.PassiveTripPoint)
-            .field("CriticalTripPoint", &self.CriticalTripPoint)
-            .field("ActiveTripPointCount", &self.ActiveTripPointCount)
-            .field("ActiveTripPoint", &self.ActiveTripPoint)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for THERMAL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ThermalStamp == other.ThermalStamp && self.ThermalConstant1 == other.ThermalConstant1 && self.ThermalConstant2 == other.ThermalConstant2 && self.Processors == other.Processors && self.SamplingPeriod == other.SamplingPeriod && self.CurrentTemperature == other.CurrentTemperature && self.PassiveTripPoint == other.PassiveTripPoint && self.CriticalTripPoint == other.CriticalTripPoint && self.ActiveTripPointCount == other.ActiveTripPointCount && self.ActiveTripPoint == other.ActiveTripPoint
-    }
-}
-impl ::core::cmp::Eq for THERMAL_INFORMATION {}
-unsafe impl ::windows::core::Abi for THERMAL_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct THERMAL_POLICY {
@@ -3427,59 +2920,58 @@ pub struct THERMAL_POLICY {
     pub OverThrottled: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl THERMAL_POLICY {}
+impl ::core::marker::Copy for THERMAL_POLICY {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for THERMAL_POLICY {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for THERMAL_POLICY {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for THERMAL_POLICY {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_POLICY>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for THERMAL_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for THERMAL_POLICY {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for THERMAL_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("THERMAL_POLICY").field("Version", &self.Version).field("WaitForUpdate", &self.WaitForUpdate).field("Hibernate", &self.Hibernate).field("Critical", &self.Critical).field("ThermalStandby", &self.ThermalStandby).field("ActivationReasons", &self.ActivationReasons).field("PassiveLimit", &self.PassiveLimit).field("ActiveLevel", &self.ActiveLevel).field("OverThrottled", &self.OverThrottled).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for THERMAL_POLICY {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.WaitForUpdate == other.WaitForUpdate && self.Hibernate == other.Hibernate && self.Critical == other.Critical && self.ThermalStandby == other.ThermalStandby && self.ActivationReasons == other.ActivationReasons && self.PassiveLimit == other.PassiveLimit && self.ActiveLevel == other.ActiveLevel && self.OverThrottled == other.OverThrottled
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for THERMAL_POLICY {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for THERMAL_POLICY {
-    type Abi = Self;
-}
 pub const THERMAL_POLICY_VERSION_1: u32 = 1u32;
 pub const THERMAL_POLICY_VERSION_2: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct THERMAL_WAIT_READ {
     pub Timeout: u32,
     pub LowTemperature: u32,
     pub HighTemperature: u32,
 }
-impl THERMAL_WAIT_READ {}
+impl ::core::marker::Copy for THERMAL_WAIT_READ {}
+impl ::core::clone::Clone for THERMAL_WAIT_READ {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for THERMAL_WAIT_READ {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for THERMAL_WAIT_READ {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THERMAL_WAIT_READ>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for THERMAL_WAIT_READ {}
 impl ::core::default::Default for THERMAL_WAIT_READ {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for THERMAL_WAIT_READ {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("THERMAL_WAIT_READ").field("Timeout", &self.Timeout).field("LowTemperature", &self.LowTemperature).field("HighTemperature", &self.HighTemperature).finish()
-    }
-}
-impl ::core::cmp::PartialEq for THERMAL_WAIT_READ {
-    fn eq(&self, other: &Self) -> bool {
-        self.Timeout == other.Timeout && self.LowTemperature == other.LowTemperature && self.HighTemperature == other.HighTemperature
-    }
-}
-impl ::core::cmp::Eq for THERMAL_WAIT_READ {}
-unsafe impl ::windows::core::Abi for THERMAL_WAIT_READ {
-    type Abi = Self;
 }
 pub const TZ_ACTIVATION_REASON_CURRENT: u32 = 2u32;
 pub const TZ_ACTIVATION_REASON_THERMAL: u32 = 1u32;
@@ -3487,21 +2979,10 @@ pub const UNKNOWN_CAPACITY: u32 = 4294967295u32;
 pub const UNKNOWN_CURRENT: u32 = 4294967295u32;
 pub const UNKNOWN_RATE: u32 = 2147483648u32;
 pub const UNKNOWN_VOLTAGE: u32 = 4294967295u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct USB_CHARGER_PORT(pub i32);
-pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = USB_CHARGER_PORT(0i32);
-pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = USB_CHARGER_PORT(1i32);
-pub const UsbChargerPort_Max: USB_CHARGER_PORT = USB_CHARGER_PORT(2i32);
-impl ::core::convert::From<i32> for USB_CHARGER_PORT {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for USB_CHARGER_PORT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type USB_CHARGER_PORT = i32;
+pub const UsbChargerPort_Legacy: USB_CHARGER_PORT = 0i32;
+pub const UsbChargerPort_TypeC: USB_CHARGER_PORT = 1i32;
+pub const UsbChargerPort_Max: USB_CHARGER_PORT = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct USER_POWER_POLICY {
@@ -3529,74 +3010,30 @@ pub struct USER_POWER_POLICY {
     pub ForcedThrottleDc: u8,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl USER_POWER_POLICY {}
+impl ::core::marker::Copy for USER_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for USER_POWER_POLICY {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for USER_POWER_POLICY {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for USER_POWER_POLICY {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("USER_POWER_POLICY")
-            .field("Revision", &self.Revision)
-            .field("IdleAc", &self.IdleAc)
-            .field("IdleDc", &self.IdleDc)
-            .field("IdleTimeoutAc", &self.IdleTimeoutAc)
-            .field("IdleTimeoutDc", &self.IdleTimeoutDc)
-            .field("IdleSensitivityAc", &self.IdleSensitivityAc)
-            .field("IdleSensitivityDc", &self.IdleSensitivityDc)
-            .field("ThrottlePolicyAc", &self.ThrottlePolicyAc)
-            .field("ThrottlePolicyDc", &self.ThrottlePolicyDc)
-            .field("MaxSleepAc", &self.MaxSleepAc)
-            .field("MaxSleepDc", &self.MaxSleepDc)
-            .field("Reserved", &self.Reserved)
-            .field("VideoTimeoutAc", &self.VideoTimeoutAc)
-            .field("VideoTimeoutDc", &self.VideoTimeoutDc)
-            .field("SpindownTimeoutAc", &self.SpindownTimeoutAc)
-            .field("SpindownTimeoutDc", &self.SpindownTimeoutDc)
-            .field("OptimizeForPowerAc", &self.OptimizeForPowerAc)
-            .field("OptimizeForPowerDc", &self.OptimizeForPowerDc)
-            .field("FanThrottleToleranceAc", &self.FanThrottleToleranceAc)
-            .field("FanThrottleToleranceDc", &self.FanThrottleToleranceDc)
-            .field("ForcedThrottleAc", &self.ForcedThrottleAc)
-            .field("ForcedThrottleDc", &self.ForcedThrottleDc)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for USER_POWER_POLICY {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for USER_POWER_POLICY {
     fn eq(&self, other: &Self) -> bool {
-        self.Revision == other.Revision
-            && self.IdleAc == other.IdleAc
-            && self.IdleDc == other.IdleDc
-            && self.IdleTimeoutAc == other.IdleTimeoutAc
-            && self.IdleTimeoutDc == other.IdleTimeoutDc
-            && self.IdleSensitivityAc == other.IdleSensitivityAc
-            && self.IdleSensitivityDc == other.IdleSensitivityDc
-            && self.ThrottlePolicyAc == other.ThrottlePolicyAc
-            && self.ThrottlePolicyDc == other.ThrottlePolicyDc
-            && self.MaxSleepAc == other.MaxSleepAc
-            && self.MaxSleepDc == other.MaxSleepDc
-            && self.Reserved == other.Reserved
-            && self.VideoTimeoutAc == other.VideoTimeoutAc
-            && self.VideoTimeoutDc == other.VideoTimeoutDc
-            && self.SpindownTimeoutAc == other.SpindownTimeoutAc
-            && self.SpindownTimeoutDc == other.SpindownTimeoutDc
-            && self.OptimizeForPowerAc == other.OptimizeForPowerAc
-            && self.OptimizeForPowerDc == other.OptimizeForPowerDc
-            && self.FanThrottleToleranceAc == other.FanThrottleToleranceAc
-            && self.FanThrottleToleranceDc == other.FanThrottleToleranceDc
-            && self.ForcedThrottleAc == other.ForcedThrottleAc
-            && self.ForcedThrottleDc == other.ForcedThrottleDc
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<USER_POWER_POLICY>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for USER_POWER_POLICY {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for USER_POWER_POLICY {
-    type Abi = Self;
+impl ::core::default::Default for USER_POWER_POLICY {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -3640,31 +3077,30 @@ pub unsafe fn ValidatePowerPolicies(pglobalpowerpolicy: *mut GLOBAL_POWER_POLICY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct WAKE_ALARM_INFORMATION {
     pub TimerIdentifier: u32,
     pub Timeout: u32,
 }
-impl WAKE_ALARM_INFORMATION {}
+impl ::core::marker::Copy for WAKE_ALARM_INFORMATION {}
+impl ::core::clone::Clone for WAKE_ALARM_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for WAKE_ALARM_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for WAKE_ALARM_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<WAKE_ALARM_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for WAKE_ALARM_INFORMATION {}
 impl ::core::default::Default for WAKE_ALARM_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for WAKE_ALARM_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("WAKE_ALARM_INFORMATION").field("TimerIdentifier", &self.TimerIdentifier).field("Timeout", &self.Timeout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for WAKE_ALARM_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.TimerIdentifier == other.TimerIdentifier && self.Timeout == other.Timeout
-    }
-}
-impl ::core::cmp::Eq for WAKE_ALARM_INFORMATION {}
-unsafe impl ::windows::core::Abi for WAKE_ALARM_INFORMATION {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]

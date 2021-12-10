@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ASN_APPLICATION: u32 = 64u32;
 pub const ASN_CONSTRUCTOR: u32 = 32u32;
 pub const ASN_CONTEXT: u32 = 128u32;
@@ -7,7 +7,6 @@ pub const ASN_PRIMATIVE: u32 = 0u32;
 pub const ASN_PRIMITIVE: u32 = 0u32;
 pub const ASN_PRIVATE: u32 = 192u32;
 pub const ASN_UNIVERSAL: u32 = 0u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AsnAny {
@@ -15,26 +14,31 @@ pub struct AsnAny {
     pub asnValue: AsnAny_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl AsnAny {}
+impl ::core::marker::Copy for AsnAny {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AsnAny {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AsnAny {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AsnAny {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnAny>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AsnAny {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AsnAny {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AsnAny {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AsnAny {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub union AsnAny_0 {
@@ -52,47 +56,56 @@ pub union AsnAny_0 {
     pub arbitrary: AsnOctetString,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl AsnAny_0 {}
+impl ::core::marker::Copy for AsnAny_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for AsnAny_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AsnAny_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for AsnAny_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnAny_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for AsnAny_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for AsnAny_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for AsnAny_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for AsnAny_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AsnAny_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 pub struct AsnObjectIdentifier {
     pub idLength: u32,
     pub ids: *mut u32,
 }
-impl AsnObjectIdentifier {}
+impl ::core::marker::Copy for AsnObjectIdentifier {}
+impl ::core::clone::Clone for AsnObjectIdentifier {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for AsnObjectIdentifier {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnObjectIdentifier>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for AsnObjectIdentifier {}
 impl ::core::default::Default for AsnObjectIdentifier {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for AsnObjectIdentifier {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for AsnObjectIdentifier {}
-unsafe impl ::windows::core::Abi for AsnObjectIdentifier {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct AsnOctetString {
@@ -101,24 +114,30 @@ pub struct AsnOctetString {
     pub dynamic: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl AsnOctetString {}
+impl ::core::marker::Copy for AsnOctetString {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for AsnOctetString {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for AsnOctetString {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for AsnOctetString {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for AsnOctetString {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<AsnOctetString>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for AsnOctetString {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for AsnOctetString {
-    type Abi = Self;
+impl ::core::default::Default for AsnOctetString {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const DEFAULT_SNMPTRAP_PORT_IPX: u32 = 36880u32;
 pub const DEFAULT_SNMPTRAP_PORT_UDP: u32 = 162u32;
@@ -191,48 +210,10 @@ pub const SNMP_ACCESS_NOTIFY: u32 = 1u32;
 pub const SNMP_ACCESS_READ_CREATE: u32 = 4u32;
 pub const SNMP_ACCESS_READ_ONLY: u32 = 2u32;
 pub const SNMP_ACCESS_READ_WRITE: u32 = 3u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_API_TRANSLATE_MODE(pub u32);
-pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(0u32);
-pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(1u32);
-pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = SNMP_API_TRANSLATE_MODE(2u32);
-impl ::core::convert::From<u32> for SNMP_API_TRANSLATE_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_API_TRANSLATE_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_API_TRANSLATE_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_API_TRANSLATE_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_API_TRANSLATE_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_API_TRANSLATE_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_API_TRANSLATE_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SNMP_API_TRANSLATE_MODE = u32;
+pub const SNMPAPI_TRANSLATED: SNMP_API_TRANSLATE_MODE = 0u32;
+pub const SNMPAPI_UNTRANSLATED_V1: SNMP_API_TRANSLATE_MODE = 1u32;
+pub const SNMPAPI_UNTRANSLATED_V2: SNMP_API_TRANSLATE_MODE = 2u32;
 pub const SNMP_AUTHAPI_INVALID_MSG_TYPE: u32 = 31u32;
 pub const SNMP_AUTHAPI_INVALID_VERSION: u32 = 30u32;
 pub const SNMP_AUTHAPI_TRIV_AUTH_FAILED: u32 = 32u32;
@@ -241,258 +222,68 @@ pub const SNMP_BERAPI_INVALID_OBJELEM: u32 = 14u32;
 pub const SNMP_BERAPI_INVALID_TAG: u32 = 11u32;
 pub const SNMP_BERAPI_OVERFLOW: u32 = 12u32;
 pub const SNMP_BERAPI_SHORT_BUFFER: u32 = 13u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_ERROR(pub u32);
-pub const SNMP_ERROR_NOERROR: SNMP_ERROR = SNMP_ERROR(0u32);
-pub const SNMP_ERROR_TOOBIG: SNMP_ERROR = SNMP_ERROR(1u32);
-pub const SNMP_ERROR_NOSUCHNAME: SNMP_ERROR = SNMP_ERROR(2u32);
-pub const SNMP_ERROR_BADVALUE: SNMP_ERROR = SNMP_ERROR(3u32);
-pub const SNMP_ERROR_READONLY: SNMP_ERROR = SNMP_ERROR(4u32);
-pub const SNMP_ERROR_GENERR: SNMP_ERROR = SNMP_ERROR(5u32);
-pub const SNMP_ERROR_NOACCESS: SNMP_ERROR = SNMP_ERROR(6u32);
-pub const SNMP_ERROR_WRONGTYPE: SNMP_ERROR = SNMP_ERROR(7u32);
-pub const SNMP_ERROR_WRONGLENGTH: SNMP_ERROR = SNMP_ERROR(8u32);
-pub const SNMP_ERROR_WRONGENCODING: SNMP_ERROR = SNMP_ERROR(9u32);
-pub const SNMP_ERROR_WRONGVALUE: SNMP_ERROR = SNMP_ERROR(10u32);
-pub const SNMP_ERROR_NOCREATION: SNMP_ERROR = SNMP_ERROR(11u32);
-pub const SNMP_ERROR_INCONSISTENTVALUE: SNMP_ERROR = SNMP_ERROR(12u32);
-pub const SNMP_ERROR_RESOURCEUNAVAILABLE: SNMP_ERROR = SNMP_ERROR(13u32);
-pub const SNMP_ERROR_COMMITFAILED: SNMP_ERROR = SNMP_ERROR(14u32);
-pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = SNMP_ERROR(15u32);
-pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = SNMP_ERROR(16u32);
-pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = SNMP_ERROR(17u32);
-pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = SNMP_ERROR(18u32);
-impl ::core::convert::From<u32> for SNMP_ERROR {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_ERROR {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_ERROR {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_ERROR {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_ERROR {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_ERROR {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_ERROR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_ERROR_STATUS(pub u32);
-pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(0u32);
-pub const SNMP_ERRORSTATUS_TOOBIG: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(1u32);
-pub const SNMP_ERRORSTATUS_NOSUCHNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(2u32);
-pub const SNMP_ERRORSTATUS_BADVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(3u32);
-pub const SNMP_ERRORSTATUS_READONLY: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(4u32);
-pub const SNMP_ERRORSTATUS_GENERR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(5u32);
-pub const SNMP_ERRORSTATUS_NOACCESS: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(6u32);
-pub const SNMP_ERRORSTATUS_WRONGTYPE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(7u32);
-pub const SNMP_ERRORSTATUS_WRONGLENGTH: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(8u32);
-pub const SNMP_ERRORSTATUS_WRONGENCODING: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(9u32);
-pub const SNMP_ERRORSTATUS_WRONGVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(10u32);
-pub const SNMP_ERRORSTATUS_NOCREATION: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(11u32);
-pub const SNMP_ERRORSTATUS_INCONSISTENTVALUE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(12u32);
-pub const SNMP_ERRORSTATUS_RESOURCEUNAVAILABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(13u32);
-pub const SNMP_ERRORSTATUS_COMMITFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(14u32);
-pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(15u32);
-pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(16u32);
-pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(17u32);
-pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = SNMP_ERROR_STATUS(18u32);
-impl ::core::convert::From<u32> for SNMP_ERROR_STATUS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_ERROR_STATUS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_ERROR_STATUS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_ERROR_STATUS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_ERROR_STATUS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_ERROR_STATUS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_ERROR_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_EXTENSION_REQUEST_TYPE(pub u32);
-pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(160u32);
-pub const SNMP_EXTENSION_GET_NEXT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(161u32);
-pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(224u32);
-pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(163u32);
-pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(225u32);
-pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = SNMP_EXTENSION_REQUEST_TYPE(226u32);
-impl ::core::convert::From<u32> for SNMP_EXTENSION_REQUEST_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_EXTENSION_REQUEST_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_EXTENSION_REQUEST_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_EXTENSION_REQUEST_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_EXTENSION_REQUEST_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_EXTENSION_REQUEST_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_EXTENSION_REQUEST_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_GENERICTRAP(pub u32);
-pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(0u32);
-pub const SNMP_GENERICTRAP_WARMSTART: SNMP_GENERICTRAP = SNMP_GENERICTRAP(1u32);
-pub const SNMP_GENERICTRAP_LINKDOWN: SNMP_GENERICTRAP = SNMP_GENERICTRAP(2u32);
-pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = SNMP_GENERICTRAP(3u32);
-pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = SNMP_GENERICTRAP(4u32);
-pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = SNMP_GENERICTRAP(5u32);
-pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = SNMP_GENERICTRAP(6u32);
-impl ::core::convert::From<u32> for SNMP_GENERICTRAP {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_GENERICTRAP {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_GENERICTRAP {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_GENERICTRAP {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_GENERICTRAP {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_GENERICTRAP {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_GENERICTRAP {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_LOG(pub u32);
-pub const SNMP_LOG_SILENT: SNMP_LOG = SNMP_LOG(0u32);
-pub const SNMP_LOG_FATAL: SNMP_LOG = SNMP_LOG(1u32);
-pub const SNMP_LOG_ERROR: SNMP_LOG = SNMP_LOG(2u32);
-pub const SNMP_LOG_WARNING: SNMP_LOG = SNMP_LOG(3u32);
-pub const SNMP_LOG_TRACE: SNMP_LOG = SNMP_LOG(4u32);
-pub const SNMP_LOG_VERBOSE: SNMP_LOG = SNMP_LOG(5u32);
-impl ::core::convert::From<u32> for SNMP_LOG {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_LOG {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_LOG {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_LOG {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_LOG {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_LOG {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_LOG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SNMP_ERROR = u32;
+pub const SNMP_ERROR_NOERROR: SNMP_ERROR = 0u32;
+pub const SNMP_ERROR_TOOBIG: SNMP_ERROR = 1u32;
+pub const SNMP_ERROR_NOSUCHNAME: SNMP_ERROR = 2u32;
+pub const SNMP_ERROR_BADVALUE: SNMP_ERROR = 3u32;
+pub const SNMP_ERROR_READONLY: SNMP_ERROR = 4u32;
+pub const SNMP_ERROR_GENERR: SNMP_ERROR = 5u32;
+pub const SNMP_ERROR_NOACCESS: SNMP_ERROR = 6u32;
+pub const SNMP_ERROR_WRONGTYPE: SNMP_ERROR = 7u32;
+pub const SNMP_ERROR_WRONGLENGTH: SNMP_ERROR = 8u32;
+pub const SNMP_ERROR_WRONGENCODING: SNMP_ERROR = 9u32;
+pub const SNMP_ERROR_WRONGVALUE: SNMP_ERROR = 10u32;
+pub const SNMP_ERROR_NOCREATION: SNMP_ERROR = 11u32;
+pub const SNMP_ERROR_INCONSISTENTVALUE: SNMP_ERROR = 12u32;
+pub const SNMP_ERROR_RESOURCEUNAVAILABLE: SNMP_ERROR = 13u32;
+pub const SNMP_ERROR_COMMITFAILED: SNMP_ERROR = 14u32;
+pub const SNMP_ERROR_UNDOFAILED: SNMP_ERROR = 15u32;
+pub const SNMP_ERROR_AUTHORIZATIONERROR: SNMP_ERROR = 16u32;
+pub const SNMP_ERROR_NOTWRITABLE: SNMP_ERROR = 17u32;
+pub const SNMP_ERROR_INCONSISTENTNAME: SNMP_ERROR = 18u32;
+pub type SNMP_ERROR_STATUS = u32;
+pub const SNMP_ERRORSTATUS_NOERROR: SNMP_ERROR_STATUS = 0u32;
+pub const SNMP_ERRORSTATUS_TOOBIG: SNMP_ERROR_STATUS = 1u32;
+pub const SNMP_ERRORSTATUS_NOSUCHNAME: SNMP_ERROR_STATUS = 2u32;
+pub const SNMP_ERRORSTATUS_BADVALUE: SNMP_ERROR_STATUS = 3u32;
+pub const SNMP_ERRORSTATUS_READONLY: SNMP_ERROR_STATUS = 4u32;
+pub const SNMP_ERRORSTATUS_GENERR: SNMP_ERROR_STATUS = 5u32;
+pub const SNMP_ERRORSTATUS_NOACCESS: SNMP_ERROR_STATUS = 6u32;
+pub const SNMP_ERRORSTATUS_WRONGTYPE: SNMP_ERROR_STATUS = 7u32;
+pub const SNMP_ERRORSTATUS_WRONGLENGTH: SNMP_ERROR_STATUS = 8u32;
+pub const SNMP_ERRORSTATUS_WRONGENCODING: SNMP_ERROR_STATUS = 9u32;
+pub const SNMP_ERRORSTATUS_WRONGVALUE: SNMP_ERROR_STATUS = 10u32;
+pub const SNMP_ERRORSTATUS_NOCREATION: SNMP_ERROR_STATUS = 11u32;
+pub const SNMP_ERRORSTATUS_INCONSISTENTVALUE: SNMP_ERROR_STATUS = 12u32;
+pub const SNMP_ERRORSTATUS_RESOURCEUNAVAILABLE: SNMP_ERROR_STATUS = 13u32;
+pub const SNMP_ERRORSTATUS_COMMITFAILED: SNMP_ERROR_STATUS = 14u32;
+pub const SNMP_ERRORSTATUS_UNDOFAILED: SNMP_ERROR_STATUS = 15u32;
+pub const SNMP_ERRORSTATUS_AUTHORIZATIONERROR: SNMP_ERROR_STATUS = 16u32;
+pub const SNMP_ERRORSTATUS_NOTWRITABLE: SNMP_ERROR_STATUS = 17u32;
+pub const SNMP_ERRORSTATUS_INCONSISTENTNAME: SNMP_ERROR_STATUS = 18u32;
+pub type SNMP_EXTENSION_REQUEST_TYPE = u32;
+pub const SNMP_EXTENSION_GET: SNMP_EXTENSION_REQUEST_TYPE = 160u32;
+pub const SNMP_EXTENSION_GET_NEXT: SNMP_EXTENSION_REQUEST_TYPE = 161u32;
+pub const SNMP_EXTENSION_SET_TEST: SNMP_EXTENSION_REQUEST_TYPE = 224u32;
+pub const SNMP_EXTENSION_SET_COMMIT: SNMP_EXTENSION_REQUEST_TYPE = 163u32;
+pub const SNMP_EXTENSION_SET_UNDO: SNMP_EXTENSION_REQUEST_TYPE = 225u32;
+pub const SNMP_EXTENSION_SET_CLEANUP: SNMP_EXTENSION_REQUEST_TYPE = 226u32;
+pub type SNMP_GENERICTRAP = u32;
+pub const SNMP_GENERICTRAP_COLDSTART: SNMP_GENERICTRAP = 0u32;
+pub const SNMP_GENERICTRAP_WARMSTART: SNMP_GENERICTRAP = 1u32;
+pub const SNMP_GENERICTRAP_LINKDOWN: SNMP_GENERICTRAP = 2u32;
+pub const SNMP_GENERICTRAP_LINKUP: SNMP_GENERICTRAP = 3u32;
+pub const SNMP_GENERICTRAP_AUTHFAILURE: SNMP_GENERICTRAP = 4u32;
+pub const SNMP_GENERICTRAP_EGPNEIGHLOSS: SNMP_GENERICTRAP = 5u32;
+pub const SNMP_GENERICTRAP_ENTERSPECIFIC: SNMP_GENERICTRAP = 6u32;
+pub type SNMP_LOG = u32;
+pub const SNMP_LOG_SILENT: SNMP_LOG = 0u32;
+pub const SNMP_LOG_FATAL: SNMP_LOG = 1u32;
+pub const SNMP_LOG_ERROR: SNMP_LOG = 2u32;
+pub const SNMP_LOG_WARNING: SNMP_LOG = 3u32;
+pub const SNMP_LOG_TRACE: SNMP_LOG = 4u32;
+pub const SNMP_LOG_VERBOSE: SNMP_LOG = 5u32;
 pub const SNMP_MAX_OID_LEN: u32 = 128u32;
 pub const SNMP_MEM_ALLOC_ERROR: u32 = 1u32;
 pub const SNMP_MGMTAPI_AGAIN: u32 = 45u32;
@@ -504,138 +295,24 @@ pub const SNMP_MGMTAPI_SELECT_FDERRORS: u32 = 41u32;
 pub const SNMP_MGMTAPI_TIMEOUT: u32 = 40u32;
 pub const SNMP_MGMTAPI_TRAP_DUPINIT: u32 = 43u32;
 pub const SNMP_MGMTAPI_TRAP_ERRORS: u32 = 42u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_OUTPUT_LOG_TYPE(pub u32);
-pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(1u32);
-pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(2u32);
-pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = SNMP_OUTPUT_LOG_TYPE(8u32);
-impl ::core::convert::From<u32> for SNMP_OUTPUT_LOG_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_OUTPUT_LOG_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_OUTPUT_LOG_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_OUTPUT_LOG_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_OUTPUT_LOG_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_OUTPUT_LOG_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_OUTPUT_LOG_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SNMP_OUTPUT_LOG_TYPE = u32;
+pub const SNMP_OUTPUT_TO_CONSOLE: SNMP_OUTPUT_LOG_TYPE = 1u32;
+pub const SNMP_OUTPUT_TO_LOGFILE: SNMP_OUTPUT_LOG_TYPE = 2u32;
+pub const SNMP_OUTPUT_TO_DEBUGGER: SNMP_OUTPUT_LOG_TYPE = 8u32;
 pub const SNMP_OUTPUT_TO_EVENTLOG: u32 = 4u32;
 pub const SNMP_PDUAPI_INVALID_ES: u32 = 21u32;
 pub const SNMP_PDUAPI_INVALID_GT: u32 = 22u32;
 pub const SNMP_PDUAPI_UNRECOGNIZED_PDU: u32 = 20u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_PDU_TYPE(pub u32);
-pub const SNMP_PDU_GET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(160u32);
-pub const SNMP_PDU_GETNEXT: SNMP_PDU_TYPE = SNMP_PDU_TYPE(161u32);
-pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = SNMP_PDU_TYPE(162u32);
-pub const SNMP_PDU_SET: SNMP_PDU_TYPE = SNMP_PDU_TYPE(163u32);
-pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = SNMP_PDU_TYPE(165u32);
-pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = SNMP_PDU_TYPE(167u32);
-impl ::core::convert::From<u32> for SNMP_PDU_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_PDU_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_PDU_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_PDU_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_PDU_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_PDU_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_PDU_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SNMP_STATUS(pub u32);
-pub const SNMPAPI_ON: SNMP_STATUS = SNMP_STATUS(1u32);
-pub const SNMPAPI_OFF: SNMP_STATUS = SNMP_STATUS(0u32);
-impl ::core::convert::From<u32> for SNMP_STATUS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SNMP_STATUS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SNMP_STATUS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SNMP_STATUS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SNMP_STATUS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SNMP_STATUS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SNMP_STATUS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SNMP_PDU_TYPE = u32;
+pub const SNMP_PDU_GET: SNMP_PDU_TYPE = 160u32;
+pub const SNMP_PDU_GETNEXT: SNMP_PDU_TYPE = 161u32;
+pub const SNMP_PDU_RESPONSE: SNMP_PDU_TYPE = 162u32;
+pub const SNMP_PDU_SET: SNMP_PDU_TYPE = 163u32;
+pub const SNMP_PDU_GETBULK: SNMP_PDU_TYPE = 165u32;
+pub const SNMP_PDU_TRAP: SNMP_PDU_TYPE = 167u32;
+pub type SNMP_STATUS = u32;
+pub const SNMPAPI_ON: SNMP_STATUS = 1u32;
+pub const SNMPAPI_OFF: SNMP_STATUS = 0u32;
 pub const SNMP_TRAP_AUTHFAIL: u32 = 4u32;
 pub const SNMP_TRAP_COLDSTART: u32 = 0u32;
 pub const SNMP_TRAP_EGPNEIGHBORLOSS: u32 = 5u32;
@@ -1434,7 +1111,7 @@ pub unsafe fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG) {
         extern "system" {
             fn SnmpSvcSetLogLevel(nloglevel: SNMP_LOG);
         }
-        ::core::mem::transmute(SnmpSvcSetLogLevel(::core::mem::transmute(nloglevel)))
+        SnmpSvcSetLogLevel(::core::mem::transmute(nloglevel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1447,7 +1124,7 @@ pub unsafe fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE) {
         extern "system" {
             fn SnmpSvcSetLogType(nlogtype: SNMP_OUTPUT_LOG_TYPE);
         }
-        ::core::mem::transmute(SnmpSvcSetLogType(::core::mem::transmute(nlogtype)))
+        SnmpSvcSetLogType(::core::mem::transmute(nlogtype))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1475,7 +1152,7 @@ pub unsafe fn SnmpUtilAsnAnyFree(pany: *mut AsnAny) {
         extern "system" {
             fn SnmpUtilAsnAnyFree(pany: *mut AsnAny);
         }
-        ::core::mem::transmute(SnmpUtilAsnAnyFree(::core::mem::transmute(pany)))
+        SnmpUtilAsnAnyFree(::core::mem::transmute(pany))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1489,7 +1166,7 @@ pub unsafe fn SnmpUtilDbgPrint<'a, Param1: ::windows::core::IntoParam<'a, super:
         extern "system" {
             fn SnmpUtilDbgPrint(nloglevel: SNMP_LOG, szformat: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(SnmpUtilDbgPrint(::core::mem::transmute(nloglevel), szformat.into_param().abi()))
+        SnmpUtilDbgPrint(::core::mem::transmute(nloglevel), szformat.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1529,7 +1206,7 @@ pub unsafe fn SnmpUtilMemFree(pmem: *mut ::core::ffi::c_void) {
         extern "system" {
             fn SnmpUtilMemFree(pmem: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SnmpUtilMemFree(::core::mem::transmute(pmem)))
+        SnmpUtilMemFree(::core::mem::transmute(pmem))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1584,7 +1261,7 @@ pub unsafe fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString) {
         extern "system" {
             fn SnmpUtilOctetsFree(poctets: *mut AsnOctetString);
         }
-        ::core::mem::transmute(SnmpUtilOctetsFree(::core::mem::transmute(poctets)))
+        SnmpUtilOctetsFree(::core::mem::transmute(poctets))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1650,7 +1327,7 @@ pub unsafe fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier) {
         extern "system" {
             fn SnmpUtilOidFree(poid: *mut AsnObjectIdentifier);
         }
-        ::core::mem::transmute(SnmpUtilOidFree(::core::mem::transmute(poid)))
+        SnmpUtilOidFree(::core::mem::transmute(poid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1691,7 +1368,7 @@ pub unsafe fn SnmpUtilPrintAsnAny(pany: *mut AsnAny) {
         extern "system" {
             fn SnmpUtilPrintAsnAny(pany: *mut AsnAny);
         }
-        ::core::mem::transmute(SnmpUtilPrintAsnAny(::core::mem::transmute(pany)))
+        SnmpUtilPrintAsnAny(::core::mem::transmute(pany))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1704,7 +1381,7 @@ pub unsafe fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier) {
         extern "system" {
             fn SnmpUtilPrintOid(oid: *mut AsnObjectIdentifier);
         }
-        ::core::mem::transmute(SnmpUtilPrintOid(::core::mem::transmute(oid)))
+        SnmpUtilPrintOid(::core::mem::transmute(oid))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1732,7 +1409,7 @@ pub unsafe fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind) {
         extern "system" {
             fn SnmpUtilVarBindFree(pvb: *mut SnmpVarBind);
         }
-        ::core::mem::transmute(SnmpUtilVarBindFree(::core::mem::transmute(pvb)))
+        SnmpUtilVarBindFree(::core::mem::transmute(pvb))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1760,12 +1437,11 @@ pub unsafe fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList) {
         extern "system" {
             fn SnmpUtilVarBindListFree(pvbl: *mut SnmpVarBindList);
         }
-        ::core::mem::transmute(SnmpUtilVarBindListFree(::core::mem::transmute(pvbl)))
+        SnmpUtilVarBindListFree(::core::mem::transmute(pvbl))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBind {
@@ -1773,26 +1449,31 @@ pub struct SnmpVarBind {
     pub value: AsnAny,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SnmpVarBind {}
+impl ::core::marker::Copy for SnmpVarBind {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SnmpVarBind {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SnmpVarBind {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SnmpVarBind {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SnmpVarBind>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SnmpVarBind {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBind {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SnmpVarBind {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SnmpVarBind {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SnmpVarBind {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(4))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SnmpVarBindList {
@@ -1800,125 +1481,131 @@ pub struct SnmpVarBindList {
     pub len: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SnmpVarBindList {}
+impl ::core::marker::Copy for SnmpVarBindList {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SnmpVarBindList {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SnmpVarBindList {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SnmpVarBindList {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SnmpVarBindList>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SnmpVarBindList {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SnmpVarBindList {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SnmpVarBindList {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SnmpVarBindList {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SnmpVarBindList {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct smiCNTR64 {
     pub hipart: u32,
     pub lopart: u32,
 }
-impl smiCNTR64 {}
+impl ::core::marker::Copy for smiCNTR64 {}
+impl ::core::clone::Clone for smiCNTR64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for smiCNTR64 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for smiCNTR64 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiCNTR64>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for smiCNTR64 {}
 impl ::core::default::Default for smiCNTR64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for smiCNTR64 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("smiCNTR64").field("hipart", &self.hipart).field("lopart", &self.lopart).finish()
-    }
-}
-impl ::core::cmp::PartialEq for smiCNTR64 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hipart == other.hipart && self.lopart == other.lopart
-    }
-}
-impl ::core::cmp::Eq for smiCNTR64 {}
-unsafe impl ::windows::core::Abi for smiCNTR64 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct smiOCTETS {
     pub len: u32,
     pub ptr: *mut u8,
 }
-impl smiOCTETS {}
+impl ::core::marker::Copy for smiOCTETS {}
+impl ::core::clone::Clone for smiOCTETS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for smiOCTETS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for smiOCTETS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiOCTETS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for smiOCTETS {}
 impl ::core::default::Default for smiOCTETS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for smiOCTETS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("smiOCTETS").field("len", &self.len).field("ptr", &self.ptr).finish()
-    }
-}
-impl ::core::cmp::PartialEq for smiOCTETS {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.ptr == other.ptr
-    }
-}
-impl ::core::cmp::Eq for smiOCTETS {}
-unsafe impl ::windows::core::Abi for smiOCTETS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct smiOID {
     pub len: u32,
     pub ptr: *mut u32,
 }
-impl smiOID {}
+impl ::core::marker::Copy for smiOID {}
+impl ::core::clone::Clone for smiOID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for smiOID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for smiOID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiOID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for smiOID {}
 impl ::core::default::Default for smiOID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for smiOID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("smiOID").field("len", &self.len).field("ptr", &self.ptr).finish()
-    }
-}
-impl ::core::cmp::PartialEq for smiOID {
-    fn eq(&self, other: &Self) -> bool {
-        self.len == other.len && self.ptr == other.ptr
-    }
-}
-impl ::core::cmp::Eq for smiOID {}
-unsafe impl ::windows::core::Abi for smiOID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct smiVALUE {
     pub syntax: u32,
     pub value: smiVALUE_0,
 }
-impl smiVALUE {}
+impl ::core::marker::Copy for smiVALUE {}
+impl ::core::clone::Clone for smiVALUE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for smiVALUE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for smiVALUE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiVALUE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for smiVALUE {}
 impl ::core::default::Default for smiVALUE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for smiVALUE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for smiVALUE {}
-unsafe impl ::windows::core::Abi for smiVALUE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union smiVALUE_0 {
     pub sNumber: i32,
@@ -1928,22 +1615,26 @@ pub union smiVALUE_0 {
     pub oid: smiOID,
     pub empty: u8,
 }
-impl smiVALUE_0 {}
+impl ::core::marker::Copy for smiVALUE_0 {}
+impl ::core::clone::Clone for smiVALUE_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for smiVALUE_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for smiVALUE_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiVALUE_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for smiVALUE_0 {}
 impl ::core::default::Default for smiVALUE_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for smiVALUE_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for smiVALUE_0 {}
-unsafe impl ::windows::core::Abi for smiVALUE_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct smiVENDORINFO {
@@ -1954,28 +1645,28 @@ pub struct smiVENDORINFO {
     pub vendorEnterprise: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl smiVENDORINFO {}
+impl ::core::marker::Copy for smiVENDORINFO {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for smiVENDORINFO {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for smiVENDORINFO {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for smiVENDORINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("smiVENDORINFO").field("vendorName", &self.vendorName).field("vendorContact", &self.vendorContact).field("vendorVersionId", &self.vendorVersionId).field("vendorVersionDate", &self.vendorVersionDate).field("vendorEnterprise", &self.vendorEnterprise).finish()
-    }
+unsafe impl ::windows::core::Abi for smiVENDORINFO {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for smiVENDORINFO {
     fn eq(&self, other: &Self) -> bool {
-        self.vendorName == other.vendorName && self.vendorContact == other.vendorContact && self.vendorVersionId == other.vendorVersionId && self.vendorVersionDate == other.vendorVersionDate && self.vendorEnterprise == other.vendorEnterprise
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<smiVENDORINFO>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for smiVENDORINFO {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for smiVENDORINFO {
-    type Abi = Self;
+impl ::core::default::Default for smiVENDORINFO {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }

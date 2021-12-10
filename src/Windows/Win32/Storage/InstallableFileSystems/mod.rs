@@ -1,74 +1,80 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_BASIC_INFORMATION_0,
 }
-impl FILTER_AGGREGATE_BASIC_INFORMATION {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION {}
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_BASIC_INFORMATION_0_0,
 }
-impl FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0 {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
-impl FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_LegacyFilter_e__Struct").field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FrameID: u32,
@@ -78,70 +84,77 @@ pub struct FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_BASIC_INFORMATION_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
 impl ::core::default::Default for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MiniFilter_e__Struct").field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_BASIC_INFORMATION_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: FILTER_AGGREGATE_STANDARD_INFORMATION_0,
 }
-impl FILTER_AGGREGATE_STANDARD_INFORMATION {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: FILTER_AGGREGATE_STANDARD_INFORMATION_0_0,
 }
-impl FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
@@ -150,27 +163,26 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_LegacyFilter_e__Struct").field("Flags", &self.Flags).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
@@ -181,27 +193,26 @@ pub struct FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterAltitudeLength: u16,
     pub FilterAltitudeBufferOffset: u16,
 }
-impl FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
+impl ::core::marker::Copy for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
+impl ::core::clone::Clone for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_AGGREGATE_STANDARD_INFORMATION_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
 impl ::core::default::Default for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MiniFilter_e__Struct").field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("FilterAltitudeLength", &self.FilterAltitudeLength).field("FilterAltitudeBufferOffset", &self.FilterAltitudeBufferOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.FilterAltitudeLength == other.FilterAltitudeLength && self.FilterAltitudeBufferOffset == other.FilterAltitudeBufferOffset
-    }
-}
-impl ::core::cmp::Eq for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {}
-unsafe impl ::windows::core::Abi for FILTER_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_FULL_INFORMATION {
     pub NextEntryOffset: u32,
@@ -210,68 +221,56 @@ pub struct FILTER_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBuffer: [u16; 1],
 }
-impl FILTER_FULL_INFORMATION {}
+impl ::core::marker::Copy for FILTER_FULL_INFORMATION {}
+impl ::core::clone::Clone for FILTER_FULL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_FULL_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_FULL_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_FULL_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_FULL_INFORMATION {}
 impl ::core::default::Default for FILTER_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILTER_FULL_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILTER_FULL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("FrameID", &self.FrameID).field("NumberOfInstances", &self.NumberOfInstances).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBuffer", &self.FilterNameBuffer).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_FULL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.FrameID == other.FrameID && self.NumberOfInstances == other.NumberOfInstances && self.FilterNameLength == other.FilterNameLength && self.FilterNameBuffer == other.FilterNameBuffer
-    }
-}
-impl ::core::cmp::Eq for FILTER_FULL_INFORMATION {}
-unsafe impl ::windows::core::Abi for FILTER_FULL_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILTER_INFORMATION_CLASS(pub i32);
-pub const FilterFullInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(0i32);
-pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(1i32);
-pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = FILTER_INFORMATION_CLASS(2i32);
-impl ::core::convert::From<i32> for FILTER_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILTER_INFORMATION_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILTER_INFORMATION_CLASS = i32;
+pub const FilterFullInformation: FILTER_INFORMATION_CLASS = 0i32;
+pub const FilterAggregateBasicInformation: FILTER_INFORMATION_CLASS = 1i32;
+pub const FilterAggregateStandardInformation: FILTER_INFORMATION_CLASS = 2i32;
 #[repr(C)]
 pub struct FILTER_MESSAGE_HEADER {
     pub ReplyLength: u32,
     pub MessageId: u64,
 }
-impl FILTER_MESSAGE_HEADER {}
+impl ::core::marker::Copy for FILTER_MESSAGE_HEADER {}
+impl ::core::clone::Clone for FILTER_MESSAGE_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_MESSAGE_HEADER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_MESSAGE_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_MESSAGE_HEADER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_MESSAGE_HEADER {}
 impl ::core::default::Default for FILTER_MESSAGE_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILTER_MESSAGE_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILTER_MESSAGE_HEADER").field("ReplyLength", &self.ReplyLength).field("MessageId", &self.MessageId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_MESSAGE_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReplyLength == other.ReplyLength && self.MessageId == other.MessageId
-    }
-}
-impl ::core::cmp::Eq for FILTER_MESSAGE_HEADER {}
-unsafe impl ::windows::core::Abi for FILTER_MESSAGE_HEADER {
-    type Abi = Self;
-}
 pub const FILTER_NAME_MAX_CHARS: u32 = 255u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILTER_REPLY_HEADER {
@@ -279,71 +278,59 @@ pub struct FILTER_REPLY_HEADER {
     pub MessageId: u64,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl FILTER_REPLY_HEADER {}
+impl ::core::marker::Copy for FILTER_REPLY_HEADER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for FILTER_REPLY_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILTER_REPLY_HEADER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for FILTER_REPLY_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_REPLY_HEADER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for FILTER_REPLY_HEADER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for FILTER_REPLY_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILTER_REPLY_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILTER_REPLY_HEADER").field("Status", &self.Status).field("MessageId", &self.MessageId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for FILTER_REPLY_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Status == other.Status && self.MessageId == other.MessageId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for FILTER_REPLY_HEADER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILTER_REPLY_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct FILTER_VOLUME_BASIC_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
 }
-impl FILTER_VOLUME_BASIC_INFORMATION {}
+impl ::core::marker::Copy for FILTER_VOLUME_BASIC_INFORMATION {}
+impl ::core::clone::Clone for FILTER_VOLUME_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_VOLUME_BASIC_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_VOLUME_BASIC_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_VOLUME_BASIC_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_VOLUME_BASIC_INFORMATION {}
 impl ::core::default::Default for FILTER_VOLUME_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for FILTER_VOLUME_BASIC_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILTER_VOLUME_BASIC_INFORMATION").field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_VOLUME_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
-    }
-}
-impl ::core::cmp::Eq for FILTER_VOLUME_BASIC_INFORMATION {}
-unsafe impl ::windows::core::Abi for FILTER_VOLUME_BASIC_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FILTER_VOLUME_INFORMATION_CLASS(pub i32);
-pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(0i32);
-pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = FILTER_VOLUME_INFORMATION_CLASS(1i32);
-impl ::core::convert::From<i32> for FILTER_VOLUME_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FILTER_VOLUME_INFORMATION_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type FILTER_VOLUME_INFORMATION_CLASS = i32;
+pub const FilterVolumeBasicInformation: FILTER_VOLUME_INFORMATION_CLASS = 0i32;
+pub const FilterVolumeStandardInformation: FILTER_VOLUME_INFORMATION_CLASS = 1i32;
 #[repr(C)]
 pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
@@ -353,25 +340,25 @@ pub struct FILTER_VOLUME_STANDARD_INFORMATION {
     pub FilterVolumeNameLength: u16,
     pub FilterVolumeName: [u16; 1],
 }
-impl FILTER_VOLUME_STANDARD_INFORMATION {}
+impl ::core::marker::Copy for FILTER_VOLUME_STANDARD_INFORMATION {}
+impl ::core::clone::Clone for FILTER_VOLUME_STANDARD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for FILTER_VOLUME_STANDARD_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILTER_VOLUME_STANDARD_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for FILTER_VOLUME_STANDARD_INFORMATION {}
 impl ::core::default::Default for FILTER_VOLUME_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for FILTER_VOLUME_STANDARD_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILTER_VOLUME_STANDARD_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("Flags", &self.Flags).field("FrameID", &self.FrameID).field("FileSystemType", &self.FileSystemType).field("FilterVolumeNameLength", &self.FilterVolumeNameLength).field("FilterVolumeName", &self.FilterVolumeName).finish()
-    }
-}
-impl ::core::cmp::PartialEq for FILTER_VOLUME_STANDARD_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.Flags == other.Flags && self.FrameID == other.FrameID && self.FileSystemType == other.FileSystemType && self.FilterVolumeNameLength == other.FilterVolumeNameLength && self.FilterVolumeName == other.FilterVolumeName
-    }
-}
-impl ::core::cmp::Eq for FILTER_VOLUME_STANDARD_INFORMATION {}
-unsafe impl ::windows::core::Abi for FILTER_VOLUME_STANDARD_INFORMATION {
-    type Abi = Self;
 }
 pub const FLTFL_AGGREGATE_INFO_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_AGGREGATE_INFO_IS_MINIFILTER: u32 = 1u32;
@@ -382,48 +369,38 @@ pub const FLTFL_IASIM_DETACHED_VOLUME: u32 = 1u32;
 pub const FLTFL_IASI_IS_LEGACYFILTER: u32 = 2u32;
 pub const FLTFL_IASI_IS_MINIFILTER: u32 = 1u32;
 pub const FLTFL_VSI_DETACHED_VOLUME: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct FLT_FILESYSTEM_TYPE(pub i32);
-pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(0i32);
-pub const FLT_FSTYPE_RAW: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(1i32);
-pub const FLT_FSTYPE_NTFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(2i32);
-pub const FLT_FSTYPE_FAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(3i32);
-pub const FLT_FSTYPE_CDFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(4i32);
-pub const FLT_FSTYPE_UDFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(5i32);
-pub const FLT_FSTYPE_LANMAN: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(6i32);
-pub const FLT_FSTYPE_WEBDAV: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(7i32);
-pub const FLT_FSTYPE_RDPDR: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(8i32);
-pub const FLT_FSTYPE_NFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(9i32);
-pub const FLT_FSTYPE_MS_NETWARE: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(10i32);
-pub const FLT_FSTYPE_NETWARE: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(11i32);
-pub const FLT_FSTYPE_BSUDF: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(12i32);
-pub const FLT_FSTYPE_MUP: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(13i32);
-pub const FLT_FSTYPE_RSFX: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(14i32);
-pub const FLT_FSTYPE_ROXIO_UDF1: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(15i32);
-pub const FLT_FSTYPE_ROXIO_UDF2: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(16i32);
-pub const FLT_FSTYPE_ROXIO_UDF3: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(17i32);
-pub const FLT_FSTYPE_TACIT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(18i32);
-pub const FLT_FSTYPE_FS_REC: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(19i32);
-pub const FLT_FSTYPE_INCD: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(20i32);
-pub const FLT_FSTYPE_INCD_FAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(21i32);
-pub const FLT_FSTYPE_EXFAT: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(22i32);
-pub const FLT_FSTYPE_PSFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(23i32);
-pub const FLT_FSTYPE_GPFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(24i32);
-pub const FLT_FSTYPE_NPFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(25i32);
-pub const FLT_FSTYPE_MSFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(26i32);
-pub const FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(27i32);
-pub const FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(28i32);
-pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(29i32);
-pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = FLT_FILESYSTEM_TYPE(30i32);
-impl ::core::convert::From<i32> for FLT_FILESYSTEM_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for FLT_FILESYSTEM_TYPE {
-    type Abi = Self;
-}
+pub type FLT_FILESYSTEM_TYPE = i32;
+pub const FLT_FSTYPE_UNKNOWN: FLT_FILESYSTEM_TYPE = 0i32;
+pub const FLT_FSTYPE_RAW: FLT_FILESYSTEM_TYPE = 1i32;
+pub const FLT_FSTYPE_NTFS: FLT_FILESYSTEM_TYPE = 2i32;
+pub const FLT_FSTYPE_FAT: FLT_FILESYSTEM_TYPE = 3i32;
+pub const FLT_FSTYPE_CDFS: FLT_FILESYSTEM_TYPE = 4i32;
+pub const FLT_FSTYPE_UDFS: FLT_FILESYSTEM_TYPE = 5i32;
+pub const FLT_FSTYPE_LANMAN: FLT_FILESYSTEM_TYPE = 6i32;
+pub const FLT_FSTYPE_WEBDAV: FLT_FILESYSTEM_TYPE = 7i32;
+pub const FLT_FSTYPE_RDPDR: FLT_FILESYSTEM_TYPE = 8i32;
+pub const FLT_FSTYPE_NFS: FLT_FILESYSTEM_TYPE = 9i32;
+pub const FLT_FSTYPE_MS_NETWARE: FLT_FILESYSTEM_TYPE = 10i32;
+pub const FLT_FSTYPE_NETWARE: FLT_FILESYSTEM_TYPE = 11i32;
+pub const FLT_FSTYPE_BSUDF: FLT_FILESYSTEM_TYPE = 12i32;
+pub const FLT_FSTYPE_MUP: FLT_FILESYSTEM_TYPE = 13i32;
+pub const FLT_FSTYPE_RSFX: FLT_FILESYSTEM_TYPE = 14i32;
+pub const FLT_FSTYPE_ROXIO_UDF1: FLT_FILESYSTEM_TYPE = 15i32;
+pub const FLT_FSTYPE_ROXIO_UDF2: FLT_FILESYSTEM_TYPE = 16i32;
+pub const FLT_FSTYPE_ROXIO_UDF3: FLT_FILESYSTEM_TYPE = 17i32;
+pub const FLT_FSTYPE_TACIT: FLT_FILESYSTEM_TYPE = 18i32;
+pub const FLT_FSTYPE_FS_REC: FLT_FILESYSTEM_TYPE = 19i32;
+pub const FLT_FSTYPE_INCD: FLT_FILESYSTEM_TYPE = 20i32;
+pub const FLT_FSTYPE_INCD_FAT: FLT_FILESYSTEM_TYPE = 21i32;
+pub const FLT_FSTYPE_EXFAT: FLT_FILESYSTEM_TYPE = 22i32;
+pub const FLT_FSTYPE_PSFS: FLT_FILESYSTEM_TYPE = 23i32;
+pub const FLT_FSTYPE_GPFS: FLT_FILESYSTEM_TYPE = 24i32;
+pub const FLT_FSTYPE_NPFS: FLT_FILESYSTEM_TYPE = 25i32;
+pub const FLT_FSTYPE_MSFS: FLT_FILESYSTEM_TYPE = 26i32;
+pub const FLT_FSTYPE_CSVFS: FLT_FILESYSTEM_TYPE = 27i32;
+pub const FLT_FSTYPE_REFS: FLT_FILESYSTEM_TYPE = 28i32;
+pub const FLT_FSTYPE_OPENAFS: FLT_FILESYSTEM_TYPE = 29i32;
+pub const FLT_FSTYPE_CIMFS: FLT_FILESYSTEM_TYPE = 30i32;
 pub const FLT_PORT_FLAG_SYNC_HANDLE: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -475,8 +452,8 @@ pub unsafe fn FilterConnectCommunicationPort<'a, Param0: ::windows::core::IntoPa
         extern "system" {
             fn FilterConnectCommunicationPort(lpportname: super::super::Foundation::PWSTR, dwoptions: u32, lpcontext: *const ::core::ffi::c_void, wsizeofcontext: u16, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, hport: *mut super::super::Foundation::HANDLE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::HANDLE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        FilterConnectCommunicationPort(lpportname.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(lpcontext), ::core::mem::transmute(wsizeofcontext), ::core::mem::transmute(lpsecurityattributes), &mut result__).from_abi::<super::super::Foundation::HANDLE>(result__)
+        let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
+        FilterConnectCommunicationPort(lpportname.into_param().abi(), ::core::mem::transmute(dwoptions), ::core::mem::transmute(lpcontext), ::core::mem::transmute(wsizeofcontext), ::core::mem::transmute(lpsecurityattributes), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -490,8 +467,8 @@ pub unsafe fn FilterCreate<'a, Param0: ::windows::core::IntoParam<'a, super::sup
         extern "system" {
             fn FilterCreate(lpfiltername: super::super::Foundation::PWSTR, hfilter: *mut HFILTER) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HFILTER as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        FilterCreate(lpfiltername.into_param().abi(), &mut result__).from_abi::<HFILTER>(result__)
+        let mut result__: HFILTER = ::core::mem::zeroed();
+        FilterCreate(lpfiltername.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<HFILTER>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -537,18 +514,7 @@ pub unsafe fn FilterFindFirst(dwinformationclass: FILTER_INFORMATION_CLASS, lpbu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FilterFindHandle(pub isize);
-impl ::core::default::Default for FilterFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FilterFindHandle {}
-unsafe impl ::windows::core::Abi for FilterFindHandle {
-    type Abi = Self;
-}
+pub type FilterFindHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterfind: Param0, dwinformationclass: FILTER_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
@@ -626,8 +592,8 @@ pub unsafe fn FilterInstanceCreate<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn FilterInstanceCreate(lpfiltername: super::super::Foundation::PWSTR, lpvolumename: super::super::Foundation::PWSTR, lpinstancename: super::super::Foundation::PWSTR, hinstance: *mut HFILTER_INSTANCE) -> ::windows::core::HRESULT;
         }
-        let mut result__: <HFILTER_INSTANCE as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), &mut result__).from_abi::<HFILTER_INSTANCE>(result__)
+        let mut result__: HFILTER_INSTANCE = ::core::mem::zeroed();
+        FilterInstanceCreate(lpfiltername.into_param().abi(), lpvolumename.into_param().abi(), lpinstancename.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<HFILTER_INSTANCE>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -660,18 +626,7 @@ pub unsafe fn FilterInstanceFindFirst<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FilterInstanceFindHandle(pub isize);
-impl ::core::default::Default for FilterInstanceFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FilterInstanceFindHandle {}
-unsafe impl ::windows::core::Abi for FilterInstanceFindHandle {
-    type Abi = Self;
-}
+pub type FilterInstanceFindHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterInstanceFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfilterinstancefind: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
@@ -782,18 +737,7 @@ pub unsafe fn FilterVolumeFindFirst(dwinformationclass: FILTER_VOLUME_INFORMATIO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FilterVolumeFindHandle(pub isize);
-impl ::core::default::Default for FilterVolumeFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FilterVolumeFindHandle {}
-unsafe impl ::windows::core::Abi for FilterVolumeFindHandle {
-    type Abi = Self;
-}
+pub type FilterVolumeFindHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterVolumeFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumefind: Param0, dwinformationclass: FILTER_VOLUME_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
@@ -836,18 +780,7 @@ pub unsafe fn FilterVolumeInstanceFindFirst<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct FilterVolumeInstanceFindHandle(pub isize);
-impl ::core::default::Default for FilterVolumeInstanceFindHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for FilterVolumeInstanceFindHandle {}
-unsafe impl ::windows::core::Abi for FilterVolumeInstanceFindHandle {
-    type Abi = Self;
-}
+pub type FilterVolumeInstanceFindHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FilterVolumeInstanceFindNext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumeinstancefind: Param0, dwinformationclass: INSTANCE_INFORMATION_CLASS, lpbuffer: *mut ::core::ffi::c_void, dwbuffersize: u32, lpbytesreturned: *mut u32) -> ::windows::core::Result<()> {
@@ -862,74 +795,59 @@ pub unsafe fn FilterVolumeInstanceFindNext<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HFILTER(pub isize);
-impl ::core::default::Default for HFILTER {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HFILTER {}
-unsafe impl ::windows::core::Abi for HFILTER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HFILTER_INSTANCE(pub isize);
-impl ::core::default::Default for HFILTER_INSTANCE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HFILTER_INSTANCE {}
-unsafe impl ::windows::core::Abi for HFILTER_INSTANCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HFILTER = isize;
+pub type HFILTER_INSTANCE = isize;
 #[repr(C)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     pub NextEntryOffset: u32,
     pub Flags: u32,
     pub Type: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0,
 }
-impl INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION {}
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     pub MiniFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1,
     pub LegacyFilter: INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0,
 }
-impl INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {}
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub Flags: u32,
@@ -941,27 +859,26 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_LegacyFilter_e__Struct").field("Flags", &self.Flags).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).field("VolumeNameLength", &self.VolumeNameLength).field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset).field("FilterNameLength", &self.FilterNameLength).field("FilterNameBufferOffset", &self.FilterNameBufferOffset).field("SupportedFeatures", &self.SupportedFeatures).finish()
-    }
-}
-impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {}
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub Flags: u32,
@@ -977,67 +894,52 @@ pub struct INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     pub FilterNameBufferOffset: u16,
     pub SupportedFeatures: u32,
 }
-impl INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
+impl ::core::marker::Copy for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
+impl ::core::clone::Clone for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
 impl ::core::default::Default for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_MiniFilter_e__Struct")
-            .field("Flags", &self.Flags)
-            .field("FrameID", &self.FrameID)
-            .field("VolumeFileSystemType", &self.VolumeFileSystemType)
-            .field("InstanceNameLength", &self.InstanceNameLength)
-            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
-            .field("AltitudeLength", &self.AltitudeLength)
-            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
-            .field("VolumeNameLength", &self.VolumeNameLength)
-            .field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .field("SupportedFeatures", &self.SupportedFeatures)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.FrameID == other.FrameID && self.VolumeFileSystemType == other.VolumeFileSystemType && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset && self.SupportedFeatures == other.SupportedFeatures
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {}
-unsafe impl ::windows::core::Abi for INSTANCE_AGGREGATE_STANDARD_INFORMATION_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct INSTANCE_BASIC_INFORMATION {
     pub NextEntryOffset: u32,
     pub InstanceNameLength: u16,
     pub InstanceNameBufferOffset: u16,
 }
-impl INSTANCE_BASIC_INFORMATION {}
+impl ::core::marker::Copy for INSTANCE_BASIC_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_BASIC_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INSTANCE_BASIC_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_BASIC_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INSTANCE_BASIC_INFORMATION {}
 impl ::core::default::Default for INSTANCE_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for INSTANCE_BASIC_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INSTANCE_BASIC_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for INSTANCE_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_BASIC_INFORMATION {}
-unsafe impl ::windows::core::Abi for INSTANCE_BASIC_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct INSTANCE_FULL_INFORMATION {
     pub NextEntryOffset: u32,
@@ -1050,53 +952,32 @@ pub struct INSTANCE_FULL_INFORMATION {
     pub FilterNameLength: u16,
     pub FilterNameBufferOffset: u16,
 }
-impl INSTANCE_FULL_INFORMATION {}
+impl ::core::marker::Copy for INSTANCE_FULL_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_FULL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_FULL_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INSTANCE_FULL_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_FULL_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INSTANCE_FULL_INFORMATION {}
 impl ::core::default::Default for INSTANCE_FULL_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for INSTANCE_FULL_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INSTANCE_FULL_INFORMATION")
-            .field("NextEntryOffset", &self.NextEntryOffset)
-            .field("InstanceNameLength", &self.InstanceNameLength)
-            .field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset)
-            .field("AltitudeLength", &self.AltitudeLength)
-            .field("AltitudeBufferOffset", &self.AltitudeBufferOffset)
-            .field("VolumeNameLength", &self.VolumeNameLength)
-            .field("VolumeNameBufferOffset", &self.VolumeNameBufferOffset)
-            .field("FilterNameLength", &self.FilterNameLength)
-            .field("FilterNameBufferOffset", &self.FilterNameBufferOffset)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for INSTANCE_FULL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset && self.VolumeNameLength == other.VolumeNameLength && self.VolumeNameBufferOffset == other.VolumeNameBufferOffset && self.FilterNameLength == other.FilterNameLength && self.FilterNameBufferOffset == other.FilterNameBufferOffset
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_FULL_INFORMATION {}
-unsafe impl ::windows::core::Abi for INSTANCE_FULL_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct INSTANCE_INFORMATION_CLASS(pub i32);
-pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(0i32);
-pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(1i32);
-pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(2i32);
-pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = INSTANCE_INFORMATION_CLASS(3i32);
-impl ::core::convert::From<i32> for INSTANCE_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for INSTANCE_INFORMATION_CLASS {
-    type Abi = Self;
-}
+pub type INSTANCE_INFORMATION_CLASS = i32;
+pub const InstanceBasicInformation: INSTANCE_INFORMATION_CLASS = 0i32;
+pub const InstancePartialInformation: INSTANCE_INFORMATION_CLASS = 1i32;
+pub const InstanceFullInformation: INSTANCE_INFORMATION_CLASS = 2i32;
+pub const InstanceAggregateStandardInformation: INSTANCE_INFORMATION_CLASS = 3i32;
 pub const INSTANCE_NAME_MAX_CHARS: u32 = 255u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct INSTANCE_PARTIAL_INFORMATION {
     pub NextEntryOffset: u32,
@@ -1105,25 +986,25 @@ pub struct INSTANCE_PARTIAL_INFORMATION {
     pub AltitudeLength: u16,
     pub AltitudeBufferOffset: u16,
 }
-impl INSTANCE_PARTIAL_INFORMATION {}
+impl ::core::marker::Copy for INSTANCE_PARTIAL_INFORMATION {}
+impl ::core::clone::Clone for INSTANCE_PARTIAL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for INSTANCE_PARTIAL_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for INSTANCE_PARTIAL_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INSTANCE_PARTIAL_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for INSTANCE_PARTIAL_INFORMATION {}
 impl ::core::default::Default for INSTANCE_PARTIAL_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for INSTANCE_PARTIAL_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INSTANCE_PARTIAL_INFORMATION").field("NextEntryOffset", &self.NextEntryOffset).field("InstanceNameLength", &self.InstanceNameLength).field("InstanceNameBufferOffset", &self.InstanceNameBufferOffset).field("AltitudeLength", &self.AltitudeLength).field("AltitudeBufferOffset", &self.AltitudeBufferOffset).finish()
-    }
-}
-impl ::core::cmp::PartialEq for INSTANCE_PARTIAL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NextEntryOffset == other.NextEntryOffset && self.InstanceNameLength == other.InstanceNameLength && self.InstanceNameBufferOffset == other.InstanceNameBufferOffset && self.AltitudeLength == other.AltitudeLength && self.AltitudeBufferOffset == other.AltitudeBufferOffset
-    }
-}
-impl ::core::cmp::Eq for INSTANCE_PARTIAL_INFORMATION {}
-unsafe impl ::windows::core::Abi for INSTANCE_PARTIAL_INFORMATION {
-    type Abi = Self;
 }
 pub const VOLUME_NAME_MAX_CHARS: u32 = 1024u32;
 pub const WNNC_CRED_MANAGER: u32 = 4294901760u32;

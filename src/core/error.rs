@@ -1,10 +1,5 @@
 use super::*;
-
-use bindings::{
-    Windows::Win32::Foundation::{GetLastError, BOOL, BSTR, S_OK},
-    Windows::Win32::System::Com::{GetErrorInfo, SetErrorInfo},
-    Windows::Win32::System::WinRT::{ILanguageExceptionErrorInfo2, IRestrictedErrorInfo},
-};
+use bindings::*;
 
 /// A WinRT error object consists of both an error code as well as detailed error information for debugging.
 #[derive(Clone, PartialEq)]
@@ -40,7 +35,7 @@ impl Error {
     }
 
     pub fn from_win32() -> Self {
-        unsafe { Self::fast_error(GetLastError().into()) }
+        unsafe { Self::fast_error(HRESULT::from_win32(GetLastError())) }
     }
 
     /// The error code describing the error.

@@ -1,7 +1,6 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Ellipse(pub ::windows::core::IInspectable);
+pub struct Ellipse(::windows::core::IUnknown);
 impl Ellipse {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -11,11 +10,22 @@ impl Ellipse {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for Ellipse {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Ellipse {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Ellipse {}
 unsafe impl ::windows::core::RuntimeType for Ellipse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Ellipse;{70e05ac4-d38d-4bab-831f-4a22ef52ac86})");
 }
 unsafe impl ::windows::core::Interface for Ellipse {
-    type Vtable = IEllipse_abi;
+    type Vtable = IEllipseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
 }
 impl ::windows::core::RuntimeName for Ellipse {
@@ -23,42 +33,42 @@ impl ::windows::core::RuntimeName for Ellipse {
 }
 impl ::core::convert::From<Ellipse> for ::windows::core::IUnknown {
     fn from(value: Ellipse) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Ellipse> for ::windows::core::IUnknown {
     fn from(value: &Ellipse) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Ellipse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<Ellipse> for ::windows::core::IInspectable {
     fn from(value: Ellipse) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Ellipse> for ::windows::core::IInspectable {
     fn from(value: &Ellipse) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Ellipse {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Composition")]
@@ -115,7 +125,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
 }
 impl ::core::convert::From<Ellipse> for Shape {
     fn from(value: Ellipse) -> Self {
-        ::core::convert::Into::<Shape>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Ellipse> for Shape {
@@ -125,17 +135,17 @@ impl ::core::convert::From<&Ellipse> for Shape {
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for &Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
     }
 }
 impl ::core::convert::From<Ellipse> for super::FrameworkElement {
     fn from(value: Ellipse) -> Self {
-        ::core::convert::Into::<super::FrameworkElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Ellipse> for super::FrameworkElement {
@@ -145,17 +155,17 @@ impl ::core::convert::From<&Ellipse> for super::FrameworkElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
     }
 }
 impl ::core::convert::From<Ellipse> for super::UIElement {
     fn from(value: Ellipse) -> Self {
-        ::core::convert::Into::<super::UIElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Ellipse> for super::UIElement {
@@ -165,17 +175,17 @@ impl ::core::convert::From<&Ellipse> for super::UIElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
     }
 }
 impl ::core::convert::From<Ellipse> for super::DependencyObject {
     fn from(value: Ellipse) -> Self {
-        ::core::convert::Into::<super::DependencyObject>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Ellipse> for super::DependencyObject {
@@ -185,389 +195,388 @@ impl ::core::convert::From<&Ellipse> for super::DependencyObject {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Ellipse {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 unsafe impl ::core::marker::Send for Ellipse {}
 unsafe impl ::core::marker::Sync for Ellipse {}
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IEllipse(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IEllipse(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IEllipse {
-    type Vtable = IEllipse_abi;
+    type Vtable = IEllipseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70e05ac4_d38d_4bab_831f_4a22ef52ac86);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IEllipse_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
+pub struct IEllipseVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILine(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILine(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILine {
-    type Vtable = ILine_abi;
+    type Vtable = ILineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILine_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
+pub struct ILineVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct ILineStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct ILineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for ILineStatics {
-    type Vtable = ILineStatics_abi;
+    type Vtable = ILineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x267c123d_6ea4_4c50_8b1d_50207aff1e8a);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct ILineStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct ILineStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPath(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPath(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPath {
-    type Vtable = IPath_abi;
+    type Vtable = IPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPath_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPathVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPathFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPathFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathFactory {
-    type Vtable = IPathFactory_abi;
+    type Vtable = IPathFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2340a4e3_5a86_4fc6_9a50_cbb93b828766);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPathFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baseinterface: ::windows::core::RawPtr, innerinterface: *mut ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPathFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPathStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPathStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPathStatics {
-    type Vtable = IPathStatics_abi;
+    type Vtable = IPathStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf627e59d_87dc_4142_81f1_97fc7ff8641c);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPathStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPathStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolygon(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPolygon(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolygon {
-    type Vtable = IPolygon_abi;
+    type Vtable = IPolygonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolygon_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT,
+pub struct IPolygonVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::Media::FillRule) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Media::FillRule) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolygonStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPolygonStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolygonStatics {
-    type Vtable = IPolygonStatics_abi;
+    type Vtable = IPolygonStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x362a8aab_d463_4366_9e1a_beba72810fb7);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolygonStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPolygonStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolyline(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPolyline(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolyline {
-    type Vtable = IPolyline_abi;
+    type Vtable = IPolylineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolyline_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT,
+pub struct IPolylineVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::FillRule) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::Media::FillRule) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Media::FillRule) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IPolylineStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IPolylineStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IPolylineStatics {
-    type Vtable = IPolylineStatics_abi;
+    type Vtable = IPolylineStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7aa2cd1_a26c_43b0_aaa5_822fa64a11b9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IPolylineStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IPolylineStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IRectangle(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IRectangle(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRectangle {
-    type Vtable = IRectangle_abi;
+    type Vtable = IRectangleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRectangle_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
+pub struct IRectangleVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IRectangleStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IRectangleStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IRectangleStatics {
-    type Vtable = IRectangleStatics_abi;
+    type Vtable = IRectangleStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f25aa53_bb3a_4c3c_89db_6fbc0d1fa0cc);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IRectangleStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IRectangleStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IShape(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IShape(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShape {
-    type Vtable = IShape_abi;
+    type Vtable = IShapeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShape_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IShapeVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::Media::PenLineCap) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::Media::PenLineCap) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Media::PenLineJoin) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineJoin) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::Media::PenLineJoin) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Media::PenLineJoin) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut f64) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: f64) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut f64) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: f64) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::PenLineCap) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::Media::PenLineCap) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Media::PenLineCap) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
-    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation_Collections", feature = "UI_Xaml_Media")))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut super::Media::Stretch) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut super::Media::Stretch) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: super::Media::Stretch) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: super::Media::Stretch) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
-    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Xaml_Media")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Xaml_Media"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IShape2(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IShape2(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShape2 {
-    type Vtable = IShape2_abi;
+    type Vtable = IShape2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97248dba_49f2_49a4_a5dd_164df824db14);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShape2_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(feature = "UI_Composition")] pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IShape2Vtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "UI_Composition")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "UI_Composition"))] usize,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IShapeFactory(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IShapeFactory(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShapeFactory {
-    type Vtable = IShapeFactory_abi;
+    type Vtable = IShapeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b717613_f6aa_48d5_9588_e1d188eacbc9);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShapeFactory_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, baseinterface: ::windows::core::RawPtr, innerinterface: *mut ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IShapeFactoryVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
-#[repr(transparent)]
 #[doc(hidden)]
-pub struct IShapeStatics(pub ::windows::core::IInspectable);
+#[repr(transparent)]
+pub struct IShapeStatics(::windows::core::IUnknown);
 unsafe impl ::windows::core::Interface for IShapeStatics {
-    type Vtable = IShapeStatics_abi;
+    type Vtable = IShapeStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d7b4c55_9df3_48dc_9194_9d306faa6089);
 }
 #[repr(C)]
 #[doc(hidden)]
-pub struct IShapeStatics_abi(
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, iid: &::windows::core::GUID, interface: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr) -> u32,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+pub struct IShapeStaticsVtbl(
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Line(pub ::windows::core::IInspectable);
+pub struct Line(::windows::core::IUnknown);
 impl Line {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -649,11 +658,22 @@ impl Line {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for Line {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Line {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Line {}
 unsafe impl ::windows::core::RuntimeType for Line {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Line;{46a5433d-4ffb-48df-8732-4e15c834816b})");
 }
 unsafe impl ::windows::core::Interface for Line {
-    type Vtable = ILine_abi;
+    type Vtable = ILineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46a5433d_4ffb_48df_8732_4e15c834816b);
 }
 impl ::windows::core::RuntimeName for Line {
@@ -661,42 +681,42 @@ impl ::windows::core::RuntimeName for Line {
 }
 impl ::core::convert::From<Line> for ::windows::core::IUnknown {
     fn from(value: Line) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Line> for ::windows::core::IUnknown {
     fn from(value: &Line) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Line {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Line {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Line {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<Line> for ::windows::core::IInspectable {
     fn from(value: Line) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Line> for ::windows::core::IInspectable {
     fn from(value: &Line) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Line {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Line {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Composition")]
@@ -753,7 +773,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
 }
 impl ::core::convert::From<Line> for Shape {
     fn from(value: Line) -> Self {
-        ::core::convert::Into::<Shape>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Line> for Shape {
@@ -763,17 +783,17 @@ impl ::core::convert::From<&Line> for Shape {
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for Line {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for &Line {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
     }
 }
 impl ::core::convert::From<Line> for super::FrameworkElement {
     fn from(value: Line) -> Self {
-        ::core::convert::Into::<super::FrameworkElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Line> for super::FrameworkElement {
@@ -783,17 +803,17 @@ impl ::core::convert::From<&Line> for super::FrameworkElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Line {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Line {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
     }
 }
 impl ::core::convert::From<Line> for super::UIElement {
     fn from(value: Line) -> Self {
-        ::core::convert::Into::<super::UIElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Line> for super::UIElement {
@@ -803,17 +823,17 @@ impl ::core::convert::From<&Line> for super::UIElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Line {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Line {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
     }
 }
 impl ::core::convert::From<Line> for super::DependencyObject {
     fn from(value: Line) -> Self {
-        ::core::convert::Into::<super::DependencyObject>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Line> for super::DependencyObject {
@@ -823,19 +843,18 @@ impl ::core::convert::From<&Line> for super::DependencyObject {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Line {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Line {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 unsafe impl ::core::marker::Send for Line {}
 unsafe impl ::core::marker::Sync for Line {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Path(pub ::windows::core::IInspectable);
+pub struct Path(::windows::core::IUnknown);
 impl Path {
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn Data(&self) -> ::windows::core::Result<super::Media::Geometry> {
@@ -850,32 +869,43 @@ impl Path {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    pub fn DataProperty() -> ::windows::core::Result<super::DependencyProperty> {
-        Self::IPathStatics(|this| unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
-        })
-    }
     pub fn new() -> ::windows::core::Result<Path> {
         Self::IPathFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<Path>(result__)
         })
     }
-    pub fn IPathStatics<R, F: FnOnce(&IPathStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
-        static mut SHARED: ::windows::core::FactoryCache<Path, IPathStatics> = ::windows::core::FactoryCache::new();
-        unsafe { SHARED.call(callback) }
+    pub fn DataProperty() -> ::windows::core::Result<super::DependencyProperty> {
+        Self::IPathStatics(|this| unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
+        })
     }
     pub fn IPathFactory<R, F: FnOnce(&IPathFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Path, IPathFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    pub fn IPathStatics<R, F: FnOnce(&IPathStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
+        static mut SHARED: ::windows::core::FactoryCache<Path, IPathStatics> = ::windows::core::FactoryCache::new();
+        unsafe { SHARED.call(callback) }
+    }
 }
+impl ::core::clone::Clone for Path {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Path {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Path {}
 unsafe impl ::windows::core::RuntimeType for Path {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Path;{78883609-3d57-4f3c-b8a5-6cabcac9711f})");
 }
 unsafe impl ::windows::core::Interface for Path {
-    type Vtable = IPath_abi;
+    type Vtable = IPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78883609_3d57_4f3c_b8a5_6cabcac9711f);
 }
 impl ::windows::core::RuntimeName for Path {
@@ -883,42 +913,42 @@ impl ::windows::core::RuntimeName for Path {
 }
 impl ::core::convert::From<Path> for ::windows::core::IUnknown {
     fn from(value: Path) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Path> for ::windows::core::IUnknown {
     fn from(value: &Path) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Path {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Path {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Path {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<Path> for ::windows::core::IInspectable {
     fn from(value: Path) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Path> for ::windows::core::IInspectable {
     fn from(value: &Path) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Path {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Path {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Path {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Composition")]
@@ -975,7 +1005,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
 }
 impl ::core::convert::From<Path> for Shape {
     fn from(value: Path) -> Self {
-        ::core::convert::Into::<Shape>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Path> for Shape {
@@ -985,17 +1015,17 @@ impl ::core::convert::From<&Path> for Shape {
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for Path {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for &Path {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
     }
 }
 impl ::core::convert::From<Path> for super::FrameworkElement {
     fn from(value: Path) -> Self {
-        ::core::convert::Into::<super::FrameworkElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Path> for super::FrameworkElement {
@@ -1005,17 +1035,17 @@ impl ::core::convert::From<&Path> for super::FrameworkElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Path {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Path {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
     }
 }
 impl ::core::convert::From<Path> for super::UIElement {
     fn from(value: Path) -> Self {
-        ::core::convert::Into::<super::UIElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Path> for super::UIElement {
@@ -1025,17 +1055,17 @@ impl ::core::convert::From<&Path> for super::UIElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Path {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Path {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
     }
 }
 impl ::core::convert::From<Path> for super::DependencyObject {
     fn from(value: Path) -> Self {
-        ::core::convert::Into::<super::DependencyObject>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Path> for super::DependencyObject {
@@ -1045,19 +1075,18 @@ impl ::core::convert::From<&Path> for super::DependencyObject {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Path {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Path {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 unsafe impl ::core::marker::Send for Path {}
 unsafe impl ::core::marker::Sync for Path {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Polygon(pub ::windows::core::IInspectable);
+pub struct Polygon(::windows::core::IUnknown);
 impl Polygon {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1109,11 +1138,22 @@ impl Polygon {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for Polygon {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Polygon {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Polygon {}
 unsafe impl ::windows::core::RuntimeType for Polygon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Polygon;{e3755c19-2e4d-4bcc-8d34-86871957fa01})");
 }
 unsafe impl ::windows::core::Interface for Polygon {
-    type Vtable = IPolygon_abi;
+    type Vtable = IPolygonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3755c19_2e4d_4bcc_8d34_86871957fa01);
 }
 impl ::windows::core::RuntimeName for Polygon {
@@ -1121,42 +1161,42 @@ impl ::windows::core::RuntimeName for Polygon {
 }
 impl ::core::convert::From<Polygon> for ::windows::core::IUnknown {
     fn from(value: Polygon) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Polygon> for ::windows::core::IUnknown {
     fn from(value: &Polygon) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Polygon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<Polygon> for ::windows::core::IInspectable {
     fn from(value: Polygon) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Polygon> for ::windows::core::IInspectable {
     fn from(value: &Polygon) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Polygon {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Composition")]
@@ -1213,7 +1253,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
 }
 impl ::core::convert::From<Polygon> for Shape {
     fn from(value: Polygon) -> Self {
-        ::core::convert::Into::<Shape>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polygon> for Shape {
@@ -1223,17 +1263,17 @@ impl ::core::convert::From<&Polygon> for Shape {
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for &Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
     }
 }
 impl ::core::convert::From<Polygon> for super::FrameworkElement {
     fn from(value: Polygon) -> Self {
-        ::core::convert::Into::<super::FrameworkElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polygon> for super::FrameworkElement {
@@ -1243,17 +1283,17 @@ impl ::core::convert::From<&Polygon> for super::FrameworkElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
     }
 }
 impl ::core::convert::From<Polygon> for super::UIElement {
     fn from(value: Polygon) -> Self {
-        ::core::convert::Into::<super::UIElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polygon> for super::UIElement {
@@ -1263,17 +1303,17 @@ impl ::core::convert::From<&Polygon> for super::UIElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
     }
 }
 impl ::core::convert::From<Polygon> for super::DependencyObject {
     fn from(value: Polygon) -> Self {
-        ::core::convert::Into::<super::DependencyObject>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polygon> for super::DependencyObject {
@@ -1283,19 +1323,18 @@ impl ::core::convert::From<&Polygon> for super::DependencyObject {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Polygon {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 unsafe impl ::core::marker::Send for Polygon {}
 unsafe impl ::core::marker::Sync for Polygon {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Polyline(pub ::windows::core::IInspectable);
+pub struct Polyline(::windows::core::IUnknown);
 impl Polyline {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1347,11 +1386,22 @@ impl Polyline {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for Polyline {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Polyline {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Polyline {}
 unsafe impl ::windows::core::RuntimeType for Polyline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Polyline;{91dc62f8-42b3-47f3-8476-c55124a7c4c6})");
 }
 unsafe impl ::windows::core::Interface for Polyline {
-    type Vtable = IPolyline_abi;
+    type Vtable = IPolylineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91dc62f8_42b3_47f3_8476_c55124a7c4c6);
 }
 impl ::windows::core::RuntimeName for Polyline {
@@ -1359,42 +1409,42 @@ impl ::windows::core::RuntimeName for Polyline {
 }
 impl ::core::convert::From<Polyline> for ::windows::core::IUnknown {
     fn from(value: Polyline) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Polyline> for ::windows::core::IUnknown {
     fn from(value: &Polyline) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Polyline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<Polyline> for ::windows::core::IInspectable {
     fn from(value: Polyline) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Polyline> for ::windows::core::IInspectable {
     fn from(value: &Polyline) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Polyline {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Composition")]
@@ -1451,7 +1501,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
 }
 impl ::core::convert::From<Polyline> for Shape {
     fn from(value: Polyline) -> Self {
-        ::core::convert::Into::<Shape>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polyline> for Shape {
@@ -1461,17 +1511,17 @@ impl ::core::convert::From<&Polyline> for Shape {
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for &Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
     }
 }
 impl ::core::convert::From<Polyline> for super::FrameworkElement {
     fn from(value: Polyline) -> Self {
-        ::core::convert::Into::<super::FrameworkElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polyline> for super::FrameworkElement {
@@ -1481,17 +1531,17 @@ impl ::core::convert::From<&Polyline> for super::FrameworkElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
     }
 }
 impl ::core::convert::From<Polyline> for super::UIElement {
     fn from(value: Polyline) -> Self {
-        ::core::convert::Into::<super::UIElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polyline> for super::UIElement {
@@ -1501,17 +1551,17 @@ impl ::core::convert::From<&Polyline> for super::UIElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
     }
 }
 impl ::core::convert::From<Polyline> for super::DependencyObject {
     fn from(value: Polyline) -> Self {
-        ::core::convert::Into::<super::DependencyObject>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Polyline> for super::DependencyObject {
@@ -1521,19 +1571,18 @@ impl ::core::convert::From<&Polyline> for super::DependencyObject {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Polyline {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 unsafe impl ::core::marker::Send for Polyline {}
 unsafe impl ::core::marker::Sync for Polyline {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Rectangle(pub ::windows::core::IInspectable);
+pub struct Rectangle(::windows::core::IUnknown);
 impl Rectangle {
     pub fn new() -> ::windows::core::Result<Self> {
         Self::IActivationFactory(|f| f.activate_instance::<Self>())
@@ -1581,11 +1630,22 @@ impl Rectangle {
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for Rectangle {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Rectangle {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Rectangle {}
 unsafe impl ::windows::core::RuntimeType for Rectangle {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Rectangle;{855bc230-8a11-4e18-a136-4bc21c7827b0})");
 }
 unsafe impl ::windows::core::Interface for Rectangle {
-    type Vtable = IRectangle_abi;
+    type Vtable = IRectangleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x855bc230_8a11_4e18_a136_4bc21c7827b0);
 }
 impl ::windows::core::RuntimeName for Rectangle {
@@ -1593,42 +1653,42 @@ impl ::windows::core::RuntimeName for Rectangle {
 }
 impl ::core::convert::From<Rectangle> for ::windows::core::IUnknown {
     fn from(value: Rectangle) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Rectangle> for ::windows::core::IUnknown {
     fn from(value: &Rectangle) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Rectangle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<Rectangle> for ::windows::core::IInspectable {
     fn from(value: Rectangle) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Rectangle> for ::windows::core::IInspectable {
     fn from(value: &Rectangle) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Rectangle {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Composition")]
@@ -1685,7 +1745,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
 }
 impl ::core::convert::From<Rectangle> for Shape {
     fn from(value: Rectangle) -> Self {
-        ::core::convert::Into::<Shape>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Rectangle> for Shape {
@@ -1695,17 +1755,17 @@ impl ::core::convert::From<&Rectangle> for Shape {
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, Shape> for &Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, Shape> {
-        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<Shape>::into(self))
     }
 }
 impl ::core::convert::From<Rectangle> for super::FrameworkElement {
     fn from(value: Rectangle) -> Self {
-        ::core::convert::Into::<super::FrameworkElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Rectangle> for super::FrameworkElement {
@@ -1715,17 +1775,17 @@ impl ::core::convert::From<&Rectangle> for super::FrameworkElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
     }
 }
 impl ::core::convert::From<Rectangle> for super::UIElement {
     fn from(value: Rectangle) -> Self {
-        ::core::convert::Into::<super::UIElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Rectangle> for super::UIElement {
@@ -1735,17 +1795,17 @@ impl ::core::convert::From<&Rectangle> for super::UIElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
     }
 }
 impl ::core::convert::From<Rectangle> for super::DependencyObject {
     fn from(value: Rectangle) -> Self {
-        ::core::convert::Into::<super::DependencyObject>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Rectangle> for super::DependencyObject {
@@ -1755,19 +1815,18 @@ impl ::core::convert::From<&Rectangle> for super::DependencyObject {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Rectangle {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 unsafe impl ::core::marker::Send for Rectangle {}
 unsafe impl ::core::marker::Sync for Rectangle {}
 #[repr(transparent)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: clone :: Clone, :: core :: fmt :: Debug)]
-pub struct Shape(pub ::windows::core::IInspectable);
+pub struct Shape(::windows::core::IUnknown);
 impl Shape {
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn Fill(&self) -> ::windows::core::Result<super::Media::Brush> {
@@ -1914,6 +1973,14 @@ impl Shape {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Media::Transform>(result__)
         }
     }
+    #[cfg(feature = "UI_Composition")]
+    pub fn GetAlphaMask(&self) -> ::windows::core::Result<super::super::Composition::CompositionBrush> {
+        let this = &::windows::core::Interface::cast::<IShape2>(self)?;
+        unsafe {
+            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
+            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Composition::CompositionBrush>(result__)
+        }
+    }
     pub fn FillProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IShapeStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1980,24 +2047,27 @@ impl Shape {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
-    #[cfg(feature = "UI_Composition")]
-    pub fn GetAlphaMask(&self) -> ::windows::core::Result<super::super::Composition::CompositionBrush> {
-        let this = &::windows::core::Interface::cast::<IShape2>(self)?;
-        unsafe {
-            let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
-            (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Composition::CompositionBrush>(result__)
-        }
-    }
     pub fn IShapeStatics<R, F: FnOnce(&IShapeStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Shape, IShapeStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+impl ::core::clone::Clone for Shape {
+    fn clone(&self) -> Self {
+        Self(self.0.clone())
+    }
+}
+impl ::core::cmp::PartialEq for Shape {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for Shape {}
 unsafe impl ::windows::core::RuntimeType for Shape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Shapes.Shape;{786f2b75-9aa0-454d-ae06-a2466e37c832})");
 }
 unsafe impl ::windows::core::Interface for Shape {
-    type Vtable = IShape_abi;
+    type Vtable = IShapeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x786f2b75_9aa0_454d_ae06_a2466e37c832);
 }
 impl ::windows::core::RuntimeName for Shape {
@@ -2005,42 +2075,42 @@ impl ::windows::core::RuntimeName for Shape {
 }
 impl ::core::convert::From<Shape> for ::windows::core::IUnknown {
     fn from(value: Shape) -> Self {
-        value.0 .0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Shape> for ::windows::core::IUnknown {
     fn from(value: &Shape) -> Self {
-        value.0 .0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for Shape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Owned(self.0 .0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &'a Shape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &Shape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
-        ::windows::core::Param::Borrowed(&self.0 .0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 impl ::core::convert::From<Shape> for ::windows::core::IInspectable {
     fn from(value: Shape) -> Self {
-        value.0
+        unsafe { ::core::mem::transmute(value) }
     }
 }
 impl ::core::convert::From<&Shape> for ::windows::core::IInspectable {
     fn from(value: &Shape) -> Self {
-        value.0.clone()
+        ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for Shape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Owned(self.0)
+        ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
-impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &'a Shape {
+impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Shape {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
-        ::windows::core::Param::Borrowed(&self.0)
+        ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
 #[cfg(feature = "UI_Composition")]
@@ -2097,7 +2167,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Composition::IVisualElemen
 }
 impl ::core::convert::From<Shape> for super::FrameworkElement {
     fn from(value: Shape) -> Self {
-        ::core::convert::Into::<super::FrameworkElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Shape> for super::FrameworkElement {
@@ -2107,17 +2177,17 @@ impl ::core::convert::From<&Shape> for super::FrameworkElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for Shape {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::FrameworkElement> for &Shape {
     fn into_param(self) -> ::windows::core::Param<'a, super::FrameworkElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::FrameworkElement>::into(self))
     }
 }
 impl ::core::convert::From<Shape> for super::UIElement {
     fn from(value: Shape) -> Self {
-        ::core::convert::Into::<super::UIElement>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Shape> for super::UIElement {
@@ -2127,17 +2197,17 @@ impl ::core::convert::From<&Shape> for super::UIElement {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for Shape {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::UIElement> for &Shape {
     fn into_param(self) -> ::windows::core::Param<'a, super::UIElement> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::UIElement>::into(self))
     }
 }
 impl ::core::convert::From<Shape> for super::DependencyObject {
     fn from(value: Shape) -> Self {
-        ::core::convert::Into::<super::DependencyObject>::into(&value)
+        ::core::convert::From::from(&value)
     }
 }
 impl ::core::convert::From<&Shape> for super::DependencyObject {
@@ -2147,12 +2217,12 @@ impl ::core::convert::From<&Shape> for super::DependencyObject {
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for Shape {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
+        ::windows::core::IntoParam::into_param(&self)
     }
 }
 impl<'a> ::windows::core::IntoParam<'a, super::DependencyObject> for &Shape {
     fn into_param(self) -> ::windows::core::Param<'a, super::DependencyObject> {
-        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(::core::clone::Clone::clone(self)))
+        ::windows::core::Param::Owned(::core::convert::Into::<super::DependencyObject>::into(self))
     }
 }
 unsafe impl ::core::marker::Send for Shape {}

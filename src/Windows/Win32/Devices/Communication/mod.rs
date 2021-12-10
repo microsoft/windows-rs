@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildCommDCBA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdef: Param0, lpdcb: *mut DCB) -> super::super::Foundation::BOOL {
@@ -55,51 +55,12 @@ pub unsafe fn BuildCommDCBW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CLEAR_COMM_ERROR_FLAGS(pub u32);
-pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(16u32);
-pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(8u32);
-pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(2u32);
-pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(1u32);
-pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = CLEAR_COMM_ERROR_FLAGS(4u32);
-impl ::core::convert::From<u32> for CLEAR_COMM_ERROR_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CLEAR_COMM_ERROR_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CLEAR_COMM_ERROR_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CLEAR_COMM_ERROR_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CLEAR_COMM_ERROR_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CLEAR_COMM_ERROR_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CLEAR_COMM_ERROR_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CLEAR_COMM_ERROR_FLAGS = u32;
+pub const CE_BREAK: CLEAR_COMM_ERROR_FLAGS = 16u32;
+pub const CE_FRAME: CLEAR_COMM_ERROR_FLAGS = 8u32;
+pub const CE_OVERRUN: CLEAR_COMM_ERROR_FLAGS = 2u32;
+pub const CE_RXOVER: CLEAR_COMM_ERROR_FLAGS = 1u32;
+pub const CE_RXPARITY: CLEAR_COMM_ERROR_FLAGS = 4u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COMMCONFIG {
@@ -113,32 +74,31 @@ pub struct COMMCONFIG {
     pub wcProviderData: [u16; 1],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl COMMCONFIG {}
+impl ::core::marker::Copy for COMMCONFIG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for COMMCONFIG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COMMCONFIG {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for COMMCONFIG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMMCONFIG>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for COMMCONFIG {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for COMMCONFIG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COMMCONFIG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMMCONFIG").field("dwSize", &self.dwSize).field("wVersion", &self.wVersion).field("wReserved", &self.wReserved).field("dcb", &self.dcb).field("dwProviderSubType", &self.dwProviderSubType).field("dwProviderOffset", &self.dwProviderOffset).field("dwProviderSize", &self.dwProviderSize).field("wcProviderData", &self.wcProviderData).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for COMMCONFIG {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwSize == other.dwSize && self.wVersion == other.wVersion && self.wReserved == other.wReserved && self.dcb == other.dcb && self.dwProviderSubType == other.dwProviderSubType && self.dwProviderOffset == other.dwProviderOffset && self.dwProviderSize == other.dwProviderSize && self.wcProviderData == other.wcProviderData
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for COMMCONFIG {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COMMCONFIG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct COMMPROP {
     pub wPacketLength: u16,
@@ -160,110 +120,35 @@ pub struct COMMPROP {
     pub dwProvSpec2: u32,
     pub wcProvChar: [u16; 1],
 }
-impl COMMPROP {}
+impl ::core::marker::Copy for COMMPROP {}
+impl ::core::clone::Clone for COMMPROP {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMMPROP {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMMPROP {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMMPROP>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMMPROP {}
 impl ::core::default::Default for COMMPROP {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for COMMPROP {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMMPROP")
-            .field("wPacketLength", &self.wPacketLength)
-            .field("wPacketVersion", &self.wPacketVersion)
-            .field("dwServiceMask", &self.dwServiceMask)
-            .field("dwReserved1", &self.dwReserved1)
-            .field("dwMaxTxQueue", &self.dwMaxTxQueue)
-            .field("dwMaxRxQueue", &self.dwMaxRxQueue)
-            .field("dwMaxBaud", &self.dwMaxBaud)
-            .field("dwProvSubType", &self.dwProvSubType)
-            .field("dwProvCapabilities", &self.dwProvCapabilities)
-            .field("dwSettableParams", &self.dwSettableParams)
-            .field("dwSettableBaud", &self.dwSettableBaud)
-            .field("wSettableData", &self.wSettableData)
-            .field("wSettableStopParity", &self.wSettableStopParity)
-            .field("dwCurrentTxQueue", &self.dwCurrentTxQueue)
-            .field("dwCurrentRxQueue", &self.dwCurrentRxQueue)
-            .field("dwProvSpec1", &self.dwProvSpec1)
-            .field("dwProvSpec2", &self.dwProvSpec2)
-            .field("wcProvChar", &self.wcProvChar)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for COMMPROP {
-    fn eq(&self, other: &Self) -> bool {
-        self.wPacketLength == other.wPacketLength
-            && self.wPacketVersion == other.wPacketVersion
-            && self.dwServiceMask == other.dwServiceMask
-            && self.dwReserved1 == other.dwReserved1
-            && self.dwMaxTxQueue == other.dwMaxTxQueue
-            && self.dwMaxRxQueue == other.dwMaxRxQueue
-            && self.dwMaxBaud == other.dwMaxBaud
-            && self.dwProvSubType == other.dwProvSubType
-            && self.dwProvCapabilities == other.dwProvCapabilities
-            && self.dwSettableParams == other.dwSettableParams
-            && self.dwSettableBaud == other.dwSettableBaud
-            && self.wSettableData == other.wSettableData
-            && self.wSettableStopParity == other.wSettableStopParity
-            && self.dwCurrentTxQueue == other.dwCurrentTxQueue
-            && self.dwCurrentRxQueue == other.dwCurrentRxQueue
-            && self.dwProvSpec1 == other.dwProvSpec1
-            && self.dwProvSpec2 == other.dwProvSpec2
-            && self.wcProvChar == other.wcProvChar
-    }
-}
-impl ::core::cmp::Eq for COMMPROP {}
-unsafe impl ::windows::core::Abi for COMMPROP {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COMMPROP_STOP_PARITY(pub u16);
-pub const STOPBITS_10: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1u16);
-pub const STOPBITS_15: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2u16);
-pub const STOPBITS_20: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4u16);
-pub const PARITY_NONE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(256u16);
-pub const PARITY_ODD: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(512u16);
-pub const PARITY_EVEN: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(1024u16);
-pub const PARITY_MARK: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(2048u16);
-pub const PARITY_SPACE: COMMPROP_STOP_PARITY = COMMPROP_STOP_PARITY(4096u16);
-impl ::core::convert::From<u16> for COMMPROP_STOP_PARITY {
-    fn from(value: u16) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COMMPROP_STOP_PARITY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for COMMPROP_STOP_PARITY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for COMMPROP_STOP_PARITY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COMMPROP_STOP_PARITY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COMMPROP_STOP_PARITY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for COMMPROP_STOP_PARITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type COMMPROP_STOP_PARITY = u16;
+pub const STOPBITS_10: COMMPROP_STOP_PARITY = 1u16;
+pub const STOPBITS_15: COMMPROP_STOP_PARITY = 2u16;
+pub const STOPBITS_20: COMMPROP_STOP_PARITY = 4u16;
+pub const PARITY_NONE: COMMPROP_STOP_PARITY = 256u16;
+pub const PARITY_ODD: COMMPROP_STOP_PARITY = 512u16;
+pub const PARITY_EVEN: COMMPROP_STOP_PARITY = 1024u16;
+pub const PARITY_MARK: COMMPROP_STOP_PARITY = 2048u16;
+pub const PARITY_SPACE: COMMPROP_STOP_PARITY = 4096u16;
 #[repr(C)]
 pub struct COMMTIMEOUTS {
     pub ReadIntervalTimeout: u32,
@@ -272,104 +157,65 @@ pub struct COMMTIMEOUTS {
     pub WriteTotalTimeoutMultiplier: u32,
     pub WriteTotalTimeoutConstant: u32,
 }
-impl COMMTIMEOUTS {}
+impl ::core::marker::Copy for COMMTIMEOUTS {}
+impl ::core::clone::Clone for COMMTIMEOUTS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMMTIMEOUTS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMMTIMEOUTS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMMTIMEOUTS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMMTIMEOUTS {}
 impl ::core::default::Default for COMMTIMEOUTS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for COMMTIMEOUTS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMMTIMEOUTS").field("ReadIntervalTimeout", &self.ReadIntervalTimeout).field("ReadTotalTimeoutMultiplier", &self.ReadTotalTimeoutMultiplier).field("ReadTotalTimeoutConstant", &self.ReadTotalTimeoutConstant).field("WriteTotalTimeoutMultiplier", &self.WriteTotalTimeoutMultiplier).field("WriteTotalTimeoutConstant", &self.WriteTotalTimeoutConstant).finish()
-    }
-}
-impl ::core::cmp::PartialEq for COMMTIMEOUTS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReadIntervalTimeout == other.ReadIntervalTimeout && self.ReadTotalTimeoutMultiplier == other.ReadTotalTimeoutMultiplier && self.ReadTotalTimeoutConstant == other.ReadTotalTimeoutConstant && self.WriteTotalTimeoutMultiplier == other.WriteTotalTimeoutMultiplier && self.WriteTotalTimeoutConstant == other.WriteTotalTimeoutConstant
-    }
-}
-impl ::core::cmp::Eq for COMMTIMEOUTS {}
-unsafe impl ::windows::core::Abi for COMMTIMEOUTS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct COMM_EVENT_MASK(pub u32);
-pub const EV_BREAK: COMM_EVENT_MASK = COMM_EVENT_MASK(64u32);
-pub const EV_CTS: COMM_EVENT_MASK = COMM_EVENT_MASK(8u32);
-pub const EV_DSR: COMM_EVENT_MASK = COMM_EVENT_MASK(16u32);
-pub const EV_ERR: COMM_EVENT_MASK = COMM_EVENT_MASK(128u32);
-pub const EV_EVENT1: COMM_EVENT_MASK = COMM_EVENT_MASK(2048u32);
-pub const EV_EVENT2: COMM_EVENT_MASK = COMM_EVENT_MASK(4096u32);
-pub const EV_PERR: COMM_EVENT_MASK = COMM_EVENT_MASK(512u32);
-pub const EV_RING: COMM_EVENT_MASK = COMM_EVENT_MASK(256u32);
-pub const EV_RLSD: COMM_EVENT_MASK = COMM_EVENT_MASK(32u32);
-pub const EV_RX80FULL: COMM_EVENT_MASK = COMM_EVENT_MASK(1024u32);
-pub const EV_RXCHAR: COMM_EVENT_MASK = COMM_EVENT_MASK(1u32);
-pub const EV_RXFLAG: COMM_EVENT_MASK = COMM_EVENT_MASK(2u32);
-pub const EV_TXEMPTY: COMM_EVENT_MASK = COMM_EVENT_MASK(4u32);
-impl ::core::convert::From<u32> for COMM_EVENT_MASK {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for COMM_EVENT_MASK {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for COMM_EVENT_MASK {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for COMM_EVENT_MASK {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for COMM_EVENT_MASK {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for COMM_EVENT_MASK {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for COMM_EVENT_MASK {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type COMM_EVENT_MASK = u32;
+pub const EV_BREAK: COMM_EVENT_MASK = 64u32;
+pub const EV_CTS: COMM_EVENT_MASK = 8u32;
+pub const EV_DSR: COMM_EVENT_MASK = 16u32;
+pub const EV_ERR: COMM_EVENT_MASK = 128u32;
+pub const EV_EVENT1: COMM_EVENT_MASK = 2048u32;
+pub const EV_EVENT2: COMM_EVENT_MASK = 4096u32;
+pub const EV_PERR: COMM_EVENT_MASK = 512u32;
+pub const EV_RING: COMM_EVENT_MASK = 256u32;
+pub const EV_RLSD: COMM_EVENT_MASK = 32u32;
+pub const EV_RX80FULL: COMM_EVENT_MASK = 1024u32;
+pub const EV_RXCHAR: COMM_EVENT_MASK = 1u32;
+pub const EV_RXFLAG: COMM_EVENT_MASK = 2u32;
+pub const EV_TXEMPTY: COMM_EVENT_MASK = 4u32;
 #[repr(C)]
 pub struct COMSTAT {
     pub _bitfield: u32,
     pub cbInQue: u32,
     pub cbOutQue: u32,
 }
-impl COMSTAT {}
+impl ::core::marker::Copy for COMSTAT {}
+impl ::core::clone::Clone for COMSTAT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for COMSTAT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for COMSTAT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COMSTAT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for COMSTAT {}
 impl ::core::default::Default for COMSTAT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for COMSTAT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COMSTAT").field("_bitfield", &self._bitfield).field("cbInQue", &self.cbInQue).field("cbOutQue", &self.cbOutQue).finish()
-    }
-}
-impl ::core::cmp::PartialEq for COMSTAT {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield && self.cbInQue == other.cbInQue && self.cbOutQue == other.cbOutQue
-    }
-}
-impl ::core::cmp::Eq for COMSTAT {}
-unsafe impl ::windows::core::Abi for COMSTAT {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -427,7 +273,6 @@ pub unsafe fn CommConfigDialogW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DCB {
@@ -448,94 +293,40 @@ pub struct DCB {
     pub wReserved1: u16,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DCB {}
+impl ::core::marker::Copy for DCB {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DCB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DCB {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DCB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DCB>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DCB {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DCB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DCB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DCB")
-            .field("DCBlength", &self.DCBlength)
-            .field("BaudRate", &self.BaudRate)
-            .field("_bitfield", &self._bitfield)
-            .field("wReserved", &self.wReserved)
-            .field("XonLim", &self.XonLim)
-            .field("XoffLim", &self.XoffLim)
-            .field("ByteSize", &self.ByteSize)
-            .field("Parity", &self.Parity)
-            .field("StopBits", &self.StopBits)
-            .field("XonChar", &self.XonChar)
-            .field("XoffChar", &self.XoffChar)
-            .field("ErrorChar", &self.ErrorChar)
-            .field("EofChar", &self.EofChar)
-            .field("EvtChar", &self.EvtChar)
-            .field("wReserved1", &self.wReserved1)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DCB {
-    fn eq(&self, other: &Self) -> bool {
-        self.DCBlength == other.DCBlength && self.BaudRate == other.BaudRate && self._bitfield == other._bitfield && self.wReserved == other.wReserved && self.XonLim == other.XonLim && self.XoffLim == other.XoffLim && self.ByteSize == other.ByteSize && self.Parity == other.Parity && self.StopBits == other.StopBits && self.XonChar == other.XonChar && self.XoffChar == other.XoffChar && self.ErrorChar == other.ErrorChar && self.EofChar == other.EofChar && self.EvtChar == other.EvtChar && self.wReserved1 == other.wReserved1
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DCB {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DCB {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ESCAPE_COMM_FUNCTION(pub u32);
-pub const CLRBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(9u32);
-pub const CLRDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(6u32);
-pub const CLRRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(4u32);
-pub const SETBREAK: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(8u32);
-pub const SETDTR: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(5u32);
-pub const SETRTS: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(3u32);
-pub const SETXOFF: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(1u32);
-pub const SETXON: ESCAPE_COMM_FUNCTION = ESCAPE_COMM_FUNCTION(2u32);
-impl ::core::convert::From<u32> for ESCAPE_COMM_FUNCTION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ESCAPE_COMM_FUNCTION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for ESCAPE_COMM_FUNCTION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for ESCAPE_COMM_FUNCTION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ESCAPE_COMM_FUNCTION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ESCAPE_COMM_FUNCTION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for ESCAPE_COMM_FUNCTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type ESCAPE_COMM_FUNCTION = u32;
+pub const CLRBREAK: ESCAPE_COMM_FUNCTION = 9u32;
+pub const CLRDTR: ESCAPE_COMM_FUNCTION = 6u32;
+pub const CLRRTS: ESCAPE_COMM_FUNCTION = 4u32;
+pub const SETBREAK: ESCAPE_COMM_FUNCTION = 8u32;
+pub const SETDTR: ESCAPE_COMM_FUNCTION = 5u32;
+pub const SETRTS: ESCAPE_COMM_FUNCTION = 3u32;
+pub const SETXOFF: ESCAPE_COMM_FUNCTION = 1u32;
+pub const SETXON: ESCAPE_COMM_FUNCTION = 2u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EscapeCommFunction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfunc: ESCAPE_COMM_FUNCTION) -> super::super::Foundation::BOOL {
@@ -766,7 +557,6 @@ pub const MDM_X75_DATA_64K: u32 = 1u32;
 pub const MDM_X75_DATA_BTX: u32 = 4u32;
 pub const MDM_X75_DATA_DEFAULT: u32 = 0u32;
 pub const MDM_X75_DATA_T_70: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MODEMDEVCAPS {
     pub dwActualSize: u32,
@@ -790,194 +580,39 @@ pub struct MODEMDEVCAPS {
     pub dwMaxDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
-impl MODEMDEVCAPS {}
+impl ::core::marker::Copy for MODEMDEVCAPS {}
+impl ::core::clone::Clone for MODEMDEVCAPS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MODEMDEVCAPS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MODEMDEVCAPS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODEMDEVCAPS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MODEMDEVCAPS {}
 impl ::core::default::Default for MODEMDEVCAPS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MODEMDEVCAPS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MODEMDEVCAPS")
-            .field("dwActualSize", &self.dwActualSize)
-            .field("dwRequiredSize", &self.dwRequiredSize)
-            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
-            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
-            .field("dwModemProviderVersion", &self.dwModemProviderVersion)
-            .field("dwModemManufacturerOffset", &self.dwModemManufacturerOffset)
-            .field("dwModemManufacturerSize", &self.dwModemManufacturerSize)
-            .field("dwModemModelOffset", &self.dwModemModelOffset)
-            .field("dwModemModelSize", &self.dwModemModelSize)
-            .field("dwModemVersionOffset", &self.dwModemVersionOffset)
-            .field("dwModemVersionSize", &self.dwModemVersionSize)
-            .field("dwDialOptions", &self.dwDialOptions)
-            .field("dwCallSetupFailTimer", &self.dwCallSetupFailTimer)
-            .field("dwInactivityTimeout", &self.dwInactivityTimeout)
-            .field("dwSpeakerVolume", &self.dwSpeakerVolume)
-            .field("dwSpeakerMode", &self.dwSpeakerMode)
-            .field("dwModemOptions", &self.dwModemOptions)
-            .field("dwMaxDTERate", &self.dwMaxDTERate)
-            .field("dwMaxDCERate", &self.dwMaxDCERate)
-            .field("abVariablePortion", &self.abVariablePortion)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for MODEMDEVCAPS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwActualSize == other.dwActualSize
-            && self.dwRequiredSize == other.dwRequiredSize
-            && self.dwDevSpecificOffset == other.dwDevSpecificOffset
-            && self.dwDevSpecificSize == other.dwDevSpecificSize
-            && self.dwModemProviderVersion == other.dwModemProviderVersion
-            && self.dwModemManufacturerOffset == other.dwModemManufacturerOffset
-            && self.dwModemManufacturerSize == other.dwModemManufacturerSize
-            && self.dwModemModelOffset == other.dwModemModelOffset
-            && self.dwModemModelSize == other.dwModemModelSize
-            && self.dwModemVersionOffset == other.dwModemVersionOffset
-            && self.dwModemVersionSize == other.dwModemVersionSize
-            && self.dwDialOptions == other.dwDialOptions
-            && self.dwCallSetupFailTimer == other.dwCallSetupFailTimer
-            && self.dwInactivityTimeout == other.dwInactivityTimeout
-            && self.dwSpeakerVolume == other.dwSpeakerVolume
-            && self.dwSpeakerMode == other.dwSpeakerMode
-            && self.dwModemOptions == other.dwModemOptions
-            && self.dwMaxDTERate == other.dwMaxDTERate
-            && self.dwMaxDCERate == other.dwMaxDCERate
-            && self.abVariablePortion == other.abVariablePortion
-    }
-}
-impl ::core::cmp::Eq for MODEMDEVCAPS {}
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MODEMDEVCAPS_DIAL_OPTIONS(pub u32);
-pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(64u32);
-pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(256u32);
-pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = MODEMDEVCAPS_DIAL_OPTIONS(128u32);
-impl ::core::convert::From<u32> for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEMDEVCAPS_DIAL_OPTIONS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MODEMDEVCAPS_DIAL_OPTIONS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MODEMDEVCAPS_SPEAKER_MODE(pub u32);
-pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(8u32);
-pub const MDMSPKRFLAG_DIAL: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(2u32);
-pub const MDMSPKRFLAG_OFF: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(1u32);
-pub const MDMSPKRFLAG_ON: MODEMDEVCAPS_SPEAKER_MODE = MODEMDEVCAPS_SPEAKER_MODE(4u32);
-impl ::core::convert::From<u32> for MODEMDEVCAPS_SPEAKER_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MODEMDEVCAPS_SPEAKER_VOLUME(pub u32);
-pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(4u32);
-pub const MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(1u32);
-pub const MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = MODEMDEVCAPS_SPEAKER_VOLUME(2u32);
-impl ::core::convert::From<u32> for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEMDEVCAPS_SPEAKER_VOLUME {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MODEMDEVCAPS_SPEAKER_VOLUME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MODEMDEVCAPS_DIAL_OPTIONS = u32;
+pub const DIALOPTION_BILLING: MODEMDEVCAPS_DIAL_OPTIONS = 64u32;
+pub const DIALOPTION_DIALTONE: MODEMDEVCAPS_DIAL_OPTIONS = 256u32;
+pub const DIALOPTION_QUIET: MODEMDEVCAPS_DIAL_OPTIONS = 128u32;
+pub type MODEMDEVCAPS_SPEAKER_MODE = u32;
+pub const MDMSPKRFLAG_CALLSETUP: MODEMDEVCAPS_SPEAKER_MODE = 8u32;
+pub const MDMSPKRFLAG_DIAL: MODEMDEVCAPS_SPEAKER_MODE = 2u32;
+pub const MDMSPKRFLAG_OFF: MODEMDEVCAPS_SPEAKER_MODE = 1u32;
+pub const MDMSPKRFLAG_ON: MODEMDEVCAPS_SPEAKER_MODE = 4u32;
+pub type MODEMDEVCAPS_SPEAKER_VOLUME = u32;
+pub const MDMVOLFLAG_HIGH: MODEMDEVCAPS_SPEAKER_VOLUME = 4u32;
+pub const MDMVOLFLAG_LOW: MODEMDEVCAPS_SPEAKER_VOLUME = 1u32;
+pub const MDMVOLFLAG_MEDIUM: MODEMDEVCAPS_SPEAKER_VOLUME = 2u32;
 #[repr(C)]
 pub struct MODEMSETTINGS {
     pub dwActualSize: u32,
@@ -993,167 +628,40 @@ pub struct MODEMSETTINGS {
     pub dwNegotiatedDCERate: u32,
     pub abVariablePortion: [u8; 1],
 }
-impl MODEMSETTINGS {}
+impl ::core::marker::Copy for MODEMSETTINGS {}
+impl ::core::clone::Clone for MODEMSETTINGS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MODEMSETTINGS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MODEMSETTINGS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MODEMSETTINGS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MODEMSETTINGS {}
 impl ::core::default::Default for MODEMSETTINGS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MODEMSETTINGS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MODEMSETTINGS")
-            .field("dwActualSize", &self.dwActualSize)
-            .field("dwRequiredSize", &self.dwRequiredSize)
-            .field("dwDevSpecificOffset", &self.dwDevSpecificOffset)
-            .field("dwDevSpecificSize", &self.dwDevSpecificSize)
-            .field("dwCallSetupFailTimer", &self.dwCallSetupFailTimer)
-            .field("dwInactivityTimeout", &self.dwInactivityTimeout)
-            .field("dwSpeakerVolume", &self.dwSpeakerVolume)
-            .field("dwSpeakerMode", &self.dwSpeakerMode)
-            .field("dwPreferredModemOptions", &self.dwPreferredModemOptions)
-            .field("dwNegotiatedModemOptions", &self.dwNegotiatedModemOptions)
-            .field("dwNegotiatedDCERate", &self.dwNegotiatedDCERate)
-            .field("abVariablePortion", &self.abVariablePortion)
-            .finish()
-    }
-}
-impl ::core::cmp::PartialEq for MODEMSETTINGS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwActualSize == other.dwActualSize && self.dwRequiredSize == other.dwRequiredSize && self.dwDevSpecificOffset == other.dwDevSpecificOffset && self.dwDevSpecificSize == other.dwDevSpecificSize && self.dwCallSetupFailTimer == other.dwCallSetupFailTimer && self.dwInactivityTimeout == other.dwInactivityTimeout && self.dwSpeakerVolume == other.dwSpeakerVolume && self.dwSpeakerMode == other.dwSpeakerMode && self.dwPreferredModemOptions == other.dwPreferredModemOptions && self.dwNegotiatedModemOptions == other.dwNegotiatedModemOptions && self.dwNegotiatedDCERate == other.dwNegotiatedDCERate && self.abVariablePortion == other.abVariablePortion
-    }
-}
-impl ::core::cmp::Eq for MODEMSETTINGS {}
-unsafe impl ::windows::core::Abi for MODEMSETTINGS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MODEMSETTINGS_SPEAKER_MODE(pub u32);
-pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(8u32);
-pub const MDMSPKR_DIAL: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(2u32);
-pub const MDMSPKR_OFF: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(1u32);
-pub const MDMSPKR_ON: MODEMSETTINGS_SPEAKER_MODE = MODEMSETTINGS_SPEAKER_MODE(4u32);
-impl ::core::convert::From<u32> for MODEMSETTINGS_SPEAKER_MODE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MODEMSETTINGS_SPEAKER_MODE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MODEMSETTINGS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEMSETTINGS_SPEAKER_MODE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEMSETTINGS_SPEAKER_MODE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEMSETTINGS_SPEAKER_MODE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MODEMSETTINGS_SPEAKER_MODE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MODEM_SPEAKER_VOLUME(pub u32);
-pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(2u32);
-pub const MDMVOL_LOW: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(0u32);
-pub const MDMVOL_MEDIUM: MODEM_SPEAKER_VOLUME = MODEM_SPEAKER_VOLUME(1u32);
-impl ::core::convert::From<u32> for MODEM_SPEAKER_VOLUME {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MODEM_SPEAKER_VOLUME {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MODEM_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEM_SPEAKER_VOLUME {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEM_SPEAKER_VOLUME {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEM_SPEAKER_VOLUME {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MODEM_SPEAKER_VOLUME {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MODEM_STATUS_FLAGS(pub u32);
-pub const MS_CTS_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(16u32);
-pub const MS_DSR_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(32u32);
-pub const MS_RING_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(64u32);
-pub const MS_RLSD_ON: MODEM_STATUS_FLAGS = MODEM_STATUS_FLAGS(128u32);
-impl ::core::convert::From<u32> for MODEM_STATUS_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MODEM_STATUS_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MODEM_STATUS_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MODEM_STATUS_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MODEM_STATUS_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MODEM_STATUS_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MODEM_STATUS_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type MODEMSETTINGS_SPEAKER_MODE = u32;
+pub const MDMSPKR_CALLSETUP: MODEMSETTINGS_SPEAKER_MODE = 8u32;
+pub const MDMSPKR_DIAL: MODEMSETTINGS_SPEAKER_MODE = 2u32;
+pub const MDMSPKR_OFF: MODEMSETTINGS_SPEAKER_MODE = 1u32;
+pub const MDMSPKR_ON: MODEMSETTINGS_SPEAKER_MODE = 4u32;
+pub type MODEM_SPEAKER_VOLUME = u32;
+pub const MDMVOL_HIGH: MODEM_SPEAKER_VOLUME = 2u32;
+pub const MDMVOL_LOW: MODEM_SPEAKER_VOLUME = 0u32;
+pub const MDMVOL_MEDIUM: MODEM_SPEAKER_VOLUME = 1u32;
+pub type MODEM_STATUS_FLAGS = u32;
+pub const MS_CTS_ON: MODEM_STATUS_FLAGS = 16u32;
+pub const MS_DSR_ON: MODEM_STATUS_FLAGS = 32u32;
+pub const MS_RING_ON: MODEM_STATUS_FLAGS = 64u32;
+pub const MS_RLSD_ON: MODEM_STATUS_FLAGS = 128u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandattributes: u32) -> super::super::Foundation::HANDLE {
@@ -1168,49 +676,11 @@ pub unsafe fn OpenCommPort(uportnumber: u32, dwdesiredaccess: u32, dwflagsandatt
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PURGE_COMM_FLAGS(pub u32);
-pub const PURGE_RXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(2u32);
-pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(8u32);
-pub const PURGE_TXABORT: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(1u32);
-pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = PURGE_COMM_FLAGS(4u32);
-impl ::core::convert::From<u32> for PURGE_COMM_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PURGE_COMM_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PURGE_COMM_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PURGE_COMM_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PURGE_COMM_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PURGE_COMM_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PURGE_COMM_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type PURGE_COMM_FLAGS = u32;
+pub const PURGE_RXABORT: PURGE_COMM_FLAGS = 2u32;
+pub const PURGE_RXCLEAR: PURGE_COMM_FLAGS = 8u32;
+pub const PURGE_TXABORT: PURGE_COMM_FLAGS = 1u32;
+pub const PURGE_TXCLEAR: PURGE_COMM_FLAGS = 4u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PurgeComm<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwflags: PURGE_COMM_FLAGS) -> super::super::Foundation::BOOL {

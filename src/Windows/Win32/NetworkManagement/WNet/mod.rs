@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONNECTDLGSTRUCTA {
@@ -10,32 +9,31 @@ pub struct CONNECTDLGSTRUCTA {
     pub dwDevNum: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CONNECTDLGSTRUCTA {}
+impl ::core::marker::Copy for CONNECTDLGSTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONNECTDLGSTRUCTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTDLGSTRUCTA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CONNECTDLGSTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONNECTDLGSTRUCTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONNECTDLGSTRUCTA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONNECTDLGSTRUCTA").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpConnRes", &self.lpConnRes).field("dwFlags", &self.dwFlags).field("dwDevNum", &self.dwDevNum).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONNECTDLGSTRUCTA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONNECTDLGSTRUCTW {
@@ -46,76 +44,38 @@ pub struct CONNECTDLGSTRUCTW {
     pub dwDevNum: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CONNECTDLGSTRUCTW {}
+impl ::core::marker::Copy for CONNECTDLGSTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONNECTDLGSTRUCTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONNECTDLGSTRUCTW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CONNECTDLGSTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONNECTDLGSTRUCTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONNECTDLGSTRUCTW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONNECTDLGSTRUCTW").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpConnRes", &self.lpConnRes).field("dwFlags", &self.dwFlags).field("dwDevNum", &self.dwDevNum).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONNECTDLGSTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpConnRes == other.lpConnRes && self.dwFlags == other.dwFlags && self.dwDevNum == other.dwDevNum
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONNECTDLGSTRUCTW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCTW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CONNECTDLGSTRUCT_FLAGS(pub u32);
-pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(1u32);
-pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(2u32);
-pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(4u32);
-pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(8u32);
-pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(16u32);
-pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = CONNECTDLGSTRUCT_FLAGS(32u32);
-impl ::core::convert::From<u32> for CONNECTDLGSTRUCT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CONNECTDLGSTRUCT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CONNECTDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CONNECTDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONNECTDLGSTRUCT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONNECTDLGSTRUCT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CONNECTDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CONNECTDLGSTRUCT_FLAGS = u32;
+pub const CONNDLG_RO_PATH: CONNECTDLGSTRUCT_FLAGS = 1u32;
+pub const CONNDLG_CONN_POINT: CONNECTDLGSTRUCT_FLAGS = 2u32;
+pub const CONNDLG_USE_MRU: CONNECTDLGSTRUCT_FLAGS = 4u32;
+pub const CONNDLG_HIDE_BOX: CONNECTDLGSTRUCT_FLAGS = 8u32;
+pub const CONNDLG_PERSIST: CONNECTDLGSTRUCT_FLAGS = 16u32;
+pub const CONNDLG_NOT_PERSIST: CONNECTDLGSTRUCT_FLAGS = 32u32;
 pub const CONNECT_CRED_RESET: u32 = 8192u32;
 pub const CONNECT_CURRENT_MEDIA: u32 = 512u32;
 pub const CONNECT_GLOBAL_MAPPING: u32 = 262144u32;
@@ -126,7 +86,6 @@ pub const CONNECT_REQUIRE_INTEGRITY: u32 = 16384u32;
 pub const CONNECT_REQUIRE_PRIVACY: u32 = 32768u32;
 pub const CONNECT_RESERVED: u32 = 4278190080u32;
 pub const CONNECT_WRITE_THROUGH_SEMANTICS: u32 = 65536u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DISCDLGSTRUCTA {
@@ -137,32 +96,31 @@ pub struct DISCDLGSTRUCTA {
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DISCDLGSTRUCTA {}
+impl ::core::marker::Copy for DISCDLGSTRUCTA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISCDLGSTRUCTA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DISCDLGSTRUCTA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DISCDLGSTRUCTA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISCDLGSTRUCTA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DISCDLGSTRUCTA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISCDLGSTRUCTA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISCDLGSTRUCTA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISCDLGSTRUCTA").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISCDLGSTRUCTA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISCDLGSTRUCTA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DISCDLGSTRUCTA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DISCDLGSTRUCTW {
@@ -173,72 +131,34 @@ pub struct DISCDLGSTRUCTW {
     pub dwFlags: DISCDLGSTRUCT_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl DISCDLGSTRUCTW {}
+impl ::core::marker::Copy for DISCDLGSTRUCTW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for DISCDLGSTRUCTW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for DISCDLGSTRUCTW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for DISCDLGSTRUCTW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DISCDLGSTRUCTW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for DISCDLGSTRUCTW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for DISCDLGSTRUCTW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for DISCDLGSTRUCTW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("DISCDLGSTRUCTW").field("cbStructure", &self.cbStructure).field("hwndOwner", &self.hwndOwner).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("dwFlags", &self.dwFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for DISCDLGSTRUCTW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.hwndOwner == other.hwndOwner && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.dwFlags == other.dwFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for DISCDLGSTRUCTW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for DISCDLGSTRUCTW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct DISCDLGSTRUCT_FLAGS(pub u32);
-pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(1u32);
-pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = DISCDLGSTRUCT_FLAGS(64u32);
-impl ::core::convert::From<u32> for DISCDLGSTRUCT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for DISCDLGSTRUCT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for DISCDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for DISCDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for DISCDLGSTRUCT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for DISCDLGSTRUCT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for DISCDLGSTRUCT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type DISCDLGSTRUCT_FLAGS = u32;
+pub const DISC_UPDATE_PROFILE: DISCDLGSTRUCT_FLAGS = 1u32;
+pub const DISC_NO_FORCE: DISCDLGSTRUCT_FLAGS = 64u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MultinetGetConnectionPerformanceA(lpnetresource: *const NETRESOURCEA, lpnetconnectinfostruct: *mut NETCONNECTINFOSTRUCT) -> u32 {
@@ -267,7 +187,6 @@ pub unsafe fn MultinetGetConnectionPerformanceW(lpnetresource: *const NETRESOURC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NETCONNECTINFOSTRUCT {
     pub cbStructure: u32,
@@ -276,27 +195,26 @@ pub struct NETCONNECTINFOSTRUCT {
     pub dwDelay: u32,
     pub dwOptDataSize: u32,
 }
-impl NETCONNECTINFOSTRUCT {}
+impl ::core::marker::Copy for NETCONNECTINFOSTRUCT {}
+impl ::core::clone::Clone for NETCONNECTINFOSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NETCONNECTINFOSTRUCT {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NETCONNECTINFOSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETCONNECTINFOSTRUCT>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NETCONNECTINFOSTRUCT {}
 impl ::core::default::Default for NETCONNECTINFOSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for NETCONNECTINFOSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETCONNECTINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwFlags", &self.dwFlags).field("dwSpeed", &self.dwSpeed).field("dwDelay", &self.dwDelay).field("dwOptDataSize", &self.dwOptDataSize).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NETCONNECTINFOSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.dwFlags == other.dwFlags && self.dwSpeed == other.dwSpeed && self.dwDelay == other.dwDelay && self.dwOptDataSize == other.dwOptDataSize
-    }
-}
-impl ::core::cmp::Eq for NETCONNECTINFOSTRUCT {}
-unsafe impl ::windows::core::Abi for NETCONNECTINFOSTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NETINFOSTRUCT {
@@ -310,75 +228,36 @@ pub struct NETINFOSTRUCT {
     pub dwDrives: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NETINFOSTRUCT {}
+impl ::core::marker::Copy for NETINFOSTRUCT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETINFOSTRUCT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NETINFOSTRUCT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NETINFOSTRUCT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETINFOSTRUCT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NETINFOSTRUCT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NETINFOSTRUCT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NETINFOSTRUCT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETINFOSTRUCT").field("cbStructure", &self.cbStructure).field("dwProviderVersion", &self.dwProviderVersion).field("dwStatus", &self.dwStatus).field("dwCharacteristics", &self.dwCharacteristics).field("dwHandle", &self.dwHandle).field("wNetType", &self.wNetType).field("dwPrinters", &self.dwPrinters).field("dwDrives", &self.dwDrives).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NETINFOSTRUCT {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbStructure == other.cbStructure && self.dwProviderVersion == other.dwProviderVersion && self.dwStatus == other.dwStatus && self.dwCharacteristics == other.dwCharacteristics && self.dwHandle == other.dwHandle && self.wNetType == other.wNetType && self.dwPrinters == other.dwPrinters && self.dwDrives == other.dwDrives
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NETINFOSTRUCT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETINFOSTRUCT {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NETINFOSTRUCT_CHARACTERISTICS(pub u32);
-pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(1u32);
-pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(4u32);
-pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = NETINFOSTRUCT_CHARACTERISTICS(8u32);
-impl ::core::convert::From<u32> for NETINFOSTRUCT_CHARACTERISTICS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NETINFOSTRUCT_CHARACTERISTICS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NETINFOSTRUCT_CHARACTERISTICS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NETINFOSTRUCT_CHARACTERISTICS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NETINFOSTRUCT_CHARACTERISTICS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NETINFOSTRUCT_CHARACTERISTICS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NETINFOSTRUCT_CHARACTERISTICS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type NETINFOSTRUCT_CHARACTERISTICS = u32;
+pub const NETINFO_DLL16: NETINFOSTRUCT_CHARACTERISTICS = 1u32;
+pub const NETINFO_DISKRED: NETINFOSTRUCT_CHARACTERISTICS = 4u32;
+pub const NETINFO_PRINTERRED: NETINFOSTRUCT_CHARACTERISTICS = 8u32;
 pub const NETPROPERTY_PERSISTENT: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NETRESOURCEA {
@@ -392,32 +271,31 @@ pub struct NETRESOURCEA {
     pub lpProvider: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NETRESOURCEA {}
+impl ::core::marker::Copy for NETRESOURCEA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETRESOURCEA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NETRESOURCEA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NETRESOURCEA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETRESOURCEA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NETRESOURCEA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NETRESOURCEA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NETRESOURCEA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETRESOURCEA").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NETRESOURCEA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NETRESOURCEA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETRESOURCEA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NETRESOURCEW {
@@ -431,206 +309,53 @@ pub struct NETRESOURCEW {
     pub lpProvider: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NETRESOURCEW {}
+impl ::core::marker::Copy for NETRESOURCEW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NETRESOURCEW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NETRESOURCEW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NETRESOURCEW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NETRESOURCEW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NETRESOURCEW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NETRESOURCEW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NETRESOURCEW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NETRESOURCEW").field("dwScope", &self.dwScope).field("dwType", &self.dwType).field("dwDisplayType", &self.dwDisplayType).field("dwUsage", &self.dwUsage).field("lpLocalName", &self.lpLocalName).field("lpRemoteName", &self.lpRemoteName).field("lpComment", &self.lpComment).field("lpProvider", &self.lpProvider).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NETRESOURCEW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwScope == other.dwScope && self.dwType == other.dwType && self.dwDisplayType == other.dwDisplayType && self.dwUsage == other.dwUsage && self.lpLocalName == other.lpLocalName && self.lpRemoteName == other.lpRemoteName && self.lpComment == other.lpComment && self.lpProvider == other.lpProvider
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NETRESOURCEW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NETRESOURCEW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NETWORK_NAME_FORMAT_FLAGS(pub u32);
-pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(1u32);
-pub const WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = NETWORK_NAME_FORMAT_FLAGS(2u32);
-impl ::core::convert::From<u32> for NETWORK_NAME_FORMAT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NETWORK_NAME_FORMAT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NETWORK_NAME_FORMAT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NETWORK_NAME_FORMAT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NETWORK_NAME_FORMAT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NETWORK_NAME_FORMAT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NETWORK_NAME_FORMAT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NET_RESOURCE_SCOPE(pub u32);
-pub const RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(1u32);
-pub const RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(5u32);
-pub const RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(2u32);
-pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = NET_RESOURCE_SCOPE(3u32);
-impl ::core::convert::From<u32> for NET_RESOURCE_SCOPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_RESOURCE_SCOPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NET_RESOURCE_SCOPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NET_RESOURCE_SCOPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NET_RESOURCE_SCOPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NET_RESOURCE_SCOPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NET_RESOURCE_SCOPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NET_RESOURCE_TYPE(pub u32);
-pub const RESOURCETYPE_ANY: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(0u32);
-pub const RESOURCETYPE_DISK: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(1u32);
-pub const RESOURCETYPE_PRINT: NET_RESOURCE_TYPE = NET_RESOURCE_TYPE(2u32);
-impl ::core::convert::From<u32> for NET_RESOURCE_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_RESOURCE_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NET_RESOURCE_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NET_RESOURCE_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NET_RESOURCE_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NET_RESOURCE_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NET_RESOURCE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NET_USE_CONNECT_FLAGS(pub u32);
-pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(8u32);
-pub const CONNECT_PROMPT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(16u32);
-pub const CONNECT_REDIRECT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(128u32);
-pub const CONNECT_UPDATE_PROFILE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1u32);
-pub const CONNECT_COMMANDLINE: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2048u32);
-pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4096u32);
-pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(4u32);
-pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(1024u32);
-pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = NET_USE_CONNECT_FLAGS(2u32);
-impl ::core::convert::From<u32> for NET_USE_CONNECT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NET_USE_CONNECT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NET_USE_CONNECT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NET_USE_CONNECT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NET_USE_CONNECT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NET_USE_CONNECT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NET_USE_CONNECT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type NETWORK_NAME_FORMAT_FLAGS = u32;
+pub const WNFMT_MULTILINE: NETWORK_NAME_FORMAT_FLAGS = 1u32;
+pub const WNFMT_ABBREVIATED: NETWORK_NAME_FORMAT_FLAGS = 2u32;
+pub type NET_RESOURCE_SCOPE = u32;
+pub const RESOURCE_CONNECTED: NET_RESOURCE_SCOPE = 1u32;
+pub const RESOURCE_CONTEXT: NET_RESOURCE_SCOPE = 5u32;
+pub const RESOURCE_GLOBALNET: NET_RESOURCE_SCOPE = 2u32;
+pub const RESOURCE_REMEMBERED: NET_RESOURCE_SCOPE = 3u32;
+pub type NET_RESOURCE_TYPE = u32;
+pub const RESOURCETYPE_ANY: NET_RESOURCE_TYPE = 0u32;
+pub const RESOURCETYPE_DISK: NET_RESOURCE_TYPE = 1u32;
+pub const RESOURCETYPE_PRINT: NET_RESOURCE_TYPE = 2u32;
+pub type NET_USE_CONNECT_FLAGS = u32;
+pub const CONNECT_INTERACTIVE: NET_USE_CONNECT_FLAGS = 8u32;
+pub const CONNECT_PROMPT: NET_USE_CONNECT_FLAGS = 16u32;
+pub const CONNECT_REDIRECT: NET_USE_CONNECT_FLAGS = 128u32;
+pub const CONNECT_UPDATE_PROFILE: NET_USE_CONNECT_FLAGS = 1u32;
+pub const CONNECT_COMMANDLINE: NET_USE_CONNECT_FLAGS = 2048u32;
+pub const CONNECT_CMD_SAVECRED: NET_USE_CONNECT_FLAGS = 4096u32;
+pub const CONNECT_TEMPORARY: NET_USE_CONNECT_FLAGS = 4u32;
+pub const CONNECT_DEFERRED: NET_USE_CONNECT_FLAGS = 1024u32;
+pub const CONNECT_UPDATE_RECENT: NET_USE_CONNECT_FLAGS = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYADD {
@@ -639,32 +364,31 @@ pub struct NOTIFYADD {
     pub dwAddFlags: NET_USE_CONNECT_FLAGS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NOTIFYADD {}
+impl ::core::marker::Copy for NOTIFYADD {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NOTIFYADD {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NOTIFYADD {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NOTIFYADD {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFYADD>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NOTIFYADD {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NOTIFYADD {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NOTIFYADD {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NOTIFYADD").field("hwndOwner", &self.hwndOwner).field("NetResource", &self.NetResource).field("dwAddFlags", &self.dwAddFlags).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NOTIFYADD {
-    fn eq(&self, other: &Self) -> bool {
-        self.hwndOwner == other.hwndOwner && self.NetResource == other.NetResource && self.dwAddFlags == other.dwAddFlags
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NOTIFYADD {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NOTIFYADD {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFYCANCEL {
@@ -674,57 +398,56 @@ pub struct NOTIFYCANCEL {
     pub fForce: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl NOTIFYCANCEL {}
+impl ::core::marker::Copy for NOTIFYCANCEL {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for NOTIFYCANCEL {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for NOTIFYCANCEL {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for NOTIFYCANCEL {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFYCANCEL>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for NOTIFYCANCEL {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for NOTIFYCANCEL {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for NOTIFYCANCEL {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NOTIFYCANCEL").field("lpName", &self.lpName).field("lpProvider", &self.lpProvider).field("dwFlags", &self.dwFlags).field("fForce", &self.fForce).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for NOTIFYCANCEL {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpName == other.lpName && self.lpProvider == other.lpProvider && self.dwFlags == other.dwFlags && self.fForce == other.fForce
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for NOTIFYCANCEL {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for NOTIFYCANCEL {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct NOTIFYINFO {
     pub dwNotifyStatus: u32,
     pub dwOperationStatus: u32,
     pub lpContext: *mut ::core::ffi::c_void,
 }
-impl NOTIFYINFO {}
+impl ::core::marker::Copy for NOTIFYINFO {}
+impl ::core::clone::Clone for NOTIFYINFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for NOTIFYINFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for NOTIFYINFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<NOTIFYINFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for NOTIFYINFO {}
 impl ::core::default::Default for NOTIFYINFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for NOTIFYINFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("NOTIFYINFO").field("dwNotifyStatus", &self.dwNotifyStatus).field("dwOperationStatus", &self.dwOperationStatus).field("lpContext", &self.lpContext).finish()
-    }
-}
-impl ::core::cmp::PartialEq for NOTIFYINFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwNotifyStatus == other.dwNotifyStatus && self.dwOperationStatus == other.dwOperationStatus && self.lpContext == other.lpContext
-    }
-}
-impl ::core::cmp::Eq for NOTIFYINFO {}
-unsafe impl ::windows::core::Abi for NOTIFYINFO {
-    type Abi = Self;
 }
 pub const NOTIFY_POST: u32 = 2u32;
 pub const NOTIFY_PRE: u32 = 1u32;
@@ -812,48 +535,10 @@ pub unsafe fn NPCloseEnum<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NPDIRECTORY_NOTIFY_OPERATION(pub u32);
-pub const WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(1u32);
-pub const WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(2u32);
-pub const WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = NPDIRECTORY_NOTIFY_OPERATION(3u32);
-impl ::core::convert::From<u32> for NPDIRECTORY_NOTIFY_OPERATION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NPDIRECTORY_NOTIFY_OPERATION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NPDIRECTORY_NOTIFY_OPERATION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NPDIRECTORY_NOTIFY_OPERATION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NPDIRECTORY_NOTIFY_OPERATION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NPDIRECTORY_NOTIFY_OPERATION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NPDIRECTORY_NOTIFY_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type NPDIRECTORY_NOTIFY_OPERATION = u32;
+pub const WNDN_MKDIR: NPDIRECTORY_NOTIFY_OPERATION = 1u32;
+pub const WNDN_RMDIR: NPDIRECTORY_NOTIFY_OPERATION = 2u32;
+pub const WNDN_MVDIR: NPDIRECTORY_NOTIFY_OPERATION = 3u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NPEnumResource<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(henum: Param0, lpccount: *mut u32, lpbuffer: *mut ::core::ffi::c_void, lpbuffersize: *mut u32) -> u32 {
@@ -1021,60 +706,11 @@ pub unsafe fn NPOpenEnum(dwscope: u32, dwtype: u32, dwusage: u32, lpnetresource:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct NP_PROPERTY_DIALOG_SELECTION(pub u32);
-pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(0u32);
-pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(1u32);
-pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = NP_PROPERTY_DIALOG_SELECTION(2u32);
-impl ::core::convert::From<u32> for NP_PROPERTY_DIALOG_SELECTION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for NP_PROPERTY_DIALOG_SELECTION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for NP_PROPERTY_DIALOG_SELECTION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for NP_PROPERTY_DIALOG_SELECTION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for NP_PROPERTY_DIALOG_SELECTION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for NP_PROPERTY_DIALOG_SELECTION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for NP_PROPERTY_DIALOG_SELECTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct NetEnumHandle(pub isize);
-impl ::core::default::Default for NetEnumHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for NetEnumHandle {}
-unsafe impl ::windows::core::Abi for NetEnumHandle {
-    type Abi = Self;
-}
+pub type NP_PROPERTY_DIALOG_SELECTION = u32;
+pub const WNPS_FILE: NP_PROPERTY_DIALOG_SELECTION = 0u32;
+pub const WNPS_DIR: NP_PROPERTY_DIALOG_SELECTION = 1u32;
+pub const WNPS_MULT: NP_PROPERTY_DIALOG_SELECTION = 2u32;
+pub type NetEnumHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_AddConnectNotify = ::core::option::Option<unsafe extern "system" fn(lpnotifyinfo: *mut NOTIFYINFO, lpaddinfo: *const NOTIFYADD) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
@@ -1136,7 +772,6 @@ pub type PF_NPPasswordChangeNotify = ::core::option::Option<unsafe extern "syste
 pub type PF_NPPropertyDialog = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, ibuttondlg: u32, npropsel: u32, lpfilename: super::super::Foundation::PWSTR, ntype: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PF_NPSearchDialog = ::core::option::Option<unsafe extern "system" fn(hwndparent: super::super::Foundation::HWND, lpnetresource: *const NETRESOURCEW, lpbuffer: *mut ::core::ffi::c_void, cbbuffer: u32, lpnflags: *mut u32) -> u32>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REMOTE_NAME_INFOA {
@@ -1145,32 +780,31 @@ pub struct REMOTE_NAME_INFOA {
     pub lpRemainingPath: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl REMOTE_NAME_INFOA {}
+impl ::core::marker::Copy for REMOTE_NAME_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REMOTE_NAME_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for REMOTE_NAME_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REMOTE_NAME_INFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for REMOTE_NAME_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REMOTE_NAME_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for REMOTE_NAME_INFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REMOTE_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for REMOTE_NAME_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for REMOTE_NAME_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REMOTE_NAME_INFOW {
@@ -1179,30 +813,30 @@ pub struct REMOTE_NAME_INFOW {
     pub lpRemainingPath: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl REMOTE_NAME_INFOW {}
+impl ::core::marker::Copy for REMOTE_NAME_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for REMOTE_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for REMOTE_NAME_INFOW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for REMOTE_NAME_INFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("REMOTE_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).field("lpConnectionName", &self.lpConnectionName).field("lpRemainingPath", &self.lpRemainingPath).finish()
-    }
+unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for REMOTE_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName && self.lpConnectionName == other.lpConnectionName && self.lpRemainingPath == other.lpRemainingPath
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REMOTE_NAME_INFOW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for REMOTE_NAME_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for REMOTE_NAME_INFOW {
-    type Abi = Self;
+impl ::core::default::Default for REMOTE_NAME_INFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const RESOURCEDISPLAYTYPE_DIRECTORY: u32 = 9u32;
 pub const RESOURCEDISPLAYTYPE_NDSCONTAINER: u32 = 11u32;
@@ -1215,110 +849,70 @@ pub const RESOURCEUSAGE_NOLOCALDEVICE: u32 = 4u32;
 pub const RESOURCEUSAGE_RESERVED: u32 = 2147483648u32;
 pub const RESOURCEUSAGE_SIBLING: u32 = 8u32;
 pub const RESOURCE_RECENT: u32 = 4u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct UNC_INFO_LEVEL(pub u32);
-pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(1u32);
-pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = UNC_INFO_LEVEL(2u32);
-impl ::core::convert::From<u32> for UNC_INFO_LEVEL {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for UNC_INFO_LEVEL {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for UNC_INFO_LEVEL {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for UNC_INFO_LEVEL {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for UNC_INFO_LEVEL {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for UNC_INFO_LEVEL {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for UNC_INFO_LEVEL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type UNC_INFO_LEVEL = u32;
+pub const UNIVERSAL_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 1u32;
+pub const REMOTE_NAME_INFO_LEVEL: UNC_INFO_LEVEL = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UNIVERSAL_NAME_INFOA {
     pub lpUniversalName: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl UNIVERSAL_NAME_INFOA {}
+impl ::core::marker::Copy for UNIVERSAL_NAME_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for UNIVERSAL_NAME_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNIVERSAL_NAME_INFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for UNIVERSAL_NAME_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for UNIVERSAL_NAME_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UNIVERSAL_NAME_INFOA").field("lpUniversalName", &self.lpUniversalName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for UNIVERSAL_NAME_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct UNIVERSAL_NAME_INFOW {
     pub lpUniversalName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl UNIVERSAL_NAME_INFOW {}
+impl ::core::marker::Copy for UNIVERSAL_NAME_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for UNIVERSAL_NAME_INFOW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for UNIVERSAL_NAME_INFOW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for UNIVERSAL_NAME_INFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UNIVERSAL_NAME_INFOW").field("lpUniversalName", &self.lpUniversalName).finish()
-    }
+unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for UNIVERSAL_NAME_INFOW {
     fn eq(&self, other: &Self) -> bool {
-        self.lpUniversalName == other.lpUniversalName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UNIVERSAL_NAME_INFOW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for UNIVERSAL_NAME_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for UNIVERSAL_NAME_INFOW {
-    type Abi = Self;
+impl ::core::default::Default for UNIVERSAL_NAME_INFOW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const WNCON_DYNAMIC: u32 = 8u32;
 pub const WNCON_FORNETCARD: u32 = 1u32;
@@ -1326,50 +920,12 @@ pub const WNCON_NOTROUTED: u32 = 2u32;
 pub const WNCON_SLOWLINK: u32 = 4u32;
 pub const WNDT_NETWORK: u32 = 1u32;
 pub const WNDT_NORMAL: u32 = 0u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WNET_OPEN_ENUM_USAGE(pub u32);
-pub const RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(0u32);
-pub const RESOURCEUSAGE_CONNECTABLE: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(1u32);
-pub const RESOURCEUSAGE_CONTAINER: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(2u32);
-pub const RESOURCEUSAGE_ATTACHED: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(16u32);
-pub const RESOURCEUSAGE_ALL: WNET_OPEN_ENUM_USAGE = WNET_OPEN_ENUM_USAGE(19u32);
-impl ::core::convert::From<u32> for WNET_OPEN_ENUM_USAGE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WNET_OPEN_ENUM_USAGE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WNET_OPEN_ENUM_USAGE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WNET_OPEN_ENUM_USAGE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WNET_OPEN_ENUM_USAGE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WNET_OPEN_ENUM_USAGE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WNET_OPEN_ENUM_USAGE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WNET_OPEN_ENUM_USAGE = u32;
+pub const RESOURCEUSAGE_NONE: WNET_OPEN_ENUM_USAGE = 0u32;
+pub const RESOURCEUSAGE_CONNECTABLE: WNET_OPEN_ENUM_USAGE = 1u32;
+pub const RESOURCEUSAGE_CONTAINER: WNET_OPEN_ENUM_USAGE = 2u32;
+pub const RESOURCEUSAGE_ATTACHED: WNET_OPEN_ENUM_USAGE = 16u32;
+pub const RESOURCEUSAGE_ALL: WNET_OPEN_ENUM_USAGE = 19u32;
 pub const WNFMT_CONNECTION: u32 = 32u32;
 pub const WNFMT_INENUM: u32 = 16u32;
 pub const WNGETCON_CONNECTED: u32 = 0u32;
@@ -1412,48 +968,10 @@ pub const WNNC_WAIT_FOR_START: u32 = 1u32;
 pub const WNPERMC_AUDIT: u32 = 2u32;
 pub const WNPERMC_OWNER: u32 = 4u32;
 pub const WNPERMC_PERM: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WNPERM_DLG(pub u32);
-pub const WNPERM_DLG_PERM: WNPERM_DLG = WNPERM_DLG(0u32);
-pub const WNPERM_DLG_AUDIT: WNPERM_DLG = WNPERM_DLG(1u32);
-pub const WNPERM_DLG_OWNER: WNPERM_DLG = WNPERM_DLG(2u32);
-impl ::core::convert::From<u32> for WNPERM_DLG {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WNPERM_DLG {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WNPERM_DLG {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WNPERM_DLG {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WNPERM_DLG {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WNPERM_DLG {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WNPERM_DLG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WNPERM_DLG = u32;
+pub const WNPERM_DLG_PERM: WNPERM_DLG = 0u32;
+pub const WNPERM_DLG_AUDIT: WNPERM_DLG = 1u32;
+pub const WNPERM_DLG_OWNER: WNPERM_DLG = 2u32;
 pub const WNSRCH_REFRESH_FIRST_LEVEL: u32 = 1u32;
 pub const WNTYPE_COMM: u32 = 4u32;
 pub const WNTYPE_DRIVE: u32 = 1u32;
@@ -2020,7 +1538,7 @@ pub unsafe fn WNetSetLastErrorA<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn WNetSetLastErrorA(err: u32, lperror: super::super::Foundation::PSTR, lpproviders: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(WNetSetLastErrorA(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi()))
+        WNetSetLastErrorA(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2034,7 +1552,7 @@ pub unsafe fn WNetSetLastErrorW<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn WNetSetLastErrorW(err: u32, lperror: super::super::Foundation::PWSTR, lpproviders: super::super::Foundation::PWSTR);
         }
-        ::core::mem::transmute(WNetSetLastErrorW(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi()))
+        WNetSetLastErrorW(::core::mem::transmute(err), lperror.into_param().abi(), lpproviders.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

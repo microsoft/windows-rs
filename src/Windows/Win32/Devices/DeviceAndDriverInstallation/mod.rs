@@ -1,8 +1,7 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const ALLOC_LOG_CONF: u32 = 2u32;
 pub const BASIC_LOG_CONF: u32 = 0u32;
 pub const BOOT_LOG_CONF: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct BUSNUMBER_DES {
     pub BUSD_Count: u32,
@@ -11,22 +10,26 @@ pub struct BUSNUMBER_DES {
     pub BUSD_Alloc_Base: u32,
     pub BUSD_Alloc_End: u32,
 }
-impl BUSNUMBER_DES {}
+impl ::core::marker::Copy for BUSNUMBER_DES {}
+impl ::core::clone::Clone for BUSNUMBER_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BUSNUMBER_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BUSNUMBER_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BUSNUMBER_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BUSNUMBER_DES {}
 impl ::core::default::Default for BUSNUMBER_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BUSNUMBER_DES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BUSNUMBER_DES {}
-unsafe impl ::windows::core::Abi for BUSNUMBER_DES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct BUSNUMBER_RANGE {
     pub BUSR_Min: u32,
@@ -34,43 +37,51 @@ pub struct BUSNUMBER_RANGE {
     pub BUSR_nBusNumbers: u32,
     pub BUSR_Flags: u32,
 }
-impl BUSNUMBER_RANGE {}
+impl ::core::marker::Copy for BUSNUMBER_RANGE {}
+impl ::core::clone::Clone for BUSNUMBER_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BUSNUMBER_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BUSNUMBER_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BUSNUMBER_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BUSNUMBER_RANGE {}
 impl ::core::default::Default for BUSNUMBER_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BUSNUMBER_RANGE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BUSNUMBER_RANGE {}
-unsafe impl ::windows::core::Abi for BUSNUMBER_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct BUSNUMBER_RESOURCE {
     pub BusNumber_Header: BUSNUMBER_DES,
     pub BusNumber_Data: [BUSNUMBER_RANGE; 1],
 }
-impl BUSNUMBER_RESOURCE {}
+impl ::core::marker::Copy for BUSNUMBER_RESOURCE {}
+impl ::core::clone::Clone for BUSNUMBER_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for BUSNUMBER_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for BUSNUMBER_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<BUSNUMBER_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for BUSNUMBER_RESOURCE {}
 impl ::core::default::Default for BUSNUMBER_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for BUSNUMBER_RESOURCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for BUSNUMBER_RESOURCE {}
-unsafe impl ::windows::core::Abi for BUSNUMBER_RESOURCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -83,26 +94,24 @@ pub struct CABINET_INFO_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl CABINET_INFO_A {}
+impl ::core::marker::Copy for CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CABINET_INFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CABINET_INFO_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CABINET_INFO_A").field("CabinetPath", &self.CabinetPath).field("CabinetFile", &self.CabinetFile).field("DiskName", &self.DiskName).field("SetId", &self.SetId).field("CabinetNumber", &self.CabinetNumber).finish()
-    }
+unsafe impl ::windows::core::Abi for CABINET_INFO_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABINET_INFO_A {
     fn eq(&self, other: &Self) -> bool {
-        self.CabinetPath == other.CabinetPath && self.CabinetFile == other.CabinetFile && self.DiskName == other.DiskName && self.SetId == other.SetId && self.CabinetNumber == other.CabinetNumber
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINET_INFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -110,10 +119,11 @@ impl ::core::cmp::PartialEq for CABINET_INFO_A {
 impl ::core::cmp::Eq for CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABINET_INFO_A {
-    type Abi = Self;
+impl ::core::default::Default for CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -126,19 +136,24 @@ pub struct CABINET_INFO_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl CABINET_INFO_A {}
+impl ::core::marker::Copy for CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CABINET_INFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CABINET_INFO_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABINET_INFO_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINET_INFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -146,10 +161,11 @@ impl ::core::cmp::PartialEq for CABINET_INFO_A {
 impl ::core::cmp::Eq for CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABINET_INFO_A {
-    type Abi = Self;
+impl ::core::default::Default for CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -162,26 +178,24 @@ pub struct CABINET_INFO_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl CABINET_INFO_W {}
+impl ::core::marker::Copy for CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CABINET_INFO_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CABINET_INFO_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CABINET_INFO_W").field("CabinetPath", &self.CabinetPath).field("CabinetFile", &self.CabinetFile).field("DiskName", &self.DiskName).field("SetId", &self.SetId).field("CabinetNumber", &self.CabinetNumber).finish()
-    }
+unsafe impl ::windows::core::Abi for CABINET_INFO_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABINET_INFO_W {
     fn eq(&self, other: &Self) -> bool {
-        self.CabinetPath == other.CabinetPath && self.CabinetFile == other.CabinetFile && self.DiskName == other.DiskName && self.SetId == other.SetId && self.CabinetNumber == other.CabinetNumber
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINET_INFO_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -189,10 +203,11 @@ impl ::core::cmp::PartialEq for CABINET_INFO_W {
 impl ::core::cmp::Eq for CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABINET_INFO_W {
-    type Abi = Self;
+impl ::core::default::Default for CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -205,19 +220,24 @@ pub struct CABINET_INFO_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl CABINET_INFO_W {}
+impl ::core::marker::Copy for CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for CABINET_INFO_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CABINET_INFO_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for CABINET_INFO_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CABINET_INFO_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -225,8 +245,10 @@ impl ::core::cmp::PartialEq for CABINET_INFO_W {
 impl ::core::cmp::Eq for CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CABINET_INFO_W {
-    type Abi = Self;
+impl ::core::default::Default for CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[inline]
 pub unsafe fn CMP_WaitNoPendingInstallEvents(dwtimeout: u32) -> u32 {
@@ -2534,73 +2556,70 @@ pub unsafe fn CM_Move_DevNode_Ex(dnfromdevinst: u32, dntodevinst: u32, ulflags: 
 }
 pub const CM_NAME_ATTRIBUTE_NAME_RETRIEVED_FROM_DEVICE: u32 = 1u32;
 pub const CM_NAME_ATTRIBUTE_USER_ASSIGNED_NAME: u32 = 2u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CM_NOTIFY_ACTION(pub i32);
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(0i32);
-pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(1i32);
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(2i32);
-pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(3i32);
-pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(4i32);
-pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(5i32);
-pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(6i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(7i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(8i32);
-pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(9i32);
-pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = CM_NOTIFY_ACTION(10i32);
-impl ::core::convert::From<i32> for CM_NOTIFY_ACTION {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CM_NOTIFY_ACTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CM_NOTIFY_ACTION = i32;
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEARRIVAL: CM_NOTIFY_ACTION = 0i32;
+pub const CM_NOTIFY_ACTION_DEVICEINTERFACEREMOVAL: CM_NOTIFY_ACTION = 1i32;
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVE: CM_NOTIFY_ACTION = 2i32;
+pub const CM_NOTIFY_ACTION_DEVICEQUERYREMOVEFAILED: CM_NOTIFY_ACTION = 3i32;
+pub const CM_NOTIFY_ACTION_DEVICEREMOVEPENDING: CM_NOTIFY_ACTION = 4i32;
+pub const CM_NOTIFY_ACTION_DEVICEREMOVECOMPLETE: CM_NOTIFY_ACTION = 5i32;
+pub const CM_NOTIFY_ACTION_DEVICECUSTOMEVENT: CM_NOTIFY_ACTION = 6i32;
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEENUMERATED: CM_NOTIFY_ACTION = 7i32;
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCESTARTED: CM_NOTIFY_ACTION = 8i32;
+pub const CM_NOTIFY_ACTION_DEVICEINSTANCEREMOVED: CM_NOTIFY_ACTION = 9i32;
+pub const CM_NOTIFY_ACTION_MAX: CM_NOTIFY_ACTION = 10i32;
 #[repr(C)]
 pub struct CM_NOTIFY_EVENT_DATA {
     pub FilterType: CM_NOTIFY_FILTER_TYPE,
     pub Reserved: u32,
     pub u: CM_NOTIFY_EVENT_DATA_0,
 }
-impl CM_NOTIFY_EVENT_DATA {}
+impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA {}
+impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_EVENT_DATA>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA {}
 impl ::core::default::Default for CM_NOTIFY_EVENT_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA {}
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union CM_NOTIFY_EVENT_DATA_0 {
     pub DeviceInterface: CM_NOTIFY_EVENT_DATA_0_2,
     pub DeviceHandle: CM_NOTIFY_EVENT_DATA_0_0,
     pub DeviceInstance: CM_NOTIFY_EVENT_DATA_0_1,
 }
-impl CM_NOTIFY_EVENT_DATA_0 {}
+impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA_0 {}
+impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_EVENT_DATA_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0 {}
 impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0 {}
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub EventGuid: ::windows::core::GUID,
@@ -2608,78 +2627,75 @@ pub struct CM_NOTIFY_EVENT_DATA_0_0 {
     pub DataSize: u32,
     pub Data: [u8; 1],
 }
-impl CM_NOTIFY_EVENT_DATA_0_0 {}
+impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA_0_0 {}
+impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_EVENT_DATA_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_0 {}
 impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DeviceHandle_e__Struct").field("EventGuid", &self.EventGuid).field("NameOffset", &self.NameOffset).field("DataSize", &self.DataSize).field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.EventGuid == other.EventGuid && self.NameOffset == other.NameOffset && self.DataSize == other.DataSize && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_0 {}
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CM_NOTIFY_EVENT_DATA_0_1 {
     pub InstanceId: [u16; 1],
 }
-impl CM_NOTIFY_EVENT_DATA_0_1 {}
+impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA_0_1 {}
+impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_EVENT_DATA_0_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_1 {}
 impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DeviceInstance_e__Struct").field("InstanceId", &self.InstanceId).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstanceId == other.InstanceId
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_1 {}
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CM_NOTIFY_EVENT_DATA_0_2 {
     pub ClassGuid: ::windows::core::GUID,
     pub SymbolicLink: [u16; 1],
 }
-impl CM_NOTIFY_EVENT_DATA_0_2 {}
+impl ::core::marker::Copy for CM_NOTIFY_EVENT_DATA_0_2 {}
+impl ::core::clone::Clone for CM_NOTIFY_EVENT_DATA_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_2 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_EVENT_DATA_0_2>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_2 {}
 impl ::core::default::Default for CM_NOTIFY_EVENT_DATA_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DeviceInterface_e__Struct").field("ClassGuid", &self.ClassGuid).field("SymbolicLink", &self.SymbolicLink).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CM_NOTIFY_EVENT_DATA_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassGuid == other.ClassGuid && self.SymbolicLink == other.SymbolicLink
-    }
-}
-impl ::core::cmp::Eq for CM_NOTIFY_EVENT_DATA_0_2 {}
-unsafe impl ::windows::core::Abi for CM_NOTIFY_EVENT_DATA_0_2 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER {
@@ -2690,26 +2706,31 @@ pub struct CM_NOTIFY_FILTER {
     pub u: CM_NOTIFY_FILTER_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CM_NOTIFY_FILTER {}
+impl ::core::marker::Copy for CM_NOTIFY_FILTER {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CM_NOTIFY_FILTER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_FILTER>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CM_NOTIFY_FILTER {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CM_NOTIFY_FILTER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union CM_NOTIFY_FILTER_0 {
@@ -2718,138 +2739,131 @@ pub union CM_NOTIFY_FILTER_0 {
     pub DeviceInstance: CM_NOTIFY_FILTER_0_1,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CM_NOTIFY_FILTER_0 {}
+impl ::core::marker::Copy for CM_NOTIFY_FILTER_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CM_NOTIFY_FILTER_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_FILTER_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CM_NOTIFY_FILTER_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER_0_0 {
     pub hTarget: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CM_NOTIFY_FILTER_0_0 {}
+impl ::core::marker::Copy for CM_NOTIFY_FILTER_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_FILTER_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CM_NOTIFY_FILTER_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DeviceHandle_e__Struct").field("hTarget", &self.hTarget).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.hTarget == other.hTarget
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER_0_1 {
     pub InstanceId: [u16; 200],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CM_NOTIFY_FILTER_0_1 {}
+impl ::core::marker::Copy for CM_NOTIFY_FILTER_0_1 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_1 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_FILTER_0_1>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_1 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CM_NOTIFY_FILTER_0_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DeviceInstance_e__Struct").field("InstanceId", &self.InstanceId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.InstanceId == other.InstanceId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_1 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CM_NOTIFY_FILTER_0_2 {
     pub ClassGuid: ::windows::core::GUID,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CM_NOTIFY_FILTER_0_2 {}
+impl ::core::marker::Copy for CM_NOTIFY_FILTER_0_2 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CM_NOTIFY_FILTER_0_2 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_2 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_2 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CM_NOTIFY_FILTER_0_2>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_2 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CM_NOTIFY_FILTER_0_2 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CM_NOTIFY_FILTER_0_2 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_DeviceInterface_e__Struct").field("ClassGuid", &self.ClassGuid).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CM_NOTIFY_FILTER_0_2 {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassGuid == other.ClassGuid
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CM_NOTIFY_FILTER_0_2 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_0_2 {
-    type Abi = Self;
-}
 pub const CM_NOTIFY_FILTER_FLAG_ALL_DEVICE_INSTANCES: u32 = 2u32;
 pub const CM_NOTIFY_FILTER_FLAG_ALL_INTERFACE_CLASSES: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CM_NOTIFY_FILTER_TYPE(pub i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(0i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(1i32);
-pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(2i32);
-pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = CM_NOTIFY_FILTER_TYPE(3i32);
-impl ::core::convert::From<i32> for CM_NOTIFY_FILTER_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CM_NOTIFY_FILTER_TYPE {
-    type Abi = Self;
-}
+pub type CM_NOTIFY_FILTER_TYPE = i32;
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINTERFACE: CM_NOTIFY_FILTER_TYPE = 0i32;
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEHANDLE: CM_NOTIFY_FILTER_TYPE = 1i32;
+pub const CM_NOTIFY_FILTER_TYPE_DEVICEINSTANCE: CM_NOTIFY_FILTER_TYPE = 2i32;
+pub const CM_NOTIFY_FILTER_TYPE_MAX: CM_NOTIFY_FILTER_TYPE = 3i32;
 #[inline]
 pub unsafe fn CM_Next_Range(preelement: *mut usize, pullstart: *mut u64, pullend: *mut u64, ulflags: u32) -> CONFIGRET {
     #[cfg(windows)]
@@ -3921,7 +3935,6 @@ pub unsafe fn CM_Unregister_Notification<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -3932,26 +3945,24 @@ pub struct COINSTALLER_CONTEXT_DATA {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl COINSTALLER_CONTEXT_DATA {}
+impl ::core::marker::Copy for COINSTALLER_CONTEXT_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for COINSTALLER_CONTEXT_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("COINSTALLER_CONTEXT_DATA").field("PostProcessing", &self.PostProcessing).field("InstallResult", &self.InstallResult).field("PrivateData", &self.PrivateData).finish()
-    }
+unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COINSTALLER_CONTEXT_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.PostProcessing == other.PostProcessing && self.InstallResult == other.InstallResult && self.PrivateData == other.PrivateData
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COINSTALLER_CONTEXT_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -3959,10 +3970,11 @@ impl ::core::cmp::PartialEq for COINSTALLER_CONTEXT_DATA {
 impl ::core::cmp::Eq for COINSTALLER_CONTEXT_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
-    type Abi = Self;
+impl ::core::default::Default for COINSTALLER_CONTEXT_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -3973,19 +3985,24 @@ pub struct COINSTALLER_CONTEXT_DATA {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl COINSTALLER_CONTEXT_DATA {}
+impl ::core::marker::Copy for COINSTALLER_CONTEXT_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for COINSTALLER_CONTEXT_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for COINSTALLER_CONTEXT_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for COINSTALLER_CONTEXT_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<COINSTALLER_CONTEXT_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -3993,115 +4010,78 @@ impl ::core::cmp::PartialEq for COINSTALLER_CONTEXT_DATA {
 impl ::core::cmp::Eq for COINSTALLER_CONTEXT_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for COINSTALLER_CONTEXT_DATA {
-    type Abi = Self;
+impl ::core::default::Default for COINSTALLER_CONTEXT_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const CONFIGMG_VERSION: u32 = 1024u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CONFIGRET(pub u32);
-pub const CR_SUCCESS: CONFIGRET = CONFIGRET(0u32);
-pub const CR_DEFAULT: CONFIGRET = CONFIGRET(1u32);
-pub const CR_OUT_OF_MEMORY: CONFIGRET = CONFIGRET(2u32);
-pub const CR_INVALID_POINTER: CONFIGRET = CONFIGRET(3u32);
-pub const CR_INVALID_FLAG: CONFIGRET = CONFIGRET(4u32);
-pub const CR_INVALID_DEVNODE: CONFIGRET = CONFIGRET(5u32);
-pub const CR_INVALID_DEVINST: CONFIGRET = CONFIGRET(5u32);
-pub const CR_INVALID_RES_DES: CONFIGRET = CONFIGRET(6u32);
-pub const CR_INVALID_LOG_CONF: CONFIGRET = CONFIGRET(7u32);
-pub const CR_INVALID_ARBITRATOR: CONFIGRET = CONFIGRET(8u32);
-pub const CR_INVALID_NODELIST: CONFIGRET = CONFIGRET(9u32);
-pub const CR_DEVNODE_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-pub const CR_DEVINST_HAS_REQS: CONFIGRET = CONFIGRET(10u32);
-pub const CR_INVALID_RESOURCEID: CONFIGRET = CONFIGRET(11u32);
-pub const CR_DLVXD_NOT_FOUND: CONFIGRET = CONFIGRET(12u32);
-pub const CR_NO_SUCH_DEVNODE: CONFIGRET = CONFIGRET(13u32);
-pub const CR_NO_SUCH_DEVINST: CONFIGRET = CONFIGRET(13u32);
-pub const CR_NO_MORE_LOG_CONF: CONFIGRET = CONFIGRET(14u32);
-pub const CR_NO_MORE_RES_DES: CONFIGRET = CONFIGRET(15u32);
-pub const CR_ALREADY_SUCH_DEVNODE: CONFIGRET = CONFIGRET(16u32);
-pub const CR_ALREADY_SUCH_DEVINST: CONFIGRET = CONFIGRET(16u32);
-pub const CR_INVALID_RANGE_LIST: CONFIGRET = CONFIGRET(17u32);
-pub const CR_INVALID_RANGE: CONFIGRET = CONFIGRET(18u32);
-pub const CR_FAILURE: CONFIGRET = CONFIGRET(19u32);
-pub const CR_NO_SUCH_LOGICAL_DEV: CONFIGRET = CONFIGRET(20u32);
-pub const CR_CREATE_BLOCKED: CONFIGRET = CONFIGRET(21u32);
-pub const CR_NOT_SYSTEM_VM: CONFIGRET = CONFIGRET(22u32);
-pub const CR_REMOVE_VETOED: CONFIGRET = CONFIGRET(23u32);
-pub const CR_APM_VETOED: CONFIGRET = CONFIGRET(24u32);
-pub const CR_INVALID_LOAD_TYPE: CONFIGRET = CONFIGRET(25u32);
-pub const CR_BUFFER_SMALL: CONFIGRET = CONFIGRET(26u32);
-pub const CR_NO_ARBITRATOR: CONFIGRET = CONFIGRET(27u32);
-pub const CR_NO_REGISTRY_HANDLE: CONFIGRET = CONFIGRET(28u32);
-pub const CR_REGISTRY_ERROR: CONFIGRET = CONFIGRET(29u32);
-pub const CR_INVALID_DEVICE_ID: CONFIGRET = CONFIGRET(30u32);
-pub const CR_INVALID_DATA: CONFIGRET = CONFIGRET(31u32);
-pub const CR_INVALID_API: CONFIGRET = CONFIGRET(32u32);
-pub const CR_DEVLOADER_NOT_READY: CONFIGRET = CONFIGRET(33u32);
-pub const CR_NEED_RESTART: CONFIGRET = CONFIGRET(34u32);
-pub const CR_NO_MORE_HW_PROFILES: CONFIGRET = CONFIGRET(35u32);
-pub const CR_DEVICE_NOT_THERE: CONFIGRET = CONFIGRET(36u32);
-pub const CR_NO_SUCH_VALUE: CONFIGRET = CONFIGRET(37u32);
-pub const CR_WRONG_TYPE: CONFIGRET = CONFIGRET(38u32);
-pub const CR_INVALID_PRIORITY: CONFIGRET = CONFIGRET(39u32);
-pub const CR_NOT_DISABLEABLE: CONFIGRET = CONFIGRET(40u32);
-pub const CR_FREE_RESOURCES: CONFIGRET = CONFIGRET(41u32);
-pub const CR_QUERY_VETOED: CONFIGRET = CONFIGRET(42u32);
-pub const CR_CANT_SHARE_IRQ: CONFIGRET = CONFIGRET(43u32);
-pub const CR_NO_DEPENDENT: CONFIGRET = CONFIGRET(44u32);
-pub const CR_SAME_RESOURCES: CONFIGRET = CONFIGRET(45u32);
-pub const CR_NO_SUCH_REGISTRY_KEY: CONFIGRET = CONFIGRET(46u32);
-pub const CR_INVALID_MACHINENAME: CONFIGRET = CONFIGRET(47u32);
-pub const CR_REMOTE_COMM_FAILURE: CONFIGRET = CONFIGRET(48u32);
-pub const CR_MACHINE_UNAVAILABLE: CONFIGRET = CONFIGRET(49u32);
-pub const CR_NO_CM_SERVICES: CONFIGRET = CONFIGRET(50u32);
-pub const CR_ACCESS_DENIED: CONFIGRET = CONFIGRET(51u32);
-pub const CR_CALL_NOT_IMPLEMENTED: CONFIGRET = CONFIGRET(52u32);
-pub const CR_INVALID_PROPERTY: CONFIGRET = CONFIGRET(53u32);
-pub const CR_DEVICE_INTERFACE_ACTIVE: CONFIGRET = CONFIGRET(54u32);
-pub const CR_NO_SUCH_DEVICE_INTERFACE: CONFIGRET = CONFIGRET(55u32);
-pub const CR_INVALID_REFERENCE_STRING: CONFIGRET = CONFIGRET(56u32);
-pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = CONFIGRET(57u32);
-pub const CR_INVALID_INDEX: CONFIGRET = CONFIGRET(58u32);
-pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = CONFIGRET(59u32);
-pub const NUM_CR_RESULTS: CONFIGRET = CONFIGRET(60u32);
-impl ::core::convert::From<u32> for CONFIGRET {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CONFIGRET {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CONFIGRET {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CONFIGRET {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CONFIGRET {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CONFIGRET {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CONFIGRET {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type CONFIGRET = u32;
+pub const CR_SUCCESS: CONFIGRET = 0u32;
+pub const CR_DEFAULT: CONFIGRET = 1u32;
+pub const CR_OUT_OF_MEMORY: CONFIGRET = 2u32;
+pub const CR_INVALID_POINTER: CONFIGRET = 3u32;
+pub const CR_INVALID_FLAG: CONFIGRET = 4u32;
+pub const CR_INVALID_DEVNODE: CONFIGRET = 5u32;
+pub const CR_INVALID_DEVINST: CONFIGRET = 5u32;
+pub const CR_INVALID_RES_DES: CONFIGRET = 6u32;
+pub const CR_INVALID_LOG_CONF: CONFIGRET = 7u32;
+pub const CR_INVALID_ARBITRATOR: CONFIGRET = 8u32;
+pub const CR_INVALID_NODELIST: CONFIGRET = 9u32;
+pub const CR_DEVNODE_HAS_REQS: CONFIGRET = 10u32;
+pub const CR_DEVINST_HAS_REQS: CONFIGRET = 10u32;
+pub const CR_INVALID_RESOURCEID: CONFIGRET = 11u32;
+pub const CR_DLVXD_NOT_FOUND: CONFIGRET = 12u32;
+pub const CR_NO_SUCH_DEVNODE: CONFIGRET = 13u32;
+pub const CR_NO_SUCH_DEVINST: CONFIGRET = 13u32;
+pub const CR_NO_MORE_LOG_CONF: CONFIGRET = 14u32;
+pub const CR_NO_MORE_RES_DES: CONFIGRET = 15u32;
+pub const CR_ALREADY_SUCH_DEVNODE: CONFIGRET = 16u32;
+pub const CR_ALREADY_SUCH_DEVINST: CONFIGRET = 16u32;
+pub const CR_INVALID_RANGE_LIST: CONFIGRET = 17u32;
+pub const CR_INVALID_RANGE: CONFIGRET = 18u32;
+pub const CR_FAILURE: CONFIGRET = 19u32;
+pub const CR_NO_SUCH_LOGICAL_DEV: CONFIGRET = 20u32;
+pub const CR_CREATE_BLOCKED: CONFIGRET = 21u32;
+pub const CR_NOT_SYSTEM_VM: CONFIGRET = 22u32;
+pub const CR_REMOVE_VETOED: CONFIGRET = 23u32;
+pub const CR_APM_VETOED: CONFIGRET = 24u32;
+pub const CR_INVALID_LOAD_TYPE: CONFIGRET = 25u32;
+pub const CR_BUFFER_SMALL: CONFIGRET = 26u32;
+pub const CR_NO_ARBITRATOR: CONFIGRET = 27u32;
+pub const CR_NO_REGISTRY_HANDLE: CONFIGRET = 28u32;
+pub const CR_REGISTRY_ERROR: CONFIGRET = 29u32;
+pub const CR_INVALID_DEVICE_ID: CONFIGRET = 30u32;
+pub const CR_INVALID_DATA: CONFIGRET = 31u32;
+pub const CR_INVALID_API: CONFIGRET = 32u32;
+pub const CR_DEVLOADER_NOT_READY: CONFIGRET = 33u32;
+pub const CR_NEED_RESTART: CONFIGRET = 34u32;
+pub const CR_NO_MORE_HW_PROFILES: CONFIGRET = 35u32;
+pub const CR_DEVICE_NOT_THERE: CONFIGRET = 36u32;
+pub const CR_NO_SUCH_VALUE: CONFIGRET = 37u32;
+pub const CR_WRONG_TYPE: CONFIGRET = 38u32;
+pub const CR_INVALID_PRIORITY: CONFIGRET = 39u32;
+pub const CR_NOT_DISABLEABLE: CONFIGRET = 40u32;
+pub const CR_FREE_RESOURCES: CONFIGRET = 41u32;
+pub const CR_QUERY_VETOED: CONFIGRET = 42u32;
+pub const CR_CANT_SHARE_IRQ: CONFIGRET = 43u32;
+pub const CR_NO_DEPENDENT: CONFIGRET = 44u32;
+pub const CR_SAME_RESOURCES: CONFIGRET = 45u32;
+pub const CR_NO_SUCH_REGISTRY_KEY: CONFIGRET = 46u32;
+pub const CR_INVALID_MACHINENAME: CONFIGRET = 47u32;
+pub const CR_REMOTE_COMM_FAILURE: CONFIGRET = 48u32;
+pub const CR_MACHINE_UNAVAILABLE: CONFIGRET = 49u32;
+pub const CR_NO_CM_SERVICES: CONFIGRET = 50u32;
+pub const CR_ACCESS_DENIED: CONFIGRET = 51u32;
+pub const CR_CALL_NOT_IMPLEMENTED: CONFIGRET = 52u32;
+pub const CR_INVALID_PROPERTY: CONFIGRET = 53u32;
+pub const CR_DEVICE_INTERFACE_ACTIVE: CONFIGRET = 54u32;
+pub const CR_NO_SUCH_DEVICE_INTERFACE: CONFIGRET = 55u32;
+pub const CR_INVALID_REFERENCE_STRING: CONFIGRET = 56u32;
+pub const CR_INVALID_CONFLICT_LIST: CONFIGRET = 57u32;
+pub const CR_INVALID_INDEX: CONFIGRET = 58u32;
+pub const CR_INVALID_STRUCTURE_SIZE: CONFIGRET = 59u32;
+pub const NUM_CR_RESULTS: CONFIGRET = 60u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONFLICT_DETAILS_A {
@@ -4113,32 +4093,31 @@ pub struct CONFLICT_DETAILS_A {
     pub CD_szDescription: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl CONFLICT_DETAILS_A {}
+impl ::core::marker::Copy for CONFLICT_DETAILS_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for CONFLICT_DETAILS_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for CONFLICT_DETAILS_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFLICT_DETAILS_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for CONFLICT_DETAILS_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for CONFLICT_DETAILS_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for CONFLICT_DETAILS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONFLICT_DETAILS_A").field("CD_ulSize", &self.CD_ulSize).field("CD_ulMask", &self.CD_ulMask).field("CD_dnDevInst", &self.CD_dnDevInst).field("CD_rdResDes", &self.CD_rdResDes).field("CD_ulFlags", &self.CD_ulFlags).field("CD_szDescription", &self.CD_szDescription).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for CONFLICT_DETAILS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.CD_ulSize == other.CD_ulSize && self.CD_ulMask == other.CD_ulMask && self.CD_dnDevInst == other.CD_dnDevInst && self.CD_rdResDes == other.CD_rdResDes && self.CD_ulFlags == other.CD_ulFlags && self.CD_szDescription == other.CD_szDescription
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for CONFLICT_DETAILS_A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CONFLICT_DETAILS_W {
     pub CD_ulSize: u32,
@@ -4148,25 +4127,25 @@ pub struct CONFLICT_DETAILS_W {
     pub CD_ulFlags: u32,
     pub CD_szDescription: [u16; 260],
 }
-impl CONFLICT_DETAILS_W {}
+impl ::core::marker::Copy for CONFLICT_DETAILS_W {}
+impl ::core::clone::Clone for CONFLICT_DETAILS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_W {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CONFLICT_DETAILS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CONFLICT_DETAILS_W>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CONFLICT_DETAILS_W {}
 impl ::core::default::Default for CONFLICT_DETAILS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for CONFLICT_DETAILS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("CONFLICT_DETAILS_W").field("CD_ulSize", &self.CD_ulSize).field("CD_ulMask", &self.CD_ulMask).field("CD_dnDevInst", &self.CD_dnDevInst).field("CD_rdResDes", &self.CD_rdResDes).field("CD_ulFlags", &self.CD_ulFlags).field("CD_szDescription", &self.CD_szDescription).finish()
-    }
-}
-impl ::core::cmp::PartialEq for CONFLICT_DETAILS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.CD_ulSize == other.CD_ulSize && self.CD_ulMask == other.CD_ulMask && self.CD_dnDevInst == other.CD_dnDevInst && self.CD_rdResDes == other.CD_rdResDes && self.CD_ulFlags == other.CD_ulFlags && self.CD_szDescription == other.CD_szDescription
-    }
-}
-impl ::core::cmp::Eq for CONFLICT_DETAILS_W {}
-unsafe impl ::windows::core::Abi for CONFLICT_DETAILS_W {
-    type Abi = Self;
 }
 pub const COPYFLG_FORCE_FILE_IN_USE: u32 = 8u32;
 pub const COPYFLG_IN_USE_TRY_RENAME: u32 = 16384u32;
@@ -4181,7 +4160,6 @@ pub const COPYFLG_PROTECTED_WINDOWS_DRIVER_FILE: u32 = 256u32;
 pub const COPYFLG_REPLACEONLY: u32 = 1024u32;
 pub const COPYFLG_REPLACE_BOOT_FILE: u32 = 4096u32;
 pub const COPYFLG_WARN_IF_SKIP: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct CS_DES {
     pub CSD_SignatureLength: u32,
@@ -4191,42 +4169,50 @@ pub struct CS_DES {
     pub CSD_ClassGuid: ::windows::core::GUID,
     pub CSD_Signature: [u8; 1],
 }
-impl CS_DES {}
+impl ::core::marker::Copy for CS_DES {}
+impl ::core::clone::Clone for CS_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CS_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CS_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CS_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CS_DES {}
 impl ::core::default::Default for CS_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for CS_DES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for CS_DES {}
-unsafe impl ::windows::core::Abi for CS_DES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct CS_RESOURCE {
     pub CS_Header: CS_DES,
 }
-impl CS_RESOURCE {}
+impl ::core::marker::Copy for CS_RESOURCE {}
+impl ::core::clone::Clone for CS_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for CS_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for CS_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<CS_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for CS_RESOURCE {}
 impl ::core::default::Default for CS_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for CS_RESOURCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for CS_RESOURCE {}
-unsafe impl ::windows::core::Abi for CS_RESOURCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct Connection_Des_s {
     pub COND_Type: u32,
@@ -4237,40 +4223,49 @@ pub struct Connection_Des_s {
     pub COND_Reserved2: u8,
     pub COND_Id: i64,
 }
-impl Connection_Des_s {}
+impl ::core::marker::Copy for Connection_Des_s {}
+impl ::core::clone::Clone for Connection_Des_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Connection_Des_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for Connection_Des_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Connection_Des_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Connection_Des_s {}
 impl ::core::default::Default for Connection_Des_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for Connection_Des_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for Connection_Des_s {}
-unsafe impl ::windows::core::Abi for Connection_Des_s {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct Connection_Resource_s {
     pub Connection_Header: Connection_Des_s,
 }
-impl Connection_Resource_s {}
+impl ::core::marker::Copy for Connection_Resource_s {}
+impl ::core::clone::Clone for Connection_Resource_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Connection_Resource_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for Connection_Resource_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Connection_Resource_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Connection_Resource_s {}
 impl ::core::default::Default for Connection_Resource_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for Connection_Resource_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for Connection_Resource_s {}
-unsafe impl ::windows::core::Abi for Connection_Resource_s {
-    type Abi = Self;
 }
 pub const DELFLG_IN_USE: u32 = 1u32;
 pub const DELFLG_IN_USE1: u32 = 65536u32;
@@ -4469,7 +4464,6 @@ pub const DI_SHOWCOMPAT: i32 = 2i32;
 pub const DI_SHOWOEM: i32 = 1i32;
 pub const DI_UNREMOVEDEVICE_CONFIGSPECIFIC: u32 = 2u32;
 pub const DI_USECI_SELECTSTRINGS: i32 = 134217728i32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct DMA_DES {
     pub DD_Count: u32,
@@ -4477,63 +4471,76 @@ pub struct DMA_DES {
     pub DD_Flags: u32,
     pub DD_Alloc_Chan: u32,
 }
-impl DMA_DES {}
+impl ::core::marker::Copy for DMA_DES {}
+impl ::core::clone::Clone for DMA_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DMA_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMA_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMA_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMA_DES {}
 impl ::core::default::Default for DMA_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DMA_DES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DMA_DES {}
-unsafe impl ::windows::core::Abi for DMA_DES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct DMA_RANGE {
     pub DR_Min: u32,
     pub DR_Max: u32,
     pub DR_Flags: u32,
 }
-impl DMA_RANGE {}
+impl ::core::marker::Copy for DMA_RANGE {}
+impl ::core::clone::Clone for DMA_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DMA_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMA_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMA_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMA_RANGE {}
 impl ::core::default::Default for DMA_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DMA_RANGE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DMA_RANGE {}
-unsafe impl ::windows::core::Abi for DMA_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DMA_RESOURCE {
     pub DMA_Header: DMA_DES,
     pub DMA_Data: [DMA_RANGE; 1],
 }
-impl DMA_RESOURCE {}
+impl ::core::marker::Copy for DMA_RESOURCE {}
+impl ::core::clone::Clone for DMA_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DMA_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DMA_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DMA_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DMA_RESOURCE {}
 impl ::core::default::Default for DMA_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for DMA_RESOURCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DMA_RESOURCE {}
-unsafe impl ::windows::core::Abi for DMA_RESOURCE {
-    type Abi = Self;
 }
 pub const DMI_BKCOLOR: u32 = 2u32;
 pub const DMI_MASK: u32 = 1u32;
@@ -4628,7 +4635,6 @@ pub const DYNAWIZ_FLAG_ANALYZE_HANDLECONFLICT: u32 = 8u32;
 pub const DYNAWIZ_FLAG_INSTALLDET_NEXT: u32 = 2u32;
 pub const DYNAWIZ_FLAG_INSTALLDET_PREV: u32 = 4u32;
 pub const DYNAWIZ_FLAG_PAGESADDED: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct DevPrivate_Des_s {
     pub PD_Count: u32,
@@ -4638,63 +4644,76 @@ pub struct DevPrivate_Des_s {
     pub PD_Data3: u32,
     pub PD_Flags: u32,
 }
-impl DevPrivate_Des_s {}
+impl ::core::marker::Copy for DevPrivate_Des_s {}
+impl ::core::clone::Clone for DevPrivate_Des_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DevPrivate_Des_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DevPrivate_Des_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DevPrivate_Des_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DevPrivate_Des_s {}
 impl ::core::default::Default for DevPrivate_Des_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DevPrivate_Des_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DevPrivate_Des_s {}
-unsafe impl ::windows::core::Abi for DevPrivate_Des_s {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct DevPrivate_Range_s {
     pub PR_Data1: u32,
     pub PR_Data2: u32,
     pub PR_Data3: u32,
 }
-impl DevPrivate_Range_s {}
+impl ::core::marker::Copy for DevPrivate_Range_s {}
+impl ::core::clone::Clone for DevPrivate_Range_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DevPrivate_Range_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DevPrivate_Range_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DevPrivate_Range_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DevPrivate_Range_s {}
 impl ::core::default::Default for DevPrivate_Range_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for DevPrivate_Range_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DevPrivate_Range_s {}
-unsafe impl ::windows::core::Abi for DevPrivate_Range_s {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct DevPrivate_Resource_s {
     pub PRV_Header: DevPrivate_Des_s,
     pub PRV_Data: [DevPrivate_Range_s; 1],
 }
-impl DevPrivate_Resource_s {}
+impl ::core::marker::Copy for DevPrivate_Resource_s {}
+impl ::core::clone::Clone for DevPrivate_Resource_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for DevPrivate_Resource_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for DevPrivate_Resource_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<DevPrivate_Resource_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for DevPrivate_Resource_s {}
 impl ::core::default::Default for DevPrivate_Resource_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for DevPrivate_Resource_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for DevPrivate_Resource_s {}
-unsafe impl ::windows::core::Abi for DevPrivate_Resource_s {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4832,7 +4851,6 @@ pub const FILEOP_NEWPATH: u32 = 4u32;
 pub const FILEOP_RENAME: u32 = 1u32;
 pub const FILEOP_RETRY: u32 = 1u32;
 pub const FILEOP_SKIP: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -4844,26 +4862,24 @@ pub struct FILEPATHS_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_A {}
+impl ::core::marker::Copy for FILEPATHS_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILEPATHS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILEPATHS_A").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).finish()
-    }
+unsafe impl ::windows::core::Abi for FILEPATHS_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_A {
     fn eq(&self, other: &Self) -> bool {
-        self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4871,10 +4887,11 @@ impl ::core::cmp::PartialEq for FILEPATHS_A {
 impl ::core::cmp::Eq for FILEPATHS_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_A {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -4886,19 +4903,24 @@ pub struct FILEPATHS_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_A {}
+impl ::core::marker::Copy for FILEPATHS_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILEPATHS_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -4906,10 +4928,11 @@ impl ::core::cmp::PartialEq for FILEPATHS_A {
 impl ::core::cmp::Eq for FILEPATHS_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_A {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -4924,26 +4947,24 @@ pub struct FILEPATHS_SIGNERINFO_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_SIGNERINFO_A {}
+impl ::core::marker::Copy for FILEPATHS_SIGNERINFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILEPATHS_SIGNERINFO_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILEPATHS_SIGNERINFO_A").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).field("DigitalSigner", &self.DigitalSigner).field("Version", &self.Version).field("CatalogFile", &self.CatalogFile).finish()
-    }
+unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
     fn eq(&self, other: &Self) -> bool {
-        self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags && self.DigitalSigner == other.DigitalSigner && self.Version == other.Version && self.CatalogFile == other.CatalogFile
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_SIGNERINFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -4951,10 +4972,11 @@ impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
 impl ::core::cmp::Eq for FILEPATHS_SIGNERINFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -4969,19 +4991,24 @@ pub struct FILEPATHS_SIGNERINFO_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_SIGNERINFO_A {}
+impl ::core::marker::Copy for FILEPATHS_SIGNERINFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_SIGNERINFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -4989,10 +5016,11 @@ impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_A {
 impl ::core::cmp::Eq for FILEPATHS_SIGNERINFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_A {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_SIGNERINFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5007,26 +5035,24 @@ pub struct FILEPATHS_SIGNERINFO_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_SIGNERINFO_W {}
+impl ::core::marker::Copy for FILEPATHS_SIGNERINFO_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILEPATHS_SIGNERINFO_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILEPATHS_SIGNERINFO_W").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).field("DigitalSigner", &self.DigitalSigner).field("Version", &self.Version).field("CatalogFile", &self.CatalogFile).finish()
-    }
+unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_W {
     fn eq(&self, other: &Self) -> bool {
-        self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags && self.DigitalSigner == other.DigitalSigner && self.Version == other.Version && self.CatalogFile == other.CatalogFile
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_SIGNERINFO_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -5034,10 +5060,11 @@ impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_W {
 impl ::core::cmp::Eq for FILEPATHS_SIGNERINFO_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5052,19 +5079,24 @@ pub struct FILEPATHS_SIGNERINFO_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_SIGNERINFO_W {}
+impl ::core::marker::Copy for FILEPATHS_SIGNERINFO_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_SIGNERINFO_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_SIGNERINFO_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -5072,10 +5104,11 @@ impl ::core::cmp::PartialEq for FILEPATHS_SIGNERINFO_W {
 impl ::core::cmp::Eq for FILEPATHS_SIGNERINFO_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_SIGNERINFO_W {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_SIGNERINFO_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5087,26 +5120,24 @@ pub struct FILEPATHS_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_W {}
+impl ::core::marker::Copy for FILEPATHS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILEPATHS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILEPATHS_W").field("Target", &self.Target).field("Source", &self.Source).field("Win32Error", &self.Win32Error).field("Flags", &self.Flags).finish()
-    }
+unsafe impl ::windows::core::Abi for FILEPATHS_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_W {
     fn eq(&self, other: &Self) -> bool {
-        self.Target == other.Target && self.Source == other.Source && self.Win32Error == other.Win32Error && self.Flags == other.Flags
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -5114,10 +5145,11 @@ impl ::core::cmp::PartialEq for FILEPATHS_W {
 impl ::core::cmp::Eq for FILEPATHS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_W {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5129,19 +5161,24 @@ pub struct FILEPATHS_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILEPATHS_W {}
+impl ::core::marker::Copy for FILEPATHS_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILEPATHS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILEPATHS_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILEPATHS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILEPATHS_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILEPATHS_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -5149,14 +5186,15 @@ impl ::core::cmp::PartialEq for FILEPATHS_W {
 impl ::core::cmp::Eq for FILEPATHS_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILEPATHS_W {
-    type Abi = Self;
+impl ::core::default::Default for FILEPATHS_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const FILE_COMPRESSION_MSZIP: u32 = 2u32;
 pub const FILE_COMPRESSION_NONE: u32 = 0u32;
 pub const FILE_COMPRESSION_NTCAB: u32 = 3u32;
 pub const FILE_COMPRESSION_WINLZA: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5171,26 +5209,24 @@ pub struct FILE_IN_CABINET_INFO_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_IN_CABINET_INFO_A {}
+impl ::core::marker::Copy for FILE_IN_CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILE_IN_CABINET_INFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILE_IN_CABINET_INFO_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_IN_CABINET_INFO_A").field("NameInCabinet", &self.NameInCabinet).field("FileSize", &self.FileSize).field("Win32Error", &self.Win32Error).field("DosDate", &self.DosDate).field("DosTime", &self.DosTime).field("DosAttribs", &self.DosAttribs).field("FullTargetName", &self.FullTargetName).finish()
-    }
+unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
     fn eq(&self, other: &Self) -> bool {
-        self.NameInCabinet == other.NameInCabinet && self.FileSize == other.FileSize && self.Win32Error == other.Win32Error && self.DosDate == other.DosDate && self.DosTime == other.DosTime && self.DosAttribs == other.DosAttribs && self.FullTargetName == other.FullTargetName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_IN_CABINET_INFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -5198,10 +5234,11 @@ impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
 impl ::core::cmp::Eq for FILE_IN_CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
-    type Abi = Self;
+impl ::core::default::Default for FILE_IN_CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5216,19 +5253,24 @@ pub struct FILE_IN_CABINET_INFO_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_IN_CABINET_INFO_A {}
+impl ::core::marker::Copy for FILE_IN_CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILE_IN_CABINET_INFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_IN_CABINET_INFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -5236,10 +5278,11 @@ impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_A {
 impl ::core::cmp::Eq for FILE_IN_CABINET_INFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_A {
-    type Abi = Self;
+impl ::core::default::Default for FILE_IN_CABINET_INFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5254,26 +5297,24 @@ pub struct FILE_IN_CABINET_INFO_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_IN_CABINET_INFO_W {}
+impl ::core::marker::Copy for FILE_IN_CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILE_IN_CABINET_INFO_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for FILE_IN_CABINET_INFO_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("FILE_IN_CABINET_INFO_W").field("NameInCabinet", &self.NameInCabinet).field("FileSize", &self.FileSize).field("Win32Error", &self.Win32Error).field("DosDate", &self.DosDate).field("DosTime", &self.DosTime).field("DosAttribs", &self.DosAttribs).field("FullTargetName", &self.FullTargetName).finish()
-    }
+unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
     fn eq(&self, other: &Self) -> bool {
-        self.NameInCabinet == other.NameInCabinet && self.FileSize == other.FileSize && self.Win32Error == other.Win32Error && self.DosDate == other.DosDate && self.DosTime == other.DosTime && self.DosAttribs == other.DosAttribs && self.FullTargetName == other.FullTargetName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_IN_CABINET_INFO_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -5281,10 +5322,11 @@ impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
 impl ::core::cmp::Eq for FILE_IN_CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
-    type Abi = Self;
+impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -5299,19 +5341,24 @@ pub struct FILE_IN_CABINET_INFO_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl FILE_IN_CABINET_INFO_W {}
+impl ::core::marker::Copy for FILE_IN_CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for FILE_IN_CABINET_INFO_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<FILE_IN_CABINET_INFO_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -5319,8 +5366,10 @@ impl ::core::cmp::PartialEq for FILE_IN_CABINET_INFO_W {
 impl ::core::cmp::Eq for FILE_IN_CABINET_INFO_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for FILE_IN_CABINET_INFO_W {
-    type Abi = Self;
+impl ::core::default::Default for FILE_IN_CABINET_INFO_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const FILTERED_LOG_CONF: u32 = 1u32;
 pub const FLG_ADDPROPERTY_AND: u32 = 16u32;
@@ -5547,19 +5596,7 @@ pub const GUID_TARGET_DEVICE_TRANSPORT_RELATIONS_CHANGED: ::windows::core::GUID 
 pub const GUID_THERMAL_COOLING_INTERFACE: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xecbe47a8_c498_4bb9_bd70_e867e0940d22);
 pub const GUID_TRANSLATOR_INTERFACE_STANDARD: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c154a92_aacf_11d0_8d2a_00a0c906b244);
 pub const GUID_WUDF_DEVICE_HOST_PROBLEM: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc43d25bd_9346_40ee_a2d2_d70c15f8b75b);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct HCMNOTIFICATION(pub isize);
-impl ::core::default::Default for HCMNOTIFICATION {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for HCMNOTIFICATION {}
-unsafe impl ::windows::core::Abi for HCMNOTIFICATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type HCMNOTIFICATION = isize;
 #[repr(C, packed(1))]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HWProfileInfo_sA {
@@ -5568,46 +5605,56 @@ pub struct HWProfileInfo_sA {
     pub HWPI_dwFlags: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl HWProfileInfo_sA {}
+impl ::core::marker::Copy for HWProfileInfo_sA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for HWProfileInfo_sA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for HWProfileInfo_sA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for HWProfileInfo_sA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HWProfileInfo_sA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for HWProfileInfo_sA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for HWProfileInfo_sA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for HWProfileInfo_sA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for HWProfileInfo_sA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for HWProfileInfo_sA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct HWProfileInfo_sW {
     pub HWPI_ulHWProfile: u32,
     pub HWPI_szFriendlyName: [u16; 80],
     pub HWPI_dwFlags: u32,
 }
-impl HWProfileInfo_sW {}
+impl ::core::marker::Copy for HWProfileInfo_sW {}
+impl ::core::clone::Clone for HWProfileInfo_sW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for HWProfileInfo_sW {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for HWProfileInfo_sW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<HWProfileInfo_sW>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for HWProfileInfo_sW {}
 impl ::core::default::Default for HWProfileInfo_sW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for HWProfileInfo_sW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for HWProfileInfo_sW {}
-unsafe impl ::windows::core::Abi for HWProfileInfo_sW {
-    type Abi = Self;
 }
 pub const IDD_DYNAWIZ_ANALYZEDEV_PAGE: u32 = 10010u32;
 pub const IDD_DYNAWIZ_ANALYZE_NEXTPAGE: u32 = 10004u32;
@@ -5643,7 +5690,6 @@ pub const IDI_RESOURCEFIRST: u32 = 159u32;
 pub const IDI_RESOURCELAST: u32 = 161u32;
 pub const IDI_RESOURCEOVERLAYFIRST: u32 = 161u32;
 pub const IDI_RESOURCEOVERLAYLAST: u32 = 161u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct INFCONTEXT {
@@ -5653,32 +5699,31 @@ pub struct INFCONTEXT {
     pub Line: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl INFCONTEXT {}
+impl ::core::marker::Copy for INFCONTEXT {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for INFCONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for INFCONTEXT {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for INFCONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INFCONTEXT>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for INFCONTEXT {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for INFCONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for INFCONTEXT {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("INFCONTEXT").field("Inf", &self.Inf).field("CurrentInf", &self.CurrentInf).field("Section", &self.Section).field("Line", &self.Line).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for INFCONTEXT {
-    fn eq(&self, other: &Self) -> bool {
-        self.Inf == other.Inf && self.CurrentInf == other.CurrentInf && self.Section == other.Section && self.Line == other.Line
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for INFCONTEXT {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for INFCONTEXT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct INFCONTEXT {
@@ -5688,24 +5733,30 @@ pub struct INFCONTEXT {
     pub Line: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl INFCONTEXT {}
+impl ::core::marker::Copy for INFCONTEXT {}
 #[cfg(any(target_arch = "x86",))]
-impl ::core::default::Default for INFCONTEXT {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for INFCONTEXT {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for INFCONTEXT {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::PartialEq for INFCONTEXT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<INFCONTEXT>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for INFCONTEXT {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for INFCONTEXT {
-    type Abi = Self;
+impl ::core::default::Default for INFCONTEXT {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const INFINFO_DEFAULT_SEARCH: u32 = 3u32;
 pub const INFINFO_INF_NAME_IS_ABSOLUTE: u32 = 2u32;
@@ -5724,7 +5775,6 @@ pub const IO_ALIAS_10_BIT_DECODE: u32 = 4u32;
 pub const IO_ALIAS_12_BIT_DECODE: u32 = 16u32;
 pub const IO_ALIAS_16_BIT_DECODE: u32 = 0u32;
 pub const IO_ALIAS_POSITIVE_DECODE: u32 = 255u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct IO_DES {
     pub IOD_Count: u32,
@@ -5733,22 +5783,26 @@ pub struct IO_DES {
     pub IOD_Alloc_End: u64,
     pub IOD_DesFlags: u32,
 }
-impl IO_DES {}
+impl ::core::marker::Copy for IO_DES {}
+impl ::core::clone::Clone for IO_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IO_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IO_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IO_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IO_DES {}
 impl ::core::default::Default for IO_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IO_DES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IO_DES {}
-unsafe impl ::windows::core::Abi for IO_DES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct IO_RANGE {
     pub IOR_Align: u64,
@@ -5758,43 +5812,51 @@ pub struct IO_RANGE {
     pub IOR_RangeFlags: u32,
     pub IOR_Alias: u64,
 }
-impl IO_RANGE {}
+impl ::core::marker::Copy for IO_RANGE {}
+impl ::core::clone::Clone for IO_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IO_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IO_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IO_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IO_RANGE {}
 impl ::core::default::Default for IO_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IO_RANGE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IO_RANGE {}
-unsafe impl ::windows::core::Abi for IO_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IO_RESOURCE {
     pub IO_Header: IO_DES,
     pub IO_Data: [IO_RANGE; 1],
 }
-impl IO_RESOURCE {}
+impl ::core::marker::Copy for IO_RESOURCE {}
+impl ::core::clone::Clone for IO_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IO_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IO_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IO_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IO_RESOURCE {}
 impl ::core::default::Default for IO_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IO_RESOURCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IO_RESOURCE {}
-unsafe impl ::windows::core::Abi for IO_RESOURCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct IRQ_DES_32 {
     pub IRQD_Count: u32,
@@ -5803,22 +5865,26 @@ pub struct IRQ_DES_32 {
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u32,
 }
-impl IRQ_DES_32 {}
+impl ::core::marker::Copy for IRQ_DES_32 {}
+impl ::core::clone::Clone for IRQ_DES_32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IRQ_DES_32 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IRQ_DES_32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IRQ_DES_32>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IRQ_DES_32 {}
 impl ::core::default::Default for IRQ_DES_32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IRQ_DES_32 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IRQ_DES_32 {}
-unsafe impl ::windows::core::Abi for IRQ_DES_32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct IRQ_DES_64 {
     pub IRQD_Count: u32,
@@ -5827,84 +5893,101 @@ pub struct IRQ_DES_64 {
     pub IRQD_Alloc_Num: u32,
     pub IRQD_Affinity: u64,
 }
-impl IRQ_DES_64 {}
+impl ::core::marker::Copy for IRQ_DES_64 {}
+impl ::core::clone::Clone for IRQ_DES_64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IRQ_DES_64 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IRQ_DES_64 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IRQ_DES_64>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IRQ_DES_64 {}
 impl ::core::default::Default for IRQ_DES_64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IRQ_DES_64 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IRQ_DES_64 {}
-unsafe impl ::windows::core::Abi for IRQ_DES_64 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct IRQ_RANGE {
     pub IRQR_Min: u32,
     pub IRQR_Max: u32,
     pub IRQR_Flags: u32,
 }
-impl IRQ_RANGE {}
+impl ::core::marker::Copy for IRQ_RANGE {}
+impl ::core::clone::Clone for IRQ_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IRQ_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IRQ_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IRQ_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IRQ_RANGE {}
 impl ::core::default::Default for IRQ_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IRQ_RANGE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IRQ_RANGE {}
-unsafe impl ::windows::core::Abi for IRQ_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IRQ_RESOURCE_32 {
     pub IRQ_Header: IRQ_DES_32,
     pub IRQ_Data: [IRQ_RANGE; 1],
 }
-impl IRQ_RESOURCE_32 {}
+impl ::core::marker::Copy for IRQ_RESOURCE_32 {}
+impl ::core::clone::Clone for IRQ_RESOURCE_32 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IRQ_RESOURCE_32 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IRQ_RESOURCE_32 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IRQ_RESOURCE_32>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IRQ_RESOURCE_32 {}
 impl ::core::default::Default for IRQ_RESOURCE_32 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for IRQ_RESOURCE_32 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IRQ_RESOURCE_32 {}
-unsafe impl ::windows::core::Abi for IRQ_RESOURCE_32 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IRQ_RESOURCE_64 {
     pub IRQ_Header: IRQ_DES_64,
     pub IRQ_Data: [IRQ_RANGE; 1],
 }
-impl IRQ_RESOURCE_64 {}
+impl ::core::marker::Copy for IRQ_RESOURCE_64 {}
+impl ::core::clone::Clone for IRQ_RESOURCE_64 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IRQ_RESOURCE_64 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IRQ_RESOURCE_64 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IRQ_RESOURCE_64>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IRQ_RESOURCE_64 {}
 impl ::core::default::Default for IRQ_RESOURCE_64 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for IRQ_RESOURCE_64 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for IRQ_RESOURCE_64 {}
-unsafe impl ::windows::core::Abi for IRQ_RESOURCE_64 {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5915,7 +5998,7 @@ pub unsafe fn InstallHinfSectionA<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn InstallHinfSectionA(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: super::super::Foundation::PSTR, showcommand: i32);
         }
-        ::core::mem::transmute(InstallHinfSectionA(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand)))
+        InstallHinfSectionA(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5929,7 +6012,7 @@ pub unsafe fn InstallHinfSectionW<'a, Param0: ::windows::core::IntoParam<'a, sup
         extern "system" {
             fn InstallHinfSectionW(window: super::super::Foundation::HWND, modulehandle: super::super::Foundation::HINSTANCE, commandline: super::super::Foundation::PWSTR, showcommand: i32);
         }
-        ::core::mem::transmute(InstallHinfSectionW(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand)))
+        InstallHinfSectionW(window.into_param().abi(), modulehandle.into_param().abi(), commandline.into_param().abi(), ::core::mem::transmute(showcommand))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5980,7 +6063,6 @@ pub const MAX_PROFILE_LEN: u32 = 80u32;
 pub const MAX_SERVICE_NAME_LEN: u32 = 256u32;
 pub const MAX_SUBTITLE_LEN: u32 = 256u32;
 pub const MAX_TITLE_LEN: u32 = 60u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct MEM_DES {
     pub MD_Count: u32,
@@ -5990,22 +6072,26 @@ pub struct MEM_DES {
     pub MD_Flags: u32,
     pub MD_Reserved: u32,
 }
-impl MEM_DES {}
+impl ::core::marker::Copy for MEM_DES {}
+impl ::core::clone::Clone for MEM_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEM_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEM_DES {}
 impl ::core::default::Default for MEM_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MEM_DES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MEM_DES {}
-unsafe impl ::windows::core::Abi for MEM_DES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct MEM_RANGE {
     pub MR_Align: u64,
@@ -6015,43 +6101,51 @@ pub struct MEM_RANGE {
     pub MR_Flags: u32,
     pub MR_Reserved: u32,
 }
-impl MEM_RANGE {}
+impl ::core::marker::Copy for MEM_RANGE {}
+impl ::core::clone::Clone for MEM_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEM_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEM_RANGE {}
 impl ::core::default::Default for MEM_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MEM_RANGE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MEM_RANGE {}
-unsafe impl ::windows::core::Abi for MEM_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MEM_RESOURCE {
     pub MEM_Header: MEM_DES,
     pub MEM_Data: [MEM_RANGE; 1],
 }
-impl MEM_RESOURCE {}
+impl ::core::marker::Copy for MEM_RESOURCE {}
+impl ::core::clone::Clone for MEM_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEM_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEM_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEM_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEM_RESOURCE {}
 impl ::core::default::Default for MEM_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MEM_RESOURCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MEM_RESOURCE {}
-unsafe impl ::windows::core::Abi for MEM_RESOURCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct MFCARD_DES {
     pub PMF_Count: u32,
@@ -6062,43 +6156,51 @@ pub struct MFCARD_DES {
     pub PMF_Reserved: [u8; 2],
     pub PMF_ConfigRegisterBase: u32,
 }
-impl MFCARD_DES {}
+impl ::core::marker::Copy for MFCARD_DES {}
+impl ::core::clone::Clone for MFCARD_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MFCARD_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MFCARD_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCARD_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MFCARD_DES {}
 impl ::core::default::Default for MFCARD_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MFCARD_DES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MFCARD_DES {}
-unsafe impl ::windows::core::Abi for MFCARD_DES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct MFCARD_RESOURCE {
     pub MfCard_Header: MFCARD_DES,
 }
-impl MFCARD_RESOURCE {}
+impl ::core::marker::Copy for MFCARD_RESOURCE {}
+impl ::core::clone::Clone for MFCARD_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MFCARD_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MFCARD_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MFCARD_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MFCARD_RESOURCE {}
 impl ::core::default::Default for MFCARD_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for MFCARD_RESOURCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for MFCARD_RESOURCE {}
-unsafe impl ::windows::core::Abi for MFCARD_RESOURCE {
-    type Abi = Self;
-}
 pub const MIN_IDD_DYNAWIZ_RESOURCE_ID: u32 = 10000u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct Mem_Large_Des_s {
     pub MLD_Count: u32,
@@ -6108,22 +6210,26 @@ pub struct Mem_Large_Des_s {
     pub MLD_Flags: u32,
     pub MLD_Reserved: u32,
 }
-impl Mem_Large_Des_s {}
+impl ::core::marker::Copy for Mem_Large_Des_s {}
+impl ::core::clone::Clone for Mem_Large_Des_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Mem_Large_Des_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for Mem_Large_Des_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Mem_Large_Des_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Mem_Large_Des_s {}
 impl ::core::default::Default for Mem_Large_Des_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for Mem_Large_Des_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for Mem_Large_Des_s {}
-unsafe impl ::windows::core::Abi for Mem_Large_Des_s {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct Mem_Large_Range_s {
     pub MLR_Align: u64,
@@ -6133,41 +6239,50 @@ pub struct Mem_Large_Range_s {
     pub MLR_Flags: u32,
     pub MLR_Reserved: u32,
 }
-impl Mem_Large_Range_s {}
+impl ::core::marker::Copy for Mem_Large_Range_s {}
+impl ::core::clone::Clone for Mem_Large_Range_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Mem_Large_Range_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for Mem_Large_Range_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Mem_Large_Range_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Mem_Large_Range_s {}
 impl ::core::default::Default for Mem_Large_Range_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for Mem_Large_Range_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for Mem_Large_Range_s {}
-unsafe impl ::windows::core::Abi for Mem_Large_Range_s {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct Mem_Large_Resource_s {
     pub MEM_LARGE_Header: Mem_Large_Des_s,
     pub MEM_LARGE_Data: [Mem_Large_Range_s; 1],
 }
-impl Mem_Large_Resource_s {}
+impl ::core::marker::Copy for Mem_Large_Resource_s {}
+impl ::core::clone::Clone for Mem_Large_Resource_s {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for Mem_Large_Resource_s {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for Mem_Large_Resource_s {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<Mem_Large_Resource_s>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for Mem_Large_Resource_s {}
 impl ::core::default::Default for Mem_Large_Resource_s {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for Mem_Large_Resource_s {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for Mem_Large_Resource_s {}
-unsafe impl ::windows::core::Abi for Mem_Large_Resource_s {
-    type Abi = Self;
 }
 pub const NDW_INSTALLFLAG_CI_PICKED_OEM: u32 = 32768u32;
 pub const NDW_INSTALLFLAG_DIDFACTDEFS: u32 = 1u32;
@@ -6195,50 +6310,11 @@ pub const NUM_CM_PROB_V7: u32 = 55u32;
 pub const NUM_CM_PROB_V8: u32 = 57u32;
 pub const NUM_CM_PROB_V9: u32 = 58u32;
 pub const NUM_LOG_CONF: u32 = 6u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct OEM_SOURCE_MEDIA_TYPE(pub u32);
-pub const SPOST_NONE: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(0u32);
-pub const SPOST_PATH: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(1u32);
-pub const SPOST_URL: OEM_SOURCE_MEDIA_TYPE = OEM_SOURCE_MEDIA_TYPE(2u32);
-impl ::core::convert::From<u32> for OEM_SOURCE_MEDIA_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for OEM_SOURCE_MEDIA_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for OEM_SOURCE_MEDIA_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for OEM_SOURCE_MEDIA_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for OEM_SOURCE_MEDIA_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for OEM_SOURCE_MEDIA_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for OEM_SOURCE_MEDIA_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type OEM_SOURCE_MEDIA_TYPE = u32;
+pub const SPOST_NONE: OEM_SOURCE_MEDIA_TYPE = 0u32;
+pub const SPOST_PATH: OEM_SOURCE_MEDIA_TYPE = 1u32;
+pub const SPOST_URL: OEM_SOURCE_MEDIA_TYPE = 2u32;
 pub const OVERRIDE_LOG_CONF: u32 = 5u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 pub struct PCCARD_DES {
     pub PCD_Count: u32,
@@ -6252,71 +6328,70 @@ pub struct PCCARD_DES {
     pub PCD_MemoryFlags: [u16; 2],
     pub PCD_IoFlags: [u8; 2],
 }
-impl PCCARD_DES {}
+impl ::core::marker::Copy for PCCARD_DES {}
+impl ::core::clone::Clone for PCCARD_DES {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PCCARD_DES {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PCCARD_DES {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PCCARD_DES>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PCCARD_DES {}
 impl ::core::default::Default for PCCARD_DES {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for PCCARD_DES {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for PCCARD_DES {}
-unsafe impl ::windows::core::Abi for PCCARD_DES {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PCCARD_RESOURCE {
     pub PcCard_Header: PCCARD_DES,
 }
-impl PCCARD_RESOURCE {}
+impl ::core::marker::Copy for PCCARD_RESOURCE {}
+impl ::core::clone::Clone for PCCARD_RESOURCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PCCARD_RESOURCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PCCARD_RESOURCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PCCARD_RESOURCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PCCARD_RESOURCE {}
 impl ::core::default::Default for PCCARD_RESOURCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::cmp::PartialEq for PCCARD_RESOURCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for PCCARD_RESOURCE {}
-unsafe impl ::windows::core::Abi for PCCARD_RESOURCE {
-    type Abi = Self;
 }
 pub const PCD_MAX_IO: u32 = 2u32;
 pub const PCD_MAX_MEMORY: u32 = 2u32;
 pub type PCM_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hnotify: HCMNOTIFICATION, context: *const ::core::ffi::c_void, action: CM_NOTIFY_ACTION, eventdata: *const CM_NOTIFY_EVENT_DATA, eventdatasize: u32) -> u32>;
 #[cfg(feature = "Win32_Foundation")]
 pub type PDETECT_PROGRESS_NOTIFY = ::core::option::Option<unsafe extern "system" fn(progressnotifyparam: *const ::core::ffi::c_void, detectcomplete: u32) -> super::super::Foundation::BOOL>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PNP_VETO_TYPE(pub i32);
-pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = PNP_VETO_TYPE(0i32);
-pub const PNP_VetoLegacyDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(1i32);
-pub const PNP_VetoPendingClose: PNP_VETO_TYPE = PNP_VETO_TYPE(2i32);
-pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = PNP_VETO_TYPE(3i32);
-pub const PNP_VetoWindowsService: PNP_VETO_TYPE = PNP_VETO_TYPE(4i32);
-pub const PNP_VetoOutstandingOpen: PNP_VETO_TYPE = PNP_VETO_TYPE(5i32);
-pub const PNP_VetoDevice: PNP_VETO_TYPE = PNP_VETO_TYPE(6i32);
-pub const PNP_VetoDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(7i32);
-pub const PNP_VetoIllegalDeviceRequest: PNP_VETO_TYPE = PNP_VETO_TYPE(8i32);
-pub const PNP_VetoInsufficientPower: PNP_VETO_TYPE = PNP_VETO_TYPE(9i32);
-pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = PNP_VETO_TYPE(10i32);
-pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = PNP_VETO_TYPE(11i32);
-pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = PNP_VETO_TYPE(12i32);
-pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = PNP_VETO_TYPE(13i32);
-impl ::core::convert::From<i32> for PNP_VETO_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PNP_VETO_TYPE {
-    type Abi = Self;
-}
+pub type PNP_VETO_TYPE = i32;
+pub const PNP_VetoTypeUnknown: PNP_VETO_TYPE = 0i32;
+pub const PNP_VetoLegacyDevice: PNP_VETO_TYPE = 1i32;
+pub const PNP_VetoPendingClose: PNP_VETO_TYPE = 2i32;
+pub const PNP_VetoWindowsApp: PNP_VETO_TYPE = 3i32;
+pub const PNP_VetoWindowsService: PNP_VETO_TYPE = 4i32;
+pub const PNP_VetoOutstandingOpen: PNP_VETO_TYPE = 5i32;
+pub const PNP_VetoDevice: PNP_VETO_TYPE = 6i32;
+pub const PNP_VetoDriver: PNP_VETO_TYPE = 7i32;
+pub const PNP_VetoIllegalDeviceRequest: PNP_VETO_TYPE = 8i32;
+pub const PNP_VetoInsufficientPower: PNP_VETO_TYPE = 9i32;
+pub const PNP_VetoNonDisableable: PNP_VETO_TYPE = 10i32;
+pub const PNP_VetoLegacyDriver: PNP_VETO_TYPE = 11i32;
+pub const PNP_VetoInsufficientRights: PNP_VETO_TYPE = 12i32;
+pub const PNP_VetoAlreadyRemoved: PNP_VETO_TYPE = 13i32;
 pub const PRIORITY_BIT: u32 = 8u32;
 pub const PRIORITY_EQUAL_FIRST: u32 = 8u32;
 pub const PRIORITY_EQUAL_LAST: u32 = 0u32;
@@ -6347,88 +6422,12 @@ pub const ResType_PcCardConfig: u32 = 32770u32;
 pub const ResType_Reserved: u32 = 32768u32;
 pub const SCWMI_CLOBBER_SECURITY: u32 = 1u32;
 pub const SETDIRID_NOT_FULL_PATH: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(pub u32);
-pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(1u32);
-pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = SETUP_DI_BUILD_DRIVER_DRIVER_TYPE(2u32);
-impl ::core::convert::From<u32> for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SETUP_DI_BUILD_DRIVER_DRIVER_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SETUP_FILE_OPERATION(pub u32);
-pub const FILEOP_DELETE: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(2u32);
-pub const FILEOP_COPY: SETUP_FILE_OPERATION = SETUP_FILE_OPERATION(0u32);
-impl ::core::convert::From<u32> for SETUP_FILE_OPERATION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SETUP_FILE_OPERATION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SETUP_FILE_OPERATION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SETUP_FILE_OPERATION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SETUP_FILE_OPERATION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SETUP_FILE_OPERATION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SETUP_FILE_OPERATION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = u32;
+pub const SPDIT_CLASSDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = 1u32;
+pub const SPDIT_COMPATDRIVER: SETUP_DI_BUILD_DRIVER_DRIVER_TYPE = 2u32;
+pub type SETUP_FILE_OPERATION = u32;
+pub const FILEOP_DELETE: SETUP_FILE_OPERATION = 2u32;
+pub const FILEOP_COPY: SETUP_FILE_OPERATION = 0u32;
 pub const SIGNERSCORE_AUTHENTICODE: u32 = 251658240u32;
 pub const SIGNERSCORE_INBOX: u32 = 218103811u32;
 pub const SIGNERSCORE_LOGO_PREMIUM: u32 = 218103809u32;
@@ -6440,7 +6439,6 @@ pub const SIGNERSCORE_UNKNOWN: u32 = 4278190080u32;
 pub const SIGNERSCORE_UNSIGNED: u32 = 2147483648u32;
 pub const SIGNERSCORE_W9X_SUSPECT: u32 = 3221225472u32;
 pub const SIGNERSCORE_WHQL: u32 = 218103813u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6454,26 +6452,24 @@ pub struct SOURCE_MEDIA_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SOURCE_MEDIA_A {}
+impl ::core::marker::Copy for SOURCE_MEDIA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SOURCE_MEDIA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SOURCE_MEDIA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SOURCE_MEDIA_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SOURCE_MEDIA_A").field("Reserved", &self.Reserved).field("Tagfile", &self.Tagfile).field("Description", &self.Description).field("SourcePath", &self.SourcePath).field("SourceFile", &self.SourceFile).field("Flags", &self.Flags).finish()
-    }
+unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOURCE_MEDIA_A {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved && self.Tagfile == other.Tagfile && self.Description == other.Description && self.SourcePath == other.SourcePath && self.SourceFile == other.SourceFile && self.Flags == other.Flags
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOURCE_MEDIA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -6481,10 +6477,11 @@ impl ::core::cmp::PartialEq for SOURCE_MEDIA_A {
 impl ::core::cmp::Eq for SOURCE_MEDIA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
-    type Abi = Self;
+impl ::core::default::Default for SOURCE_MEDIA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6498,19 +6495,24 @@ pub struct SOURCE_MEDIA_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SOURCE_MEDIA_A {}
+impl ::core::marker::Copy for SOURCE_MEDIA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SOURCE_MEDIA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SOURCE_MEDIA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOURCE_MEDIA_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOURCE_MEDIA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -6518,10 +6520,11 @@ impl ::core::cmp::PartialEq for SOURCE_MEDIA_A {
 impl ::core::cmp::Eq for SOURCE_MEDIA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_A {
-    type Abi = Self;
+impl ::core::default::Default for SOURCE_MEDIA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6535,26 +6538,24 @@ pub struct SOURCE_MEDIA_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SOURCE_MEDIA_W {}
+impl ::core::marker::Copy for SOURCE_MEDIA_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SOURCE_MEDIA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SOURCE_MEDIA_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SOURCE_MEDIA_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SOURCE_MEDIA_W").field("Reserved", &self.Reserved).field("Tagfile", &self.Tagfile).field("Description", &self.Description).field("SourcePath", &self.SourcePath).field("SourceFile", &self.SourceFile).field("Flags", &self.Flags).finish()
-    }
+unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOURCE_MEDIA_W {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved == other.Reserved && self.Tagfile == other.Tagfile && self.Description == other.Description && self.SourcePath == other.SourcePath && self.SourceFile == other.SourceFile && self.Flags == other.Flags
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOURCE_MEDIA_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -6562,10 +6563,11 @@ impl ::core::cmp::PartialEq for SOURCE_MEDIA_W {
 impl ::core::cmp::Eq for SOURCE_MEDIA_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
-    type Abi = Self;
+impl ::core::default::Default for SOURCE_MEDIA_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -6579,19 +6581,24 @@ pub struct SOURCE_MEDIA_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SOURCE_MEDIA_W {}
+impl ::core::marker::Copy for SOURCE_MEDIA_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SOURCE_MEDIA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SOURCE_MEDIA_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SOURCE_MEDIA_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SOURCE_MEDIA_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -6599,8 +6606,10 @@ impl ::core::cmp::PartialEq for SOURCE_MEDIA_W {
 impl ::core::cmp::Eq for SOURCE_MEDIA_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SOURCE_MEDIA_W {
-    type Abi = Self;
+impl ::core::default::Default for SOURCE_MEDIA_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SPCRP_CHARACTERISTICS: u32 = 27u32;
 pub const SPCRP_DEVTYPE: u32 = 25u32;
@@ -6761,7 +6770,6 @@ pub const SPWPT_SELECTDEVICE: u32 = 1u32;
 pub const SPWP_USE_DEVINFO_DATA: u32 = 1u32;
 pub const SP_ALTPLATFORM_FLAGS_SUITE_MASK: u32 = 2u32;
 pub const SP_ALTPLATFORM_FLAGS_VERSION_RANGE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -6775,26 +6783,24 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl SP_ALTPLATFORM_INFO_V1 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V1 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::fmt::Debug for SP_ALTPLATFORM_INFO_V1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_ALTPLATFORM_INFO_V1").field("cbSize", &self.cbSize).field("Platform", &self.Platform).field("MajorVersion", &self.MajorVersion).field("MinorVersion", &self.MinorVersion).field("ProcessorArchitecture", &self.ProcessorArchitecture).field("Reserved", &self.Reserved).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V1 {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Platform == other.Platform && self.MajorVersion == other.MajorVersion && self.MinorVersion == other.MinorVersion && self.ProcessorArchitecture == other.ProcessorArchitecture && self.Reserved == other.Reserved
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V1>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -6802,10 +6808,11 @@ impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V1 {
 impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V1 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
-    type Abi = Self;
+impl ::core::default::Default for SP_ALTPLATFORM_INFO_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -6819,19 +6826,24 @@ pub struct SP_ALTPLATFORM_INFO_V1 {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl SP_ALTPLATFORM_INFO_V1 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V1 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V1 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V1 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V1>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -6839,10 +6851,11 @@ impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V1 {
 impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V1 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V1 {
-    type Abi = Self;
+impl ::core::default::Default for SP_ALTPLATFORM_INFO_V1 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -6858,19 +6871,24 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl SP_ALTPLATFORM_INFO_V2 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V2>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -6878,10 +6896,11 @@ impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2 {
 impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V2 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
-    type Abi = Self;
+impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -6891,19 +6910,24 @@ pub union SP_ALTPLATFORM_INFO_V2_0 {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl SP_ALTPLATFORM_INFO_V2_0 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V2_0>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -6911,10 +6935,11 @@ impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2_0 {
 impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
-    type Abi = Self;
+impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -6930,19 +6955,24 @@ pub struct SP_ALTPLATFORM_INFO_V2 {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl SP_ALTPLATFORM_INFO_V2 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V2>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -6950,10 +6980,11 @@ impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2 {
 impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V2 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2 {
-    type Abi = Self;
+impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
@@ -6963,19 +6994,24 @@ pub union SP_ALTPLATFORM_INFO_V2_0 {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl SP_ALTPLATFORM_INFO_V2_0 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V2_0 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_System_Diagnostics_Debug")]
 impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V2_0>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -6983,10 +7019,11 @@ impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V2_0 {
 impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V2_0 {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_System_Diagnostics_Debug")]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V2_0 {
-    type Abi = Self;
+impl ::core::default::Default for SP_ALTPLATFORM_INFO_V2_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_ALTPLATFORM_INFO_V3 {
@@ -7003,26 +7040,31 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub BuildNumber: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_ALTPLATFORM_INFO_V3 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V3>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V3 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V3 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
@@ -7030,26 +7072,31 @@ pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Flags: u16,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_ALTPLATFORM_INFO_V3_0 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3_0 {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V3_0>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V3_0 {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V3_0 {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_ALTPLATFORM_INFO_V3 {
@@ -7066,26 +7113,31 @@ pub struct SP_ALTPLATFORM_INFO_V3 {
     pub BuildNumber: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_ALTPLATFORM_INFO_V3 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3 {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V3>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V3 {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V3 {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub union SP_ALTPLATFORM_INFO_V3_0 {
@@ -7093,29 +7145,34 @@ pub union SP_ALTPLATFORM_INFO_V3_0 {
     pub Flags: u16,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_ALTPLATFORM_INFO_V3_0 {}
+impl ::core::marker::Copy for SP_ALTPLATFORM_INFO_V3_0 {}
 #[cfg(any(target_arch = "x86",))]
-impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ALTPLATFORM_INFO_V3_0 {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::PartialEq for SP_ALTPLATFORM_INFO_V3_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ALTPLATFORM_INFO_V3_0>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for SP_ALTPLATFORM_INFO_V3_0 {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_ALTPLATFORM_INFO_V3_0 {
-    type Abi = Self;
+impl ::core::default::Default for SP_ALTPLATFORM_INFO_V3_0 {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SP_BACKUP_BACKUPPASS: u32 = 1u32;
 pub const SP_BACKUP_BOOTFILE: u32 = 8u32;
 pub const SP_BACKUP_DEMANDPASS: u32 = 2u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7126,26 +7183,24 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_BACKUP_QUEUE_PARAMS_V1_A {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V1_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V1_A").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V1_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -7153,10 +7208,11 @@ impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
 impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7167,19 +7223,24 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V1_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_BACKUP_QUEUE_PARAMS_V1_A {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V1_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V1_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -7187,10 +7248,11 @@ impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_A {
 impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
@@ -7199,32 +7261,31 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub FilenameOffset: i32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_BACKUP_QUEUE_PARAMS_V1_W {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V1_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V1_W").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
@@ -7233,26 +7294,31 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V1_W {
     pub FilenameOffset: i32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_BACKUP_QUEUE_PARAMS_V1_W {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V1_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V1_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V1_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7264,26 +7330,24 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_BACKUP_QUEUE_PARAMS_V2_A {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V2_A").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).field("ReinstallInstance", &self.ReinstallInstance).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset && self.ReinstallInstance == other.ReinstallInstance
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V2_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -7291,10 +7355,11 @@ impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
 impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7306,19 +7371,24 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_BACKUP_QUEUE_PARAMS_V2_A {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V2_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -7326,10 +7396,11 @@ impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_A {
 impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
@@ -7339,32 +7410,31 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub ReinstallInstance: [u16; 260],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_BACKUP_QUEUE_PARAMS_V2_W {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V2_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_BACKUP_QUEUE_PARAMS_V2_W").field("cbSize", &self.cbSize).field("FullInfPath", &self.FullInfPath).field("FilenameOffset", &self.FilenameOffset).field("ReinstallInstance", &self.ReinstallInstance).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.FullInfPath == other.FullInfPath && self.FilenameOffset == other.FilenameOffset && self.ReinstallInstance == other.ReinstallInstance
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
@@ -7374,27 +7444,32 @@ pub struct SP_BACKUP_QUEUE_PARAMS_V2_W {
     pub ReinstallInstance: [u16; 260],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_BACKUP_QUEUE_PARAMS_V2_W {}
+impl ::core::marker::Copy for SP_BACKUP_QUEUE_PARAMS_V2_W {}
 #[cfg(any(target_arch = "x86",))]
-impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::PartialEq for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_BACKUP_QUEUE_PARAMS_V2_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for SP_BACKUP_QUEUE_PARAMS_V2_W {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_BACKUP_QUEUE_PARAMS_V2_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_BACKUP_QUEUE_PARAMS_V2_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SP_BACKUP_SPECIAL: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -7405,26 +7480,24 @@ pub struct SP_CLASSIMAGELIST_DATA {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
-impl SP_CLASSIMAGELIST_DATA {}
+impl ::core::marker::Copy for SP_CLASSIMAGELIST_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
-impl ::core::default::Default for SP_CLASSIMAGELIST_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_CLASSIMAGELIST_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
-impl ::core::fmt::Debug for SP_CLASSIMAGELIST_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_CLASSIMAGELIST_DATA").field("cbSize", &self.cbSize).field("ImageList", &self.ImageList).field("Reserved", &self.Reserved).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
 impl ::core::cmp::PartialEq for SP_CLASSIMAGELIST_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ImageList == other.ImageList && self.Reserved == other.Reserved
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_CLASSIMAGELIST_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -7432,10 +7505,11 @@ impl ::core::cmp::PartialEq for SP_CLASSIMAGELIST_DATA {
 impl ::core::cmp::Eq for SP_CLASSIMAGELIST_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_UI_Controls")]
-unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
-    type Abi = Self;
+impl ::core::default::Default for SP_CLASSIMAGELIST_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_Controls")]
@@ -7446,19 +7520,24 @@ pub struct SP_CLASSIMAGELIST_DATA {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_Controls")]
-impl SP_CLASSIMAGELIST_DATA {}
+impl ::core::marker::Copy for SP_CLASSIMAGELIST_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_Controls")]
-impl ::core::default::Default for SP_CLASSIMAGELIST_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_CLASSIMAGELIST_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_Controls")]
+unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_UI_Controls")]
 impl ::core::cmp::PartialEq for SP_CLASSIMAGELIST_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_CLASSIMAGELIST_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -7466,10 +7545,11 @@ impl ::core::cmp::PartialEq for SP_CLASSIMAGELIST_DATA {
 impl ::core::cmp::Eq for SP_CLASSIMAGELIST_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_UI_Controls")]
-unsafe impl ::windows::core::Abi for SP_CLASSIMAGELIST_DATA {
-    type Abi = Self;
+impl ::core::default::Default for SP_CLASSIMAGELIST_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_CLASSINSTALL_HEADER {
@@ -7477,32 +7557,31 @@ pub struct SP_CLASSINSTALL_HEADER {
     pub InstallFunction: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_CLASSINSTALL_HEADER {}
+impl ::core::marker::Copy for SP_CLASSINSTALL_HEADER {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_CLASSINSTALL_HEADER>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_CLASSINSTALL_HEADER {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_CLASSINSTALL_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_CLASSINSTALL_HEADER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_CLASSINSTALL_HEADER").field("cbSize", &self.cbSize).field("InstallFunction", &self.InstallFunction).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.InstallFunction == other.InstallFunction
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_CLASSINSTALL_HEADER {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_CLASSINSTALL_HEADER {
@@ -7510,93 +7589,60 @@ pub struct SP_CLASSINSTALL_HEADER {
     pub InstallFunction: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_CLASSINSTALL_HEADER {}
+impl ::core::marker::Copy for SP_CLASSINSTALL_HEADER {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_CLASSINSTALL_HEADER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_CLASSINSTALL_HEADER>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_CLASSINSTALL_HEADER {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_CLASSINSTALL_HEADER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_CLASSINSTALL_HEADER {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_CLASSINSTALL_HEADER {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_CLASSINSTALL_HEADER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SP_COPY_STYLE(pub u32);
-pub const SP_COPY_DELETESOURCE: SP_COPY_STYLE = SP_COPY_STYLE(1u32);
-pub const SP_COPY_REPLACEONLY: SP_COPY_STYLE = SP_COPY_STYLE(2u32);
-pub const SP_COPY_NEWER_OR_SAME: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
-pub const SP_COPY_NEWER_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(65536u32);
-pub const SP_COPY_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(8u32);
-pub const SP_COPY_NODECOMP: SP_COPY_STYLE = SP_COPY_STYLE(16u32);
-pub const SP_COPY_LANGUAGEAWARE: SP_COPY_STYLE = SP_COPY_STYLE(32u32);
-pub const SP_COPY_SOURCE_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(64u32);
-pub const SP_COPY_SOURCEPATH_ABSOLUTE: SP_COPY_STYLE = SP_COPY_STYLE(128u32);
-pub const SP_COPY_FORCE_IN_USE: SP_COPY_STYLE = SP_COPY_STYLE(512u32);
-pub const SP_COPY_IN_USE_NEEDS_REBOOT: SP_COPY_STYLE = SP_COPY_STYLE(256u32);
-pub const SP_COPY_NOSKIP: SP_COPY_STYLE = SP_COPY_STYLE(1024u32);
-pub const SP_COPY_FORCE_NOOVERWRITE: SP_COPY_STYLE = SP_COPY_STYLE(4096u32);
-pub const SP_COPY_FORCE_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(8192u32);
-pub const SP_COPY_WARNIFSKIP: SP_COPY_STYLE = SP_COPY_STYLE(16384u32);
-pub const SP_COPY_NOBROWSE: SP_COPY_STYLE = SP_COPY_STYLE(32768u32);
-pub const SP_COPY_NEWER: SP_COPY_STYLE = SP_COPY_STYLE(4u32);
-pub const SP_COPY_RESERVED: SP_COPY_STYLE = SP_COPY_STYLE(131072u32);
-pub const SP_COPY_OEMINF_CATALOG_ONLY: SP_COPY_STYLE = SP_COPY_STYLE(262144u32);
-pub const SP_COPY_REPLACE_BOOT_FILE: SP_COPY_STYLE = SP_COPY_STYLE(524288u32);
-pub const SP_COPY_NOPRUNE: SP_COPY_STYLE = SP_COPY_STYLE(1048576u32);
-pub const SP_COPY_OEM_F6_INF: SP_COPY_STYLE = SP_COPY_STYLE(2097152u32);
-pub const SP_COPY_ALREADYDECOMP: SP_COPY_STYLE = SP_COPY_STYLE(4194304u32);
-pub const SP_COPY_WINDOWS_SIGNED: SP_COPY_STYLE = SP_COPY_STYLE(16777216u32);
-pub const SP_COPY_PNPLOCKED: SP_COPY_STYLE = SP_COPY_STYLE(33554432u32);
-pub const SP_COPY_IN_USE_TRY_RENAME: SP_COPY_STYLE = SP_COPY_STYLE(67108864u32);
-pub const SP_COPY_INBOX_INF: SP_COPY_STYLE = SP_COPY_STYLE(134217728u32);
-pub const SP_COPY_HARDLINK: SP_COPY_STYLE = SP_COPY_STYLE(268435456u32);
-impl ::core::convert::From<u32> for SP_COPY_STYLE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SP_COPY_STYLE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SP_COPY_STYLE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SP_COPY_STYLE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SP_COPY_STYLE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SP_COPY_STYLE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SP_COPY_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SP_COPY_STYLE = u32;
+pub const SP_COPY_DELETESOURCE: SP_COPY_STYLE = 1u32;
+pub const SP_COPY_REPLACEONLY: SP_COPY_STYLE = 2u32;
+pub const SP_COPY_NEWER_OR_SAME: SP_COPY_STYLE = 4u32;
+pub const SP_COPY_NEWER_ONLY: SP_COPY_STYLE = 65536u32;
+pub const SP_COPY_NOOVERWRITE: SP_COPY_STYLE = 8u32;
+pub const SP_COPY_NODECOMP: SP_COPY_STYLE = 16u32;
+pub const SP_COPY_LANGUAGEAWARE: SP_COPY_STYLE = 32u32;
+pub const SP_COPY_SOURCE_ABSOLUTE: SP_COPY_STYLE = 64u32;
+pub const SP_COPY_SOURCEPATH_ABSOLUTE: SP_COPY_STYLE = 128u32;
+pub const SP_COPY_FORCE_IN_USE: SP_COPY_STYLE = 512u32;
+pub const SP_COPY_IN_USE_NEEDS_REBOOT: SP_COPY_STYLE = 256u32;
+pub const SP_COPY_NOSKIP: SP_COPY_STYLE = 1024u32;
+pub const SP_COPY_FORCE_NOOVERWRITE: SP_COPY_STYLE = 4096u32;
+pub const SP_COPY_FORCE_NEWER: SP_COPY_STYLE = 8192u32;
+pub const SP_COPY_WARNIFSKIP: SP_COPY_STYLE = 16384u32;
+pub const SP_COPY_NOBROWSE: SP_COPY_STYLE = 32768u32;
+pub const SP_COPY_NEWER: SP_COPY_STYLE = 4u32;
+pub const SP_COPY_RESERVED: SP_COPY_STYLE = 131072u32;
+pub const SP_COPY_OEMINF_CATALOG_ONLY: SP_COPY_STYLE = 262144u32;
+pub const SP_COPY_REPLACE_BOOT_FILE: SP_COPY_STYLE = 524288u32;
+pub const SP_COPY_NOPRUNE: SP_COPY_STYLE = 1048576u32;
+pub const SP_COPY_OEM_F6_INF: SP_COPY_STYLE = 2097152u32;
+pub const SP_COPY_ALREADYDECOMP: SP_COPY_STYLE = 4194304u32;
+pub const SP_COPY_WINDOWS_SIGNED: SP_COPY_STYLE = 16777216u32;
+pub const SP_COPY_PNPLOCKED: SP_COPY_STYLE = 33554432u32;
+pub const SP_COPY_IN_USE_TRY_RENAME: SP_COPY_STYLE = 67108864u32;
+pub const SP_COPY_INBOX_INF: SP_COPY_STYLE = 134217728u32;
+pub const SP_COPY_HARDLINK: SP_COPY_STYLE = 268435456u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7607,26 +7653,24 @@ pub struct SP_DETECTDEVICE_PARAMS {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DETECTDEVICE_PARAMS {}
+impl ::core::marker::Copy for SP_DETECTDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DETECTDEVICE_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DETECTDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("ProgressNotifyParam", &self.ProgressNotifyParam).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DETECTDEVICE_PARAMS {
     fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.DetectProgressNotify.map(|f| f as usize) == other.DetectProgressNotify.map(|f| f as usize) && self.ProgressNotifyParam == other.ProgressNotifyParam
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DETECTDEVICE_PARAMS>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -7634,10 +7678,11 @@ impl ::core::cmp::PartialEq for SP_DETECTDEVICE_PARAMS {
 impl ::core::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
-    type Abi = Self;
+impl ::core::default::Default for SP_DETECTDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7648,19 +7693,24 @@ pub struct SP_DETECTDEVICE_PARAMS {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DETECTDEVICE_PARAMS {}
+impl ::core::marker::Copy for SP_DETECTDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DETECTDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DETECTDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DETECTDEVICE_PARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DETECTDEVICE_PARAMS>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -7668,10 +7718,11 @@ impl ::core::cmp::PartialEq for SP_DETECTDEVICE_PARAMS {
 impl ::core::cmp::Eq for SP_DETECTDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DETECTDEVICE_PARAMS {
-    type Abi = Self;
+impl ::core::default::Default for SP_DETECTDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DEVICE_INTERFACE_DATA {
@@ -7681,32 +7732,31 @@ pub struct SP_DEVICE_INTERFACE_DATA {
     pub Reserved: usize,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_DEVICE_INTERFACE_DATA {}
+impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVICE_INTERFACE_DATA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_DEVICE_INTERFACE_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVICE_INTERFACE_DATA").field("cbSize", &self.cbSize).field("InterfaceClassGuid", &self.InterfaceClassGuid).field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.InterfaceClassGuid == other.InterfaceClassGuid && self.Flags == other.Flags && self.Reserved == other.Reserved
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_DEVICE_INTERFACE_DATA {
@@ -7716,26 +7766,31 @@ pub struct SP_DEVICE_INTERFACE_DATA {
     pub Reserved: usize,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_DEVICE_INTERFACE_DATA {}
+impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DATA {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVICE_INTERFACE_DATA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DATA {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7745,26 +7800,24 @@ pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVICE_INTERFACE_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("DevicePath", &self.DevicePath).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.DevicePath == other.DevicePath
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVICE_INTERFACE_DETAIL_DATA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -7772,10 +7825,11 @@ impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7785,19 +7839,24 @@ pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
+impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVICE_INTERFACE_DETAIL_DATA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -7805,10 +7864,11 @@ impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
 impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
@@ -7816,32 +7876,31 @@ pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub DevicePath: [u16; 1],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVICE_INTERFACE_DETAIL_DATA_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVICE_INTERFACE_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("DevicePath", &self.DevicePath).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.DevicePath == other.DevicePath
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
@@ -7849,26 +7908,31 @@ pub struct SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     pub DevicePath: [u16; 1],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+impl ::core::marker::Copy for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVICE_INTERFACE_DETAIL_DATA_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_DEVICE_INTERFACE_DETAIL_DATA_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_DEVICE_INTERFACE_DETAIL_DATA_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DEVINFO_DATA {
@@ -7878,32 +7942,31 @@ pub struct SP_DEVINFO_DATA {
     pub Reserved: usize,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_DEVINFO_DATA {}
+impl ::core::marker::Copy for SP_DEVINFO_DATA {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_DEVINFO_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_DEVINFO_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINFO_DATA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_DEVINFO_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_DEVINFO_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_DEVINFO_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVINFO_DATA").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("DevInst", &self.DevInst).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_DEVINFO_DATA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.DevInst == other.DevInst && self.Reserved == other.Reserved
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_DEVINFO_DATA {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_DEVINFO_DATA {
@@ -7913,26 +7976,31 @@ pub struct SP_DEVINFO_DATA {
     pub Reserved: usize,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_DEVINFO_DATA {}
+impl ::core::marker::Copy for SP_DEVINFO_DATA {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_DEVINFO_DATA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_DEVINFO_DATA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINFO_DATA>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_DEVINFO_DATA {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_DEVINFO_DATA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_DEVINFO_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_DEVINFO_DATA {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_DATA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7944,26 +8012,24 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINFO_LIST_DETAIL_DATA_A {}
+impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVINFO_LIST_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("RemoteMachineHandle", &self.RemoteMachineHandle).field("RemoteMachineName", &self.RemoteMachineName).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.RemoteMachineHandle == other.RemoteMachineHandle && self.RemoteMachineName == other.RemoteMachineName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINFO_LIST_DETAIL_DATA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -7971,10 +8037,11 @@ impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
 impl ::core::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -7986,19 +8053,24 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINFO_LIST_DETAIL_DATA_A {}
+impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINFO_LIST_DETAIL_DATA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8006,10 +8078,11 @@ impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_A {
 impl ::core::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8021,26 +8094,24 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINFO_LIST_DETAIL_DATA_W {}
+impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVINFO_LIST_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("ClassGuid", &self.ClassGuid).field("RemoteMachineHandle", &self.RemoteMachineHandle).field("RemoteMachineName", &self.RemoteMachineName).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.ClassGuid == other.ClassGuid && self.RemoteMachineHandle == other.RemoteMachineHandle && self.RemoteMachineName == other.RemoteMachineName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINFO_LIST_DETAIL_DATA_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8048,10 +8119,11 @@ impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
 impl ::core::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8063,19 +8135,24 @@ pub struct SP_DEVINFO_LIST_DETAIL_DATA_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINFO_LIST_DETAIL_DATA_W {}
+impl ::core::marker::Copy for SP_DEVINFO_LIST_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINFO_LIST_DETAIL_DATA_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8083,10 +8160,11 @@ impl ::core::cmp::PartialEq for SP_DEVINFO_LIST_DETAIL_DATA_W {
 impl ::core::cmp::Eq for SP_DEVINFO_LIST_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINFO_LIST_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINFO_LIST_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8104,26 +8182,24 @@ pub struct SP_DEVINSTALL_PARAMS_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINSTALL_PARAMS_A {}
+impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVINSTALL_PARAMS_A").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.FlagsEx == other.FlagsEx && self.hwndParent == other.hwndParent && self.InstallMsgHandler.map(|f| f as usize) == other.InstallMsgHandler.map(|f| f as usize) && self.InstallMsgHandlerContext == other.InstallMsgHandlerContext && self.FileQueue == other.FileQueue && self.ClassInstallReserved == other.ClassInstallReserved && self.Reserved == other.Reserved && self.DriverPath == other.DriverPath
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINSTALL_PARAMS_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8131,10 +8207,11 @@ impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
 impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8152,19 +8229,24 @@ pub struct SP_DEVINSTALL_PARAMS_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINSTALL_PARAMS_A {}
+impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINSTALL_PARAMS_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8172,10 +8254,11 @@ impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_A {
 impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINSTALL_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8193,26 +8276,24 @@ pub struct SP_DEVINSTALL_PARAMS_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINSTALL_PARAMS_W {}
+impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DEVINSTALL_PARAMS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DEVINSTALL_PARAMS_W").field("cbSize", &self.cbSize).field("Flags", &self.Flags).field("FlagsEx", &self.FlagsEx).field("hwndParent", &self.hwndParent).field("InstallMsgHandlerContext", &self.InstallMsgHandlerContext).field("FileQueue", &self.FileQueue).field("ClassInstallReserved", &self.ClassInstallReserved).field("Reserved", &self.Reserved).field("DriverPath", &self.DriverPath).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Flags == other.Flags && self.FlagsEx == other.FlagsEx && self.hwndParent == other.hwndParent && self.InstallMsgHandler.map(|f| f as usize) == other.InstallMsgHandler.map(|f| f as usize) && self.InstallMsgHandlerContext == other.InstallMsgHandlerContext && self.FileQueue == other.FileQueue && self.ClassInstallReserved == other.ClassInstallReserved && self.Reserved == other.Reserved && self.DriverPath == other.DriverPath
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINSTALL_PARAMS_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8220,10 +8301,11 @@ impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_W {
 impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8241,19 +8323,24 @@ pub struct SP_DEVINSTALL_PARAMS_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DEVINSTALL_PARAMS_W {}
+impl ::core::marker::Copy for SP_DEVINSTALL_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DEVINSTALL_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DEVINSTALL_PARAMS_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8261,10 +8348,11 @@ impl ::core::cmp::PartialEq for SP_DEVINSTALL_PARAMS_W {
 impl ::core::cmp::Eq for SP_DEVINSTALL_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DEVINSTALL_PARAMS_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DEVINSTALL_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8278,26 +8366,24 @@ pub struct SP_DRVINFO_DATA_V1_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DATA_V1_A {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DRVINFO_DATA_V1_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DATA_V1_A").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V1_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8305,10 +8391,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
 impl ::core::cmp::Eq for SP_DRVINFO_DATA_V1_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DATA_V1_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8322,19 +8409,24 @@ pub struct SP_DRVINFO_DATA_V1_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DATA_V1_A {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V1_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8342,10 +8434,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_A {
 impl ::core::cmp::Eq for SP_DRVINFO_DATA_V1_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DATA_V1_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DRVINFO_DATA_V1_W {
@@ -8357,32 +8450,31 @@ pub struct SP_DRVINFO_DATA_V1_W {
     pub ProviderName: [u16; 256],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_DRVINFO_DATA_V1_W {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V1_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_DRVINFO_DATA_V1_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DATA_V1_W").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_DRVINFO_DATA_V1_W {
@@ -8394,26 +8486,31 @@ pub struct SP_DRVINFO_DATA_V1_W {
     pub ProviderName: [u16; 256],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_DRVINFO_DATA_V1_W {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V1_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V1_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_DRVINFO_DATA_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V1_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_DRVINFO_DATA_V1_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8429,26 +8526,24 @@ pub struct SP_DRVINFO_DATA_V2_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DATA_V2_A {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V2_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DRVINFO_DATA_V2_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DATA_V2_A").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).field("DriverDate", &self.DriverDate).field("DriverVersion", &self.DriverVersion).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName && self.DriverDate == other.DriverDate && self.DriverVersion == other.DriverVersion
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V2_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8456,10 +8551,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
 impl ::core::cmp::Eq for SP_DRVINFO_DATA_V2_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DATA_V2_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8475,19 +8571,24 @@ pub struct SP_DRVINFO_DATA_V2_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DATA_V2_A {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V2_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V2_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8495,10 +8596,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_A {
 impl ::core::cmp::Eq for SP_DRVINFO_DATA_V2_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DATA_V2_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8514,26 +8616,24 @@ pub struct SP_DRVINFO_DATA_V2_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DATA_V2_W {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V2_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DRVINFO_DATA_V2_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DATA_V2_W").field("cbSize", &self.cbSize).field("DriverType", &self.DriverType).field("Reserved", &self.Reserved).field("Description", &self.Description).field("MfgName", &self.MfgName).field("ProviderName", &self.ProviderName).field("DriverDate", &self.DriverDate).field("DriverVersion", &self.DriverVersion).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.DriverType == other.DriverType && self.Reserved == other.Reserved && self.Description == other.Description && self.MfgName == other.MfgName && self.ProviderName == other.ProviderName && self.DriverDate == other.DriverDate && self.DriverVersion == other.DriverVersion
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V2_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8541,10 +8641,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
 impl ::core::cmp::Eq for SP_DRVINFO_DATA_V2_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DATA_V2_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8560,19 +8661,24 @@ pub struct SP_DRVINFO_DATA_V2_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DATA_V2_W {}
+impl ::core::marker::Copy for SP_DRVINFO_DATA_V2_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DATA_V2_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DATA_V2_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DATA_V2_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8580,10 +8686,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DATA_V2_W {
 impl ::core::cmp::Eq for SP_DRVINFO_DATA_V2_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DATA_V2_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DATA_V2_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8600,26 +8707,24 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DETAIL_DATA_A {}
+impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DRVINFO_DETAIL_DATA_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DETAIL_DATA_A").field("cbSize", &self.cbSize).field("InfDate", &self.InfDate).field("CompatIDsOffset", &self.CompatIDsOffset).field("CompatIDsLength", &self.CompatIDsLength).field("Reserved", &self.Reserved).field("SectionName", &self.SectionName).field("InfFileName", &self.InfFileName).field("DrvDescription", &self.DrvDescription).field("HardwareID", &self.HardwareID).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.InfDate == other.InfDate && self.CompatIDsOffset == other.CompatIDsOffset && self.CompatIDsLength == other.CompatIDsLength && self.Reserved == other.Reserved && self.SectionName == other.SectionName && self.InfFileName == other.InfFileName && self.DrvDescription == other.DrvDescription && self.HardwareID == other.HardwareID
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DETAIL_DATA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8627,10 +8732,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
 impl ::core::cmp::Eq for SP_DRVINFO_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8647,19 +8753,24 @@ pub struct SP_DRVINFO_DETAIL_DATA_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DETAIL_DATA_A {}
+impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DETAIL_DATA_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8667,10 +8778,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_A {
 impl ::core::cmp::Eq for SP_DRVINFO_DETAIL_DATA_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8687,26 +8799,24 @@ pub struct SP_DRVINFO_DETAIL_DATA_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DETAIL_DATA_W {}
+impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_DRVINFO_DETAIL_DATA_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINFO_DETAIL_DATA_W").field("cbSize", &self.cbSize).field("InfDate", &self.InfDate).field("CompatIDsOffset", &self.CompatIDsOffset).field("CompatIDsLength", &self.CompatIDsLength).field("Reserved", &self.Reserved).field("SectionName", &self.SectionName).field("InfFileName", &self.InfFileName).field("DrvDescription", &self.DrvDescription).field("HardwareID", &self.HardwareID).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.InfDate == other.InfDate && self.CompatIDsOffset == other.CompatIDsOffset && self.CompatIDsLength == other.CompatIDsLength && self.Reserved == other.Reserved && self.SectionName == other.SectionName && self.InfFileName == other.InfFileName && self.DrvDescription == other.DrvDescription && self.HardwareID == other.HardwareID
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DETAIL_DATA_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8714,10 +8824,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_W {
 impl ::core::cmp::Eq for SP_DRVINFO_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8734,19 +8845,24 @@ pub struct SP_DRVINFO_DETAIL_DATA_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_DRVINFO_DETAIL_DATA_W {}
+impl ::core::marker::Copy for SP_DRVINFO_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_DRVINFO_DETAIL_DATA_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINFO_DETAIL_DATA_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8754,10 +8870,11 @@ impl ::core::cmp::PartialEq for SP_DRVINFO_DETAIL_DATA_W {
 impl ::core::cmp::Eq for SP_DRVINFO_DETAIL_DATA_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_DRVINFO_DETAIL_DATA_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_DRVINFO_DETAIL_DATA_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_DRVINSTALL_PARAMS {
@@ -8768,32 +8885,31 @@ pub struct SP_DRVINSTALL_PARAMS {
     pub Reserved: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_DRVINSTALL_PARAMS {}
+impl ::core::marker::Copy for SP_DRVINSTALL_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_DRVINSTALL_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_DRVINSTALL_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINSTALL_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_DRVINSTALL_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_DRVINSTALL_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_DRVINSTALL_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_DRVINSTALL_PARAMS").field("cbSize", &self.cbSize).field("Rank", &self.Rank).field("Flags", &self.Flags).field("PrivateData", &self.PrivateData).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_DRVINSTALL_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.Rank == other.Rank && self.Flags == other.Flags && self.PrivateData == other.PrivateData && self.Reserved == other.Reserved
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_DRVINSTALL_PARAMS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_DRVINSTALL_PARAMS {
@@ -8804,26 +8920,31 @@ pub struct SP_DRVINSTALL_PARAMS {
     pub Reserved: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_DRVINSTALL_PARAMS {}
+impl ::core::marker::Copy for SP_DRVINSTALL_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_DRVINSTALL_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_DRVINSTALL_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_DRVINSTALL_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_DRVINSTALL_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_DRVINSTALL_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_DRVINSTALL_PARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_DRVINSTALL_PARAMS {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_DRVINSTALL_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_ENABLECLASS_PARAMS {
@@ -8832,32 +8953,31 @@ pub struct SP_ENABLECLASS_PARAMS {
     pub EnableMessage: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_ENABLECLASS_PARAMS {}
+impl ::core::marker::Copy for SP_ENABLECLASS_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_ENABLECLASS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ENABLECLASS_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_ENABLECLASS_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_ENABLECLASS_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_ENABLECLASS_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_ENABLECLASS_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("ClassGuid", &self.ClassGuid).field("EnableMessage", &self.EnableMessage).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.ClassGuid == other.ClassGuid && self.EnableMessage == other.EnableMessage
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_ENABLECLASS_PARAMS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_ENABLECLASS_PARAMS {
@@ -8866,26 +8986,31 @@ pub struct SP_ENABLECLASS_PARAMS {
     pub EnableMessage: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_ENABLECLASS_PARAMS {}
+impl ::core::marker::Copy for SP_ENABLECLASS_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_ENABLECLASS_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ENABLECLASS_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_ENABLECLASS_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_ENABLECLASS_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_ENABLECLASS_PARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_ENABLECLASS_PARAMS {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_ENABLECLASS_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8905,39 +9030,24 @@ pub struct SP_FILE_COPY_PARAMS_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_FILE_COPY_PARAMS_A {}
+impl ::core::marker::Copy for SP_FILE_COPY_PARAMS_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_FILE_COPY_PARAMS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_FILE_COPY_PARAMS_A")
-            .field("cbSize", &self.cbSize)
-            .field("QueueHandle", &self.QueueHandle)
-            .field("SourceRootPath", &self.SourceRootPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("SourceFilename", &self.SourceFilename)
-            .field("SourceDescription", &self.SourceDescription)
-            .field("SourceTagfile", &self.SourceTagfile)
-            .field("TargetDirectory", &self.TargetDirectory)
-            .field("TargetFilename", &self.TargetFilename)
-            .field("CopyStyle", &self.CopyStyle)
-            .field("LayoutInf", &self.LayoutInf)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.QueueHandle == other.QueueHandle && self.SourceRootPath == other.SourceRootPath && self.SourcePath == other.SourcePath && self.SourceFilename == other.SourceFilename && self.SourceDescription == other.SourceDescription && self.SourceTagfile == other.SourceTagfile && self.TargetDirectory == other.TargetDirectory && self.TargetFilename == other.TargetFilename && self.CopyStyle == other.CopyStyle && self.LayoutInf == other.LayoutInf && self.SecurityDescriptor == other.SecurityDescriptor
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_FILE_COPY_PARAMS_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -8945,10 +9055,11 @@ impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
 impl ::core::cmp::Eq for SP_FILE_COPY_PARAMS_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -8968,19 +9079,24 @@ pub struct SP_FILE_COPY_PARAMS_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_FILE_COPY_PARAMS_A {}
+impl ::core::marker::Copy for SP_FILE_COPY_PARAMS_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_FILE_COPY_PARAMS_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -8988,10 +9104,11 @@ impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_A {
 impl ::core::cmp::Eq for SP_FILE_COPY_PARAMS_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_FILE_COPY_PARAMS_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9011,39 +9128,24 @@ pub struct SP_FILE_COPY_PARAMS_W {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_FILE_COPY_PARAMS_W {}
+impl ::core::marker::Copy for SP_FILE_COPY_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_FILE_COPY_PARAMS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_FILE_COPY_PARAMS_W")
-            .field("cbSize", &self.cbSize)
-            .field("QueueHandle", &self.QueueHandle)
-            .field("SourceRootPath", &self.SourceRootPath)
-            .field("SourcePath", &self.SourcePath)
-            .field("SourceFilename", &self.SourceFilename)
-            .field("SourceDescription", &self.SourceDescription)
-            .field("SourceTagfile", &self.SourceTagfile)
-            .field("TargetDirectory", &self.TargetDirectory)
-            .field("TargetFilename", &self.TargetFilename)
-            .field("CopyStyle", &self.CopyStyle)
-            .field("LayoutInf", &self.LayoutInf)
-            .field("SecurityDescriptor", &self.SecurityDescriptor)
-            .finish()
-    }
+unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.QueueHandle == other.QueueHandle && self.SourceRootPath == other.SourceRootPath && self.SourcePath == other.SourcePath && self.SourceFilename == other.SourceFilename && self.SourceDescription == other.SourceDescription && self.SourceTagfile == other.SourceTagfile && self.TargetDirectory == other.TargetDirectory && self.TargetFilename == other.TargetFilename && self.CopyStyle == other.CopyStyle && self.LayoutInf == other.LayoutInf && self.SecurityDescriptor == other.SecurityDescriptor
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_FILE_COPY_PARAMS_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9051,10 +9153,11 @@ impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
 impl ::core::cmp::Eq for SP_FILE_COPY_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9074,19 +9177,24 @@ pub struct SP_FILE_COPY_PARAMS_W {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_FILE_COPY_PARAMS_W {}
+impl ::core::marker::Copy for SP_FILE_COPY_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_FILE_COPY_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_FILE_COPY_PARAMS_W>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -9094,11 +9202,12 @@ impl ::core::cmp::PartialEq for SP_FILE_COPY_PARAMS_W {
 impl ::core::cmp::Eq for SP_FILE_COPY_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_FILE_COPY_PARAMS_W {
-    type Abi = Self;
+impl ::core::default::Default for SP_FILE_COPY_PARAMS_W {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SP_FLAG_CABINETCONTINUATION: u32 = 2048u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_INF_INFORMATION {
@@ -9107,32 +9216,31 @@ pub struct SP_INF_INFORMATION {
     pub VersionData: [u8; 1],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_INF_INFORMATION {}
+impl ::core::marker::Copy for SP_INF_INFORMATION {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_INF_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_INF_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_INF_INFORMATION {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_INF_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_INF_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_INF_INFORMATION").field("InfStyle", &self.InfStyle).field("InfCount", &self.InfCount).field("VersionData", &self.VersionData).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_INF_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.InfStyle == other.InfStyle && self.InfCount == other.InfCount && self.VersionData == other.VersionData
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_INF_INFORMATION {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_INF_INFORMATION {
@@ -9141,26 +9249,31 @@ pub struct SP_INF_INFORMATION {
     pub VersionData: [u8; 1],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_INF_INFORMATION {}
+impl ::core::marker::Copy for SP_INF_INFORMATION {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_INF_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_INF_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_INF_INFORMATION {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_INF_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_INF_INFORMATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_INF_INFORMATION {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_INF_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9172,26 +9285,24 @@ pub struct SP_INF_SIGNER_INFO_V1_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_INF_SIGNER_INFO_V1_A {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V1_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_INF_SIGNER_INFO_V1_A").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V1_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9199,10 +9310,11 @@ impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
 impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V1_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9214,19 +9326,24 @@ pub struct SP_INF_SIGNER_INFO_V1_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_INF_SIGNER_INFO_V1_A {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V1_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -9234,10 +9351,11 @@ impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_A {
 impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V1_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_INF_SIGNER_INFO_V1_W {
@@ -9247,32 +9365,31 @@ pub struct SP_INF_SIGNER_INFO_V1_W {
     pub DigitalSignerVersion: [u16; 260],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_INF_SIGNER_INFO_V1_W {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V1_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V1_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_INF_SIGNER_INFO_V1_W").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_INF_SIGNER_INFO_V1_W {
@@ -9282,26 +9399,31 @@ pub struct SP_INF_SIGNER_INFO_V1_W {
     pub DigitalSignerVersion: [u16; 260],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_INF_SIGNER_INFO_V1_W {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V1_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V1_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V1_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V1_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V1_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V1_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V1_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9314,26 +9436,24 @@ pub struct SP_INF_SIGNER_INFO_V2_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_INF_SIGNER_INFO_V2_A {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V2_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V2_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_INF_SIGNER_INFO_V2_A").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).field("SignerScore", &self.SignerScore).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion && self.SignerScore == other.SignerScore
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V2_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9341,10 +9461,11 @@ impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
 impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V2_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9357,19 +9478,24 @@ pub struct SP_INF_SIGNER_INFO_V2_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_INF_SIGNER_INFO_V2_A {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V2_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V2_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -9377,10 +9503,11 @@ impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_A {
 impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V2_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_INF_SIGNER_INFO_V2_W {
@@ -9391,32 +9518,31 @@ pub struct SP_INF_SIGNER_INFO_V2_W {
     pub SignerScore: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_INF_SIGNER_INFO_V2_W {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V2_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V2_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_INF_SIGNER_INFO_V2_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_INF_SIGNER_INFO_V2_W").field("cbSize", &self.cbSize).field("CatalogFile", &self.CatalogFile).field("DigitalSigner", &self.DigitalSigner).field("DigitalSignerVersion", &self.DigitalSignerVersion).field("SignerScore", &self.SignerScore).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.CatalogFile == other.CatalogFile && self.DigitalSigner == other.DigitalSigner && self.DigitalSignerVersion == other.DigitalSignerVersion && self.SignerScore == other.SignerScore
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_INF_SIGNER_INFO_V2_W {
@@ -9427,68 +9553,35 @@ pub struct SP_INF_SIGNER_INFO_V2_W {
     pub SignerScore: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_INF_SIGNER_INFO_V2_W {}
+impl ::core::marker::Copy for SP_INF_SIGNER_INFO_V2_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_INF_SIGNER_INFO_V2_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INF_SIGNER_INFO_V2_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_INF_SIGNER_INFO_V2_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_INF_SIGNER_INFO_V2_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_INF_SIGNER_INFO_V2_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_INF_SIGNER_INFO_V2_W {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SP_INF_STYLE(pub u32);
-pub const INF_STYLE_NONE: SP_INF_STYLE = SP_INF_STYLE(0u32);
-pub const INF_STYLE_OLDNT: SP_INF_STYLE = SP_INF_STYLE(1u32);
-pub const INF_STYLE_WIN4: SP_INF_STYLE = SP_INF_STYLE(2u32);
-impl ::core::convert::From<u32> for SP_INF_STYLE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SP_INF_STYLE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SP_INF_STYLE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SP_INF_STYLE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SP_INF_STYLE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SP_INF_STYLE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SP_INF_STYLE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SP_INF_STYLE = u32;
+pub const INF_STYLE_NONE: SP_INF_STYLE = 0u32;
+pub const INF_STYLE_OLDNT: SP_INF_STYLE = 1u32;
+pub const INF_STYLE_WIN4: SP_INF_STYLE = 2u32;
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -9504,26 +9597,24 @@ pub struct SP_INSTALLWIZARD_DATA {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl SP_INSTALLWIZARD_DATA {}
+impl ::core::marker::Copy for SP_INSTALLWIZARD_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_INSTALLWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_INSTALLWIZARD_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::fmt::Debug for SP_INSTALLWIZARD_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_INSTALLWIZARD_DATA").field("ClassInstallHeader", &self.ClassInstallHeader).field("Flags", &self.Flags).field("DynamicPages", &self.DynamicPages).field("NumDynamicPages", &self.NumDynamicPages).field("DynamicPageFlags", &self.DynamicPageFlags).field("PrivateFlags", &self.PrivateFlags).field("PrivateData", &self.PrivateData).field("hwndWizardDlg", &self.hwndWizardDlg).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for SP_INSTALLWIZARD_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.Flags == other.Flags && self.DynamicPages == other.DynamicPages && self.NumDynamicPages == other.NumDynamicPages && self.DynamicPageFlags == other.DynamicPageFlags && self.PrivateFlags == other.PrivateFlags && self.PrivateData == other.PrivateData && self.hwndWizardDlg == other.hwndWizardDlg
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INSTALLWIZARD_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9531,10 +9622,11 @@ impl ::core::cmp::PartialEq for SP_INSTALLWIZARD_DATA {
 impl ::core::cmp::Eq for SP_INSTALLWIZARD_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
-    type Abi = Self;
+impl ::core::default::Default for SP_INSTALLWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -9550,19 +9642,24 @@ pub struct SP_INSTALLWIZARD_DATA {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl SP_INSTALLWIZARD_DATA {}
+impl ::core::marker::Copy for SP_INSTALLWIZARD_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_INSTALLWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_INSTALLWIZARD_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for SP_INSTALLWIZARD_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_INSTALLWIZARD_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -9570,11 +9667,12 @@ impl ::core::cmp::PartialEq for SP_INSTALLWIZARD_DATA {
 impl ::core::cmp::Eq for SP_INSTALLWIZARD_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_INSTALLWIZARD_DATA {
-    type Abi = Self;
+impl ::core::default::Default for SP_INSTALLWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SP_MAX_MACHINENAME_LENGTH: u32 = 263u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -9587,26 +9685,24 @@ pub struct SP_NEWDEVICEWIZARD_DATA {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl SP_NEWDEVICEWIZARD_DATA {}
+impl ::core::marker::Copy for SP_NEWDEVICEWIZARD_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_NEWDEVICEWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::fmt::Debug for SP_NEWDEVICEWIZARD_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_NEWDEVICEWIZARD_DATA").field("ClassInstallHeader", &self.ClassInstallHeader).field("Flags", &self.Flags).field("DynamicPages", &self.DynamicPages).field("NumDynamicPages", &self.NumDynamicPages).field("hwndWizardDlg", &self.hwndWizardDlg).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.Flags == other.Flags && self.DynamicPages == other.DynamicPages && self.NumDynamicPages == other.NumDynamicPages && self.hwndWizardDlg == other.hwndWizardDlg
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_NEWDEVICEWIZARD_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9614,10 +9710,11 @@ impl ::core::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
 impl ::core::cmp::Eq for SP_NEWDEVICEWIZARD_DATA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
-    type Abi = Self;
+impl ::core::default::Default for SP_NEWDEVICEWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
@@ -9630,19 +9727,24 @@ pub struct SP_NEWDEVICEWIZARD_DATA {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl SP_NEWDEVICEWIZARD_DATA {}
+impl ::core::marker::Copy for SP_NEWDEVICEWIZARD_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-impl ::core::default::Default for SP_NEWDEVICEWIZARD_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_NEWDEVICEWIZARD_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
+unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
 impl ::core::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_NEWDEVICEWIZARD_DATA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -9650,10 +9752,11 @@ impl ::core::cmp::PartialEq for SP_NEWDEVICEWIZARD_DATA {
 impl ::core::cmp::Eq for SP_NEWDEVICEWIZARD_DATA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Controls"))]
-unsafe impl ::windows::core::Abi for SP_NEWDEVICEWIZARD_DATA {
-    type Abi = Self;
+impl ::core::default::Default for SP_NEWDEVICEWIZARD_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9664,26 +9767,24 @@ pub struct SP_ORIGINAL_FILE_INFO_A {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_ORIGINAL_FILE_INFO_A {}
+impl ::core::marker::Copy for SP_ORIGINAL_FILE_INFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_ORIGINAL_FILE_INFO_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_ORIGINAL_FILE_INFO_A").field("cbSize", &self.cbSize).field("OriginalInfName", &self.OriginalInfName).field("OriginalCatalogName", &self.OriginalCatalogName).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.OriginalInfName == other.OriginalInfName && self.OriginalCatalogName == other.OriginalCatalogName
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ORIGINAL_FILE_INFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -9691,10 +9792,11 @@ impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
 impl ::core::cmp::Eq for SP_ORIGINAL_FILE_INFO_A {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -9705,19 +9807,24 @@ pub struct SP_ORIGINAL_FILE_INFO_A {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_ORIGINAL_FILE_INFO_A {}
+impl ::core::marker::Copy for SP_ORIGINAL_FILE_INFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_A {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_A {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ORIGINAL_FILE_INFO_A>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -9725,10 +9832,11 @@ impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_A {
 impl ::core::cmp::Eq for SP_ORIGINAL_FILE_INFO_A {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_A {
-    type Abi = Self;
+impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_A {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_ORIGINAL_FILE_INFO_W {
@@ -9737,32 +9845,31 @@ pub struct SP_ORIGINAL_FILE_INFO_W {
     pub OriginalCatalogName: [u16; 260],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_ORIGINAL_FILE_INFO_W {}
+impl ::core::marker::Copy for SP_ORIGINAL_FILE_INFO_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ORIGINAL_FILE_INFO_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_ORIGINAL_FILE_INFO_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_ORIGINAL_FILE_INFO_W").field("cbSize", &self.cbSize).field("OriginalInfName", &self.OriginalInfName).field("OriginalCatalogName", &self.OriginalCatalogName).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.OriginalInfName == other.OriginalInfName && self.OriginalCatalogName == other.OriginalCatalogName
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_ORIGINAL_FILE_INFO_W {
@@ -9771,26 +9878,31 @@ pub struct SP_ORIGINAL_FILE_INFO_W {
     pub OriginalCatalogName: [u16; 260],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_ORIGINAL_FILE_INFO_W {}
+impl ::core::marker::Copy for SP_ORIGINAL_FILE_INFO_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_ORIGINAL_FILE_INFO_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_ORIGINAL_FILE_INFO_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_ORIGINAL_FILE_INFO_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_ORIGINAL_FILE_INFO_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_ORIGINAL_FILE_INFO_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_ORIGINAL_FILE_INFO_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
@@ -9798,32 +9910,31 @@ pub struct SP_POWERMESSAGEWAKE_PARAMS_A {
     pub PowerMessageWake: [super::super::Foundation::CHAR; 512],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SP_POWERMESSAGEWAKE_PARAMS_A {}
+impl ::core::marker::Copy for SP_POWERMESSAGEWAKE_PARAMS_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_POWERMESSAGEWAKE_PARAMS_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_POWERMESSAGEWAKE_PARAMS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_POWERMESSAGEWAKE_PARAMS_A").field("ClassInstallHeader", &self.ClassInstallHeader).field("PowerMessageWake", &self.PowerMessageWake).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.PowerMessageWake == other.PowerMessageWake
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
@@ -9831,32 +9942,31 @@ pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub PowerMessageWake: [u16; 512],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_POWERMESSAGEWAKE_PARAMS_W {}
+impl ::core::marker::Copy for SP_POWERMESSAGEWAKE_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_POWERMESSAGEWAKE_PARAMS_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_POWERMESSAGEWAKE_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("PowerMessageWake", &self.PowerMessageWake).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.PowerMessageWake == other.PowerMessageWake
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
@@ -9864,26 +9974,31 @@ pub struct SP_POWERMESSAGEWAKE_PARAMS_W {
     pub PowerMessageWake: [u16; 512],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_POWERMESSAGEWAKE_PARAMS_W {}
+impl ::core::marker::Copy for SP_POWERMESSAGEWAKE_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_POWERMESSAGEWAKE_PARAMS_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_POWERMESSAGEWAKE_PARAMS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_POWERMESSAGEWAKE_PARAMS_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_POWERMESSAGEWAKE_PARAMS_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_POWERMESSAGEWAKE_PARAMS_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_PROPCHANGE_PARAMS {
@@ -9893,32 +10008,31 @@ pub struct SP_PROPCHANGE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_PROPCHANGE_PARAMS {}
+impl ::core::marker::Copy for SP_PROPCHANGE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_PROPCHANGE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_PROPCHANGE_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_PROPCHANGE_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_PROPCHANGE_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_PROPCHANGE_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_PROPCHANGE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("StateChange", &self.StateChange).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.StateChange == other.StateChange && self.Scope == other.Scope && self.HwProfile == other.HwProfile
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_PROPCHANGE_PARAMS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_PROPCHANGE_PARAMS {
@@ -9928,26 +10042,31 @@ pub struct SP_PROPCHANGE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_PROPCHANGE_PARAMS {}
+impl ::core::marker::Copy for SP_PROPCHANGE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_PROPCHANGE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_PROPCHANGE_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_PROPCHANGE_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_PROPCHANGE_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_PROPCHANGE_PARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_PROPCHANGE_PARAMS {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_PROPCHANGE_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_PROPSHEETPAGE_REQUEST {
@@ -9957,32 +10076,31 @@ pub struct SP_PROPSHEETPAGE_REQUEST {
     pub DeviceInfoData: *mut SP_DEVINFO_DATA,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_PROPSHEETPAGE_REQUEST {}
+impl ::core::marker::Copy for SP_PROPSHEETPAGE_REQUEST {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_PROPSHEETPAGE_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_PROPSHEETPAGE_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_PROPSHEETPAGE_REQUEST>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_PROPSHEETPAGE_REQUEST {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_PROPSHEETPAGE_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_PROPSHEETPAGE_REQUEST {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_PROPSHEETPAGE_REQUEST").field("cbSize", &self.cbSize).field("PageRequested", &self.PageRequested).field("DeviceInfoSet", &self.DeviceInfoSet).field("DeviceInfoData", &self.DeviceInfoData).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_PROPSHEETPAGE_REQUEST {
-    fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.PageRequested == other.PageRequested && self.DeviceInfoSet == other.DeviceInfoSet && self.DeviceInfoData == other.DeviceInfoData
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_PROPSHEETPAGE_REQUEST {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_PROPSHEETPAGE_REQUEST {
@@ -9992,26 +10110,31 @@ pub struct SP_PROPSHEETPAGE_REQUEST {
     pub DeviceInfoData: *mut SP_DEVINFO_DATA,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_PROPSHEETPAGE_REQUEST {}
+impl ::core::marker::Copy for SP_PROPSHEETPAGE_REQUEST {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_PROPSHEETPAGE_REQUEST {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_PROPSHEETPAGE_REQUEST {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_PROPSHEETPAGE_REQUEST>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_PROPSHEETPAGE_REQUEST {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_PROPSHEETPAGE_REQUEST {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_PROPSHEETPAGE_REQUEST {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_PROPSHEETPAGE_REQUEST {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_PROPSHEETPAGE_REQUEST {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -10023,26 +10146,24 @@ pub struct SP_REGISTER_CONTROL_STATUSA {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_REGISTER_CONTROL_STATUSA {}
+impl ::core::marker::Copy for SP_REGISTER_CONTROL_STATUSA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_REGISTER_CONTROL_STATUSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_REGISTER_CONTROL_STATUSA").field("cbSize", &self.cbSize).field("FileName", &self.FileName).field("Win32Error", &self.Win32Error).field("FailureCode", &self.FailureCode).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.FileName == other.FileName && self.Win32Error == other.Win32Error && self.FailureCode == other.FailureCode
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_REGISTER_CONTROL_STATUSA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -10050,10 +10171,11 @@ impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
 impl ::core::cmp::Eq for SP_REGISTER_CONTROL_STATUSA {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
-    type Abi = Self;
+impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -10065,19 +10187,24 @@ pub struct SP_REGISTER_CONTROL_STATUSA {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_REGISTER_CONTROL_STATUSA {}
+impl ::core::marker::Copy for SP_REGISTER_CONTROL_STATUSA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_REGISTER_CONTROL_STATUSA>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -10085,10 +10212,11 @@ impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSA {
 impl ::core::cmp::Eq for SP_REGISTER_CONTROL_STATUSA {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSA {
-    type Abi = Self;
+impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -10100,26 +10228,24 @@ pub struct SP_REGISTER_CONTROL_STATUSW {
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_REGISTER_CONTROL_STATUSW {}
+impl ::core::marker::Copy for SP_REGISTER_CONTROL_STATUSW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_REGISTER_CONTROL_STATUSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_REGISTER_CONTROL_STATUSW").field("cbSize", &self.cbSize).field("FileName", &self.FileName).field("Win32Error", &self.Win32Error).field("FailureCode", &self.FailureCode).finish()
-    }
+unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
+    type Abi = Self;
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSW {
     fn eq(&self, other: &Self) -> bool {
-        self.cbSize == other.cbSize && self.FileName == other.FileName && self.Win32Error == other.Win32Error && self.FailureCode == other.FailureCode
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_REGISTER_CONTROL_STATUSW>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
@@ -10127,10 +10253,11 @@ impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSW {
 impl ::core::cmp::Eq for SP_REGISTER_CONTROL_STATUSW {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
-    type Abi = Self;
+impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
@@ -10142,19 +10269,24 @@ pub struct SP_REGISTER_CONTROL_STATUSW {
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl SP_REGISTER_CONTROL_STATUSW {}
+impl ::core::marker::Copy for SP_REGISTER_CONTROL_STATUSW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_REGISTER_CONTROL_STATUSW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+#[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSW {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_REGISTER_CONTROL_STATUSW>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
@@ -10162,10 +10294,11 @@ impl ::core::cmp::PartialEq for SP_REGISTER_CONTROL_STATUSW {
 impl ::core::cmp::Eq for SP_REGISTER_CONTROL_STATUSW {}
 #[cfg(any(target_arch = "x86",))]
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_REGISTER_CONTROL_STATUSW {
-    type Abi = Self;
+impl ::core::default::Default for SP_REGISTER_CONTROL_STATUSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_REMOVEDEVICE_PARAMS {
@@ -10174,32 +10307,31 @@ pub struct SP_REMOVEDEVICE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_REMOVEDEVICE_PARAMS {}
+impl ::core::marker::Copy for SP_REMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_REMOVEDEVICE_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_REMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_REMOVEDEVICE_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_REMOVEDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.Scope == other.Scope && self.HwProfile == other.HwProfile
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_REMOVEDEVICE_PARAMS {
@@ -10208,26 +10340,31 @@ pub struct SP_REMOVEDEVICE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_REMOVEDEVICE_PARAMS {}
+impl ::core::marker::Copy for SP_REMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_REMOVEDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_REMOVEDEVICE_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_REMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_REMOVEDEVICE_PARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_REMOVEDEVICE_PARAMS {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_REMOVEDEVICE_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SP_SELECTDEVICE_PARAMS_A {
@@ -10239,32 +10376,31 @@ pub struct SP_SELECTDEVICE_PARAMS_A {
     pub Reserved: [u8; 2],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SP_SELECTDEVICE_PARAMS_A {}
+impl ::core::marker::Copy for SP_SELECTDEVICE_PARAMS_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_SELECTDEVICE_PARAMS_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SP_SELECTDEVICE_PARAMS_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_SELECTDEVICE_PARAMS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_SELECTDEVICE_PARAMS_A").field("ClassInstallHeader", &self.ClassInstallHeader).field("Title", &self.Title).field("Instructions", &self.Instructions).field("ListLabel", &self.ListLabel).field("SubTitle", &self.SubTitle).field("Reserved", &self.Reserved).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.Title == other.Title && self.Instructions == other.Instructions && self.ListLabel == other.ListLabel && self.SubTitle == other.SubTitle && self.Reserved == other.Reserved
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SP_SELECTDEVICE_PARAMS_A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_SELECTDEVICE_PARAMS_W {
@@ -10275,32 +10411,31 @@ pub struct SP_SELECTDEVICE_PARAMS_W {
     pub SubTitle: [u16; 256],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_SELECTDEVICE_PARAMS_W {}
+impl ::core::marker::Copy for SP_SELECTDEVICE_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_SELECTDEVICE_PARAMS_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_SELECTDEVICE_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_SELECTDEVICE_PARAMS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_SELECTDEVICE_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("Title", &self.Title).field("Instructions", &self.Instructions).field("ListLabel", &self.ListLabel).field("SubTitle", &self.SubTitle).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.Title == other.Title && self.Instructions == other.Instructions && self.ListLabel == other.ListLabel && self.SubTitle == other.SubTitle
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_SELECTDEVICE_PARAMS_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_SELECTDEVICE_PARAMS_W {
@@ -10311,26 +10446,31 @@ pub struct SP_SELECTDEVICE_PARAMS_W {
     pub SubTitle: [u16; 256],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_SELECTDEVICE_PARAMS_W {}
+impl ::core::marker::Copy for SP_SELECTDEVICE_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_SELECTDEVICE_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_SELECTDEVICE_PARAMS_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_SELECTDEVICE_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_SELECTDEVICE_PARAMS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_SELECTDEVICE_PARAMS_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_SELECTDEVICE_PARAMS_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_SELECTDEVICE_PARAMS_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SP_TROUBLESHOOTER_PARAMS_A {
@@ -10339,32 +10479,31 @@ pub struct SP_TROUBLESHOOTER_PARAMS_A {
     pub HtmlTroubleShooter: [super::super::Foundation::CHAR; 260],
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SP_TROUBLESHOOTER_PARAMS_A {}
+impl ::core::marker::Copy for SP_TROUBLESHOOTER_PARAMS_A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_TROUBLESHOOTER_PARAMS_A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SP_TROUBLESHOOTER_PARAMS_A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_TROUBLESHOOTER_PARAMS_A").field("ClassInstallHeader", &self.ClassInstallHeader).field("ChmFile", &self.ChmFile).field("HtmlTroubleShooter", &self.HtmlTroubleShooter).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_A {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.ChmFile == other.ChmFile && self.HtmlTroubleShooter == other.HtmlTroubleShooter
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
@@ -10373,32 +10512,31 @@ pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub HtmlTroubleShooter: [u16; 260],
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_TROUBLESHOOTER_PARAMS_W {}
+impl ::core::marker::Copy for SP_TROUBLESHOOTER_PARAMS_W {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_TROUBLESHOOTER_PARAMS_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_W {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_TROUBLESHOOTER_PARAMS_W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_TROUBLESHOOTER_PARAMS_W").field("ClassInstallHeader", &self.ClassInstallHeader).field("ChmFile", &self.ChmFile).field("HtmlTroubleShooter", &self.HtmlTroubleShooter).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_W {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.ChmFile == other.ChmFile && self.HtmlTroubleShooter == other.HtmlTroubleShooter
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_W {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_TROUBLESHOOTER_PARAMS_W {
@@ -10407,26 +10545,31 @@ pub struct SP_TROUBLESHOOTER_PARAMS_W {
     pub HtmlTroubleShooter: [u16; 260],
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_TROUBLESHOOTER_PARAMS_W {}
+impl ::core::marker::Copy for SP_TROUBLESHOOTER_PARAMS_W {}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::clone::Clone for SP_TROUBLESHOOTER_PARAMS_W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_TROUBLESHOOTER_PARAMS_W>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86",))]
+impl ::core::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_W {}
 #[cfg(any(target_arch = "x86",))]
 impl ::core::default::Default for SP_TROUBLESHOOTER_PARAMS_W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::PartialEq for SP_TROUBLESHOOTER_PARAMS_W {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(any(target_arch = "x86",))]
-impl ::core::cmp::Eq for SP_TROUBLESHOOTER_PARAMS_W {}
-#[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_TROUBLESHOOTER_PARAMS_W {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
@@ -10435,32 +10578,31 @@ pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl SP_UNREMOVEDEVICE_PARAMS {}
+impl ::core::marker::Copy for SP_UNREMOVEDEVICE_PARAMS {}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::clone::Clone for SP_UNREMOVEDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::PartialEq for SP_UNREMOVEDEVICE_PARAMS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_UNREMOVEDEVICE_PARAMS>()) == 0 }
+    }
+}
+#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
+impl ::core::cmp::Eq for SP_UNREMOVEDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
 impl ::core::default::Default for SP_UNREMOVEDEVICE_PARAMS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::fmt::Debug for SP_UNREMOVEDEVICE_PARAMS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SP_UNREMOVEDEVICE_PARAMS").field("ClassInstallHeader", &self.ClassInstallHeader).field("Scope", &self.Scope).field("HwProfile", &self.HwProfile).finish()
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::PartialEq for SP_UNREMOVEDEVICE_PARAMS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ClassInstallHeader == other.ClassInstallHeader && self.Scope == other.Scope && self.HwProfile == other.HwProfile
-    }
-}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-impl ::core::cmp::Eq for SP_UNREMOVEDEVICE_PARAMS {}
-#[cfg(any(target_arch = "x86_64", target_arch = "aarch64",))]
-unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C, packed(1))]
 #[cfg(any(target_arch = "x86",))]
 pub struct SP_UNREMOVEDEVICE_PARAMS {
@@ -10469,24 +10611,30 @@ pub struct SP_UNREMOVEDEVICE_PARAMS {
     pub HwProfile: u32,
 }
 #[cfg(any(target_arch = "x86",))]
-impl SP_UNREMOVEDEVICE_PARAMS {}
+impl ::core::marker::Copy for SP_UNREMOVEDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
-impl ::core::default::Default for SP_UNREMOVEDEVICE_PARAMS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for SP_UNREMOVEDEVICE_PARAMS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(any(target_arch = "x86",))]
+unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
+    type Abi = Self;
+}
+#[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::PartialEq for SP_UNREMOVEDEVICE_PARAMS {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SP_UNREMOVEDEVICE_PARAMS>()) == 0 }
     }
 }
 #[cfg(any(target_arch = "x86",))]
 impl ::core::cmp::Eq for SP_UNREMOVEDEVICE_PARAMS {}
 #[cfg(any(target_arch = "x86",))]
-unsafe impl ::windows::core::Abi for SP_UNREMOVEDEVICE_PARAMS {
-    type Abi = Self;
+impl ::core::default::Default for SP_UNREMOVEDEVICE_PARAMS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub const SRCINFO_DESCRIPTION: u32 = 3u32;
 pub const SRCINFO_FLAGS: u32 = 4u32;
@@ -10708,7 +10856,7 @@ pub unsafe fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void) {
         extern "system" {
             fn SetupCloseInfFile(infhandle: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SetupCloseInfFile(::core::mem::transmute(infhandle)))
+        SetupCloseInfFile(::core::mem::transmute(infhandle))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -10721,7 +10869,7 @@ pub unsafe fn SetupCloseLog() {
         extern "system" {
             fn SetupCloseLog();
         }
-        ::core::mem::transmute(SetupCloseLog())
+        SetupCloseLog()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -13086,23 +13234,13 @@ pub unsafe fn SetupEnumInfSectionsW(infhandle: *const ::core::ffi::c_void, index
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SetupFileLogInfo(pub i32);
-pub const SetupFileLogSourceFilename: SetupFileLogInfo = SetupFileLogInfo(0i32);
-pub const SetupFileLogChecksum: SetupFileLogInfo = SetupFileLogInfo(1i32);
-pub const SetupFileLogDiskTagfile: SetupFileLogInfo = SetupFileLogInfo(2i32);
-pub const SetupFileLogDiskDescription: SetupFileLogInfo = SetupFileLogInfo(3i32);
-pub const SetupFileLogOtherInfo: SetupFileLogInfo = SetupFileLogInfo(4i32);
-pub const SetupFileLogMax: SetupFileLogInfo = SetupFileLogInfo(5i32);
-impl ::core::convert::From<i32> for SetupFileLogInfo {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SetupFileLogInfo {
-    type Abi = Self;
-}
+pub type SetupFileLogInfo = i32;
+pub const SetupFileLogSourceFilename: SetupFileLogInfo = 0i32;
+pub const SetupFileLogChecksum: SetupFileLogInfo = 1i32;
+pub const SetupFileLogDiskTagfile: SetupFileLogInfo = 2i32;
+pub const SetupFileLogDiskDescription: SetupFileLogInfo = 3i32;
+pub const SetupFileLogOtherInfo: SetupFileLogInfo = 4i32;
+pub const SetupFileLogMax: SetupFileLogInfo = 5i32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetupFindFirstLineA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(infhandle: *const ::core::ffi::c_void, section: Param1, key: Param2, context: *mut INFCONTEXT) -> super::super::Foundation::BOOL {
@@ -15021,7 +15159,7 @@ pub unsafe fn SetupSetThreadLogToken(logtoken: u64) {
         extern "system" {
             fn SetupSetThreadLogToken(logtoken: u64);
         }
-        ::core::mem::transmute(SetupSetThreadLogToken(::core::mem::transmute(logtoken)))
+        SetupSetThreadLogToken(::core::mem::transmute(logtoken))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15034,7 +15172,7 @@ pub unsafe fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void)
         extern "system" {
             fn SetupTermDefaultQueueCallback(context: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SetupTermDefaultQueueCallback(::core::mem::transmute(context)))
+        SetupTermDefaultQueueCallback(::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15132,7 +15270,7 @@ pub unsafe fn SetupWriteTextLog<'a, Param3: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn SetupWriteTextLog(logtoken: u64, category: u32, flags: u32, messagestr: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(SetupWriteTextLog(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(flags), messagestr.into_param().abi()))
+        SetupWriteTextLog(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(flags), messagestr.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15146,7 +15284,7 @@ pub unsafe fn SetupWriteTextLogError<'a, Param4: ::windows::core::IntoParam<'a, 
         extern "system" {
             fn SetupWriteTextLogError(logtoken: u64, category: u32, logflags: u32, error: u32, messagestr: super::super::Foundation::PSTR);
         }
-        ::core::mem::transmute(SetupWriteTextLogError(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(logflags), ::core::mem::transmute(error), messagestr.into_param().abi()))
+        SetupWriteTextLogError(::core::mem::transmute(logtoken), ::core::mem::transmute(category), ::core::mem::transmute(logflags), ::core::mem::transmute(error), messagestr.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -15159,7 +15297,7 @@ pub unsafe fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *co
         extern "system" {
             fn SetupWriteTextLogInfLine(logtoken: u64, flags: u32, infhandle: *const ::core::ffi::c_void, context: *const INFCONTEXT);
         }
-        ::core::mem::transmute(SetupWriteTextLogInfLine(::core::mem::transmute(logtoken), ::core::mem::transmute(flags), ::core::mem::transmute(infhandle), ::core::mem::transmute(context)))
+        SetupWriteTextLogInfLine(::core::mem::transmute(logtoken), ::core::mem::transmute(flags), ::core::mem::transmute(infhandle), ::core::mem::transmute(context))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

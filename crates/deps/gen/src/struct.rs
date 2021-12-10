@@ -51,7 +51,19 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
                     unsafe { ::core::mem::zeroed() }
                 }
             }
-            unsafe impl ::windows::core::Handle for #name {}
+            impl #name {
+                pub fn is_invalid(&self) -> bool {
+                    *self == unsafe { ::core::mem::zeroed() }
+                }
+
+                pub fn ok(self) -> ::windows::core::Result<Self> {
+                    if !self.is_invalid() {
+                        Ok(self)
+                    } else {
+                        Err(::windows::core::Error::from_win32())
+                    }
+                }
+            }
             unsafe impl ::windows::core::Abi for #name {
                 type Abi = Self;
             }
@@ -98,7 +110,7 @@ fn gen_struct_with_name(def: &TypeDef, struct_name: &str, gen: &Gen, cfg: &Token
     }
 
     let is_winrt = def.is_winrt();
-    let is_union = def.is_explicit();
+    let is_union = def.is_union();
     let layout = def.class_layout();
     let is_packed = def.is_packed();
 

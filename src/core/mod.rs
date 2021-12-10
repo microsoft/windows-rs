@@ -7,7 +7,6 @@ mod delay_load;
 mod error;
 mod factory_cache;
 mod guid;
-mod handle;
 mod heap;
 mod hresult;
 mod hstring;
@@ -37,8 +36,6 @@ pub use error::*;
 #[doc(hidden)]
 pub use factory_cache::*;
 pub use guid::*;
-#[doc(hidden)]
-pub use handle::*;
 #[doc(hidden)]
 pub use heap::*;
 pub use hresult::*;
@@ -74,7 +71,7 @@ pub use weak_ref_count::*;
 pub type Result<T> = core::result::Result<T, Error>;
 
 #[doc(hidden)]
-pub use bindings::Windows::Win32::System::Com::IAgileObject;
+pub use bindings::IAgileObject;
 
 // TODO: rather than hiding, consider just removing
 #[doc(hidden)]

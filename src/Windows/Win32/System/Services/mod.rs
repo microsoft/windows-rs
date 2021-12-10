@@ -1,4 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CUSTOM_SYSTEM_STATE_CHANGE_EVENT_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d7a2816_0c5e_45fc_9ce7_570e5ecde9c9);
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -236,49 +236,10 @@ pub unsafe fn DeleteService<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ENUM_SERVICE_STATE(pub u32);
-pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(1u32);
-pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(2u32);
-pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = ENUM_SERVICE_STATE(3u32);
-impl ::core::convert::From<u32> for ENUM_SERVICE_STATE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for ENUM_SERVICE_STATE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_SERVICE_STATE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_SERVICE_STATE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_SERVICE_STATE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for ENUM_SERVICE_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type ENUM_SERVICE_STATE = u32;
+pub const SERVICE_ACTIVE: ENUM_SERVICE_STATE = 1u32;
+pub const SERVICE_INACTIVE: ENUM_SERVICE_STATE = 2u32;
+pub const SERVICE_STATE_ALL: ENUM_SERVICE_STATE = 3u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUSA {
@@ -287,32 +248,31 @@ pub struct ENUM_SERVICE_STATUSA {
     pub ServiceStatus: SERVICE_STATUS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ENUM_SERVICE_STATUSA {}
+impl ::core::marker::Copy for ENUM_SERVICE_STATUSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ENUM_SERVICE_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENUM_SERVICE_STATUSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUM_SERVICE_STATUSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUSW {
@@ -321,32 +281,31 @@ pub struct ENUM_SERVICE_STATUSW {
     pub ServiceStatus: SERVICE_STATUS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ENUM_SERVICE_STATUSW {}
+impl ::core::marker::Copy for ENUM_SERVICE_STATUSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ENUM_SERVICE_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENUM_SERVICE_STATUSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUM_SERVICE_STATUSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatus == other.ServiceStatus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUSW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUSW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUS_PROCESSA {
@@ -355,32 +314,31 @@ pub struct ENUM_SERVICE_STATUS_PROCESSA {
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ENUM_SERVICE_STATUS_PROCESSA {}
+impl ::core::marker::Copy for ENUM_SERVICE_STATUS_PROCESSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUS_PROCESSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENUM_SERVICE_STATUS_PROCESSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUM_SERVICE_STATUS_PROCESSA").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUM_SERVICE_STATUS_PROCESSW {
@@ -389,82 +347,44 @@ pub struct ENUM_SERVICE_STATUS_PROCESSW {
     pub ServiceStatusProcess: SERVICE_STATUS_PROCESS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ENUM_SERVICE_STATUS_PROCESSW {}
+impl ::core::marker::Copy for ENUM_SERVICE_STATUS_PROCESSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for ENUM_SERVICE_STATUS_PROCESSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<ENUM_SERVICE_STATUS_PROCESSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for ENUM_SERVICE_STATUS_PROCESSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for ENUM_SERVICE_STATUS_PROCESSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("ENUM_SERVICE_STATUS_PROCESSW").field("lpServiceName", &self.lpServiceName).field("lpDisplayName", &self.lpDisplayName).field("ServiceStatusProcess", &self.ServiceStatusProcess).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for ENUM_SERVICE_STATUS_PROCESSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpDisplayName == other.lpDisplayName && self.ServiceStatusProcess == other.ServiceStatusProcess
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for ENUM_SERVICE_STATUS_PROCESSW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for ENUM_SERVICE_STATUS_PROCESSW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct ENUM_SERVICE_TYPE(pub u32);
-pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(11u32);
-pub const SERVICE_FILE_SYSTEM_DRIVER_: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
-pub const SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(1u32);
-pub const SERVICE_WIN32: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(48u32);
-pub const SERVICE_WIN32_OWN_PROCESS_: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(16u32);
-pub const SERVICE_WIN32_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(32u32);
-pub const SERVICE_ADAPTER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(4u32);
-pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(2u32);
-pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(8u32);
-pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(16u32);
-pub const SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(80u32);
-pub const SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = ENUM_SERVICE_TYPE(96u32);
-impl ::core::convert::From<u32> for ENUM_SERVICE_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for ENUM_SERVICE_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for ENUM_SERVICE_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for ENUM_SERVICE_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for ENUM_SERVICE_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for ENUM_SERVICE_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for ENUM_SERVICE_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type ENUM_SERVICE_TYPE = u32;
+pub const SERVICE_DRIVER: ENUM_SERVICE_TYPE = 11u32;
+pub const SERVICE_FILE_SYSTEM_DRIVER_: ENUM_SERVICE_TYPE = 2u32;
+pub const SERVICE_KERNEL_DRIVER: ENUM_SERVICE_TYPE = 1u32;
+pub const SERVICE_WIN32: ENUM_SERVICE_TYPE = 48u32;
+pub const SERVICE_WIN32_OWN_PROCESS_: ENUM_SERVICE_TYPE = 16u32;
+pub const SERVICE_WIN32_SHARE_PROCESS: ENUM_SERVICE_TYPE = 32u32;
+pub const SERVICE_ADAPTER: ENUM_SERVICE_TYPE = 4u32;
+pub const SERVICE_FILE_SYSTEM_DRIVER: ENUM_SERVICE_TYPE = 2u32;
+pub const SERVICE_RECOGNIZER_DRIVER: ENUM_SERVICE_TYPE = 8u32;
+pub const SERVICE_WIN32_OWN_PROCESS: ENUM_SERVICE_TYPE = 16u32;
+pub const SERVICE_USER_OWN_PROCESS: ENUM_SERVICE_TYPE = 80u32;
+pub const SERVICE_USER_SHARE_PROCESS: ENUM_SERVICE_TYPE = 96u32;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn EnumDependentServicesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::SC_HANDLE>>(hservice: Param0, dwservicestate: ENUM_SERVICE_STATE, lpservices: *mut ENUM_SERVICE_STATUSA, cbbufsize: u32, pcbbytesneeded: *mut u32, lpservicesreturned: *mut u32) -> super::super::Foundation::BOOL {
@@ -789,7 +709,6 @@ pub unsafe fn OpenServiceW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
 }
 pub type PFN_SC_NOTIFY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(pparameter: *const ::core::ffi::c_void)>;
 pub type PSC_NOTIFICATION_CALLBACK = ::core::option::Option<unsafe extern "system" fn(dwnotify: u32, pcallbackcontext: *const ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_CONFIGA {
@@ -804,32 +723,31 @@ pub struct QUERY_SERVICE_CONFIGA {
     pub lpDisplayName: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl QUERY_SERVICE_CONFIGA {}
+impl ::core::marker::Copy for QUERY_SERVICE_CONFIGA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QUERY_SERVICE_CONFIGA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_CONFIGA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for QUERY_SERVICE_CONFIGA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QUERY_SERVICE_CONFIGA").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_CONFIGW {
@@ -844,32 +762,31 @@ pub struct QUERY_SERVICE_CONFIGW {
     pub lpDisplayName: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl QUERY_SERVICE_CONFIGW {}
+impl ::core::marker::Copy for QUERY_SERVICE_CONFIGW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QUERY_SERVICE_CONFIGW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_CONFIGW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for QUERY_SERVICE_CONFIGW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for QUERY_SERVICE_CONFIGW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QUERY_SERVICE_CONFIGW").field("dwServiceType", &self.dwServiceType).field("dwStartType", &self.dwStartType).field("dwErrorControl", &self.dwErrorControl).field("lpBinaryPathName", &self.lpBinaryPathName).field("lpLoadOrderGroup", &self.lpLoadOrderGroup).field("dwTagId", &self.dwTagId).field("lpDependencies", &self.lpDependencies).field("lpServiceStartName", &self.lpServiceStartName).field("lpDisplayName", &self.lpDisplayName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for QUERY_SERVICE_CONFIGW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwStartType == other.dwStartType && self.dwErrorControl == other.dwErrorControl && self.lpBinaryPathName == other.lpBinaryPathName && self.lpLoadOrderGroup == other.lpLoadOrderGroup && self.dwTagId == other.dwTagId && self.lpDependencies == other.lpDependencies && self.lpServiceStartName == other.lpServiceStartName && self.lpDisplayName == other.lpDisplayName
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for QUERY_SERVICE_CONFIGW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for QUERY_SERVICE_CONFIGW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_LOCK_STATUSA {
@@ -878,32 +795,31 @@ pub struct QUERY_SERVICE_LOCK_STATUSA {
     pub dwLockDuration: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl QUERY_SERVICE_LOCK_STATUSA {}
+impl ::core::marker::Copy for QUERY_SERVICE_LOCK_STATUSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_LOCK_STATUSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for QUERY_SERVICE_LOCK_STATUSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QUERY_SERVICE_LOCK_STATUSA").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct QUERY_SERVICE_LOCK_STATUSW {
@@ -912,30 +828,30 @@ pub struct QUERY_SERVICE_LOCK_STATUSW {
     pub dwLockDuration: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl QUERY_SERVICE_LOCK_STATUSW {}
+impl ::core::marker::Copy for QUERY_SERVICE_LOCK_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for QUERY_SERVICE_LOCK_STATUSW {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for QUERY_SERVICE_LOCK_STATUSW {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for QUERY_SERVICE_LOCK_STATUSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("QUERY_SERVICE_LOCK_STATUSW").field("fIsLocked", &self.fIsLocked).field("lpLockOwner", &self.lpLockOwner).field("dwLockDuration", &self.dwLockDuration).finish()
-    }
+unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSW {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for QUERY_SERVICE_LOCK_STATUSW {
     fn eq(&self, other: &Self) -> bool {
-        self.fIsLocked == other.fIsLocked && self.lpLockOwner == other.lpLockOwner && self.dwLockDuration == other.dwLockDuration
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<QUERY_SERVICE_LOCK_STATUSW>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for QUERY_SERVICE_LOCK_STATUSW {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for QUERY_SERVICE_LOCK_STATUSW {
-    type Abi = Self;
+impl ::core::default::Default for QUERY_SERVICE_LOCK_STATUSW {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
@@ -1134,74 +1050,43 @@ pub unsafe fn RegisterServiceCtrlHandlerW<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SC_ACTION {
     pub Type: SC_ACTION_TYPE,
     pub Delay: u32,
 }
-impl SC_ACTION {}
+impl ::core::marker::Copy for SC_ACTION {}
+impl ::core::clone::Clone for SC_ACTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SC_ACTION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SC_ACTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SC_ACTION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SC_ACTION {}
 impl ::core::default::Default for SC_ACTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SC_ACTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SC_ACTION").field("Type", &self.Type).field("Delay", &self.Delay).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SC_ACTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.Delay == other.Delay
-    }
-}
-impl ::core::cmp::Eq for SC_ACTION {}
-unsafe impl ::windows::core::Abi for SC_ACTION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SC_ACTION_TYPE(pub i32);
-pub const SC_ACTION_NONE: SC_ACTION_TYPE = SC_ACTION_TYPE(0i32);
-pub const SC_ACTION_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(1i32);
-pub const SC_ACTION_REBOOT: SC_ACTION_TYPE = SC_ACTION_TYPE(2i32);
-pub const SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = SC_ACTION_TYPE(3i32);
-pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = SC_ACTION_TYPE(4i32);
-impl ::core::convert::From<i32> for SC_ACTION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SC_ACTION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SC_ENUM_TYPE(pub i32);
-pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = SC_ENUM_TYPE(0i32);
-impl ::core::convert::From<i32> for SC_ENUM_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SC_ENUM_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SC_EVENT_TYPE(pub i32);
-pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(0i32);
-pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(1i32);
-pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = SC_EVENT_TYPE(2i32);
-impl ::core::convert::From<i32> for SC_EVENT_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SC_EVENT_TYPE {
-    type Abi = Self;
-}
+pub type SC_ACTION_TYPE = i32;
+pub const SC_ACTION_NONE: SC_ACTION_TYPE = 0i32;
+pub const SC_ACTION_RESTART: SC_ACTION_TYPE = 1i32;
+pub const SC_ACTION_REBOOT: SC_ACTION_TYPE = 2i32;
+pub const SC_ACTION_RUN_COMMAND: SC_ACTION_TYPE = 3i32;
+pub const SC_ACTION_OWN_RESTART: SC_ACTION_TYPE = 4i32;
+pub type SC_ENUM_TYPE = i32;
+pub const SC_ENUM_PROCESS_INFO: SC_ENUM_TYPE = 0i32;
+pub type SC_EVENT_TYPE = i32;
+pub const SC_EVENT_DATABASE_CHANGE: SC_EVENT_TYPE = 0i32;
+pub const SC_EVENT_PROPERTY_CHANGE: SC_EVENT_TYPE = 1i32;
+pub const SC_EVENT_STATUS_CHANGE: SC_EVENT_TYPE = 2i32;
 pub const SC_MANAGER_ALL_ACCESS: u32 = 983103u32;
 pub const SC_MANAGER_CONNECT: u32 = 1u32;
 pub const SC_MANAGER_CREATE_SERVICE: u32 = 2u32;
@@ -1209,18 +1094,8 @@ pub const SC_MANAGER_ENUMERATE_SERVICE: u32 = 4u32;
 pub const SC_MANAGER_LOCK: u32 = 8u32;
 pub const SC_MANAGER_MODIFY_BOOT_CONFIG: u32 = 32u32;
 pub const SC_MANAGER_QUERY_LOCK_STATUS: u32 = 16u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SC_STATUS_TYPE(pub i32);
-pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = SC_STATUS_TYPE(0i32);
-impl ::core::convert::From<i32> for SC_STATUS_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SC_STATUS_TYPE {
-    type Abi = Self;
-}
+pub type SC_STATUS_TYPE = i32;
+pub const SC_STATUS_PROCESS_INFO: SC_STATUS_TYPE = 0i32;
 pub const SERVICE_ACCEPT_HARDWAREPROFILECHANGE: u32 = 32u32;
 pub const SERVICE_ACCEPT_LOWRESOURCES: u32 = 8192u32;
 pub const SERVICE_ACCEPT_NETBINDCHANGE: u32 = 16u32;
@@ -1237,55 +1112,17 @@ pub const SERVICE_ACCEPT_TRIGGEREVENT: u32 = 1024u32;
 pub const SERVICE_ACCEPT_USER_LOGOFF: u32 = 2048u32;
 pub const SERVICE_ALL_ACCESS: u32 = 983551u32;
 pub const SERVICE_CHANGE_CONFIG: u32 = 2u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_CONFIG(pub u32);
-pub const SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = SERVICE_CONFIG(3u32);
-pub const SERVICE_CONFIG_DESCRIPTION: SERVICE_CONFIG = SERVICE_CONFIG(1u32);
-pub const SERVICE_CONFIG_FAILURE_ACTIONS: SERVICE_CONFIG = SERVICE_CONFIG(2u32);
-pub const SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: SERVICE_CONFIG = SERVICE_CONFIG(4u32);
-pub const SERVICE_CONFIG_PREFERRED_NODE: SERVICE_CONFIG = SERVICE_CONFIG(9u32);
-pub const SERVICE_CONFIG_PRESHUTDOWN_INFO: SERVICE_CONFIG = SERVICE_CONFIG(7u32);
-pub const SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = SERVICE_CONFIG(6u32);
-pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = SERVICE_CONFIG(5u32);
-pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = SERVICE_CONFIG(8u32);
-pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = SERVICE_CONFIG(12u32);
-impl ::core::convert::From<u32> for SERVICE_CONFIG {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_CONFIG {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_CONFIG {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_CONFIG {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_CONFIG {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_CONFIG {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_CONFIG {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SERVICE_CONFIG = u32;
+pub const SERVICE_CONFIG_DELAYED_AUTO_START_INFO: SERVICE_CONFIG = 3u32;
+pub const SERVICE_CONFIG_DESCRIPTION: SERVICE_CONFIG = 1u32;
+pub const SERVICE_CONFIG_FAILURE_ACTIONS: SERVICE_CONFIG = 2u32;
+pub const SERVICE_CONFIG_FAILURE_ACTIONS_FLAG: SERVICE_CONFIG = 4u32;
+pub const SERVICE_CONFIG_PREFERRED_NODE: SERVICE_CONFIG = 9u32;
+pub const SERVICE_CONFIG_PRESHUTDOWN_INFO: SERVICE_CONFIG = 7u32;
+pub const SERVICE_CONFIG_REQUIRED_PRIVILEGES_INFO: SERVICE_CONFIG = 6u32;
+pub const SERVICE_CONFIG_SERVICE_SID_INFO: SERVICE_CONFIG = 5u32;
+pub const SERVICE_CONFIG_TRIGGER_INFO: SERVICE_CONFIG = 8u32;
+pub const SERVICE_CONFIG_LAUNCH_PROTECTED: SERVICE_CONFIG = 12u32;
 pub const SERVICE_CONTROL_CONTINUE: u32 = 3u32;
 pub const SERVICE_CONTROL_DEVICEEVENT: u32 = 11u32;
 pub const SERVICE_CONTROL_HARDWAREPROFILECHANGE: u32 = 12u32;
@@ -1302,7 +1139,6 @@ pub const SERVICE_CONTROL_PRESHUTDOWN: u32 = 15u32;
 pub const SERVICE_CONTROL_SESSIONCHANGE: u32 = 14u32;
 pub const SERVICE_CONTROL_SHUTDOWN: u32 = 5u32;
 pub const SERVICE_CONTROL_STATUS_REASON_INFO: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
@@ -1311,32 +1147,31 @@ pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
+impl ::core::marker::Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CONTROL_STATUS_REASON_PARAMSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSA").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
@@ -1345,257 +1180,212 @@ pub struct SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
+impl ::core::marker::Copy for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CONTROL_STATUS_REASON_PARAMSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_CONTROL_STATUS_REASON_PARAMSW").field("dwReason", &self.dwReason).field("pszComment", &self.pszComment).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason && self.pszComment == other.pszComment && self.ServiceStatus == other.ServiceStatus
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_CONTROL_STATUS_REASON_PARAMSW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_CONTROL_STATUS_REASON_PARAMSW {
-    type Abi = Self;
-}
 pub const SERVICE_CONTROL_STOP: u32 = 1u32;
 pub const SERVICE_CONTROL_SYSTEMLOWRESOURCES: u32 = 97u32;
 pub const SERVICE_CONTROL_TIMECHANGE: u32 = 16u32;
 pub const SERVICE_CONTROL_TRIGGEREVENT: u32 = 32u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     pub u: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0,
 }
-impl SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
+impl ::core::marker::Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
+impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
 impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {}
-unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     pub CustomStateId: SERVICE_TRIGGER_CUSTOM_STATE_ID,
     pub s: SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0,
 }
-impl SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
+impl ::core::marker::Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
+impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
 impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {}
-unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     pub DataOffset: u32,
     pub Data: [u8; 1],
 }
-impl SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
+impl ::core::marker::Copy for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
+impl ::core::clone::Clone for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
 impl ::core::default::Default for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_s_e__Struct").field("DataOffset", &self.DataOffset).field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.DataOffset == other.DataOffset && self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {}
-unsafe impl ::windows::core::Abi for SERVICE_CUSTOM_SYSTEM_STATE_CHANGE_DATA_ITEM_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_DELAYED_AUTO_START_INFO {
     pub fDelayedAutostart: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_DELAYED_AUTO_START_INFO {}
+impl ::core::marker::Copy for SERVICE_DELAYED_AUTO_START_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_DELAYED_AUTO_START_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_DELAYED_AUTO_START_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_DELAYED_AUTO_START_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_DELAYED_AUTO_START_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_DELAYED_AUTO_START_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_DELAYED_AUTO_START_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_DELAYED_AUTO_START_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_DELAYED_AUTO_START_INFO").field("fDelayedAutostart", &self.fDelayedAutostart).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_DELAYED_AUTO_START_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.fDelayedAutostart == other.fDelayedAutostart
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_DELAYED_AUTO_START_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_DELAYED_AUTO_START_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_DESCRIPTIONA {
     pub lpDescription: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_DESCRIPTIONA {}
+impl ::core::marker::Copy for SERVICE_DESCRIPTIONA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_DESCRIPTIONA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_DESCRIPTIONA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_DESCRIPTIONA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_DESCRIPTIONA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_DESCRIPTIONA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_DESCRIPTIONA").field("lpDescription", &self.lpDescription).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDescription == other.lpDescription
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_DESCRIPTIONA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_DESCRIPTIONW {
     pub lpDescription: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_DESCRIPTIONW {}
+impl ::core::marker::Copy for SERVICE_DESCRIPTIONW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_DESCRIPTIONW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_DESCRIPTIONW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_DESCRIPTIONW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_DESCRIPTIONW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_DESCRIPTIONW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_DESCRIPTIONW").field("lpDescription", &self.lpDescription).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_DESCRIPTIONW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpDescription == other.lpDescription
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_DESCRIPTIONW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_DESCRIPTIONW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_DIRECTORY_TYPE(pub i32);
-pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(0i32);
-pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = SERVICE_DIRECTORY_TYPE(1i32);
-impl ::core::convert::From<i32> for SERVICE_DIRECTORY_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_DIRECTORY_TYPE {
-    type Abi = Self;
-}
+pub type SERVICE_DIRECTORY_TYPE = i32;
+pub const ServiceDirectoryPersistentState: SERVICE_DIRECTORY_TYPE = 0i32;
+pub const ServiceDirectoryTypeMax: SERVICE_DIRECTORY_TYPE = 1i32;
 pub const SERVICE_DYNAMIC_INFORMATION_LEVEL_START_REASON: u32 = 1u32;
 pub const SERVICE_ENUMERATE_DEPENDENTS: u32 = 8u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_ERROR(pub u32);
-pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = SERVICE_ERROR(3u32);
-pub const SERVICE_ERROR_IGNORE: SERVICE_ERROR = SERVICE_ERROR(0u32);
-pub const SERVICE_ERROR_NORMAL: SERVICE_ERROR = SERVICE_ERROR(1u32);
-pub const SERVICE_ERROR_SEVERE: SERVICE_ERROR = SERVICE_ERROR(2u32);
-impl ::core::convert::From<u32> for SERVICE_ERROR {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_ERROR {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_ERROR {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_ERROR {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_ERROR {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_ERROR {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_ERROR {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SERVICE_ERROR = u32;
+pub const SERVICE_ERROR_CRITICAL: SERVICE_ERROR = 3u32;
+pub const SERVICE_ERROR_IGNORE: SERVICE_ERROR = 0u32;
+pub const SERVICE_ERROR_NORMAL: SERVICE_ERROR = 1u32;
+pub const SERVICE_ERROR_SEVERE: SERVICE_ERROR = 2u32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_FAILURE_ACTIONSA {
@@ -1606,32 +1396,31 @@ pub struct SERVICE_FAILURE_ACTIONSA {
     pub lpsaActions: *mut SC_ACTION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_FAILURE_ACTIONSA {}
+impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONSA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_FAILURE_ACTIONSA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_FAILURE_ACTIONSA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONSA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_FAILURE_ACTIONSA").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSA {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_FAILURE_ACTIONSW {
@@ -1642,89 +1431,87 @@ pub struct SERVICE_FAILURE_ACTIONSW {
     pub lpsaActions: *mut SC_ACTION,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_FAILURE_ACTIONSW {}
+impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONSW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONSW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_FAILURE_ACTIONSW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_FAILURE_ACTIONSW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONSW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_FAILURE_ACTIONSW").field("dwResetPeriod", &self.dwResetPeriod).field("lpRebootMsg", &self.lpRebootMsg).field("lpCommand", &self.lpCommand).field("cActions", &self.cActions).field("lpsaActions", &self.lpsaActions).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONSW {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwResetPeriod == other.dwResetPeriod && self.lpRebootMsg == other.lpRebootMsg && self.lpCommand == other.lpCommand && self.cActions == other.cActions && self.lpsaActions == other.lpsaActions
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONSW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONSW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_FAILURE_ACTIONS_FLAG {
     pub fFailureActionsOnNonCrashFailures: super::super::Foundation::BOOL,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_FAILURE_ACTIONS_FLAG {}
+impl ::core::marker::Copy for SERVICE_FAILURE_ACTIONS_FLAG {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_FAILURE_ACTIONS_FLAG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONS_FLAG {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONS_FLAG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_FAILURE_ACTIONS_FLAG>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONS_FLAG {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_FAILURE_ACTIONS_FLAG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_FAILURE_ACTIONS_FLAG").field("fFailureActionsOnNonCrashFailures", &self.fFailureActionsOnNonCrashFailures).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_FAILURE_ACTIONS_FLAG {
-    fn eq(&self, other: &Self) -> bool {
-        self.fFailureActionsOnNonCrashFailures == other.fFailureActionsOnNonCrashFailures
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_FAILURE_ACTIONS_FLAG {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_FAILURE_ACTIONS_FLAG {
-    type Abi = Self;
-}
 pub const SERVICE_INTERROGATE: u32 = 128u32;
 pub const SERVICE_LAUNCH_PROTECTED_ANTIMALWARE_LIGHT: u32 = 3u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_LAUNCH_PROTECTED_INFO {
     pub dwLaunchProtected: u32,
 }
-impl SERVICE_LAUNCH_PROTECTED_INFO {}
+impl ::core::marker::Copy for SERVICE_LAUNCH_PROTECTED_INFO {}
+impl ::core::clone::Clone for SERVICE_LAUNCH_PROTECTED_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_LAUNCH_PROTECTED_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_LAUNCH_PROTECTED_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_LAUNCH_PROTECTED_INFO {}
 impl ::core::default::Default for SERVICE_LAUNCH_PROTECTED_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_LAUNCH_PROTECTED_INFO").field("dwLaunchProtected", &self.dwLaunchProtected).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_LAUNCH_PROTECTED_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwLaunchProtected == other.dwLaunchProtected
-    }
-}
-impl ::core::cmp::Eq for SERVICE_LAUNCH_PROTECTED_INFO {}
-unsafe impl ::windows::core::Abi for SERVICE_LAUNCH_PROTECTED_INFO {
-    type Abi = Self;
 }
 pub const SERVICE_LAUNCH_PROTECTED_NONE: u32 = 0u32;
 pub const SERVICE_LAUNCH_PROTECTED_WINDOWS: u32 = 1u32;
@@ -1732,56 +1519,17 @@ pub const SERVICE_LAUNCH_PROTECTED_WINDOWS_LIGHT: u32 = 2u32;
 pub type SERVICE_MAIN_FUNCTIONA = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut *mut i8)>;
 #[cfg(feature = "Win32_Foundation")]
 pub type SERVICE_MAIN_FUNCTIONW = ::core::option::Option<unsafe extern "system" fn(dwnumservicesargs: u32, lpserviceargvectors: *mut super::super::Foundation::PWSTR)>;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_NOTIFY(pub u32);
-pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = SERVICE_NOTIFY(128u32);
-pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(16u32);
-pub const SERVICE_NOTIFY_DELETE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(512u32);
-pub const SERVICE_NOTIFY_DELETED: SERVICE_NOTIFY = SERVICE_NOTIFY(256u32);
-pub const SERVICE_NOTIFY_PAUSE_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(32u32);
-pub const SERVICE_NOTIFY_PAUSED: SERVICE_NOTIFY = SERVICE_NOTIFY(64u32);
-pub const SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = SERVICE_NOTIFY(8u32);
-pub const SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(2u32);
-pub const SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = SERVICE_NOTIFY(4u32);
-pub const SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = SERVICE_NOTIFY(1u32);
-impl ::core::convert::From<u32> for SERVICE_NOTIFY {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_NOTIFY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_NOTIFY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_NOTIFY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_NOTIFY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_NOTIFY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_NOTIFY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SERVICE_NOTIFY = u32;
+pub const SERVICE_NOTIFY_CREATED: SERVICE_NOTIFY = 128u32;
+pub const SERVICE_NOTIFY_CONTINUE_PENDING: SERVICE_NOTIFY = 16u32;
+pub const SERVICE_NOTIFY_DELETE_PENDING: SERVICE_NOTIFY = 512u32;
+pub const SERVICE_NOTIFY_DELETED: SERVICE_NOTIFY = 256u32;
+pub const SERVICE_NOTIFY_PAUSE_PENDING: SERVICE_NOTIFY = 32u32;
+pub const SERVICE_NOTIFY_PAUSED: SERVICE_NOTIFY = 64u32;
+pub const SERVICE_NOTIFY_RUNNING: SERVICE_NOTIFY = 8u32;
+pub const SERVICE_NOTIFY_START_PENDING: SERVICE_NOTIFY = 2u32;
+pub const SERVICE_NOTIFY_STOP_PENDING: SERVICE_NOTIFY = 4u32;
+pub const SERVICE_NOTIFY_STOPPED: SERVICE_NOTIFY = 1u32;
 #[repr(C)]
 pub struct SERVICE_NOTIFY_1 {
     pub dwVersion: u32,
@@ -1790,27 +1538,26 @@ pub struct SERVICE_NOTIFY_1 {
     pub dwNotificationStatus: u32,
     pub ServiceStatus: SERVICE_STATUS_PROCESS,
 }
-impl SERVICE_NOTIFY_1 {}
+impl ::core::marker::Copy for SERVICE_NOTIFY_1 {}
+impl ::core::clone::Clone for SERVICE_NOTIFY_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_NOTIFY_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_NOTIFY_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_NOTIFY_1 {}
 impl ::core::default::Default for SERVICE_NOTIFY_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_NOTIFY_1 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_NOTIFY_1").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_NOTIFY_1 {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.pfnNotifyCallback.map(|f| f as usize) == other.pfnNotifyCallback.map(|f| f as usize) && self.pContext == other.pContext && self.dwNotificationStatus == other.dwNotificationStatus && self.ServiceStatus == other.ServiceStatus
-    }
-}
-impl ::core::cmp::Eq for SERVICE_NOTIFY_1 {}
-unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2A {
@@ -1823,32 +1570,31 @@ pub struct SERVICE_NOTIFY_2A {
     pub pszServiceNames: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_NOTIFY_2A {}
+impl ::core::marker::Copy for SERVICE_NOTIFY_2A {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_NOTIFY_2A {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2A {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2A {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_NOTIFY_2A>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_NOTIFY_2A {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_NOTIFY_2A {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_NOTIFY_2A {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_NOTIFY_2A").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2A {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.pfnNotifyCallback.map(|f| f as usize) == other.pfnNotifyCallback.map(|f| f as usize) && self.pContext == other.pContext && self.dwNotificationStatus == other.dwNotificationStatus && self.ServiceStatus == other.ServiceStatus && self.dwNotificationTriggered == other.dwNotificationTriggered && self.pszServiceNames == other.pszServiceNames
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_NOTIFY_2A {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2A {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_NOTIFY_2W {
@@ -1861,37 +1607,36 @@ pub struct SERVICE_NOTIFY_2W {
     pub pszServiceNames: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_NOTIFY_2W {}
+impl ::core::marker::Copy for SERVICE_NOTIFY_2W {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_NOTIFY_2W {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2W {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2W {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_NOTIFY_2W>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_NOTIFY_2W {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_NOTIFY_2W {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_NOTIFY_2W {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_NOTIFY_2W").field("dwVersion", &self.dwVersion).field("pContext", &self.pContext).field("dwNotificationStatus", &self.dwNotificationStatus).field("ServiceStatus", &self.ServiceStatus).field("dwNotificationTriggered", &self.dwNotificationTriggered).field("pszServiceNames", &self.pszServiceNames).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_NOTIFY_2W {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwVersion == other.dwVersion && self.pfnNotifyCallback.map(|f| f as usize) == other.pfnNotifyCallback.map(|f| f as usize) && self.pContext == other.pContext && self.dwNotificationStatus == other.dwNotificationStatus && self.ServiceStatus == other.ServiceStatus && self.dwNotificationTriggered == other.dwNotificationTriggered && self.pszServiceNames == other.pszServiceNames
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_NOTIFY_2W {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_NOTIFY_2W {
-    type Abi = Self;
-}
 pub const SERVICE_NOTIFY_STATUS_CHANGE: u32 = 2u32;
 pub const SERVICE_NOTIFY_STATUS_CHANGE_1: u32 = 1u32;
 pub const SERVICE_NOTIFY_STATUS_CHANGE_2: u32 = 2u32;
 pub const SERVICE_NO_CHANGE: u32 = 4294967295u32;
 pub const SERVICE_PAUSE_CONTINUE: u32 = 64u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_PREFERRED_NODE_INFO {
@@ -1899,304 +1644,192 @@ pub struct SERVICE_PREFERRED_NODE_INFO {
     pub fDelete: super::super::Foundation::BOOLEAN,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_PREFERRED_NODE_INFO {}
+impl ::core::marker::Copy for SERVICE_PREFERRED_NODE_INFO {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_PREFERRED_NODE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_PREFERRED_NODE_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_PREFERRED_NODE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_PREFERRED_NODE_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_PREFERRED_NODE_INFO {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_PREFERRED_NODE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_PREFERRED_NODE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_PREFERRED_NODE_INFO").field("usPreferredNode", &self.usPreferredNode).field("fDelete", &self.fDelete).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_PREFERRED_NODE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.usPreferredNode == other.usPreferredNode && self.fDelete == other.fDelete
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_PREFERRED_NODE_INFO {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_PREFERRED_NODE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_PRESHUTDOWN_INFO {
     pub dwPreshutdownTimeout: u32,
 }
-impl SERVICE_PRESHUTDOWN_INFO {}
+impl ::core::marker::Copy for SERVICE_PRESHUTDOWN_INFO {}
+impl ::core::clone::Clone for SERVICE_PRESHUTDOWN_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_PRESHUTDOWN_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_PRESHUTDOWN_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_PRESHUTDOWN_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_PRESHUTDOWN_INFO {}
 impl ::core::default::Default for SERVICE_PRESHUTDOWN_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_PRESHUTDOWN_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_PRESHUTDOWN_INFO").field("dwPreshutdownTimeout", &self.dwPreshutdownTimeout).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_PRESHUTDOWN_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwPreshutdownTimeout == other.dwPreshutdownTimeout
-    }
-}
-impl ::core::cmp::Eq for SERVICE_PRESHUTDOWN_INFO {}
-unsafe impl ::windows::core::Abi for SERVICE_PRESHUTDOWN_INFO {
-    type Abi = Self;
-}
 pub const SERVICE_QUERY_CONFIG: u32 = 1u32;
 pub const SERVICE_QUERY_STATUS: u32 = 4u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_REGISTRY_STATE_TYPE(pub i32);
-pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(0i32);
-pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(1i32);
-pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = SERVICE_REGISTRY_STATE_TYPE(2i32);
-impl ::core::convert::From<i32> for SERVICE_REGISTRY_STATE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_REGISTRY_STATE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SERVICE_REGISTRY_STATE_TYPE = i32;
+pub const ServiceRegistryStateParameters: SERVICE_REGISTRY_STATE_TYPE = 0i32;
+pub const ServiceRegistryStatePersistent: SERVICE_REGISTRY_STATE_TYPE = 1i32;
+pub const MaxServiceRegistryStateType: SERVICE_REGISTRY_STATE_TYPE = 2i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOA {
     pub pmszRequiredPrivileges: super::super::Foundation::PSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_REQUIRED_PRIVILEGES_INFOA {}
+impl ::core::marker::Copy for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_REQUIRED_PRIVILEGES_INFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_REQUIRED_PRIVILEGES_INFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOA").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_REQUIRED_PRIVILEGES_INFOW {
     pub pmszRequiredPrivileges: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_REQUIRED_PRIVILEGES_INFOW {}
+impl ::core::marker::Copy for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_REQUIRED_PRIVILEGES_INFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_REQUIRED_PRIVILEGES_INFOW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_REQUIRED_PRIVILEGES_INFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_REQUIRED_PRIVILEGES_INFOW").field("pmszRequiredPrivileges", &self.pmszRequiredPrivileges).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.pmszRequiredPrivileges == other.pmszRequiredPrivileges
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_REQUIRED_PRIVILEGES_INFOW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_REQUIRED_PRIVILEGES_INFOW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_RUNS_IN_PROCESS(pub u32);
-pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(0u32);
-pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = SERVICE_RUNS_IN_PROCESS(1u32);
-impl ::core::convert::From<u32> for SERVICE_RUNS_IN_PROCESS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_RUNS_IN_PROCESS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_RUNS_IN_PROCESS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_RUNS_IN_PROCESS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_RUNS_IN_PROCESS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_RUNS_IN_PROCESS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_RUNS_IN_PROCESS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_SHARED_DIRECTORY_TYPE(pub i32);
-pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = SERVICE_SHARED_DIRECTORY_TYPE(0i32);
-impl ::core::convert::From<i32> for SERVICE_SHARED_DIRECTORY_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_SHARED_DIRECTORY_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_SHARED_REGISTRY_STATE_TYPE(pub i32);
-pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = SERVICE_SHARED_REGISTRY_STATE_TYPE(0i32);
-impl ::core::convert::From<i32> for SERVICE_SHARED_REGISTRY_STATE_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_SHARED_REGISTRY_STATE_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SERVICE_RUNS_IN_PROCESS = u32;
+pub const SERVICE_RUNS_IN_NON_SYSTEM_OR_NOT_RUNNING: SERVICE_RUNS_IN_PROCESS = 0u32;
+pub const SERVICE_RUNS_IN_SYSTEM_PROCESS: SERVICE_RUNS_IN_PROCESS = 1u32;
+pub type SERVICE_SHARED_DIRECTORY_TYPE = i32;
+pub const ServiceSharedDirectoryPersistentState: SERVICE_SHARED_DIRECTORY_TYPE = 0i32;
+pub type SERVICE_SHARED_REGISTRY_STATE_TYPE = i32;
+pub const ServiceSharedRegistryPersistentState: SERVICE_SHARED_REGISTRY_STATE_TYPE = 0i32;
 #[repr(C)]
 pub struct SERVICE_SID_INFO {
     pub dwServiceSidType: u32,
 }
-impl SERVICE_SID_INFO {}
+impl ::core::marker::Copy for SERVICE_SID_INFO {}
+impl ::core::clone::Clone for SERVICE_SID_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_SID_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_SID_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_SID_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_SID_INFO {}
 impl ::core::default::Default for SERVICE_SID_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_SID_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_SID_INFO").field("dwServiceSidType", &self.dwServiceSidType).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_SID_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceSidType == other.dwServiceSidType
-    }
-}
-impl ::core::cmp::Eq for SERVICE_SID_INFO {}
-unsafe impl ::windows::core::Abi for SERVICE_SID_INFO {
-    type Abi = Self;
-}
 pub const SERVICE_SID_TYPE_NONE: u32 = 0u32;
 pub const SERVICE_SID_TYPE_UNRESTRICTED: u32 = 1u32;
 pub const SERVICE_START: u32 = 16u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_START_REASON {
     pub dwReason: u32,
 }
-impl SERVICE_START_REASON {}
+impl ::core::marker::Copy for SERVICE_START_REASON {}
+impl ::core::clone::Clone for SERVICE_START_REASON {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_START_REASON {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_START_REASON {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_START_REASON>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_START_REASON {}
 impl ::core::default::Default for SERVICE_START_REASON {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for SERVICE_START_REASON {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_START_REASON").field("dwReason", &self.dwReason).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_START_REASON {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwReason == other.dwReason
-    }
-}
-impl ::core::cmp::Eq for SERVICE_START_REASON {}
-unsafe impl ::windows::core::Abi for SERVICE_START_REASON {
-    type Abi = Self;
 }
 pub const SERVICE_START_REASON_AUTO: u32 = 2u32;
 pub const SERVICE_START_REASON_DELAYEDAUTO: u32 = 16u32;
 pub const SERVICE_START_REASON_DEMAND: u32 = 1u32;
 pub const SERVICE_START_REASON_RESTART_ON_FAILURE: u32 = 8u32;
 pub const SERVICE_START_REASON_TRIGGER: u32 = 4u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_START_TYPE(pub u32);
-pub const SERVICE_AUTO_START: SERVICE_START_TYPE = SERVICE_START_TYPE(2u32);
-pub const SERVICE_BOOT_START: SERVICE_START_TYPE = SERVICE_START_TYPE(0u32);
-pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = SERVICE_START_TYPE(3u32);
-pub const SERVICE_DISABLED: SERVICE_START_TYPE = SERVICE_START_TYPE(4u32);
-pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = SERVICE_START_TYPE(1u32);
-impl ::core::convert::From<u32> for SERVICE_START_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_START_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_START_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_START_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_START_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_START_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_START_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SERVICE_START_TYPE = u32;
+pub const SERVICE_AUTO_START: SERVICE_START_TYPE = 2u32;
+pub const SERVICE_BOOT_START: SERVICE_START_TYPE = 0u32;
+pub const SERVICE_DEMAND_START: SERVICE_START_TYPE = 3u32;
+pub const SERVICE_DISABLED: SERVICE_START_TYPE = 4u32;
+pub const SERVICE_SYSTEM_START: SERVICE_START_TYPE = 1u32;
 #[repr(C)]
 pub struct SERVICE_STATUS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
@@ -2207,85 +1840,35 @@ pub struct SERVICE_STATUS {
     pub dwCheckPoint: u32,
     pub dwWaitHint: u32,
 }
-impl SERVICE_STATUS {}
+impl ::core::marker::Copy for SERVICE_STATUS {}
+impl ::core::clone::Clone for SERVICE_STATUS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_STATUS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_STATUS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_STATUS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_STATUS {}
 impl ::core::default::Default for SERVICE_STATUS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_STATUS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_STATUS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_STATUS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint
-    }
-}
-impl ::core::cmp::Eq for SERVICE_STATUS {}
-unsafe impl ::windows::core::Abi for SERVICE_STATUS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_STATUS_CURRENT_STATE(pub u32);
-pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(5u32);
-pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(6u32);
-pub const SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(7u32);
-pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(4u32);
-pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(2u32);
-pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(3u32);
-pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = SERVICE_STATUS_CURRENT_STATE(1u32);
-impl ::core::convert::From<u32> for SERVICE_STATUS_CURRENT_STATE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_STATUS_CURRENT_STATE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_STATUS_CURRENT_STATE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_STATUS_CURRENT_STATE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_STATUS_CURRENT_STATE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_STATUS_CURRENT_STATE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_STATUS_CURRENT_STATE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct SERVICE_STATUS_HANDLE(pub isize);
-impl ::core::default::Default for SERVICE_STATUS_HANDLE {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for SERVICE_STATUS_HANDLE {}
-unsafe impl ::windows::core::Abi for SERVICE_STATUS_HANDLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SERVICE_STATUS_CURRENT_STATE = u32;
+pub const SERVICE_CONTINUE_PENDING: SERVICE_STATUS_CURRENT_STATE = 5u32;
+pub const SERVICE_PAUSE_PENDING: SERVICE_STATUS_CURRENT_STATE = 6u32;
+pub const SERVICE_PAUSED: SERVICE_STATUS_CURRENT_STATE = 7u32;
+pub const SERVICE_RUNNING: SERVICE_STATUS_CURRENT_STATE = 4u32;
+pub const SERVICE_START_PENDING: SERVICE_STATUS_CURRENT_STATE = 2u32;
+pub const SERVICE_STOP_PENDING: SERVICE_STATUS_CURRENT_STATE = 3u32;
+pub const SERVICE_STOPPED: SERVICE_STATUS_CURRENT_STATE = 1u32;
+pub type SERVICE_STATUS_HANDLE = isize;
 #[repr(C)]
 pub struct SERVICE_STATUS_PROCESS {
     pub dwServiceType: ENUM_SERVICE_TYPE,
@@ -2298,25 +1881,25 @@ pub struct SERVICE_STATUS_PROCESS {
     pub dwProcessId: u32,
     pub dwServiceFlags: SERVICE_RUNS_IN_PROCESS,
 }
-impl SERVICE_STATUS_PROCESS {}
+impl ::core::marker::Copy for SERVICE_STATUS_PROCESS {}
+impl ::core::clone::Clone for SERVICE_STATUS_PROCESS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_STATUS_PROCESS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_STATUS_PROCESS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_STATUS_PROCESS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_STATUS_PROCESS {}
 impl ::core::default::Default for SERVICE_STATUS_PROCESS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for SERVICE_STATUS_PROCESS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_STATUS_PROCESS").field("dwServiceType", &self.dwServiceType).field("dwCurrentState", &self.dwCurrentState).field("dwControlsAccepted", &self.dwControlsAccepted).field("dwWin32ExitCode", &self.dwWin32ExitCode).field("dwServiceSpecificExitCode", &self.dwServiceSpecificExitCode).field("dwCheckPoint", &self.dwCheckPoint).field("dwWaitHint", &self.dwWaitHint).field("dwProcessId", &self.dwProcessId).field("dwServiceFlags", &self.dwServiceFlags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_STATUS_PROCESS {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwServiceType == other.dwServiceType && self.dwCurrentState == other.dwCurrentState && self.dwControlsAccepted == other.dwControlsAccepted && self.dwWin32ExitCode == other.dwWin32ExitCode && self.dwServiceSpecificExitCode == other.dwServiceSpecificExitCode && self.dwCheckPoint == other.dwCheckPoint && self.dwWaitHint == other.dwWaitHint && self.dwProcessId == other.dwProcessId && self.dwServiceFlags == other.dwServiceFlags
-    }
-}
-impl ::core::cmp::Eq for SERVICE_STATUS_PROCESS {}
-unsafe impl ::windows::core::Abi for SERVICE_STATUS_PROCESS {
-    type Abi = Self;
 }
 pub const SERVICE_STOP: u32 = 32u32;
 pub const SERVICE_STOP_REASON_FLAG_CUSTOM: u32 = 536870912u32;
@@ -2362,7 +1945,6 @@ pub const SERVICE_STOP_REASON_MINOR_SOFTWARE_UPDATE_UNINSTALL: u32 = 20u32;
 pub const SERVICE_STOP_REASON_MINOR_UNSTABLE: u32 = 7u32;
 pub const SERVICE_STOP_REASON_MINOR_UPGRADE: u32 = 4u32;
 pub const SERVICE_STOP_REASON_MINOR_WMI: u32 = 18u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYA {
@@ -2370,32 +1952,31 @@ pub struct SERVICE_TABLE_ENTRYA {
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONA,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_TABLE_ENTRYA {}
+impl ::core::marker::Copy for SERVICE_TABLE_ENTRYA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_TABLE_ENTRYA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TABLE_ENTRYA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_TABLE_ENTRYA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_TABLE_ENTRYA").field("lpServiceName", &self.lpServiceName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYA {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpServiceProc.map(|f| f as usize) == other.lpServiceProc.map(|f| f as usize)
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVICE_TABLE_ENTRYW {
@@ -2403,58 +1984,56 @@ pub struct SERVICE_TABLE_ENTRYW {
     pub lpServiceProc: LPSERVICE_MAIN_FUNCTIONW,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl SERVICE_TABLE_ENTRYW {}
+impl ::core::marker::Copy for SERVICE_TABLE_ENTRYW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for SERVICE_TABLE_ENTRYW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TABLE_ENTRYW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for SERVICE_TABLE_ENTRYW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for SERVICE_TABLE_ENTRYW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_TABLE_ENTRYW").field("lpServiceName", &self.lpServiceName).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for SERVICE_TABLE_ENTRYW {
-    fn eq(&self, other: &Self) -> bool {
-        self.lpServiceName == other.lpServiceName && self.lpServiceProc.map(|f| f as usize) == other.lpServiceProc.map(|f| f as usize)
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for SERVICE_TABLE_ENTRYW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for SERVICE_TABLE_ENTRYW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_TIMECHANGE_INFO {
     pub liNewTime: i64,
     pub liOldTime: i64,
 }
-impl SERVICE_TIMECHANGE_INFO {}
+impl ::core::marker::Copy for SERVICE_TIMECHANGE_INFO {}
+impl ::core::clone::Clone for SERVICE_TIMECHANGE_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TIMECHANGE_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_TIMECHANGE_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TIMECHANGE_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_TIMECHANGE_INFO {}
 impl ::core::default::Default for SERVICE_TIMECHANGE_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_TIMECHANGE_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_TIMECHANGE_INFO").field("liNewTime", &self.liNewTime).field("liOldTime", &self.liOldTime).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_TIMECHANGE_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.liNewTime == other.liNewTime && self.liOldTime == other.liOldTime
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TIMECHANGE_INFO {}
-unsafe impl ::windows::core::Abi for SERVICE_TIMECHANGE_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_TRIGGER {
     pub dwTriggerType: SERVICE_TRIGGER_TYPE,
@@ -2463,236 +2042,119 @@ pub struct SERVICE_TRIGGER {
     pub cDataItems: u32,
     pub pDataItems: *mut SERVICE_TRIGGER_SPECIFIC_DATA_ITEM,
 }
-impl SERVICE_TRIGGER {}
+impl ::core::marker::Copy for SERVICE_TRIGGER {}
+impl ::core::clone::Clone for SERVICE_TRIGGER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_TRIGGER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_TRIGGER {}
 impl ::core::default::Default for SERVICE_TRIGGER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_TRIGGER").field("dwTriggerType", &self.dwTriggerType).field("dwAction", &self.dwAction).field("pTriggerSubtype", &self.pTriggerSubtype).field("cDataItems", &self.cDataItems).field("pDataItems", &self.pDataItems).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwTriggerType == other.dwTriggerType && self.dwAction == other.dwAction && self.pTriggerSubtype == other.pTriggerSubtype && self.cDataItems == other.cDataItems && self.pDataItems == other.pDataItems
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER {}
-unsafe impl ::windows::core::Abi for SERVICE_TRIGGER {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_TRIGGER_ACTION(pub u32);
-pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(1u32);
-pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = SERVICE_TRIGGER_ACTION(2u32);
-impl ::core::convert::From<u32> for SERVICE_TRIGGER_ACTION {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_ACTION {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_TRIGGER_ACTION {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_TRIGGER_ACTION {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_TRIGGER_ACTION {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_TRIGGER_ACTION {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_TRIGGER_ACTION {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type SERVICE_TRIGGER_ACTION = u32;
+pub const SERVICE_TRIGGER_ACTION_SERVICE_START: SERVICE_TRIGGER_ACTION = 1u32;
+pub const SERVICE_TRIGGER_ACTION_SERVICE_STOP: SERVICE_TRIGGER_ACTION = 2u32;
 #[repr(C)]
 pub struct SERVICE_TRIGGER_CUSTOM_STATE_ID {
     pub Data: [u32; 2],
 }
-impl SERVICE_TRIGGER_CUSTOM_STATE_ID {}
+impl ::core::marker::Copy for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_CUSTOM_STATE_ID {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_TRIGGER_CUSTOM_STATE_ID {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER_CUSTOM_STATE_ID>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
 impl ::core::default::Default for SERVICE_TRIGGER_CUSTOM_STATE_ID {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_TRIGGER_CUSTOM_STATE_ID").field("Data", &self.Data).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    fn eq(&self, other: &Self) -> bool {
-        self.Data == other.Data
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER_CUSTOM_STATE_ID {}
-unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_CUSTOM_STATE_ID {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_TRIGGER_INFO {
     pub cTriggers: u32,
     pub pTriggers: *mut SERVICE_TRIGGER,
     pub pReserved: *mut u8,
 }
-impl SERVICE_TRIGGER_INFO {}
+impl ::core::marker::Copy for SERVICE_TRIGGER_INFO {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_TRIGGER_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_TRIGGER_INFO {}
 impl ::core::default::Default for SERVICE_TRIGGER_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_TRIGGER_INFO").field("cTriggers", &self.cTriggers).field("pTriggers", &self.pTriggers).field("pReserved", &self.pReserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.cTriggers == other.cTriggers && self.pTriggers == other.pTriggers && self.pReserved == other.pReserved
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER_INFO {}
-unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     pub dwDataType: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE,
     pub cbData: u32,
     pub pData: *mut u8,
 }
-impl SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
+impl ::core::marker::Copy for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
+impl ::core::clone::Clone for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<SERVICE_TRIGGER_SPECIFIC_DATA_ITEM>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
 impl ::core::default::Default for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("SERVICE_TRIGGER_SPECIFIC_DATA_ITEM").field("dwDataType", &self.dwDataType).field("cbData", &self.cbData).field("pData", &self.pData).finish()
-    }
-}
-impl ::core::cmp::PartialEq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    fn eq(&self, other: &Self) -> bool {
-        self.dwDataType == other.dwDataType && self.cbData == other.cbData && self.pData == other.pData
-    }
-}
-impl ::core::cmp::Eq for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {}
-unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(pub u32);
-pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(1u32);
-pub const SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(2u32);
-pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(3u32);
-pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(4u32);
-pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE(5u32);
-impl ::core::convert::From<u32> for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct SERVICE_TRIGGER_TYPE(pub u32);
-pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(20u32);
-pub const SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(1u32);
-pub const SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(3u32);
-pub const SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(4u32);
-pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(5u32);
-pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(2u32);
-pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = SERVICE_TRIGGER_TYPE(6u32);
-impl ::core::convert::From<u32> for SERVICE_TRIGGER_TYPE {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for SERVICE_TRIGGER_TYPE {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for SERVICE_TRIGGER_TYPE {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for SERVICE_TRIGGER_TYPE {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for SERVICE_TRIGGER_TYPE {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for SERVICE_TRIGGER_TYPE {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for SERVICE_TRIGGER_TYPE {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_BINARY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 1u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_STRING: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 2u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_LEVEL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 3u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ANY: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 4u32;
+pub const SERVICE_TRIGGER_DATA_TYPE_KEYWORD_ALL: SERVICE_TRIGGER_SPECIFIC_DATA_ITEM_DATA_TYPE = 5u32;
+pub type SERVICE_TRIGGER_TYPE = u32;
+pub const SERVICE_TRIGGER_TYPE_CUSTOM: SERVICE_TRIGGER_TYPE = 20u32;
+pub const SERVICE_TRIGGER_TYPE_DEVICE_INTERFACE_ARRIVAL: SERVICE_TRIGGER_TYPE = 1u32;
+pub const SERVICE_TRIGGER_TYPE_DOMAIN_JOIN: SERVICE_TRIGGER_TYPE = 3u32;
+pub const SERVICE_TRIGGER_TYPE_FIREWALL_PORT_EVENT: SERVICE_TRIGGER_TYPE = 4u32;
+pub const SERVICE_TRIGGER_TYPE_GROUP_POLICY: SERVICE_TRIGGER_TYPE = 5u32;
+pub const SERVICE_TRIGGER_TYPE_IP_ADDRESS_AVAILABILITY: SERVICE_TRIGGER_TYPE = 2u32;
+pub const SERVICE_TRIGGER_TYPE_NETWORK_ENDPOINT: SERVICE_TRIGGER_TYPE = 6u32;
 pub const SERVICE_TRIGGER_TYPE_AGGREGATE: u32 = 30u32;
 pub const SERVICE_TRIGGER_TYPE_CUSTOM_SYSTEM_STATE_CHANGE: u32 = 7u32;
 pub const SERVICE_USER_DEFINED_CONTROL: u32 = 256u32;
@@ -2824,5 +2286,4 @@ pub unsafe fn WaitServiceState<'a, Param0: ::windows::core::IntoParam<'a, super:
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct _SC_NOTIFICATION_REGISTRATION(pub u8);

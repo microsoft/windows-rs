@@ -1,5 +1,4 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
 pub struct APP_MEMORY_INFORMATION {
     pub AvailableCommit: u64,
@@ -7,25 +6,25 @@ pub struct APP_MEMORY_INFORMATION {
     pub PeakPrivateCommitUsage: u64,
     pub TotalCommitUsage: u64,
 }
-impl APP_MEMORY_INFORMATION {}
+impl ::core::marker::Copy for APP_MEMORY_INFORMATION {}
+impl ::core::clone::Clone for APP_MEMORY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for APP_MEMORY_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for APP_MEMORY_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<APP_MEMORY_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for APP_MEMORY_INFORMATION {}
 impl ::core::default::Default for APP_MEMORY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for APP_MEMORY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("APP_MEMORY_INFORMATION").field("AvailableCommit", &self.AvailableCommit).field("PrivateCommitUsage", &self.PrivateCommitUsage).field("PeakPrivateCommitUsage", &self.PeakPrivateCommitUsage).field("TotalCommitUsage", &self.TotalCommitUsage).finish()
-    }
-}
-impl ::core::cmp::PartialEq for APP_MEMORY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.AvailableCommit == other.AvailableCommit && self.PrivateCommitUsage == other.PrivateCommitUsage && self.PeakPrivateCommitUsage == other.PeakPrivateCommitUsage && self.TotalCommitUsage == other.TotalCommitUsage
-    }
-}
-impl ::core::cmp::Eq for APP_MEMORY_INFORMATION {}
-unsafe impl ::windows::core::Abi for APP_MEMORY_INFORMATION {
-    type Abi = Self;
 }
 #[inline]
 pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
@@ -35,7 +34,7 @@ pub unsafe fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn AcquireSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(AcquireSRWLockExclusive(::core::mem::transmute(srwlock)))
+        AcquireSRWLockExclusive(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -48,7 +47,7 @@ pub unsafe fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn AcquireSRWLockShared(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(AcquireSRWLockShared(::core::mem::transmute(srwlock)))
+        AcquireSRWLockShared(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -95,102 +94,15 @@ pub unsafe fn AttachThreadInput<'a, Param2: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct BoundaryDescriptorHandle(pub isize);
-impl ::core::default::Default for BoundaryDescriptorHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for BoundaryDescriptorHandle {}
-unsafe impl ::windows::core::Abi for BoundaryDescriptorHandle {
-    type Abi = Self;
-}
+pub type BoundaryDescriptorHandle = isize;
 pub const CONDITION_VARIABLE_LOCKMODE_SHARED: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CREATE_EVENT(pub u32);
-pub const CREATE_EVENT_INITIAL_SET: CREATE_EVENT = CREATE_EVENT(2u32);
-pub const CREATE_EVENT_MANUAL_RESET: CREATE_EVENT = CREATE_EVENT(1u32);
-impl ::core::convert::From<u32> for CREATE_EVENT {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CREATE_EVENT {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CREATE_EVENT {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CREATE_EVENT {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREATE_EVENT {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREATE_EVENT {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CREATE_EVENT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CREATE_EVENT = u32;
+pub const CREATE_EVENT_INITIAL_SET: CREATE_EVENT = 2u32;
+pub const CREATE_EVENT_MANUAL_RESET: CREATE_EVENT = 1u32;
 pub const CREATE_MUTEX_INITIAL_OWNER: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct CREATE_PROCESS_LOGON_FLAGS(pub u32);
-pub const LOGON_WITH_PROFILE: CREATE_PROCESS_LOGON_FLAGS = CREATE_PROCESS_LOGON_FLAGS(1u32);
-pub const LOGON_NETCREDENTIALS_ONLY: CREATE_PROCESS_LOGON_FLAGS = CREATE_PROCESS_LOGON_FLAGS(2u32);
-impl ::core::convert::From<u32> for CREATE_PROCESS_LOGON_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for CREATE_PROCESS_LOGON_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for CREATE_PROCESS_LOGON_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for CREATE_PROCESS_LOGON_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for CREATE_PROCESS_LOGON_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for CREATE_PROCESS_LOGON_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for CREATE_PROCESS_LOGON_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type CREATE_PROCESS_LOGON_FLAGS = u32;
+pub const LOGON_WITH_PROFILE: CREATE_PROCESS_LOGON_FLAGS = 1u32;
+pub const LOGON_NETCREDENTIALS_ONLY: CREATE_PROCESS_LOGON_FLAGS = 2u32;
 pub const CREATE_WAITABLE_TIMER_HIGH_RESOLUTION: u32 = 2u32;
 pub const CREATE_WAITABLE_TIMER_MANUAL_RESET: u32 = 1u32;
 #[cfg(feature = "Win32_Foundation")]
@@ -215,7 +127,7 @@ pub unsafe fn CancelThreadpoolIo(pio: *mut TP_IO) {
         extern "system" {
             fn CancelThreadpoolIo(pio: *mut TP_IO);
         }
-        ::core::mem::transmute(CancelThreadpoolIo(::core::mem::transmute(pio)))
+        CancelThreadpoolIo(::core::mem::transmute(pio))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -270,7 +182,7 @@ pub unsafe fn CloseThreadpool<'a, Param0: ::windows::core::IntoParam<'a, PTP_POO
         extern "system" {
             fn CloseThreadpool(ptpp: PTP_POOL);
         }
-        ::core::mem::transmute(CloseThreadpool(ptpp.into_param().abi()))
+        CloseThreadpool(ptpp.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -283,7 +195,7 @@ pub unsafe fn CloseThreadpoolCleanupGroup(ptpcg: isize) {
         extern "system" {
             fn CloseThreadpoolCleanupGroup(ptpcg: isize);
         }
-        ::core::mem::transmute(CloseThreadpoolCleanupGroup(::core::mem::transmute(ptpcg)))
+        CloseThreadpoolCleanupGroup(::core::mem::transmute(ptpcg))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -297,7 +209,7 @@ pub unsafe fn CloseThreadpoolCleanupGroupMembers<'a, Param1: ::windows::core::In
         extern "system" {
             fn CloseThreadpoolCleanupGroupMembers(ptpcg: isize, fcancelpendingcallbacks: super::super::Foundation::BOOL, pvcleanupcontext: *mut ::core::ffi::c_void);
         }
-        ::core::mem::transmute(CloseThreadpoolCleanupGroupMembers(::core::mem::transmute(ptpcg), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext)))
+        CloseThreadpoolCleanupGroupMembers(::core::mem::transmute(ptpcg), fcancelpendingcallbacks.into_param().abi(), ::core::mem::transmute(pvcleanupcontext))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -310,7 +222,7 @@ pub unsafe fn CloseThreadpoolIo(pio: *mut TP_IO) {
         extern "system" {
             fn CloseThreadpoolIo(pio: *mut TP_IO);
         }
-        ::core::mem::transmute(CloseThreadpoolIo(::core::mem::transmute(pio)))
+        CloseThreadpoolIo(::core::mem::transmute(pio))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -323,7 +235,7 @@ pub unsafe fn CloseThreadpoolTimer(pti: *mut TP_TIMER) {
         extern "system" {
             fn CloseThreadpoolTimer(pti: *mut TP_TIMER);
         }
-        ::core::mem::transmute(CloseThreadpoolTimer(::core::mem::transmute(pti)))
+        CloseThreadpoolTimer(::core::mem::transmute(pti))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -336,7 +248,7 @@ pub unsafe fn CloseThreadpoolWait(pwa: *mut TP_WAIT) {
         extern "system" {
             fn CloseThreadpoolWait(pwa: *mut TP_WAIT);
         }
-        ::core::mem::transmute(CloseThreadpoolWait(::core::mem::transmute(pwa)))
+        CloseThreadpoolWait(::core::mem::transmute(pwa))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -349,7 +261,7 @@ pub unsafe fn CloseThreadpoolWork(pwk: *mut TP_WORK) {
         extern "system" {
             fn CloseThreadpoolWork(pwk: *mut TP_WORK);
         }
-        ::core::mem::transmute(CloseThreadpoolWork(::core::mem::transmute(pwk)))
+        CloseThreadpoolWork(::core::mem::transmute(pwk))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -977,7 +889,7 @@ pub unsafe fn DeleteBoundaryDescriptor<'a, Param0: ::windows::core::IntoParam<'a
         extern "system" {
             fn DeleteBoundaryDescriptor(boundarydescriptor: BoundaryDescriptorHandle);
         }
-        ::core::mem::transmute(DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi()))
+        DeleteBoundaryDescriptor(boundarydescriptor.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -991,7 +903,7 @@ pub unsafe fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION
         extern "system" {
             fn DeleteCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(DeleteCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        DeleteCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1004,7 +916,7 @@ pub unsafe fn DeleteFiber(lpfiber: *const ::core::ffi::c_void) {
         extern "system" {
             fn DeleteFiber(lpfiber: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(DeleteFiber(::core::mem::transmute(lpfiber)))
+        DeleteFiber(::core::mem::transmute(lpfiber))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1017,7 +929,7 @@ pub unsafe fn DeleteProcThreadAttributeList<'a, Param0: ::windows::core::IntoPar
         extern "system" {
             fn DeleteProcThreadAttributeList(lpattributelist: LPPROC_THREAD_ATTRIBUTE_LIST);
         }
-        ::core::mem::transmute(DeleteProcThreadAttributeList(lpattributelist.into_param().abi()))
+        DeleteProcThreadAttributeList(lpattributelist.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1128,7 +1040,7 @@ pub unsafe fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTAN
         extern "system" {
             fn DisassociateCurrentThreadFromCallback(pci: *mut TP_CALLBACK_INSTANCE);
         }
-        ::core::mem::transmute(DisassociateCurrentThreadFromCallback(::core::mem::transmute(pci)))
+        DisassociateCurrentThreadFromCallback(::core::mem::transmute(pci))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1142,7 +1054,7 @@ pub unsafe fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION)
         extern "system" {
             fn EnterCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(EnterCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        EnterCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1197,7 +1109,7 @@ pub unsafe fn ExitProcess(uexitcode: u32) {
         extern "system" {
             fn ExitProcess(uexitcode: u32);
         }
-        ::core::mem::transmute(ExitProcess(::core::mem::transmute(uexitcode)))
+        ExitProcess(::core::mem::transmute(uexitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1210,7 +1122,7 @@ pub unsafe fn ExitThread(dwexitcode: u32) {
         extern "system" {
             fn ExitThread(dwexitcode: u32);
         }
-        ::core::mem::transmute(ExitThread(::core::mem::transmute(dwexitcode)))
+        ExitThread(::core::mem::transmute(dwexitcode))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1277,7 +1189,7 @@ pub unsafe fn FlushProcessWriteBuffers() {
         extern "system" {
             fn FlushProcessWriteBuffers();
         }
-        ::core::mem::transmute(FlushProcessWriteBuffers())
+        FlushProcessWriteBuffers()
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1291,54 +1203,16 @@ pub unsafe fn FreeLibraryWhenCallbackReturns<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn FreeLibraryWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mod: super::super::Foundation::HINSTANCE);
         }
-        ::core::mem::transmute(FreeLibraryWhenCallbackReturns(::core::mem::transmute(pci), r#mod.into_param().abi()))
+        FreeLibraryWhenCallbackReturns(::core::mem::transmute(pci), r#mod.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct GET_GUI_RESOURCES_FLAGS(pub u32);
-pub const GR_GDIOBJECTS: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(0u32);
-pub const GR_GDIOBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(2u32);
-pub const GR_USEROBJECTS: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(1u32);
-pub const GR_USEROBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = GET_GUI_RESOURCES_FLAGS(4u32);
-impl ::core::convert::From<u32> for GET_GUI_RESOURCES_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for GET_GUI_RESOURCES_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for GET_GUI_RESOURCES_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for GET_GUI_RESOURCES_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for GET_GUI_RESOURCES_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for GET_GUI_RESOURCES_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for GET_GUI_RESOURCES_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type GET_GUI_RESOURCES_FLAGS = u32;
+pub const GR_GDIOBJECTS: GET_GUI_RESOURCES_FLAGS = 0u32;
+pub const GR_GDIOBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = 2u32;
+pub const GR_USEROBJECTS: GET_GUI_RESOURCES_FLAGS = 1u32;
+pub const GR_USEROBJECTS_PEAK: GET_GUI_RESOURCES_FLAGS = 4u32;
 #[inline]
 pub unsafe fn GetActiveProcessorCount(groupnumber: u16) -> u32 {
     #[cfg(windows)]
@@ -1414,7 +1288,7 @@ pub unsafe fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCES
         extern "system" {
             fn GetCurrentProcessorNumberEx(procnumber: *mut super::Kernel::PROCESSOR_NUMBER);
         }
-        ::core::mem::transmute(GetCurrentProcessorNumberEx(::core::mem::transmute(procnumber)))
+        GetCurrentProcessorNumberEx(::core::mem::transmute(procnumber))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1454,7 +1328,7 @@ pub unsafe fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut 
         extern "system" {
             fn GetCurrentThreadStackLimits(lowlimit: *mut usize, highlimit: *mut usize);
         }
-        ::core::mem::transmute(GetCurrentThreadStackLimits(::core::mem::transmute(lowlimit), ::core::mem::transmute(highlimit)))
+        GetCurrentThreadStackLimits(::core::mem::transmute(lowlimit), ::core::mem::transmute(highlimit))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1522,8 +1396,8 @@ pub unsafe fn GetMachineTypeAttributes(machine: u16) -> ::windows::core::Result<
         extern "system" {
             fn GetMachineTypeAttributes(machine: u16, machinetypeattributes: *mut MACHINE_ATTRIBUTES) -> ::windows::core::HRESULT;
         }
-        let mut result__: <MACHINE_ATTRIBUTES as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        GetMachineTypeAttributes(::core::mem::transmute(machine), &mut result__).from_abi::<MACHINE_ATTRIBUTES>(result__)
+        let mut result__: MACHINE_ATTRIBUTES = ::core::mem::zeroed();
+        GetMachineTypeAttributes(::core::mem::transmute(machine), ::core::mem::transmute(&mut result__)).from_abi::<MACHINE_ATTRIBUTES>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1967,7 +1841,7 @@ pub unsafe fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA) {
         extern "system" {
             fn GetStartupInfoA(lpstartupinfo: *mut STARTUPINFOA);
         }
-        ::core::mem::transmute(GetStartupInfoA(::core::mem::transmute(lpstartupinfo)))
+        GetStartupInfoA(::core::mem::transmute(lpstartupinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -1981,7 +1855,7 @@ pub unsafe fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW) {
         extern "system" {
             fn GetStartupInfoW(lpstartupinfo: *mut STARTUPINFOW);
         }
-        ::core::mem::transmute(GetStartupInfoW(::core::mem::transmute(lpstartupinfo)))
+        GetStartupInfoW(::core::mem::transmute(lpstartupinfo))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2009,8 +1883,8 @@ pub unsafe fn GetThreadDescription<'a, Param0: ::windows::core::IntoParam<'a, su
         extern "system" {
             fn GetThreadDescription(hthread: super::super::Foundation::HANDLE, ppszthreaddescription: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT;
         }
-        let mut result__: <super::super::Foundation::PWSTR as ::windows::core::Abi>::Abi = ::core::mem::zeroed();
-        GetThreadDescription(hthread.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::PWSTR>(result__)
+        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
+        GetThreadDescription(hthread.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2187,7 +2061,6 @@ pub const INIT_ONCE_ASYNC: u32 = 2u32;
 pub const INIT_ONCE_CHECK_ONLY: u32 = 1u32;
 pub const INIT_ONCE_CTX_RESERVED_BITS: u32 = 2u32;
 pub const INIT_ONCE_INIT_FAILED: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct IO_COUNTERS {
     pub ReadOperationCount: u64,
@@ -2197,25 +2070,25 @@ pub struct IO_COUNTERS {
     pub WriteTransferCount: u64,
     pub OtherTransferCount: u64,
 }
-impl IO_COUNTERS {}
+impl ::core::marker::Copy for IO_COUNTERS {}
+impl ::core::clone::Clone for IO_COUNTERS {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for IO_COUNTERS {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for IO_COUNTERS {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<IO_COUNTERS>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for IO_COUNTERS {}
 impl ::core::default::Default for IO_COUNTERS {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for IO_COUNTERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("IO_COUNTERS").field("ReadOperationCount", &self.ReadOperationCount).field("WriteOperationCount", &self.WriteOperationCount).field("OtherOperationCount", &self.OtherOperationCount).field("ReadTransferCount", &self.ReadTransferCount).field("WriteTransferCount", &self.WriteTransferCount).field("OtherTransferCount", &self.OtherTransferCount).finish()
-    }
-}
-impl ::core::cmp::PartialEq for IO_COUNTERS {
-    fn eq(&self, other: &Self) -> bool {
-        self.ReadOperationCount == other.ReadOperationCount && self.WriteOperationCount == other.WriteOperationCount && self.OtherOperationCount == other.OtherOperationCount && self.ReadTransferCount == other.ReadTransferCount && self.WriteTransferCount == other.WriteTransferCount && self.OtherTransferCount == other.OtherTransferCount
-    }
-}
-impl ::core::cmp::Eq for IO_COUNTERS {}
-unsafe impl ::windows::core::Abi for IO_COUNTERS {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -2267,7 +2140,7 @@ pub unsafe fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE) {
         extern "system" {
             fn InitOnceInitialize(initonce: *mut RTL_RUN_ONCE);
         }
-        ::core::mem::transmute(InitOnceInitialize(::core::mem::transmute(initonce)))
+        InitOnceInitialize(::core::mem::transmute(initonce))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2280,7 +2153,7 @@ pub unsafe fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_
         extern "system" {
             fn InitializeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
         }
-        ::core::mem::transmute(InitializeConditionVariable(::core::mem::transmute(conditionvariable)))
+        InitializeConditionVariable(::core::mem::transmute(conditionvariable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2294,7 +2167,7 @@ pub unsafe fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SEC
         extern "system" {
             fn InitializeCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(InitializeCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        InitializeCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2350,7 +2223,7 @@ pub unsafe fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER) {
         extern "system" {
             fn InitializeSListHead(listhead: *mut super::Kernel::SLIST_HEADER);
         }
-        ::core::mem::transmute(InitializeSListHead(::core::mem::transmute(listhead)))
+        InitializeSListHead(::core::mem::transmute(listhead))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2363,7 +2236,7 @@ pub unsafe fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn InitializeSRWLock(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(InitializeSRWLock(::core::mem::transmute(srwlock)))
+        InitializeSRWLock(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2537,18 +2410,7 @@ pub unsafe fn IsWow64Process2<'a, Param0: ::windows::core::IntoParam<'a, super::
     unimplemented!("Unsupported target OS");
 }
 pub type LPFIBER_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpfiberparameter: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct LPPROC_THREAD_ATTRIBUTE_LIST(pub *mut ::core::ffi::c_void);
-impl ::core::default::Default for LPPROC_THREAD_ATTRIBUTE_LIST {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for LPPROC_THREAD_ATTRIBUTE_LIST {}
-unsafe impl ::windows::core::Abi for LPPROC_THREAD_ATTRIBUTE_LIST {
-    type Abi = Self;
-}
+pub type LPPROC_THREAD_ATTRIBUTE_LIST = *mut ::core::ffi::c_void;
 pub type LPTHREAD_START_ROUTINE = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 #[inline]
@@ -2559,7 +2421,7 @@ pub unsafe fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION)
         extern "system" {
             fn LeaveCriticalSection(lpcriticalsection: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(LeaveCriticalSection(::core::mem::transmute(lpcriticalsection)))
+        LeaveCriticalSection(::core::mem::transmute(lpcriticalsection))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -2573,135 +2435,47 @@ pub unsafe fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INST
         extern "system" {
             fn LeaveCriticalSectionWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, pcs: *mut RTL_CRITICAL_SECTION);
         }
-        ::core::mem::transmute(LeaveCriticalSectionWhenCallbackReturns(::core::mem::transmute(pci), ::core::mem::transmute(pcs)))
+        LeaveCriticalSectionWhenCallbackReturns(::core::mem::transmute(pci), ::core::mem::transmute(pcs))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MACHINE_ATTRIBUTES(pub u32);
-pub const UserEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(1u32);
-pub const KernelEnabled: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(2u32);
-pub const Wow64Container: MACHINE_ATTRIBUTES = MACHINE_ATTRIBUTES(4u32);
-impl ::core::convert::From<u32> for MACHINE_ATTRIBUTES {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MACHINE_ATTRIBUTES {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MACHINE_ATTRIBUTES {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MACHINE_ATTRIBUTES {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MACHINE_ATTRIBUTES {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MACHINE_ATTRIBUTES {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MACHINE_ATTRIBUTES {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct MEMORY_PRIORITY(pub u32);
-pub const MEMORY_PRIORITY_VERY_LOW: MEMORY_PRIORITY = MEMORY_PRIORITY(1u32);
-pub const MEMORY_PRIORITY_LOW: MEMORY_PRIORITY = MEMORY_PRIORITY(2u32);
-pub const MEMORY_PRIORITY_MEDIUM: MEMORY_PRIORITY = MEMORY_PRIORITY(3u32);
-pub const MEMORY_PRIORITY_BELOW_NORMAL: MEMORY_PRIORITY = MEMORY_PRIORITY(4u32);
-pub const MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = MEMORY_PRIORITY(5u32);
-impl ::core::convert::From<u32> for MEMORY_PRIORITY {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for MEMORY_PRIORITY {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for MEMORY_PRIORITY {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for MEMORY_PRIORITY {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for MEMORY_PRIORITY {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for MEMORY_PRIORITY {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for MEMORY_PRIORITY {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type MACHINE_ATTRIBUTES = u32;
+pub const UserEnabled: MACHINE_ATTRIBUTES = 1u32;
+pub const KernelEnabled: MACHINE_ATTRIBUTES = 2u32;
+pub const Wow64Container: MACHINE_ATTRIBUTES = 4u32;
+pub type MEMORY_PRIORITY = u32;
+pub const MEMORY_PRIORITY_VERY_LOW: MEMORY_PRIORITY = 1u32;
+pub const MEMORY_PRIORITY_LOW: MEMORY_PRIORITY = 2u32;
+pub const MEMORY_PRIORITY_MEDIUM: MEMORY_PRIORITY = 3u32;
+pub const MEMORY_PRIORITY_BELOW_NORMAL: MEMORY_PRIORITY = 4u32;
+pub const MEMORY_PRIORITY_NORMAL: MEMORY_PRIORITY = 5u32;
 #[repr(C)]
 pub struct MEMORY_PRIORITY_INFORMATION {
     pub MemoryPriority: MEMORY_PRIORITY,
 }
-impl MEMORY_PRIORITY_INFORMATION {}
+impl ::core::marker::Copy for MEMORY_PRIORITY_INFORMATION {}
+impl ::core::clone::Clone for MEMORY_PRIORITY_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for MEMORY_PRIORITY_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for MEMORY_PRIORITY_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<MEMORY_PRIORITY_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for MEMORY_PRIORITY_INFORMATION {}
 impl ::core::default::Default for MEMORY_PRIORITY_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for MEMORY_PRIORITY_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("MEMORY_PRIORITY_INFORMATION").field("MemoryPriority", &self.MemoryPriority).finish()
-    }
-}
-impl ::core::cmp::PartialEq for MEMORY_PRIORITY_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.MemoryPriority == other.MemoryPriority
-    }
-}
-impl ::core::cmp::Eq for MEMORY_PRIORITY_INFORMATION {}
-unsafe impl ::windows::core::Abi for MEMORY_PRIORITY_INFORMATION {
-    type Abi = Self;
-}
 pub const MUTEX_MODIFY_STATE: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct NamespaceHandle(pub isize);
-impl ::core::default::Default for NamespaceHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for NamespaceHandle {}
-unsafe impl ::windows::core::Abi for NamespaceHandle {
-    type Abi = Self;
-}
+pub type NamespaceHandle = isize;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NtQueryInformationProcess<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(processhandle: Param0, processinformationclass: PROCESSINFOCLASS, processinformation: *mut ::core::ffi::c_void, processinformationlength: u32, returnlength: *mut u32) -> ::windows::core::Result<()> {
@@ -2898,7 +2672,6 @@ pub unsafe fn OpenWaitableTimerW<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PEB {
@@ -2923,69 +2696,31 @@ pub struct PEB {
     pub SessionId: u32,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl PEB {}
+impl ::core::marker::Copy for PEB {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for PEB {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+unsafe impl ::windows::core::Abi for PEB {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for PEB {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEB>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for PEB {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for PEB {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for PEB {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEB")
-            .field("Reserved1", &self.Reserved1)
-            .field("BeingDebugged", &self.BeingDebugged)
-            .field("Reserved2", &self.Reserved2)
-            .field("Reserved3", &self.Reserved3)
-            .field("Ldr", &self.Ldr)
-            .field("ProcessParameters", &self.ProcessParameters)
-            .field("Reserved4", &self.Reserved4)
-            .field("AtlThunkSListPtr", &self.AtlThunkSListPtr)
-            .field("Reserved5", &self.Reserved5)
-            .field("Reserved6", &self.Reserved6)
-            .field("Reserved7", &self.Reserved7)
-            .field("Reserved8", &self.Reserved8)
-            .field("AtlThunkSListPtr32", &self.AtlThunkSListPtr32)
-            .field("Reserved9", &self.Reserved9)
-            .field("Reserved10", &self.Reserved10)
-            .field("Reserved11", &self.Reserved11)
-            .field("Reserved12", &self.Reserved12)
-            .field("SessionId", &self.SessionId)
-            .finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for PEB {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1
-            && self.BeingDebugged == other.BeingDebugged
-            && self.Reserved2 == other.Reserved2
-            && self.Reserved3 == other.Reserved3
-            && self.Ldr == other.Ldr
-            && self.ProcessParameters == other.ProcessParameters
-            && self.Reserved4 == other.Reserved4
-            && self.AtlThunkSListPtr == other.AtlThunkSListPtr
-            && self.Reserved5 == other.Reserved5
-            && self.Reserved6 == other.Reserved6
-            && self.Reserved7 == other.Reserved7
-            && self.Reserved8 == other.Reserved8
-            && self.AtlThunkSListPtr32 == other.AtlThunkSListPtr32
-            && self.Reserved9 == other.Reserved9
-            && self.Reserved10 == other.Reserved10
-            && self.PostProcessInitRoutine.map(|f| f as usize) == other.PostProcessInitRoutine.map(|f| f as usize)
-            && self.Reserved11 == other.Reserved11
-            && self.Reserved12 == other.Reserved12
-            && self.SessionId == other.SessionId
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for PEB {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for PEB {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_Kernel")]
 pub struct PEB_LDR_DATA {
@@ -2994,30 +2729,30 @@ pub struct PEB_LDR_DATA {
     pub InMemoryOrderModuleList: super::Kernel::LIST_ENTRY,
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl PEB_LDR_DATA {}
+impl ::core::marker::Copy for PEB_LDR_DATA {}
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::default::Default for PEB_LDR_DATA {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for PEB_LDR_DATA {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
-impl ::core::fmt::Debug for PEB_LDR_DATA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PEB_LDR_DATA").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("InMemoryOrderModuleList", &self.InMemoryOrderModuleList).finish()
-    }
+unsafe impl ::windows::core::Abi for PEB_LDR_DATA {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::PartialEq for PEB_LDR_DATA {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.InMemoryOrderModuleList == other.InMemoryOrderModuleList
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PEB_LDR_DATA>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_System_Kernel")]
 impl ::core::cmp::Eq for PEB_LDR_DATA {}
 #[cfg(feature = "Win32_System_Kernel")]
-unsafe impl ::windows::core::Abi for PEB_LDR_DATA {
-    type Abi = Self;
+impl ::core::default::Default for PEB_LDR_DATA {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 pub type PFLS_CALLBACK_FUNCTION = ::core::option::Option<unsafe extern "system" fn(lpflsdata: *const ::core::ffi::c_void)>;
 #[cfg(feature = "Win32_Foundation")]
@@ -3025,234 +2760,71 @@ pub type PINIT_ONCE_FN = ::core::option::Option<unsafe extern "system" fn(initon
 pub const PME_CURRENT_VERSION: u32 = 1u32;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_DISABLE: u32 = 0u32;
 pub const PME_FAILFAST_ON_COMMIT_FAIL_ENABLE: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct POWER_REQUEST_CONTEXT_FLAGS(pub u32);
-pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(2u32);
-pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = POWER_REQUEST_CONTEXT_FLAGS(1u32);
-impl ::core::convert::From<u32> for POWER_REQUEST_CONTEXT_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for POWER_REQUEST_CONTEXT_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for POWER_REQUEST_CONTEXT_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for POWER_REQUEST_CONTEXT_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for POWER_REQUEST_CONTEXT_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for POWER_REQUEST_CONTEXT_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for POWER_REQUEST_CONTEXT_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type POWER_REQUEST_CONTEXT_FLAGS = u32;
+pub const POWER_REQUEST_CONTEXT_DETAILED_STRING: POWER_REQUEST_CONTEXT_FLAGS = 2u32;
+pub const POWER_REQUEST_CONTEXT_SIMPLE_STRING: POWER_REQUEST_CONTEXT_FLAGS = 1u32;
 pub type PPS_POST_PROCESS_INIT_ROUTINE = ::core::option::Option<unsafe extern "system" fn()>;
 pub const PRIVATE_NAMESPACE_FLAG_DESTROY: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESSINFOCLASS(pub i32);
-pub const ProcessBasicInformation: PROCESSINFOCLASS = PROCESSINFOCLASS(0i32);
-pub const ProcessDebugPort: PROCESSINFOCLASS = PROCESSINFOCLASS(7i32);
-pub const ProcessWow64Information: PROCESSINFOCLASS = PROCESSINFOCLASS(26i32);
-pub const ProcessImageFileName: PROCESSINFOCLASS = PROCESSINFOCLASS(27i32);
-pub const ProcessBreakOnTermination: PROCESSINFOCLASS = PROCESSINFOCLASS(29i32);
-impl ::core::convert::From<i32> for PROCESSINFOCLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESSINFOCLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESSOR_FEATURE_ID(pub u32);
-pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(25u32);
-pub const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(24u32);
-pub const PF_ARM_EXTERNAL_CACHE_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(26u32);
-pub const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(27u32);
-pub const PF_ARM_VFP_32_REGISTERS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(18u32);
-pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(7u32);
-pub const PF_CHANNELS_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(16u32);
-pub const PF_COMPARE_EXCHANGE_DOUBLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(2u32);
-pub const PF_COMPARE_EXCHANGE128: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(14u32);
-pub const PF_COMPARE64_EXCHANGE128: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(15u32);
-pub const PF_FASTFAIL_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(23u32);
-pub const PF_FLOATING_POINT_EMULATED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(1u32);
-pub const PF_FLOATING_POINT_PRECISION_ERRATA: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(0u32);
-pub const PF_MMX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(3u32);
-pub const PF_NX_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(12u32);
-pub const PF_PAE_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(9u32);
-pub const PF_RDTSC_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(8u32);
-pub const PF_RDWRFSGSBASE_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(22u32);
-pub const PF_SECOND_LEVEL_ADDRESS_TRANSLATION: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(20u32);
-pub const PF_SSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(13u32);
-pub const PF_VIRT_FIRMWARE_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(21u32);
-pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(6u32);
-pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(10u32);
-pub const PF_XSAVE_ENABLED: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(17u32);
-pub const PF_ARM_V8_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(29u32);
-pub const PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(30u32);
-pub const PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(31u32);
-pub const PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = PROCESSOR_FEATURE_ID(34u32);
-impl ::core::convert::From<u32> for PROCESSOR_FEATURE_ID {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESSOR_FEATURE_ID {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PROCESSOR_FEATURE_ID {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESSOR_FEATURE_ID {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESSOR_FEATURE_ID {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESSOR_FEATURE_ID {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PROCESSOR_FEATURE_ID {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_ACCESS_RIGHTS(pub u32);
-pub const PROCESS_TERMINATE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(1u32);
-pub const PROCESS_CREATE_THREAD: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(2u32);
-pub const PROCESS_SET_SESSIONID: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(4u32);
-pub const PROCESS_VM_OPERATION: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(8u32);
-pub const PROCESS_VM_READ: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(16u32);
-pub const PROCESS_VM_WRITE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(32u32);
-pub const PROCESS_DUP_HANDLE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(64u32);
-pub const PROCESS_CREATE_PROCESS: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(128u32);
-pub const PROCESS_SET_QUOTA: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(256u32);
-pub const PROCESS_SET_INFORMATION: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(512u32);
-pub const PROCESS_QUERY_INFORMATION: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(1024u32);
-pub const PROCESS_SUSPEND_RESUME: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(2048u32);
-pub const PROCESS_QUERY_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(4096u32);
-pub const PROCESS_SET_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(8192u32);
-pub const PROCESS_ALL_ACCESS: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(2097151u32);
-pub const PROCESS_DELETE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(65536u32);
-pub const PROCESS_READ_CONTROL: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(131072u32);
-pub const PROCESS_WRITE_DAC: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(262144u32);
-pub const PROCESS_WRITE_OWNER: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(524288u32);
-pub const PROCESS_SYNCHRONIZE: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(1048576u32);
-pub const PROCESS_STANDARD_RIGHTS_REQUIRED: PROCESS_ACCESS_RIGHTS = PROCESS_ACCESS_RIGHTS(983040u32);
-impl ::core::convert::From<u32> for PROCESS_ACCESS_RIGHTS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_ACCESS_RIGHTS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PROCESS_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_ACCESS_RIGHTS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_ACCESS_RIGHTS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_ACCESS_RIGHTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(pub u32);
-pub const PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(0u32);
-pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = PROCESS_AFFINITY_AUTO_UPDATE_FLAGS(1u32);
-impl ::core::convert::From<u32> for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_AFFINITY_AUTO_UPDATE_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PROCESSINFOCLASS = i32;
+pub const ProcessBasicInformation: PROCESSINFOCLASS = 0i32;
+pub const ProcessDebugPort: PROCESSINFOCLASS = 7i32;
+pub const ProcessWow64Information: PROCESSINFOCLASS = 26i32;
+pub const ProcessImageFileName: PROCESSINFOCLASS = 27i32;
+pub const ProcessBreakOnTermination: PROCESSINFOCLASS = 29i32;
+pub type PROCESSOR_FEATURE_ID = u32;
+pub const PF_ARM_64BIT_LOADSTORE_ATOMIC: PROCESSOR_FEATURE_ID = 25u32;
+pub const PF_ARM_DIVIDE_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 24u32;
+pub const PF_ARM_EXTERNAL_CACHE_AVAILABLE: PROCESSOR_FEATURE_ID = 26u32;
+pub const PF_ARM_FMAC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 27u32;
+pub const PF_ARM_VFP_32_REGISTERS_AVAILABLE: PROCESSOR_FEATURE_ID = 18u32;
+pub const PF_3DNOW_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 7u32;
+pub const PF_CHANNELS_ENABLED: PROCESSOR_FEATURE_ID = 16u32;
+pub const PF_COMPARE_EXCHANGE_DOUBLE: PROCESSOR_FEATURE_ID = 2u32;
+pub const PF_COMPARE_EXCHANGE128: PROCESSOR_FEATURE_ID = 14u32;
+pub const PF_COMPARE64_EXCHANGE128: PROCESSOR_FEATURE_ID = 15u32;
+pub const PF_FASTFAIL_AVAILABLE: PROCESSOR_FEATURE_ID = 23u32;
+pub const PF_FLOATING_POINT_EMULATED: PROCESSOR_FEATURE_ID = 1u32;
+pub const PF_FLOATING_POINT_PRECISION_ERRATA: PROCESSOR_FEATURE_ID = 0u32;
+pub const PF_MMX_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 3u32;
+pub const PF_NX_ENABLED: PROCESSOR_FEATURE_ID = 12u32;
+pub const PF_PAE_ENABLED: PROCESSOR_FEATURE_ID = 9u32;
+pub const PF_RDTSC_INSTRUCTION_AVAILABLE: PROCESSOR_FEATURE_ID = 8u32;
+pub const PF_RDWRFSGSBASE_AVAILABLE: PROCESSOR_FEATURE_ID = 22u32;
+pub const PF_SECOND_LEVEL_ADDRESS_TRANSLATION: PROCESSOR_FEATURE_ID = 20u32;
+pub const PF_SSE3_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 13u32;
+pub const PF_VIRT_FIRMWARE_ENABLED: PROCESSOR_FEATURE_ID = 21u32;
+pub const PF_XMMI_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 6u32;
+pub const PF_XMMI64_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 10u32;
+pub const PF_XSAVE_ENABLED: PROCESSOR_FEATURE_ID = 17u32;
+pub const PF_ARM_V8_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 29u32;
+pub const PF_ARM_V8_CRYPTO_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 30u32;
+pub const PF_ARM_V8_CRC32_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 31u32;
+pub const PF_ARM_V81_ATOMIC_INSTRUCTIONS_AVAILABLE: PROCESSOR_FEATURE_ID = 34u32;
+pub type PROCESS_ACCESS_RIGHTS = u32;
+pub const PROCESS_TERMINATE: PROCESS_ACCESS_RIGHTS = 1u32;
+pub const PROCESS_CREATE_THREAD: PROCESS_ACCESS_RIGHTS = 2u32;
+pub const PROCESS_SET_SESSIONID: PROCESS_ACCESS_RIGHTS = 4u32;
+pub const PROCESS_VM_OPERATION: PROCESS_ACCESS_RIGHTS = 8u32;
+pub const PROCESS_VM_READ: PROCESS_ACCESS_RIGHTS = 16u32;
+pub const PROCESS_VM_WRITE: PROCESS_ACCESS_RIGHTS = 32u32;
+pub const PROCESS_DUP_HANDLE: PROCESS_ACCESS_RIGHTS = 64u32;
+pub const PROCESS_CREATE_PROCESS: PROCESS_ACCESS_RIGHTS = 128u32;
+pub const PROCESS_SET_QUOTA: PROCESS_ACCESS_RIGHTS = 256u32;
+pub const PROCESS_SET_INFORMATION: PROCESS_ACCESS_RIGHTS = 512u32;
+pub const PROCESS_QUERY_INFORMATION: PROCESS_ACCESS_RIGHTS = 1024u32;
+pub const PROCESS_SUSPEND_RESUME: PROCESS_ACCESS_RIGHTS = 2048u32;
+pub const PROCESS_QUERY_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = 4096u32;
+pub const PROCESS_SET_LIMITED_INFORMATION: PROCESS_ACCESS_RIGHTS = 8192u32;
+pub const PROCESS_ALL_ACCESS: PROCESS_ACCESS_RIGHTS = 2097151u32;
+pub const PROCESS_DELETE: PROCESS_ACCESS_RIGHTS = 65536u32;
+pub const PROCESS_READ_CONTROL: PROCESS_ACCESS_RIGHTS = 131072u32;
+pub const PROCESS_WRITE_DAC: PROCESS_ACCESS_RIGHTS = 262144u32;
+pub const PROCESS_WRITE_OWNER: PROCESS_ACCESS_RIGHTS = 524288u32;
+pub const PROCESS_SYNCHRONIZE: PROCESS_ACCESS_RIGHTS = 1048576u32;
+pub const PROCESS_STANDARD_RIGHTS_REQUIRED: PROCESS_ACCESS_RIGHTS = 983040u32;
+pub type PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = u32;
+pub const PROCESS_AFFINITY_DISABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = 0u32;
+pub const PROCESS_AFFINITY_ENABLE_AUTO_UPDATE: PROCESS_AFFINITY_AUTO_UPDATE_FLAGS = 1u32;
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct PROCESS_BASIC_INFORMATION {
@@ -3263,170 +2835,92 @@ pub struct PROCESS_BASIC_INFORMATION {
     pub Reserved3: *mut ::core::ffi::c_void,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl PROCESS_BASIC_INFORMATION {}
+impl ::core::marker::Copy for PROCESS_BASIC_INFORMATION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for PROCESS_BASIC_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+unsafe impl ::windows::core::Abi for PROCESS_BASIC_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for PROCESS_BASIC_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_BASIC_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for PROCESS_BASIC_INFORMATION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for PROCESS_BASIC_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for PROCESS_BASIC_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_BASIC_INFORMATION").field("Reserved1", &self.Reserved1).field("PebBaseAddress", &self.PebBaseAddress).field("Reserved2", &self.Reserved2).field("UniqueProcessId", &self.UniqueProcessId).field("Reserved3", &self.Reserved3).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for PROCESS_BASIC_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.PebBaseAddress == other.PebBaseAddress && self.Reserved2 == other.Reserved2 && self.UniqueProcessId == other.UniqueProcessId && self.Reserved3 == other.Reserved3
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for PROCESS_BASIC_INFORMATION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for PROCESS_BASIC_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_CREATION_FLAGS(pub u32);
-pub const DEBUG_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1u32);
-pub const DEBUG_ONLY_THIS_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(2u32);
-pub const CREATE_SUSPENDED: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(4u32);
-pub const DETACHED_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(8u32);
-pub const CREATE_NEW_CONSOLE: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(16u32);
-pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(32u32);
-pub const IDLE_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(64u32);
-pub const HIGH_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(128u32);
-pub const REALTIME_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(256u32);
-pub const CREATE_NEW_PROCESS_GROUP: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(512u32);
-pub const CREATE_UNICODE_ENVIRONMENT: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1024u32);
-pub const CREATE_SEPARATE_WOW_VDM: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(2048u32);
-pub const CREATE_SHARED_WOW_VDM: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(4096u32);
-pub const CREATE_FORCEDOS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(8192u32);
-pub const BELOW_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(16384u32);
-pub const ABOVE_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(32768u32);
-pub const INHERIT_PARENT_AFFINITY: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(65536u32);
-pub const INHERIT_CALLER_PRIORITY: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(131072u32);
-pub const CREATE_PROTECTED_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(262144u32);
-pub const EXTENDED_STARTUPINFO_PRESENT: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(524288u32);
-pub const PROCESS_MODE_BACKGROUND_BEGIN: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1048576u32);
-pub const PROCESS_MODE_BACKGROUND_END: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(2097152u32);
-pub const CREATE_SECURE_PROCESS: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(4194304u32);
-pub const CREATE_BREAKAWAY_FROM_JOB: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(16777216u32);
-pub const CREATE_PRESERVE_CODE_AUTHZ_LEVEL: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(33554432u32);
-pub const CREATE_DEFAULT_ERROR_MODE: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(67108864u32);
-pub const CREATE_NO_WINDOW: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(134217728u32);
-pub const PROFILE_USER: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(268435456u32);
-pub const PROFILE_KERNEL: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(536870912u32);
-pub const PROFILE_SERVER: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(1073741824u32);
-pub const CREATE_IGNORE_SYSTEM_DEFAULT: PROCESS_CREATION_FLAGS = PROCESS_CREATION_FLAGS(2147483648u32);
-impl ::core::convert::From<u32> for PROCESS_CREATION_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_CREATION_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PROCESS_CREATION_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_CREATION_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_CREATION_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_CREATION_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_CREATION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_DEP_FLAGS(pub u32);
-pub const PROCESS_DEP_ENABLE: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(1u32);
-pub const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(2u32);
-pub const PROCESS_DEP_NONE: PROCESS_DEP_FLAGS = PROCESS_DEP_FLAGS(0u32);
-impl ::core::convert::From<u32> for PROCESS_DEP_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_DEP_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PROCESS_DEP_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_DEP_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_DEP_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_DEP_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_DEP_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PROCESS_CREATION_FLAGS = u32;
+pub const DEBUG_PROCESS: PROCESS_CREATION_FLAGS = 1u32;
+pub const DEBUG_ONLY_THIS_PROCESS: PROCESS_CREATION_FLAGS = 2u32;
+pub const CREATE_SUSPENDED: PROCESS_CREATION_FLAGS = 4u32;
+pub const DETACHED_PROCESS: PROCESS_CREATION_FLAGS = 8u32;
+pub const CREATE_NEW_CONSOLE: PROCESS_CREATION_FLAGS = 16u32;
+pub const NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32u32;
+pub const IDLE_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 64u32;
+pub const HIGH_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 128u32;
+pub const REALTIME_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 256u32;
+pub const CREATE_NEW_PROCESS_GROUP: PROCESS_CREATION_FLAGS = 512u32;
+pub const CREATE_UNICODE_ENVIRONMENT: PROCESS_CREATION_FLAGS = 1024u32;
+pub const CREATE_SEPARATE_WOW_VDM: PROCESS_CREATION_FLAGS = 2048u32;
+pub const CREATE_SHARED_WOW_VDM: PROCESS_CREATION_FLAGS = 4096u32;
+pub const CREATE_FORCEDOS: PROCESS_CREATION_FLAGS = 8192u32;
+pub const BELOW_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 16384u32;
+pub const ABOVE_NORMAL_PRIORITY_CLASS: PROCESS_CREATION_FLAGS = 32768u32;
+pub const INHERIT_PARENT_AFFINITY: PROCESS_CREATION_FLAGS = 65536u32;
+pub const INHERIT_CALLER_PRIORITY: PROCESS_CREATION_FLAGS = 131072u32;
+pub const CREATE_PROTECTED_PROCESS: PROCESS_CREATION_FLAGS = 262144u32;
+pub const EXTENDED_STARTUPINFO_PRESENT: PROCESS_CREATION_FLAGS = 524288u32;
+pub const PROCESS_MODE_BACKGROUND_BEGIN: PROCESS_CREATION_FLAGS = 1048576u32;
+pub const PROCESS_MODE_BACKGROUND_END: PROCESS_CREATION_FLAGS = 2097152u32;
+pub const CREATE_SECURE_PROCESS: PROCESS_CREATION_FLAGS = 4194304u32;
+pub const CREATE_BREAKAWAY_FROM_JOB: PROCESS_CREATION_FLAGS = 16777216u32;
+pub const CREATE_PRESERVE_CODE_AUTHZ_LEVEL: PROCESS_CREATION_FLAGS = 33554432u32;
+pub const CREATE_DEFAULT_ERROR_MODE: PROCESS_CREATION_FLAGS = 67108864u32;
+pub const CREATE_NO_WINDOW: PROCESS_CREATION_FLAGS = 134217728u32;
+pub const PROFILE_USER: PROCESS_CREATION_FLAGS = 268435456u32;
+pub const PROFILE_KERNEL: PROCESS_CREATION_FLAGS = 536870912u32;
+pub const PROFILE_SERVER: PROCESS_CREATION_FLAGS = 1073741824u32;
+pub const CREATE_IGNORE_SYSTEM_DEFAULT: PROCESS_CREATION_FLAGS = 2147483648u32;
+pub type PROCESS_DEP_FLAGS = u32;
+pub const PROCESS_DEP_ENABLE: PROCESS_DEP_FLAGS = 1u32;
+pub const PROCESS_DEP_DISABLE_ATL_THUNK_EMULATION: PROCESS_DEP_FLAGS = 2u32;
+pub const PROCESS_DEP_NONE: PROCESS_DEP_FLAGS = 0u32;
 #[repr(C)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     pub TargetAddress: usize,
     pub Flags: usize,
 }
-impl PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_EH_CONTINUATION_TARGET>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
 impl ::core::default::Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGET").field("TargetAddress", &self.TargetAddress).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    fn eq(&self, other: &Self) -> bool {
-        self.TargetAddress == other.TargetAddress && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {}
-unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGET {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub NumberOfTargets: u16,
@@ -3434,54 +2928,52 @@ pub struct PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     pub Reserved2: u32,
     pub Targets: *mut PROCESS_DYNAMIC_EH_CONTINUATION_TARGET,
 }
-impl PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
 impl ::core::default::Default for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION").field("NumberOfTargets", &self.NumberOfTargets).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Targets", &self.Targets).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfTargets == other.NumberOfTargets && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Targets == other.Targets
-    }
-}
-impl ::core::cmp::Eq for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {}
-unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_EH_CONTINUATION_TARGETS_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     pub BaseAddress: usize,
     pub Size: usize,
     pub Flags: u32,
 }
-impl PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
 impl ::core::default::Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE").field("BaseAddress", &self.BaseAddress).field("Size", &self.Size).field("Flags", &self.Flags).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    fn eq(&self, other: &Self) -> bool {
-        self.BaseAddress == other.BaseAddress && self.Size == other.Size && self.Flags == other.Flags
-    }
-}
-impl ::core::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {}
-unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     pub NumberOfRanges: u16,
@@ -3489,27 +2981,26 @@ pub struct PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     pub Reserved2: u32,
     pub Ranges: *mut PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGE,
 }
-impl PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
+impl ::core::marker::Copy for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
 impl ::core::default::Default for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION").field("NumberOfRanges", &self.NumberOfRanges).field("Reserved", &self.Reserved).field("Reserved2", &self.Reserved2).field("Ranges", &self.Ranges).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.NumberOfRanges == other.NumberOfRanges && self.Reserved == other.Reserved && self.Reserved2 == other.Reserved2 && self.Ranges == other.Ranges
-    }
-}
-impl ::core::cmp::Eq for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {}
-unsafe impl ::windows::core::Abi for PROCESS_DYNAMIC_ENFORCED_ADDRESS_RANGES_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PROCESS_INFORMATION {
@@ -3519,109 +3010,96 @@ pub struct PROCESS_INFORMATION {
     pub dwThreadId: u32,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl PROCESS_INFORMATION {}
+impl ::core::marker::Copy for PROCESS_INFORMATION {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for PROCESS_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for PROCESS_INFORMATION {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for PROCESS_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_INFORMATION>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for PROCESS_INFORMATION {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for PROCESS_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for PROCESS_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_INFORMATION").field("hProcess", &self.hProcess).field("hThread", &self.hThread).field("dwProcessId", &self.dwProcessId).field("dwThreadId", &self.dwThreadId).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for PROCESS_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.hProcess == other.hProcess && self.hThread == other.hThread && self.dwProcessId == other.dwProcessId && self.dwThreadId == other.dwThreadId
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for PROCESS_INFORMATION {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for PROCESS_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_INFORMATION_CLASS(pub i32);
-pub const ProcessMemoryPriority: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(0i32);
-pub const ProcessMemoryExhaustionInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(1i32);
-pub const ProcessAppMemoryInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(2i32);
-pub const ProcessInPrivateInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(3i32);
-pub const ProcessPowerThrottling: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(4i32);
-pub const ProcessReservedValue1: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(5i32);
-pub const ProcessTelemetryCoverageInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(6i32);
-pub const ProcessProtectionLevelInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(7i32);
-pub const ProcessLeapSecondInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(8i32);
-pub const ProcessMachineTypeInfo: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(9i32);
-pub const ProcessInformationClassMax: PROCESS_INFORMATION_CLASS = PROCESS_INFORMATION_CLASS(10i32);
-impl ::core::convert::From<i32> for PROCESS_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_INFORMATION_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PROCESS_INFORMATION_CLASS = i32;
+pub const ProcessMemoryPriority: PROCESS_INFORMATION_CLASS = 0i32;
+pub const ProcessMemoryExhaustionInfo: PROCESS_INFORMATION_CLASS = 1i32;
+pub const ProcessAppMemoryInfo: PROCESS_INFORMATION_CLASS = 2i32;
+pub const ProcessInPrivateInfo: PROCESS_INFORMATION_CLASS = 3i32;
+pub const ProcessPowerThrottling: PROCESS_INFORMATION_CLASS = 4i32;
+pub const ProcessReservedValue1: PROCESS_INFORMATION_CLASS = 5i32;
+pub const ProcessTelemetryCoverageInfo: PROCESS_INFORMATION_CLASS = 6i32;
+pub const ProcessProtectionLevelInfo: PROCESS_INFORMATION_CLASS = 7i32;
+pub const ProcessLeapSecondInfo: PROCESS_INFORMATION_CLASS = 8i32;
+pub const ProcessMachineTypeInfo: PROCESS_INFORMATION_CLASS = 9i32;
+pub const ProcessInformationClassMax: PROCESS_INFORMATION_CLASS = 10i32;
 #[repr(C)]
 pub struct PROCESS_LEAP_SECOND_INFO {
     pub Flags: u32,
     pub Reserved: u32,
 }
-impl PROCESS_LEAP_SECOND_INFO {}
+impl ::core::marker::Copy for PROCESS_LEAP_SECOND_INFO {}
+impl ::core::clone::Clone for PROCESS_LEAP_SECOND_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_LEAP_SECOND_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_LEAP_SECOND_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_LEAP_SECOND_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_LEAP_SECOND_INFO {}
 impl ::core::default::Default for PROCESS_LEAP_SECOND_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_LEAP_SECOND_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_LEAP_SECOND_INFO").field("Flags", &self.Flags).field("Reserved", &self.Reserved).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_LEAP_SECOND_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Flags == other.Flags && self.Reserved == other.Reserved
-    }
-}
-impl ::core::cmp::Eq for PROCESS_LEAP_SECOND_INFO {}
-unsafe impl ::windows::core::Abi for PROCESS_LEAP_SECOND_INFO {
-    type Abi = Self;
-}
 pub const PROCESS_LEAP_SECOND_INFO_FLAG_ENABLE_SIXTY_SECOND: u32 = 1u32;
 pub const PROCESS_LEAP_SECOND_INFO_VALID_FLAGS: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESS_MACHINE_INFORMATION {
     pub ProcessMachine: u16,
     pub Res0: u16,
     pub MachineAttributes: MACHINE_ATTRIBUTES,
 }
-impl PROCESS_MACHINE_INFORMATION {}
+impl ::core::marker::Copy for PROCESS_MACHINE_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_MACHINE_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_MACHINE_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_MACHINE_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MACHINE_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_MACHINE_INFORMATION {}
 impl ::core::default::Default for PROCESS_MACHINE_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_MACHINE_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_MACHINE_INFORMATION").field("ProcessMachine", &self.ProcessMachine).field("Res0", &self.Res0).field("MachineAttributes", &self.MachineAttributes).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_MACHINE_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProcessMachine == other.ProcessMachine && self.Res0 == other.Res0 && self.MachineAttributes == other.MachineAttributes
-    }
-}
-impl ::core::cmp::Eq for PROCESS_MACHINE_INFORMATION {}
-unsafe impl ::windows::core::Abi for PROCESS_MACHINE_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
     pub Version: u16,
@@ -3629,230 +3107,121 @@ pub struct PROCESS_MEMORY_EXHAUSTION_INFO {
     pub Type: PROCESS_MEMORY_EXHAUSTION_TYPE,
     pub Value: usize,
 }
-impl PROCESS_MEMORY_EXHAUSTION_INFO {}
+impl ::core::marker::Copy for PROCESS_MEMORY_EXHAUSTION_INFO {}
+impl ::core::clone::Clone for PROCESS_MEMORY_EXHAUSTION_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_MEMORY_EXHAUSTION_INFO {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_MEMORY_EXHAUSTION_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_MEMORY_EXHAUSTION_INFO>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_MEMORY_EXHAUSTION_INFO {}
 impl ::core::default::Default for PROCESS_MEMORY_EXHAUSTION_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_MEMORY_EXHAUSTION_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_MEMORY_EXHAUSTION_INFO").field("Version", &self.Version).field("Reserved", &self.Reserved).field("Type", &self.Type).field("Value", &self.Value).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_MEMORY_EXHAUSTION_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.Reserved == other.Reserved && self.Type == other.Type && self.Value == other.Value
-    }
-}
-impl ::core::cmp::Eq for PROCESS_MEMORY_EXHAUSTION_INFO {}
-unsafe impl ::windows::core::Abi for PROCESS_MEMORY_EXHAUSTION_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_MEMORY_EXHAUSTION_TYPE(pub i32);
-pub const PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = PROCESS_MEMORY_EXHAUSTION_TYPE(0i32);
-pub const PMETypeMax: PROCESS_MEMORY_EXHAUSTION_TYPE = PROCESS_MEMORY_EXHAUSTION_TYPE(1i32);
-impl ::core::convert::From<i32> for PROCESS_MEMORY_EXHAUSTION_TYPE {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_MEMORY_EXHAUSTION_TYPE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_MITIGATION_POLICY(pub i32);
-pub const ProcessDEPPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(0i32);
-pub const ProcessASLRPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(1i32);
-pub const ProcessDynamicCodePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(2i32);
-pub const ProcessStrictHandleCheckPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(3i32);
-pub const ProcessSystemCallDisablePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(4i32);
-pub const ProcessMitigationOptionsMask: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(5i32);
-pub const ProcessExtensionPointDisablePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(6i32);
-pub const ProcessControlFlowGuardPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(7i32);
-pub const ProcessSignaturePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(8i32);
-pub const ProcessFontDisablePolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(9i32);
-pub const ProcessImageLoadPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(10i32);
-pub const ProcessSystemCallFilterPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(11i32);
-pub const ProcessPayloadRestrictionPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(12i32);
-pub const ProcessChildProcessPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(13i32);
-pub const ProcessSideChannelIsolationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(14i32);
-pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(15i32);
-pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(16i32);
-pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = PROCESS_MITIGATION_POLICY(17i32);
-impl ::core::convert::From<i32> for PROCESS_MITIGATION_POLICY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_MITIGATION_POLICY {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_NAME_FORMAT(pub u32);
-pub const PROCESS_NAME_WIN32: PROCESS_NAME_FORMAT = PROCESS_NAME_FORMAT(0u32);
-pub const PROCESS_NAME_NATIVE: PROCESS_NAME_FORMAT = PROCESS_NAME_FORMAT(1u32);
-impl ::core::convert::From<u32> for PROCESS_NAME_FORMAT {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_NAME_FORMAT {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PROCESS_NAME_FORMAT {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_NAME_FORMAT {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_NAME_FORMAT {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_NAME_FORMAT {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_NAME_FORMAT {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type PROCESS_MEMORY_EXHAUSTION_TYPE = i32;
+pub const PMETypeFailFastOnCommitFailure: PROCESS_MEMORY_EXHAUSTION_TYPE = 0i32;
+pub const PMETypeMax: PROCESS_MEMORY_EXHAUSTION_TYPE = 1i32;
+pub type PROCESS_MITIGATION_POLICY = i32;
+pub const ProcessDEPPolicy: PROCESS_MITIGATION_POLICY = 0i32;
+pub const ProcessASLRPolicy: PROCESS_MITIGATION_POLICY = 1i32;
+pub const ProcessDynamicCodePolicy: PROCESS_MITIGATION_POLICY = 2i32;
+pub const ProcessStrictHandleCheckPolicy: PROCESS_MITIGATION_POLICY = 3i32;
+pub const ProcessSystemCallDisablePolicy: PROCESS_MITIGATION_POLICY = 4i32;
+pub const ProcessMitigationOptionsMask: PROCESS_MITIGATION_POLICY = 5i32;
+pub const ProcessExtensionPointDisablePolicy: PROCESS_MITIGATION_POLICY = 6i32;
+pub const ProcessControlFlowGuardPolicy: PROCESS_MITIGATION_POLICY = 7i32;
+pub const ProcessSignaturePolicy: PROCESS_MITIGATION_POLICY = 8i32;
+pub const ProcessFontDisablePolicy: PROCESS_MITIGATION_POLICY = 9i32;
+pub const ProcessImageLoadPolicy: PROCESS_MITIGATION_POLICY = 10i32;
+pub const ProcessSystemCallFilterPolicy: PROCESS_MITIGATION_POLICY = 11i32;
+pub const ProcessPayloadRestrictionPolicy: PROCESS_MITIGATION_POLICY = 12i32;
+pub const ProcessChildProcessPolicy: PROCESS_MITIGATION_POLICY = 13i32;
+pub const ProcessSideChannelIsolationPolicy: PROCESS_MITIGATION_POLICY = 14i32;
+pub const ProcessUserShadowStackPolicy: PROCESS_MITIGATION_POLICY = 15i32;
+pub const ProcessRedirectionTrustPolicy: PROCESS_MITIGATION_POLICY = 16i32;
+pub const MaxProcessMitigationPolicy: PROCESS_MITIGATION_POLICY = 17i32;
+pub type PROCESS_NAME_FORMAT = u32;
+pub const PROCESS_NAME_WIN32: PROCESS_NAME_FORMAT = 0u32;
+pub const PROCESS_NAME_NATIVE: PROCESS_NAME_FORMAT = 1u32;
 pub const PROCESS_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
 pub const PROCESS_POWER_THROTTLING_IGNORE_TIMER_RESOLUTION: u32 = 4u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct PROCESS_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-impl PROCESS_POWER_THROTTLING_STATE {}
+impl ::core::marker::Copy for PROCESS_POWER_THROTTLING_STATE {}
+impl ::core::clone::Clone for PROCESS_POWER_THROTTLING_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_POWER_THROTTLING_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_POWER_THROTTLING_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_POWER_THROTTLING_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_POWER_THROTTLING_STATE {}
 impl ::core::default::Default for PROCESS_POWER_THROTTLING_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for PROCESS_POWER_THROTTLING_STATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_POWER_THROTTLING_STATE").field("Version", &self.Version).field("ControlMask", &self.ControlMask).field("StateMask", &self.StateMask).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_POWER_THROTTLING_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ControlMask == other.ControlMask && self.StateMask == other.StateMask
-    }
-}
-impl ::core::cmp::Eq for PROCESS_POWER_THROTTLING_STATE {}
-unsafe impl ::windows::core::Abi for PROCESS_POWER_THROTTLING_STATE {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct PROCESS_PROTECTION_LEVEL(pub u32);
-pub const PROTECTION_LEVEL_WINTCB_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(0u32);
-pub const PROTECTION_LEVEL_WINDOWS: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(1u32);
-pub const PROTECTION_LEVEL_WINDOWS_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(2u32);
-pub const PROTECTION_LEVEL_ANTIMALWARE_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(3u32);
-pub const PROTECTION_LEVEL_LSA_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(4u32);
-pub const PROTECTION_LEVEL_WINTCB: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(5u32);
-pub const PROTECTION_LEVEL_CODEGEN_LIGHT: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(6u32);
-pub const PROTECTION_LEVEL_AUTHENTICODE: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(7u32);
-pub const PROTECTION_LEVEL_PPL_APP: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(8u32);
-pub const PROTECTION_LEVEL_NONE: PROCESS_PROTECTION_LEVEL = PROCESS_PROTECTION_LEVEL(4294967294u32);
-impl ::core::convert::From<u32> for PROCESS_PROTECTION_LEVEL {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for PROCESS_PROTECTION_LEVEL {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for PROCESS_PROTECTION_LEVEL {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for PROCESS_PROTECTION_LEVEL {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for PROCESS_PROTECTION_LEVEL {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for PROCESS_PROTECTION_LEVEL {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for PROCESS_PROTECTION_LEVEL {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type PROCESS_PROTECTION_LEVEL = u32;
+pub const PROTECTION_LEVEL_WINTCB_LIGHT: PROCESS_PROTECTION_LEVEL = 0u32;
+pub const PROTECTION_LEVEL_WINDOWS: PROCESS_PROTECTION_LEVEL = 1u32;
+pub const PROTECTION_LEVEL_WINDOWS_LIGHT: PROCESS_PROTECTION_LEVEL = 2u32;
+pub const PROTECTION_LEVEL_ANTIMALWARE_LIGHT: PROCESS_PROTECTION_LEVEL = 3u32;
+pub const PROTECTION_LEVEL_LSA_LIGHT: PROCESS_PROTECTION_LEVEL = 4u32;
+pub const PROTECTION_LEVEL_WINTCB: PROCESS_PROTECTION_LEVEL = 5u32;
+pub const PROTECTION_LEVEL_CODEGEN_LIGHT: PROCESS_PROTECTION_LEVEL = 6u32;
+pub const PROTECTION_LEVEL_AUTHENTICODE: PROCESS_PROTECTION_LEVEL = 7u32;
+pub const PROTECTION_LEVEL_PPL_APP: PROCESS_PROTECTION_LEVEL = 8u32;
+pub const PROTECTION_LEVEL_NONE: PROCESS_PROTECTION_LEVEL = 4294967294u32;
 #[repr(C)]
 pub struct PROCESS_PROTECTION_LEVEL_INFORMATION {
     pub ProtectionLevel: PROCESS_PROTECTION_LEVEL,
 }
-impl PROCESS_PROTECTION_LEVEL_INFORMATION {}
+impl ::core::marker::Copy for PROCESS_PROTECTION_LEVEL_INFORMATION {}
+impl ::core::clone::Clone for PROCESS_PROTECTION_LEVEL_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for PROCESS_PROTECTION_LEVEL_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for PROCESS_PROTECTION_LEVEL_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<PROCESS_PROTECTION_LEVEL_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for PROCESS_PROTECTION_LEVEL_INFORMATION {}
 impl ::core::default::Default for PROCESS_PROTECTION_LEVEL_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for PROCESS_PROTECTION_LEVEL_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("PROCESS_PROTECTION_LEVEL_INFORMATION").field("ProtectionLevel", &self.ProtectionLevel).finish()
-    }
-}
-impl ::core::cmp::PartialEq for PROCESS_PROTECTION_LEVEL_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.ProtectionLevel == other.ProtectionLevel
-    }
-}
-impl ::core::cmp::Eq for PROCESS_PROTECTION_LEVEL_INFORMATION {}
-unsafe impl ::windows::core::Abi for PROCESS_PROTECTION_LEVEL_INFORMATION {
-    type Abi = Self;
 }
 pub const PROC_THREAD_ATTRIBUTE_REPLACE_VALUE: u32 = 1u32;
 #[cfg(feature = "Win32_System_SystemServices")]
 pub type PRTL_UMS_SCHEDULER_ENTRY_POINT = ::core::option::Option<unsafe extern "system" fn(reason: super::SystemServices::RTL_UMS_SCHEDULER_REASON, activationpayload: usize, schedulerparam: *const ::core::ffi::c_void)>;
 pub type PTIMERAPCROUTINE = ::core::option::Option<unsafe extern "system" fn(lpargtocompletionroutine: *const ::core::ffi::c_void, dwtimerlowvalue: u32, dwtimerhighvalue: u32)>;
 pub type PTP_CLEANUP_GROUP_CANCEL_CALLBACK = ::core::option::Option<unsafe extern "system" fn(objectcontext: *mut ::core::ffi::c_void, cleanupcontext: *mut ::core::ffi::c_void)>;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct PTP_POOL(pub isize);
-impl ::core::default::Default for PTP_POOL {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for PTP_POOL {}
-unsafe impl ::windows::core::Abi for PTP_POOL {
-    type Abi = Self;
-}
+pub type PTP_POOL = isize;
 pub type PTP_SIMPLE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void)>;
 pub type PTP_TIMER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, timer: *mut TP_TIMER)>;
 pub type PTP_WAIT_CALLBACK = ::core::option::Option<unsafe extern "system" fn(instance: *mut TP_CALLBACK_INSTANCE, context: *mut ::core::ffi::c_void, wait: *mut TP_WAIT, waitresult: u32)>;
@@ -3872,19 +3241,9 @@ pub unsafe fn PulseEvent<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct QUEUE_USER_APC_FLAGS(pub i32);
-pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(0i32);
-pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = QUEUE_USER_APC_FLAGS(1i32);
-impl ::core::convert::From<i32> for QUEUE_USER_APC_FLAGS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for QUEUE_USER_APC_FLAGS {
-    type Abi = Self;
-}
+pub type QUEUE_USER_APC_FLAGS = i32;
+pub const QUEUE_USER_APC_FLAGS_NONE: QUEUE_USER_APC_FLAGS = 0i32;
+pub const QUEUE_USER_APC_FLAGS_SPECIAL_USER_APC: QUEUE_USER_APC_FLAGS = 1i32;
 #[cfg(feature = "Win32_System_Kernel")]
 #[inline]
 pub unsafe fn QueryDepthSList(listhead: *const super::Kernel::SLIST_HEADER) -> u16 {
@@ -4025,7 +3384,6 @@ pub unsafe fn QueueUserWorkItem(function: LPTHREAD_START_ROUTINE, context: *cons
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REASON_CONTEXT {
@@ -4034,26 +3392,31 @@ pub struct REASON_CONTEXT {
     pub Reason: REASON_CONTEXT_0,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl REASON_CONTEXT {}
+impl ::core::marker::Copy for REASON_CONTEXT {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REASON_CONTEXT {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for REASON_CONTEXT {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for REASON_CONTEXT {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REASON_CONTEXT>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for REASON_CONTEXT {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REASON_CONTEXT {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for REASON_CONTEXT {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for REASON_CONTEXT {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for REASON_CONTEXT {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub union REASON_CONTEXT_0 {
@@ -4061,26 +3424,31 @@ pub union REASON_CONTEXT_0 {
     pub SimpleReasonString: super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl REASON_CONTEXT_0 {}
+impl ::core::marker::Copy for REASON_CONTEXT_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REASON_CONTEXT_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for REASON_CONTEXT_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for REASON_CONTEXT_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REASON_CONTEXT_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for REASON_CONTEXT_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REASON_CONTEXT_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for REASON_CONTEXT_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for REASON_CONTEXT_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for REASON_CONTEXT_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct REASON_CONTEXT_0_0 {
@@ -4090,32 +3458,31 @@ pub struct REASON_CONTEXT_0_0 {
     pub ReasonStrings: *mut super::super::Foundation::PWSTR,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl REASON_CONTEXT_0_0 {}
+impl ::core::marker::Copy for REASON_CONTEXT_0_0 {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for REASON_CONTEXT_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for REASON_CONTEXT_0_0 {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for REASON_CONTEXT_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<REASON_CONTEXT_0_0>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for REASON_CONTEXT_0_0 {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for REASON_CONTEXT_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for REASON_CONTEXT_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Detailed_e__Struct").field("LocalizedReasonModule", &self.LocalizedReasonModule).field("LocalizedReasonId", &self.LocalizedReasonId).field("ReasonStringCount", &self.ReasonStringCount).field("ReasonStrings", &self.ReasonStrings).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for REASON_CONTEXT_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self.LocalizedReasonModule == other.LocalizedReasonModule && self.LocalizedReasonId == other.LocalizedReasonId && self.ReasonStringCount == other.ReasonStringCount && self.ReasonStrings == other.ReasonStrings
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for REASON_CONTEXT_0_0 {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for REASON_CONTEXT_0_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTL_BARRIER {
     pub Reserved1: u32,
@@ -4124,52 +3491,50 @@ pub struct RTL_BARRIER {
     pub Reserved4: u32,
     pub Reserved5: u32,
 }
-impl RTL_BARRIER {}
+impl ::core::marker::Copy for RTL_BARRIER {}
+impl ::core::clone::Clone for RTL_BARRIER {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTL_BARRIER {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTL_BARRIER {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_BARRIER>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTL_BARRIER {}
 impl ::core::default::Default for RTL_BARRIER {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTL_BARRIER {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTL_BARRIER").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("Reserved3", &self.Reserved3).field("Reserved4", &self.Reserved4).field("Reserved5", &self.Reserved5).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTL_BARRIER {
-    fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.Reserved3 == other.Reserved3 && self.Reserved4 == other.Reserved4 && self.Reserved5 == other.Reserved5
-    }
-}
-impl ::core::cmp::Eq for RTL_BARRIER {}
-unsafe impl ::windows::core::Abi for RTL_BARRIER {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTL_CONDITION_VARIABLE {
     pub Ptr: *mut ::core::ffi::c_void,
 }
-impl RTL_CONDITION_VARIABLE {}
+impl ::core::marker::Copy for RTL_CONDITION_VARIABLE {}
+impl ::core::clone::Clone for RTL_CONDITION_VARIABLE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTL_CONDITION_VARIABLE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTL_CONDITION_VARIABLE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_CONDITION_VARIABLE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTL_CONDITION_VARIABLE {}
 impl ::core::default::Default for RTL_CONDITION_VARIABLE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTL_CONDITION_VARIABLE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTL_CONDITION_VARIABLE").field("Ptr", &self.Ptr).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTL_CONDITION_VARIABLE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr
-    }
-}
-impl ::core::cmp::Eq for RTL_CONDITION_VARIABLE {}
-unsafe impl ::windows::core::Abi for RTL_CONDITION_VARIABLE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct RTL_CRITICAL_SECTION {
@@ -4181,32 +3546,31 @@ pub struct RTL_CRITICAL_SECTION {
     pub SpinCount: usize,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl RTL_CRITICAL_SECTION {}
+impl ::core::marker::Copy for RTL_CRITICAL_SECTION {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for RTL_CRITICAL_SECTION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+unsafe impl ::windows::core::Abi for RTL_CRITICAL_SECTION {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_CRITICAL_SECTION>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for RTL_CRITICAL_SECTION {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for RTL_CRITICAL_SECTION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for RTL_CRITICAL_SECTION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTL_CRITICAL_SECTION").field("DebugInfo", &self.DebugInfo).field("LockCount", &self.LockCount).field("RecursionCount", &self.RecursionCount).field("OwningThread", &self.OwningThread).field("LockSemaphore", &self.LockSemaphore).field("SpinCount", &self.SpinCount).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION {
-    fn eq(&self, other: &Self) -> bool {
-        self.DebugInfo == other.DebugInfo && self.LockCount == other.LockCount && self.RecursionCount == other.RecursionCount && self.OwningThread == other.OwningThread && self.LockSemaphore == other.LockSemaphore && self.SpinCount == other.SpinCount
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for RTL_CRITICAL_SECTION {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for RTL_CRITICAL_SECTION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 pub struct RTL_CRITICAL_SECTION_DEBUG {
@@ -4221,96 +3585,88 @@ pub struct RTL_CRITICAL_SECTION_DEBUG {
     pub SpareWORD: u16,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl RTL_CRITICAL_SECTION_DEBUG {}
+impl ::core::marker::Copy for RTL_CRITICAL_SECTION_DEBUG {}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::clone::Clone for RTL_CRITICAL_SECTION_DEBUG {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+unsafe impl ::windows::core::Abi for RTL_CRITICAL_SECTION_DEBUG {
+    type Abi = Self;
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION_DEBUG {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_CRITICAL_SECTION_DEBUG>()) == 0 }
+    }
+}
+#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
+impl ::core::cmp::Eq for RTL_CRITICAL_SECTION_DEBUG {}
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
 impl ::core::default::Default for RTL_CRITICAL_SECTION_DEBUG {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::fmt::Debug for RTL_CRITICAL_SECTION_DEBUG {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTL_CRITICAL_SECTION_DEBUG").field("Type", &self.Type).field("CreatorBackTraceIndex", &self.CreatorBackTraceIndex).field("CriticalSection", &self.CriticalSection).field("ProcessLocksList", &self.ProcessLocksList).field("EntryCount", &self.EntryCount).field("ContentionCount", &self.ContentionCount).field("Flags", &self.Flags).field("CreatorBackTraceIndexHigh", &self.CreatorBackTraceIndexHigh).field("SpareWORD", &self.SpareWORD).finish()
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::PartialEq for RTL_CRITICAL_SECTION_DEBUG {
-    fn eq(&self, other: &Self) -> bool {
-        self.Type == other.Type && self.CreatorBackTraceIndex == other.CreatorBackTraceIndex && self.CriticalSection == other.CriticalSection && self.ProcessLocksList == other.ProcessLocksList && self.EntryCount == other.EntryCount && self.ContentionCount == other.ContentionCount && self.Flags == other.Flags && self.CreatorBackTraceIndexHigh == other.CreatorBackTraceIndexHigh && self.SpareWORD == other.SpareWORD
-    }
-}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-impl ::core::cmp::Eq for RTL_CRITICAL_SECTION_DEBUG {}
-#[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Kernel"))]
-unsafe impl ::windows::core::Abi for RTL_CRITICAL_SECTION_DEBUG {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union RTL_RUN_ONCE {
     pub Ptr: *mut ::core::ffi::c_void,
 }
-impl RTL_RUN_ONCE {}
+impl ::core::marker::Copy for RTL_RUN_ONCE {}
+impl ::core::clone::Clone for RTL_RUN_ONCE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTL_RUN_ONCE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTL_RUN_ONCE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_RUN_ONCE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTL_RUN_ONCE {}
 impl ::core::default::Default for RTL_RUN_ONCE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for RTL_RUN_ONCE {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for RTL_RUN_ONCE {}
-unsafe impl ::windows::core::Abi for RTL_RUN_ONCE {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct RTL_SRWLOCK {
     pub Ptr: *mut ::core::ffi::c_void,
 }
-impl RTL_SRWLOCK {}
+impl ::core::marker::Copy for RTL_SRWLOCK {}
+impl ::core::clone::Clone for RTL_SRWLOCK {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for RTL_SRWLOCK {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for RTL_SRWLOCK {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_SRWLOCK>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for RTL_SRWLOCK {}
 impl ::core::default::Default for RTL_SRWLOCK {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for RTL_SRWLOCK {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTL_SRWLOCK").field("Ptr", &self.Ptr).finish()
-    }
-}
-impl ::core::cmp::PartialEq for RTL_SRWLOCK {
-    fn eq(&self, other: &Self) -> bool {
-        self.Ptr == other.Ptr
-    }
-}
-impl ::core::cmp::Eq for RTL_SRWLOCK {}
-unsafe impl ::windows::core::Abi for RTL_SRWLOCK {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct RTL_UMS_THREAD_INFO_CLASS(pub i32);
-pub const UmsThreadInvalidInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(0i32);
-pub const UmsThreadUserContext: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(1i32);
-pub const UmsThreadPriority: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(2i32);
-pub const UmsThreadAffinity: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(3i32);
-pub const UmsThreadTeb: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(4i32);
-pub const UmsThreadIsSuspended: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(5i32);
-pub const UmsThreadIsTerminated: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(6i32);
-pub const UmsThreadMaxInfoClass: RTL_UMS_THREAD_INFO_CLASS = RTL_UMS_THREAD_INFO_CLASS(7i32);
-impl ::core::convert::From<i32> for RTL_UMS_THREAD_INFO_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for RTL_UMS_THREAD_INFO_CLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type RTL_UMS_THREAD_INFO_CLASS = i32;
+pub const UmsThreadInvalidInfoClass: RTL_UMS_THREAD_INFO_CLASS = 0i32;
+pub const UmsThreadUserContext: RTL_UMS_THREAD_INFO_CLASS = 1i32;
+pub const UmsThreadPriority: RTL_UMS_THREAD_INFO_CLASS = 2i32;
+pub const UmsThreadAffinity: RTL_UMS_THREAD_INFO_CLASS = 3i32;
+pub const UmsThreadTeb: RTL_UMS_THREAD_INFO_CLASS = 4i32;
+pub const UmsThreadIsSuspended: RTL_UMS_THREAD_INFO_CLASS = 5i32;
+pub const UmsThreadIsTerminated: RTL_UMS_THREAD_INFO_CLASS = 6i32;
+pub const UmsThreadMaxInfoClass: RTL_UMS_THREAD_INFO_CLASS = 7i32;
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RTL_USER_PROCESS_PARAMETERS {
@@ -4320,30 +3676,30 @@ pub struct RTL_USER_PROCESS_PARAMETERS {
     pub CommandLine: super::super::Foundation::UNICODE_STRING,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl RTL_USER_PROCESS_PARAMETERS {}
+impl ::core::marker::Copy for RTL_USER_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::default::Default for RTL_USER_PROCESS_PARAMETERS {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
+impl ::core::clone::Clone for RTL_USER_PROCESS_PARAMETERS {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 #[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for RTL_USER_PROCESS_PARAMETERS {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("RTL_USER_PROCESS_PARAMETERS").field("Reserved1", &self.Reserved1).field("Reserved2", &self.Reserved2).field("ImagePathName", &self.ImagePathName).field("CommandLine", &self.CommandLine).finish()
-    }
+unsafe impl ::windows::core::Abi for RTL_USER_PROCESS_PARAMETERS {
+    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::PartialEq for RTL_USER_PROCESS_PARAMETERS {
     fn eq(&self, other: &Self) -> bool {
-        self.Reserved1 == other.Reserved1 && self.Reserved2 == other.Reserved2 && self.ImagePathName == other.ImagePathName && self.CommandLine == other.CommandLine
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<RTL_USER_PROCESS_PARAMETERS>()) == 0 }
     }
 }
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::cmp::Eq for RTL_USER_PROCESS_PARAMETERS {}
 #[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for RTL_USER_PROCESS_PARAMETERS {
-    type Abi = Self;
+impl ::core::default::Default for RTL_USER_PROCESS_PARAMETERS {
+    fn default() -> Self {
+        unsafe { ::core::mem::zeroed() }
+    }
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -4382,7 +3738,7 @@ pub unsafe fn ReleaseMutexWhenCallbackReturns<'a, Param1: ::windows::core::IntoP
         extern "system" {
             fn ReleaseMutexWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, r#mut: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(ReleaseMutexWhenCallbackReturns(::core::mem::transmute(pci), r#mut.into_param().abi()))
+        ReleaseMutexWhenCallbackReturns(::core::mem::transmute(pci), r#mut.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4395,7 +3751,7 @@ pub unsafe fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn ReleaseSRWLockExclusive(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(ReleaseSRWLockExclusive(::core::mem::transmute(srwlock)))
+        ReleaseSRWLockExclusive(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4408,7 +3764,7 @@ pub unsafe fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK) {
         extern "system" {
             fn ReleaseSRWLockShared(srwlock: *mut RTL_SRWLOCK);
         }
-        ::core::mem::transmute(ReleaseSRWLockShared(::core::mem::transmute(srwlock)))
+        ReleaseSRWLockShared(::core::mem::transmute(srwlock))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4436,7 +3792,7 @@ pub unsafe fn ReleaseSemaphoreWhenCallbackReturns<'a, Param1: ::windows::core::I
         extern "system" {
             fn ReleaseSemaphoreWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, sem: super::super::Foundation::HANDLE, crel: u32);
         }
-        ::core::mem::transmute(ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into_param().abi(), ::core::mem::transmute(crel)))
+        ReleaseSemaphoreWhenCallbackReturns(::core::mem::transmute(pci), sem.into_param().abi(), ::core::mem::transmute(crel))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -4469,7 +3825,6 @@ pub unsafe fn ResumeThread<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOA {
@@ -4493,51 +3848,31 @@ pub struct STARTUPINFOA {
     pub hStdError: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl STARTUPINFOA {}
+impl ::core::marker::Copy for STARTUPINFOA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for STARTUPINFOA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for STARTUPINFOA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for STARTUPINFOA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STARTUPINFOA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STARTUPINFOA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STARTUPINFOA")
-            .field("cb", &self.cb)
-            .field("lpReserved", &self.lpReserved)
-            .field("lpDesktop", &self.lpDesktop)
-            .field("lpTitle", &self.lpTitle)
-            .field("dwX", &self.dwX)
-            .field("dwY", &self.dwY)
-            .field("dwXSize", &self.dwXSize)
-            .field("dwYSize", &self.dwYSize)
-            .field("dwXCountChars", &self.dwXCountChars)
-            .field("dwYCountChars", &self.dwYCountChars)
-            .field("dwFillAttribute", &self.dwFillAttribute)
-            .field("dwFlags", &self.dwFlags)
-            .field("wShowWindow", &self.wShowWindow)
-            .field("cbReserved2", &self.cbReserved2)
-            .field("lpReserved2", &self.lpReserved2)
-            .field("hStdInput", &self.hStdInput)
-            .field("hStdOutput", &self.hStdOutput)
-            .field("hStdError", &self.hStdError)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for STARTUPINFOA {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for STARTUPINFOA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for STARTUPINFOA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOEXA {
@@ -4545,32 +3880,31 @@ pub struct STARTUPINFOEXA {
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl STARTUPINFOEXA {}
+impl ::core::marker::Copy for STARTUPINFOEXA {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOEXA {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for STARTUPINFOEXA {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for STARTUPINFOEXA {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOEXA>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for STARTUPINFOEXA {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STARTUPINFOEXA {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STARTUPINFOEXA {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STARTUPINFOEXA").field("StartupInfo", &self.StartupInfo).field("lpAttributeList", &self.lpAttributeList).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for STARTUPINFOEXA {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartupInfo == other.StartupInfo && self.lpAttributeList == other.lpAttributeList
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for STARTUPINFOEXA {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for STARTUPINFOEXA {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOEXW {
@@ -4578,32 +3912,31 @@ pub struct STARTUPINFOEXW {
     pub lpAttributeList: LPPROC_THREAD_ATTRIBUTE_LIST,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl STARTUPINFOEXW {}
+impl ::core::marker::Copy for STARTUPINFOEXW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOEXW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for STARTUPINFOEXW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for STARTUPINFOEXW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOEXW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for STARTUPINFOEXW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STARTUPINFOEXW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STARTUPINFOEXW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STARTUPINFOEXW").field("StartupInfo", &self.StartupInfo).field("lpAttributeList", &self.lpAttributeList).finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for STARTUPINFOEXW {
-    fn eq(&self, other: &Self) -> bool {
-        self.StartupInfo == other.StartupInfo && self.lpAttributeList == other.lpAttributeList
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for STARTUPINFOEXW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for STARTUPINFOEXW {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_Foundation")]
 pub struct STARTUPINFOW {
@@ -4627,103 +3960,46 @@ pub struct STARTUPINFOW {
     pub hStdError: super::super::Foundation::HANDLE,
 }
 #[cfg(feature = "Win32_Foundation")]
-impl STARTUPINFOW {}
+impl ::core::marker::Copy for STARTUPINFOW {}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::clone::Clone for STARTUPINFOW {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+unsafe impl ::windows::core::Abi for STARTUPINFOW {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::PartialEq for STARTUPINFOW {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<STARTUPINFOW>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_Foundation")]
+impl ::core::cmp::Eq for STARTUPINFOW {}
 #[cfg(feature = "Win32_Foundation")]
 impl ::core::default::Default for STARTUPINFOW {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::fmt::Debug for STARTUPINFOW {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("STARTUPINFOW")
-            .field("cb", &self.cb)
-            .field("lpReserved", &self.lpReserved)
-            .field("lpDesktop", &self.lpDesktop)
-            .field("lpTitle", &self.lpTitle)
-            .field("dwX", &self.dwX)
-            .field("dwY", &self.dwY)
-            .field("dwXSize", &self.dwXSize)
-            .field("dwYSize", &self.dwYSize)
-            .field("dwXCountChars", &self.dwXCountChars)
-            .field("dwYCountChars", &self.dwYCountChars)
-            .field("dwFillAttribute", &self.dwFillAttribute)
-            .field("dwFlags", &self.dwFlags)
-            .field("wShowWindow", &self.wShowWindow)
-            .field("cbReserved2", &self.cbReserved2)
-            .field("lpReserved2", &self.lpReserved2)
-            .field("hStdInput", &self.hStdInput)
-            .field("hStdOutput", &self.hStdOutput)
-            .field("hStdError", &self.hStdError)
-            .finish()
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::PartialEq for STARTUPINFOW {
-    fn eq(&self, other: &Self) -> bool {
-        self.cb == other.cb && self.lpReserved == other.lpReserved && self.lpDesktop == other.lpDesktop && self.lpTitle == other.lpTitle && self.dwX == other.dwX && self.dwY == other.dwY && self.dwXSize == other.dwXSize && self.dwYSize == other.dwYSize && self.dwXCountChars == other.dwXCountChars && self.dwYCountChars == other.dwYCountChars && self.dwFillAttribute == other.dwFillAttribute && self.dwFlags == other.dwFlags && self.wShowWindow == other.wShowWindow && self.cbReserved2 == other.cbReserved2 && self.lpReserved2 == other.lpReserved2 && self.hStdInput == other.hStdInput && self.hStdOutput == other.hStdOutput && self.hStdError == other.hStdError
-    }
-}
-#[cfg(feature = "Win32_Foundation")]
-impl ::core::cmp::Eq for STARTUPINFOW {}
-#[cfg(feature = "Win32_Foundation")]
-unsafe impl ::windows::core::Abi for STARTUPINFOW {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct STARTUPINFOW_FLAGS(pub u32);
-pub const STARTF_FORCEONFEEDBACK: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(64u32);
-pub const STARTF_FORCEOFFFEEDBACK: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(128u32);
-pub const STARTF_PREVENTPINNING: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(8192u32);
-pub const STARTF_RUNFULLSCREEN: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(32u32);
-pub const STARTF_TITLEISAPPID: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(4096u32);
-pub const STARTF_TITLEISLINKNAME: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(2048u32);
-pub const STARTF_UNTRUSTEDSOURCE: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(32768u32);
-pub const STARTF_USECOUNTCHARS: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(8u32);
-pub const STARTF_USEFILLATTRIBUTE: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(16u32);
-pub const STARTF_USEHOTKEY: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(512u32);
-pub const STARTF_USEPOSITION: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(4u32);
-pub const STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(1u32);
-pub const STARTF_USESIZE: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(2u32);
-pub const STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = STARTUPINFOW_FLAGS(256u32);
-impl ::core::convert::From<u32> for STARTUPINFOW_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for STARTUPINFOW_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for STARTUPINFOW_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for STARTUPINFOW_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for STARTUPINFOW_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for STARTUPINFOW_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for STARTUPINFOW_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type STARTUPINFOW_FLAGS = u32;
+pub const STARTF_FORCEONFEEDBACK: STARTUPINFOW_FLAGS = 64u32;
+pub const STARTF_FORCEOFFFEEDBACK: STARTUPINFOW_FLAGS = 128u32;
+pub const STARTF_PREVENTPINNING: STARTUPINFOW_FLAGS = 8192u32;
+pub const STARTF_RUNFULLSCREEN: STARTUPINFOW_FLAGS = 32u32;
+pub const STARTF_TITLEISAPPID: STARTUPINFOW_FLAGS = 4096u32;
+pub const STARTF_TITLEISLINKNAME: STARTUPINFOW_FLAGS = 2048u32;
+pub const STARTF_UNTRUSTEDSOURCE: STARTUPINFOW_FLAGS = 32768u32;
+pub const STARTF_USECOUNTCHARS: STARTUPINFOW_FLAGS = 8u32;
+pub const STARTF_USEFILLATTRIBUTE: STARTUPINFOW_FLAGS = 16u32;
+pub const STARTF_USEHOTKEY: STARTUPINFOW_FLAGS = 512u32;
+pub const STARTF_USEPOSITION: STARTUPINFOW_FLAGS = 4u32;
+pub const STARTF_USESHOWWINDOW: STARTUPINFOW_FLAGS = 1u32;
+pub const STARTF_USESIZE: STARTUPINFOW_FLAGS = 2u32;
+pub const STARTF_USESTDHANDLES: STARTUPINFOW_FLAGS = 256u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_BLOCK_ONLY: u32 = 2u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_NO_DELETE: u32 = 4u32;
 pub const SYNCHRONIZATION_BARRIER_FLAGS_SPIN_ONLY: u32 = 1u32;
@@ -4764,7 +4040,7 @@ pub unsafe fn SetEventWhenCallbackReturns<'a, Param1: ::windows::core::IntoParam
         extern "system" {
             fn SetEventWhenCallbackReturns(pci: *mut TP_CALLBACK_INSTANCE, evt: super::super::Foundation::HANDLE);
         }
-        ::core::mem::transmute(SetEventWhenCallbackReturns(::core::mem::transmute(pci), evt.into_param().abi()))
+        SetEventWhenCallbackReturns(::core::mem::transmute(pci), evt.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5169,7 +4445,7 @@ pub unsafe fn SetThreadpoolThreadMaximum<'a, Param0: ::windows::core::IntoParam<
         extern "system" {
             fn SetThreadpoolThreadMaximum(ptpp: PTP_POOL, cthrdmost: u32);
         }
-        ::core::mem::transmute(SetThreadpoolThreadMaximum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmost)))
+        SetThreadpoolThreadMaximum(ptpp.into_param().abi(), ::core::mem::transmute(cthrdmost))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5197,7 +4473,7 @@ pub unsafe fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::s
         extern "system" {
             fn SetThreadpoolTimer(pti: *mut TP_TIMER, pftduetime: *const super::super::Foundation::FILETIME, msperiod: u32, mswindowlength: u32);
         }
-        ::core::mem::transmute(SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength)))
+        SetThreadpoolTimer(::core::mem::transmute(pti), ::core::mem::transmute(pftduetime), ::core::mem::transmute(msperiod), ::core::mem::transmute(mswindowlength))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5225,7 +4501,7 @@ pub unsafe fn SetThreadpoolWait<'a, Param1: ::windows::core::IntoParam<'a, super
         extern "system" {
             fn SetThreadpoolWait(pwa: *mut TP_WAIT, h: super::super::Foundation::HANDLE, pfttimeout: *const super::super::Foundation::FILETIME);
         }
-        ::core::mem::transmute(SetThreadpoolWait(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout)))
+        SetThreadpoolWait(::core::mem::transmute(pwa), h.into_param().abi(), ::core::mem::transmute(pfttimeout))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5308,7 +4584,7 @@ pub unsafe fn Sleep(dwmilliseconds: u32) {
         extern "system" {
             fn Sleep(dwmilliseconds: u32);
         }
-        ::core::mem::transmute(Sleep(::core::mem::transmute(dwmilliseconds)))
+        Sleep(::core::mem::transmute(dwmilliseconds))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5363,7 +4639,7 @@ pub unsafe fn StartThreadpoolIo(pio: *mut TP_IO) {
         extern "system" {
             fn StartThreadpoolIo(pio: *mut TP_IO);
         }
-        ::core::mem::transmute(StartThreadpoolIo(::core::mem::transmute(pio)))
+        StartThreadpoolIo(::core::mem::transmute(pio))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5376,7 +4652,7 @@ pub unsafe fn SubmitThreadpoolWork(pwk: *mut TP_WORK) {
         extern "system" {
             fn SubmitThreadpoolWork(pwk: *mut TP_WORK);
         }
-        ::core::mem::transmute(SubmitThreadpoolWork(::core::mem::transmute(pwk)))
+        SubmitThreadpoolWork(::core::mem::transmute(pwk))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5403,7 +4679,7 @@ pub unsafe fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void) {
         extern "system" {
             fn SwitchToFiber(lpfiber: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(SwitchToFiber(::core::mem::transmute(lpfiber)))
+        SwitchToFiber(::core::mem::transmute(lpfiber))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -5422,187 +4698,79 @@ pub unsafe fn SwitchToThread() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct THREADINFOCLASS(pub i32);
-pub const ThreadIsIoPending: THREADINFOCLASS = THREADINFOCLASS(16i32);
-pub const ThreadNameInformation: THREADINFOCLASS = THREADINFOCLASS(38i32);
-impl ::core::convert::From<i32> for THREADINFOCLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for THREADINFOCLASS {
-    type Abi = Self;
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct THREAD_ACCESS_RIGHTS(pub u32);
-pub const THREAD_TERMINATE: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(1u32);
-pub const THREAD_SUSPEND_RESUME: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(2u32);
-pub const THREAD_GET_CONTEXT: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(8u32);
-pub const THREAD_SET_CONTEXT: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(16u32);
-pub const THREAD_SET_INFORMATION: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(32u32);
-pub const THREAD_QUERY_INFORMATION: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(64u32);
-pub const THREAD_SET_THREAD_TOKEN: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(128u32);
-pub const THREAD_IMPERSONATE: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(256u32);
-pub const THREAD_DIRECT_IMPERSONATION: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(512u32);
-pub const THREAD_SET_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(1024u32);
-pub const THREAD_QUERY_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(2048u32);
-pub const THREAD_RESUME: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(4096u32);
-pub const THREAD_ALL_ACCESS: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(2097151u32);
-pub const THREAD_DELETE: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(65536u32);
-pub const THREAD_READ_CONTROL: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(131072u32);
-pub const THREAD_WRITE_DAC: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(262144u32);
-pub const THREAD_WRITE_OWNER: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(524288u32);
-pub const THREAD_SYNCHRONIZE: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(1048576u32);
-pub const THREAD_STANDARD_RIGHTS_REQUIRED: THREAD_ACCESS_RIGHTS = THREAD_ACCESS_RIGHTS(983040u32);
-impl ::core::convert::From<u32> for THREAD_ACCESS_RIGHTS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for THREAD_ACCESS_RIGHTS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for THREAD_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for THREAD_ACCESS_RIGHTS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for THREAD_ACCESS_RIGHTS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for THREAD_ACCESS_RIGHTS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for THREAD_ACCESS_RIGHTS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct THREAD_CREATION_FLAGS(pub u32);
-pub const THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(0u32);
-pub const THREAD_CREATE_SUSPENDED: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(4u32);
-pub const STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = THREAD_CREATION_FLAGS(65536u32);
-impl ::core::convert::From<u32> for THREAD_CREATION_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for THREAD_CREATION_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for THREAD_CREATION_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for THREAD_CREATION_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for THREAD_CREATION_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for THREAD_CREATION_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for THREAD_CREATION_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct THREAD_INFORMATION_CLASS(pub i32);
-pub const ThreadMemoryPriority: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(0i32);
-pub const ThreadAbsoluteCpuPriority: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(1i32);
-pub const ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(2i32);
-pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(3i32);
-pub const ThreadInformationClassMax: THREAD_INFORMATION_CLASS = THREAD_INFORMATION_CLASS(4i32);
-impl ::core::convert::From<i32> for THREAD_INFORMATION_CLASS {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for THREAD_INFORMATION_CLASS {
-    type Abi = Self;
-}
+pub type THREADINFOCLASS = i32;
+pub const ThreadIsIoPending: THREADINFOCLASS = 16i32;
+pub const ThreadNameInformation: THREADINFOCLASS = 38i32;
+pub type THREAD_ACCESS_RIGHTS = u32;
+pub const THREAD_TERMINATE: THREAD_ACCESS_RIGHTS = 1u32;
+pub const THREAD_SUSPEND_RESUME: THREAD_ACCESS_RIGHTS = 2u32;
+pub const THREAD_GET_CONTEXT: THREAD_ACCESS_RIGHTS = 8u32;
+pub const THREAD_SET_CONTEXT: THREAD_ACCESS_RIGHTS = 16u32;
+pub const THREAD_SET_INFORMATION: THREAD_ACCESS_RIGHTS = 32u32;
+pub const THREAD_QUERY_INFORMATION: THREAD_ACCESS_RIGHTS = 64u32;
+pub const THREAD_SET_THREAD_TOKEN: THREAD_ACCESS_RIGHTS = 128u32;
+pub const THREAD_IMPERSONATE: THREAD_ACCESS_RIGHTS = 256u32;
+pub const THREAD_DIRECT_IMPERSONATION: THREAD_ACCESS_RIGHTS = 512u32;
+pub const THREAD_SET_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 1024u32;
+pub const THREAD_QUERY_LIMITED_INFORMATION: THREAD_ACCESS_RIGHTS = 2048u32;
+pub const THREAD_RESUME: THREAD_ACCESS_RIGHTS = 4096u32;
+pub const THREAD_ALL_ACCESS: THREAD_ACCESS_RIGHTS = 2097151u32;
+pub const THREAD_DELETE: THREAD_ACCESS_RIGHTS = 65536u32;
+pub const THREAD_READ_CONTROL: THREAD_ACCESS_RIGHTS = 131072u32;
+pub const THREAD_WRITE_DAC: THREAD_ACCESS_RIGHTS = 262144u32;
+pub const THREAD_WRITE_OWNER: THREAD_ACCESS_RIGHTS = 524288u32;
+pub const THREAD_SYNCHRONIZE: THREAD_ACCESS_RIGHTS = 1048576u32;
+pub const THREAD_STANDARD_RIGHTS_REQUIRED: THREAD_ACCESS_RIGHTS = 983040u32;
+pub type THREAD_CREATION_FLAGS = u32;
+pub const THREAD_CREATE_RUN_IMMEDIATELY: THREAD_CREATION_FLAGS = 0u32;
+pub const THREAD_CREATE_SUSPENDED: THREAD_CREATION_FLAGS = 4u32;
+pub const STACK_SIZE_PARAM_IS_A_RESERVATION: THREAD_CREATION_FLAGS = 65536u32;
+pub type THREAD_INFORMATION_CLASS = i32;
+pub const ThreadMemoryPriority: THREAD_INFORMATION_CLASS = 0i32;
+pub const ThreadAbsoluteCpuPriority: THREAD_INFORMATION_CLASS = 1i32;
+pub const ThreadDynamicCodePolicy: THREAD_INFORMATION_CLASS = 2i32;
+pub const ThreadPowerThrottling: THREAD_INFORMATION_CLASS = 3i32;
+pub const ThreadInformationClassMax: THREAD_INFORMATION_CLASS = 4i32;
 pub const THREAD_POWER_THROTTLING_CURRENT_VERSION: u32 = 1u32;
 pub const THREAD_POWER_THROTTLING_EXECUTION_SPEED: u32 = 1u32;
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct THREAD_POWER_THROTTLING_STATE {
     pub Version: u32,
     pub ControlMask: u32,
     pub StateMask: u32,
 }
-impl THREAD_POWER_THROTTLING_STATE {}
+impl ::core::marker::Copy for THREAD_POWER_THROTTLING_STATE {}
+impl ::core::clone::Clone for THREAD_POWER_THROTTLING_STATE {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for THREAD_POWER_THROTTLING_STATE {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for THREAD_POWER_THROTTLING_STATE {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<THREAD_POWER_THROTTLING_STATE>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for THREAD_POWER_THROTTLING_STATE {}
 impl ::core::default::Default for THREAD_POWER_THROTTLING_STATE {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for THREAD_POWER_THROTTLING_STATE {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("THREAD_POWER_THROTTLING_STATE").field("Version", &self.Version).field("ControlMask", &self.ControlMask).field("StateMask", &self.StateMask).finish()
-    }
-}
-impl ::core::cmp::PartialEq for THREAD_POWER_THROTTLING_STATE {
-    fn eq(&self, other: &Self) -> bool {
-        self.Version == other.Version && self.ControlMask == other.ControlMask && self.StateMask == other.StateMask
-    }
-}
-impl ::core::cmp::Eq for THREAD_POWER_THROTTLING_STATE {}
-unsafe impl ::windows::core::Abi for THREAD_POWER_THROTTLING_STATE {
-    type Abi = Self;
-}
 pub const THREAD_POWER_THROTTLING_VALID_FLAGS: u32 = 1u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct THREAD_PRIORITY(pub i32);
-pub const THREAD_MODE_BACKGROUND_BEGIN: THREAD_PRIORITY = THREAD_PRIORITY(65536i32);
-pub const THREAD_MODE_BACKGROUND_END: THREAD_PRIORITY = THREAD_PRIORITY(131072i32);
-pub const THREAD_PRIORITY_ABOVE_NORMAL: THREAD_PRIORITY = THREAD_PRIORITY(1i32);
-pub const THREAD_PRIORITY_BELOW_NORMAL: THREAD_PRIORITY = THREAD_PRIORITY(-1i32);
-pub const THREAD_PRIORITY_HIGHEST: THREAD_PRIORITY = THREAD_PRIORITY(2i32);
-pub const THREAD_PRIORITY_IDLE: THREAD_PRIORITY = THREAD_PRIORITY(-15i32);
-pub const THREAD_PRIORITY_MIN: THREAD_PRIORITY = THREAD_PRIORITY(-2i32);
-pub const THREAD_PRIORITY_LOWEST: THREAD_PRIORITY = THREAD_PRIORITY(-2i32);
-pub const THREAD_PRIORITY_NORMAL: THREAD_PRIORITY = THREAD_PRIORITY(0i32);
-pub const THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = THREAD_PRIORITY(15i32);
-impl ::core::convert::From<i32> for THREAD_PRIORITY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for THREAD_PRIORITY {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
+pub type THREAD_PRIORITY = i32;
+pub const THREAD_MODE_BACKGROUND_BEGIN: THREAD_PRIORITY = 65536i32;
+pub const THREAD_MODE_BACKGROUND_END: THREAD_PRIORITY = 131072i32;
+pub const THREAD_PRIORITY_ABOVE_NORMAL: THREAD_PRIORITY = 1i32;
+pub const THREAD_PRIORITY_BELOW_NORMAL: THREAD_PRIORITY = -1i32;
+pub const THREAD_PRIORITY_HIGHEST: THREAD_PRIORITY = 2i32;
+pub const THREAD_PRIORITY_IDLE: THREAD_PRIORITY = -15i32;
+pub const THREAD_PRIORITY_MIN: THREAD_PRIORITY = -2i32;
+pub const THREAD_PRIORITY_LOWEST: THREAD_PRIORITY = -2i32;
+pub const THREAD_PRIORITY_NORMAL: THREAD_PRIORITY = 0i32;
+pub const THREAD_PRIORITY_TIME_CRITICAL: THREAD_PRIORITY = 15i32;
 #[repr(C)]
 pub struct TP_CALLBACK_ENVIRON_V3 {
     pub Version: u32,
@@ -5616,126 +4784,117 @@ pub struct TP_CALLBACK_ENVIRON_V3 {
     pub CallbackPriority: TP_CALLBACK_PRIORITY,
     pub Size: u32,
 }
-impl TP_CALLBACK_ENVIRON_V3 {}
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3 {}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_CALLBACK_ENVIRON_V3>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3 {}
 impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3 {}
-unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3 {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct TP_CALLBACK_ENVIRON_V3_0(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union TP_CALLBACK_ENVIRON_V3_1 {
     pub Flags: u32,
     pub s: TP_CALLBACK_ENVIRON_V3_1_0,
 }
-impl TP_CALLBACK_ENVIRON_V3_1 {}
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_1 {}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3_1 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_CALLBACK_ENVIRON_V3_1>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1 {}
 impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_1 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1 {}
-unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3_1 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TP_CALLBACK_ENVIRON_V3_1_0 {
     pub _bitfield: u32,
 }
-impl TP_CALLBACK_ENVIRON_V3_1_0 {}
+impl ::core::marker::Copy for TP_CALLBACK_ENVIRON_V3_1_0 {}
+impl ::core::clone::Clone for TP_CALLBACK_ENVIRON_V3_1_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3_1_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_CALLBACK_ENVIRON_V3_1_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1_0 {}
 impl ::core::default::Default for TP_CALLBACK_ENVIRON_V3_1_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TP_CALLBACK_ENVIRON_V3_1_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_s_e__Struct").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TP_CALLBACK_ENVIRON_V3_1_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for TP_CALLBACK_ENVIRON_V3_1_0 {}
-unsafe impl ::windows::core::Abi for TP_CALLBACK_ENVIRON_V3_1_0 {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct TP_CALLBACK_INSTANCE(pub u8);
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct TP_CALLBACK_PRIORITY(pub i32);
-pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(0i32);
-pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(1i32);
-pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(2i32);
-pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(3i32);
-pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = TP_CALLBACK_PRIORITY(3i32);
-impl ::core::convert::From<i32> for TP_CALLBACK_PRIORITY {
-    fn from(value: i32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for TP_CALLBACK_PRIORITY {
-    type Abi = Self;
-}
+pub type TP_CALLBACK_PRIORITY = i32;
+pub const TP_CALLBACK_PRIORITY_HIGH: TP_CALLBACK_PRIORITY = 0i32;
+pub const TP_CALLBACK_PRIORITY_NORMAL: TP_CALLBACK_PRIORITY = 1i32;
+pub const TP_CALLBACK_PRIORITY_LOW: TP_CALLBACK_PRIORITY = 2i32;
+pub const TP_CALLBACK_PRIORITY_INVALID: TP_CALLBACK_PRIORITY = 3i32;
+pub const TP_CALLBACK_PRIORITY_COUNT: TP_CALLBACK_PRIORITY = 3i32;
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct TP_IO(pub u8);
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct TP_POOL_STACK_INFORMATION {
     pub StackReserve: usize,
     pub StackCommit: usize,
 }
-impl TP_POOL_STACK_INFORMATION {}
+impl ::core::marker::Copy for TP_POOL_STACK_INFORMATION {}
+impl ::core::clone::Clone for TP_POOL_STACK_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for TP_POOL_STACK_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for TP_POOL_STACK_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<TP_POOL_STACK_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for TP_POOL_STACK_INFORMATION {}
 impl ::core::default::Default for TP_POOL_STACK_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::fmt::Debug for TP_POOL_STACK_INFORMATION {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("TP_POOL_STACK_INFORMATION").field("StackReserve", &self.StackReserve).field("StackCommit", &self.StackCommit).finish()
-    }
-}
-impl ::core::cmp::PartialEq for TP_POOL_STACK_INFORMATION {
-    fn eq(&self, other: &Self) -> bool {
-        self.StackReserve == other.StackReserve && self.StackCommit == other.StackCommit
-    }
-}
-impl ::core::cmp::Eq for TP_POOL_STACK_INFORMATION {}
-unsafe impl ::windows::core::Abi for TP_POOL_STACK_INFORMATION {
-    type Abi = Self;
-}
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct TP_TIMER(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct TP_WAIT(pub u8);
 #[repr(C)]
-#[derive(:: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy)]
 pub struct TP_WORK(pub u8);
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -5765,18 +4924,7 @@ pub unsafe fn TerminateThread<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy, :: core :: fmt :: Debug, :: core :: cmp :: PartialEq, :: core :: cmp :: Eq)]
-#[repr(transparent)]
-pub struct TimerQueueHandle(pub isize);
-impl ::core::default::Default for TimerQueueHandle {
-    fn default() -> Self {
-        unsafe { ::core::mem::zeroed() }
-    }
-}
-unsafe impl ::windows::core::Handle for TimerQueueHandle {}
-unsafe impl ::windows::core::Abi for TimerQueueHandle {
-    type Abi = Self;
-}
+pub type TimerQueueHandle = isize;
 #[inline]
 pub unsafe fn TlsAlloc() -> u32 {
     #[cfg(windows)]
@@ -5887,7 +5035,6 @@ pub unsafe fn TrySubmitThreadpoolCallback(pfns: PTP_SIMPLE_CALLBACK, pv: *mut ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 #[cfg(feature = "Win32_System_SystemServices")]
 pub struct UMS_SCHEDULER_STARTUP_INFO {
@@ -5897,97 +5044,104 @@ pub struct UMS_SCHEDULER_STARTUP_INFO {
     pub SchedulerParam: *mut ::core::ffi::c_void,
 }
 #[cfg(feature = "Win32_System_SystemServices")]
-impl UMS_SCHEDULER_STARTUP_INFO {}
+impl ::core::marker::Copy for UMS_SCHEDULER_STARTUP_INFO {}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::clone::Clone for UMS_SCHEDULER_STARTUP_INFO {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+#[cfg(feature = "Win32_System_SystemServices")]
+unsafe impl ::windows::core::Abi for UMS_SCHEDULER_STARTUP_INFO {
+    type Abi = Self;
+}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::cmp::PartialEq for UMS_SCHEDULER_STARTUP_INFO {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SCHEDULER_STARTUP_INFO>()) == 0 }
+    }
+}
+#[cfg(feature = "Win32_System_SystemServices")]
+impl ::core::cmp::Eq for UMS_SCHEDULER_STARTUP_INFO {}
 #[cfg(feature = "Win32_System_SystemServices")]
 impl ::core::default::Default for UMS_SCHEDULER_STARTUP_INFO {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::fmt::Debug for UMS_SCHEDULER_STARTUP_INFO {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("UMS_SCHEDULER_STARTUP_INFO").field("UmsVersion", &self.UmsVersion).field("CompletionList", &self.CompletionList).field("SchedulerParam", &self.SchedulerParam).finish()
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::PartialEq for UMS_SCHEDULER_STARTUP_INFO {
-    fn eq(&self, other: &Self) -> bool {
-        self.UmsVersion == other.UmsVersion && self.CompletionList == other.CompletionList && self.SchedulerProc.map(|f| f as usize) == other.SchedulerProc.map(|f| f as usize) && self.SchedulerParam == other.SchedulerParam
-    }
-}
-#[cfg(feature = "Win32_System_SystemServices")]
-impl ::core::cmp::Eq for UMS_SCHEDULER_STARTUP_INFO {}
-#[cfg(feature = "Win32_System_SystemServices")]
-unsafe impl ::windows::core::Abi for UMS_SCHEDULER_STARTUP_INFO {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION {
     pub UmsVersion: u32,
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0,
 }
-impl UMS_SYSTEM_THREAD_INFORMATION {}
+impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION {}
+impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SYSTEM_THREAD_INFORMATION>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION {}
 impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION {}
-unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub union UMS_SYSTEM_THREAD_INFORMATION_0 {
     pub Anonymous: UMS_SYSTEM_THREAD_INFORMATION_0_0,
     pub ThreadUmsFlags: u32,
 }
-impl UMS_SYSTEM_THREAD_INFORMATION_0 {}
+impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION_0 {}
+impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SYSTEM_THREAD_INFORMATION_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0 {}
 impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
 }
-impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0 {
-    fn eq(&self, _other: &Self) -> bool {
-        unimplemented!()
-    }
-}
-impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0 {}
-unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION_0 {
-    type Abi = Self;
-}
-#[derive(:: core :: clone :: Clone, :: core :: marker :: Copy)]
 #[repr(C)]
 pub struct UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     pub _bitfield: u32,
 }
-impl UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
+impl ::core::marker::Copy for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
+impl ::core::clone::Clone for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
+unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
+    type Abi = Self;
+}
+impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
+    fn eq(&self, other: &Self) -> bool {
+        unsafe { ::windows::core::memcmp(self as *const _ as _, other as *const _ as _, core::mem::size_of::<UMS_SYSTEM_THREAD_INFORMATION_0_0>()) == 0 }
+    }
+}
+impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
 impl ::core::default::Default for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
     fn default() -> Self {
         unsafe { ::core::mem::zeroed() }
     }
-}
-impl ::core::fmt::Debug for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
-    fn fmt(&self, fmt: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-        fmt.debug_struct("_Anonymous_e__Struct").field("_bitfield", &self._bitfield).finish()
-    }
-}
-impl ::core::cmp::PartialEq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
-    fn eq(&self, other: &Self) -> bool {
-        self._bitfield == other._bitfield
-    }
-}
-impl ::core::cmp::Eq for UMS_SYSTEM_THREAD_INFORMATION_0_0 {}
-unsafe impl ::windows::core::Abi for UMS_SYSTEM_THREAD_INFORMATION_0_0 {
-    type Abi = Self;
 }
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
@@ -6051,53 +5205,15 @@ pub const WAIT_ABANDONED: u32 = 128u32;
 pub const WAIT_ABANDONED_0: u32 = 128u32;
 pub const WAIT_IO_COMPLETION: u32 = 192u32;
 pub const WAIT_OBJECT_0: u32 = 0u32;
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
-#[repr(transparent)]
-pub struct WORKER_THREAD_FLAGS(pub u32);
-pub const WT_EXECUTEDEFAULT: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(0u32);
-pub const WT_EXECUTEINIOTHREAD: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(1u32);
-pub const WT_EXECUTEINPERSISTENTTHREAD: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(128u32);
-pub const WT_EXECUTEINWAITTHREAD: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(4u32);
-pub const WT_EXECUTELONGFUNCTION: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(16u32);
-pub const WT_EXECUTEONLYONCE: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(8u32);
-pub const WT_TRANSFER_IMPERSONATION: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(256u32);
-pub const WT_EXECUTEINTIMERTHREAD: WORKER_THREAD_FLAGS = WORKER_THREAD_FLAGS(32u32);
-impl ::core::convert::From<u32> for WORKER_THREAD_FLAGS {
-    fn from(value: u32) -> Self {
-        Self(value)
-    }
-}
-unsafe impl ::windows::core::Abi for WORKER_THREAD_FLAGS {
-    type Abi = Self;
-}
-impl ::core::ops::BitOr for WORKER_THREAD_FLAGS {
-    type Output = Self;
-    fn bitor(self, rhs: Self) -> Self {
-        Self(self.0 | rhs.0)
-    }
-}
-impl ::core::ops::BitAnd for WORKER_THREAD_FLAGS {
-    type Output = Self;
-    fn bitand(self, rhs: Self) -> Self {
-        Self(self.0 & rhs.0)
-    }
-}
-impl ::core::ops::BitOrAssign for WORKER_THREAD_FLAGS {
-    fn bitor_assign(&mut self, rhs: Self) {
-        self.0.bitor_assign(rhs.0)
-    }
-}
-impl ::core::ops::BitAndAssign for WORKER_THREAD_FLAGS {
-    fn bitand_assign(&mut self, rhs: Self) {
-        self.0.bitand_assign(rhs.0)
-    }
-}
-impl ::core::ops::Not for WORKER_THREAD_FLAGS {
-    type Output = Self;
-    fn not(self) -> Self {
-        Self(self.0.not())
-    }
-}
+pub type WORKER_THREAD_FLAGS = u32;
+pub const WT_EXECUTEDEFAULT: WORKER_THREAD_FLAGS = 0u32;
+pub const WT_EXECUTEINIOTHREAD: WORKER_THREAD_FLAGS = 1u32;
+pub const WT_EXECUTEINPERSISTENTTHREAD: WORKER_THREAD_FLAGS = 128u32;
+pub const WT_EXECUTEINWAITTHREAD: WORKER_THREAD_FLAGS = 4u32;
+pub const WT_EXECUTELONGFUNCTION: WORKER_THREAD_FLAGS = 16u32;
+pub const WT_EXECUTEONLYONCE: WORKER_THREAD_FLAGS = 8u32;
+pub const WT_TRANSFER_IMPERSONATION: WORKER_THREAD_FLAGS = 256u32;
+pub const WT_EXECUTEINTIMERTHREAD: WORKER_THREAD_FLAGS = 32u32;
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WaitForInputIdle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hprocess: Param0, dwmilliseconds: u32) -> u32 {
@@ -6177,7 +5293,7 @@ pub unsafe fn WaitForThreadpoolIoCallbacks<'a, Param1: ::windows::core::IntoPara
         extern "system" {
             fn WaitForThreadpoolIoCallbacks(pio: *mut TP_IO, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolIoCallbacks(::core::mem::transmute(pio), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolIoCallbacks(::core::mem::transmute(pio), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6191,7 +5307,7 @@ pub unsafe fn WaitForThreadpoolTimerCallbacks<'a, Param1: ::windows::core::IntoP
         extern "system" {
             fn WaitForThreadpoolTimerCallbacks(pti: *mut TP_TIMER, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolTimerCallbacks(::core::mem::transmute(pti), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolTimerCallbacks(::core::mem::transmute(pti), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6205,7 +5321,7 @@ pub unsafe fn WaitForThreadpoolWaitCallbacks<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn WaitForThreadpoolWaitCallbacks(pwa: *mut TP_WAIT, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolWaitCallbacks(::core::mem::transmute(pwa), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolWaitCallbacks(::core::mem::transmute(pwa), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6219,7 +5335,7 @@ pub unsafe fn WaitForThreadpoolWorkCallbacks<'a, Param1: ::windows::core::IntoPa
         extern "system" {
             fn WaitForThreadpoolWorkCallbacks(pwk: *mut TP_WORK, fcancelpendingcallbacks: super::super::Foundation::BOOL);
         }
-        ::core::mem::transmute(WaitForThreadpoolWorkCallbacks(::core::mem::transmute(pwk), fcancelpendingcallbacks.into_param().abi()))
+        WaitForThreadpoolWorkCallbacks(::core::mem::transmute(pwk), fcancelpendingcallbacks.into_param().abi())
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6246,7 +5362,7 @@ pub unsafe fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VAR
         extern "system" {
             fn WakeAllConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
         }
-        ::core::mem::transmute(WakeAllConditionVariable(::core::mem::transmute(conditionvariable)))
+        WakeAllConditionVariable(::core::mem::transmute(conditionvariable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6259,7 +5375,7 @@ pub unsafe fn WakeByAddressAll(address: *const ::core::ffi::c_void) {
         extern "system" {
             fn WakeByAddressAll(address: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WakeByAddressAll(::core::mem::transmute(address)))
+        WakeByAddressAll(::core::mem::transmute(address))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6272,7 +5388,7 @@ pub unsafe fn WakeByAddressSingle(address: *const ::core::ffi::c_void) {
         extern "system" {
             fn WakeByAddressSingle(address: *const ::core::ffi::c_void);
         }
-        ::core::mem::transmute(WakeByAddressSingle(::core::mem::transmute(address)))
+        WakeByAddressSingle(::core::mem::transmute(address))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
@@ -6285,7 +5401,7 @@ pub unsafe fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIAB
         extern "system" {
             fn WakeConditionVariable(conditionvariable: *mut RTL_CONDITION_VARIABLE);
         }
-        ::core::mem::transmute(WakeConditionVariable(::core::mem::transmute(conditionvariable)))
+        WakeConditionVariable(::core::mem::transmute(conditionvariable))
     }
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");

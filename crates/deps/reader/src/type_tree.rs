@@ -1,6 +1,8 @@
 use super::*;
 pub use std::collections::BTreeMap;
 
+// TODO: remove all include/dependency tracking logic from reader
+
 #[derive(Copy, Clone, Eq, PartialEq, Ord, PartialOrd)]
 pub enum TypeInclude {
     Full,

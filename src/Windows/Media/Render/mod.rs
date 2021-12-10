@@ -1,29 +1,35 @@
-#![allow(unused_variables, non_upper_case_globals, non_snake_case, unused_unsafe, non_camel_case_types, dead_code, clippy::all)]
-#[derive(:: core :: cmp :: PartialEq, :: core :: cmp :: Eq, :: core :: marker :: Copy, :: core :: clone :: Clone, :: core :: default :: Default, :: core :: fmt :: Debug)]
+#![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(transparent)]
 pub struct AudioRenderCategory(pub i32);
 impl AudioRenderCategory {
-    pub const Other: AudioRenderCategory = AudioRenderCategory(0i32);
-    pub const ForegroundOnlyMedia: AudioRenderCategory = AudioRenderCategory(1i32);
-    pub const BackgroundCapableMedia: AudioRenderCategory = AudioRenderCategory(2i32);
-    pub const Communications: AudioRenderCategory = AudioRenderCategory(3i32);
-    pub const Alerts: AudioRenderCategory = AudioRenderCategory(4i32);
-    pub const SoundEffects: AudioRenderCategory = AudioRenderCategory(5i32);
-    pub const GameEffects: AudioRenderCategory = AudioRenderCategory(6i32);
-    pub const GameMedia: AudioRenderCategory = AudioRenderCategory(7i32);
-    pub const GameChat: AudioRenderCategory = AudioRenderCategory(8i32);
-    pub const Speech: AudioRenderCategory = AudioRenderCategory(9i32);
-    pub const Movie: AudioRenderCategory = AudioRenderCategory(10i32);
-    pub const Media: AudioRenderCategory = AudioRenderCategory(11i32);
+    pub const Other: Self = Self(0i32);
+    pub const ForegroundOnlyMedia: Self = Self(1i32);
+    pub const BackgroundCapableMedia: Self = Self(2i32);
+    pub const Communications: Self = Self(3i32);
+    pub const Alerts: Self = Self(4i32);
+    pub const SoundEffects: Self = Self(5i32);
+    pub const GameEffects: Self = Self(6i32);
+    pub const GameMedia: Self = Self(7i32);
+    pub const GameChat: Self = Self(8i32);
+    pub const Speech: Self = Self(9i32);
+    pub const Movie: Self = Self(10i32);
+    pub const Media: Self = Self(11i32);
 }
-impl ::core::convert::From<i32> for AudioRenderCategory {
-    fn from(value: i32) -> Self {
-        Self(value)
+impl ::core::marker::Copy for AudioRenderCategory {}
+impl ::core::clone::Clone for AudioRenderCategory {
+    fn clone(&self) -> Self {
+        *self
     }
 }
 unsafe impl ::windows::core::Abi for AudioRenderCategory {
     type Abi = Self;
 }
+impl ::core::cmp::PartialEq for AudioRenderCategory {
+    fn eq(&self, other: &Self) -> bool {
+        self.0 == other.0
+    }
+}
+impl ::core::cmp::Eq for AudioRenderCategory {}
 unsafe impl ::windows::core::RuntimeType for AudioRenderCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"enum(Windows.Media.Render.AudioRenderCategory;i4)");
 }
