@@ -2,27 +2,33 @@
 pub const ID_DOCUMENTPACKAGETARGET_MSXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cae40a8_ded1_41c9_a9fd_d735ef33aeda);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0056bb72_8c9c_4612_bd0f_93012a87099d);
 pub const ID_DOCUMENTPACKAGETARGET_OPENXPS_WITH_3D: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63dbd720_8b14_4577_b074_7bb11b596d28);
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentPackageStatusEvent(::windows::core::IUnknown);
 impl IPrintDocumentPackageStatusEvent {
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
     pub unsafe fn PackageStatusUpdated(&self, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(packagestatus)).ok()
     }
@@ -102,16 +108,20 @@ pub struct IPrintDocumentPackageStatusEventVtbl(
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, packagestatus: *const PrintDocumentPackageStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentPackageTarget(::windows::core::IUnknown);
 impl IPrintDocumentPackageTarget {
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
     pub unsafe fn GetPackageTargetTypes(&self, targetcount: *mut u32, targettypes: *mut *mut ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(targetcount), ::core::mem::transmute(targettypes)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
     pub unsafe fn GetPackageTarget<T: ::windows::core::Interface>(&self, guidtargettype: *const ::windows::core::GUID) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(guidtargettype), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
@@ -161,9 +171,11 @@ pub struct IPrintDocumentPackageTargetVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, guidtargettype: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppvtarget: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IPrintDocumentPackageTargetFactory(::windows::core::IUnknown);
 impl IPrintDocumentPackageTargetFactory {
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn CreateDocumentPackageTargetForPrintJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>, Param3: ::windows::core::IntoParam<'a, super::super::super::System::Com::IStream>>(&self, printername: Param0, jobname: Param1, joboutputstream: Param2, jobprintticketstream: Param3) -> ::windows::core::Result<IPrintDocumentPackageTarget> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -214,12 +226,15 @@ pub struct IPrintDocumentPackageTargetFactoryVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printername: super::super::super::Foundation::PWSTR, jobname: super::super::super::Foundation::PWSTR, joboutputstream: ::windows::core::RawPtr, jobprintticketstream: ::windows::core::RawPtr, docpackagetarget: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com")))] usize,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IXpsPrintJob(::windows::core::IUnknown);
 impl IXpsPrintJob {
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
     pub unsafe fn Cancel(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
     pub unsafe fn GetJobStatus(&self) -> ::windows::core::Result<XPS_JOB_STATUS> {
         let mut result__: XPS_JOB_STATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<XPS_JOB_STATUS>(result__)
@@ -269,18 +284,22 @@ pub struct IXpsPrintJobVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, jobstatus: *mut XPS_JOB_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 #[repr(transparent)]
 pub struct IXpsPrintJobStream(::windows::core::IUnknown);
 impl IXpsPrintJobStream {
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Read(&self, pv: *mut ::core::ffi::c_void, cb: u32, pcbread: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(pcbread)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn Write(&self, pv: *const ::core::ffi::c_void, cb: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pv), ::core::mem::transmute(cb), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
     pub unsafe fn Close(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
@@ -356,12 +375,18 @@ pub struct IXpsPrintJobStreamVtbl(
     #[cfg(not(feature = "Win32_System_Com"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub type PrintDocumentPackageCompletion = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_InProgress: PrintDocumentPackageCompletion = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_Completed: PrintDocumentPackageCompletion = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_Canceled: PrintDocumentPackageCompletion = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const PrintDocumentPackageCompletion_Failed: PrintDocumentPackageCompletion = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub struct PrintDocumentPackageStatus {
     pub JobId: u32,
     pub CurrentDocument: i32,
@@ -392,6 +417,7 @@ impl ::core::default::Default for PrintDocumentPackageStatus {
 }
 pub const PrintDocumentPackageTarget: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4842669e_9947_46ea_8ba2_d8cce432c2ca);
 pub const PrintDocumentPackageTargetFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x348ef17d_6c81_4982_92b4_ee188a43867a);
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(
@@ -417,6 +443,7 @@ pub unsafe fn StartXpsPrintJob<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::HANDLE>>(printername: Param0, jobname: Param1, outputfilename: Param2, progressevent: Param3, completionevent: Param4, xpsprintjob: *mut ::core::option::Option<IXpsPrintJob>, printcontentreceiver: *mut ::core::option::Option<super::IXpsOMPackageTarget>) -> ::windows::core::Result<()> {
@@ -431,12 +458,18 @@ pub unsafe fn StartXpsPrintJob1<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub type XPS_JOB_COMPLETION = i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_IN_PROGRESS: XPS_JOB_COMPLETION = 0i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_COMPLETED: XPS_JOB_COMPLETION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_CANCELLED: XPS_JOB_COMPLETION = 2i32;
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub const XPS_JOB_FAILED: XPS_JOB_COMPLETION = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_Xps_Printing'*"]
 pub struct XPS_JOB_STATUS {
     pub jobId: u32,
     pub currentDocument: i32,

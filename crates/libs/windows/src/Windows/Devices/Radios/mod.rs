@@ -49,9 +49,11 @@ pub struct IRadioStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct Radio(::windows::core::IUnknown);
 impl Radio {
+    #[doc = "*Required features: 'Devices_Radios', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetStateAsync(&self, value: RadioState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RadioAccessStatus>> {
         let this = self;
@@ -60,6 +62,7 @@ impl Radio {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<RadioAccessStatus>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Radios', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<Radio, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -68,11 +71,13 @@ impl Radio {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Radios', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStateChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Radios'*"]
     pub fn State(&self) -> ::windows::core::Result<RadioState> {
         let this = self;
         unsafe {
@@ -80,6 +85,7 @@ impl Radio {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadioState>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Radios'*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -87,6 +93,7 @@ impl Radio {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Radios'*"]
     pub fn Kind(&self) -> ::windows::core::Result<RadioKind> {
         let this = self;
         unsafe {
@@ -94,6 +101,7 @@ impl Radio {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RadioKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Radios', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetRadiosAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Radio>>> {
         Self::IRadioStatics(|this| unsafe {
@@ -101,12 +109,14 @@ impl Radio {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<Radio>>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Radios'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRadioStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Radios', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<Radio>> {
         Self::IRadioStatics(|this| unsafe {
@@ -114,6 +124,7 @@ impl Radio {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<Radio>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Radios', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<RadioAccessStatus>> {
         Self::IRadioStatics(|this| unsafe {
@@ -121,6 +132,7 @@ impl Radio {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<RadioAccessStatus>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRadioStatics<R, F: FnOnce(&IRadioStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<Radio, IRadioStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -189,6 +201,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Radi
 }
 unsafe impl ::core::marker::Send for Radio {}
 unsafe impl ::core::marker::Sync for Radio {}
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioAccessStatus(pub i32);
 impl RadioAccessStatus {
@@ -218,6 +231,7 @@ unsafe impl ::windows::core::RuntimeType for RadioAccessStatus {
 impl ::windows::core::DefaultType for RadioAccessStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioKind(pub i32);
 impl RadioKind {
@@ -248,6 +262,7 @@ unsafe impl ::windows::core::RuntimeType for RadioKind {
 impl ::windows::core::DefaultType for RadioKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Radios'*"]
 #[repr(transparent)]
 pub struct RadioState(pub i32);
 impl RadioState {

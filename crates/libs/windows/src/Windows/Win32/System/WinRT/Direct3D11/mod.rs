@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Direct3D11', 'Win32_Graphics_Dxgi'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGIDevice>>(dxgidevice: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -14,6 +15,7 @@ pub unsafe fn CreateDirect3D11DeviceFromDXGIDevice<'a, Param0: ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_WinRT_Direct3D11', 'Win32_Graphics_Dxgi'*"]
 #[cfg(feature = "Win32_Graphics_Dxgi")]
 #[inline]
 pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::Dxgi::IDXGISurface>>(dgxisurface: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
@@ -29,9 +31,11 @@ pub unsafe fn CreateDirect3D11SurfaceFromDXGISurface<'a, Param0: ::windows::core
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_System_WinRT_Direct3D11'*"]
 #[repr(transparent)]
 pub struct IDirect3DDxgiInterfaceAccess(::windows::core::IUnknown);
 impl IDirect3DDxgiInterfaceAccess {
+    #[doc = "*Required features: 'Win32_System_WinRT_Direct3D11'*"]
     pub unsafe fn GetInterface<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)

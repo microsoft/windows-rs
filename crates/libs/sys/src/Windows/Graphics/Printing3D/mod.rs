@@ -1,9 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type Print3DManager = *mut ::core::ffi::c_void;
 pub type Print3DTask = *mut ::core::ffi::c_void;
 pub type Print3DTaskCompletedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskCompletion(pub i32);
 impl Print3DTaskCompletion {
@@ -19,6 +18,7 @@ impl ::core::clone::Clone for Print3DTaskCompletion {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Print3DTaskDetail(pub i32);
 impl Print3DTaskDetail {
@@ -45,6 +45,7 @@ pub type Printing3D3MFPackage = *mut ::core::ffi::c_void;
 pub type Printing3DBaseMaterial = *mut ::core::ffi::c_void;
 pub type Printing3DBaseMaterialGroup = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 pub struct Printing3DBufferDescription {
     pub Format: Printing3DBufferFormat,
     pub Stride: u32,
@@ -55,6 +56,7 @@ impl ::core::clone::Clone for Printing3DBufferDescription {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DBufferFormat(pub i32);
 impl Printing3DBufferFormat {
@@ -81,6 +83,7 @@ pub type Printing3DCompositeMaterialGroup = *mut ::core::ffi::c_void;
 pub type Printing3DFaceReductionOptions = *mut ::core::ffi::c_void;
 pub type Printing3DMaterial = *mut ::core::ffi::c_void;
 pub type Printing3DMesh = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DMeshVerificationMode(pub i32);
 impl Printing3DMeshVerificationMode {
@@ -96,6 +99,7 @@ impl ::core::clone::Clone for Printing3DMeshVerificationMode {
 pub type Printing3DMeshVerificationResult = *mut ::core::ffi::c_void;
 pub type Printing3DModel = *mut ::core::ffi::c_void;
 pub type Printing3DModelTexture = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DModelUnit(pub i32);
 impl Printing3DModelUnit {
@@ -114,6 +118,7 @@ impl ::core::clone::Clone for Printing3DModelUnit {
 }
 pub type Printing3DMultiplePropertyMaterial = *mut ::core::ffi::c_void;
 pub type Printing3DMultiplePropertyMaterialGroup = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DObjectType(pub i32);
 impl Printing3DObjectType {
@@ -127,6 +132,7 @@ impl ::core::clone::Clone for Printing3DObjectType {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DPackageCompression(pub i32);
 impl Printing3DPackageCompression {
@@ -142,6 +148,7 @@ impl ::core::clone::Clone for Printing3DPackageCompression {
 }
 pub type Printing3DTexture2CoordMaterial = *mut ::core::ffi::c_void;
 pub type Printing3DTexture2CoordMaterialGroup = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Printing3D'*"]
 #[repr(transparent)]
 pub struct Printing3DTextureEdgeBehavior(pub i32);
 impl Printing3DTextureEdgeBehavior {

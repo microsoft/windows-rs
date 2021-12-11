@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Geolocation_Geofencing")]
 pub mod Geofencing;
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct AltitudeReferenceSystem(pub i32);
 impl AltitudeReferenceSystem {
@@ -19,6 +18,7 @@ impl ::core::clone::Clone for AltitudeReferenceSystem {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 pub struct BasicGeoposition {
     pub Latitude: f64,
     pub Longitude: f64,
@@ -35,6 +35,7 @@ pub type GeoboundingBox = *mut ::core::ffi::c_void;
 pub type Geocircle = *mut ::core::ffi::c_void;
 pub type Geocoordinate = *mut ::core::ffi::c_void;
 pub type GeocoordinateSatelliteData = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeolocationAccessStatus(pub i32);
 impl GeolocationAccessStatus {
@@ -52,6 +53,7 @@ pub type Geolocator = *mut ::core::ffi::c_void;
 pub type Geopath = *mut ::core::ffi::c_void;
 pub type Geopoint = *mut ::core::ffi::c_void;
 pub type Geoposition = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct GeoshapeType(pub i32);
 impl GeoshapeType {
@@ -71,6 +73,7 @@ pub type GeovisitMonitor = *mut ::core::ffi::c_void;
 pub type GeovisitStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type GeovisitTriggerDetails = *mut ::core::ffi::c_void;
 pub type IGeoshape = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct PositionAccuracy(pub i32);
 impl PositionAccuracy {
@@ -84,6 +87,7 @@ impl ::core::clone::Clone for PositionAccuracy {
     }
 }
 pub type PositionChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct PositionSource(pub i32);
 impl PositionSource {
@@ -101,6 +105,7 @@ impl ::core::clone::Clone for PositionSource {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct PositionStatus(pub i32);
 impl PositionStatus {
@@ -119,6 +124,7 @@ impl ::core::clone::Clone for PositionStatus {
 }
 pub type StatusChangedEventArgs = *mut ::core::ffi::c_void;
 pub type VenueData = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct VisitMonitoringScope(pub i32);
 impl VisitMonitoringScope {
@@ -131,6 +137,7 @@ impl ::core::clone::Clone for VisitMonitoringScope {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct VisitStateChange(pub i32);
 impl VisitStateChange {

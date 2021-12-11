@@ -7,14 +7,13 @@ pub mod Diagnostics;
 pub mod Metadata;
 #[cfg(feature = "Foundation_Numerics")]
 pub mod Numerics;
-#[link(name = "windows")]
-extern "system" {}
 pub type AsyncActionCompletedHandler = *mut ::core::ffi::c_void;
 pub type AsyncActionProgressHandler = *mut ::core::ffi::c_void;
 pub type AsyncActionWithProgressCompletedHandler = *mut ::core::ffi::c_void;
 pub type AsyncOperationCompletedHandler = *mut ::core::ffi::c_void;
 pub type AsyncOperationProgressHandler = *mut ::core::ffi::c_void;
 pub type AsyncOperationWithProgressCompletedHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct AsyncStatus(pub i32);
 impl AsyncStatus {
@@ -30,6 +29,7 @@ impl ::core::clone::Clone for AsyncStatus {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct DateTime {
     pub UniversalTime: i64,
 }
@@ -43,6 +43,7 @@ pub type Deferral = *mut ::core::ffi::c_void;
 pub type DeferralCompletedHandler = *mut ::core::ffi::c_void;
 pub type EventHandler = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct EventRegistrationToken {
     pub Value: i64,
 }
@@ -68,6 +69,7 @@ pub type IStringable = *mut ::core::ffi::c_void;
 pub type IWwwFormUrlDecoderEntry = *mut ::core::ffi::c_void;
 pub type MemoryBuffer = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct Point {
     pub X: f32,
     pub Y: f32,
@@ -78,6 +80,7 @@ impl ::core::clone::Clone for Point {
         *self
     }
 }
+#[doc = "*Required features: 'Foundation'*"]
 #[repr(transparent)]
 pub struct PropertyType(pub i32);
 impl PropertyType {
@@ -130,6 +133,7 @@ impl ::core::clone::Clone for PropertyType {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct Rect {
     pub X: f32,
     pub Y: f32,
@@ -143,6 +147,7 @@ impl ::core::clone::Clone for Rect {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct Size {
     pub Width: f32,
     pub Height: f32,
@@ -154,6 +159,7 @@ impl ::core::clone::Clone for Size {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Foundation'*"]
 pub struct TimeSpan {
     pub Duration: i64,
 }

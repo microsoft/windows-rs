@@ -133,9 +133,11 @@ pub struct IPdfPageRenderOptionsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::GUID) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfDocument(::windows::core::IUnknown);
 impl PdfDocument {
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn GetPage(&self, pageindex: u32) -> ::windows::core::Result<PdfPage> {
         let this = self;
         unsafe {
@@ -143,6 +145,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pageindex, &mut result__).from_abi::<PdfPage>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn PageCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -150,6 +153,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn IsPasswordProtected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -157,6 +161,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>> {
         Self::IPdfDocumentStatics(|this| unsafe {
@@ -164,6 +169,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFromFileWithPasswordAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(file: Param0, password: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>> {
         Self::IPdfDocumentStatics(|this| unsafe {
@@ -171,6 +177,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), file.into_param().abi(), password.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(inputstream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>> {
         Self::IPdfDocumentStatics(|this| unsafe {
@@ -178,6 +185,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), inputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn LoadFromStreamWithPasswordAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(inputstream: Param0, password: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PdfDocument>> {
         Self::IPdfDocumentStatics(|this| unsafe {
@@ -185,6 +193,7 @@ impl PdfDocument {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), inputstream.into_param().abi(), password.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PdfDocument>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPdfDocumentStatics<R, F: FnOnce(&IPdfDocumentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PdfDocument, IPdfDocumentStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -253,14 +262,17 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfD
 }
 unsafe impl ::core::marker::Send for PdfDocument {}
 unsafe impl ::core::marker::Sync for PdfDocument {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPage(::windows::core::IUnknown);
 impl PdfPage {
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RenderToStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>>(&self, outputstream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -269,6 +281,7 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RenderWithOptionsToStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IRandomAccessStream>, Param1: ::windows::core::IntoParam<'a, PdfPageRenderOptions>>(&self, outputstream: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -277,6 +290,7 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), outputstream.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PreparePageAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -285,6 +299,7 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn Index(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -292,6 +307,7 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -300,6 +316,7 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn Dimensions(&self) -> ::windows::core::Result<PdfPageDimensions> {
         let this = self;
         unsafe {
@@ -307,6 +324,7 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PdfPageDimensions>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn Rotation(&self) -> ::windows::core::Result<PdfPageRotation> {
         let this = self;
         unsafe {
@@ -314,6 +332,7 @@ impl PdfPage {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PdfPageRotation>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn PreferredZoom(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -411,9 +430,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for PdfPage {}
 unsafe impl ::core::marker::Sync for PdfPage {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPageDimensions(::windows::core::IUnknown);
 impl PdfPageDimensions {
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn MediaBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -422,6 +443,7 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CropBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -430,6 +452,7 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BleedBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -438,6 +461,7 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TrimBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -446,6 +470,7 @@ impl PdfPageDimensions {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ArtBox(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -518,6 +543,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfP
 }
 unsafe impl ::core::marker::Send for PdfPageDimensions {}
 unsafe impl ::core::marker::Sync for PdfPageDimensions {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPageRenderOptions(::windows::core::IUnknown);
 impl PdfPageRenderOptions {
@@ -528,6 +554,7 @@ impl PdfPageRenderOptions {
         static mut SHARED: ::windows::core::FactoryCache<PdfPageRenderOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SourceRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -536,11 +563,13 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSourceRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn DestinationWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -548,10 +577,12 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn SetDestinationWidth(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn DestinationHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -559,10 +590,12 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn SetDestinationHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'UI'*"]
     #[cfg(feature = "UI")]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::UI::Color> {
         let this = self;
@@ -571,11 +604,13 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Color>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf', 'UI'*"]
     #[cfg(feature = "UI")]
     pub fn SetBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Color>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn IsIgnoringHighContrast(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -583,10 +618,12 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn SetIsIgnoringHighContrast(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn BitmapEncoderId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -594,6 +631,7 @@ impl PdfPageRenderOptions {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Pdf'*"]
     pub fn SetBitmapEncoderId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -662,6 +700,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PdfP
 }
 unsafe impl ::core::marker::Send for PdfPageRenderOptions {}
 unsafe impl ::core::marker::Sync for PdfPageRenderOptions {}
+#[doc = "*Required features: 'Data_Pdf'*"]
 #[repr(transparent)]
 pub struct PdfPageRotation(pub i32);
 impl PdfPageRotation {

@@ -1,12 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "System_Threading_Core")]
 pub mod Core;
-#[link(name = "windows")]
-extern "system" {}
 pub type ThreadPoolTimer = *mut ::core::ffi::c_void;
 pub type TimerDestroyedHandler = *mut ::core::ffi::c_void;
 pub type TimerElapsedHandler = *mut ::core::ffi::c_void;
 pub type WorkItemHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct WorkItemOptions(pub u32);
 impl WorkItemOptions {
@@ -19,6 +18,7 @@ impl ::core::clone::Clone for WorkItemOptions {
         *self
     }
 }
+#[doc = "*Required features: 'System_Threading'*"]
 #[repr(transparent)]
 pub struct WorkItemPriority(pub i32);
 impl WorkItemPriority {

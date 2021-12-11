@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type DnssdRegistrationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
 pub struct DnssdRegistrationStatus(pub i32);
 impl DnssdRegistrationStatus {
@@ -19,6 +18,7 @@ impl ::core::clone::Clone for DnssdRegistrationStatus {
 pub type DnssdServiceInstance = *mut ::core::ffi::c_void;
 pub type DnssdServiceInstanceCollection = *mut ::core::ffi::c_void;
 pub type DnssdServiceWatcher = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_ServiceDiscovery_Dnssd'*"]
 #[repr(transparent)]
 pub struct DnssdServiceWatcherStatus(pub i32);
 impl DnssdServiceWatcherStatus {

@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneAlphaMode(pub i32);
 impl SceneAlphaMode {
@@ -14,6 +13,7 @@ impl ::core::clone::Clone for SceneAlphaMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneAttributeSemantic(pub i32);
 impl SceneAttributeSemantic {
@@ -34,6 +34,7 @@ impl ::core::clone::Clone for SceneAttributeSemantic {
 pub type SceneBoundingBox = *mut ::core::ffi::c_void;
 pub type SceneComponent = *mut ::core::ffi::c_void;
 pub type SceneComponentCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneComponentType(pub i32);
 impl SceneComponentType {
@@ -59,6 +60,7 @@ pub type ScenePbrMaterial = *mut ::core::ffi::c_void;
 pub type SceneRendererComponent = *mut ::core::ffi::c_void;
 pub type SceneSurfaceMaterialInput = *mut ::core::ffi::c_void;
 pub type SceneVisual = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Composition_Scenes'*"]
 #[repr(transparent)]
 pub struct SceneWrappingMode(pub i32);
 impl SceneWrappingMode {

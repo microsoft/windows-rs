@@ -121,6 +121,7 @@ pub struct IPhoneNewVoicemailMessageTriggerDetailsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
@@ -149,9 +150,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneCallBlockedReason {
 impl ::windows::core::DefaultType for PhoneCallBlockedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneCallBlockedTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallBlockedTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -159,6 +162,7 @@ impl PhoneCallBlockedTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -166,6 +170,7 @@ impl PhoneCallBlockedTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn CallBlockedReason(&self) -> ::windows::core::Result<PhoneCallBlockedReason> {
         let this = self;
         unsafe {
@@ -237,9 +242,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallBlockedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallBlockedTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneCallOriginDataRequestTriggerDetails(::windows::core::IUnknown);
 impl PhoneCallOriginDataRequestTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn RequestId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -247,6 +254,7 @@ impl PhoneCallOriginDataRequestTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -318,6 +326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneCallOriginDataRequestTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneCallOriginDataRequestTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 impl PhoneIncomingCallDismissedReason {
@@ -347,9 +356,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneIncomingCallDismissedReason {
 impl ::windows::core::DefaultType for PhoneIncomingCallDismissedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedTriggerDetails(::windows::core::IUnknown);
 impl PhoneIncomingCallDismissedTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -357,6 +368,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn PhoneNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -364,6 +376,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -371,6 +384,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DismissalTime(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -379,6 +393,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn TextReplyMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -386,6 +401,7 @@ impl PhoneIncomingCallDismissedTriggerDetails {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn Reason(&self) -> ::windows::core::Result<PhoneIncomingCallDismissedReason> {
         let this = self;
         unsafe {
@@ -457,9 +473,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneIncomingCallDismissedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallDismissedTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneIncomingCallNotificationTriggerDetails(::windows::core::IUnknown);
 impl PhoneIncomingCallNotificationTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -467,6 +485,7 @@ impl PhoneIncomingCallNotificationTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn CallId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -538,6 +557,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneIncomingCallNotificationTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneIncomingCallNotificationTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
@@ -566,9 +586,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineChangeKind {
 impl ::windows::core::DefaultType for PhoneLineChangeKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneLineChangedTriggerDetails(::windows::core::IUnknown);
 impl PhoneLineChangedTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -576,6 +598,7 @@ impl PhoneLineChangedTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn ChangeType(&self) -> ::windows::core::Result<PhoneLineChangeKind> {
         let this = self;
         unsafe {
@@ -583,6 +606,7 @@ impl PhoneLineChangedTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhoneLineChangeKind>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn HasLinePropertyChanged(&self, lineproperty: PhoneLineProperties) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -654,6 +678,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneLineChangedTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneLineChangedTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
@@ -689,9 +714,11 @@ unsafe impl ::windows::core::RuntimeType for PhoneLineProperties {
 impl ::windows::core::DefaultType for PhoneLineProperties {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneNewVoicemailMessageTriggerDetails(::windows::core::IUnknown);
 impl PhoneNewVoicemailMessageTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn LineId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -699,6 +726,7 @@ impl PhoneNewVoicemailMessageTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn VoicemailCount(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -706,6 +734,7 @@ impl PhoneNewVoicemailMessageTriggerDetails {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
     pub fn OperatorMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -777,6 +806,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Phon
 }
 unsafe impl ::core::marker::Send for PhoneNewVoicemailMessageTriggerDetails {}
 unsafe impl ::core::marker::Sync for PhoneNewVoicemailMessageTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {

@@ -120,7 +120,7 @@ fn namespace_iter(tree: &TypeTree, redirect: bool) -> impl Iterator<Item = Token
 
 fn gen_namespaces<'a>(namespaces: &'a BTreeMap<&'static str, TypeTree>, redirect: bool) -> impl Iterator<Item = TokenStream> + 'a {
     namespaces.iter().map(move |(name, tree)| {
-        if tree.include && (!redirect || redirect && !tree.namespace.starts_with("Windows.") && tree.namespace != "Windows") {
+        if tree.include && !redirect || !tree.namespace.starts_with("Windows.") && tree.namespace != "Windows" {
             // TODO: https://github.com/microsoft/windows-rs/issues/212
             // TODO: https://github.com/microsoft/win32metadata/issues/380
 

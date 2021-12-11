@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type Certificate = *mut ::core::ffi::c_void;
 pub type CertificateChain = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct CertificateChainPolicy(pub i32);
 impl CertificateChainPolicy {
@@ -24,6 +23,7 @@ pub type CertificateRequestProperties = *mut ::core::ffi::c_void;
 pub type CertificateStore = *mut ::core::ffi::c_void;
 pub type ChainBuildingParameters = *mut ::core::ffi::c_void;
 pub type ChainValidationParameters = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct ChainValidationResult(pub i32);
 impl ChainValidationResult {
@@ -52,6 +52,7 @@ pub type CmsAttachedSignature = *mut ::core::ffi::c_void;
 pub type CmsDetachedSignature = *mut ::core::ffi::c_void;
 pub type CmsSignerInfo = *mut ::core::ffi::c_void;
 pub type CmsTimestampInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct EnrollKeyUsages(pub u32);
 impl EnrollKeyUsages {
@@ -67,6 +68,7 @@ impl ::core::clone::Clone for EnrollKeyUsages {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct ExportOption(pub i32);
 impl ExportOption {
@@ -79,6 +81,7 @@ impl ::core::clone::Clone for ExportOption {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct InstallOptions(pub u32);
 impl InstallOptions {
@@ -91,6 +94,7 @@ impl ::core::clone::Clone for InstallOptions {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct KeyProtectionLevel(pub i32);
 impl KeyProtectionLevel {
@@ -105,6 +109,7 @@ impl ::core::clone::Clone for KeyProtectionLevel {
         *self
     }
 }
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct KeySize(pub i32);
 impl KeySize {
@@ -119,6 +124,7 @@ impl ::core::clone::Clone for KeySize {
     }
 }
 pub type PfxImportParameters = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Cryptography_Certificates'*"]
 #[repr(transparent)]
 pub struct SignatureValidationResult(pub i32);
 impl SignatureValidationResult {

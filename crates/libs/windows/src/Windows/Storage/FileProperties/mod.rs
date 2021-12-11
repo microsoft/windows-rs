@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct BasicProperties(::windows::core::IUnknown);
 impl BasicProperties {
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Size(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -9,6 +11,7 @@ impl BasicProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DateModified(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -17,6 +20,7 @@ impl BasicProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ItemDate(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -25,6 +29,7 @@ impl BasicProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -33,6 +38,7 @@ impl BasicProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -41,6 +47,7 @@ impl BasicProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), propertiestosave.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -133,9 +140,11 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &BasicP
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct DocumentProperties(::windows::core::IUnknown);
 impl DocumentProperties {
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Author(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -144,6 +153,7 @@ impl DocumentProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -151,10 +161,12 @@ impl DocumentProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -163,6 +175,7 @@ impl DocumentProperties {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Comment(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -170,10 +183,12 @@ impl DocumentProperties {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetComment<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -182,6 +197,7 @@ impl DocumentProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -190,6 +206,7 @@ impl DocumentProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), propertiestosave.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -282,8 +299,10 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &Docume
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 pub struct GeotagHelper {}
 impl GeotagHelper {
+    #[doc = "*Required features: 'Storage_FileProperties', 'Devices_Geolocation', 'Foundation'*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn GetGeotagAsync<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>> {
         Self::IGeotagHelperStatics(|this| unsafe {
@@ -291,6 +310,7 @@ impl GeotagHelper {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Devices::Geolocation::Geopoint>>(result__)
         })
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Devices_Geolocation', 'Foundation'*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn SetGeotagFromGeolocatorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geolocator>>(file: Param0, geolocator: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IGeotagHelperStatics(|this| unsafe {
@@ -298,6 +318,7 @@ impl GeotagHelper {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), file.into_param().abi(), geolocator.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Devices_Geolocation', 'Foundation'*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn SetGeotagAsync<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Devices::Geolocation::Geopoint>>(file: Param0, geopoint: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IGeotagHelperStatics(|this| unsafe {
@@ -305,6 +326,7 @@ impl GeotagHelper {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), file.into_param().abi(), geopoint.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGeotagHelperStatics<R, F: FnOnce(&IGeotagHelperStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GeotagHelper, IGeotagHelperStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -496,9 +518,11 @@ pub struct IStorageItemContentPropertiesVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct IStorageItemExtraProperties(::windows::core::IUnknown);
 impl IStorageItemExtraProperties {
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = self;
@@ -507,6 +531,7 @@ impl IStorageItemExtraProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -515,6 +540,7 @@ impl IStorageItemExtraProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), propertiestosave.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -664,9 +690,11 @@ pub struct IVideoPropertiesVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut VideoOrientation) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ImageProperties(::windows::core::IUnknown);
 impl ImageProperties {
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Rating(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -674,10 +702,12 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetRating(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -686,6 +716,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DateTaken(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -694,11 +725,13 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDateTaken<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -706,6 +739,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -713,6 +747,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -720,10 +755,12 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Latitude(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -732,6 +769,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Longitude(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -740,6 +778,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn CameraManufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -747,10 +786,12 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetCameraManufacturer<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn CameraModel(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -758,10 +799,12 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetCameraModel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Orientation(&self) -> ::windows::core::Result<PhotoOrientation> {
         let this = self;
         unsafe {
@@ -769,6 +812,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PhotoOrientation>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn PeopleNames(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -777,6 +821,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -785,6 +830,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -793,6 +839,7 @@ impl ImageProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), propertiestosave.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -885,9 +932,11 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &ImageP
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct MusicProperties(::windows::core::IUnknown);
 impl MusicProperties {
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Album(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -895,10 +944,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetAlbum<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Artist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -906,10 +957,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetArtist<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Genre(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -918,6 +971,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn TrackNumber(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -925,10 +979,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetTrackNumber(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -936,10 +992,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Rating(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -947,10 +1005,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetRating(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -959,6 +1019,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Bitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -966,6 +1027,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn AlbumArtist(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -973,10 +1035,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetAlbumArtist<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Composers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -985,6 +1049,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Conductors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -993,6 +1058,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1000,10 +1066,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetSubtitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Producers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1012,6 +1080,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1019,10 +1088,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetPublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Writers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1031,6 +1102,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Year(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1038,10 +1110,12 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetYear(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1050,6 +1124,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1058,6 +1133,7 @@ impl MusicProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), propertiestosave.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1150,6 +1226,7 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &MusicP
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
@@ -1184,6 +1261,7 @@ unsafe impl ::windows::core::RuntimeType for PhotoOrientation {
 impl ::windows::core::DefaultType for PhotoOrientation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
@@ -1215,9 +1293,11 @@ unsafe impl ::windows::core::RuntimeType for PropertyPrefetchOptions {
 impl ::windows::core::DefaultType for PropertyPrefetchOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct StorageItemContentProperties(::windows::core::IUnknown);
 impl StorageItemContentProperties {
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetMusicPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MusicProperties>> {
         let this = self;
@@ -1226,6 +1306,7 @@ impl StorageItemContentProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MusicProperties>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetVideoPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<VideoProperties>> {
         let this = self;
@@ -1234,6 +1315,7 @@ impl StorageItemContentProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<VideoProperties>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetImagePropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ImageProperties>> {
         let this = self;
@@ -1242,6 +1324,7 @@ impl StorageItemContentProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ImageProperties>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDocumentPropertiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DocumentProperties>> {
         let this = self;
@@ -1250,6 +1333,7 @@ impl StorageItemContentProperties {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DocumentProperties>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1258,6 +1342,7 @@ impl StorageItemContentProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1266,6 +1351,7 @@ impl StorageItemContentProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), propertiestosave.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1358,16 +1444,19 @@ impl<'a> ::windows::core::IntoParam<'a, IStorageItemExtraProperties> for &Storag
         ::core::convert::TryInto::<IStorageItemExtraProperties>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
 #[cfg(feature = "Storage_Streams")]
 #[repr(transparent)]
 pub struct StorageItemThumbnail(::windows::core::IUnknown);
 #[cfg(feature = "Storage_Streams")]
 impl StorageItemThumbnail {
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ContentType(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<super::Streams::IContentTypeProvider>(self)?;
@@ -1376,6 +1465,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ReadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0, count: u32, options: super::Streams::InputStreamOptions) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>> {
         let this = &::windows::core::Interface::cast::<super::Streams::IInputStream>(self)?;
@@ -1384,6 +1474,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), count, options, &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<super::Streams::IBuffer, u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn WriteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IBuffer>>(&self, buffer: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>> {
         let this = &::windows::core::Interface::cast::<super::Streams::IOutputStream>(self)?;
@@ -1392,6 +1483,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), buffer.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<u32, u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn FlushAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<super::Streams::IOutputStream>(self)?;
@@ -1400,6 +1492,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Size(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
@@ -1408,11 +1501,13 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSize(&self, value: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetInputStreamAt(&self, position: u64) -> ::windows::core::Result<super::Streams::IInputStream> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
@@ -1421,6 +1516,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::Streams::IInputStream>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetOutputStreamAt(&self, position: u64) -> ::windows::core::Result<super::Streams::IOutputStream> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
@@ -1429,6 +1525,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::Streams::IOutputStream>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Position(&self) -> ::windows::core::Result<u64> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
@@ -1437,11 +1534,13 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Seek(&self, position: u64) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), position).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CloneStream(&self) -> ::windows::core::Result<super::Streams::IRandomAccessStream> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
@@ -1450,6 +1549,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IRandomAccessStream>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanRead(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
@@ -1458,6 +1558,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CanWrite(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<super::Streams::IRandomAccessStream>(self)?;
@@ -1466,6 +1567,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn OriginalWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1473,6 +1575,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn OriginalHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1480,6 +1583,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn ReturnedSmallerCachedSize(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1487,6 +1591,7 @@ impl StorageItemThumbnail {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Type(&self) -> ::windows::core::Result<ThumbnailType> {
         let this = &::windows::core::Interface::cast::<IThumbnailProperties>(self)?;
         unsafe {
@@ -1570,37 +1675,32 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: StorageItemThumbnail) -> ::windows::core::Result<Self> {
         ::core::convert::TryFrom::try_from(&value)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::super::Foundation::IClosable {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
         ::windows::core::Interface::cast(value)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
-#[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Foundation")]
+#[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
 impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::super::Foundation::IClosable> {
         ::core::convert::TryInto::<super::super::Foundation::IClosable>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IContentTypeProvider {
     type Error = ::windows::core::Error;
@@ -1609,7 +1709,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IContent
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IContentTypeProvider {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1617,20 +1716,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IConten
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IContentTypeProvider> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IContentTypeProvider> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IContentTypeProvider> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IContentTypeProvider> {
         ::core::convert::TryInto::<super::Streams::IContentTypeProvider>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IInputStream {
     type Error = ::windows::core::Error;
@@ -1639,7 +1735,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IInputSt
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IInputStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1647,20 +1742,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IInputS
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IInputStream> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IInputStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IInputStream> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IInputStream> {
         ::core::convert::TryInto::<super::Streams::IInputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IOutputStream {
     type Error = ::windows::core::Error;
@@ -1669,7 +1761,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IOutputS
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IOutputStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1677,20 +1768,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IOutput
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IOutputStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IOutputStream> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IOutputStream> {
         ::core::convert::TryInto::<super::Streams::IOutputStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomAccessStream {
     type Error = ::windows::core::Error;
@@ -1699,7 +1787,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomA
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandomAccessStream {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1707,20 +1794,17 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandom
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStream> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStream> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStream> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStream> {
         ::core::convert::TryInto::<super::Streams::IRandomAccessStream>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
-#[cfg(feature = "Storage_Streams")]
 #[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::core::Error;
@@ -1729,7 +1813,6 @@ impl ::core::convert::TryFrom<StorageItemThumbnail> for super::Streams::IRandomA
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandomAccessStreamWithContentType {
     type Error = ::windows::core::Error;
     fn try_from(value: &StorageItemThumbnail) -> ::windows::core::Result<Self> {
@@ -1737,19 +1820,18 @@ impl ::core::convert::TryFrom<&StorageItemThumbnail> for super::Streams::IRandom
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStreamWithContentType> for StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStreamWithContentType> {
         ::windows::core::IntoParam::into_param(&self)
     }
 }
 #[cfg(feature = "Storage_Streams")]
-#[cfg(feature = "Storage_Streams")]
 impl<'a> ::windows::core::IntoParam<'a, super::Streams::IRandomAccessStreamWithContentType> for &StorageItemThumbnail {
     fn into_param(self) -> ::windows::core::Param<'a, super::Streams::IRandomAccessStreamWithContentType> {
         ::core::convert::TryInto::<super::Streams::IRandomAccessStreamWithContentType>::try_into(self).map(::windows::core::Param::Owned).unwrap_or(::windows::core::Param::None)
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
@@ -1781,6 +1863,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailMode {
 impl ::windows::core::DefaultType for ThumbnailMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
@@ -1810,6 +1893,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailOptions {
 impl ::windows::core::DefaultType for ThumbnailOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
@@ -1837,6 +1921,7 @@ unsafe impl ::windows::core::RuntimeType for ThumbnailType {
 impl ::windows::core::DefaultType for ThumbnailType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {
@@ -1866,9 +1951,11 @@ unsafe impl ::windows::core::RuntimeType for VideoOrientation {
 impl ::windows::core::DefaultType for VideoOrientation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct VideoProperties(::windows::core::IUnknown);
 impl VideoProperties {
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn RetrievePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, propertiestoretrieve: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1877,6 +1964,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), propertiestoretrieve.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IMap<::windows::core::HSTRING, ::windows::core::IInspectable>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SavePropertiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::IInspectable>>>>(&self, propertiestosave: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1885,6 +1973,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), propertiestosave.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SavePropertiesAsyncOverloadDefault(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IStorageItemExtraProperties>(self)?;
@@ -1893,6 +1982,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Rating(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1900,10 +1990,12 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetRating(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Keywords(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1912,6 +2004,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1919,6 +2012,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1926,6 +2020,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Duration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1934,6 +2029,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Latitude(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1942,6 +2038,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Longitude(&self) -> ::windows::core::Result<super::super::Foundation::IReference<f64>> {
         let this = self;
@@ -1950,6 +2047,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<f64>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1957,10 +2055,12 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Subtitle(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1968,10 +2068,12 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetSubtitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Producers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1980,6 +2082,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Publisher(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1987,10 +2090,12 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetPublisher<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Writers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -1999,6 +2104,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Year(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2006,10 +2112,12 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn SetYear(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Bitrate(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2017,6 +2125,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Directors(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>> {
         let this = self;
@@ -2025,6 +2134,7 @@ impl VideoProperties {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_FileProperties'*"]
     pub fn Orientation(&self) -> ::windows::core::Result<VideoOrientation> {
         let this = self;
         unsafe {

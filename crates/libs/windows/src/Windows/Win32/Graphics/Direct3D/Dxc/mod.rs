@@ -10,25 +10,44 @@ pub const CLSID_DxcLinker: ::windows::core::GUID = ::windows::core::GUID::from_u
 pub const CLSID_DxcOptimizer: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2cd79f_cc22_453f_9b6b_b124e7a5204c);
 pub const CLSID_DxcPdbUtils: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54621dfb_f2ce_457e_ae8c_ec355faeec7c);
 pub const CLSID_DxcValidator: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ca3e215_f728_4cf3_8cdd_88af917587a1);
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub type DXC_CP = u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_CP_ACP: DXC_CP = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_CP_UTF16: DXC_CP = 1200u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_CP_UTF8: DXC_CP = 65001u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_HASHFLAG_INCLUDES_SOURCE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub type DXC_OUT_KIND = i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_NONE: DXC_OUT_KIND = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_OBJECT: DXC_OUT_KIND = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_ERRORS: DXC_OUT_KIND = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_PDB: DXC_OUT_KIND = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_SHADER_HASH: DXC_OUT_KIND = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_DISASSEMBLY: DXC_OUT_KIND = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_HLSL: DXC_OUT_KIND = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_TEXT: DXC_OUT_KIND = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_REFLECTION: DXC_OUT_KIND = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_ROOT_SIGNATURE: DXC_OUT_KIND = 9i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_EXTRA_OUTPUTS: DXC_OUT_KIND = 10i32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DXC_OUT_FORCE_DWORD: DXC_OUT_KIND = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DxcArgPair {
     pub pName: super::super::super::Foundation::PWSTR,
@@ -61,6 +80,7 @@ impl ::core::default::Default for DxcArgPair {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub struct DxcBuffer {
     pub Ptr: *mut ::core::ffi::c_void,
     pub Size: usize,
@@ -86,6 +106,7 @@ impl ::core::default::Default for DxcBuffer {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[inline]
 pub unsafe fn DxcCreateInstance(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -99,6 +120,7 @@ pub unsafe fn DxcCreateInstance(rclsid: *const ::windows::core::GUID, riid: *con
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 #[inline]
 pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(pmalloc: Param0, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -113,10 +135,13 @@ pub unsafe fn DxcCreateInstance2<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
 #[cfg(feature = "Win32_System_Com")]
 pub type DxcCreateInstance2Proc = ::core::option::Option<unsafe extern "system" fn(pmalloc: ::core::option::Option<super::super::super::System::Com::IMalloc>, rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub type DxcCreateInstanceProc = ::core::option::Option<unsafe extern "system" fn(rclsid: *const ::windows::core::GUID, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DxcDefine {
     pub Name: super::super::super::Foundation::PWSTR,
@@ -149,6 +174,7 @@ impl ::core::default::Default for DxcDefine {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub struct DxcShaderHash {
     pub Flags: u32,
     pub HashDigest: [u8; 16],
@@ -173,17 +199,27 @@ impl ::core::default::Default for DxcShaderHash {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_Default: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_InPlaceEdit: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_ModuleOnly: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_RootSignatureOnly: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcValidatorFlags_ValidMask: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcVersionInfoFlags_Debug: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcVersionInfoFlags_Internal: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 pub const DxcVersionInfoFlags_None: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcAssembler(::windows::core::IUnknown);
 impl IDxcAssembler {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn AssembleToContainer<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pshader.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
@@ -227,12 +263,15 @@ unsafe impl ::windows::core::Interface for IDxcAssembler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcAssemblerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcBlob(::windows::core::IUnknown);
 impl IDxcBlob {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
@@ -275,15 +314,19 @@ unsafe impl ::windows::core::Interface for IDxcBlob {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcBlobVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize);
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcBlobEncoding(::windows::core::IUnknown);
 impl IDxcBlobEncoding {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pknown), ::core::mem::transmute(pcodepage)).ok()
@@ -355,23 +398,29 @@ pub struct IDxcBlobEncodingVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcBlobUtf16(::windows::core::IUnknown);
 impl IDxcBlobUtf16 {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pknown), ::core::mem::transmute(pcodepage)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStringPointer(&self) -> super::super::super::Foundation::PWSTR {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetStringLength(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
     }
@@ -465,23 +514,29 @@ pub struct IDxcBlobUtf16Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcBlobUtf8(::windows::core::IUnknown);
 impl IDxcBlobUtf8 {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferPointer(&self) -> *mut ::core::ffi::c_void {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBufferSize(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEncoding(&self, pknown: *mut super::super::super::Foundation::BOOL, pcodepage: *mut DXC_CP) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pknown), ::core::mem::transmute(pcodepage)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStringPointer(&self) -> super::super::super::Foundation::PSTR {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetStringLength(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
     }
@@ -575,19 +630,23 @@ pub struct IDxcBlobUtf8Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcCompiler(::windows::core::IUnknown);
 impl IDxcCompiler {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compile<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, pentrypoint: Param2, ptargetprofile: Param3, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param8) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), pincludehandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Preprocess<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param6) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), pincludehandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Disassemble<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, psource: Param0) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), psource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
@@ -640,23 +699,28 @@ pub struct IDxcCompilerVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psource: ::windows::core::RawPtr, ppdisassembly: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcCompiler2(::windows::core::IUnknown);
 impl IDxcCompiler2 {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compile<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, pentrypoint: Param2, ptargetprofile: Param3, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param8) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), pincludehandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Preprocess<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: Param0, psourcename: Param1, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: Param6) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), psource.into_param().abi(), psourcename.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), pincludehandler.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Disassemble<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, psource: Param0) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), psource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CompileWithDebug<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(
         &self,
@@ -745,13 +809,16 @@ pub struct IDxcCompiler2Vtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, psource: ::windows::core::RawPtr, psourcename: super::super::super::Foundation::PWSTR, pentrypoint: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32, pincludehandler: ::windows::core::RawPtr, ppresult: *mut ::windows::core::RawPtr, ppdebugblobname: *mut super::super::super::Foundation::PWSTR, ppdebugblob: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcCompiler3(::windows::core::IUnknown);
 impl IDxcCompiler3 {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Compile<'a, Param3: ::windows::core::IntoParam<'a, IDxcIncludeHandler>>(&self, psource: *const DxcBuffer, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pincludehandler: Param3, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(psource), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), pincludehandler.into_param().abi(), ::core::mem::transmute(riid), ::core::mem::transmute(ppresult)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Disassemble(&self, pobject: *const DxcBuffer, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pobject), ::core::mem::transmute(riid), ::core::mem::transmute(ppresult)).ok()
     }
@@ -801,24 +868,30 @@ pub struct IDxcCompiler3Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pobject: *const DxcBuffer, riid: *const ::windows::core::GUID, ppresult: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcCompilerArgs(::windows::core::IUnknown);
 impl IDxcCompilerArgs {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetArguments(&self) -> *mut super::super::super::Foundation::PWSTR {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetCount(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddArguments(&self, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddArgumentsUTF8(&self, parguments: *const super::super::super::Foundation::PSTR, argcount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddDefines(&self, pdefines: *const DxcDefine, definecount: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount)).ok()
@@ -875,18 +948,23 @@ pub struct IDxcCompilerArgsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdefines: *const DxcDefine, definecount: u32) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcContainerBuilder(::windows::core::IUnknown);
 impl IDxcContainerBuilder {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pdxilcontainerheader: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pdxilcontainerheader.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn AddPart<'a, Param1: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, fourcc: u32, psource: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(fourcc), psource.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn RemovePart(&self, fourcc: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(fourcc)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn SerializeContainer(&self) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
@@ -938,28 +1016,35 @@ pub struct IDxcContainerBuilderVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, fourcc: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcContainerReflection(::windows::core::IUnknown);
 impl IDxcContainerReflection {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pcontainer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pcontainer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetPartCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetPartKind(&self, idx: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(idx), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetPartContent(&self, idx: u32) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(idx), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn FindFirstPartKind(&self, kind: u32) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(kind), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetPartReflection(&self, idx: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(idx), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject)).ok()
     }
@@ -1012,12 +1097,15 @@ pub struct IDxcContainerReflectionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: u32, presult: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, idx: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcExtraOutputs(::windows::core::IUnknown);
 impl IDxcExtraOutputs {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetOutputCount(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetOutput(&self, uindex: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, ppoutputtype: *mut ::core::option::Option<IDxcBlobUtf16>, ppoutputname: *mut ::core::option::Option<IDxcBlobUtf16>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject), ::core::mem::transmute(ppoutputtype), ::core::mem::transmute(ppoutputname)).ok()
     }
@@ -1066,9 +1154,11 @@ pub struct IDxcExtraOutputsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, uindex: u32, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, ppoutputtype: *mut ::windows::core::RawPtr, ppoutputname: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcIncludeHandler(::windows::core::IUnknown);
 impl IDxcIncludeHandler {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pfilename: Param0) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1119,48 +1209,59 @@ pub struct IDxcIncludeHandlerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pfilename: super::super::super::Foundation::PWSTR, ppincludesource: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcLibrary(::windows::core::IUnknown);
 impl IDxcLibrary {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn SetMalloc<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(&self, pmalloc: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pmalloc.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateBlobFromBlob<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(length), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateBlobFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pfilename: Param0, codepage: *const DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pfilename.into_param().abi(), ::core::mem::transmute(codepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateBlobWithEncodingFromPinned(&self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptext), ::core::mem::transmute(size), ::core::mem::transmute(codepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateBlobWithEncodingOnHeapCopy(&self, ptext: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptext), ::core::mem::transmute(size), ::core::mem::transmute(codepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateBlobWithEncodingOnMalloc<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(&self, ptext: *const ::core::ffi::c_void, pimalloc: Param1, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(ptext), pimalloc.into_param().abi(), ::core::mem::transmute(size), ::core::mem::transmute(codepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateIncludeHandler(&self) -> ::windows::core::Result<IDxcIncludeHandler> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcIncludeHandler>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateStreamFromBlobReadOnly<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBlobAsUtf8<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBlobAsUtf16<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
@@ -1222,13 +1323,16 @@ pub struct IDxcLibraryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: ::windows::core::RawPtr, pblobencoding: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: ::windows::core::RawPtr, pblobencoding: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcLinker(::windows::core::IUnknown);
 impl IDxcLinker {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RegisterLibrary<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, plibname: Param0, plib: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), plibname.into_param().abi(), plib.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Link<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pentryname: Param0, ptargetprofile: Param1, plibnames: *const super::super::super::Foundation::PWSTR, libcount: u32, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -1281,17 +1385,21 @@ pub struct IDxcLinkerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pentryname: super::super::super::Foundation::PWSTR, ptargetprofile: super::super::super::Foundation::PWSTR, plibnames: *const super::super::super::Foundation::PWSTR, libcount: u32, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcOperationResult(::windows::core::IUnknown);
 impl IDxcOperationResult {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HRESULT>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetResult(&self) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
@@ -1342,17 +1450,21 @@ pub struct IDxcOperationResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pperrors: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcOptimizer(::windows::core::IUnknown);
 impl IDxcOptimizer {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetAvailablePassCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetAvailablePass(&self, index: u32) -> ::windows::core::Result<IDxcOptimizerPass> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(index), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOptimizerPass>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RunOptimizer<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0, ppoptions: *const super::super::super::Foundation::PWSTR, optioncount: u32, poutputmodule: *mut ::core::option::Option<IDxcBlob>, ppoutputtext: *mut ::core::option::Option<IDxcBlobEncoding>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(ppoptions), ::core::mem::transmute(optioncount), ::core::mem::transmute(poutputmodule), ::core::mem::transmute(ppoutputtext)).ok()
@@ -1404,28 +1516,34 @@ pub struct IDxcOptimizerVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pblob: ::windows::core::RawPtr, ppoptions: *const super::super::super::Foundation::PWSTR, optioncount: u32, poutputmodule: *mut ::windows::core::RawPtr, ppoutputtext: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcOptimizerPass(::windows::core::IUnknown);
 impl IDxcOptimizerPass {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOptionName(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDescription(&self) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetOptionArgCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOptionArgName(&self, argindex: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(argindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::PWSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOptionArgDescription(&self, argindex: u32) -> ::windows::core::Result<super::super::super::Foundation::PWSTR> {
         let mut result__: super::super::super::Foundation::PWSTR = ::core::mem::zeroed();
@@ -1483,107 +1601,132 @@ pub struct IDxcOptimizerPassVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, argindex: u32, ppresult: *mut super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcPdbUtils(::windows::core::IUnknown);
 impl IDxcPdbUtils {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Load<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, ppdbordxil: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ppdbordxil.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetSourceCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetSource(&self, uindex: u32) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetSourceName(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetFlagCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetFlag(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetArgCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetArg(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetArgPairCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetArgPair(&self, uindex: u32, pname: *mut super::super::super::Foundation::BSTR, pvalue: *mut super::super::super::Foundation::BSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(pname), ::core::mem::transmute(pvalue)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetDefineCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefine(&self, uindex: u32) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(uindex), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTargetProfile(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetEntryPoint(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetMainFileName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetHash(&self) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName(&self) -> ::windows::core::Result<super::super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn IsFullPDB(&self) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetFullPDB(&self) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetVersionInfo(&self) -> ::windows::core::Result<IDxcVersionInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcVersionInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn SetCompiler<'a, Param0: ::windows::core::IntoParam<'a, IDxcCompiler3>>(&self, pcompiler: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self), pcompiler.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CompileForFullPDB(&self) -> ::windows::core::Result<IDxcResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcResult>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OverrideArgs(&self, pargpairs: *const DxcArgPair, unumargpairs: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self), ::core::mem::transmute(pargpairs), ::core::mem::transmute(unumargpairs)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OverrideRootSignature<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, prootsignature: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).26)(::core::mem::transmute_copy(self), prootsignature.into_param().abi()).ok()
@@ -1667,34 +1810,43 @@ pub struct IDxcPdbUtilsVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, prootsignature: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcResult(::windows::core::IUnknown);
 impl IDxcResult {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HRESULT>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetResult(&self) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetErrorBuffer(&self) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn HasOutput(&self, dxcoutkind: DXC_OUT_KIND) -> super::super::super::Foundation::BOOL {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dxcoutkind)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetOutput(&self, dxcoutkind: DXC_OUT_KIND, iid: *const ::windows::core::GUID, ppvobject: *mut *mut ::core::ffi::c_void, ppoutputname: *mut ::core::option::Option<IDxcBlobUtf16>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(dxcoutkind), ::core::mem::transmute(iid), ::core::mem::transmute(ppvobject), ::core::mem::transmute(ppoutputname)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetNumOutputs(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetOutputByIndex(&self, index: u32) -> DXC_OUT_KIND {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(index)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn PrimaryOutput(&self) -> DXC_OUT_KIND {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self)))
     }
@@ -1770,59 +1922,73 @@ pub struct IDxcResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, index: u32) -> DXC_OUT_KIND,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> DXC_OUT_KIND,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcUtils(::windows::core::IUnknown);
 impl IDxcUtils {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateBlobFromBlob<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0, offset: u32, length: u32) -> ::windows::core::Result<IDxcBlob> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(offset), ::core::mem::transmute(length), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlob>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateBlobFromPinned(&self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(size), ::core::mem::transmute(codepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn MoveToBlob<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::System::Com::IMalloc>>(&self, pdata: *const ::core::ffi::c_void, pimalloc: Param1, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), pimalloc.into_param().abi(), ::core::mem::transmute(size), ::core::mem::transmute(codepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateBlob(&self, pdata: *const ::core::ffi::c_void, size: u32, codepage: DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(size), ::core::mem::transmute(codepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn LoadFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pfilename: Param0, pcodepage: *const DXC_CP) -> ::windows::core::Result<IDxcBlobEncoding> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), pfilename.into_param().abi(), ::core::mem::transmute(pcodepage), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobEncoding>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn CreateReadOnlyStreamFromBlob<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::core::Result<super::super::super::System::Com::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<super::super::super::System::Com::IStream>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateDefaultIncludeHandler(&self) -> ::windows::core::Result<IDxcIncludeHandler> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDxcIncludeHandler>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBlobAsUtf8<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::core::Result<IDxcBlobUtf8> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobUtf8>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetBlobAsUtf16<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pblob: Param0) -> ::windows::core::Result<IDxcBlobUtf16> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), pblob.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDxcBlobUtf16>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetDxilContainerPart(&self, pshader: *const DxcBuffer, dxcpart: u32, pppartdata: *mut *mut ::core::ffi::c_void, ppartsizeinbytes: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(pshader), ::core::mem::transmute(dxcpart), ::core::mem::transmute(pppartdata), ::core::mem::transmute(ppartsizeinbytes)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn CreateReflection(&self, pdata: *const DxcBuffer, iid: *const ::windows::core::GUID, ppvreflection: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdata), ::core::mem::transmute(iid), ::core::mem::transmute(ppvreflection)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn BuildArguments<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, psourcename: Param0, pentrypoint: Param1, ptargetprofile: Param2, parguments: *const super::super::super::Foundation::PWSTR, argcount: u32, pdefines: *const DxcDefine, definecount: u32) -> ::windows::core::Result<IDxcCompilerArgs> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), psourcename.into_param().abi(), pentrypoint.into_param().abi(), ptargetprofile.into_param().abi(), ::core::mem::transmute(parguments), ::core::mem::transmute(argcount), ::core::mem::transmute(pdefines), ::core::mem::transmute(definecount), ::core::mem::transmute(&mut result__)).from_abi::<IDxcCompilerArgs>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetPDBContents<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, ppdbblob: Param0, pphash: *mut ::core::option::Option<IDxcBlob>, ppcontainer: *mut ::core::option::Option<IDxcBlob>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ppdbblob.into_param().abi(), ::core::mem::transmute(pphash), ::core::mem::transmute(ppcontainer)).ok()
     }
@@ -1886,9 +2052,11 @@ pub struct IDxcUtilsVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppdbblob: ::windows::core::RawPtr, pphash: *mut ::windows::core::RawPtr, ppcontainer: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcValidator(::windows::core::IUnknown);
 impl IDxcValidator {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Validate<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0, flags: u32) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pshader.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
@@ -1932,13 +2100,16 @@ unsafe impl ::windows::core::Interface for IDxcValidator {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDxcValidatorVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, flags: u32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcValidator2(::windows::core::IUnknown);
 impl IDxcValidator2 {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn Validate<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0, flags: u32) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pshader.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn ValidateWithDebug<'a, Param0: ::windows::core::IntoParam<'a, IDxcBlob>>(&self, pshader: Param0, flags: u32, poptdebugbitcode: *const DxcBuffer) -> ::windows::core::Result<IDxcOperationResult> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pshader.into_param().abi(), ::core::mem::transmute(flags), ::core::mem::transmute(poptdebugbitcode), ::core::mem::transmute(&mut result__)).from_abi::<IDxcOperationResult>(result__)
@@ -2008,12 +2179,15 @@ pub struct IDxcValidator2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, flags: u32, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pshader: ::windows::core::RawPtr, flags: u32, poptdebugbitcode: *const DxcBuffer, ppresult: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcVersionInfo(::windows::core::IUnknown);
 impl IDxcVersionInfo {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmajor), ::core::mem::transmute(pminor)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -2063,16 +2237,20 @@ pub struct IDxcVersionInfoVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pmajor: *mut u32, pminor: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcVersionInfo2(::windows::core::IUnknown);
 impl IDxcVersionInfo2 {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetVersion(&self, pmajor: *mut u32, pminor: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pmajor), ::core::mem::transmute(pminor)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetFlags(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetCommitInfo(&self, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pcommitcount), ::core::mem::transmute(pcommithash)).ok()
     }
@@ -2142,9 +2320,11 @@ pub struct IDxcVersionInfo2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pflags: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pcommitcount: *mut u32, pcommithash: *mut *mut i8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
 #[repr(transparent)]
 pub struct IDxcVersionInfo3(::windows::core::IUnknown);
 impl IDxcVersionInfo3 {
+    #[doc = "*Required features: 'Win32_Graphics_Direct3D_Dxc'*"]
     pub unsafe fn GetCustomVersionString(&self) -> ::windows::core::Result<*mut i8> {
         let mut result__: *mut i8 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<*mut i8>(result__)

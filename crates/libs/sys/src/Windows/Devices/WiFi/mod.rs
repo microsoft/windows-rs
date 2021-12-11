@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiAccessStatus(pub i32);
 impl WiFiAccessStatus {
@@ -17,6 +16,7 @@ impl ::core::clone::Clone for WiFiAccessStatus {
 }
 pub type WiFiAdapter = *mut ::core::ffi::c_void;
 pub type WiFiAvailableNetwork = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiConnectionMethod(pub i32);
 impl WiFiConnectionMethod {
@@ -31,6 +31,7 @@ impl ::core::clone::Clone for WiFiConnectionMethod {
     }
 }
 pub type WiFiConnectionResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiConnectionStatus(pub i32);
 impl WiFiConnectionStatus {
@@ -48,6 +49,7 @@ impl ::core::clone::Clone for WiFiConnectionStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiNetworkKind(pub i32);
 impl WiFiNetworkKind {
@@ -62,6 +64,7 @@ impl ::core::clone::Clone for WiFiNetworkKind {
     }
 }
 pub type WiFiNetworkReport = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiPhyKind(pub i32);
 impl WiFiPhyKind {
@@ -83,6 +86,7 @@ impl ::core::clone::Clone for WiFiPhyKind {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiReconnectionKind(pub i32);
 impl WiFiReconnectionKind {
@@ -96,6 +100,7 @@ impl ::core::clone::Clone for WiFiReconnectionKind {
     }
 }
 pub type WiFiWpsConfigurationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiWpsConfigurationStatus(pub i32);
 impl WiFiWpsConfigurationStatus {
@@ -109,6 +114,7 @@ impl ::core::clone::Clone for WiFiWpsConfigurationStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_WiFi'*"]
 #[repr(transparent)]
 pub struct WiFiWpsKind(pub i32);
 impl WiFiWpsKind {

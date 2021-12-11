@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 #[repr(C)]
+#[doc = "*Required features: 'UI_UIAutomation_Core'*"]
 pub struct AutomationAnnotationTypeRegistration {
     pub LocalId: i32,
 }
@@ -12,6 +11,7 @@ impl ::core::clone::Clone for AutomationAnnotationTypeRegistration {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_UIAutomation_Core'*"]
 pub struct AutomationRemoteOperationOperandId {
     pub Value: i32,
 }
@@ -22,6 +22,7 @@ impl ::core::clone::Clone for AutomationRemoteOperationOperandId {
     }
 }
 pub type AutomationRemoteOperationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_UIAutomation_Core'*"]
 #[repr(transparent)]
 pub struct AutomationRemoteOperationStatus(pub i32);
 impl AutomationRemoteOperationStatus {

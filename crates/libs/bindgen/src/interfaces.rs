@@ -28,27 +28,30 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     let is_exclusive = def.is_exclusive();
     let phantoms = gen_phantoms(def, gen);
     let constraints = gen_type_constraints(def, gen);
-    let cfg = quote! {};
+    let cfg = gen.type_cfg(def);
+    let doc = cfg.gen_doc(gen);
+    let features = cfg.gen(gen);
 
     let mut tokens = if is_exclusive {
         quote! { #[doc(hidden)] }
     } else {
-        quote! {}
+        quote! { #doc }
     };
 
     tokens.combine(&quote! {
+        #features
         #[repr(transparent)]
         pub struct #name(::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
     });
 
     if !is_exclusive {
-        tokens.combine(&gen_methods(def, gen));
-        tokens.combine(&gen_conversions(def, gen));
+        tokens.combine(&gen_methods(def, &cfg, gen));
+        tokens.combine(&gen_conversions(def, &cfg, gen));
         tokens.combine(&gen_std_traits(def, &cfg, gen));
         tokens.combine(&gen_runtime_trait(def, &cfg, gen));
         tokens.combine(&gen_async(def, &cfg, gen));
         tokens.combine(&gen_iterator(def, &cfg, gen));
-        tokens.combine(&gen_agile(def, &cfg, gen));
+        tokens.combine(&gen_agile(def, gen));
     }
 
     tokens.combine(&gen_interface_trait(def, &cfg, gen));
@@ -56,13 +59,14 @@ fn gen_win_interface(def: &TypeDef, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_methods(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut methods = quote! {};
     let is_winrt = def.is_winrt();
     let mut vtable_offset = 0;
     let mut method_names = BTreeMap::<String, u32>::new();
+    let cfg = cfg.gen(gen);
 
     for def in def.vtable_types() {
         match def {
@@ -92,13 +96,14 @@ fn gen_methods(def: &TypeDef, gen: &Gen) -> TokenStream {
     }
 
     quote! {
+        #cfg
         impl<#(#constraints)*> #name {
             #methods
         }
     }
 }
 
-fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
+fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let constraints = gen_type_constraints(def, gen);
     let mut tokens = quote! {};
@@ -106,7 +111,7 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
     // vtable_types includes self at the end so reverse and skip it
     for def in def.vtable_types().iter().rev().skip(1) {
         let into = gen_element_name(def, gen);
-        let cfg = gen.element_cfg(def);
+        let cfg = cfg.union(gen.element_cfg(def)).gen(gen);
         tokens.combine(&quote! {
             #cfg
             impl<#(#constraints)*> ::core::convert::From<#name> for #into {
@@ -138,7 +143,7 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.is_winrt() {
         for def in def.required_interfaces() {
             let into = gen_type_name(&def, gen);
-            let cfg = gen.type_cfg(&def);
+            let cfg = cfg.union(gen.type_cfg(&def)).gen(gen);
             tokens.combine(&quote! {
                 #cfg
                 impl<#(#constraints)*> ::core::convert::TryFrom<#name> for #into {
@@ -175,13 +180,11 @@ fn gen_conversions(def: &TypeDef, gen: &Gen) -> TokenStream {
     tokens
 }
 
-fn gen_agile(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+fn gen_agile(def: &TypeDef, gen: &Gen) -> TokenStream {
     if def.type_name() == TypeName::IRestrictedErrorInfo {
         let name = gen_type_ident(def, gen);
         quote! {
-            #cfg
             unsafe impl ::core::marker::Send for #name {}
-            #cfg
             unsafe impl ::core::marker::Sync for #name {}
         }
     } else {

@@ -1,9 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_PointOfService_Provider")]
 pub mod Provider;
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScanner(::windows::core::IUnknown);
 impl BarcodeScanner {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Capabilities(&self) -> ::windows::core::Result<BarcodeScannerCapabilities> {
         let this = self;
         unsafe {
@@ -18,6 +21,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimScannerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedBarcodeScanner>> {
         let this = self;
@@ -26,6 +30,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedBarcodeScanner>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -34,6 +39,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), level, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetSupportedSymbologiesAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>> {
         let this = self;
@@ -42,6 +48,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<u32>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn IsSymbologySupportedAsync(&self, barcodesymbology: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -50,6 +57,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), barcodesymbology, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn RetrieveStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -58,6 +66,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSupportedProfiles(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -66,6 +75,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsProfileSupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, profile: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -73,6 +83,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), profile.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<BarcodeScanner, BarcodeScannerStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -81,11 +92,13 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn VideoDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBarcodeScanner2>(self)?;
         unsafe {
@@ -93,6 +106,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
@@ -100,6 +114,7 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeScanner>> {
         Self::IBarcodeScannerStatics(|this| unsafe {
@@ -107,27 +122,32 @@ impl BarcodeScanner {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeScanner>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBarcodeScannerStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBarcodeScannerStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectiontypes, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IBarcodeScannerStatics<R, F: FnOnce(&IBarcodeScannerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BarcodeScanner, IBarcodeScannerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBarcodeScannerStatics2<R, F: FnOnce(&IBarcodeScannerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BarcodeScanner, IBarcodeScannerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -222,9 +242,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for BarcodeScanner {}
 unsafe impl ::core::marker::Sync for BarcodeScanner {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerCapabilities(::windows::core::IUnknown);
 impl BarcodeScannerCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PowerReportingType(&self) -> ::windows::core::Result<UnifiedPosPowerReportingType> {
         let this = self;
         unsafe {
@@ -232,6 +254,7 @@ impl BarcodeScannerCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosPowerReportingType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsReportingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -239,6 +262,7 @@ impl BarcodeScannerCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsUpdatingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -246,6 +270,7 @@ impl BarcodeScannerCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsImagePreviewSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -253,6 +278,7 @@ impl BarcodeScannerCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsSoftwareTriggerSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerCapabilities1>(self)?;
         unsafe {
@@ -260,6 +286,7 @@ impl BarcodeScannerCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsVideoPreviewSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBarcodeScannerCapabilities2>(self)?;
         unsafe {
@@ -331,9 +358,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerCapabilities {}
 unsafe impl ::core::marker::Sync for BarcodeScannerCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerDataReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerDataReceivedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Report(&self) -> ::windows::core::Result<BarcodeScannerReport> {
         let this = self;
         unsafe {
@@ -405,9 +434,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerErrorOccurredEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerErrorOccurredEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PartialInputData(&self) -> ::windows::core::Result<BarcodeScannerReport> {
         let this = self;
         unsafe {
@@ -415,6 +446,7 @@ impl BarcodeScannerErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerReport>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsRetriable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -422,6 +454,7 @@ impl BarcodeScannerErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ErrorData(&self) -> ::windows::core::Result<UnifiedPosErrorData> {
         let this = self;
         unsafe {
@@ -493,9 +526,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerErrorOccurredEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerImagePreviewReceivedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerImagePreviewReceivedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Preview(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamWithContentType> {
         let this = self;
@@ -568,9 +603,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerImagePreviewReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerImagePreviewReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerReport(::windows::core::IUnknown);
 impl BarcodeScannerReport {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ScanDataType(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -578,6 +615,7 @@ impl BarcodeScannerReport {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ScanData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -586,6 +624,7 @@ impl BarcodeScannerReport {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn ScanDataLabel(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -594,6 +633,7 @@ impl BarcodeScannerReport {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CreateInstance<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(scandatatype: u32, scandata: Param1, scandatalabel: Param2) -> ::windows::core::Result<BarcodeScannerReport> {
         Self::IBarcodeScannerReportFactory(|this| unsafe {
@@ -601,6 +641,7 @@ impl BarcodeScannerReport {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), scandatatype, scandata.into_param().abi(), scandatalabel.into_param().abi(), &mut result__).from_abi::<BarcodeScannerReport>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBarcodeScannerReportFactory<R, F: FnOnce(&IBarcodeScannerReportFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BarcodeScannerReport, IBarcodeScannerReportFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -669,6 +710,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerReport {}
 unsafe impl ::core::marker::Sync for BarcodeScannerReport {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStatus(pub i32);
 impl BarcodeScannerStatus {
@@ -699,9 +741,11 @@ unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatus {
 impl ::windows::core::DefaultType for BarcodeScannerStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl BarcodeScannerStatusUpdatedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Status(&self) -> ::windows::core::Result<BarcodeScannerStatus> {
         let this = self;
         unsafe {
@@ -709,6 +753,7 @@ impl BarcodeScannerStatusUpdatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeScannerStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedStatus(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -780,582 +825,680 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeScannerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for BarcodeScannerStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct BarcodeSymbologies {}
 impl BarcodeSymbologies {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Unknown() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean8() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean8Add2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean8Add5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Eanv() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn EanvAdd2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn EanvAdd5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean13() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean13Add2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean13Add5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Isbn() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsbnAdd5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ismn() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsmnAdd2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsmnAdd5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Issn() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IssnAdd2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IssnAdd5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean99() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean99Add2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ean99Add5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Upca() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UpcaAdd2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UpcaAdd5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Upce() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UpceAdd2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UpceAdd5() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UpcCoupon() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TfStd() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TfDis() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TfInt() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TfInd() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TfMat() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TfIata() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Gs1DatabarType1() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Gs1DatabarType2() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Gs1DatabarType3() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code39() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code39Ex() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Trioptic39() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code32() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Pzn() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code93() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).48)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code93Ex() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code128() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).50)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Gs1128() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).51)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Gs1128Coupon() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).52)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UccEan128() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).53)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Sisac() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).54)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Isbt() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).55)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Codabar() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).56)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code11() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).57)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Msi() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).58)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Plessey() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).59)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Telepen() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).60)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code16k() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).61)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CodablockA() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).62)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CodablockF() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).63)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Codablock128() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).64)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Code49() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).65)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Aztec() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).66)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DataCode() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).67)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DataMatrix() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).68)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn HanXin() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).69)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Maxicode() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).70)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MicroPdf417() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).71)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MicroQr() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).72)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Pdf417() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).73)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Qr() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).74)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MsTag() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).75)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ccab() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).76)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ccc() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).77)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Tlc39() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).78)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn AusPost() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).79)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanPost() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).80)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ChinaPost() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).81)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DutchKix() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).82)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn InfoMail() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).83)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ItalianPost25() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).84)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ItalianPost39() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).85)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn JapanPost() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).86)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn KoreanPost() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).87)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SwedenPost() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).88)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UkPost() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).89)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UsIntelligent() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).90)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UsIntelligentPkg() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).91)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UsPlanet() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).92)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UsPostNet() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).93)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Us4StateFics() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).94)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn OcrA() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).95)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn OcrB() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).96)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Micr() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).97)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedBase() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).98)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetName(scandatatype: u32) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IBarcodeSymbologiesStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).99)(::core::mem::transmute_copy(this), scandatatype, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Gs1DWCode() -> ::windows::core::Result<u32> {
         Self::IBarcodeSymbologiesStatics2(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBarcodeSymbologiesStatics<R, F: FnOnce(&IBarcodeSymbologiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBarcodeSymbologiesStatics2<R, F: FnOnce(&IBarcodeSymbologiesStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BarcodeSymbologies, IBarcodeSymbologiesStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1364,9 +1507,11 @@ impl BarcodeSymbologies {
 impl ::windows::core::RuntimeName for BarcodeSymbologies {
     const NAME: &'static str = "Windows.Devices.PointOfService.BarcodeSymbologies";
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeSymbologyAttributes(::windows::core::IUnknown);
 impl BarcodeSymbologyAttributes {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCheckDigitValidationEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1374,10 +1519,12 @@ impl BarcodeSymbologyAttributes {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsCheckDigitValidationEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCheckDigitValidationSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1385,6 +1532,7 @@ impl BarcodeSymbologyAttributes {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCheckDigitTransmissionEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1392,10 +1540,12 @@ impl BarcodeSymbologyAttributes {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsCheckDigitTransmissionEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCheckDigitTransmissionSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1403,6 +1553,7 @@ impl BarcodeSymbologyAttributes {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DecodeLength1(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1410,10 +1561,12 @@ impl BarcodeSymbologyAttributes {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetDecodeLength1(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DecodeLength2(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1421,10 +1574,12 @@ impl BarcodeSymbologyAttributes {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetDecodeLength2(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DecodeLengthKind(&self) -> ::windows::core::Result<BarcodeSymbologyDecodeLengthKind> {
         let this = self;
         unsafe {
@@ -1432,10 +1587,12 @@ impl BarcodeSymbologyAttributes {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BarcodeSymbologyDecodeLengthKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetDecodeLengthKind(&self, value: BarcodeSymbologyDecodeLengthKind) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDecodeLengthSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1507,6 +1664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Barc
 }
 unsafe impl ::core::marker::Send for BarcodeSymbologyAttributes {}
 unsafe impl ::core::marker::Sync for BarcodeSymbologyAttributes {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct BarcodeSymbologyDecodeLengthKind(pub i32);
 impl BarcodeSymbologyDecodeLengthKind {
@@ -1535,9 +1693,11 @@ unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyDecodeLengthKind {
 impl ::windows::core::DefaultType for BarcodeSymbologyDecodeLengthKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawer(::windows::core::IUnknown);
 impl CashDrawer {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1545,6 +1705,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Capabilities(&self) -> ::windows::core::Result<CashDrawerCapabilities> {
         let this = self;
         unsafe {
@@ -1552,6 +1713,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CashDrawerCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Status(&self) -> ::windows::core::Result<CashDrawerStatus> {
         let this = self;
         unsafe {
@@ -1559,6 +1721,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CashDrawerStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDrawerOpen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1566,6 +1729,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DrawerEventSource(&self) -> ::windows::core::Result<CashDrawerEventSource> {
         let this = self;
         unsafe {
@@ -1573,6 +1737,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CashDrawerEventSource>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimDrawerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedCashDrawer>> {
         let this = self;
@@ -1581,6 +1746,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedCashDrawer>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1589,6 +1755,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), level, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -1597,6 +1764,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawer, CashDrawerStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1605,11 +1773,13 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
@@ -1617,6 +1787,7 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<CashDrawer>> {
         Self::ICashDrawerStatics(|this| unsafe {
@@ -1624,27 +1795,32 @@ impl CashDrawer {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<CashDrawer>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICashDrawerStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ICashDrawerStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectiontypes, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn ICashDrawerStatics<R, F: FnOnce(&ICashDrawerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CashDrawer, ICashDrawerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ICashDrawerStatics2<R, F: FnOnce(&ICashDrawerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CashDrawer, ICashDrawerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1739,9 +1915,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for CashDrawer {}
 unsafe impl ::core::marker::Sync for CashDrawer {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerCapabilities(::windows::core::IUnknown);
 impl CashDrawerCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PowerReportingType(&self) -> ::windows::core::Result<UnifiedPosPowerReportingType> {
         let this = self;
         unsafe {
@@ -1749,6 +1927,7 @@ impl CashDrawerCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosPowerReportingType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsReportingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1756,6 +1935,7 @@ impl CashDrawerCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsUpdatingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1763,6 +1943,7 @@ impl CashDrawerCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatusReportingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1770,6 +1951,7 @@ impl CashDrawerCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatusMultiDrawerDetectSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1777,6 +1959,7 @@ impl CashDrawerCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDrawerOpenSensorAvailable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1848,14 +2031,17 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerCapabilities {}
 unsafe impl ::core::marker::Sync for CashDrawerCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerCloseAlarm(::windows::core::IUnknown);
 impl CashDrawerCloseAlarm {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetAlarmTimeout<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AlarmTimeout(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1864,10 +2050,12 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetBeepFrequency(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn BeepFrequency(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1875,11 +2063,13 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBeepDuration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BeepDuration(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1888,11 +2078,13 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBeepDelay<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BeepDelay(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1901,6 +2093,7 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AlarmTimeoutExpired<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerCloseAlarm, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1909,11 +2102,13 @@ impl CashDrawerCloseAlarm {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAlarmTimeoutExpired<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -1986,9 +2181,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerCloseAlarm {}
 unsafe impl ::core::marker::Sync for CashDrawerCloseAlarm {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl CashDrawerClosedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CashDrawer(&self) -> ::windows::core::Result<CashDrawer> {
         let this = self;
         unsafe {
@@ -2082,9 +2279,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &Ca
 }
 unsafe impl ::core::marker::Send for CashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerEventSource(::windows::core::IUnknown);
 impl CashDrawerEventSource {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DrawerClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2093,11 +2292,13 @@ impl CashDrawerEventSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDrawerClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DrawerOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CashDrawerEventSource, CashDrawerOpenedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2106,6 +2307,7 @@ impl CashDrawerEventSource {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDrawerOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -2175,9 +2377,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerEventSource {}
 unsafe impl ::core::marker::Sync for CashDrawerEventSource {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerOpenedEventArgs(::windows::core::IUnknown);
 impl CashDrawerOpenedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CashDrawer(&self) -> ::windows::core::Result<CashDrawer> {
         let this = self;
         unsafe {
@@ -2271,9 +2475,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICashDrawerEventSourceEventArgs> for &Ca
 }
 unsafe impl ::core::marker::Send for CashDrawerOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerOpenedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerStatus(::windows::core::IUnknown);
 impl CashDrawerStatus {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn StatusKind(&self) -> ::windows::core::Result<CashDrawerStatusKind> {
         let this = self;
         unsafe {
@@ -2281,6 +2487,7 @@ impl CashDrawerStatus {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CashDrawerStatusKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedStatus(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2352,6 +2559,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerStatus {}
 unsafe impl ::core::marker::Sync for CashDrawerStatus {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerStatusKind(pub i32);
 impl CashDrawerStatusKind {
@@ -2382,9 +2590,11 @@ unsafe impl ::windows::core::RuntimeType for CashDrawerStatusKind {
 impl ::windows::core::DefaultType for CashDrawerStatusKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct CashDrawerStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl CashDrawerStatusUpdatedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Status(&self) -> ::windows::core::Result<CashDrawerStatus> {
         let this = self;
         unsafe {
@@ -2456,9 +2666,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cash
 }
 unsafe impl ::core::marker::Send for CashDrawerStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for CashDrawerStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedBarcodeScanner(::windows::core::IUnknown);
 impl ClaimedBarcodeScanner {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2466,6 +2678,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2473,10 +2686,12 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsDisabledOnDataReceived(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDisabledOnDataReceived(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2484,10 +2699,12 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsDecodeDataEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDecodeDataEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2495,6 +2712,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2503,6 +2721,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2511,10 +2730,12 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn RetainDevice(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SetActiveSymbologiesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<u32>>>(&self, symbologies: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2523,6 +2744,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), symbologies.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2531,6 +2753,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2539,6 +2762,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), statistics.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetActiveProfileAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, profile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -2547,6 +2771,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), profile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2555,11 +2780,13 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TriggerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2568,11 +2795,13 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTriggerPressed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TriggerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2581,11 +2810,13 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTriggerReleased<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedBarcodeScanner>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2594,11 +2825,13 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ImagePreviewReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerImagePreviewReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2607,11 +2840,13 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveImagePreviewReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, BarcodeScannerErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2620,11 +2855,13 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StartSoftwareTriggerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner1>(self)?;
@@ -2633,6 +2870,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StopSoftwareTriggerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner1>(self)?;
@@ -2641,6 +2879,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSymbologyAttributesAsync(&self, barcodesymbology: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BarcodeSymbologyAttributes>> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
@@ -2649,6 +2888,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), barcodesymbology, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BarcodeSymbologyAttributes>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSymbologyAttributesAsync<'a, Param1: ::windows::core::IntoParam<'a, BarcodeSymbologyAttributes>>(&self, barcodesymbology: u32, attributes: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner2>(self)?;
@@ -2657,6 +2897,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), barcodesymbology, attributes.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ShowVideoPreviewAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner3>(self)?;
@@ -2665,14 +2906,17 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn HideVideoPreview(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsVideoPreviewShownOnEnable(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsVideoPreviewShownOnEnable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner3>(self)?;
         unsafe {
@@ -2680,6 +2924,7 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedBarcodeScanner, ClaimedBarcodeScannerClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
@@ -2688,11 +2933,13 @@ impl ClaimedBarcodeScanner {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedBarcodeScanner4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -2788,6 +3035,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScanner {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScanner {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedBarcodeScannerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedBarcodeScannerClosedEventArgs {}
@@ -2854,9 +3102,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedBarcodeScannerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedBarcodeScannerClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedCashDrawer(::windows::core::IUnknown);
 impl ClaimedCashDrawer {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2864,6 +3114,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2871,6 +3122,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDrawerOpen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2878,6 +3130,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CloseAlarm(&self) -> ::windows::core::Result<CashDrawerCloseAlarm> {
         let this = self;
         unsafe {
@@ -2885,6 +3138,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CashDrawerCloseAlarm>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenDrawerAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2893,6 +3147,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2901,6 +3156,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2909,6 +3165,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RetainDeviceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2917,6 +3174,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2925,6 +3183,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -2933,6 +3192,7 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), statistics.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2941,11 +3201,13 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedCashDrawer, ClaimedCashDrawerClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedCashDrawer2>(self)?;
@@ -2954,11 +3216,13 @@ impl ClaimedCashDrawer {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedCashDrawer2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -3054,6 +3318,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawer {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawer {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedCashDrawerClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedCashDrawerClosedEventArgs {}
@@ -3120,9 +3385,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedCashDrawerClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedCashDrawerClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedJournalPrinter(::windows::core::IUnknown);
 impl ClaimedJournalPrinter {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CreateJob(&self) -> ::windows::core::Result<JournalPrintJob> {
         let this = self;
         unsafe {
@@ -3130,10 +3397,12 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<JournalPrintJob>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharactersPerLine(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharactersPerLine(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3141,10 +3410,12 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3152,10 +3423,12 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineSpacing(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineSpacing(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3163,6 +3436,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3170,10 +3444,12 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsLetterQuality(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsLetterQuality(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3181,6 +3457,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEnd(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3188,10 +3465,12 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3199,6 +3478,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCartridge>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCoverOpen(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3206,6 +3486,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeRemoved(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3213,6 +3494,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeEmpty(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3220,6 +3502,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsHeadCleaning(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3227,6 +3510,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmpty(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3234,6 +3518,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReadyToPrint(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3241,6 +3526,7 @@ impl ClaimedJournalPrinter {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -3334,9 +3620,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &Cl
 }
 unsafe impl ::core::marker::Send for ClaimedJournalPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedJournalPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedLineDisplay(::windows::core::IUnknown);
 impl ClaimedLineDisplay {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3344,6 +3632,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Capabilities(&self) -> ::windows::core::Result<LineDisplayCapabilities> {
         let this = self;
         unsafe {
@@ -3351,6 +3640,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PhysicalDeviceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3358,6 +3648,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PhysicalDeviceDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3365,6 +3656,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceControlDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3372,6 +3664,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceControlVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3379,6 +3672,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceServiceVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3386,6 +3680,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DefaultWindow(&self) -> ::windows::core::Result<LineDisplayWindow> {
         let this = self;
         unsafe {
@@ -3393,10 +3688,12 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayWindow>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn RetainDevice(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3405,11 +3702,13 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3418,6 +3717,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3426,6 +3726,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), level, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckPowerStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3434,6 +3735,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, LineDisplayStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3442,11 +3744,13 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SupportedScreenSizesInCharacters(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Size>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3455,6 +3759,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::super::Foundation::Size>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxBitmapSizeInPixels(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3463,6 +3768,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharacterSets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<i32>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3471,6 +3777,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<i32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CustomGlyphs(&self) -> ::windows::core::Result<LineDisplayCustomGlyphs> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
@@ -3478,6 +3785,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayCustomGlyphs>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetAttributes(&self) -> ::windows::core::Result<LineDisplayAttributes> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
         unsafe {
@@ -3485,6 +3793,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayAttributes>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryUpdateAttributesAsync<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayAttributes>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3493,6 +3802,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), attributes.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TrySetDescriptorAsync(&self, descriptor: u32, descriptorstate: LineDisplayDescriptorState) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3501,6 +3811,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), descriptor, descriptorstate, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryClearDescriptorsAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3509,6 +3820,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateWindowAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, viewport: Param0, windowsize: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayWindow>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3517,6 +3829,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), viewport.into_param().abi(), windowsize.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayWindow>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryStoreStorageFileBitmapAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3525,6 +3838,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryStoreStorageFileBitmapWithAlignmentAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3533,6 +3847,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryStoreStorageFileBitmapWithAlignmentAndWidthAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay2>(self)?;
@@ -3541,6 +3856,7 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayStoredBitmap>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedLineDisplay, ClaimedLineDisplayClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay3>(self)?;
@@ -3549,11 +3865,13 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedLineDisplay3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
@@ -3561,23 +3879,27 @@ impl ClaimedLineDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IClaimedLineDisplayStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), connectiontypes, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc(hidden)]
     pub fn IClaimedLineDisplayStatics<R, F: FnOnce(&IClaimedLineDisplayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ClaimedLineDisplay, IClaimedLineDisplayStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3672,6 +3994,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplay {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplay {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedLineDisplayClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedLineDisplayClosedEventArgs {}
@@ -3738,9 +4061,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedLineDisplayClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedLineDisplayClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReader(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReader {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -3748,6 +4073,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3755,10 +4081,12 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsDisabledOnDataReceived(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDisabledOnDataReceived(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3766,10 +4094,12 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsDecodeDataEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDecodeDataEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3777,6 +4107,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDeviceAuthenticated(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3784,10 +4115,12 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetDataEncryptionAlgorithm(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DataEncryptionAlgorithm(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -3795,10 +4128,12 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetTracksToRead(&self, value: MagneticStripeReaderTrackIds) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TracksToRead(&self) -> ::windows::core::Result<MagneticStripeReaderTrackIds> {
         let this = self;
         unsafe {
@@ -3806,10 +4141,12 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackIds>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsTransmitSentinelsEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsTransmitSentinelsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -3817,6 +4154,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3825,6 +4163,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3833,14 +4172,17 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn RetainDevice(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetErrorReportingType(&self, value: MagneticStripeReaderErrorReportingType) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn RetrieveDeviceAuthenticationDataAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -3849,6 +4191,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3857,6 +4200,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), responsetoken.len() as u32, ::core::mem::transmute(responsetoken.as_ptr()), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DeAuthenticateDeviceAsync(&self, responsetoken: &[<u8 as ::windows::core::DefaultType>::DefaultType]) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3865,6 +4209,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), responsetoken.len() as u32, ::core::mem::transmute(responsetoken.as_ptr()), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn UpdateKeyAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, key: Param0, keyname: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3873,6 +4218,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), key.into_param().abi(), keyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3881,6 +4227,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -3889,6 +4236,7 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), statistics.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BankCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderBankCardDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3897,11 +4245,13 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveBankCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AamvaCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderAamvaCardDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3910,11 +4260,13 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAamvaCardDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn VendorSpecificDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3923,11 +4275,13 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVendorSpecificDataReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ClaimedMagneticStripeReader>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3936,11 +4290,13 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, MagneticStripeReaderErrorOccurredEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -3949,11 +4305,13 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveErrorOccurred<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedMagneticStripeReader, ClaimedMagneticStripeReaderClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
@@ -3962,11 +4320,13 @@ impl ClaimedMagneticStripeReader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedMagneticStripeReader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4062,6 +4422,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReader {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReader {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedMagneticStripeReaderClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedMagneticStripeReaderClosedEventArgs {}
@@ -4128,9 +4489,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedMagneticStripeReaderClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedMagneticStripeReaderClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedPosPrinter(::windows::core::IUnknown);
 impl ClaimedPosPrinter {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -4138,6 +4501,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4145,10 +4509,12 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharacterSet(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharacterSet(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4156,6 +4522,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCoverOpen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4163,10 +4530,12 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsCharacterSetMappingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCharacterSetMappingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -4174,10 +4543,12 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetMapMode(&self, value: PosPrinterMapMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MapMode(&self) -> ::windows::core::Result<PosPrinterMapMode> {
         let this = self;
         unsafe {
@@ -4185,6 +4556,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterMapMode>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Receipt(&self) -> ::windows::core::Result<ClaimedReceiptPrinter> {
         let this = self;
         unsafe {
@@ -4192,6 +4564,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClaimedReceiptPrinter>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Slip(&self) -> ::windows::core::Result<ClaimedSlipPrinter> {
         let this = self;
         unsafe {
@@ -4199,6 +4572,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClaimedSlipPrinter>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Journal(&self) -> ::windows::core::Result<ClaimedJournalPrinter> {
         let this = self;
         unsafe {
@@ -4206,6 +4580,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ClaimedJournalPrinter>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4214,6 +4589,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DisableAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4222,6 +4598,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RetainDeviceAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4230,6 +4607,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn ResetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4238,6 +4616,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn UpdateStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Foundation::Collections::IKeyValuePair<::windows::core::HSTRING, ::windows::core::HSTRING>>>>(&self, statistics: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4246,6 +4625,7 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), statistics.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, PosPrinterReleaseDeviceRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -4254,11 +4634,13 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReleaseDeviceRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<ClaimedPosPrinter, ClaimedPosPrinterClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IClaimedPosPrinter2>(self)?;
@@ -4267,11 +4649,13 @@ impl ClaimedPosPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IClaimedPosPrinter2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
@@ -4367,6 +4751,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedPosPrinterClosedEventArgs(::windows::core::IUnknown);
 impl ClaimedPosPrinterClosedEventArgs {}
@@ -4433,9 +4818,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Clai
 }
 unsafe impl ::core::marker::Send for ClaimedPosPrinterClosedEventArgs {}
 unsafe impl ::core::marker::Sync for ClaimedPosPrinterClosedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedReceiptPrinter(::windows::core::IUnknown);
 impl ClaimedReceiptPrinter {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SidewaysMaxLines(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4443,6 +4830,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SidewaysMaxChars(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4450,6 +4838,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LinesToPaperCut(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4457,6 +4846,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PageSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -4465,6 +4855,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PrintArea(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -4473,6 +4864,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CreateJob(&self) -> ::windows::core::Result<ReceiptPrintJob> {
         let this = self;
         unsafe {
@@ -4480,10 +4872,12 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ReceiptPrintJob>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharactersPerLine(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharactersPerLine(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4491,10 +4885,12 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4502,10 +4898,12 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineSpacing(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineSpacing(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4513,6 +4911,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4520,10 +4919,12 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsLetterQuality(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsLetterQuality(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4531,6 +4932,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEnd(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4538,10 +4940,12 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4549,6 +4953,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCartridge>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCoverOpen(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4556,6 +4961,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeRemoved(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4563,6 +4969,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeEmpty(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4570,6 +4977,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsHeadCleaning(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4577,6 +4985,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmpty(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4584,6 +4993,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReadyToPrint(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4591,6 +5001,7 @@ impl ClaimedReceiptPrinter {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4684,9 +5095,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonClaimedPosPrinterStation> for &Cl
 }
 unsafe impl ::core::marker::Send for ClaimedReceiptPrinter {}
 unsafe impl ::core::marker::Sync for ClaimedReceiptPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ClaimedSlipPrinter(::windows::core::IUnknown);
 impl ClaimedSlipPrinter {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SidewaysMaxLines(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4694,6 +5107,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SidewaysMaxChars(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4701,6 +5115,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MaxLines(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4708,6 +5123,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LinesNearEndToEnd(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -4715,6 +5131,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintSide(&self) -> ::windows::core::Result<PosPrinterPrintSide> {
         let this = self;
         unsafe {
@@ -4722,6 +5139,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterPrintSide>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PageSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -4730,6 +5148,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PrintArea(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -4738,14 +5157,17 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn OpenJaws(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CloseJaws(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn InsertSlipAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, timeout: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4754,6 +5176,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), timeout.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSlipAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, timeout: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -4762,10 +5185,12 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), timeout.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ChangePrintSide(&self, printside: PosPrinterPrintSide) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), printside).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CreateJob(&self) -> ::windows::core::Result<SlipPrintJob> {
         let this = self;
         unsafe {
@@ -4773,10 +5198,12 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SlipPrintJob>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharactersPerLine(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharactersPerLine(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4784,10 +5211,12 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineHeight(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4795,10 +5224,12 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineSpacing(&self, value: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineSpacing(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4806,6 +5237,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineWidth(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4813,10 +5245,12 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsLetterQuality(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsLetterQuality(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4824,6 +5258,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEnd(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4831,10 +5266,12 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4842,6 +5279,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCartridge>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCoverOpen(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4849,6 +5287,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeRemoved(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4856,6 +5295,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeEmpty(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4863,6 +5303,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsHeadCleaning(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4870,6 +5311,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmpty(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4877,6 +5319,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReadyToPrint(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -4884,6 +5327,7 @@ impl ClaimedSlipPrinter {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonClaimedPosPrinterStation>(self)?;
         unsafe {
@@ -5521,9 +5965,11 @@ pub struct ICashDrawerEventSourceVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICashDrawerEventSourceEventArgs(::windows::core::IUnknown);
 impl ICashDrawerEventSourceEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CashDrawer(&self) -> ::windows::core::Result<CashDrawer> {
         let this = self;
         unsafe {
@@ -6317,13 +6763,16 @@ pub struct IClaimedSlipPrinterVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, printside: PosPrinterPrintSide) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICommonClaimedPosPrinterStation(::windows::core::IUnknown);
 impl ICommonClaimedPosPrinterStation {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharactersPerLine(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharactersPerLine(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6331,10 +6780,12 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6342,10 +6793,12 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetLineSpacing(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineSpacing(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6353,6 +6806,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LineWidth(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -6360,10 +6814,12 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsLetterQuality(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsLetterQuality(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6371,6 +6827,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEnd(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6378,10 +6835,12 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetColorCartridge(&self, value: PosPrinterColorCartridge) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridge(&self) -> ::windows::core::Result<PosPrinterColorCartridge> {
         let this = self;
         unsafe {
@@ -6389,6 +6848,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCartridge>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCoverOpen(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6396,6 +6856,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeRemoved(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6403,6 +6864,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCartridgeEmpty(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6410,6 +6872,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsHeadCleaning(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6417,6 +6880,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmpty(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6424,6 +6888,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReadyToPrint(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6431,6 +6896,7 @@ impl ICommonClaimedPosPrinterStation {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ValidateData<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6526,9 +6992,11 @@ pub struct ICommonClaimedPosPrinterStationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, data: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICommonPosPrintStationCapabilities(::windows::core::IUnknown);
 impl ICommonPosPrintStationCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrinterPresent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6536,6 +7004,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDualColorSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6543,6 +7012,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridgeCapabilities(&self) -> ::windows::core::Result<PosPrinterColorCapabilities> {
         let this = self;
         unsafe {
@@ -6550,6 +7020,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CartridgeSensors(&self) -> ::windows::core::Result<PosPrinterCartridgeSensors> {
         let this = self;
         unsafe {
@@ -6557,6 +7028,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterCartridgeSensors>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBoldSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6564,6 +7036,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsItalicSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6571,6 +7044,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsUnderlineSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6578,6 +7052,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighPrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6585,6 +7060,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6592,6 +7068,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6599,6 +7076,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmptySensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6606,6 +7084,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEndSensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6613,6 +7092,7 @@ impl ICommonPosPrintStationCapabilities {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -6704,9 +7184,11 @@ pub struct ICommonPosPrintStationCapabilitiesVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ICommonReceiptSlipCapabilities(::windows::core::IUnknown);
 impl ICommonReceiptSlipCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBarcodeSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6714,6 +7196,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBitmapSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6721,6 +7204,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsLeft90RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6728,6 +7212,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsRight90RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6735,6 +7220,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Is180RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6742,6 +7228,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrintAreaSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -6749,6 +7236,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn RuledLineCapabilities(&self) -> ::windows::core::Result<PosPrinterRuledLineCapabilities> {
         let this = self;
         unsafe {
@@ -6756,6 +7244,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterRuledLineCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = self;
@@ -6764,6 +7253,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = self;
@@ -6772,6 +7262,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrinterPresent(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6779,6 +7270,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDualColorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6786,6 +7278,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridgeCapabilities(&self) -> ::windows::core::Result<PosPrinterColorCapabilities> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6793,6 +7286,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CartridgeSensors(&self) -> ::windows::core::Result<PosPrinterCartridgeSensors> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6800,6 +7294,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterCartridgeSensors>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBoldSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6807,6 +7302,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsItalicSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6814,6 +7310,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsUnderlineSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6821,6 +7318,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighPrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6828,6 +7326,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6835,6 +7334,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6842,6 +7342,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmptySensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6849,6 +7350,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEndSensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -6856,6 +7358,7 @@ impl ICommonReceiptSlipCapabilities {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -7853,21 +8356,26 @@ pub struct IPosPrinterFontPropertyVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct IPosPrinterJob(::windows::core::IUnknown);
 impl IPosPrinterJob {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -8087,90 +8595,110 @@ pub struct IPosPrinterStatusUpdatedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct IReceiptOrSlipJob(::windows::core::IUnknown);
 impl IReceiptOrSlipJob {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, includebitmaps).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPrintArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), bitmapnumber).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DrawRuledLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, positionlist: Param0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), positionlist.into_param().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintBarcode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), data.into_param().abi(), symbology, height, width, textposition, alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintBarcodeCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), data.into_param().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignment, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -8479,33 +9007,41 @@ pub struct IUnifiedPosErrorDataFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct JournalPrintJob(::windows::core::IUnknown);
 impl JournalPrintJob {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), linecount).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByMapModeUnit(&self, distance: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IJournalPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), distance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -8600,9 +9136,11 @@ impl<'a> ::windows::core::IntoParam<'a, IPosPrinterJob> for &JournalPrintJob {
 }
 unsafe impl ::core::marker::Send for JournalPrintJob {}
 unsafe impl ::core::marker::Sync for JournalPrintJob {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct JournalPrinterCapabilities(::windows::core::IUnknown);
 impl JournalPrinterCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrinterPresent(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8610,6 +9148,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDualColorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8617,6 +9156,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridgeCapabilities(&self) -> ::windows::core::Result<PosPrinterColorCapabilities> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8624,6 +9164,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CartridgeSensors(&self) -> ::windows::core::Result<PosPrinterCartridgeSensors> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8631,6 +9172,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterCartridgeSensors>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBoldSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8638,6 +9180,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsItalicSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8645,6 +9188,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsUnderlineSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8652,6 +9196,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighPrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8659,6 +9204,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8666,6 +9212,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8673,6 +9220,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmptySensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8680,6 +9228,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEndSensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -8687,6 +9236,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -8695,6 +9245,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReverseVideoSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IJournalPrinterCapabilities2>(self)?;
         unsafe {
@@ -8702,6 +9253,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStrikethroughSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IJournalPrinterCapabilities2>(self)?;
         unsafe {
@@ -8709,6 +9261,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsSuperscriptSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IJournalPrinterCapabilities2>(self)?;
         unsafe {
@@ -8716,6 +9269,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsSubscriptSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IJournalPrinterCapabilities2>(self)?;
         unsafe {
@@ -8723,6 +9277,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReversePaperFeedByLineSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IJournalPrinterCapabilities2>(self)?;
         unsafe {
@@ -8730,6 +9285,7 @@ impl JournalPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReversePaperFeedByMapModeUnitSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IJournalPrinterCapabilities2>(self)?;
         unsafe {
@@ -8823,14 +9379,17 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonPosPrintStationCapabilities> for 
 }
 unsafe impl ::core::marker::Send for JournalPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for JournalPrinterCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplay(::windows::core::IUnknown);
 impl LineDisplay {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8838,6 +9397,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Capabilities(&self) -> ::windows::core::Result<LineDisplayCapabilities> {
         let this = self;
         unsafe {
@@ -8845,6 +9405,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PhysicalDeviceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8852,6 +9413,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PhysicalDeviceDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8859,6 +9421,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceControlDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8866,6 +9429,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceControlVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8873,6 +9437,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceServiceVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -8880,6 +9445,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>> {
         let this = self;
@@ -8888,6 +9454,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedLineDisplay>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckPowerStatusAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>> {
         let this = &::windows::core::Interface::cast::<ILineDisplay2>(self)?;
@@ -8896,6 +9463,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplayPowerStatus>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
@@ -8903,6 +9471,7 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<LineDisplay>> {
         Self::ILineDisplayStatics(|this| unsafe {
@@ -8910,28 +9479,33 @@ impl LineDisplay {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<LineDisplay>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ILineDisplayStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), connectiontypes, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn StatisticsCategorySelector() -> ::windows::core::Result<LineDisplayStatisticsCategorySelector> {
         Self::ILineDisplayStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayStatisticsCategorySelector>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ILineDisplayStatics<R, F: FnOnce(&ILineDisplayStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineDisplay, ILineDisplayStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ILineDisplayStatics2<R, F: FnOnce(&ILineDisplayStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<LineDisplay, ILineDisplayStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -9026,9 +9600,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LineDisplay {}
 unsafe impl ::core::marker::Sync for LineDisplay {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayAttributes(::windows::core::IUnknown);
 impl LineDisplayAttributes {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPowerNotifyEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9036,10 +9612,12 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsPowerNotifyEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Brightness(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -9047,10 +9625,12 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetBrightness(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BlinkRate(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -9059,11 +9639,13 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBlinkRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ScreenSizeInCharacters(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -9072,11 +9654,13 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetScreenSizeInCharacters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharacterSet(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -9084,10 +9668,12 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharacterSet(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCharacterSetMappingEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9095,10 +9681,12 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsCharacterSetMappingEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CurrentWindow(&self) -> ::windows::core::Result<LineDisplayWindow> {
         let this = self;
         unsafe {
@@ -9106,6 +9694,7 @@ impl LineDisplayAttributes {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayWindow>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCurrentWindow<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayWindow>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -9174,9 +9763,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayAttributes {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCapabilities(::windows::core::IUnknown);
 impl LineDisplayCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsReportingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9184,6 +9775,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsUpdatingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9191,6 +9783,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PowerReportingType(&self) -> ::windows::core::Result<UnifiedPosPowerReportingType> {
         let this = self;
         unsafe {
@@ -9198,6 +9791,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosPowerReportingType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanChangeScreenSize(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9205,6 +9799,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanDisplayBitmaps(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9212,6 +9807,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanReadCharacterAtCursor(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9219,6 +9815,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanMapCharacterSets(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9226,6 +9823,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanDisplayCustomGlyphs(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9233,6 +9831,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanReverse(&self) -> ::windows::core::Result<LineDisplayTextAttributeGranularity> {
         let this = self;
         unsafe {
@@ -9240,6 +9839,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayTextAttributeGranularity>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanBlink(&self) -> ::windows::core::Result<LineDisplayTextAttributeGranularity> {
         let this = self;
         unsafe {
@@ -9247,6 +9847,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayTextAttributeGranularity>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanChangeBlinkRate(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9254,6 +9855,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBrightnessSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9261,6 +9863,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsCursorSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9268,6 +9871,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsHorizontalMarqueeSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9275,6 +9879,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsVerticalMarqueeSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9282,6 +9887,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsInterCharacterWaitSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9289,6 +9895,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SupportedDescriptors(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -9296,6 +9903,7 @@ impl LineDisplayCapabilities {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SupportedWindows(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -9367,9 +9975,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCapabilities {}
 unsafe impl ::core::marker::Sync for LineDisplayCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCursor(::windows::core::IUnknown);
 impl LineDisplayCursor {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanCustomize(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9377,6 +9987,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBlinkSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9384,6 +9995,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBlockSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9391,6 +10003,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsHalfBlockSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9398,6 +10011,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsUnderlineSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9405,6 +10019,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReverseSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9412,6 +10027,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsOtherSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9419,6 +10035,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetAttributes(&self) -> ::windows::core::Result<LineDisplayCursorAttributes> {
         let this = self;
         unsafe {
@@ -9426,6 +10043,7 @@ impl LineDisplayCursor {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayCursorAttributes>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryUpdateAttributesAsync<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayCursorAttributes>>(&self, attributes: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -9498,9 +10116,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCursor {}
 unsafe impl ::core::marker::Sync for LineDisplayCursor {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCursorAttributes(::windows::core::IUnknown);
 impl LineDisplayCursorAttributes {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBlinkEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9508,10 +10128,12 @@ impl LineDisplayCursorAttributes {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsBlinkEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CursorType(&self) -> ::windows::core::Result<LineDisplayCursorType> {
         let this = self;
         unsafe {
@@ -9519,10 +10141,12 @@ impl LineDisplayCursorAttributes {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayCursorType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCursorType(&self, value: LineDisplayCursorType) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsAutoAdvanceEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -9530,10 +10154,12 @@ impl LineDisplayCursorAttributes {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetIsAutoAdvanceEnabled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Position(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -9542,6 +10168,7 @@ impl LineDisplayCursorAttributes {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -9611,6 +10238,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCursorAttributes {}
 unsafe impl ::core::marker::Sync for LineDisplayCursorAttributes {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCursorType(pub i32);
 impl LineDisplayCursorType {
@@ -9642,9 +10270,11 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayCursorType {
 impl ::windows::core::DefaultType for LineDisplayCursorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayCustomGlyphs(::windows::core::IUnknown);
 impl LineDisplayCustomGlyphs {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SizeInPixels(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -9653,6 +10283,7 @@ impl LineDisplayCustomGlyphs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedGlyphCodes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -9661,6 +10292,7 @@ impl LineDisplayCustomGlyphs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn TryRedefineAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(&self, glyphcode: u32, glyphdata: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -9733,6 +10365,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayCustomGlyphs {}
 unsafe impl ::core::marker::Sync for LineDisplayCustomGlyphs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayDescriptorState(pub i32);
 impl LineDisplayDescriptorState {
@@ -9761,6 +10394,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayDescriptorState {
 impl ::windows::core::DefaultType for LineDisplayDescriptorState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayHorizontalAlignment(pub i32);
 impl LineDisplayHorizontalAlignment {
@@ -9789,9 +10423,11 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayHorizontalAlignment {
 impl ::windows::core::DefaultType for LineDisplayHorizontalAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayMarquee(::windows::core::IUnknown);
 impl LineDisplayMarquee {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Format(&self) -> ::windows::core::Result<LineDisplayMarqueeFormat> {
         let this = self;
         unsafe {
@@ -9799,10 +10435,12 @@ impl LineDisplayMarquee {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayMarqueeFormat>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetFormat(&self, value: LineDisplayMarqueeFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RepeatWaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -9811,11 +10449,13 @@ impl LineDisplayMarquee {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRepeatWaitInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ScrollWaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -9824,11 +10464,13 @@ impl LineDisplayMarquee {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetScrollWaitInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryStartScrollingAsync(&self, direction: LineDisplayScrollDirection) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -9837,6 +10479,7 @@ impl LineDisplayMarquee {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), direction, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryStopScrollingAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -9909,6 +10552,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayMarquee {}
 unsafe impl ::core::marker::Sync for LineDisplayMarquee {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayMarqueeFormat(pub i32);
 impl LineDisplayMarqueeFormat {
@@ -9937,6 +10581,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayMarqueeFormat {
 impl ::windows::core::DefaultType for LineDisplayMarqueeFormat {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayPowerStatus(pub i32);
 impl LineDisplayPowerStatus {
@@ -9967,6 +10612,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayPowerStatus {
 impl ::windows::core::DefaultType for LineDisplayPowerStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayScrollDirection(pub i32);
 impl LineDisplayScrollDirection {
@@ -9996,9 +10642,11 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayScrollDirection {
 impl ::windows::core::DefaultType for LineDisplayScrollDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayStatisticsCategorySelector(::windows::core::IUnknown);
 impl LineDisplayStatisticsCategorySelector {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn AllStatistics(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10006,6 +10654,7 @@ impl LineDisplayStatisticsCategorySelector {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn UnifiedPosStatistics(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10013,6 +10662,7 @@ impl LineDisplayStatisticsCategorySelector {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ManufacturerStatistics(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10084,9 +10734,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayStatisticsCategorySelector {}
 unsafe impl ::core::marker::Sync for LineDisplayStatisticsCategorySelector {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl LineDisplayStatusUpdatedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Status(&self) -> ::windows::core::Result<LineDisplayPowerStatus> {
         let this = self;
         unsafe {
@@ -10158,9 +10810,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for LineDisplayStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayStoredBitmap(::windows::core::IUnknown);
 impl LineDisplayStoredBitmap {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn EscapeSequence(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10168,6 +10822,7 @@ impl LineDisplayStoredBitmap {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDeleteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10240,6 +10895,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Line
 }
 unsafe impl ::core::marker::Send for LineDisplayStoredBitmap {}
 unsafe impl ::core::marker::Sync for LineDisplayStoredBitmap {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayTextAttribute(pub i32);
 impl LineDisplayTextAttribute {
@@ -10269,6 +10925,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttribute {
 impl ::windows::core::DefaultType for LineDisplayTextAttribute {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayTextAttributeGranularity(pub i32);
 impl LineDisplayTextAttributeGranularity {
@@ -10297,6 +10954,7 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayTextAttributeGranularity
 impl ::windows::core::DefaultType for LineDisplayTextAttributeGranularity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayVerticalAlignment(pub i32);
 impl LineDisplayVerticalAlignment {
@@ -10325,14 +10983,17 @@ unsafe impl ::windows::core::RuntimeType for LineDisplayVerticalAlignment {
 impl ::windows::core::DefaultType for LineDisplayVerticalAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct LineDisplayWindow(::windows::core::IUnknown);
 impl LineDisplayWindow {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SizeInCharacters(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -10341,6 +11002,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn InterCharacterWaitInterval(&self) -> ::windows::core::Result<super::super::Foundation::TimeSpan> {
         let this = self;
@@ -10349,11 +11011,13 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInterCharacterWaitInterval<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TimeSpan>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryRefreshAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10362,6 +11026,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayTextAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0, displayattribute: LineDisplayTextAttribute) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10370,6 +11035,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), text.into_param().abi(), displayattribute, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayTextAtPositionAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, text: Param0, displayattribute: LineDisplayTextAttribute, startposition: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10378,6 +11044,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), text.into_param().abi(), displayattribute, startposition.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayTextNormalAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, text: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10386,6 +11053,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), text.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryScrollTextAsync(&self, direction: LineDisplayScrollDirection, numberofcolumnsorrows: u32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10394,6 +11062,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), direction, numberofcolumnsorrows, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryClearTextAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -10402,6 +11071,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Cursor(&self) -> ::windows::core::Result<LineDisplayCursor> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
@@ -10409,6 +11079,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayCursor>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Marquee(&self) -> ::windows::core::Result<LineDisplayMarquee> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
         unsafe {
@@ -10416,6 +11087,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<LineDisplayMarquee>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReadCharacterAtCursorAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<u32>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10424,6 +11096,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryDisplayStoredBitmapAtCursorAsync<'a, Param0: ::windows::core::IntoParam<'a, LineDisplayStoredBitmap>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10432,6 +11105,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtCursorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10440,6 +11114,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10448,6 +11123,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtCursorWithAlignmentAndWidthAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>>(&self, bitmap: Param0, horizontalalignment: LineDisplayHorizontalAlignment, verticalalignment: LineDisplayVerticalAlignment, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10456,6 +11132,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), horizontalalignment, verticalalignment, widthinpixels, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtPointAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, bitmap: Param0, offsetinpixels: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10464,6 +11141,7 @@ impl LineDisplayWindow {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), offsetinpixels.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn TryDisplayStorageFileBitmapAtPointWithWidthAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::StorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, bitmap: Param0, offsetinpixels: Param1, widthinpixels: i32) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<ILineDisplayWindow2>(self)?;
@@ -10562,14 +11240,17 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for LineDisplayWindow {}
 unsafe impl ::core::marker::Sync for LineDisplayWindow {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReader(::windows::core::IUnknown);
 impl MagneticStripeReader {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10577,6 +11258,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Capabilities(&self) -> ::windows::core::Result<MagneticStripeReaderCapabilities> {
         let this = self;
         unsafe {
@@ -10584,6 +11266,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SupportedCardTypes(&self) -> ::windows::core::Result<::windows::core::Array<u32>> {
         let this = self;
         unsafe {
@@ -10591,6 +11274,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), ::windows::core::Array::<u32>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceAuthenticationProtocol(&self) -> ::windows::core::Result<MagneticStripeReaderAuthenticationProtocol> {
         let this = self;
         unsafe {
@@ -10598,6 +11282,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderAuthenticationProtocol>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -10606,6 +11291,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), level, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimReaderAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedMagneticStripeReader>> {
         let this = self;
@@ -10614,6 +11300,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedMagneticStripeReader>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn RetrieveStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -10622,6 +11309,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetErrorReportingType(&self) -> ::windows::core::Result<MagneticStripeReaderErrorReportingType> {
         let this = self;
         unsafe {
@@ -10629,6 +11317,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderErrorReportingType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<MagneticStripeReader, MagneticStripeReaderStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -10637,11 +11326,13 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
@@ -10649,6 +11340,7 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<MagneticStripeReader>> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
@@ -10656,22 +11348,26 @@ impl MagneticStripeReader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<MagneticStripeReader>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMagneticStripeReaderStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IMagneticStripeReaderStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectiontypes, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMagneticStripeReaderStatics<R, F: FnOnce(&IMagneticStripeReaderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IMagneticStripeReaderStatics2<R, F: FnOnce(&IMagneticStripeReaderStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MagneticStripeReader, IMagneticStripeReaderStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -10766,9 +11462,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for MagneticStripeReader {}
 unsafe impl ::core::marker::Sync for MagneticStripeReader {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAamvaCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Report(&self) -> ::windows::core::Result<MagneticStripeReaderReport> {
         let this = self;
         unsafe {
@@ -10776,6 +11474,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderReport>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn LicenseNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10783,6 +11482,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExpirationDate(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10790,6 +11490,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Restrictions(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10797,6 +11498,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Class(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10804,6 +11506,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Endorsements(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10811,6 +11514,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn BirthDate(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10818,6 +11522,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FirstName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10825,6 +11530,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Surname(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10832,6 +11538,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Suffix(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10839,6 +11546,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Gender(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10846,6 +11554,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn HairColor(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10853,6 +11562,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn EyeColor(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10860,6 +11570,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Height(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10867,6 +11578,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Weight(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10874,6 +11586,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Address(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10881,6 +11594,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn City(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10888,6 +11602,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn State(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10895,6 +11610,7 @@ impl MagneticStripeReaderAamvaCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PostalCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -10966,6 +11682,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationLevel(pub i32);
 impl MagneticStripeReaderAuthenticationLevel {
@@ -10994,6 +11711,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationL
 impl ::windows::core::DefaultType for MagneticStripeReaderAuthenticationLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderAuthenticationProtocol(pub i32);
 impl MagneticStripeReaderAuthenticationProtocol {
@@ -11021,9 +11739,11 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAuthenticationP
 impl ::windows::core::DefaultType for MagneticStripeReaderAuthenticationProtocol {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderBankCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderBankCardDataReceivedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Report(&self) -> ::windows::core::Result<MagneticStripeReaderReport> {
         let this = self;
         unsafe {
@@ -11031,6 +11751,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderReport>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn AccountNumber(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11038,6 +11759,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExpirationDate(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11045,6 +11767,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ServiceCode(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11052,6 +11775,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11059,6 +11783,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FirstName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11066,6 +11791,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MiddleInitial(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11073,6 +11799,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Surname(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11080,6 +11807,7 @@ impl MagneticStripeReaderBankCardDataReceivedEventArgs {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Suffix(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11151,9 +11879,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderBankCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderBankCardDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderCapabilities(::windows::core::IUnknown);
 impl MagneticStripeReaderCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CardAuthentication(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11161,6 +11891,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SupportedEncryptionAlgorithms(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -11168,6 +11899,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn AuthenticationLevel(&self) -> ::windows::core::Result<MagneticStripeReaderAuthenticationLevel> {
         let this = self;
         unsafe {
@@ -11175,6 +11907,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderAuthenticationLevel>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsIsoSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11182,6 +11915,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsJisOneSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11189,6 +11923,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsJisTwoSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11196,6 +11931,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PowerReportingType(&self) -> ::windows::core::Result<UnifiedPosPowerReportingType> {
         let this = self;
         unsafe {
@@ -11203,6 +11939,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosPowerReportingType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsReportingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11210,6 +11947,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsUpdatingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11217,6 +11955,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsTrackDataMaskingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11224,6 +11963,7 @@ impl MagneticStripeReaderCapabilities {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsTransmitSentinelsSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11295,32 +12035,38 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderCapabilities {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct MagneticStripeReaderCardTypes {}
 impl MagneticStripeReaderCardTypes {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Unknown() -> ::windows::core::Result<u32> {
         Self::IMagneticStripeReaderCardTypesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Bank() -> ::windows::core::Result<u32> {
         Self::IMagneticStripeReaderCardTypesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Aamva() -> ::windows::core::Result<u32> {
         Self::IMagneticStripeReaderCardTypesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedBase() -> ::windows::core::Result<u32> {
         Self::IMagneticStripeReaderCardTypesStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMagneticStripeReaderCardTypesStatics<R, F: FnOnce(&IMagneticStripeReaderCardTypesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MagneticStripeReaderCardTypes, IMagneticStripeReaderCardTypesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11329,26 +12075,31 @@ impl MagneticStripeReaderCardTypes {
 impl ::windows::core::RuntimeName for MagneticStripeReaderCardTypes {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderCardTypes";
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct MagneticStripeReaderEncryptionAlgorithms {}
 impl MagneticStripeReaderEncryptionAlgorithms {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn None() -> ::windows::core::Result<u32> {
         Self::IMagneticStripeReaderEncryptionAlgorithmsStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TripleDesDukpt() -> ::windows::core::Result<u32> {
         Self::IMagneticStripeReaderEncryptionAlgorithmsStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedBase() -> ::windows::core::Result<u32> {
         Self::IMagneticStripeReaderEncryptionAlgorithmsStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IMagneticStripeReaderEncryptionAlgorithmsStatics<R, F: FnOnce(&IMagneticStripeReaderEncryptionAlgorithmsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<MagneticStripeReaderEncryptionAlgorithms, IMagneticStripeReaderEncryptionAlgorithmsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -11357,9 +12108,11 @@ impl MagneticStripeReaderEncryptionAlgorithms {
 impl ::windows::core::RuntimeName for MagneticStripeReaderEncryptionAlgorithms {
     const NAME: &'static str = "Windows.Devices.PointOfService.MagneticStripeReaderEncryptionAlgorithms";
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorOccurredEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderErrorOccurredEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track1Status(&self) -> ::windows::core::Result<MagneticStripeReaderTrackErrorType> {
         let this = self;
         unsafe {
@@ -11367,6 +12120,7 @@ impl MagneticStripeReaderErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackErrorType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track2Status(&self) -> ::windows::core::Result<MagneticStripeReaderTrackErrorType> {
         let this = self;
         unsafe {
@@ -11374,6 +12128,7 @@ impl MagneticStripeReaderErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackErrorType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track3Status(&self) -> ::windows::core::Result<MagneticStripeReaderTrackErrorType> {
         let this = self;
         unsafe {
@@ -11381,6 +12136,7 @@ impl MagneticStripeReaderErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackErrorType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track4Status(&self) -> ::windows::core::Result<MagneticStripeReaderTrackErrorType> {
         let this = self;
         unsafe {
@@ -11388,6 +12144,7 @@ impl MagneticStripeReaderErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackErrorType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ErrorData(&self) -> ::windows::core::Result<UnifiedPosErrorData> {
         let this = self;
         unsafe {
@@ -11395,6 +12152,7 @@ impl MagneticStripeReaderErrorOccurredEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosErrorData>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PartialInputData(&self) -> ::windows::core::Result<MagneticStripeReaderReport> {
         let this = self;
         unsafe {
@@ -11466,6 +12224,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderErrorOccurredEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderErrorOccurredEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderErrorReportingType(pub i32);
 impl MagneticStripeReaderErrorReportingType {
@@ -11493,9 +12252,11 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorReportingT
 impl ::windows::core::DefaultType for MagneticStripeReaderErrorReportingType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderReport(::windows::core::IUnknown);
 impl MagneticStripeReaderReport {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CardType(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -11503,6 +12264,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track1(&self) -> ::windows::core::Result<MagneticStripeReaderTrackData> {
         let this = self;
         unsafe {
@@ -11510,6 +12272,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackData>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track2(&self) -> ::windows::core::Result<MagneticStripeReaderTrackData> {
         let this = self;
         unsafe {
@@ -11517,6 +12280,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackData>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track3(&self) -> ::windows::core::Result<MagneticStripeReaderTrackData> {
         let this = self;
         unsafe {
@@ -11524,6 +12288,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackData>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Track4(&self) -> ::windows::core::Result<MagneticStripeReaderTrackData> {
         let this = self;
         unsafe {
@@ -11531,6 +12296,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderTrackData>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -11539,6 +12305,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn CardAuthenticationData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -11547,6 +12314,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CardAuthenticationDataLength(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -11554,6 +12322,7 @@ impl MagneticStripeReaderReport {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn AdditionalSecurityInformation(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -11626,6 +12395,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderReport {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderReport {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatus(pub i32);
 impl MagneticStripeReaderStatus {
@@ -11654,9 +12424,11 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatus {
 impl ::windows::core::DefaultType for MagneticStripeReaderStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderStatusUpdatedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Status(&self) -> ::windows::core::Result<MagneticStripeReaderStatus> {
         let this = self;
         unsafe {
@@ -11664,6 +12436,7 @@ impl MagneticStripeReaderStatusUpdatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<MagneticStripeReaderStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedStatus(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -11735,9 +12508,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackData(::windows::core::IUnknown);
 impl MagneticStripeReaderTrackData {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -11746,6 +12521,7 @@ impl MagneticStripeReaderTrackData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn DiscretionaryData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -11754,6 +12530,7 @@ impl MagneticStripeReaderTrackData {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn EncryptedData(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -11826,6 +12603,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderTrackData {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderTrackData {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackErrorType(pub i32);
 impl MagneticStripeReaderTrackErrorType {
@@ -11857,6 +12635,7 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackErrorType 
 impl ::windows::core::DefaultType for MagneticStripeReaderTrackErrorType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderTrackIds(pub i32);
 impl MagneticStripeReaderTrackIds {
@@ -11887,9 +12666,11 @@ unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackIds {
 impl ::windows::core::DefaultType for MagneticStripeReaderTrackIds {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs(::windows::core::IUnknown);
 impl MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Report(&self) -> ::windows::core::Result<MagneticStripeReaderReport> {
         let this = self;
         unsafe {
@@ -11961,6 +12742,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Magn
 }
 unsafe impl ::core::marker::Send for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosConnectionTypes(pub u32);
 impl PosConnectionTypes {
@@ -11990,14 +12772,17 @@ unsafe impl ::windows::core::RuntimeType for PosConnectionTypes {
 impl ::windows::core::DefaultType for PosConnectionTypes {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinter(::windows::core::IUnknown);
 impl PosPrinter {
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12005,6 +12790,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Capabilities(&self) -> ::windows::core::Result<PosPrinterCapabilities> {
         let this = self;
         unsafe {
@@ -12012,6 +12798,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharacterSets(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = self;
@@ -12020,6 +12807,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedTypeFaces(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -12028,6 +12816,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Status(&self) -> ::windows::core::Result<PosPrinterStatus> {
         let this = self;
         unsafe {
@@ -12035,6 +12824,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ClaimPrinterAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ClaimedPosPrinter>> {
         let this = self;
@@ -12043,6 +12833,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ClaimedPosPrinter>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CheckHealthAsync(&self, level: UnifiedPosHealthCheckLevel) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -12051,6 +12842,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), level, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetStatisticsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(&self, statisticscategories: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         let this = self;
@@ -12059,6 +12851,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), statisticscategories.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<PosPrinter, PosPrinterStatusUpdatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -12067,11 +12860,13 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeSymbologies(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<IPosPrinter2>(self)?;
@@ -12080,6 +12875,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetFontProperty<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, typeface: Param0) -> ::windows::core::Result<PosPrinterFontProperty> {
         let this = &::windows::core::Interface::cast::<IPosPrinter2>(self)?;
         unsafe {
@@ -12087,6 +12883,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), typeface.into_param().abi(), &mut result__).from_abi::<PosPrinterFontProperty>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDefaultAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
@@ -12094,6 +12891,7 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<PosPrinter>> {
         Self::IPosPrinterStatics(|this| unsafe {
@@ -12101,22 +12899,26 @@ impl PosPrinter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<PosPrinter>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPosPrinterStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn GetDeviceSelectorWithConnectionTypes(connectiontypes: PosConnectionTypes) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IPosPrinterStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), connectiontypes, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPosPrinterStatics<R, F: FnOnce(&IPosPrinterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PosPrinter, IPosPrinterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPosPrinterStatics2<R, F: FnOnce(&IPosPrinterStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PosPrinter, IPosPrinterStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12211,6 +13013,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::Foundation::IClosable> for
 }
 unsafe impl ::core::marker::Send for PosPrinter {}
 unsafe impl ::core::marker::Sync for PosPrinter {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterAlignment(pub i32);
 impl PosPrinterAlignment {
@@ -12239,6 +13042,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterAlignment {
 impl ::windows::core::DefaultType for PosPrinterAlignment {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterBarcodeTextPosition(pub i32);
 impl PosPrinterBarcodeTextPosition {
@@ -12267,9 +13071,11 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterBarcodeTextPosition {
 impl ::windows::core::DefaultType for PosPrinterBarcodeTextPosition {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterCapabilities(::windows::core::IUnknown);
 impl PosPrinterCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PowerReportingType(&self) -> ::windows::core::Result<UnifiedPosPowerReportingType> {
         let this = self;
         unsafe {
@@ -12277,6 +13083,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosPowerReportingType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsReportingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12284,6 +13091,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStatisticsUpdatingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12291,6 +13099,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DefaultCharacterSet(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -12298,6 +13107,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn HasCoverSensor(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12305,6 +13115,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanMapCharacterSet(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12312,6 +13123,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsTransactionSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12319,6 +13131,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Receipt(&self) -> ::windows::core::Result<ReceiptPrinterCapabilities> {
         let this = self;
         unsafe {
@@ -12326,6 +13139,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ReceiptPrinterCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Slip(&self) -> ::windows::core::Result<SlipPrinterCapabilities> {
         let this = self;
         unsafe {
@@ -12333,6 +13147,7 @@ impl PosPrinterCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SlipPrinterCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Journal(&self) -> ::windows::core::Result<JournalPrinterCapabilities> {
         let this = self;
         unsafe {
@@ -12404,6 +13219,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for PosPrinterCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterCartridgeSensors(pub u32);
 impl PosPrinterCartridgeSensors {
@@ -12434,26 +13250,31 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterCartridgeSensors {
 impl ::windows::core::DefaultType for PosPrinterCartridgeSensors {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct PosPrinterCharacterSetIds {}
 impl PosPrinterCharacterSetIds {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Utf16LE() -> ::windows::core::Result<u32> {
         Self::IPosPrinterCharacterSetIdsStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ascii() -> ::windows::core::Result<u32> {
         Self::IPosPrinterCharacterSetIdsStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Ansi() -> ::windows::core::Result<u32> {
         Self::IPosPrinterCharacterSetIdsStatics(|this| unsafe {
             let mut result__: u32 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPosPrinterCharacterSetIdsStatics<R, F: FnOnce(&IPosPrinterCharacterSetIdsStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PosPrinterCharacterSetIds, IPosPrinterCharacterSetIdsStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -12462,6 +13283,7 @@ impl PosPrinterCharacterSetIds {
 impl ::windows::core::RuntimeName for PosPrinterCharacterSetIds {
     const NAME: &'static str = "Windows.Devices.PointOfService.PosPrinterCharacterSetIds";
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterColorCapabilities(pub u32);
 impl PosPrinterColorCapabilities {
@@ -12499,6 +13321,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterColorCapabilities {
 impl ::windows::core::DefaultType for PosPrinterColorCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterColorCartridge(pub i32);
 impl PosPrinterColorCartridge {
@@ -12535,9 +13358,11 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterColorCartridge {
 impl ::windows::core::DefaultType for PosPrinterColorCartridge {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterFontProperty(::windows::core::IUnknown);
 impl PosPrinterFontProperty {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TypeFace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12545,6 +13370,7 @@ impl PosPrinterFontProperty {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsScalableToAnySize(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12552,6 +13378,7 @@ impl PosPrinterFontProperty {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CharacterSizes(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<SizeUInt32>> {
         let this = self;
@@ -12624,6 +13451,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterFontProperty {}
 unsafe impl ::core::marker::Sync for PosPrinterFontProperty {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterLineDirection(pub i32);
 impl PosPrinterLineDirection {
@@ -12651,6 +13479,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineDirection {
 impl ::windows::core::DefaultType for PosPrinterLineDirection {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterLineStyle(pub i32);
 impl PosPrinterLineStyle {
@@ -12680,6 +13509,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterLineStyle {
 impl ::windows::core::DefaultType for PosPrinterLineStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMapMode(pub i32);
 impl PosPrinterMapMode {
@@ -12709,6 +13539,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMapMode {
 impl ::windows::core::DefaultType for PosPrinterMapMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedCapabilities(pub u32);
 impl PosPrinterMarkFeedCapabilities {
@@ -12739,6 +13570,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedCapabilities {
 impl ::windows::core::DefaultType for PosPrinterMarkFeedCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterMarkFeedKind(pub i32);
 impl PosPrinterMarkFeedKind {
@@ -12768,6 +13600,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterMarkFeedKind {
 impl ::windows::core::DefaultType for PosPrinterMarkFeedKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterPrintOptions(::windows::core::IUnknown);
 impl PosPrinterPrintOptions {
@@ -12778,6 +13611,7 @@ impl PosPrinterPrintOptions {
         static mut SHARED: ::windows::core::FactoryCache<PosPrinterPrintOptions, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn TypeFace(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -12785,10 +13619,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetTypeFace<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharacterHeight(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -12796,10 +13632,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharacterHeight(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Bold(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12807,10 +13645,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetBold(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Italic(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12818,10 +13658,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetItalic(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Underline(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12829,10 +13671,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetUnderline(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ReverseVideo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12840,10 +13684,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetReverseVideo(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Strikethrough(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12851,10 +13697,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetStrikethrough(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Superscript(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12862,10 +13710,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetSuperscript(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Subscript(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12873,10 +13723,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetSubscript(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DoubleWide(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12884,10 +13736,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetDoubleWide(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DoubleHigh(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -12895,10 +13749,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetDoubleHigh(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Alignment(&self) -> ::windows::core::Result<PosPrinterAlignment> {
         let this = self;
         unsafe {
@@ -12906,10 +13762,12 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterAlignment>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetAlignment(&self, value: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CharacterSet(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -12917,6 +13775,7 @@ impl PosPrinterPrintOptions {
             (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetCharacterSet(&self, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value).ok() }
@@ -12985,6 +13844,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterPrintOptions {}
 unsafe impl ::core::marker::Sync for PosPrinterPrintOptions {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterPrintSide(pub i32);
 impl PosPrinterPrintSide {
@@ -13013,6 +13873,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterPrintSide {
 impl ::windows::core::DefaultType for PosPrinterPrintSide {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterReleaseDeviceRequestedEventArgs(::windows::core::IUnknown);
 impl PosPrinterReleaseDeviceRequestedEventArgs {}
@@ -13079,6 +13940,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterReleaseDeviceRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterReleaseDeviceRequestedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterRotation(pub i32);
 impl PosPrinterRotation {
@@ -13108,6 +13970,7 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterRotation {
 impl ::windows::core::DefaultType for PosPrinterRotation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterRuledLineCapabilities(pub u32);
 impl PosPrinterRuledLineCapabilities {
@@ -13136,9 +13999,11 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterRuledLineCapabilities {
 impl ::windows::core::DefaultType for PosPrinterRuledLineCapabilities {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterStatus(::windows::core::IUnknown);
 impl PosPrinterStatus {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn StatusKind(&self) -> ::windows::core::Result<PosPrinterStatusKind> {
         let this = self;
         unsafe {
@@ -13146,6 +14011,7 @@ impl PosPrinterStatus {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterStatusKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedStatus(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -13217,6 +14083,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterStatus {}
 unsafe impl ::core::marker::Sync for PosPrinterStatus {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterStatusKind(pub i32);
 impl PosPrinterStatusKind {
@@ -13247,9 +14114,11 @@ unsafe impl ::windows::core::RuntimeType for PosPrinterStatusKind {
 impl ::windows::core::DefaultType for PosPrinterStatusKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct PosPrinterStatusUpdatedEventArgs(::windows::core::IUnknown);
 impl PosPrinterStatusUpdatedEventArgs {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Status(&self) -> ::windows::core::Result<PosPrinterStatus> {
         let this = self;
         unsafe {
@@ -13321,21 +14190,26 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &PosP
 }
 unsafe impl ::core::marker::Send for PosPrinterStatusUpdatedEventArgs {}
 unsafe impl ::core::marker::Sync for PosPrinterStatusUpdatedEventArgs {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ReceiptPrintJob(::windows::core::IUnknown);
 impl ReceiptPrintJob {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -13344,99 +14218,121 @@ impl ReceiptPrintJob {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, includebitmaps).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPrintArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), bitmapnumber).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DrawRuledLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, positionlist: Param0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), positionlist.into_param().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintBarcode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), data.into_param().abi(), symbology, height, width, textposition, alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintBarcodeCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), data.into_param().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignment, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptOrSlipJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MarkFeed(&self, kind: PosPrinterMarkFeedKind) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), kind).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CutPaper(&self, percentage: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), percentage).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CutPaperDefault(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn StampPaper(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), linecount).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByMapModeUnit(&self, distance: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IReceiptPrintJob2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), distance).ok() }
@@ -13549,9 +14445,11 @@ impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &ReceiptPrintJob 
 }
 unsafe impl ::core::marker::Send for ReceiptPrintJob {}
 unsafe impl ::core::marker::Sync for ReceiptPrintJob {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct ReceiptPrinterCapabilities(::windows::core::IUnknown);
 impl ReceiptPrinterCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrinterPresent(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13559,6 +14457,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDualColorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13566,6 +14465,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridgeCapabilities(&self) -> ::windows::core::Result<PosPrinterColorCapabilities> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13573,6 +14473,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CartridgeSensors(&self) -> ::windows::core::Result<PosPrinterCartridgeSensors> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13580,6 +14481,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterCartridgeSensors>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBoldSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13587,6 +14489,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsItalicSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13594,6 +14497,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsUnderlineSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13601,6 +14505,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighPrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13608,6 +14513,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13615,6 +14521,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13622,6 +14529,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmptySensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13629,6 +14537,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEndSensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -13636,6 +14545,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -13644,6 +14554,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBarcodeSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -13651,6 +14562,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBitmapSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -13658,6 +14570,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsLeft90RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -13665,6 +14578,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsRight90RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -13672,6 +14586,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Is180RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -13679,6 +14594,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrintAreaSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -13686,6 +14602,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn RuledLineCapabilities(&self) -> ::windows::core::Result<PosPrinterRuledLineCapabilities> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -13693,6 +14610,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterRuledLineCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -13701,6 +14619,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -13709,6 +14628,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CanCutPaper(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -13716,6 +14636,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStampSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -13723,6 +14644,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn MarkFeedCapabilities(&self) -> ::windows::core::Result<PosPrinterMarkFeedCapabilities> {
         let this = self;
         unsafe {
@@ -13730,6 +14652,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterMarkFeedCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReverseVideoSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IReceiptPrinterCapabilities2>(self)?;
         unsafe {
@@ -13737,6 +14660,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStrikethroughSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IReceiptPrinterCapabilities2>(self)?;
         unsafe {
@@ -13744,6 +14668,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsSuperscriptSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IReceiptPrinterCapabilities2>(self)?;
         unsafe {
@@ -13751,6 +14676,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsSubscriptSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IReceiptPrinterCapabilities2>(self)?;
         unsafe {
@@ -13758,6 +14684,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReversePaperFeedByLineSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IReceiptPrinterCapabilities2>(self)?;
         unsafe {
@@ -13765,6 +14692,7 @@ impl ReceiptPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReversePaperFeedByMapModeUnitSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IReceiptPrinterCapabilities2>(self)?;
         unsafe {
@@ -13881,6 +14809,7 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &Rec
 unsafe impl ::core::marker::Send for ReceiptPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for ReceiptPrinterCapabilities {}
 #[repr(C)]
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 pub struct SizeUInt32 {
     pub Width: u32,
     pub Height: u32,
@@ -13911,21 +14840,26 @@ impl ::core::default::Default for SizeUInt32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct SlipPrintJob(::windows::core::IUnknown);
 impl SlipPrintJob {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintNewline(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ExecuteAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = &::windows::core::Interface::cast::<IPosPrinterJob>(self)?;
@@ -13934,83 +14868,101 @@ impl SlipPrintJob {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetBarcodeRotation(&self, value: PosPrinterRotation) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn SetPrintRotation(&self, value: PosPrinterRotation, includebitmaps: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value, includebitmaps).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPrintArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Rect>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthStandardAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignment, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetCustomAlignedBitmap<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn SetBitmapCustomWidthCustomAlign<'a, Param1: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmapnumber: u32, bitmap: Param1, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), bitmapnumber, bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintSavedBitmap(&self, bitmapnumber: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), bitmapnumber).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn DrawRuledLine<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, positionlist: Param0, linedirection: PosPrinterLineDirection, linewidth: u32, linestyle: PosPrinterLineStyle, linecolor: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), positionlist.into_param().abi(), linedirection, linewidth, linestyle, linecolor).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintBarcode<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), data.into_param().abi(), symbology, height, width, textposition, alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn PrintBarcodeCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, data: Param0, symbology: u32, height: u32, width: u32, textposition: PosPrinterBarcodeTextPosition, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), data.into_param().abi(), symbology, height, width, textposition, alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignment).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthStandardAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignment: PosPrinterAlignment, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignment, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintCustomAlignedBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignmentdistance).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Graphics_Imaging'*"]
     #[cfg(feature = "Graphics_Imaging")]
     pub fn PrintBitmapCustomWidthCustomAlign<'a, Param0: ::windows::core::IntoParam<'a, super::super::Graphics::Imaging::BitmapFrame>>(&self, bitmap: Param0, alignmentdistance: u32, width: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), bitmap.into_param().abi(), alignmentdistance, width).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Print2<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, PosPrinterPrintOptions>>(&self, data: Param0, printoptions: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi(), printoptions.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByLine(&self, linecount: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), linecount).ok() }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn FeedPaperByMapModeUnit(&self, distance: i32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<ISlipPrintJob>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), distance).ok() }
@@ -14123,9 +15075,11 @@ impl<'a> ::windows::core::IntoParam<'a, IReceiptOrSlipJob> for &SlipPrintJob {
 }
 unsafe impl ::core::marker::Send for SlipPrintJob {}
 unsafe impl ::core::marker::Sync for SlipPrintJob {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct SlipPrinterCapabilities(::windows::core::IUnknown);
 impl SlipPrinterCapabilities {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrinterPresent(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14133,6 +15087,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDualColorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14140,6 +15095,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ColorCartridgeCapabilities(&self) -> ::windows::core::Result<PosPrinterColorCapabilities> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14147,6 +15103,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterColorCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CartridgeSensors(&self) -> ::windows::core::Result<PosPrinterCartridgeSensors> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14154,6 +15111,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterCartridgeSensors>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBoldSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14161,6 +15119,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsItalicSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14168,6 +15127,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsUnderlineSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14175,6 +15135,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighPrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14182,6 +15143,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14189,6 +15151,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsDoubleHighDoubleWidePrintSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14196,6 +15159,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperEmptySensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14203,6 +15167,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPaperNearEndSensorSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
         unsafe {
@@ -14210,6 +15175,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedCharactersPerLine(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<u32>> {
         let this = &::windows::core::Interface::cast::<ICommonPosPrintStationCapabilities>(self)?;
@@ -14218,6 +15184,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<u32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBarcodeSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -14225,6 +15192,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBitmapSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -14232,6 +15200,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsLeft90RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -14239,6 +15208,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsRight90RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -14246,6 +15216,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Is180RotationSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -14253,6 +15224,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsPrintAreaSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -14260,6 +15232,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn RuledLineCapabilities(&self) -> ::windows::core::Result<PosPrinterRuledLineCapabilities> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
         unsafe {
@@ -14267,6 +15240,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PosPrinterRuledLineCapabilities>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBarcodeRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -14275,6 +15249,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn SupportedBitmapRotations(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>> {
         let this = &::windows::core::Interface::cast::<ICommonReceiptSlipCapabilities>(self)?;
@@ -14283,6 +15258,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<PosPrinterRotation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsFullLengthSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -14290,6 +15266,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsBothSidesPrintingSupported(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -14297,6 +15274,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReverseVideoSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISlipPrinterCapabilities2>(self)?;
         unsafe {
@@ -14304,6 +15282,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsStrikethroughSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISlipPrinterCapabilities2>(self)?;
         unsafe {
@@ -14311,6 +15290,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsSuperscriptSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISlipPrinterCapabilities2>(self)?;
         unsafe {
@@ -14318,6 +15298,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsSubscriptSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISlipPrinterCapabilities2>(self)?;
         unsafe {
@@ -14325,6 +15306,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReversePaperFeedByLineSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISlipPrinterCapabilities2>(self)?;
         unsafe {
@@ -14332,6 +15314,7 @@ impl SlipPrinterCapabilities {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn IsReversePaperFeedByMapModeUnitSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<ISlipPrinterCapabilities2>(self)?;
         unsafe {
@@ -14447,9 +15430,11 @@ impl<'a> ::windows::core::IntoParam<'a, ICommonReceiptSlipCapabilities> for &Sli
 }
 unsafe impl ::core::marker::Send for SlipPrinterCapabilities {}
 unsafe impl ::core::marker::Sync for SlipPrinterCapabilities {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorData(::windows::core::IUnknown);
 impl UnifiedPosErrorData {
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -14457,6 +15442,7 @@ impl UnifiedPosErrorData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Severity(&self) -> ::windows::core::Result<UnifiedPosErrorSeverity> {
         let this = self;
         unsafe {
@@ -14464,6 +15450,7 @@ impl UnifiedPosErrorData {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosErrorSeverity>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn Reason(&self) -> ::windows::core::Result<UnifiedPosErrorReason> {
         let this = self;
         unsafe {
@@ -14471,6 +15458,7 @@ impl UnifiedPosErrorData {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UnifiedPosErrorReason>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn ExtendedReason(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -14478,12 +15466,14 @@ impl UnifiedPosErrorData {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_PointOfService'*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(message: Param0, severity: UnifiedPosErrorSeverity, reason: UnifiedPosErrorReason, extendedreason: u32) -> ::windows::core::Result<UnifiedPosErrorData> {
         Self::IUnifiedPosErrorDataFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), message.into_param().abi(), severity, reason, extendedreason, &mut result__).from_abi::<UnifiedPosErrorData>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IUnifiedPosErrorDataFactory<R, F: FnOnce(&IUnifiedPosErrorDataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<UnifiedPosErrorData, IUnifiedPosErrorDataFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -14552,6 +15542,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Unif
 }
 unsafe impl ::core::marker::Send for UnifiedPosErrorData {}
 unsafe impl ::core::marker::Sync for UnifiedPosErrorData {}
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorReason(pub i32);
 impl UnifiedPosErrorReason {
@@ -14588,6 +15579,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorReason {
 impl ::windows::core::DefaultType for UnifiedPosErrorReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosErrorSeverity(pub i32);
 impl UnifiedPosErrorSeverity {
@@ -14619,6 +15611,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorSeverity {
 impl ::windows::core::DefaultType for UnifiedPosErrorSeverity {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosHealthCheckLevel(pub i32);
 impl UnifiedPosHealthCheckLevel {
@@ -14648,6 +15641,7 @@ unsafe impl ::windows::core::RuntimeType for UnifiedPosHealthCheckLevel {
 impl ::windows::core::DefaultType for UnifiedPosHealthCheckLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_PointOfService'*"]
 #[repr(transparent)]
 pub struct UnifiedPosPowerReportingType(pub i32);
 impl UnifiedPosPowerReportingType {

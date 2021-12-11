@@ -1,9 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Gpio_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
-extern "system" {}
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Gpio', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeCount {
     pub Count: u64,
@@ -18,6 +17,7 @@ impl ::core::clone::Clone for GpioChangeCount {
     }
 }
 pub type GpioChangeCounter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioChangePolarity(pub i32);
 impl GpioChangePolarity {
@@ -33,6 +33,7 @@ impl ::core::clone::Clone for GpioChangePolarity {
 }
 pub type GpioChangeReader = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Gpio', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct GpioChangeRecord {
     pub RelativeTime: super::super::Foundation::TimeSpan,
@@ -47,6 +48,7 @@ impl ::core::clone::Clone for GpioChangeRecord {
     }
 }
 pub type GpioController = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioOpenStatus(pub i32);
 impl GpioOpenStatus {
@@ -63,6 +65,7 @@ impl ::core::clone::Clone for GpioOpenStatus {
     }
 }
 pub type GpioPin = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPinDriveMode(pub i32);
 impl GpioPinDriveMode {
@@ -81,6 +84,7 @@ impl ::core::clone::Clone for GpioPinDriveMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPinEdge(pub i32);
 impl GpioPinEdge {
@@ -93,6 +97,7 @@ impl ::core::clone::Clone for GpioPinEdge {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioPinValue(pub i32);
 impl GpioPinValue {
@@ -106,6 +111,7 @@ impl ::core::clone::Clone for GpioPinValue {
     }
 }
 pub type GpioPinValueChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Gpio'*"]
 #[repr(transparent)]
 pub struct GpioSharingMode(pub i32);
 impl GpioSharingMode {

@@ -1,11 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
 pub type CreateProcessMethod = i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
 pub const CpCreateProcess: CreateProcessMethod = 0i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
 pub const CpCreateProcessAsUser: CreateProcessMethod = 1i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
 pub const CpAicLaunchAdminProcess: CreateProcessMethod = 2i32;
+#[doc = "*Required features: 'Win32_System_WinRT_Shell'*"]
 #[repr(transparent)]
 pub struct IDDEInitializer(::windows::core::IUnknown);
 impl IDDEInitializer {
+    #[doc = "*Required features: 'Win32_System_WinRT_Shell', 'Win32_Foundation', 'Win32_UI_Shell'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell"))]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::super::UI::Shell::IShellItem>, Param4: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>, Param5: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(
         &self,

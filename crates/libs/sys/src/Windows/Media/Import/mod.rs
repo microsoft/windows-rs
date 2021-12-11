@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportAccessMode(pub i32);
 impl PhotoImportAccessMode {
@@ -14,6 +13,7 @@ impl ::core::clone::Clone for PhotoImportAccessMode {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportConnectionTransport(pub i32);
 impl PhotoImportConnectionTransport {
@@ -28,6 +28,7 @@ impl ::core::clone::Clone for PhotoImportConnectionTransport {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportContentType(pub i32);
 impl PhotoImportContentType {
@@ -41,6 +42,7 @@ impl ::core::clone::Clone for PhotoImportContentType {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportContentTypeFilter(pub i32);
 impl PhotoImportContentTypeFilter {
@@ -58,6 +60,7 @@ impl ::core::clone::Clone for PhotoImportContentTypeFilter {
 pub type PhotoImportDeleteImportedItemsFromSourceResult = *mut ::core::ffi::c_void;
 pub type PhotoImportFindItemsResult = *mut ::core::ffi::c_void;
 pub type PhotoImportImportItemsResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportImportMode(pub i32);
 impl PhotoImportImportMode {
@@ -74,6 +77,7 @@ impl ::core::clone::Clone for PhotoImportImportMode {
 }
 pub type PhotoImportItem = *mut ::core::ffi::c_void;
 pub type PhotoImportItemImportedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportItemSelectionMode(pub i32);
 impl PhotoImportItemSelectionMode {
@@ -88,6 +92,7 @@ impl ::core::clone::Clone for PhotoImportItemSelectionMode {
     }
 }
 pub type PhotoImportOperation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportPowerSource(pub i32);
 impl PhotoImportPowerSource {
@@ -102,6 +107,7 @@ impl ::core::clone::Clone for PhotoImportPowerSource {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Import'*"]
 pub struct PhotoImportProgress {
     pub ItemsImported: u32,
     pub TotalItemsToImport: u32,
@@ -119,6 +125,7 @@ pub type PhotoImportSelectionChangedEventArgs = *mut ::core::ffi::c_void;
 pub type PhotoImportSession = *mut ::core::ffi::c_void;
 pub type PhotoImportSidecar = *mut ::core::ffi::c_void;
 pub type PhotoImportSource = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSourceType(pub i32);
 impl PhotoImportSourceType {
@@ -136,6 +143,7 @@ impl ::core::clone::Clone for PhotoImportSourceType {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportStage(pub i32);
 impl PhotoImportStage {
@@ -151,6 +159,7 @@ impl ::core::clone::Clone for PhotoImportStage {
     }
 }
 pub type PhotoImportStorageMedium = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportStorageMediumType(pub i32);
 impl PhotoImportStorageMediumType {
@@ -164,6 +173,7 @@ impl ::core::clone::Clone for PhotoImportStorageMediumType {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSubfolderCreationMode(pub i32);
 impl PhotoImportSubfolderCreationMode {
@@ -178,6 +188,7 @@ impl ::core::clone::Clone for PhotoImportSubfolderCreationMode {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Import'*"]
 #[repr(transparent)]
 pub struct PhotoImportSubfolderDateFormat(pub i32);
 impl PhotoImportSubfolderDateFormat {

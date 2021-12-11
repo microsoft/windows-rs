@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type HttpBaseProtocolFilter = *mut ::core::ffi::c_void;
 pub type HttpCacheControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpCacheReadBehavior(pub i32);
 impl HttpCacheReadBehavior {
@@ -17,6 +16,7 @@ impl ::core::clone::Clone for HttpCacheReadBehavior {
         *self
     }
 }
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpCacheWriteBehavior(pub i32);
 impl HttpCacheWriteBehavior {
@@ -29,6 +29,7 @@ impl ::core::clone::Clone for HttpCacheWriteBehavior {
         *self
     }
 }
+#[doc = "*Required features: 'Web_Http_Filters'*"]
 #[repr(transparent)]
 pub struct HttpCookieUsageBehavior(pub i32);
 impl HttpCookieUsageBehavior {

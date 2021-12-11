@@ -1,9 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_WindowManagement_Preview")]
 pub mod Preview;
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindow(::windows::core::IUnknown);
 impl AppWindow {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Content(&self) -> ::windows::core::Result<super::UIContentRoot> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIContentRoot>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'System'*"]
     #[cfg(feature = "System")]
     pub fn DispatcherQueue(&self) -> ::windows::core::Result<super::super::System::DispatcherQueue> {
         let this = self;
@@ -19,6 +22,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::System::DispatcherQueue>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Frame(&self) -> ::windows::core::Result<AppWindowFrame> {
         let this = self;
         unsafe {
@@ -26,6 +30,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowFrame>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -33,6 +38,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn PersistedStateId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -40,10 +46,12 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn SetPersistedStateId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Presenter(&self) -> ::windows::core::Result<AppWindowPresenter> {
         let this = self;
         unsafe {
@@ -51,6 +59,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresenter>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -58,10 +67,12 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn TitleBar(&self) -> ::windows::core::Result<AppWindowTitleBar> {
         let this = self;
         unsafe {
@@ -69,6 +80,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowTitleBar>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn UIContext(&self) -> ::windows::core::Result<super::UIContext> {
         let this = self;
         unsafe {
@@ -76,6 +88,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::UIContext>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
@@ -83,6 +96,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CloseAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -91,6 +105,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn GetPlacement(&self) -> ::windows::core::Result<AppWindowPlacement> {
         let this = self;
         unsafe {
@@ -98,6 +113,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPlacement>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
@@ -106,38 +122,46 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn RequestMoveToDisplayRegion<'a, Param0: ::windows::core::IntoParam<'a, DisplayRegion>>(&self, displayregion: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), displayregion.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn RequestMoveAdjacentToCurrentView(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn RequestMoveAdjacentToWindow<'a, Param0: ::windows::core::IntoParam<'a, AppWindow>>(&self, anchorwindow: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), anchorwindow.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestMoveRelativeToWindowContent<'a, Param0: ::windows::core::IntoParam<'a, AppWindow>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, anchorwindow: Param0, contentoffset: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), anchorwindow.into_param().abi(), contentoffset.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestMoveRelativeToCurrentViewContent<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, contentoffset: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), contentoffset.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestMoveRelativeToDisplayRegion<'a, Param0: ::windows::core::IntoParam<'a, DisplayRegion>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Point>>(&self, displayregion: Param0, displayregionoffset: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), displayregion.into_param().abi(), displayregionoffset.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Size>>(&self, framesize: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), framesize.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryShowAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -146,6 +170,7 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -154,11 +179,13 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Closed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowClosedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -167,11 +194,13 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CloseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<AppWindow, AppWindowCloseRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -180,11 +209,13 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCloseRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TryCreateAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<AppWindow>> {
         Self::IAppWindowStatics(|this| unsafe {
@@ -192,12 +223,15 @@ impl AppWindow {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<AppWindow>>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn ClearAllPersistedState() -> ::windows::core::Result<()> {
         Self::IAppWindowStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn ClearPersistedState<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(key: Param0) -> ::windows::core::Result<()> {
         Self::IAppWindowStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), key.into_param().abi()).ok() })
     }
+    #[doc(hidden)]
     pub fn IAppWindowStatics<R, F: FnOnce(&IAppWindowStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<AppWindow, IAppWindowStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -266,9 +300,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindow {}
 unsafe impl ::core::marker::Sync for AppWindow {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowChangedEventArgs(::windows::core::IUnknown);
 impl AppWindowChangedEventArgs {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidAvailableWindowPresentationsChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -276,6 +312,7 @@ impl AppWindowChangedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidDisplayRegionsChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -283,6 +320,7 @@ impl AppWindowChangedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidFrameChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -290,6 +328,7 @@ impl AppWindowChangedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidSizeChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -297,6 +336,7 @@ impl AppWindowChangedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidTitleBarChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -304,6 +344,7 @@ impl AppWindowChangedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidVisibilityChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -311,6 +352,7 @@ impl AppWindowChangedEventArgs {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidWindowingEnvironmentChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -318,6 +360,7 @@ impl AppWindowChangedEventArgs {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DidWindowPresentationChange(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -389,9 +432,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowChangedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowChangedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowCloseRequestedEventArgs(::windows::core::IUnknown);
 impl AppWindowCloseRequestedEventArgs {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Cancel(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -399,10 +444,12 @@ impl AppWindowCloseRequestedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn SetCancel(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -475,9 +522,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowCloseRequestedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowCloseRequestedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowClosedEventArgs(::windows::core::IUnknown);
 impl AppWindowClosedEventArgs {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Reason(&self) -> ::windows::core::Result<AppWindowClosedReason> {
         let this = self;
         unsafe {
@@ -549,6 +598,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowClosedEventArgs {}
 unsafe impl ::core::marker::Sync for AppWindowClosedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
@@ -577,9 +627,11 @@ unsafe impl ::windows::core::RuntimeType for AppWindowClosedReason {
 impl ::windows::core::DefaultType for AppWindowClosedReason {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowFrame(::windows::core::IUnknown);
 impl AppWindowFrame {
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation_Collections', 'UI_Composition'*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "UI_Composition"))]
     pub fn DragRegionVisuals(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>> {
         let this = self;
@@ -588,6 +640,7 @@ impl AppWindowFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::Composition::IVisualElement>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn GetFrameStyle(&self) -> ::windows::core::Result<AppWindowFrameStyle> {
         let this = &::windows::core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe {
@@ -595,6 +648,7 @@ impl AppWindowFrame {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowFrameStyle>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn SetFrameStyle(&self, framestyle: AppWindowFrameStyle) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowFrameStyle>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), framestyle).ok() }
@@ -663,6 +717,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowFrame {}
 unsafe impl ::core::marker::Sync for AppWindowFrame {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
@@ -690,9 +745,11 @@ unsafe impl ::windows::core::RuntimeType for AppWindowFrameStyle {
 impl ::windows::core::DefaultType for AppWindowFrameStyle {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPlacement(::windows::core::IUnknown);
 impl AppWindowPlacement {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DisplayRegion(&self) -> ::windows::core::Result<DisplayRegion> {
         let this = self;
         unsafe {
@@ -700,6 +757,7 @@ impl AppWindowPlacement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayRegion>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Offset(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -708,6 +766,7 @@ impl AppWindowPlacement {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Size(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -780,9 +839,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowPlacement {}
 unsafe impl ::core::marker::Sync for AppWindowPlacement {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPresentationConfiguration(::windows::core::IUnknown);
 impl AppWindowPresentationConfiguration {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = self;
         unsafe {
@@ -854,6 +915,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for AppWindowPresentationConfiguration {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
@@ -882,9 +944,11 @@ unsafe impl ::windows::core::RuntimeType for AppWindowPresentationKind {
 impl ::windows::core::DefaultType for AppWindowPresentationKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPresenter(::windows::core::IUnknown);
 impl AppWindowPresenter {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn GetConfiguration(&self) -> ::windows::core::Result<AppWindowPresentationConfiguration> {
         let this = self;
         unsafe {
@@ -892,6 +956,7 @@ impl AppWindowPresenter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationConfiguration>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn IsPresentationSupported(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -899,6 +964,7 @@ impl AppWindowPresenter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), presentationkind, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn RequestPresentation<'a, Param0: ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration>>(&self, configuration: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -906,6 +972,7 @@ impl AppWindowPresenter {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), configuration.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn RequestPresentationByKind(&self, presentationkind: AppWindowPresentationKind) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -977,9 +1044,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowPresenter {}
 unsafe impl ::core::marker::Sync for AppWindowPresenter {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowTitleBar(::windows::core::IUnknown);
 impl AppWindowTitleBar {
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -988,11 +1057,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1001,11 +1072,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1014,11 +1087,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonHoverBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1027,11 +1102,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonHoverBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonHoverForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1040,11 +1117,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonHoverForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonInactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1053,11 +1132,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonInactiveBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonInactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1066,11 +1147,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonInactiveForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressedBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1079,11 +1162,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonPressedBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ButtonPressedForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1092,11 +1177,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetButtonPressedForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn ExtendsContentIntoTitleBar(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1104,10 +1191,12 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn SetExtendsContentIntoTitleBar(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1116,11 +1205,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn InactiveBackgroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1129,11 +1220,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInactiveBackgroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn InactiveForegroundColor(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::Color>> {
         let this = self;
@@ -1142,11 +1235,13 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::Color>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetInactiveForegroundColor<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::IReference<super::Color>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1154,6 +1249,7 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetTitleBarOcclusions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>> {
         let this = self;
@@ -1162,6 +1258,7 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<AppWindowTitleBarOcclusion>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn GetPreferredVisibility(&self) -> ::windows::core::Result<AppWindowTitleBarVisibility> {
         let this = &::windows::core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe {
@@ -1169,6 +1266,7 @@ impl AppWindowTitleBar {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowTitleBarVisibility>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn SetPreferredVisibility(&self, visibilitymode: AppWindowTitleBarVisibility) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IAppWindowTitleBarVisibility>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), visibilitymode).ok() }
@@ -1237,9 +1335,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowTitleBar {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBar {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowTitleBarOcclusion(::windows::core::IUnknown);
 impl AppWindowTitleBarOcclusion {
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn OccludingRect(&self) -> ::windows::core::Result<super::super::Foundation::Rect> {
         let this = self;
@@ -1312,6 +1412,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AppW
 }
 unsafe impl ::core::marker::Send for AppWindowTitleBarOcclusion {}
 unsafe impl ::core::marker::Sync for AppWindowTitleBarOcclusion {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
@@ -1339,6 +1440,7 @@ unsafe impl ::windows::core::RuntimeType for AppWindowTitleBarVisibility {
 impl ::windows::core::DefaultType for AppWindowTitleBarVisibility {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct CompactOverlayPresentationConfiguration(::windows::core::IUnknown);
 impl CompactOverlayPresentationConfiguration {
@@ -1349,6 +1451,7 @@ impl CompactOverlayPresentationConfiguration {
         static mut SHARED: ::windows::core::FactoryCache<CompactOverlayPresentationConfiguration, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = &::windows::core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
@@ -1440,6 +1543,7 @@ impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for 
 }
 unsafe impl ::core::marker::Send for CompactOverlayPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for CompactOverlayPresentationConfiguration {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct DefaultPresentationConfiguration(::windows::core::IUnknown);
 impl DefaultPresentationConfiguration {
@@ -1450,6 +1554,7 @@ impl DefaultPresentationConfiguration {
         static mut SHARED: ::windows::core::FactoryCache<DefaultPresentationConfiguration, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = &::windows::core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
@@ -1541,9 +1646,11 @@ impl<'a> ::windows::core::IntoParam<'a, AppWindowPresentationConfiguration> for 
 }
 unsafe impl ::core::marker::Send for DefaultPresentationConfiguration {}
 unsafe impl ::core::marker::Sync for DefaultPresentationConfiguration {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct DisplayRegion(::windows::core::IUnknown);
 impl DisplayRegion {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn DisplayMonitorDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1551,6 +1658,7 @@ impl DisplayRegion {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn IsVisible(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1558,6 +1666,7 @@ impl DisplayRegion {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn WorkAreaOffset(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -1566,6 +1675,7 @@ impl DisplayRegion {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn WorkAreaSize(&self) -> ::windows::core::Result<super::super::Foundation::Size> {
         let this = self;
@@ -1574,6 +1684,7 @@ impl DisplayRegion {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
@@ -1581,6 +1692,7 @@ impl DisplayRegion {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironment>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<DisplayRegion, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1589,6 +1701,7 @@ impl DisplayRegion {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -1658,6 +1771,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayRegion {}
 unsafe impl ::core::marker::Sync for DisplayRegion {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct FullScreenPresentationConfiguration(::windows::core::IUnknown);
 impl FullScreenPresentationConfiguration {
@@ -1668,6 +1782,7 @@ impl FullScreenPresentationConfiguration {
         static mut SHARED: ::windows::core::FactoryCache<FullScreenPresentationConfiguration, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Kind(&self) -> ::windows::core::Result<AppWindowPresentationKind> {
         let this = &::windows::core::Interface::cast::<IAppWindowPresentationConfiguration>(self)?;
         unsafe {
@@ -1675,6 +1790,7 @@ impl FullScreenPresentationConfiguration {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<AppWindowPresentationKind>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn IsExclusive(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1682,6 +1798,7 @@ impl FullScreenPresentationConfiguration {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn SetIsExclusive(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -2338,8 +2455,10 @@ pub struct IWindowingEnvironmentStaticsVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, kind: WindowingEnvironmentKind, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 pub struct WindowServices {}
 impl WindowServices {
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllTopLevelWindowIds() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<super::WindowId>> {
         Self::IWindowServicesStatics(|this| unsafe {
@@ -2347,6 +2466,7 @@ impl WindowServices {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<super::WindowId>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWindowServicesStatics<R, F: FnOnce(&IWindowServicesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WindowServices, IWindowServicesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2355,9 +2475,11 @@ impl WindowServices {
 impl ::windows::core::RuntimeName for WindowServices {
     const NAME: &'static str = "Windows.UI.WindowManagement.WindowServices";
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironment(::windows::core::IUnknown);
 impl WindowingEnvironment {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2365,6 +2487,7 @@ impl WindowingEnvironment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn Kind(&self) -> ::windows::core::Result<WindowingEnvironmentKind> {
         let this = self;
         unsafe {
@@ -2372,6 +2495,7 @@ impl WindowingEnvironment {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WindowingEnvironmentKind>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDisplayRegions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DisplayRegion>> {
         let this = self;
@@ -2380,6 +2504,7 @@ impl WindowingEnvironment {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DisplayRegion>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<WindowingEnvironment, WindowingEnvironmentChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -2388,11 +2513,13 @@ impl WindowingEnvironment {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAll() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
@@ -2400,6 +2527,7 @@ impl WindowingEnvironment {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_WindowManagement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindAllWithKind(kind: WindowingEnvironmentKind) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>> {
         Self::IWindowingEnvironmentStatics(|this| unsafe {
@@ -2407,6 +2535,7 @@ impl WindowingEnvironment {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), kind, &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<WindowingEnvironment>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWindowingEnvironmentStatics<R, F: FnOnce(&IWindowingEnvironmentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WindowingEnvironment, IWindowingEnvironmentStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2475,9 +2604,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowingEnvironment {}
 unsafe impl ::core::marker::Sync for WindowingEnvironment {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentAddedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentAddedEventArgs {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {
@@ -2549,6 +2680,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowingEnvironmentAddedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentAddedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentChangedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentChangedEventArgs {}
@@ -2615,6 +2747,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wind
 }
 unsafe impl ::core::marker::Send for WindowingEnvironmentChangedEventArgs {}
 unsafe impl ::core::marker::Sync for WindowingEnvironmentChangedEventArgs {}
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {
@@ -2643,9 +2776,11 @@ unsafe impl ::windows::core::RuntimeType for WindowingEnvironmentKind {
 impl ::windows::core::DefaultType for WindowingEnvironmentKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentRemovedEventArgs(::windows::core::IUnknown);
 impl WindowingEnvironmentRemovedEventArgs {
+    #[doc = "*Required features: 'UI_WindowManagement'*"]
     pub fn WindowingEnvironment(&self) -> ::windows::core::Result<WindowingEnvironment> {
         let this = self;
         unsafe {

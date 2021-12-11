@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type DtdEntity = *mut ::core::ffi::c_void;
 pub type DtdNotation = *mut ::core::ffi::c_void;
 pub type IXmlCharacterData = *mut ::core::ffi::c_void;
@@ -8,6 +6,7 @@ pub type IXmlNode = *mut ::core::ffi::c_void;
 pub type IXmlNodeSelector = *mut ::core::ffi::c_void;
 pub type IXmlNodeSerializer = *mut ::core::ffi::c_void;
 pub type IXmlText = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Data_Xml_Dom'*"]
 #[repr(transparent)]
 pub struct NodeType(pub i32);
 impl NodeType {

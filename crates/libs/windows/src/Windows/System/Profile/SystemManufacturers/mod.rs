@@ -100,9 +100,11 @@ pub struct ISystemSupportInfoStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
 #[repr(transparent)]
 pub struct OemSupportInfo(::windows::core::IUnknown);
 impl OemSupportInfo {
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SupportLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -111,6 +113,7 @@ impl OemSupportInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SupportAppLink(&self) -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         let this = self;
@@ -119,6 +122,7 @@ impl OemSupportInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn SupportProvider(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -190,14 +194,17 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &OemS
 }
 unsafe impl ::core::marker::Send for OemSupportInfo {}
 unsafe impl ::core::marker::Sync for OemSupportInfo {}
+#[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
 pub struct SmbiosInformation {}
 impl SmbiosInformation {
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn SerialNumber() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISmbiosInformationStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISmbiosInformationStatics<R, F: FnOnce(&ISmbiosInformationStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SmbiosInformation, ISmbiosInformationStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -206,9 +213,11 @@ impl SmbiosInformation {
 impl ::windows::core::RuntimeName for SmbiosInformation {
     const NAME: &'static str = "Windows.System.Profile.SystemManufacturers.SmbiosInformation";
 }
+#[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
 #[repr(transparent)]
 pub struct SystemSupportDeviceInfo(::windows::core::IUnknown);
 impl SystemSupportDeviceInfo {
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn OperatingSystem(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -216,6 +225,7 @@ impl SystemSupportDeviceInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn FriendlyName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -223,6 +233,7 @@ impl SystemSupportDeviceInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn SystemManufacturer(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -230,6 +241,7 @@ impl SystemSupportDeviceInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn SystemProductName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -237,6 +249,7 @@ impl SystemSupportDeviceInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn SystemSku(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -244,6 +257,7 @@ impl SystemSupportDeviceInfo {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn SystemHardwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -251,6 +265,7 @@ impl SystemSupportDeviceInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn SystemFirmwareVersion(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -322,30 +337,36 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Syst
 }
 unsafe impl ::core::marker::Send for SystemSupportDeviceInfo {}
 unsafe impl ::core::marker::Sync for SystemSupportDeviceInfo {}
+#[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
 pub struct SystemSupportInfo {}
 impl SystemSupportInfo {
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn LocalSystemEdition() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::ISystemSupportInfoStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn OemSupportInfo() -> ::windows::core::Result<OemSupportInfo> {
         Self::ISystemSupportInfoStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OemSupportInfo>(result__)
         })
     }
+    #[doc = "*Required features: 'System_Profile_SystemManufacturers'*"]
     pub fn LocalDeviceInfo() -> ::windows::core::Result<SystemSupportDeviceInfo> {
         Self::ISystemSupportInfoStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<SystemSupportDeviceInfo>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISystemSupportInfoStatics<R, F: FnOnce(&ISystemSupportInfoStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ISystemSupportInfoStatics2<R, F: FnOnce(&ISystemSupportInfoStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SystemSupportInfo, ISystemSupportInfoStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

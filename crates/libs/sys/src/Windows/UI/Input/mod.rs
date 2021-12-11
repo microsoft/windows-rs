@@ -7,10 +7,9 @@ pub mod Inking;
 pub mod Preview;
 #[cfg(feature = "UI_Input_Spatial")]
 pub mod Spatial;
-#[link(name = "windows")]
-extern "system" {}
 pub type AttachableInputObject = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input'*"]
 pub struct CrossSlideThresholds {
     pub SelectionStart: f32,
     pub SpeedBumpStart: f32,
@@ -24,6 +23,7 @@ impl ::core::clone::Clone for CrossSlideThresholds {
     }
 }
 pub type CrossSlidingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct CrossSlidingState(pub i32);
 impl CrossSlidingState {
@@ -42,6 +42,7 @@ impl ::core::clone::Clone for CrossSlidingState {
     }
 }
 pub type DraggingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct DraggingState(pub i32);
 impl DraggingState {
@@ -57,6 +58,7 @@ impl ::core::clone::Clone for DraggingState {
 }
 pub type EdgeGesture = *mut ::core::ffi::c_void;
 pub type EdgeGestureEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct EdgeGestureKind(pub i32);
 impl EdgeGestureKind {
@@ -70,6 +72,7 @@ impl ::core::clone::Clone for EdgeGestureKind {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct GazeInputAccessStatus(pub i32);
 impl GazeInputAccessStatus {
@@ -85,6 +88,7 @@ impl ::core::clone::Clone for GazeInputAccessStatus {
     }
 }
 pub type GestureRecognizer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct GestureSettings(pub u32);
 impl GestureSettings {
@@ -114,6 +118,7 @@ impl ::core::clone::Clone for GestureSettings {
     }
 }
 pub type HoldingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct HoldingState(pub i32);
 impl HoldingState {
@@ -130,6 +135,7 @@ impl ::core::clone::Clone for HoldingState {
 pub type IPointerPointTransform = *mut ::core::ffi::c_void;
 pub type InputActivationListener = *mut ::core::ffi::c_void;
 pub type InputActivationListenerActivationChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct InputActivationState(pub i32);
 impl InputActivationState {
@@ -147,6 +153,7 @@ impl ::core::clone::Clone for InputActivationState {
 pub type KeyboardDeliveryInterceptor = *mut ::core::ffi::c_void;
 pub type ManipulationCompletedEventArgs = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationDelta {
     pub Translation: super::super::Foundation::Point,
@@ -166,6 +173,7 @@ pub type ManipulationInertiaStartingEventArgs = *mut ::core::ffi::c_void;
 pub type ManipulationStartedEventArgs = *mut ::core::ffi::c_void;
 pub type ManipulationUpdatedEventArgs = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Input', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct ManipulationVelocities {
     pub Linear: super::super::Foundation::Point,
@@ -183,6 +191,7 @@ impl ::core::clone::Clone for ManipulationVelocities {
 pub type MouseWheelParameters = *mut ::core::ffi::c_void;
 pub type PointerPoint = *mut ::core::ffi::c_void;
 pub type PointerPointProperties = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct PointerUpdateKind(pub i32);
 impl PointerUpdateKind {
@@ -214,6 +223,7 @@ pub type RadialControllerConfiguration = *mut ::core::ffi::c_void;
 pub type RadialControllerControlAcquiredEventArgs = *mut ::core::ffi::c_void;
 pub type RadialControllerMenu = *mut ::core::ffi::c_void;
 pub type RadialControllerMenuItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerMenuKnownIcon(pub i32);
 impl RadialControllerMenuKnownIcon {
@@ -238,6 +248,7 @@ pub type RadialControllerScreenContact = *mut ::core::ffi::c_void;
 pub type RadialControllerScreenContactContinuedEventArgs = *mut ::core::ffi::c_void;
 pub type RadialControllerScreenContactEndedEventArgs = *mut ::core::ffi::c_void;
 pub type RadialControllerScreenContactStartedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input'*"]
 #[repr(transparent)]
 pub struct RadialControllerSystemMenuItemKind(pub i32);
 impl RadialControllerSystemMenuItemKind {

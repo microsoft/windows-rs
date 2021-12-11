@@ -1,12 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_WindowManagement_Preview")]
 pub mod Preview;
-#[link(name = "windows")]
-extern "system" {}
 pub type AppWindow = *mut ::core::ffi::c_void;
 pub type AppWindowChangedEventArgs = *mut ::core::ffi::c_void;
 pub type AppWindowCloseRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type AppWindowClosedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowClosedReason(pub i32);
 impl AppWindowClosedReason {
@@ -21,6 +20,7 @@ impl ::core::clone::Clone for AppWindowClosedReason {
     }
 }
 pub type AppWindowFrame = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowFrameStyle(pub i32);
 impl AppWindowFrameStyle {
@@ -35,6 +35,7 @@ impl ::core::clone::Clone for AppWindowFrameStyle {
 }
 pub type AppWindowPlacement = *mut ::core::ffi::c_void;
 pub type AppWindowPresentationConfiguration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowPresentationKind(pub i32);
 impl AppWindowPresentationKind {
@@ -51,6 +52,7 @@ impl ::core::clone::Clone for AppWindowPresentationKind {
 pub type AppWindowPresenter = *mut ::core::ffi::c_void;
 pub type AppWindowTitleBar = *mut ::core::ffi::c_void;
 pub type AppWindowTitleBarOcclusion = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct AppWindowTitleBarVisibility(pub i32);
 impl AppWindowTitleBarVisibility {
@@ -70,6 +72,7 @@ pub type FullScreenPresentationConfiguration = *mut ::core::ffi::c_void;
 pub type WindowingEnvironment = *mut ::core::ffi::c_void;
 pub type WindowingEnvironmentAddedEventArgs = *mut ::core::ffi::c_void;
 pub type WindowingEnvironmentChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WindowManagement'*"]
 #[repr(transparent)]
 pub struct WindowingEnvironmentKind(pub i32);
 impl WindowingEnvironmentKind {

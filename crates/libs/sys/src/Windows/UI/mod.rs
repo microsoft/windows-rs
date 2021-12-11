@@ -29,9 +29,8 @@ pub mod WebUI;
 pub mod WindowManagement;
 #[cfg(feature = "UI_Xaml")]
 pub mod Xaml;
-#[link(name = "windows")]
-extern "system" {}
 #[repr(C)]
+#[doc = "*Required features: 'UI'*"]
 pub struct Color {
     pub A: u8,
     pub R: u8,
@@ -49,6 +48,7 @@ pub type Colors = *mut ::core::ffi::c_void;
 pub type UIContentRoot = *mut ::core::ffi::c_void;
 pub type UIContext = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI'*"]
 pub struct WindowId {
     pub Value: u64,
 }

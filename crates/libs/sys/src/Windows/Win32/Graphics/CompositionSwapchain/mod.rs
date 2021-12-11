@@ -1,9 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub fn CreatePresentationFactory(d3ddevice: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,
@@ -23,9 +25,13 @@ impl ::core::clone::Clone for CompositionFrameDisplayInstance {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type CompositionFrameInstanceKind = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = 2i32;
 pub type ICompositionFramePresentStatistics = *mut ::core::ffi::c_void;
 pub type IIndependentFlipFramePresentStatistics = *mut ::core::ffi::c_void;
@@ -36,15 +42,24 @@ pub type IPresentationContent = *mut ::core::ffi::c_void;
 pub type IPresentationFactory = *mut ::core::ffi::c_void;
 pub type IPresentationManager = *mut ::core::ffi::c_void;
 pub type IPresentationSurface = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type PresentStatisticsKind = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type PresentStatus = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Queued: PresentStatus = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Skipped: PresentStatus = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Canceled: PresentStatus = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub struct PresentationTransform {
     pub M11: f32,
     pub M12: f32,
@@ -60,6 +75,7 @@ impl ::core::clone::Clone for PresentationTransform {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub struct SystemInterruptTime {
     pub value: u64,
 }

@@ -1,12 +1,15 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_UserActivities_Core'*"]
 pub struct CoreUserActivityManager {}
 impl CoreUserActivityManager {
+    #[doc = "*Required features: 'ApplicationModel_UserActivities_Core'*"]
     pub fn CreateUserActivitySessionInBackground<'a, Param0: ::windows::core::IntoParam<'a, super::UserActivity>>(activity: Param0) -> ::windows::core::Result<super::UserActivitySession> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), activity.into_param().abi(), &mut result__).from_abi::<super::UserActivitySession>(result__)
         })
     }
+    #[doc = "*Required features: 'ApplicationModel_UserActivities_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteUserActivitySessionsInTimeRangeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::UserActivityChannel>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::DateTime>>(channel: Param0, starttime: Param1, endtime: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         Self::ICoreUserActivityManagerStatics(|this| unsafe {
@@ -14,6 +17,7 @@ impl CoreUserActivityManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), channel.into_param().abi(), starttime.into_param().abi(), endtime.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ICoreUserActivityManagerStatics<R, F: FnOnce(&ICoreUserActivityManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CoreUserActivityManager, ICoreUserActivityManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

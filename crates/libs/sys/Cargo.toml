@@ -30,6 +30,7 @@ windows_x86_64_gnu = { path = "../../targets/x86_64_gnu", version = "0.28.0" }
 
 [features]
 default = []
+deprecated = []
 AI = []
 AI_MachineLearning = ["AI"]
 AI_MachineLearning_Preview = ["AI_MachineLearning"]

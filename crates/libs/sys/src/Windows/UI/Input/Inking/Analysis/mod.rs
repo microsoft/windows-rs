@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IInkAnalysisNode = *mut ::core::ffi::c_void;
 pub type IInkAnalyzerFactory = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisDrawingKind(pub i32);
 impl InkAnalysisDrawingKind {
@@ -34,6 +33,7 @@ pub type InkAnalysisInkWord = *mut ::core::ffi::c_void;
 pub type InkAnalysisLine = *mut ::core::ffi::c_void;
 pub type InkAnalysisListItem = *mut ::core::ffi::c_void;
 pub type InkAnalysisNode = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisNodeKind(pub i32);
 impl InkAnalysisNodeKind {
@@ -56,6 +56,7 @@ impl ::core::clone::Clone for InkAnalysisNodeKind {
 pub type InkAnalysisParagraph = *mut ::core::ffi::c_void;
 pub type InkAnalysisResult = *mut ::core::ffi::c_void;
 pub type InkAnalysisRoot = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisStatus(pub i32);
 impl InkAnalysisStatus {
@@ -68,6 +69,7 @@ impl ::core::clone::Clone for InkAnalysisStatus {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Input_Inking_Analysis'*"]
 #[repr(transparent)]
 pub struct InkAnalysisStrokeKind(pub i32);
 impl InkAnalysisStrokeKind {

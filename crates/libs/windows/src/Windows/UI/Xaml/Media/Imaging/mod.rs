@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapCreateOptions(pub u32);
 impl BitmapCreateOptions {
@@ -26,6 +27,7 @@ unsafe impl ::windows::core::RuntimeType for BitmapCreateOptions {
 impl ::windows::core::DefaultType for BitmapCreateOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapImage(::windows::core::IUnknown);
 impl BitmapImage {
@@ -36,6 +38,7 @@ impl BitmapImage {
         static mut SHARED: ::windows::core::FactoryCache<BitmapImage, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn CreateOptions(&self) -> ::windows::core::Result<BitmapCreateOptions> {
         let this = self;
         unsafe {
@@ -43,10 +46,12 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BitmapCreateOptions>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetCreateOptions(&self, value: BitmapCreateOptions) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn UriSource(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
@@ -55,11 +60,13 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn DecodePixelWidth(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -67,10 +74,12 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetDecodePixelWidth(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn DecodePixelHeight(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -78,10 +87,12 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetDecodePixelHeight(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DownloadProgress<'a, Param0: ::windows::core::IntoParam<'a, DownloadProgressEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -90,11 +101,13 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDownloadProgress<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ImageOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::RoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -103,11 +116,13 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveImageOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ImageFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::ExceptionRoutedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -116,11 +131,13 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveImageFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn DecodePixelType(&self) -> ::windows::core::Result<DecodePixelType> {
         let this = &::windows::core::Interface::cast::<IBitmapImage2>(self)?;
         unsafe {
@@ -128,10 +145,12 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DecodePixelType>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetDecodePixelType(&self, value: DecodePixelType) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBitmapImage2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn IsAnimatedBitmap(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBitmapImage3>(self)?;
         unsafe {
@@ -139,6 +158,7 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn IsPlaying(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBitmapImage3>(self)?;
         unsafe {
@@ -146,6 +166,7 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn AutoPlay(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBitmapImage3>(self)?;
         unsafe {
@@ -153,18 +174,22 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetAutoPlay(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBitmapImage3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn Play(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBitmapImage3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBitmapImage3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>>(urisource: Param0) -> ::windows::core::Result<BitmapImage> {
         Self::IBitmapImageFactory(|this| unsafe {
@@ -172,66 +197,78 @@ impl BitmapImage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), urisource.into_param().abi(), &mut result__).from_abi::<BitmapImage>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn CreateOptionsProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn UriSourceProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn DecodePixelWidthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn DecodePixelHeightProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn DecodePixelTypeProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics2(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn IsAnimatedBitmapProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn IsPlayingProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn AutoPlayProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapImageStatics3(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBitmapImageFactory<R, F: FnOnce(&IBitmapImageFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapImage, IBitmapImageFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBitmapImageStatics<R, F: FnOnce(&IBitmapImageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapImage, IBitmapImageStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBitmapImageStatics2<R, F: FnOnce(&IBitmapImageStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapImage, IBitmapImageStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBitmapImageStatics3<R, F: FnOnce(&IBitmapImageStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapImage, IBitmapImageStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -360,9 +397,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bit
 }
 unsafe impl ::core::marker::Send for BitmapImage {}
 unsafe impl ::core::marker::Sync for BitmapImage {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapSource(::windows::core::IUnknown);
 impl BitmapSource {
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelWidth(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -370,6 +409,7 @@ impl BitmapSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelHeight(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -377,11 +417,13 @@ impl BitmapSource {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), streamsource.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SetSourceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -390,18 +432,21 @@ impl BitmapSource {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), streamsource.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelWidthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelHeightProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IBitmapSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBitmapSourceStatics<R, F: FnOnce(&IBitmapSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BitmapSource, IBitmapSourceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -510,6 +555,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Bit
 }
 unsafe impl ::core::marker::Send for BitmapSource {}
 unsafe impl ::core::marker::Sync for BitmapSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct DecodePixelType(pub i32);
 impl DecodePixelType {
@@ -537,9 +583,11 @@ unsafe impl ::windows::core::RuntimeType for DecodePixelType {
 impl ::windows::core::DefaultType for DecodePixelType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct DownloadProgressEventArgs(::windows::core::IUnknown);
 impl DownloadProgressEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn Progress(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -547,6 +595,7 @@ impl DownloadProgressEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetProgress(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -615,6 +664,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Down
 }
 unsafe impl ::core::marker::Send for DownloadProgressEventArgs {}
 unsafe impl ::core::marker::Sync for DownloadProgressEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct DownloadProgressEventHandler(pub ::windows::core::IUnknown);
 impl DownloadProgressEventHandler {
@@ -622,6 +672,7 @@ impl DownloadProgressEventHandler {
         let com = DownloadProgressEventHandlerBox::<F> { vtable: &DownloadProgressEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, DownloadProgressEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -1258,6 +1309,7 @@ pub struct IXamlRenderingBackgroundTaskOverridesVtbl(
     #[cfg(feature = "ApplicationModel_Background")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, taskinstance: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "ApplicationModel_Background"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct RenderTargetBitmap(::windows::core::IUnknown);
 impl RenderTargetBitmap {
@@ -1268,6 +1320,7 @@ impl RenderTargetBitmap {
         static mut SHARED: ::windows::core::FactoryCache<RenderTargetBitmap, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelWidth(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1275,6 +1328,7 @@ impl RenderTargetBitmap {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelHeight(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -1282,6 +1336,7 @@ impl RenderTargetBitmap {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RenderAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(&self, element: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1290,6 +1345,7 @@ impl RenderTargetBitmap {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), element.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RenderToSizeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::UIElement>>(&self, element: Param0, scaledwidth: i32, scaledheight: i32) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1298,6 +1354,7 @@ impl RenderTargetBitmap {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), element.into_param().abi(), scaledwidth, scaledheight, &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetPixelsAsync(&self) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -1306,18 +1363,21 @@ impl RenderTargetBitmap {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<super::super::super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelWidthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRenderTargetBitmapStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn PixelHeightProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::IRenderTargetBitmapStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRenderTargetBitmapStatics<R, F: FnOnce(&IRenderTargetBitmapStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RenderTargetBitmap, IRenderTargetBitmapStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1426,6 +1486,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Ren
 }
 unsafe impl ::core::marker::Send for RenderTargetBitmap {}
 unsafe impl ::core::marker::Sync for RenderTargetBitmap {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SoftwareBitmapSource(::windows::core::IUnknown);
 impl SoftwareBitmapSource {
@@ -1436,11 +1497,13 @@ impl SoftwareBitmapSource {
         static mut SHARED: ::windows::core::FactoryCache<SoftwareBitmapSource, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation', 'Graphics_Imaging'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics_Imaging"))]
     pub fn SetBitmapAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Imaging::SoftwareBitmap>>(&self, softwarebitmap: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -1579,21 +1642,25 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sof
 }
 unsafe impl ::core::marker::Send for SoftwareBitmapSource {}
 unsafe impl ::core::marker::Sync for SoftwareBitmapSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SurfaceImageSource(::windows::core::IUnknown);
 impl SurfaceImageSource {
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::core::Result<SurfaceImageSource> {
         Self::ISurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn CreateInstanceWithDimensionsAndOpacity(pixelwidth: i32, pixelheight: i32, isopaque: bool) -> ::windows::core::Result<SurfaceImageSource> {
         Self::ISurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SurfaceImageSource>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISurfaceImageSourceFactory<R, F: FnOnce(&ISurfaceImageSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SurfaceImageSource, ISurfaceImageSourceFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1702,9 +1769,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Sur
 }
 unsafe impl ::core::marker::Send for SurfaceImageSource {}
 unsafe impl ::core::marker::Sync for SurfaceImageSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSource(::windows::core::IUnknown);
 impl SvgImageSource {
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn UriSource(&self) -> ::windows::core::Result<super::super::super::super::Foundation::Uri> {
         let this = self;
@@ -1713,11 +1782,13 @@ impl SvgImageSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn RasterizePixelWidth(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1725,10 +1796,12 @@ impl SvgImageSource {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetRasterizePixelWidth(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn RasterizePixelHeight(&self) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -1736,10 +1809,12 @@ impl SvgImageSource {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn SetRasterizePixelHeight(&self, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Opened<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceOpenedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1748,11 +1823,13 @@ impl SvgImageSource {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpened<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn OpenFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TypedEventHandler<SvgImageSource, SvgImageSourceFailedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1761,11 +1838,13 @@ impl SvgImageSource {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveOpenFailed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn SetSourceAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Storage::Streams::IRandomAccessStream>>(&self, streamsource: Param0) -> ::windows::core::Result<super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>> {
         let this = self;
@@ -1774,12 +1853,14 @@ impl SvgImageSource {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), streamsource.into_param().abi(), &mut result__).from_abi::<super::super::super::super::Foundation::IAsyncOperation<SvgImageSourceLoadStatus>>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn new() -> ::windows::core::Result<SvgImageSource> {
         Self::ISvgImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstanceWithUriSource<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Uri>>(urisource: Param0) -> ::windows::core::Result<SvgImageSource> {
         Self::ISvgImageSourceFactory(|this| unsafe {
@@ -1787,28 +1868,33 @@ impl SvgImageSource {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), urisource.into_param().abi(), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<SvgImageSource>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn UriSourceProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISvgImageSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn RasterizePixelWidthProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISvgImageSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn RasterizePixelHeightProperty() -> ::windows::core::Result<super::super::DependencyProperty> {
         Self::ISvgImageSourceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISvgImageSourceFactory<R, F: FnOnce(&ISvgImageSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SvgImageSource, ISvgImageSourceFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn ISvgImageSourceStatics<R, F: FnOnce(&ISvgImageSourceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SvgImageSource, ISvgImageSourceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1917,9 +2003,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Svg
 }
 unsafe impl ::core::marker::Send for SvgImageSource {}
 unsafe impl ::core::marker::Sync for SvgImageSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSourceFailedEventArgs(::windows::core::IUnknown);
 impl SvgImageSourceFailedEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn Status(&self) -> ::windows::core::Result<SvgImageSourceLoadStatus> {
         let this = self;
         unsafe {
@@ -1991,6 +2079,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SvgI
 }
 unsafe impl ::core::marker::Send for SvgImageSourceFailedEventArgs {}
 unsafe impl ::core::marker::Sync for SvgImageSourceFailedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSourceLoadStatus(pub i32);
 impl SvgImageSourceLoadStatus {
@@ -2020,6 +2109,7 @@ unsafe impl ::windows::core::RuntimeType for SvgImageSourceLoadStatus {
 impl ::windows::core::DefaultType for SvgImageSourceLoadStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSourceOpenedEventArgs(::windows::core::IUnknown);
 impl SvgImageSourceOpenedEventArgs {}
@@ -2086,21 +2176,25 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &SvgI
 }
 unsafe impl ::core::marker::Send for SvgImageSourceOpenedEventArgs {}
 unsafe impl ::core::marker::Sync for SvgImageSourceOpenedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct VirtualSurfaceImageSource(::windows::core::IUnknown);
 impl VirtualSurfaceImageSource {
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::core::Result<VirtualSurfaceImageSource> {
         Self::IVirtualSurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, &mut result__).from_abi::<VirtualSurfaceImageSource>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn CreateInstanceWithDimensionsAndOpacity(pixelwidth: i32, pixelheight: i32, isopaque: bool) -> ::windows::core::Result<VirtualSurfaceImageSource> {
         Self::IVirtualSurfaceImageSourceFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, isopaque, &mut result__).from_abi::<VirtualSurfaceImageSource>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IVirtualSurfaceImageSourceFactory<R, F: FnOnce(&IVirtualSurfaceImageSourceFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VirtualSurfaceImageSource, IVirtualSurfaceImageSourceFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2229,9 +2323,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Vir
 }
 unsafe impl ::core::marker::Send for VirtualSurfaceImageSource {}
 unsafe impl ::core::marker::Sync for VirtualSurfaceImageSource {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct WriteableBitmap(::windows::core::IUnknown);
 impl WriteableBitmap {
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn PixelBuffer(&self) -> ::windows::core::Result<super::super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -2240,16 +2336,19 @@ impl WriteableBitmap {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn Invalidate(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
     pub fn CreateInstanceWithDimensions(pixelwidth: i32, pixelheight: i32) -> ::windows::core::Result<WriteableBitmap> {
         Self::IWriteableBitmapFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pixelwidth, pixelheight, &mut result__).from_abi::<WriteableBitmap>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWriteableBitmapFactory<R, F: FnOnce(&IWriteableBitmapFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WriteableBitmap, IWriteableBitmapFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2378,6 +2477,7 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::DependencyObject> for &Wri
 }
 unsafe impl ::core::marker::Send for WriteableBitmap {}
 unsafe impl ::core::marker::Sync for WriteableBitmap {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct XamlRenderingBackgroundTask(::windows::core::IUnknown);
 impl XamlRenderingBackgroundTask {}

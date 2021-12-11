@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type WiFiDirectService = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceAdvertisementStatus(pub i32);
 impl WiFiDirectServiceAdvertisementStatus {
@@ -18,6 +17,7 @@ impl ::core::clone::Clone for WiFiDirectServiceAdvertisementStatus {
 }
 pub type WiFiDirectServiceAdvertiser = *mut ::core::ffi::c_void;
 pub type WiFiDirectServiceAutoAcceptSessionConnectedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceConfigurationMethod(pub i32);
 impl WiFiDirectServiceConfigurationMethod {
@@ -31,6 +31,7 @@ impl ::core::clone::Clone for WiFiDirectServiceConfigurationMethod {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceError(pub i32);
 impl WiFiDirectServiceError {
@@ -46,6 +47,7 @@ impl ::core::clone::Clone for WiFiDirectServiceError {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceIPProtocol(pub i32);
 impl WiFiDirectServiceIPProtocol {
@@ -62,6 +64,7 @@ pub type WiFiDirectServiceProvisioningInfo = *mut ::core::ffi::c_void;
 pub type WiFiDirectServiceRemotePortAddedEventArgs = *mut ::core::ffi::c_void;
 pub type WiFiDirectServiceSession = *mut ::core::ffi::c_void;
 pub type WiFiDirectServiceSessionDeferredEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionErrorStatus(pub i32);
 impl WiFiDirectServiceSessionErrorStatus {
@@ -80,6 +83,7 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionErrorStatus {
 }
 pub type WiFiDirectServiceSessionRequest = *mut ::core::ffi::c_void;
 pub type WiFiDirectServiceSessionRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceSessionStatus(pub i32);
 impl WiFiDirectServiceSessionStatus {
@@ -94,6 +98,7 @@ impl ::core::clone::Clone for WiFiDirectServiceSessionStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_WiFiDirect_Services'*"]
 #[repr(transparent)]
 pub struct WiFiDirectServiceStatus(pub i32);
 impl WiFiDirectServiceStatus {

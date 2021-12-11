@@ -1,10 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type StoreAcquireLicenseResult = *mut ::core::ffi::c_void;
 pub type StoreAppLicense = *mut ::core::ffi::c_void;
 pub type StoreAvailability = *mut ::core::ffi::c_void;
 pub type StoreCanAcquireLicenseResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreCanLicenseStatus(pub i32);
 impl StoreCanLicenseStatus {
@@ -22,6 +21,7 @@ impl ::core::clone::Clone for StoreCanLicenseStatus {
 }
 pub type StoreCollectionData = *mut ::core::ffi::c_void;
 pub type StoreConsumableResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreConsumableStatus(pub i32);
 impl StoreConsumableStatus {
@@ -37,6 +37,7 @@ impl ::core::clone::Clone for StoreConsumableStatus {
     }
 }
 pub type StoreContext = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreDurationUnit(pub i32);
 impl StoreDurationUnit {
@@ -59,6 +60,7 @@ pub type StorePackageInstallOptions = *mut ::core::ffi::c_void;
 pub type StorePackageLicense = *mut ::core::ffi::c_void;
 pub type StorePackageUpdate = *mut ::core::ffi::c_void;
 pub type StorePackageUpdateResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePackageUpdateState(pub i32);
 impl StorePackageUpdateState {
@@ -79,6 +81,7 @@ impl ::core::clone::Clone for StorePackageUpdateState {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Services_Store'*"]
 pub struct StorePackageUpdateStatus {
     pub PackageFamilyName: ::windows_sys::core::HSTRING,
     pub PackageDownloadSizeInBytes: u64,
@@ -101,6 +104,7 @@ pub type StoreProductQueryResult = *mut ::core::ffi::c_void;
 pub type StoreProductResult = *mut ::core::ffi::c_void;
 pub type StorePurchaseProperties = *mut ::core::ffi::c_void;
 pub type StorePurchaseResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StorePurchaseStatus(pub i32);
 impl StorePurchaseStatus {
@@ -118,6 +122,7 @@ impl ::core::clone::Clone for StorePurchaseStatus {
 }
 pub type StoreQueueItem = *mut ::core::ffi::c_void;
 pub type StoreQueueItemCompletedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemExtendedState(pub i32);
 impl StoreQueueItemExtendedState {
@@ -143,6 +148,7 @@ impl ::core::clone::Clone for StoreQueueItemExtendedState {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemKind(pub i32);
 impl StoreQueueItemKind {
@@ -156,6 +162,7 @@ impl ::core::clone::Clone for StoreQueueItemKind {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreQueueItemState(pub i32);
 impl StoreQueueItemState {
@@ -173,6 +180,7 @@ impl ::core::clone::Clone for StoreQueueItemState {
 }
 pub type StoreQueueItemStatus = *mut ::core::ffi::c_void;
 pub type StoreRateAndReviewResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreRateAndReviewStatus(pub i32);
 impl StoreRateAndReviewStatus {
@@ -191,6 +199,7 @@ pub type StoreSendRequestResult = *mut ::core::ffi::c_void;
 pub type StoreSku = *mut ::core::ffi::c_void;
 pub type StoreSubscriptionInfo = *mut ::core::ffi::c_void;
 pub type StoreUninstallStorePackageResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Store'*"]
 #[repr(transparent)]
 pub struct StoreUninstallStorePackageStatus(pub i32);
 impl StoreUninstallStorePackageStatus {

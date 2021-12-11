@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddLogContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pcbcontainer: *const u64, pwszcontainerpath: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -13,6 +14,7 @@ pub unsafe fn AddLogContainer<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddLogContainerSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ccontainer: u16, pcbcontainer: *const u64, rgwszcontainerpath: *const super::super::Foundation::PWSTR, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -27,6 +29,7 @@ pub unsafe fn AddLogContainerSet<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn AddUsersToEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pencryptioncertificates: *const ENCRYPTION_CERTIFICATE_LIST) -> u32 {
@@ -41,6 +44,7 @@ pub unsafe fn AddUsersToEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut CLS_LSN, fflags: u32, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -55,6 +59,7 @@ pub unsafe fn AdvanceLogBase(pvmarshal: *mut ::core::ffi::c_void, plsnbase: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, rgcbreservation: *mut i64, pcbalignreservation: *mut i64) -> super::super::Foundation::BOOL {
@@ -69,6 +74,7 @@ pub unsafe fn AlignReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
@@ -83,6 +89,7 @@ pub unsafe fn AllocReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrec
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
@@ -97,6 +104,7 @@ pub unsafe fn AreFileApisANSI() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreShortNamesEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(handle: Param0, enabled: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -112,6 +120,7 @@ pub unsafe fn AreShortNamesEnabled<'a, Param0: ::windows::core::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct BY_HANDLE_FILE_INFORMATION {
     pub dwFileAttributes: u32,
@@ -151,6 +160,7 @@ impl ::core::default::Default for BY_HANDLE_FILE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupRead<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *mut u8, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -165,6 +175,7 @@ pub unsafe fn BackupRead<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupSeek<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwlowbytestoseek: u32, dwhighbytestoseek: u32, lpdwlowbyteseeked: *mut u32, lpdwhighbyteseeked: *mut u32, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -179,6 +190,7 @@ pub unsafe fn BackupSeek<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BackupWrite<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, lpbuffer: *const u8, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, babort: Param4, bprocesssecurity: Param5, lpcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -193,6 +205,7 @@ pub unsafe fn BackupWrite<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingCancelRequest<'a, Param1: ::windows::core::IntoParam<'a, IORING_HANDLE_REF>>(ioring: *const HIORING__, file: Param1, optocancel: usize, userdata: usize) -> ::windows::core::Result<()> {
@@ -207,6 +220,7 @@ pub unsafe fn BuildIoRingCancelRequest<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingReadFile<'a, Param1: ::windows::core::IntoParam<'a, IORING_HANDLE_REF>, Param2: ::windows::core::IntoParam<'a, IORING_BUFFER_REF>>(ioring: *const HIORING__, fileref: Param1, dataref: Param2, numberofbytestoread: u32, fileoffset: u64, userdata: usize, flags: IORING_SQE_FLAGS) -> ::windows::core::Result<()> {
@@ -221,6 +235,7 @@ pub unsafe fn BuildIoRingReadFile<'a, Param1: ::windows::core::IntoParam<'a, IOR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, buffers: *const IORING_BUFFER_INFO, userdata: usize) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -234,6 +249,7 @@ pub unsafe fn BuildIoRingRegisterBuffers(ioring: *const HIORING__, count: u32, b
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u32, handles: *const super::super::Foundation::HANDLE, userdata: usize) -> ::windows::core::Result<()> {
@@ -248,43 +264,78 @@ pub unsafe fn BuildIoRingRegisterFileHandles(ioring: *const HIORING__, count: u3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub type CACHE_ACCESS_CHECK = ::core::option::Option<unsafe extern "system" fn(psecuritydescriptor: *mut super::super::Security::SECURITY_DESCRIPTOR, hclienttoken: super::super::Foundation::HANDLE, dwdesiredaccess: u32, genericmapping: *mut super::super::Security::GENERIC_MAPPING, privilegeset: *mut super::super::Security::PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CACHE_DESTROY_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8)>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CACHE_KEY_COMPARE = ::core::option::Option<unsafe extern "system" fn(cbkey1: u32, lpbkey1: *mut u8, cbkey2: u32, lpbkey2: *mut u8) -> i32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CACHE_KEY_HASH = ::core::option::Option<unsafe extern "system" fn(lpbkey: *mut u8, cbkey: u32) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type CACHE_READ_CALLBACK = ::core::option::Option<unsafe extern "system" fn(cb: u32, lpb: *mut u8, lpvcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLAIMMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLAIMMEDIALABELEX = ::core::option::Option<unsafe extern "system" fn(pbuffer: *const u8, nbuffersize: u32, plabelinfo: *mut MediaLabelInfo, labelguid: *mut ::windows::core::GUID) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_BLOCK_ALLOCATION = ::core::option::Option<unsafe extern "system" fn(cbbufferlength: u32, pvusercontext: *mut ::core::ffi::c_void) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_BLOCK_DEALLOCATION = ::core::option::Option<unsafe extern "system" fn(pvbuffer: *mut ::core::ffi::c_void, pvusercontext: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_CONTEXT_MODE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContextNone: CLFS_CONTEXT_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContextUndoNext: CLFS_CONTEXT_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContextPrevious: CLFS_CONTEXT_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContextForward: CLFS_CONTEXT_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_FLAG = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_FORCE_APPEND: CLFS_FLAG = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_FORCE_FLUSH: CLFS_FLAG = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_NO_FLAGS: CLFS_FLAG = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_USE_RESERVATION: CLFS_FLAG = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_FILTER_INTERMEDIATE_LEVEL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_FILTER_TOP_LEVEL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_HIDDEN_SYSTEM_LOG: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_IGNORE_SHARE_ACCESS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_MINIFILTER_LEVEL: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_NON_REENTRANT_FILTER: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_READ_IN_PROGRESS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_REENTRANT_FILE_SYSTEM: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_FLAG_REENTRANT_FILTER: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_IOSTATS_CLASS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsIoStatsDefault: CLFS_IOSTATS_CLASS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsIoStatsMax: CLFS_IOSTATS_CLASS = 65535i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_LOG_ARCHIVE_MODE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogArchiveEnabled: CLFS_LOG_ARCHIVE_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogArchiveDisabled: CLFS_LOG_ARCHIVE_MODE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_LOG_NAME_INFORMATION {
     pub NameLengthInBytes: u16,
     pub Name: [u16; 1],
@@ -309,11 +360,16 @@ impl ::core::default::Default for CLFS_LOG_NAME_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MARSHALLING_FLAG_DISABLE_BUFF_INIT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MARSHALLING_FLAG_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MAX_CONTAINER_INFO: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MGMT_CLIENT_REGISTRATION_VERSION: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_NOTIFICATION {
     pub Notification: CLFS_MGMT_NOTIFICATION_TYPE,
     pub Lsn: CLS_LSN,
@@ -339,12 +395,18 @@ impl ::core::default::Default for CLFS_MGMT_NOTIFICATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_MGMT_NOTIFICATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtAdvanceTailNotification: CLFS_MGMT_NOTIFICATION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtLogFullHandlerNotification: CLFS_MGMT_NOTIFICATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtLogUnpinnedNotification: CLFS_MGMT_NOTIFICATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtLogWriteNotification: CLFS_MGMT_NOTIFICATION_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY {
     pub Version: u32,
     pub LengthInBytes: u32,
@@ -373,6 +435,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub union CLFS_MGMT_POLICY_0 {
     pub MaximumSize: CLFS_MGMT_POLICY_0_4,
     pub MinimumSize: CLFS_MGMT_POLICY_0_5,
@@ -406,6 +469,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_0 {
     pub Enabled: u32,
 }
@@ -430,6 +494,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_1 {
     pub Percentage: u32,
 }
@@ -454,6 +519,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_2 {
     pub AbsoluteGrowthInContainers: u32,
     pub RelativeGrowthPercentage: u32,
@@ -479,6 +545,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_3 {
     pub MinimumAvailablePercentage: u32,
     pub MinimumAvailableContainers: u32,
@@ -504,6 +571,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_4 {
     pub Containers: u32,
 }
@@ -528,6 +596,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_5 {
     pub Containers: u32,
 }
@@ -552,6 +621,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_5 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_6 {
     pub ExtensionLengthInBytes: u16,
     pub ExtensionString: [u16; 1],
@@ -577,6 +647,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_6 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_7 {
     pub PrefixLengthInBytes: u16,
     pub PrefixString: [u16; 1],
@@ -602,6 +673,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_7 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_8 {
     pub SizeInBytes: u32,
 }
@@ -626,6 +698,7 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_8 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_MGMT_POLICY_0_9 {
     pub NextContainerSuffix: u64,
 }
@@ -649,20 +722,34 @@ impl ::core::default::Default for CLFS_MGMT_POLICY_0_9 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLFS_MGMT_POLICY_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyMaximumSize: CLFS_MGMT_POLICY_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyMinimumSize: CLFS_MGMT_POLICY_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyNewContainerSize: CLFS_MGMT_POLICY_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyGrowthRate: CLFS_MGMT_POLICY_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyLogTail: CLFS_MGMT_POLICY_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyAutoShrink: CLFS_MGMT_POLICY_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyAutoGrow: CLFS_MGMT_POLICY_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyNewContainerPrefix: CLFS_MGMT_POLICY_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyNewContainerSuffix: CLFS_MGMT_POLICY_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyNewContainerExtension: CLFS_MGMT_POLICY_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsMgmtPolicyInvalid: CLFS_MGMT_POLICY_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_MGMT_POLICY_VERSION: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_NODE_ID {
     pub cType: u32,
     pub cbNode: u32,
@@ -688,6 +775,7 @@ impl ::core::default::Default for CLFS_NODE_ID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_PHYSICAL_LSN_INFORMATION {
     pub StreamIdentifier: u8,
     pub VirtualLsn: CLS_LSN,
@@ -713,13 +801,20 @@ impl ::core::default::Default for CLFS_PHYSICAL_LSN_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_BACKWARD: u8 = 4u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_BUFFERED: u8 = 32u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_CLOSE: u8 = 8u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_FORWARD: u8 = 2u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_INIT: u8 = 1u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CLFS_SCAN_INITIALIZED: u8 = 16u8;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLFS_STREAM_ID_INFORMATION {
     pub StreamIdentifier: u8,
 }
@@ -745,6 +840,7 @@ impl ::core::default::Default for CLFS_STREAM_ID_INFORMATION {
 }
 pub const CLSID_DiskQuotaControl: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b571_ec89_11cf_9c00_00aa00a14f56);
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLS_ARCHIVE_DESCRIPTOR {
     pub coffLow: u64,
     pub coffHigh: u64,
@@ -771,6 +867,7 @@ impl ::core::default::Default for CLS_ARCHIVE_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLS_CONTAINER_INFORMATION {
     pub FileAttributes: u32,
     pub CreationTime: u64,
@@ -804,12 +901,18 @@ impl ::core::default::Default for CLS_CONTAINER_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLS_CONTEXT_MODE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContextNone: CLS_CONTEXT_MODE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContextUndoNext: CLS_CONTEXT_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContextPrevious: CLS_CONTEXT_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContextForward: CLS_CONTEXT_MODE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLS_INFORMATION {
     pub TotalAvailable: i64,
     pub CurrentAvailable: i64,
@@ -849,10 +952,14 @@ impl ::core::default::Default for CLS_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLS_IOSTATS_CLASS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsIoStatsDefault: CLS_IOSTATS_CLASS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsIoStatsMax: CLS_IOSTATS_CLASS = 65535i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLS_IO_STATISTICS {
     pub hdrIoStats: CLS_IO_STATISTICS_HEADER,
     pub cFlush: u64,
@@ -881,6 +988,7 @@ impl ::core::default::Default for CLS_IO_STATISTICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLS_IO_STATISTICS_HEADER {
     pub ubMajorVersion: u8,
     pub ubMinorVersion: u8,
@@ -908,14 +1016,22 @@ impl ::core::default::Default for CLS_IO_STATISTICS_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CLS_LOG_INFORMATION_CLASS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogBasicInformation: CLS_LOG_INFORMATION_CLASS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogBasicInformationPhysical: CLS_LOG_INFORMATION_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogPhysicalNameInformation: CLS_LOG_INFORMATION_CLASS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogStreamIdentifierInformation: CLS_LOG_INFORMATION_CLASS = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogSystemMarkingInformation: CLS_LOG_INFORMATION_CLASS = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsLogPhysicalLsnInformation: CLS_LOG_INFORMATION_CLASS = 5i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLS_LSN {
     pub Internal: u64,
 }
@@ -940,6 +1056,7 @@ impl ::core::default::Default for CLS_LSN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLS_SCAN_CONTEXT {
     pub cidNode: CLFS_NODE_ID,
@@ -977,6 +1094,7 @@ impl ::core::default::Default for CLS_SCAN_CONTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CLS_WRITE_ENTRY {
     pub Buffer: *mut ::core::ffi::c_void,
     pub ByteLength: u32,
@@ -1002,6 +1120,7 @@ impl ::core::default::Default for CLS_WRITE_ENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct CONNECTION_INFO_0 {
     pub coni0_id: u32,
 }
@@ -1026,6 +1145,7 @@ impl ::core::default::Default for CONNECTION_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CONNECTION_INFO_1 {
     pub coni1_id: u32,
@@ -1062,16 +1182,26 @@ impl ::core::default::Default for CONNECTION_INFO_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type COPYFILE2_COPY_PHASE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_NONE: COPYFILE2_COPY_PHASE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_PREPARE_SOURCE: COPYFILE2_COPY_PHASE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_PREPARE_DEST: COPYFILE2_COPY_PHASE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_READ_SOURCE: COPYFILE2_COPY_PHASE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_WRITE_DESTINATION: COPYFILE2_COPY_PHASE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_SERVER_COPY: COPYFILE2_COPY_PHASE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_NAMEGRAFT_COPY: COPYFILE2_COPY_PHASE = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PHASE_MAX: COPYFILE2_COPY_PHASE = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
@@ -1107,6 +1237,7 @@ impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_EXTENDED_PARAMETERS_V2 {
     pub dwSize: u32,
@@ -1146,6 +1277,7 @@ impl ::core::default::Default for COPYFILE2_EXTENDED_PARAMETERS_V2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE {
     pub Type: COPYFILE2_MESSAGE_TYPE,
@@ -1179,6 +1311,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union COPYFILE2_MESSAGE_0 {
     pub ChunkStarted: COPYFILE2_MESSAGE_0_1,
@@ -1215,6 +1348,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_0 {
     pub dwStreamNumber: u32,
@@ -1255,6 +1389,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_1 {
     pub dwStreamNumber: u32,
@@ -1293,6 +1428,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_2 {
     pub CopyPhase: COPYFILE2_COPY_PHASE,
@@ -1332,6 +1468,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_3 {
     pub dwReserved: u32,
@@ -1363,6 +1500,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_3 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_4 {
     pub dwStreamNumber: u32,
@@ -1401,6 +1539,7 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_4 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct COPYFILE2_MESSAGE_0_5 {
     pub dwStreamNumber: u32,
@@ -1436,22 +1575,38 @@ impl ::core::default::Default for COPYFILE2_MESSAGE_0_5 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type COPYFILE2_MESSAGE_ACTION = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PROGRESS_CONTINUE: COPYFILE2_MESSAGE_ACTION = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PROGRESS_CANCEL: COPYFILE2_MESSAGE_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PROGRESS_STOP: COPYFILE2_MESSAGE_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PROGRESS_QUIET: COPYFILE2_MESSAGE_ACTION = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_PROGRESS_PAUSE: COPYFILE2_MESSAGE_ACTION = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type COPYFILE2_MESSAGE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_NONE: COPYFILE2_MESSAGE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_CHUNK_STARTED: COPYFILE2_MESSAGE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_CHUNK_FINISHED: COPYFILE2_MESSAGE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_STREAM_STARTED: COPYFILE2_MESSAGE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_STREAM_FINISHED: COPYFILE2_MESSAGE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_POLL_CONTINUE: COPYFILE2_MESSAGE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_ERROR: COPYFILE2_MESSAGE_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const COPYFILE2_CALLBACK_MAX: COPYFILE2_MESSAGE_TYPE = 7i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct CREATEFILE2_EXTENDED_PARAMETERS {
     pub dwSize: u32,
@@ -1487,21 +1642,37 @@ impl ::core::default::Default for CREATEFILE2_EXTENDED_PARAMETERS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type CREATE_TAPE_PARTITION_METHOD = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_FIXED_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_INITIATOR_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SELECT_PARTITIONS: CREATE_TAPE_PARTITION_METHOD = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CRM_PROTOCOL_DYNAMIC_MARSHAL_INFO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CRM_PROTOCOL_EXPLICIT_MARSHAL_ONLY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CRM_PROTOCOL_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_AUTO_REINT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_MANUAL_REINT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_NONE: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_CACHE_VDO: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_MASK: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSC_MASK_EXT: u32 = 8240u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSV_BLOCK_AND_FILE_CACHE_CALLBACK_VERSION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CSV_BLOCK_CACHE_CALLBACK_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3A<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -1516,6 +1687,7 @@ pub unsafe fn CheckNameLegalDOS8Dot3A<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckNameLegalDOS8Dot3W<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0, lpoemname: super::super::Foundation::PSTR, oemnamesize: u32, pbnamecontainsspaces: *mut super::super::Foundation::BOOL, pbnamelegal: *mut super::super::Foundation::BOOL) -> super::super::Foundation::BOOL {
@@ -1530,16 +1702,27 @@ pub unsafe fn CheckNameLegalDOS8Dot3W<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsClientRecord: u8 = 3u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerActive: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsContainerPendingArchiveAndDelete: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsDataRecord: u8 = 1u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsNullRecord: u8 = 0u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClfsRestartRecord: u8 = 2u8;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseAndResetLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
@@ -1554,6 +1737,7 @@ pub unsafe fn CloseAndResetLogFile<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
     #[cfg(windows)]
@@ -1567,6 +1751,7 @@ pub unsafe fn CloseEncryptedFileRaw(pvcontext: *const ::core::ffi::c_void) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -1580,12 +1765,19 @@ pub unsafe fn CloseIoRing(ioring: *const HIORING__) -> ::windows::core::Result<(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerActive: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerActivePendingDelete: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerInactive: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerInitializing: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerPendingArchive: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ClsContainerPendingArchiveAndDelete: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -1600,6 +1792,7 @@ pub unsafe fn CommitComplete<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -1614,6 +1807,7 @@ pub unsafe fn CommitEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
@@ -1628,6 +1822,7 @@ pub unsafe fn CommitTransaction<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CommitTransactionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
@@ -1642,6 +1837,7 @@ pub unsafe fn CommitTransactionAsync<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILETIME, lpfiletime2: *const super::super::Foundation::FILETIME) -> i32 {
@@ -1656,6 +1852,7 @@ pub unsafe fn CompareFileTime(lpfiletime1: *const super::super::Foundation::FILE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFile2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszexistingfilename: Param0, pwsznewfilename: Param1, pextendedparameters: *const COPYFILE2_EXTENDED_PARAMETERS) -> ::windows::core::Result<()> {
@@ -1670,6 +1867,7 @@ pub unsafe fn CopyFile2<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
@@ -1684,6 +1882,7 @@ pub unsafe fn CopyFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
@@ -1698,6 +1897,7 @@ pub unsafe fn CopyFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *mut i32, dwcopyflags: u32) -> super::super::Foundation::BOOL {
@@ -1712,6 +1912,7 @@ pub unsafe fn CopyFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
@@ -1726,6 +1927,7 @@ pub unsafe fn CopyFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: Param6) -> super::super::Foundation::BOOL {
@@ -1740,6 +1942,7 @@ pub unsafe fn CopyFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, pbcancel: *const i32, dwcopyflags: u32, htransaction: Param6) -> super::super::Foundation::BOOL {
@@ -1754,6 +1957,7 @@ pub unsafe fn CopyFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpexistingfilename: Param0, lpnewfilename: Param1, bfailifexists: Param2) -> super::super::Foundation::BOOL {
@@ -1768,6 +1972,7 @@ pub unsafe fn CopyFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(windows)]
@@ -1781,6 +1986,7 @@ pub unsafe fn CopyLZFile(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -1795,6 +2001,7 @@ pub unsafe fn CreateDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -1809,6 +2016,7 @@ pub unsafe fn CreateDirectoryExA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -1823,6 +2031,7 @@ pub unsafe fn CreateDirectoryExW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -1837,6 +2046,7 @@ pub unsafe fn CreateDirectoryFromAppW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
@@ -1851,6 +2061,7 @@ pub unsafe fn CreateDirectoryTransactedA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lptemplatedirectory: Param0, lpnewdirectory: Param1, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
@@ -1865,6 +2076,7 @@ pub unsafe fn CreateDirectoryTransactedW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -1879,6 +2091,7 @@ pub unsafe fn CreateDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpenlistmentattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerhandle: Param1, transactionhandle: Param2, notificationmask: u32, createoptions: u32, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -1893,6 +2106,7 @@ pub unsafe fn CreateEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFile2<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwcreationdisposition: FILE_CREATION_DISPOSITION, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE {
@@ -1907,6 +2121,7 @@ pub unsafe fn CreateFile2<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFile2FromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: u32, dwcreationdisposition: u32, pcreateexparams: *const CREATEFILE2_EXTENDED_PARAMETERS) -> super::super::Foundation::HANDLE {
@@ -1921,6 +2136,7 @@ pub unsafe fn CreateFile2FromAppW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6) -> super::super::Foundation::HANDLE {
@@ -1935,6 +2151,7 @@ pub unsafe fn CreateFileA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: u32, dwflagsandattributes: u32, htemplatefile: Param6) -> super::super::Foundation::HANDLE {
@@ -1949,6 +2166,7 @@ pub unsafe fn CreateFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6, htransaction: Param7, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -1963,6 +2181,7 @@ pub unsafe fn CreateFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: u32, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6, htransaction: Param7, pusminiversion: *const TXFS_MINIVERSION, lpextendedparameter: *mut ::core::ffi::c_void) -> super::super::Foundation::HANDLE {
@@ -1977,6 +2196,7 @@ pub unsafe fn CreateFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwcreationdisposition: FILE_CREATION_DISPOSITION, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES, htemplatefile: Param6) -> super::super::Foundation::HANDLE {
@@ -1991,6 +2211,7 @@ pub unsafe fn CreateFileW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -2005,6 +2226,7 @@ pub unsafe fn CreateHardLinkA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
@@ -2019,6 +2241,7 @@ pub unsafe fn CreateHardLinkTransactedA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, htransaction: Param3) -> super::super::Foundation::BOOL {
@@ -2033,6 +2256,7 @@ pub unsafe fn CreateHardLinkTransactedW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateHardLinkW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpexistingfilename: Param1, lpsecurityattributes: *mut super::super::Security::SECURITY_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -2047,6 +2271,7 @@ pub unsafe fn CreateHardLinkW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn CreateIoRing<'a, Param1: ::windows::core::IntoParam<'a, IORING_CREATE_FLAGS>>(ioringversion: IORING_VERSION, flags: Param1, submissionqueuesize: u32, completionqueuesize: u32) -> ::windows::core::Result<*mut HIORING__> {
     #[cfg(windows)]
@@ -2061,6 +2286,7 @@ pub unsafe fn CreateIoRing<'a, Param1: ::windows::core::IntoParam<'a, IORING_CRE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn CreateLogContainerScanContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, cfromcontainer: u32, ccontainers: u32, escanmode: u8, pcxscan: *mut CLS_SCAN_CONTEXT, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -2075,6 +2301,7 @@ pub unsafe fn CreateLogContainerScanContext<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, fdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, fcreatedisposition: FILE_CREATION_DISPOSITION, fflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
@@ -2089,6 +2316,7 @@ pub unsafe fn CreateLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pfnallocbuffer: CLFS_BLOCK_ALLOCATION, pfnfreebuffer: CLFS_BLOCK_DEALLOCATION, pvblockalloccontext: *mut ::core::ffi::c_void, cbmarshallingbuffer: u32, cmaxwritebuffers: u32, cmaxreadbuffers: u32, ppvmarshal: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -2103,6 +2331,7 @@ pub unsafe fn CreateLogMarshallingArea<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateResourceManager<'a, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpresourcemanagerattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, resourcemanagerid: *mut ::windows::core::GUID, createoptions: u32, tmhandle: Param3, description: Param4) -> super::super::Foundation::HANDLE {
@@ -2117,6 +2346,7 @@ pub unsafe fn CreateResourceManager<'a, Param3: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN {
@@ -2131,6 +2361,7 @@ pub unsafe fn CreateSymbolicLinkA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Param3) -> super::super::Foundation::BOOLEAN {
@@ -2145,6 +2376,7 @@ pub unsafe fn CreateSymbolicLinkTransactedA<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS, htransaction: Param3) -> super::super::Foundation::BOOLEAN {
@@ -2159,6 +2391,7 @@ pub unsafe fn CreateSymbolicLinkTransactedW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateSymbolicLinkW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpsymlinkfilename: Param0, lptargetfilename: Param1, dwflags: SYMBOLIC_LINK_FLAGS) -> super::super::Foundation::BOOLEAN {
@@ -2173,6 +2406,7 @@ pub unsafe fn CreateSymbolicLinkW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateTapePartition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwpartitionmethod: CREATE_TAPE_PARTITION_METHOD, dwcount: u32, dwsize: u32) -> u32 {
@@ -2187,6 +2421,7 @@ pub unsafe fn CreateTapePartition<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateTransaction<'a, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, uow: *mut ::windows::core::GUID, createoptions: u32, isolationlevel: u32, isolationflags: u32, timeout: u32, description: Param6) -> super::super::Foundation::HANDLE {
@@ -2201,6 +2436,7 @@ pub unsafe fn CreateTransaction<'a, Param6: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptransactionattributes: *mut super::super::Security::SECURITY_ATTRIBUTES, logfilename: Param1, createoptions: u32, commitstrength: u32) -> super::super::Foundation::HANDLE {
@@ -2215,32 +2451,58 @@ pub unsafe fn CreateTransactionManager<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type DEFINE_DOS_DEVICE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DDD_RAW_TARGET_PATH: DEFINE_DOS_DEVICE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DDD_REMOVE_DEFINITION: DEFINE_DOS_DEVICE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DDD_EXACT_MATCH_ON_REMOVE: DEFINE_DOS_DEVICE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DDD_NO_BROADCAST_SYSTEM: DEFINE_DOS_DEVICE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DDD_LUID_BROADCAST_DRIVE: DEFINE_DOS_DEVICE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_FILESTATE_INCOMPLETE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_FILESTATE_MASK: u32 = 768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_FILESTATE_REBUILDING: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_LOGFLAG_USER_LIMIT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_LOGFLAG_USER_THRESHOLD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_DISABLED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_ENFORCE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_MASK: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_STATE_TRACK: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type DISKQUOTA_USERNAME_RESOLVE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_ASYNC: DISKQUOTA_USERNAME_RESOLVE = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_NONE: DISKQUOTA_USERNAME_RESOLVE = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USERNAME_RESOLVE_SYNC: DISKQUOTA_USERNAME_RESOLVE = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_DELETED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_INVALID: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_RESOLVED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNAVAILABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNKNOWN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const DISKQUOTA_USER_ACCOUNT_UNRESOLVED: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct DISKQUOTA_USER_INFORMATION {
     pub QuotaUsed: i64,
     pub QuotaThreshold: i64,
@@ -2267,6 +2529,7 @@ impl ::core::default::Default for DISKQUOTA_USER_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct DISK_SPACE_INFORMATION {
     pub ActualTotalAllocationUnits: u64,
     pub ActualAvailableAllocationUnits: u64,
@@ -2302,6 +2565,7 @@ impl ::core::default::Default for DISK_SPACE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DecryptFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
@@ -2316,6 +2580,7 @@ pub unsafe fn DecryptFileA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DecryptFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwreserved: u32) -> super::super::Foundation::BOOL {
@@ -2330,6 +2595,7 @@ pub unsafe fn DecryptFileW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DefineDosDeviceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: Param1, lptargetpath: Param2) -> super::super::Foundation::BOOL {
@@ -2344,6 +2610,7 @@ pub unsafe fn DefineDosDeviceA<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DefineDosDeviceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: DEFINE_DOS_DEVICE_FLAGS, lpdevicename: Param1, lptargetpath: Param2) -> super::super::Foundation::BOOL {
@@ -2358,6 +2625,7 @@ pub unsafe fn DefineDosDeviceW<'a, Param1: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -2372,6 +2640,7 @@ pub unsafe fn DeleteFileA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -2386,6 +2655,7 @@ pub unsafe fn DeleteFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
@@ -2400,6 +2670,7 @@ pub unsafe fn DeleteFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
@@ -2414,6 +2685,7 @@ pub unsafe fn DeleteFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -2428,6 +2700,7 @@ pub unsafe fn DeleteFileW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteLogByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
@@ -2442,6 +2715,7 @@ pub unsafe fn DeleteLogByHandle<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, pvreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -2456,6 +2730,7 @@ pub unsafe fn DeleteLogFile<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -2470,6 +2745,7 @@ pub unsafe fn DeleteLogMarshallingArea(pvmarshal: *mut ::core::ffi::c_void) -> s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
@@ -2484,6 +2760,7 @@ pub unsafe fn DeleteVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
@@ -2498,6 +2775,7 @@ pub unsafe fn DeleteVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeregisterManageableLogClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
@@ -2512,6 +2790,7 @@ pub unsafe fn DeregisterManageableLogClient<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn DuplicateEncryptionInfoFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(srcfilename: Param0, dstfilename: Param1, dwcreationdistribution: u32, dwattributes: u32, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES) -> u32 {
@@ -2527,6 +2806,7 @@ pub unsafe fn DuplicateEncryptionInfoFile<'a, Param0: ::windows::core::IntoParam
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_CERTIFICATE_BLOB {
     pub dwCertEncodingType: u32,
     pub cbData: u32,
@@ -2553,6 +2833,7 @@ impl ::core::default::Default for EFS_CERTIFICATE_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_COMPATIBILITY_INFO {
     pub EfsVersion: u32,
 }
@@ -2576,9 +2857,12 @@ impl ::core::default::Default for EFS_COMPATIBILITY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_COMPATIBILITY_VERSION_NCRYPT_PROTECTOR: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_COMPATIBILITY_VERSION_PFILE_PROTECTOR: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_DECRYPTION_STATUS_INFO {
     pub dwDecryptionError: u32,
     pub dwHashOffset: u32,
@@ -2604,8 +2888,10 @@ impl ::core::default::Default for EFS_DECRYPTION_STATUS_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_EFS_SUBVER_EFS_CERT: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EFS_ENCRYPTION_STATUS_INFO {
     pub bHasCurrentKey: super::super::Foundation::BOOL,
@@ -2638,6 +2924,7 @@ impl ::core::default::Default for EFS_ENCRYPTION_STATUS_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_HASH_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -2663,6 +2950,7 @@ impl ::core::default::Default for EFS_HASH_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_KEY_INFO {
     pub dwVersion: u32,
     pub Entropy: u32,
@@ -2689,13 +2977,20 @@ impl ::core::default::Default for EFS_KEY_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_ADD_USER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_GENERAL_OP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_REMOVE_USER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_METADATA_REPLACE_USER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_PFILE_SUBVER_APPX: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_PFILE_SUBVER_RMS: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_PIN_BLOB {
     pub cbPadding: u32,
     pub cbData: u32,
@@ -2722,6 +3017,7 @@ impl ::core::default::Default for EFS_PIN_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_RPC_BLOB {
     pub cbData: u32,
     pub pbData: *mut u8,
@@ -2746,8 +3042,10 @@ impl ::core::default::Default for EFS_RPC_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const EFS_SUBVER_UNKNOWN: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct EFS_VERSION_INFO {
     pub EfsVersion: u32,
     pub SubVersion: u32,
@@ -2773,6 +3071,7 @@ impl ::core::default::Default for EFS_VERSION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTED_FILE_METADATA_SIGNATURE {
     pub dwEfsAccessType: u32,
@@ -2807,6 +3106,7 @@ impl ::core::default::Default for ENCRYPTED_FILE_METADATA_SIGNATURE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Security'*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE {
     pub cbTotalLength: u32,
@@ -2840,6 +3140,7 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_CERTIFICATE_HASH {
     pub cbTotalLength: u32,
@@ -2874,6 +3175,7 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_CERTIFICATE_HASH_LIST {
     pub nCert_Hash: u32,
@@ -2906,6 +3208,7 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_HASH_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Security'*"]
 #[cfg(feature = "Win32_Security")]
 pub struct ENCRYPTION_CERTIFICATE_LIST {
     pub nUsers: u32,
@@ -2938,6 +3241,7 @@ impl ::core::default::Default for ENCRYPTION_CERTIFICATE_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_PROTECTOR {
     pub cbTotalLength: u32,
@@ -2971,6 +3275,7 @@ impl ::core::default::Default for ENCRYPTION_PROTECTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct ENCRYPTION_PROTECTOR_LIST {
     pub nProtectors: u32,
@@ -3002,11 +3307,17 @@ impl ::core::default::Default for ENCRYPTION_PROTECTOR_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ENLISTMENT_MAXIMUM_OPTION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ENLISTMENT_SUPERIOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type ERASE_TAPE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_ERASE_LONG: ERASE_TAPE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_ERASE_SHORT: ERASE_TAPE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -3021,6 +3332,7 @@ pub unsafe fn EncryptFileA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -3035,6 +3347,7 @@ pub unsafe fn EncryptFileW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EncryptionDisable<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(dirpath: Param0, disable: Param1) -> super::super::Foundation::BOOL {
@@ -3049,6 +3362,7 @@ pub unsafe fn EncryptionDisable<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EraseTape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwerasetype: ERASE_TAPE_TYPE, bimmediate: Param2) -> u32 {
@@ -3063,11 +3377,14 @@ pub unsafe fn EraseTape<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FCACHE_CREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32) -> super::super::Foundation::HANDLE>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FCACHE_RICHCREATE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(lpstrname: super::super::Foundation::PSTR, lpvdata: *mut ::core::ffi::c_void, cbfilesize: *mut u32, cbfilesizehigh: *mut u32, pfdidwescanit: *mut super::super::Foundation::BOOL, pfisstuffed: *mut super::super::Foundation::BOOL, pfstoredwithdots: *mut super::super::Foundation::BOOL, pfstoredwithterminatingdot: *mut super::super::Foundation::BOOL) -> super::super::Foundation::HANDLE>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FH_OVERLAPPED {
     pub Internal: usize,
@@ -3107,40 +3424,74 @@ impl ::core::default::Default for FH_OVERLAPPED {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_ACCESS_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_READ_DATA: FILE_ACCESS_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_LIST_DIRECTORY: FILE_ACCESS_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_WRITE_DATA: FILE_ACCESS_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ADD_FILE: FILE_ACCESS_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_APPEND_DATA: FILE_ACCESS_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ADD_SUBDIRECTORY: FILE_ACCESS_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_CREATE_PIPE_INSTANCE: FILE_ACCESS_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_READ_EA: FILE_ACCESS_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_WRITE_EA: FILE_ACCESS_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_EXECUTE: FILE_ACCESS_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_TRAVERSE: FILE_ACCESS_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_DELETE_CHILD: FILE_ACCESS_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_READ_ATTRIBUTES: FILE_ACCESS_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_WRITE_ATTRIBUTES: FILE_ACCESS_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const READ_CONTROL: FILE_ACCESS_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SYNCHRONIZE: FILE_ACCESS_FLAGS = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STANDARD_RIGHTS_REQUIRED: FILE_ACCESS_FLAGS = 983040u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STANDARD_RIGHTS_READ: FILE_ACCESS_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STANDARD_RIGHTS_WRITE: FILE_ACCESS_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STANDARD_RIGHTS_EXECUTE: FILE_ACCESS_FLAGS = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STANDARD_RIGHTS_ALL: FILE_ACCESS_FLAGS = 2031616u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SPECIFIC_RIGHTS_ALL: FILE_ACCESS_FLAGS = 65535u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ALL_ACCESS: FILE_ACCESS_FLAGS = 2032127u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_GENERIC_READ: FILE_ACCESS_FLAGS = 1179785u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_GENERIC_WRITE: FILE_ACCESS_FLAGS = 1179926u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_GENERIC_EXECUTE: FILE_ACCESS_FLAGS = 1179808u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_ACTION = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ACTION_ADDED: FILE_ACTION = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ACTION_REMOVED: FILE_ACTION = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ACTION_MODIFIED: FILE_ACTION = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ACTION_RENAMED_OLD_NAME: FILE_ACTION = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ACTION_RENAMED_NEW_NAME: FILE_ACTION = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ALIGNMENT_INFO {
     pub AlignmentRequirement: u32,
 }
@@ -3165,6 +3516,7 @@ impl ::core::default::Default for FILE_ALIGNMENT_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ALLOCATION_INFO {
     pub AllocationSize: i64,
 }
@@ -3189,6 +3541,7 @@ impl ::core::default::Default for FILE_ALLOCATION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ATTRIBUTE_TAG_INFO {
     pub FileAttributes: u32,
     pub ReparseTag: u32,
@@ -3214,6 +3567,7 @@ impl ::core::default::Default for FILE_ATTRIBUTE_TAG_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_BASIC_INFO {
     pub CreationTime: i64,
     pub LastAccessTime: i64,
@@ -3242,6 +3596,7 @@ impl ::core::default::Default for FILE_BASIC_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_COMPRESSION_INFO {
     pub CompressedFileSize: i64,
     pub CompressionFormat: u16,
@@ -3270,18 +3625,30 @@ impl ::core::default::Default for FILE_COMPRESSION_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_CREATION_DISPOSITION = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CREATE_NEW: FILE_CREATION_DISPOSITION = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CREATE_ALWAYS: FILE_CREATION_DISPOSITION = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OPEN_EXISTING: FILE_CREATION_DISPOSITION = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OPEN_ALWAYS: FILE_CREATION_DISPOSITION = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRUNCATE_EXISTING: FILE_CREATION_DISPOSITION = 5u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_DEVICE_TYPE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_DEVICE_CD_ROM: FILE_DEVICE_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_DEVICE_DISK: FILE_DEVICE_TYPE = 7u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_DEVICE_TAPE: FILE_DEVICE_TYPE = 31u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_DEVICE_DVD: FILE_DEVICE_TYPE = 51u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_DISPOSITION_INFO {
     pub DeleteFileA: super::super::Foundation::BOOLEAN,
@@ -3313,6 +3680,7 @@ impl ::core::default::Default for FILE_DISPOSITION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_END_OF_FILE_INFO {
     pub EndOfFile: i64,
 }
@@ -3337,6 +3705,7 @@ impl ::core::default::Default for FILE_END_OF_FILE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_EXTENT {
     pub VolumeOffset: u64,
     pub ExtentLength: u64,
@@ -3361,53 +3730,100 @@ impl ::core::default::Default for FILE_EXTENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_FLAGS_AND_ATTRIBUTES = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_READONLY: FILE_FLAGS_AND_ATTRIBUTES = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_HIDDEN: FILE_FLAGS_AND_ATTRIBUTES = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_SYSTEM: FILE_FLAGS_AND_ATTRIBUTES = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_DIRECTORY: FILE_FLAGS_AND_ATTRIBUTES = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_ARCHIVE: FILE_FLAGS_AND_ATTRIBUTES = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_DEVICE: FILE_FLAGS_AND_ATTRIBUTES = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_NORMAL: FILE_FLAGS_AND_ATTRIBUTES = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_TEMPORARY: FILE_FLAGS_AND_ATTRIBUTES = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_SPARSE_FILE: FILE_FLAGS_AND_ATTRIBUTES = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_COMPRESSED: FILE_FLAGS_AND_ATTRIBUTES = 2048u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_OFFLINE: FILE_FLAGS_AND_ATTRIBUTES = 4096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_NOT_CONTENT_INDEXED: FILE_FLAGS_AND_ATTRIBUTES = 8192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_ENCRYPTED: FILE_FLAGS_AND_ATTRIBUTES = 16384u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_INTEGRITY_STREAM: FILE_FLAGS_AND_ATTRIBUTES = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_VIRTUAL: FILE_FLAGS_AND_ATTRIBUTES = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_NO_SCRUB_DATA: FILE_FLAGS_AND_ATTRIBUTES = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_EA: FILE_FLAGS_AND_ATTRIBUTES = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_PINNED: FILE_FLAGS_AND_ATTRIBUTES = 524288u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_UNPINNED: FILE_FLAGS_AND_ATTRIBUTES = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_RECALL_ON_OPEN: FILE_FLAGS_AND_ATTRIBUTES = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_ATTRIBUTE_RECALL_ON_DATA_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = 4194304u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_WRITE_THROUGH: FILE_FLAGS_AND_ATTRIBUTES = 2147483648u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_OVERLAPPED: FILE_FLAGS_AND_ATTRIBUTES = 1073741824u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_NO_BUFFERING: FILE_FLAGS_AND_ATTRIBUTES = 536870912u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_RANDOM_ACCESS: FILE_FLAGS_AND_ATTRIBUTES = 268435456u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_SEQUENTIAL_SCAN: FILE_FLAGS_AND_ATTRIBUTES = 134217728u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_DELETE_ON_CLOSE: FILE_FLAGS_AND_ATTRIBUTES = 67108864u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_BACKUP_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = 33554432u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_POSIX_SEMANTICS: FILE_FLAGS_AND_ATTRIBUTES = 16777216u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_SESSION_AWARE: FILE_FLAGS_AND_ATTRIBUTES = 8388608u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_OPEN_REPARSE_POINT: FILE_FLAGS_AND_ATTRIBUTES = 2097152u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_OPEN_NO_RECALL: FILE_FLAGS_AND_ATTRIBUTES = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_FLAG_FIRST_PIPE_INSTANCE: FILE_FLAGS_AND_ATTRIBUTES = 524288u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const PIPE_ACCESS_DUPLEX: FILE_FLAGS_AND_ATTRIBUTES = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const PIPE_ACCESS_INBOUND: FILE_FLAGS_AND_ATTRIBUTES = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const PIPE_ACCESS_OUTBOUND: FILE_FLAGS_AND_ATTRIBUTES = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_ANONYMOUS: FILE_FLAGS_AND_ATTRIBUTES = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_IDENTIFICATION: FILE_FLAGS_AND_ATTRIBUTES = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_IMPERSONATION: FILE_FLAGS_AND_ATTRIBUTES = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_DELEGATION: FILE_FLAGS_AND_ATTRIBUTES = 196608u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_CONTEXT_TRACKING: FILE_FLAGS_AND_ATTRIBUTES = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_EFFECTIVE_ONLY: FILE_FLAGS_AND_ATTRIBUTES = 524288u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_SQOS_PRESENT: FILE_FLAGS_AND_ATTRIBUTES = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SECURITY_VALID_SQOS_FLAGS: FILE_FLAGS_AND_ATTRIBUTES = 2031616u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_FULL_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -3443,6 +3859,7 @@ impl ::core::default::Default for FILE_FULL_DIR_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ID_128 {
     pub Identifier: [u8; 16],
 }
@@ -3467,6 +3884,7 @@ impl ::core::default::Default for FILE_ID_128 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ID_BOTH_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -3505,6 +3923,7 @@ impl ::core::default::Default for FILE_ID_BOTH_DIR_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ID_DESCRIPTOR {
     pub dwSize: u32,
     pub Type: FILE_ID_TYPE,
@@ -3531,6 +3950,7 @@ impl ::core::default::Default for FILE_ID_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub union FILE_ID_DESCRIPTOR_0 {
     pub FileId: i64,
     pub ObjectId: ::windows::core::GUID,
@@ -3557,6 +3977,7 @@ impl ::core::default::Default for FILE_ID_DESCRIPTOR_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ID_EXTD_DIR_INFO {
     pub NextEntryOffset: u32,
     pub FileIndex: u32,
@@ -3594,6 +4015,7 @@ impl ::core::default::Default for FILE_ID_EXTD_DIR_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_ID_INFO {
     pub VolumeSerialNumber: u64,
     pub FileId: FILE_ID_128,
@@ -3618,12 +4040,18 @@ impl ::core::default::Default for FILE_ID_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_ID_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileIdType: FILE_ID_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ObjectIdType: FILE_ID_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ExtendedFileIdType: FILE_ID_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MaximumFileIdType: FILE_ID_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_INFO_2 {
     pub fi2_id: u32,
 }
@@ -3648,6 +4076,7 @@ impl ::core::default::Default for FILE_INFO_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_INFO_3 {
     pub fi3_id: u32,
@@ -3682,38 +4111,70 @@ impl ::core::default::Default for FILE_INFO_3 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_INFO_BY_HANDLE_CLASS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileBasicInfo: FILE_INFO_BY_HANDLE_CLASS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileStandardInfo: FILE_INFO_BY_HANDLE_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileNameInfo: FILE_INFO_BY_HANDLE_CLASS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileRenameInfo: FILE_INFO_BY_HANDLE_CLASS = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileDispositionInfo: FILE_INFO_BY_HANDLE_CLASS = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileAllocationInfo: FILE_INFO_BY_HANDLE_CLASS = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileEndOfFileInfo: FILE_INFO_BY_HANDLE_CLASS = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileStreamInfo: FILE_INFO_BY_HANDLE_CLASS = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileCompressionInfo: FILE_INFO_BY_HANDLE_CLASS = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileAttributeTagInfo: FILE_INFO_BY_HANDLE_CLASS = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileIdBothDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileIdBothDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = 11i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileIoPriorityHintInfo: FILE_INFO_BY_HANDLE_CLASS = 12i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileRemoteProtocolInfo: FILE_INFO_BY_HANDLE_CLASS = 13i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileFullDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = 14i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileFullDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = 15i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileStorageInfo: FILE_INFO_BY_HANDLE_CLASS = 16i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileAlignmentInfo: FILE_INFO_BY_HANDLE_CLASS = 17i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileIdInfo: FILE_INFO_BY_HANDLE_CLASS = 18i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileIdExtdDirectoryInfo: FILE_INFO_BY_HANDLE_CLASS = 19i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileIdExtdDirectoryRestartInfo: FILE_INFO_BY_HANDLE_CLASS = 20i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileDispositionInfoEx: FILE_INFO_BY_HANDLE_CLASS = 21i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileRenameInfoEx: FILE_INFO_BY_HANDLE_CLASS = 22i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileCaseSensitiveInfo: FILE_INFO_BY_HANDLE_CLASS = 23i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FileNormalizedNameInfo: FILE_INFO_BY_HANDLE_CLASS = 24i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MaximumFileInfoByHandleClass: FILE_INFO_BY_HANDLE_CLASS = 25i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_INFO_FLAGS_PERMISSIONS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const PERM_FILE_READ: FILE_INFO_FLAGS_PERMISSIONS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const PERM_FILE_WRITE: FILE_INFO_FLAGS_PERMISSIONS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const PERM_FILE_CREATE: FILE_INFO_FLAGS_PERMISSIONS = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_IO_PRIORITY_HINT_INFO {
     pub PriorityHint: PRIORITY_HINT,
 }
@@ -3737,10 +4198,14 @@ impl ::core::default::Default for FILE_IO_PRIORITY_HINT_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_NAME = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NAME_NORMALIZED: FILE_NAME = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NAME_OPENED: FILE_NAME = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_NAME_INFO {
     pub FileNameLength: u32,
     pub FileName: [u16; 1],
@@ -3765,16 +4230,26 @@ impl ::core::default::Default for FILE_NAME_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_NOTIFY_CHANGE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_FILE_NAME: FILE_NOTIFY_CHANGE = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_DIR_NAME: FILE_NOTIFY_CHANGE = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_ATTRIBUTES: FILE_NOTIFY_CHANGE = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_SIZE: FILE_NOTIFY_CHANGE = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_LAST_WRITE: FILE_NOTIFY_CHANGE = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_LAST_ACCESS: FILE_NOTIFY_CHANGE = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_CREATION: FILE_NOTIFY_CHANGE = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_NOTIFY_CHANGE_SECURITY: FILE_NOTIFY_CHANGE = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_NOTIFY_EXTENDED_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -3812,6 +4287,7 @@ impl ::core::default::Default for FILE_NOTIFY_EXTENDED_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_NOTIFY_INFORMATION {
     pub NextEntryOffset: u32,
     pub Action: FILE_ACTION,
@@ -3838,11 +4314,16 @@ impl ::core::default::Default for FILE_NOTIFY_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_LZX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS16K: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS4K: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_PROVIDER_COMPRESSION_XPRESS8K: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO {
     pub StructureVersion: u16,
     pub StructureSize: u16,
@@ -3876,6 +4357,7 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_0 {
     pub Reserved: [u32; 8],
 }
@@ -3900,6 +4382,7 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub union FILE_REMOTE_PROTOCOL_INFO_1 {
     pub Smb2: FILE_REMOTE_PROTOCOL_INFO_1_0,
     pub Reserved: [u32; 16],
@@ -3925,6 +4408,7 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0 {
     pub Server: FILE_REMOTE_PROTOCOL_INFO_1_0_0,
     pub Share: FILE_REMOTE_PROTOCOL_INFO_1_0_1,
@@ -3950,6 +4434,7 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     pub Capabilities: u32,
 }
@@ -3974,6 +4459,7 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     pub Capabilities: u32,
     pub CachingFlags: u32,
@@ -3999,6 +4485,7 @@ impl ::core::default::Default for FILE_REMOTE_PROTOCOL_INFO_1_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_RENAME_INFO {
     pub Anonymous: FILE_RENAME_INFO_0,
@@ -4033,6 +4520,7 @@ impl ::core::default::Default for FILE_RENAME_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union FILE_RENAME_INFO_0 {
     pub ReplaceIfExists: super::super::Foundation::BOOLEAN,
@@ -4065,6 +4553,7 @@ impl ::core::default::Default for FILE_RENAME_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub union FILE_SEGMENT_ELEMENT {
     pub Buffer: *mut ::core::ffi::c_void,
     pub Alignment: u64,
@@ -4089,12 +4578,18 @@ impl ::core::default::Default for FILE_SEGMENT_ELEMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FILE_SHARE_MODE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_SHARE_NONE: FILE_SHARE_MODE = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_SHARE_DELETE: FILE_SHARE_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_SHARE_READ: FILE_SHARE_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_SHARE_WRITE: FILE_SHARE_MODE = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FILE_STANDARD_INFO {
     pub AllocationSize: i64,
@@ -4130,6 +4625,7 @@ impl ::core::default::Default for FILE_STANDARD_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_STORAGE_INFO {
     pub LogicalBytesPerSector: u32,
     pub PhysicalBytesPerSectorForAtomicity: u32,
@@ -4160,6 +4656,7 @@ impl ::core::default::Default for FILE_STORAGE_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct FILE_STREAM_INFO {
     pub NextEntryOffset: u32,
     pub StreamNameLength: u32,
@@ -4187,20 +4684,34 @@ impl ::core::default::Default for FILE_STREAM_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FINDEX_INFO_LEVELS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindExInfoStandard: FINDEX_INFO_LEVELS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindExInfoBasic: FINDEX_INFO_LEVELS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindExInfoMaxInfoLevel: FINDEX_INFO_LEVELS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FINDEX_SEARCH_OPS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindExSearchNameMatch: FINDEX_SEARCH_OPS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindExSearchLimitToDirectories: FINDEX_SEARCH_OPS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindExSearchLimitToDevices: FINDEX_SEARCH_OPS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindExSearchMaxSearchOp: FINDEX_SEARCH_OPS = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type FIND_FIRST_EX_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FIND_FIRST_EX_CASE_SENSITIVE: FIND_FIRST_EX_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FIND_FIRST_EX_LARGE_FETCH: FIND_FIRST_EX_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FIND_FIRST_EX_ON_DISK_ENTRIES_ONLY: FIND_FIRST_EX_FLAGS = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FIO_CONTEXT {
     pub m_dwTempHack: u32,
@@ -4235,6 +4746,7 @@ impl ::core::default::Default for FIO_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileEncryptionStatusA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpstatus: *mut u32) -> super::super::Foundation::BOOL {
@@ -4249,6 +4761,7 @@ pub unsafe fn FileEncryptionStatusA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileEncryptionStatusW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpstatus: *mut u32) -> super::super::Foundation::BOOL {
@@ -4263,6 +4776,7 @@ pub unsafe fn FileEncryptionStatusW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundation::FILETIME, lplocalfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -4278,6 +4792,7 @@ pub unsafe fn FileTimeToLocalFileTime(lpfiletime: *const super::super::Foundatio
     unimplemented!("Unsupported target OS");
 }
 pub type FindChangeNotificationHandle = isize;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindClose<'a, Param0: ::windows::core::IntoParam<'a, FindFileHandle>>(hfindfile: Param0) -> super::super::Foundation::BOOL {
@@ -4292,6 +4807,7 @@ pub unsafe fn FindClose<'a, Param0: ::windows::core::IntoParam<'a, FindFileHandl
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, FindChangeNotificationHandle>>(hchangehandle: Param0) -> super::super::Foundation::BOOL {
@@ -4308,6 +4824,7 @@ pub unsafe fn FindCloseChangeNotification<'a, Param0: ::windows::core::IntoParam
 }
 pub type FindFileHandle = isize;
 pub type FindFileNameHandle = isize;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppathname: Param0, bwatchsubtree: Param1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle {
@@ -4322,6 +4839,7 @@ pub unsafe fn FindFirstChangeNotificationA<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstChangeNotificationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lppathname: Param0, bwatchsubtree: Param1, dwnotifyfilter: FILE_NOTIFY_CHANGE) -> FindChangeNotificationHandle {
@@ -4336,6 +4854,7 @@ pub unsafe fn FindFirstChangeNotificationW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> FindFileHandle {
@@ -4350,6 +4869,7 @@ pub unsafe fn FindFirstFileA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
@@ -4364,6 +4884,7 @@ pub unsafe fn FindFirstFileExA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32) -> super::super::Foundation::HANDLE {
@@ -4378,6 +4899,7 @@ pub unsafe fn FindFirstFileExFromAppW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: FIND_FIRST_EX_FLAGS) -> FindFileHandle {
@@ -4392,6 +4914,7 @@ pub unsafe fn FindFirstFileExW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileNameTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR, htransaction: Param4) -> FindFileNameHandle {
@@ -4406,6 +4929,7 @@ pub unsafe fn FindFirstFileNameTransactedW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwflags: u32, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> FindFileNameHandle {
@@ -4420,6 +4944,7 @@ pub unsafe fn FindFirstFileNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
@@ -4434,6 +4959,7 @@ pub unsafe fn FindFirstFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: FINDEX_INFO_LEVELS, lpfindfiledata: *mut ::core::ffi::c_void, fsearchop: FINDEX_SEARCH_OPS, lpsearchfilter: *mut ::core::ffi::c_void, dwadditionalflags: u32, htransaction: Param6) -> FindFileHandle {
@@ -4448,6 +4974,7 @@ pub unsafe fn FindFirstFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> FindFileHandle {
@@ -4462,6 +4989,7 @@ pub unsafe fn FindFirstFileW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32, htransaction: Param4) -> FindStreamHandle {
@@ -4476,6 +5004,7 @@ pub unsafe fn FindFirstStreamTransactedW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstStreamW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, infolevel: STREAM_INFO_LEVELS, lpfindstreamdata: *mut ::core::ffi::c_void, dwflags: u32) -> FindStreamHandle {
@@ -4490,6 +5019,7 @@ pub unsafe fn FindFirstStreamW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstVolumeA(lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeHandle {
@@ -4504,6 +5034,7 @@ pub unsafe fn FindFirstVolumeA(lpszvolumename: super::super::Foundation::PSTR, c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszrootpathname: Param0, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle {
@@ -4518,6 +5049,7 @@ pub unsafe fn FindFirstVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszrootpathname: Param0, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeMointPointHandle {
@@ -4532,6 +5064,7 @@ pub unsafe fn FindFirstVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstVolumeW(lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> FindVolumeHandle {
@@ -4546,6 +5079,7 @@ pub unsafe fn FindFirstVolumeW(lpszvolumename: super::super::Foundation::PWSTR, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextChangeNotification<'a, Param0: ::windows::core::IntoParam<'a, FindChangeNotificationHandle>>(hchangehandle: Param0) -> super::super::Foundation::BOOL {
@@ -4560,6 +5094,7 @@ pub unsafe fn FindNextChangeNotification<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextFileA<'a, Param0: ::windows::core::IntoParam<'a, FindFileHandle>>(hfindfile: Param0, lpfindfiledata: *mut WIN32_FIND_DATAA) -> super::super::Foundation::BOOL {
@@ -4574,6 +5109,7 @@ pub unsafe fn FindNextFileA<'a, Param0: ::windows::core::IntoParam<'a, FindFileH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextFileNameW<'a, Param0: ::windows::core::IntoParam<'a, FindFileNameHandle>>(hfindstream: Param0, stringlength: *mut u32, linkname: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
@@ -4588,6 +5124,7 @@ pub unsafe fn FindNextFileNameW<'a, Param0: ::windows::core::IntoParam<'a, FindF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfindfile: Param0, lpfindfiledata: *mut WIN32_FIND_DATAW) -> super::super::Foundation::BOOL {
@@ -4602,6 +5139,7 @@ pub unsafe fn FindNextFileW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextStreamW<'a, Param0: ::windows::core::IntoParam<'a, FindStreamHandle>>(hfindstream: Param0, lpfindstreamdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -4616,6 +5154,7 @@ pub unsafe fn FindNextStreamW<'a, Param0: ::windows::core::IntoParam<'a, FindStr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -4630,6 +5169,7 @@ pub unsafe fn FindNextVolumeA<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0, lpszvolumemountpoint: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -4644,6 +5184,7 @@ pub unsafe fn FindNextVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0, lpszvolumemountpoint: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -4658,6 +5199,7 @@ pub unsafe fn FindNextVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -4673,6 +5215,7 @@ pub unsafe fn FindNextVolumeW<'a, Param0: ::windows::core::IntoParam<'a, FindVol
     unimplemented!("Unsupported target OS");
 }
 pub type FindStreamHandle = isize;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeHandle>>(hfindvolume: Param0) -> super::super::Foundation::BOOL {
@@ -4689,6 +5232,7 @@ pub unsafe fn FindVolumeClose<'a, Param0: ::windows::core::IntoParam<'a, FindVol
 }
 pub type FindVolumeHandle = isize;
 pub type FindVolumeMointPointHandle = isize;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindVolumeMountPointClose<'a, Param0: ::windows::core::IntoParam<'a, FindVolumeMointPointHandle>>(hfindvolumemountpoint: Param0) -> super::super::Foundation::BOOL {
@@ -4703,6 +5247,7 @@ pub unsafe fn FindVolumeMountPointClose<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlushFileBuffers<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
@@ -4717,6 +5262,7 @@ pub unsafe fn FlushFileBuffers<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogBuffers(pvmarshal: *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -4731,6 +5277,7 @@ pub unsafe fn FlushLogBuffers(pvmarshal: *mut ::core::ffi::c_void, poverlapped: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflush: *mut CLS_LSN, plsnlastflushed: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -4745,6 +5292,7 @@ pub unsafe fn FlushLogToLsn(pvmarshalcontext: *mut ::core::ffi::c_void, plsnflus
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
     #[cfg(windows)]
@@ -4758,6 +5306,7 @@ pub unsafe fn FreeEncryptedFileMetadata(pbmetadata: *const u8) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIFICATE_HASH_LIST) {
@@ -4772,6 +5321,7 @@ pub unsafe fn FreeEncryptionCertificateHashList(pusers: *const ENCRYPTION_CERTIF
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedrecords: u32, pcbadjustment: *mut i64) -> super::super::Foundation::BOOL {
@@ -4786,16 +5336,27 @@ pub unsafe fn FreeReservedLog(pvmarshal: *mut ::core::ffi::c_void, creservedreco
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type GET_FILEEX_INFO_LEVELS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const GetFileExInfoStandard: GET_FILEEX_INFO_LEVELS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const GetFileExMaxInfoLevel: GET_FILEEX_INFO_LEVELS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type GET_FILE_VERSION_INFO_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_VER_GET_LOCALISED: GET_FILE_VERSION_INFO_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_VER_GET_NEUTRAL: GET_FILE_VERSION_INFO_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_VER_GET_PREFETCHED: GET_FILE_VERSION_INFO_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type GET_TAPE_DRIVE_PARAMETERS_OPERATION = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const GET_TAPE_DRIVE_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const GET_TAPE_MEDIA_INFORMATION: GET_TAPE_DRIVE_PARAMETERS_OPERATION = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBinaryTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpapplicationname: Param0, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL {
@@ -4810,6 +5371,7 @@ pub unsafe fn GetBinaryTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBinaryTypeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpapplicationname: Param0, lpbinarytype: *mut u32) -> super::super::Foundation::BOOL {
@@ -4824,6 +5386,7 @@ pub unsafe fn GetBinaryTypeW<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCompressedFileSizeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpfilesizehigh: *mut u32) -> u32 {
@@ -4838,6 +5401,7 @@ pub unsafe fn GetCompressedFileSizeA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCompressedFileSizeTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpfilesizehigh: *mut u32, htransaction: Param2) -> u32 {
@@ -4852,6 +5416,7 @@ pub unsafe fn GetCompressedFileSizeTransactedA<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCompressedFileSizeTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, lpfilesizehigh: *mut u32, htransaction: Param2) -> u32 {
@@ -4866,6 +5431,7 @@ pub unsafe fn GetCompressedFileSizeTransactedW<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCompressedFileSizeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpfilesizehigh: *mut u32) -> u32 {
@@ -4880,6 +5446,7 @@ pub unsafe fn GetCompressedFileSizeW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentClockTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -4894,6 +5461,7 @@ pub unsafe fn GetCurrentClockTransactionManager<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL {
@@ -4908,6 +5476,7 @@ pub unsafe fn GetDiskFreeSpaceA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdirectoryname: Param0, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
@@ -4922,6 +5491,7 @@ pub unsafe fn GetDiskFreeSpaceExA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdirectoryname: Param0, lpfreebytesavailabletocaller: *mut u64, lptotalnumberofbytes: *mut u64, lptotalnumberoffreebytes: *mut u64) -> super::super::Foundation::BOOL {
@@ -4936,6 +5506,7 @@ pub unsafe fn GetDiskFreeSpaceExW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskFreeSpaceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpsectorspercluster: *mut u32, lpbytespersector: *mut u32, lpnumberoffreeclusters: *mut u32, lptotalnumberofclusters: *mut u32) -> super::super::Foundation::BOOL {
@@ -4950,6 +5521,7 @@ pub unsafe fn GetDiskFreeSpaceW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskSpaceInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(rootpath: Param0) -> ::windows::core::Result<DISK_SPACE_INFORMATION> {
@@ -4965,6 +5537,7 @@ pub unsafe fn GetDiskSpaceInformationA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDiskSpaceInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(rootpath: Param0) -> ::windows::core::Result<DISK_SPACE_INFORMATION> {
@@ -4980,6 +5553,7 @@ pub unsafe fn GetDiskSpaceInformationW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDriveTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0) -> u32 {
@@ -4994,6 +5568,7 @@ pub unsafe fn GetDriveTypeA<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDriveTypeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0) -> u32 {
@@ -5008,6 +5583,7 @@ pub unsafe fn GetDriveTypeW<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEncryptedFileMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pcbmetadata: *mut u32, ppbmetadata: *mut *mut u8) -> u32 {
@@ -5022,6 +5598,7 @@ pub unsafe fn GetEncryptedFileMetadata<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnlistmentId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
@@ -5036,6 +5613,7 @@ pub unsafe fn GetEnlistmentId<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void, bufferused: *mut u32) -> super::super::Foundation::BOOL {
@@ -5050,6 +5628,7 @@ pub unsafe fn GetEnlistmentRecoveryInformation<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszsource: Param0, lpszbuffer: super::super::Foundation::PSTR) -> i32 {
@@ -5064,6 +5643,7 @@ pub unsafe fn GetExpandedNameA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszsource: Param0, lpszbuffer: super::super::Foundation::PWSTR) -> i32 {
@@ -5078,6 +5658,7 @@ pub unsafe fn GetExpandedNameW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> u32 {
@@ -5092,6 +5673,7 @@ pub unsafe fn GetFileAttributesA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5106,6 +5688,7 @@ pub unsafe fn GetFileAttributesExA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5120,6 +5703,7 @@ pub unsafe fn GetFileAttributesExFromAppW<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5134,6 +5718,7 @@ pub unsafe fn GetFileAttributesExW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
@@ -5148,6 +5733,7 @@ pub unsafe fn GetFileAttributesTransactedA<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, finfolevelid: GET_FILEEX_INFO_LEVELS, lpfileinformation: *mut ::core::ffi::c_void, htransaction: Param3) -> super::super::Foundation::BOOL {
@@ -5162,6 +5748,7 @@ pub unsafe fn GetFileAttributesTransactedW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileAttributesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> u32 {
@@ -5176,6 +5763,7 @@ pub unsafe fn GetFileAttributesW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileBandwidthReservation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpperiodmilliseconds: *mut u32, lpbytesperperiod: *mut u32, pdiscardable: *mut i32, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL {
@@ -5190,6 +5778,7 @@ pub unsafe fn GetFileBandwidthReservation<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileInformationByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfileinformation: *mut BY_HANDLE_FILE_INFORMATION) -> super::super::Foundation::BOOL {
@@ -5204,6 +5793,7 @@ pub unsafe fn GetFileInformationByHandle<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileInformationByHandleEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *mut ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
@@ -5218,6 +5808,7 @@ pub unsafe fn GetFileInformationByHandleEx<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileSize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfilesizehigh: *mut u32) -> u32 {
@@ -5232,6 +5823,7 @@ pub unsafe fn GetFileSize<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileSizeEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpfilesize: *mut i64) -> super::super::Foundation::BOOL {
@@ -5246,6 +5838,7 @@ pub unsafe fn GetFileSizeEx<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcreationtime: *mut super::super::Foundation::FILETIME, lplastaccesstime: *mut super::super::Foundation::FILETIME, lplastwritetime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -5260,6 +5853,7 @@ pub unsafe fn GetFileTime<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileType<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> u32 {
@@ -5274,6 +5868,7 @@ pub unsafe fn GetFileType<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5288,6 +5883,7 @@ pub unsafe fn GetFileVersionInfoA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5302,6 +5898,7 @@ pub unsafe fn GetFileVersionInfoExA<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5316,6 +5913,7 @@ pub unsafe fn GetFileVersionInfoExW<'a, Param1: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lptstrfilename: Param0, lpdwhandle: *mut u32) -> u32 {
@@ -5330,6 +5928,7 @@ pub unsafe fn GetFileVersionInfoSizeA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeExA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, lpdwhandle: *mut u32) -> u32 {
@@ -5344,6 +5943,7 @@ pub unsafe fn GetFileVersionInfoSizeExA<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeExW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(dwflags: GET_FILE_VERSION_INFO_FLAGS, lpwstrfilename: Param1, lpdwhandle: *mut u32) -> u32 {
@@ -5358,6 +5958,7 @@ pub unsafe fn GetFileVersionInfoSizeExW<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoSizeW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, lpdwhandle: *mut u32) -> u32 {
@@ -5372,6 +5973,7 @@ pub unsafe fn GetFileVersionInfoSizeW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileVersionInfoW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lptstrfilename: Param0, dwhandle: u32, dwlen: u32, lpdata: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -5386,6 +5988,7 @@ pub unsafe fn GetFileVersionInfoW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFinalPathNameByHandleA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpszfilepath: super::super::Foundation::PSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32 {
@@ -5400,6 +6003,7 @@ pub unsafe fn GetFinalPathNameByHandleA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFinalPathNameByHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpszfilepath: super::super::Foundation::PWSTR, cchfilepath: u32, dwflags: FILE_NAME) -> u32 {
@@ -5414,6 +6018,7 @@ pub unsafe fn GetFinalPathNameByHandleW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFullPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32 {
@@ -5428,6 +6033,7 @@ pub unsafe fn GetFullPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFullPathNameTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR, htransaction: Param4) -> u32 {
@@ -5442,6 +6048,7 @@ pub unsafe fn GetFullPathNameTransactedA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFullPathNameTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR, htransaction: Param4) -> u32 {
@@ -5456,6 +6063,7 @@ pub unsafe fn GetFullPathNameTransactedW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFullPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32 {
@@ -5470,6 +6078,7 @@ pub unsafe fn GetFullPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::core::Result<IORING_INFO> {
     #[cfg(windows)]
@@ -5484,6 +6093,7 @@ pub unsafe fn GetIoRingInfo(ioring: *const HIORING__) -> ::windows::core::Result
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogContainerName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, cidlogicalcontainer: u32, pwstrcontainername: Param2, clencontainername: u32, pcactuallencontainername: *mut u32) -> super::super::Foundation::BOOL {
@@ -5498,6 +6108,7 @@ pub unsafe fn GetLogContainerName<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogFileInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pinfobuffer: *mut CLS_INFORMATION, cbbuffer: *mut u32) -> super::super::Foundation::BOOL {
@@ -5512,6 +6123,7 @@ pub unsafe fn GetLogFileInformation<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogIoStatistics<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pvstatsbuffer: *mut ::core::ffi::c_void, cbstatsbuffer: u32, estatsclass: CLFS_IOSTATS_CLASS, pcbstatswritten: *mut u32) -> super::super::Foundation::BOOL {
@@ -5526,6 +6138,7 @@ pub unsafe fn GetLogIoStatistics<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbrecordnumber: *mut u32, pcbuserreservation: *mut i64, pcbcommitreservation: *mut i64) -> super::super::Foundation::BOOL {
@@ -5540,6 +6153,7 @@ pub unsafe fn GetLogReservationInfo(pvmarshal: *const ::core::ffi::c_void, pcbre
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalDriveStringsA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32 {
@@ -5554,6 +6168,7 @@ pub unsafe fn GetLogicalDriveStringsA(nbufferlength: u32, lpbuffer: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLogicalDriveStringsW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32 {
@@ -5568,6 +6183,7 @@ pub unsafe fn GetLogicalDriveStringsW(nbufferlength: u32, lpbuffer: super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn GetLogicalDrives() -> u32 {
     #[cfg(windows)]
@@ -5581,6 +6197,7 @@ pub unsafe fn GetLogicalDrives() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLongPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32 {
@@ -5595,6 +6212,7 @@ pub unsafe fn GetLongPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLongPathNameTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PSTR, cchbuffer: u32, htransaction: Param3) -> u32 {
@@ -5609,6 +6227,7 @@ pub unsafe fn GetLongPathNameTransactedA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLongPathNameTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32, htransaction: Param3) -> u32 {
@@ -5623,6 +6242,7 @@ pub unsafe fn GetLongPathNameTransactedW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLongPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszshortpath: Param0, lpszlongpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32 {
@@ -5637,6 +6257,7 @@ pub unsafe fn GetLongPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void, rgadextent: *mut CLS_ARCHIVE_DESCRIPTOR, cdescriptors: u32, pcdescriptorsreturned: *mut u32) -> super::super::Foundation::BOOL {
@@ -5651,6 +6272,7 @@ pub unsafe fn GetNextLogArchiveExtent(pvarchivecontext: *mut ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetNotificationResourceManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, transactionnotification: *mut TRANSACTION_NOTIFICATION, notificationlength: u32, dwmilliseconds: u32, returnlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -5665,6 +6287,7 @@ pub unsafe fn GetNotificationResourceManager<'a, Param0: ::windows::core::IntoPa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn GetNotificationResourceManagerAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, transactionnotification: *mut TRANSACTION_NOTIFICATION, transactionnotificationlength: u32, returnlength: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -5679,6 +6302,7 @@ pub unsafe fn GetNotificationResourceManagerAsync<'a, Param0: ::windows::core::I
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetShortPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszlongpath: Param0, lpszshortpath: super::super::Foundation::PSTR, cchbuffer: u32) -> u32 {
@@ -5693,6 +6317,7 @@ pub unsafe fn GetShortPathNameA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetShortPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszlongpath: Param0, lpszshortpath: super::super::Foundation::PWSTR, cchbuffer: u32) -> u32 {
@@ -5707,6 +6332,7 @@ pub unsafe fn GetShortPathNameW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTapeParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: GET_TAPE_DRIVE_PARAMETERS_OPERATION, lpdwsize: *mut u32, lptapeinformation: *mut ::core::ffi::c_void) -> u32 {
@@ -5721,6 +6347,7 @@ pub unsafe fn GetTapeParameters<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTapePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwpositiontype: TAPE_POSITION_TYPE, lpdwpartition: *mut u32, lpdwoffsetlow: *mut u32, lpdwoffsethigh: *mut u32) -> u32 {
@@ -5735,6 +6362,7 @@ pub unsafe fn GetTapePosition<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTapeStatus<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0) -> u32 {
@@ -5749,6 +6377,7 @@ pub unsafe fn GetTapeStatus<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: super::super::Foundation::PSTR) -> u32 {
@@ -5763,6 +6392,7 @@ pub unsafe fn GetTempFileNameA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0, lpprefixstring: Param1, uunique: u32, lptempfilename: super::super::Foundation::PWSTR) -> u32 {
@@ -5777,6 +6407,7 @@ pub unsafe fn GetTempFileNameW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation::PSTR) -> u32 {
@@ -5791,6 +6422,7 @@ pub unsafe fn GetTempPath2A(bufferlength: u32, buffer: super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation::PWSTR) -> u32 {
@@ -5805,6 +6437,7 @@ pub unsafe fn GetTempPath2W(bufferlength: u32, buffer: super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR) -> u32 {
@@ -5819,6 +6452,7 @@ pub unsafe fn GetTempPathA(nbufferlength: u32, lpbuffer: super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR) -> u32 {
@@ -5833,6 +6467,7 @@ pub unsafe fn GetTempPathW(nbufferlength: u32, lpbuffer: super::super::Foundatio
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTransactionId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
@@ -5847,6 +6482,7 @@ pub unsafe fn GetTransactionId<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTransactionInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0, outcome: *mut u32, isolationlevel: *mut u32, isolationflags: *mut u32, timeout: *mut u32, bufferlength: u32, description: super::super::Foundation::PWSTR) -> super::super::Foundation::BOOL {
@@ -5861,6 +6497,7 @@ pub unsafe fn GetTransactionInformation<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTransactionManagerId<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, transactionmanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
@@ -5875,6 +6512,7 @@ pub unsafe fn GetTransactionManagerId<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeInformationA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpvolumenamebuffer: super::super::Foundation::PSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
@@ -5889,6 +6527,7 @@ pub unsafe fn GetVolumeInformationA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeInformationByHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
@@ -5903,6 +6542,7 @@ pub unsafe fn GetVolumeInformationByHandleW<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeInformationW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpvolumenamebuffer: super::super::Foundation::PWSTR, nvolumenamesize: u32, lpvolumeserialnumber: *mut u32, lpmaximumcomponentlength: *mut u32, lpfilesystemflags: *mut u32, lpfilesystemnamebuffer: super::super::Foundation::PWSTR, nfilesystemnamesize: u32) -> super::super::Foundation::BOOL {
@@ -5917,6 +6557,7 @@ pub unsafe fn GetVolumeInformationW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeNameForVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -5931,6 +6572,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointA<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumeNameForVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -5945,6 +6587,7 @@ pub unsafe fn GetVolumeNameForVolumeMountPointW<'a, Param0: ::windows::core::Int
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -5959,6 +6602,7 @@ pub unsafe fn GetVolumePathNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszfilename: Param0, lpszvolumepathname: super::super::Foundation::PWSTR, cchbufferlength: u32) -> super::super::Foundation::BOOL {
@@ -5973,6 +6617,7 @@ pub unsafe fn GetVolumePathNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumename: Param0, lpszvolumepathnames: super::super::Foundation::PSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -5987,6 +6632,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameA<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetVolumePathNamesForVolumeNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumename: Param0, lpszvolumepathnames: super::super::Foundation::PWSTR, cchbufferlength: u32, lpcchreturnlength: *mut u32) -> super::super::Foundation::BOOL {
@@ -6002,6 +6648,7 @@ pub unsafe fn GetVolumePathNamesForVolumeNameW<'a, Param0: ::windows::core::Into
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct HIORING__ {
     pub unused: i32,
 }
@@ -6025,6 +6672,7 @@ impl ::core::default::Default for HIORING__ {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn HandleLogFull<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0) -> super::super::Foundation::BOOL {
@@ -6039,92 +6687,116 @@ pub unsafe fn HandleLogFull<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 pub struct IDiskQuotaControl(::windows::core::IUnknown);
 impl IDiskQuotaControl {
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn EnumConnectionPoints(&self) -> ::windows::core::Result<super::super::System::Com::IEnumConnectionPoints> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IEnumConnectionPoints>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn FindConnectionPoint(&self, riid: *const ::windows::core::GUID) -> ::windows::core::Result<super::super::System::Com::IConnectionPoint> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::IConnectionPoint>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Initialize<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, pszpath: Param0, breadwrite: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pszpath.into_param().abi(), breadwrite.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn SetQuotaState(&self, dwstate: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwstate)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetQuotaState(&self, pdwstate: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstate)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn SetQuotaLogFlags(&self, dwflags: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwflags)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetQuotaLogFlags(&self, pdwflags: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwflags)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn SetDefaultQuotaThreshold(&self, llthreshold: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetDefaultQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultQuotaThresholdText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn SetDefaultQuotaLimit(&self, lllimit: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetDefaultQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetDefaultQuotaLimitText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddUserSid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(&mut result__)).from_abi::<IDiskQuotaUser>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddUserName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(&mut result__)).from_abi::<IDiskQuotaUser>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn DeleteUser<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).18)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindUserSid<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSID>>(&self, pusersid: Param0, fnameresolution: DISKQUOTA_USERNAME_RESOLVE) -> ::windows::core::Result<IDiskQuotaUser> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).19)(::core::mem::transmute_copy(self), pusersid.into_param().abi(), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(&mut result__)).from_abi::<IDiskQuotaUser>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn FindUserName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszlogonname: Param0) -> ::windows::core::Result<IDiskQuotaUser> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).20)(::core::mem::transmute_copy(self), pszlogonname.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IDiskQuotaUser>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreateEnumUsers(&self, rgpusersids: *mut super::super::Foundation::PSID, cpsids: u32, fnameresolution: DISKQUOTA_USERNAME_RESOLVE, ppenum: *mut ::core::option::Option<IEnumDiskQuotaUsers>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).21)(::core::mem::transmute_copy(self), ::core::mem::transmute(rgpusersids), ::core::mem::transmute(cpsids), ::core::mem::transmute(fnameresolution), ::core::mem::transmute(ppenum)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn CreateUserBatch(&self) -> ::windows::core::Result<IDiskQuotaUserBatch> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).22)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDiskQuotaUserBatch>(result__)
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn InvalidateSidNameCache(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).23)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GiveUserNameResolutionPriority<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).24)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn ShutdownNameResolution(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).25)(::core::mem::transmute_copy(self)).ok()
     }
@@ -6228,9 +6900,11 @@ pub struct IDiskQuotaControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 pub struct IDiskQuotaEvents(::windows::core::IUnknown);
 impl IDiskQuotaEvents {
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn OnUserNameChanged<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
@@ -6273,57 +6947,73 @@ unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IDiskQuotaEventsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, puser: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 pub struct IDiskQuotaUser(::windows::core::IUnknown);
 impl IDiskQuotaUser {
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetID(&self, pulid: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(pulid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetName<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, pszaccountcontainer: Param0, cchaccountcontainer: u32, pszlogonname: Param2, cchlogonname: u32, pszdisplayname: Param4, cchdisplayname: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pszaccountcontainer.into_param().abi(), ::core::mem::transmute(cchaccountcontainer), pszlogonname.into_param().abi(), ::core::mem::transmute(cchlogonname), pszdisplayname.into_param().abi(), ::core::mem::transmute(cchdisplayname)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetSidLength(&self, pdwlength: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwlength)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetSid(&self, pbsidbuffer: *mut u8, cbsidbuffer: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbsidbuffer), ::core::mem::transmute(cbsidbuffer)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetQuotaThreshold(&self, pllthreshold: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllthreshold)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetQuotaThresholdText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetQuotaLimit(&self, plllimit: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(plllimit)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetQuotaLimitText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetQuotaUsed(&self, pllused: *mut i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(pllused)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetQuotaUsedText<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, psztext: Param0, cchtext: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), psztext.into_param().abi(), ::core::mem::transmute(cchtext)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetQuotaInformation(&self, pbquotainfo: *mut ::core::ffi::c_void, cbquotainfo: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(pbquotainfo), ::core::mem::transmute(cbquotainfo)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetQuotaThreshold<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, llthreshold: i64, fwritethrough: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(llthreshold), fwritethrough.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetQuotaLimit<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, lllimit: i64, fwritethrough: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(lllimit), fwritethrough.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn Invalidate(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).16)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn GetAccountStatus(&self, pdwstatus: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).17)(::core::mem::transmute_copy(self), ::core::mem::transmute(pdwstatus)).ok()
     }
@@ -6391,18 +7081,23 @@ pub struct IDiskQuotaUserVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdwstatus: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 pub struct IDiskQuotaUserBatch(::windows::core::IUnknown);
 impl IDiskQuotaUserBatch {
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn Add<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn Remove<'a, Param0: ::windows::core::IntoParam<'a, IDiskQuotaUser>>(&self, puser: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), puser.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn RemoveAll(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn FlushToDisk(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)).ok()
     }
@@ -6453,18 +7148,23 @@ pub struct IDiskQuotaUserBatchVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[repr(transparent)]
 pub struct IEnumDiskQuotaUsers(::windows::core::IUnknown);
 impl IEnumDiskQuotaUsers {
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn Next(&self, cusers: u32, rgusers: *mut ::core::option::Option<IDiskQuotaUser>, pcusersfetched: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers), ::core::mem::transmute(rgusers), ::core::mem::transmute(pcusersfetched)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn Skip(&self, cusers: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(cusers)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
     pub unsafe fn Clone(&self) -> ::windows::core::Result<IEnumDiskQuotaUsers> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IEnumDiskQuotaUsers>(result__)
@@ -6516,38 +7216,70 @@ pub struct IEnumDiskQuotaUsersVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const INVALID_FILE_ATTRIBUTES: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const INVALID_SET_FILE_POINTER: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_ALLOCATE_BC_STREAM: u32 = 5685312u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_BASE: u32 = 86u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_BC_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_FREE_BC_STREAM: u32 = 5685316u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_BC_PROPERTIES: u32 = 5652540u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_CSVBLOCKCACHE_CALLBACK: u32 = 5685352u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_GPT_ATTRIBUTES: u32 = 5636152u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_GET_VOLUME_DISK_EXTENTS: u32 = 5636096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_CLUSTERED: u32 = 5636144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_CSV: u32 = 5636192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_DYNAMIC: u32 = 5636168u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_IO_CAPABLE: u32 = 5636116u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_OFFLINE: u32 = 5636112u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_IS_PARTITION: u32 = 5636136u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_LOGICAL_TO_PHYSICAL: u32 = 5636128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_OFFLINE: u32 = 5685260u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_ONLINE: u32 = 5685256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_PHYSICAL_TO_LOGICAL: u32 = 5636132u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_POST_ONLINE: u32 = 5685348u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_PREPARE_FOR_CRITICAL_IO: u32 = 5685324u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_PREPARE_FOR_SHRINK: u32 = 5685340u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_ALLOCATION_HINT: u32 = 5652562u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_FAILOVER_SET: u32 = 5636120u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_MINIMUM_SHRINK_SIZE: u32 = 5652568u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_QUERY_VOLUME_NUMBER: u32 = 5636124u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_READ_PLEX: u32 = 5652526u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_SET_GPT_ATTRIBUTES: u32 = 5636148u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_SUPPORTS_ONLINE_OFFLINE: u32 = 5636100u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOCTL_VOLUME_UPDATE_PROPERTIES: u32 = 5636180u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct IORING_BUFFER_INFO {
     pub Address: *mut ::core::ffi::c_void,
     pub Length: u32,
@@ -6573,6 +7305,7 @@ impl ::core::default::Default for IORING_BUFFER_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct IORING_BUFFER_REF {
     pub Kind: IORING_REF_KIND,
     pub Buffer: IORING_BUFFER_REF_0,
@@ -6598,6 +7331,7 @@ impl ::core::default::Default for IORING_BUFFER_REF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub union IORING_BUFFER_REF_0 {
     pub Address: *mut ::core::ffi::c_void,
     pub IndexAndOffset: IORING_REGISTERED_BUFFER,
@@ -6623,6 +7357,7 @@ impl ::core::default::Default for IORING_BUFFER_REF_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct IORING_CAPABILITIES {
     pub MaxVersion: IORING_VERSION,
     pub MaxSubmissionQueueSize: u32,
@@ -6650,6 +7385,7 @@ impl ::core::default::Default for IORING_CAPABILITIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct IORING_CQE {
     pub UserData: usize,
     pub ResultCode: ::windows::core::HRESULT,
@@ -6675,9 +7411,12 @@ impl ::core::default::Default for IORING_CQE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type IORING_CREATE_ADVISORY_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_CREATE_ADVISORY_FLAGS_NONE: IORING_CREATE_ADVISORY_FLAGS = 0i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct IORING_CREATE_FLAGS {
     pub Required: IORING_CREATE_REQUIRED_FLAGS,
     pub Advisory: IORING_CREATE_ADVISORY_FLAGS,
@@ -6702,13 +7441,20 @@ impl ::core::default::Default for IORING_CREATE_FLAGS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type IORING_CREATE_REQUIRED_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_CREATE_REQUIRED_FLAGS_NONE: IORING_CREATE_REQUIRED_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type IORING_FEATURE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_FEATURE_FLAGS_NONE: IORING_FEATURE_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_FEATURE_UM_EMULATION: IORING_FEATURE_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_FEATURE_SET_COMPLETION_EVENT: IORING_FEATURE_FLAGS = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct IORING_HANDLE_REF {
     pub Kind: IORING_REF_KIND,
@@ -6741,6 +7487,7 @@ impl ::core::default::Default for IORING_HANDLE_REF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union IORING_HANDLE_REF_0 {
     pub Handle: super::super::Foundation::HANDLE,
@@ -6773,6 +7520,7 @@ impl ::core::default::Default for IORING_HANDLE_REF_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct IORING_INFO {
     pub IoRingVersion: IORING_VERSION,
     pub Flags: IORING_CREATE_FLAGS,
@@ -6799,16 +7547,26 @@ impl ::core::default::Default for IORING_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type IORING_OP_CODE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_OP_NOP: IORING_OP_CODE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_OP_READ: IORING_OP_CODE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_OP_REGISTER_FILES: IORING_OP_CODE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_OP_REGISTER_BUFFERS: IORING_OP_CODE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_OP_CANCEL: IORING_OP_CODE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type IORING_REF_KIND = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_REF_RAW: IORING_REF_KIND = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_REF_REGISTERED: IORING_REF_KIND = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct IORING_REGISTERED_BUFFER {
     pub BufferIndex: u32,
     pub Offset: u32,
@@ -6833,11 +7591,17 @@ impl ::core::default::Default for IORING_REGISTERED_BUFFER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type IORING_SQE_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IOSQE_FLAGS_NONE: IORING_SQE_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type IORING_VERSION = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_VERSION_INVALID: IORING_VERSION = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IORING_VERSION_1: IORING_VERSION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InstallLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, ppolicy: *mut CLFS_MGMT_POLICY) -> super::super::Foundation::BOOL {
@@ -6852,6 +7616,7 @@ pub unsafe fn InstallLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) -> super::super::Foundation::BOOL {
@@ -6867,6 +7632,7 @@ pub unsafe fn IsIoRingOpSupported(ioring: *const HIORING__, op: IORING_OP_CODE) 
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct KCRM_MARSHAL_HEADER {
     pub VersionMajor: u32,
     pub VersionMinor: u32,
@@ -6894,6 +7660,7 @@ impl ::core::default::Default for KCRM_MARSHAL_HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct KCRM_PROTOCOL_BLOB {
     pub ProtocolId: ::windows::core::GUID,
     pub StaticInfoLength: u32,
@@ -6922,6 +7689,7 @@ impl ::core::default::Default for KCRM_PROTOCOL_BLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct KCRM_TRANSACTION_BLOB {
     pub UOW: ::windows::core::GUID,
     pub TmIdentity: ::windows::core::GUID,
@@ -6950,12 +7718,18 @@ impl ::core::default::Default for KCRM_TRANSACTION_BLOB {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MAJOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const KTM_MARSHAL_BLOB_VERSION_MINOR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type LOCK_FILE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LOCKFILE_EXCLUSIVE_LOCK: LOCK_FILE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LOCKFILE_FAIL_IMMEDIATELY: LOCK_FILE_FLAGS = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOG_MANAGEMENT_CALLBACKS {
     pub CallbackContext: *mut ::core::ffi::c_void,
@@ -6989,13 +7763,20 @@ impl ::core::default::Default for LOG_MANAGEMENT_CALLBACKS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LOG_POLICY_OVERWRITE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LOG_POLICY_PERSIST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPPROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(totalfilesize: i64, totalbytestransferred: i64, streamsize: i64, streambytestransferred: i64, dwstreamnumber: u32, dwcallbackreason: LPPROGRESS_ROUTINE_CALLBACK_REASON, hsourcefile: super::super::Foundation::HANDLE, hdestinationfile: super::super::Foundation::HANDLE, lpdata: *const ::core::ffi::c_void) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type LPPROGRESS_ROUTINE_CALLBACK_REASON = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CALLBACK_CHUNK_FINISHED: LPPROGRESS_ROUTINE_CALLBACK_REASON = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const CALLBACK_STREAM_SWITCH: LPPROGRESS_ROUTINE_CALLBACK_REASON = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LZClose(hfile: i32) {
     #[cfg(windows)]
@@ -7009,6 +7790,7 @@ pub unsafe fn LZClose(hfile: i32) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(windows)]
@@ -7022,6 +7804,7 @@ pub unsafe fn LZCopy(hfsource: i32, hfdest: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LZDone() {
     #[cfg(windows)]
@@ -7035,14 +7818,23 @@ pub unsafe fn LZDone() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_BADINHANDLE: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_BADOUTHANDLE: i32 = -2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_BADVALUE: i32 = -7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_GLOBALLOC: i32 = -5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_GLOBLOCK: i32 = -6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_READ: i32 = -3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_UNKNOWNALG: i32 = -8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const LZERROR_WRITE: i32 = -4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LZInit(hfsource: i32) -> i32 {
     #[cfg(windows)]
@@ -7056,23 +7848,41 @@ pub unsafe fn LZInit(hfsource: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type LZOPENFILE_STYLE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_CANCEL: LZOPENFILE_STYLE = 2048u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_CREATE: LZOPENFILE_STYLE = 4096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_DELETE: LZOPENFILE_STYLE = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_EXIST: LZOPENFILE_STYLE = 16384u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_PARSE: LZOPENFILE_STYLE = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_PROMPT: LZOPENFILE_STYLE = 8192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_READ: LZOPENFILE_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_READWRITE: LZOPENFILE_STYLE = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_REOPEN: LZOPENFILE_STYLE = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_SHARE_DENY_NONE: LZOPENFILE_STYLE = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_SHARE_DENY_READ: LZOPENFILE_STYLE = 48u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_SHARE_DENY_WRITE: LZOPENFILE_STYLE = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_SHARE_EXCLUSIVE: LZOPENFILE_STYLE = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_WRITE: LZOPENFILE_STYLE = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_SHARE_COMPAT: LZOPENFILE_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const OF_VERIFY: LZOPENFILE_STYLE = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZOpenFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32 {
@@ -7087,6 +7897,7 @@ pub unsafe fn LZOpenFileA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZOpenFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, lpreopenbuf: *mut OFSTRUCT, wstyle: LZOPENFILE_STYLE) -> i32 {
@@ -7101,6 +7912,7 @@ pub unsafe fn LZOpenFileW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbread: i32) -> i32 {
@@ -7115,6 +7927,7 @@ pub unsafe fn LZRead(hfile: i32, lpbuffer: super::super::Foundation::PSTR, cbrea
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(windows)]
@@ -7128,6 +7941,7 @@ pub unsafe fn LZSeek(hfile: i32, loffset: i32, iorigin: i32) -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LZStart() -> i32 {
     #[cfg(windows)]
@@ -7141,6 +7955,7 @@ pub unsafe fn LZStart() -> i32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foundation::FILETIME, lpfiletime: *mut super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -7155,6 +7970,7 @@ pub unsafe fn LocalFileTimeToFileTime(lplocalfiletime: *const super::super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LockFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32) -> super::super::Foundation::BOOL {
@@ -7169,6 +7985,7 @@ pub unsafe fn LockFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn LockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwflags: LOCK_FILE_FLAGS, dwreserved: u32, nnumberofbytestolocklow: u32, nnumberofbytestolockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -7183,6 +8000,7 @@ pub unsafe fn LockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogTailAdvanceFailure<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, dwreason: u32) -> super::super::Foundation::BOOL {
@@ -7197,6 +8015,7 @@ pub unsafe fn LogTailAdvanceFailure<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
@@ -7210,6 +8029,7 @@ pub unsafe fn LsnBlockOffset(plsn: *const CLS_LSN) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
@@ -7223,6 +8043,7 @@ pub unsafe fn LsnContainer(plsn: *const CLS_LSN) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_LSN {
     #[cfg(windows)]
@@ -7236,6 +8057,7 @@ pub unsafe fn LsnCreate(cidcontainer: u32, offblock: u32, crecord: u32) -> CLS_L
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -7250,6 +8072,7 @@ pub unsafe fn LsnEqual(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -7264,6 +8087,7 @@ pub unsafe fn LsnGreater(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
     #[cfg(windows)]
@@ -7277,6 +8101,7 @@ pub unsafe fn LsnIncrement(plsn: *const CLS_LSN) -> CLS_LSN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -7291,6 +8116,7 @@ pub unsafe fn LsnInvalid(plsn: *const CLS_LSN) -> super::super::Foundation::BOOL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -7305,6 +8131,7 @@ pub unsafe fn LsnLess(plsn1: *const CLS_LSN, plsn2: *const CLS_LSN) -> super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN {
@@ -7319,6 +8146,7 @@ pub unsafe fn LsnNull(plsn: *const CLS_LSN) -> super::super::Foundation::BOOLEAN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
     #[cfg(windows)]
@@ -7332,18 +8160,30 @@ pub unsafe fn LsnRecordSequence(plsn: *const CLS_LSN) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type MAXMEDIALABEL = ::core::option::Option<unsafe extern "system" fn(pmaxsize: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MAX_RESOURCEMANAGER_DESCRIPTION_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MAX_SID_SIZE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MAX_TRANSACTION_DESCRIPTION_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type MOVE_FILE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MOVEFILE_COPY_ALLOWED: MOVE_FILE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MOVEFILE_CREATE_HARDLINK: MOVE_FILE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MOVEFILE_DELAY_UNTIL_REBOOT: MOVE_FILE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MOVEFILE_REPLACE_EXISTING: MOVE_FILE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MOVEFILE_WRITE_THROUGH: MOVE_FILE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MOVEFILE_FAIL_IF_NOT_TRACKABLE: MOVE_FILE_FLAGS = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct MediaLabelInfo {
     pub LabelType: [u16; 64],
     pub LabelIDSize: u32,
@@ -7370,6 +8210,7 @@ impl ::core::default::Default for MediaLabelInfo {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
@@ -7384,6 +8225,7 @@ pub unsafe fn MoveFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
@@ -7398,6 +8240,7 @@ pub unsafe fn MoveFileExA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
@@ -7412,6 +8255,7 @@ pub unsafe fn MoveFileExW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
@@ -7426,6 +8270,7 @@ pub unsafe fn MoveFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
@@ -7440,6 +8285,7 @@ pub unsafe fn MoveFileTransactedA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS, htransaction: Param5) -> super::super::Foundation::BOOL {
@@ -7454,6 +8300,7 @@ pub unsafe fn MoveFileTransactedW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1) -> super::super::Foundation::BOOL {
@@ -7468,6 +8315,7 @@ pub unsafe fn MoveFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
@@ -7482,6 +8330,7 @@ pub unsafe fn MoveFileWithProgressA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveFileWithProgressW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpexistingfilename: Param0, lpnewfilename: Param1, lpprogressroutine: LPPROGRESS_ROUTINE, lpdata: *const ::core::ffi::c_void, dwflags: MOVE_FILE_FLAGS) -> super::super::Foundation::BOOL {
@@ -7497,6 +8346,7 @@ pub unsafe fn MoveFileWithProgressW<'a, Param0: ::windows::core::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NAME_CACHE_CONTEXT {
     pub m_dwSignature: u32,
 }
@@ -7520,10 +8370,14 @@ impl ::core::default::Default for NAME_CACHE_CONTEXT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMSMLI_MAXAPPDESCR: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMSMLI_MAXIDSIZE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMSMLI_MAXTYPE: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_ALLOCATION_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut ::core::ffi::c_void,
@@ -7549,8 +8403,10 @@ impl ::core::default::Default for NTMS_ALLOCATION_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_APPLICATIONNAME_LENGTH: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_ASYNC_IO {
     pub OperationId: ::windows::core::GUID,
@@ -7587,8 +8443,10 @@ impl ::core::default::Default for NTMS_ASYNC_IO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_BARCODE_LENGTH: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERINFORMATIONA {
     pub Number: u32,
@@ -7629,6 +8487,7 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_CHANGERINFORMATIONW {
     pub Number: u32,
     pub ChangerType: ::windows::core::GUID,
@@ -7662,6 +8521,7 @@ impl ::core::default::Default for NTMS_CHANGERINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_CHANGERTYPEINFORMATIONA {
     pub szVendor: [super::super::Foundation::CHAR; 128],
@@ -7695,6 +8555,7 @@ impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_CHANGERTYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -7721,6 +8582,7 @@ impl ::core::default::Default for NTMS_CHANGERTYPEINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_COMPUTERINFORMATION {
     pub dwLibRequestPurgeTime: u32,
     pub dwOpRequestPurgeTime: u32,
@@ -7748,10 +8610,14 @@ impl ::core::default::Default for NTMS_COMPUTERINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_COMPUTERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DESCRIPTION_LENGTH: u32 = 127u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DEVICENAME_LENGTH: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVEINFORMATIONA {
     pub Number: u32,
@@ -7798,6 +8664,7 @@ impl ::core::default::Default for NTMS_DRIVEINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVEINFORMATIONW {
     pub Number: u32,
@@ -7844,6 +8711,7 @@ impl ::core::default::Default for NTMS_DRIVEINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_DRIVETYPEINFORMATIONA {
     pub szVendor: [super::super::Foundation::CHAR; 128],
@@ -7878,6 +8746,7 @@ impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_DRIVETYPEINFORMATIONW {
     pub szVendor: [u16; 128],
     pub szProduct: [u16; 128],
@@ -7905,6 +8774,7 @@ impl ::core::default::Default for NTMS_DRIVETYPEINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_FILESYSTEM_INFO {
     pub FileSystemType: [u16; 64],
     pub VolumeName: [u16; 256],
@@ -7931,6 +8801,7 @@ impl ::core::default::Default for NTMS_FILESYSTEM_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBRARYINFORMATION {
     pub LibraryType: u32,
@@ -7982,6 +8853,7 @@ impl ::core::default::Default for NTMS_I1_LIBRARYINFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONA {
     pub OperationCode: u32,
@@ -8025,6 +8897,7 @@ impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_LIBREQUESTINFORMATIONW {
     pub OperationCode: u32,
@@ -8067,8 +8940,10 @@ impl ::core::default::Default for NTMS_I1_LIBREQUESTINFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_I1_MESSAGE_LENGTH: u32 = 127u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OBJECTINFORMATIONA {
     pub dwSize: u32,
@@ -8109,6 +8984,7 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
@@ -8154,6 +9030,7 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OBJECTINFORMATIONW {
     pub dwSize: u32,
@@ -8194,6 +9071,7 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_I1_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
@@ -8239,6 +9117,7 @@ impl ::core::default::Default for NTMS_I1_OBJECTINFORMATIONW_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OPREQUESTINFORMATIONA {
     pub Request: u32,
@@ -8280,6 +9159,7 @@ impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_OPREQUESTINFORMATIONW {
     pub Request: u32,
@@ -8321,6 +9201,7 @@ impl ::core::default::Default for NTMS_I1_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::core::GUID,
@@ -8361,6 +9242,7 @@ impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_I1_PARTITIONINFORMATIONW {
     pub PhysicalMedia: ::windows::core::GUID,
     pub LogicalMedia: ::windows::core::GUID,
@@ -8394,6 +9276,7 @@ impl ::core::default::Default for NTMS_I1_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_I1_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::core::GUID,
@@ -8435,6 +9318,7 @@ impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_I1_PMIDINFORMATIONW {
     pub CurrentLibrary: ::windows::core::GUID,
     pub MediaPool: ::windows::core::GUID,
@@ -8469,6 +9353,7 @@ impl ::core::default::Default for NTMS_I1_PMIDINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_IEDOORINFORMATION {
     pub Number: u32,
     pub State: NtmsDoorState,
@@ -8496,6 +9381,7 @@ impl ::core::default::Default for NTMS_IEDOORINFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_IEPORTINFORMATION {
     pub Number: u32,
     pub Content: NtmsPortContent,
@@ -8524,6 +9410,7 @@ impl ::core::default::Default for NTMS_IEPORTINFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBRARYINFORMATION {
     pub LibraryType: NtmsLibraryType,
@@ -8577,6 +9464,7 @@ impl ::core::default::Default for NTMS_LIBRARYINFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBREQUESTINFORMATIONA {
     pub OperationCode: NtmsLmOperation,
@@ -8623,6 +9511,7 @@ impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_LIBREQUESTINFORMATIONW {
     pub OperationCode: NtmsLmOperation,
@@ -8669,6 +9558,7 @@ impl ::core::default::Default for NTMS_LIBREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_LMIDINFORMATION {
     pub MediaPool: ::windows::core::GUID,
     pub dwNumberOfPartitions: u32,
@@ -8693,9 +9583,12 @@ impl ::core::default::Default for NTMS_LMIDINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MAXATTR_LENGTH: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MAXATTR_NAMELEN: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_MEDIAPOOLINFORMATION {
     pub PoolType: u32,
     pub MediaType: ::windows::core::GUID,
@@ -8728,6 +9621,7 @@ impl ::core::default::Default for NTMS_MEDIAPOOLINFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_MEDIATYPEINFORMATION {
     pub MediaType: u32,
     pub NumberOfSides: u32,
@@ -8754,8 +9648,10 @@ impl ::core::default::Default for NTMS_MEDIATYPEINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MESSAGE_LENGTH: u32 = 256u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_MOUNT_INFORMATION {
     pub dwSize: u32,
     pub lpReserved: *mut ::core::ffi::c_void,
@@ -8781,6 +9677,7 @@ impl ::core::default::Default for NTMS_MOUNT_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_NOTIFICATIONINFORMATION {
     pub dwOperation: NtmsNotificationOperations,
     pub ObjectId: ::windows::core::GUID,
@@ -8806,6 +9703,7 @@ impl ::core::default::Default for NTMS_NOTIFICATIONINFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OBJECTINFORMATIONA {
     pub dwSize: u32,
@@ -8846,6 +9744,7 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONA_0 {
     pub Drive: NTMS_DRIVEINFORMATIONA,
@@ -8892,6 +9791,7 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OBJECTINFORMATIONW {
     pub dwSize: u32,
@@ -8932,6 +9832,7 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union NTMS_OBJECTINFORMATIONW_0 {
     pub Drive: NTMS_DRIVEINFORMATIONW,
@@ -8977,14 +9878,22 @@ impl ::core::default::Default for NTMS_OBJECTINFORMATIONW_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OBJECTNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMIDLABELID_LENGTH: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMIDLABELINFO_LENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMIDLABELTYPE_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NTMS_OMID_TYPE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMID_TYPE_FILESYSTEM_INFO: NTMS_OMID_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OMID_TYPE_RAW_LABEL: NTMS_OMID_TYPE = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OPREQUESTINFORMATIONA {
     pub Request: NtmsOpreqCommand,
@@ -9026,6 +9935,7 @@ impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_OPREQUESTINFORMATIONW {
     pub Request: NtmsOpreqCommand,
@@ -9067,6 +9977,7 @@ impl ::core::default::Default for NTMS_OPREQUESTINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PARTITIONINFORMATIONA {
     pub PhysicalMedia: ::windows::core::GUID,
@@ -9108,6 +10019,7 @@ impl ::core::default::Default for NTMS_PARTITIONINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_PARTITIONINFORMATIONW {
     pub PhysicalMedia: ::windows::core::GUID,
     pub LogicalMedia: ::windows::core::GUID,
@@ -9142,6 +10054,7 @@ impl ::core::default::Default for NTMS_PARTITIONINFORMATIONW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NTMS_PMIDINFORMATIONA {
     pub CurrentLibrary: ::windows::core::GUID,
@@ -9186,6 +10099,7 @@ impl ::core::default::Default for NTMS_PMIDINFORMATIONA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_PMIDINFORMATIONW {
     pub CurrentLibrary: ::windows::core::GUID,
     pub MediaPool: ::windows::core::GUID,
@@ -9222,12 +10136,18 @@ impl ::core::default::Default for NTMS_PMIDINFORMATIONW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLHIERARCHY_LENGTH: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRODUCTNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_REVISION_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SEQUENCE_LENGTH: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SERIALNUMBER_LENGTH: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct NTMS_STORAGESLOTINFORMATION {
     pub Number: u32,
     pub State: u32,
@@ -9253,15 +10173,25 @@ impl ::core::default::Default for NTMS_STORAGESLOTINFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_USERNAME_LENGTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_VENDORNAME_LENGTH: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NT_CREATE_FILE_DISPOSITION = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_SUPERSEDE: NT_CREATE_FILE_DISPOSITION = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_CREATE: NT_CREATE_FILE_DISPOSITION = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_OPEN: NT_CREATE_FILE_DISPOSITION = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_OPEN_IF: NT_CREATE_FILE_DISPOSITION = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_OVERWRITE: NT_CREATE_FILE_DISPOSITION = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_OVERWRITE_IF: NT_CREATE_FILE_DISPOSITION = 5u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetConnectionEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, qualifier: Param1, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
@@ -9276,6 +10206,7 @@ pub unsafe fn NetConnectionEnum<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetFileClose<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, fileid: u32) -> u32 {
@@ -9290,6 +10221,7 @@ pub unsafe fn NetFileClose<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetFileEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, basepath: Param1, username: Param2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut usize) -> u32 {
@@ -9304,6 +10236,7 @@ pub unsafe fn NetFileEnum<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetFileGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, fileid: u32, level: u32, bufptr: *mut *mut u8) -> u32 {
@@ -9318,6 +10251,7 @@ pub unsafe fn NetFileGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerAliasAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
@@ -9332,6 +10266,7 @@ pub unsafe fn NetServerAliasAdd<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerAliasDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
@@ -9346,6 +10281,7 @@ pub unsafe fn NetServerAliasDel<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetServerAliasEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resumehandle: *mut u32) -> u32 {
@@ -9360,6 +10296,7 @@ pub unsafe fn NetServerAliasEnum<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetSessionDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2) -> u32 {
@@ -9374,6 +10311,7 @@ pub unsafe fn NetSessionDel<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetSessionEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
@@ -9388,6 +10326,7 @@ pub unsafe fn NetSessionEnum<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetSessionGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, uncclientname: Param1, username: Param2, level: u32, bufptr: *mut *mut u8) -> u32 {
@@ -9402,6 +10341,7 @@ pub unsafe fn NetSessionGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareAdd<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
@@ -9416,6 +10356,7 @@ pub unsafe fn NetShareAdd<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareCheck<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, device: Param1, r#type: *mut u32) -> u32 {
@@ -9430,6 +10371,7 @@ pub unsafe fn NetShareCheck<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareDel<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, reserved: u32) -> u32 {
@@ -9444,6 +10386,7 @@ pub unsafe fn NetShareDel<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareDelEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, buf: *const u8) -> u32 {
@@ -9458,6 +10401,7 @@ pub unsafe fn NetShareDelEx<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareDelSticky<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, reserved: u32) -> u32 {
@@ -9472,6 +10416,7 @@ pub unsafe fn NetShareDelSticky<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareEnum<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
@@ -9486,6 +10431,7 @@ pub unsafe fn NetShareEnum<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareEnumSticky<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, level: u32, bufptr: *mut *mut u8, prefmaxlen: u32, entriesread: *mut u32, totalentries: *mut u32, resume_handle: *mut u32) -> u32 {
@@ -9500,6 +10446,7 @@ pub unsafe fn NetShareEnumSticky<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, level: u32, bufptr: *mut *mut u8) -> u32 {
@@ -9514,6 +10461,7 @@ pub unsafe fn NetShareGetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn NetShareSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(servername: Param0, netname: Param1, level: u32, buf: *const u8, parm_err: *mut u32) -> u32 {
@@ -9528,6 +10476,7 @@ pub unsafe fn NetShareSetInfo<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level: u32, options: u32, buffer: *mut *mut u8) -> u32 {
     #[cfg(windows)]
@@ -9541,6 +10490,7 @@ pub unsafe fn NetStatisticsGet(servername: *const i8, service: *const i8, level:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_WindowsProgramming'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_WindowsProgramming"))]
 #[inline]
 pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, desiredaccess: u32, objectattributes: *mut super::super::System::WindowsProgramming::OBJECT_ATTRIBUTES, iostatusblock: *mut super::super::System::WindowsProgramming::IO_STATUS_BLOCK, allocationsize: *mut i64, fileattributes: u32, shareaccess: FILE_SHARE_MODE, createdisposition: NT_CREATE_FILE_DISPOSITION, createoptions: u32, eabuffer: *mut ::core::ffi::c_void, ealength: u32) -> ::windows::core::Result<()> {
@@ -9555,253 +10505,500 @@ pub unsafe fn NtCreateFile(filehandle: *mut super::super::Foundation::HANDLE, de
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsAccessMask = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_USE_ACCESS: NtmsAccessMask = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MODIFY_ACCESS: NtmsAccessMask = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_CONTROL_ACCESS: NtmsAccessMask = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsAllocateOptions = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ALLOCATE_NEW: NtmsAllocateOptions = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ALLOCATE_NEXT: NtmsAllocateOptions = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ALLOCATE_ERROR_IF_UNAVAILABLE: NtmsAllocateOptions = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsAllocationPolicy = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ALLOCATE_FROMSCRATCH: NtmsAllocationPolicy = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsAsyncOperations = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ASYNCOP_MOUNT: NtmsAsyncOperations = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsAsyncStatus = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ASYNCSTATE_QUEUED: NtmsAsyncStatus = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ASYNCSTATE_WAIT_RESOURCE: NtmsAsyncStatus = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ASYNCSTATE_WAIT_OPERATOR: NtmsAsyncStatus = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ASYNCSTATE_INPROCESS: NtmsAsyncStatus = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ASYNCSTATE_COMPLETE: NtmsAsyncStatus = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsBarCodeState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_BARCODESTATE_OK: NtmsBarCodeState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_BARCODESTATE_UNREADABLE: NtmsBarCodeState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsCreateNtmsMediaOptions = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ERROR_ON_DUPLICATE: NtmsCreateNtmsMediaOptions = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsCreateOptions = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPEN_EXISTING: NtmsCreateOptions = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_CREATE_NEW: NtmsCreateOptions = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPEN_ALWAYS: NtmsCreateOptions = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsDeallocationPolicy = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DEALLOCATE_TOSCRATCH: NtmsDeallocationPolicy = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsDismountOptions = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DISMOUNT_DEFERRED: NtmsDismountOptions = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DISMOUNT_IMMEDIATE: NtmsDismountOptions = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsDoorState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DOORSTATE_UNKNOWN: NtmsDoorState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DOORSTATE_CLOSED: NtmsDoorState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DOORSTATE_OPEN: NtmsDoorState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsDriveState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVESTATE_DISMOUNTED: NtmsDriveState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVESTATE_MOUNTED: NtmsDriveState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVESTATE_LOADED: NtmsDriveState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVESTATE_UNLOADED: NtmsDriveState = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVESTATE_BEING_CLEANED: NtmsDriveState = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVESTATE_DISMOUNTABLE: NtmsDriveState = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsDriveType = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UNKNOWN_DRIVE: NtmsDriveType = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsEjectOperation = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EJECT_START: NtmsEjectOperation = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EJECT_STOP: NtmsEjectOperation = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EJECT_QUEUE: NtmsEjectOperation = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EJECT_FORCE: NtmsEjectOperation = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EJECT_IMMEDIATE: NtmsEjectOperation = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EJECT_ASK_USER: NtmsEjectOperation = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsEnumerateOption = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ENUM_DEFAULT: NtmsEnumerateOption = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_ENUM_ROOTPOOL: NtmsEnumerateOption = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsInjectOperation = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INJECT_START: NtmsInjectOperation = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INJECT_STOP: NtmsInjectOperation = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INJECT_RETRACT: NtmsInjectOperation = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INJECT_STARTMANY: NtmsInjectOperation = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsInventoryMethod = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INVENTORY_NONE: NtmsInventoryMethod = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INVENTORY_FAST: NtmsInventoryMethod = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INVENTORY_OMID: NtmsInventoryMethod = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INVENTORY_DEFAULT: NtmsInventoryMethod = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INVENTORY_SLOT: NtmsInventoryMethod = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INVENTORY_STOP: NtmsInventoryMethod = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INVENTORY_MAX: NtmsInventoryMethod = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsLibRequestFlags = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBREQFLAGS_NOAUTOPURGE: NtmsLibRequestFlags = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBREQFLAGS_NOFAILEDPURGE: NtmsLibRequestFlags = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsLibraryFlags = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYFLAG_FIXEDOFFLINE: NtmsLibraryFlags = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYFLAG_CLEANERPRESENT: NtmsLibraryFlags = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYFLAG_AUTODETECTCHANGE: NtmsLibraryFlags = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYFLAG_IGNORECLEANERUSESREMAINING: NtmsLibraryFlags = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYFLAG_RECOGNIZECLEANERBARCODE: NtmsLibraryFlags = 16i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsLibraryType = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYTYPE_UNKNOWN: NtmsLibraryType = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYTYPE_OFFLINE: NtmsLibraryType = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYTYPE_ONLINE: NtmsLibraryType = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARYTYPE_STANDALONE: NtmsLibraryType = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsLmOperation = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_REMOVE: NtmsLmOperation = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DISABLECHANGER: NtmsLmOperation = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DISABLELIBRARY: NtmsLmOperation = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_ENABLECHANGER: NtmsLmOperation = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_ENABLELIBRARY: NtmsLmOperation = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DISABLEDRIVE: NtmsLmOperation = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_ENABLEDRIVE: NtmsLmOperation = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DISABLEMEDIA: NtmsLmOperation = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_ENABLEMEDIA: NtmsLmOperation = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_UPDATEOMID: NtmsLmOperation = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_INVENTORY: NtmsLmOperation = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DOORACCESS: NtmsLmOperation = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_EJECT: NtmsLmOperation = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_EJECTCLEANER: NtmsLmOperation = 11i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_INJECT: NtmsLmOperation = 12i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_INJECTCLEANER: NtmsLmOperation = 13i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_PROCESSOMID: NtmsLmOperation = 14i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_CLEANDRIVE: NtmsLmOperation = 15i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DISMOUNT: NtmsLmOperation = 16i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_MOUNT: NtmsLmOperation = 17i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_WRITESCRATCH: NtmsLmOperation = 18i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_CLASSIFY: NtmsLmOperation = 19i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_RESERVECLEANER: NtmsLmOperation = 20i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_RELEASECLEANER: NtmsLmOperation = 21i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_MAXWORKITEM: NtmsLmOperation = 22i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsLmState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_QUEUED: NtmsLmState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_INPROCESS: NtmsLmState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_PASSED: NtmsLmState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_FAILED: NtmsLmState = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_INVALID: NtmsLmState = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_WAITING: NtmsLmState = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DEFERRED: NtmsLmState = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_DEFFERED: NtmsLmState = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_CANCELLED: NtmsLmState = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LM_STOPPED: NtmsLmState = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsMediaPoolPolicy = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLPOLICY_PURGEOFFLINESCRATCH: NtmsMediaPoolPolicy = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLPOLICY_KEEPOFFLINEIMPORT: NtmsMediaPoolPolicy = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsMediaState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIASTATE_IDLE: NtmsMediaState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIASTATE_INUSE: NtmsMediaState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIASTATE_MOUNTED: NtmsMediaState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIASTATE_LOADED: NtmsMediaState = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIASTATE_UNLOADED: NtmsMediaState = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIASTATE_OPERROR: NtmsMediaState = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIASTATE_OPREQ: NtmsMediaState = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsMountOptions = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_READ: NtmsMountOptions = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_WRITE: NtmsMountOptions = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_ERROR_NOT_AVAILABLE: NtmsMountOptions = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_ERROR_IF_UNAVAILABLE: NtmsMountOptions = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_ERROR_OFFLINE: NtmsMountOptions = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_ERROR_IF_OFFLINE: NtmsMountOptions = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_SPECIFIC_DRIVE: NtmsMountOptions = 16i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MOUNT_NOWAIT: NtmsMountOptions = 32i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsMountPriority = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRIORITY_DEFAULT: NtmsMountPriority = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRIORITY_HIGHEST: NtmsMountPriority = 15i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRIORITY_HIGH: NtmsMountPriority = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRIORITY_NORMAL: NtmsMountPriority = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRIORITY_LOW: NtmsMountPriority = -7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PRIORITY_LOWEST: NtmsMountPriority = -15i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsNotificationOperations = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OBJ_UPDATE: NtmsNotificationOperations = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OBJ_INSERT: NtmsNotificationOperations = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OBJ_DELETE: NtmsNotificationOperations = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EVENT_SIGNAL: NtmsNotificationOperations = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_EVENT_COMPLETE: NtmsNotificationOperations = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsObjectsTypes = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UNKNOWN: NtmsObjectsTypes = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OBJECT: NtmsObjectsTypes = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_CHANGER: NtmsObjectsTypes = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_CHANGER_TYPE: NtmsObjectsTypes = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_COMPUTER: NtmsObjectsTypes = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVE: NtmsObjectsTypes = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_DRIVE_TYPE: NtmsObjectsTypes = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_IEDOOR: NtmsObjectsTypes = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_IEPORT: NtmsObjectsTypes = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBRARY: NtmsObjectsTypes = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LIBREQUEST: NtmsObjectsTypes = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_LOGICAL_MEDIA: NtmsObjectsTypes = 11i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIA_POOL: NtmsObjectsTypes = 12i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIA_TYPE: NtmsObjectsTypes = 13i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTITION: NtmsObjectsTypes = 14i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PHYSICAL_MEDIA: NtmsObjectsTypes = 15i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_STORAGESLOT: NtmsObjectsTypes = 16i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQUEST: NtmsObjectsTypes = 17i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UI_DESTINATION: NtmsObjectsTypes = 18i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_NUMBER_OF_OBJECT_TYPES: NtmsObjectsTypes = 19i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsOpRequestFlags = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQFLAGS_NOAUTOPURGE: NtmsOpRequestFlags = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQFLAGS_NOFAILEDPURGE: NtmsOpRequestFlags = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQFLAGS_NOALERTS: NtmsOpRequestFlags = 16i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQFLAGS_NOTRAYICON: NtmsOpRequestFlags = 32i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsOperationalState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_READY: NtmsOperationalState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_INITIALIZING: NtmsOperationalState = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_NEEDS_SERVICE: NtmsOperationalState = 20i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_NOT_PRESENT: NtmsOperationalState = 21i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsOpreqCommand = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQ_UNKNOWN: NtmsOpreqCommand = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQ_NEWMEDIA: NtmsOpreqCommand = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQ_CLEANER: NtmsOpreqCommand = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQ_DEVICESERVICE: NtmsOpreqCommand = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQ_MOVEMEDIA: NtmsOpreqCommand = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPREQ_MESSAGE: NtmsOpreqCommand = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsOpreqState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPSTATE_UNKNOWN: NtmsOpreqState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPSTATE_SUBMITTED: NtmsOpreqState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPSTATE_ACTIVE: NtmsOpreqState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPSTATE_INPROGRESS: NtmsOpreqState = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPSTATE_REFUSED: NtmsOpreqState = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_OPSTATE_COMPLETE: NtmsOpreqState = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsPartitionState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_UNKNOWN: NtmsPartitionState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_UNPREPARED: NtmsPartitionState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_INCOMPATIBLE: NtmsPartitionState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_DECOMMISSIONED: NtmsPartitionState = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_AVAILABLE: NtmsPartitionState = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_ALLOCATED: NtmsPartitionState = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_COMPLETE: NtmsPartitionState = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_FOREIGN: NtmsPartitionState = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_IMPORT: NtmsPartitionState = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PARTSTATE_RESERVED: NtmsPartitionState = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsPoolType = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLTYPE_UNKNOWN: NtmsPoolType = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLTYPE_SCRATCH: NtmsPoolType = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLTYPE_FOREIGN: NtmsPoolType = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLTYPE_IMPORT: NtmsPoolType = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_POOLTYPE_APPLICATION: NtmsPoolType = 1000i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsPortContent = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PORTCONTENT_UNKNOWN: NtmsPortContent = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PORTCONTENT_FULL: NtmsPortContent = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PORTCONTENT_EMPTY: NtmsPortContent = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsPortPosition = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PORTPOSITION_UNKNOWN: NtmsPortPosition = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PORTPOSITION_EXTENDED: NtmsPortPosition = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_PORTPOSITION_RETRACTED: NtmsPortPosition = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsReadWriteCharacteristics = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIARW_UNKNOWN: NtmsReadWriteCharacteristics = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIARW_REWRITABLE: NtmsReadWriteCharacteristics = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIARW_WRITEONCE: NtmsReadWriteCharacteristics = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_MEDIARW_READONLY: NtmsReadWriteCharacteristics = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsSessionOptions = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SESSION_QUERYEXPEDITE: NtmsSessionOptions = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsSlotState = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SLOTSTATE_UNKNOWN: NtmsSlotState = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SLOTSTATE_FULL: NtmsSlotState = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SLOTSTATE_EMPTY: NtmsSlotState = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SLOTSTATE_NOTPRESENT: NtmsSlotState = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_SLOTSTATE_NEEDSINVENTORY: NtmsSlotState = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsUIOperations = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UIDEST_ADD: NtmsUIOperations = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UIDEST_DELETE: NtmsUIOperations = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UIDEST_DELETEALL: NtmsUIOperations = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UIOPERATION_MAX: NtmsUIOperations = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type NtmsUITypes = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UITYPE_INVALID: NtmsUITypes = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UITYPE_INFO: NtmsUITypes = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UITYPE_REQ: NtmsUITypes = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UITYPE_ERR: NtmsUITypes = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const NTMS_UITYPE_MAX: NtmsUITypes = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OFSTRUCT {
     pub cBytes: u8,
@@ -9837,6 +11034,7 @@ impl ::core::default::Default for OFSTRUCT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
@@ -9851,6 +11049,7 @@ pub unsafe fn OpenEncryptedFileRawA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEncryptedFileRawW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, ulflags: u32, pvcontext: *mut *mut ::core::ffi::c_void) -> u32 {
@@ -9865,6 +11064,7 @@ pub unsafe fn OpenEncryptedFileRawW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwdesiredaccess: u32, resourcemanagerhandle: Param1, enlistmentid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE {
@@ -9879,6 +11079,7 @@ pub unsafe fn OpenEnlistment<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, lpreopenbuff: *mut OFSTRUCT, ustyle: LZOPENFILE_STYLE) -> i32 {
@@ -9893,6 +11094,7 @@ pub unsafe fn OpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn OpenFileById<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hvolumehint: Param0, lpfileid: *const FILE_ID_DESCRIPTOR, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, lpsecurityattributes: *const super::super::Security::SECURITY_ATTRIBUTES, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
@@ -9907,6 +11109,7 @@ pub unsafe fn OpenFileById<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenResourceManager<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(dwdesiredaccess: u32, tmhandle: Param1, resourcemanagerid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE {
@@ -9921,6 +11124,7 @@ pub unsafe fn OpenResourceManager<'a, Param1: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::windows::core::GUID) -> super::super::Foundation::HANDLE {
@@ -9935,6 +11139,7 @@ pub unsafe fn OpenTransaction(dwdesiredaccess: u32, transactionid: *mut ::window
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE {
@@ -9949,6 +11154,7 @@ pub unsafe fn OpenTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OpenTransactionManagerById(transactionmanagerid: *const ::windows::core::GUID, desiredaccess: u32, openoptions: u32) -> super::super::Foundation::HANDLE {
@@ -9987,31 +11193,52 @@ pub const PARTITION_SPACES_DATA_GUID: ::windows::core::GUID = ::windows::core::G
 pub const PARTITION_SPACES_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe75caf8f_f680_4cee_afa3_b001e56efc2d);
 pub const PARTITION_SYSTEM_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc12a7328_f81f_11d2_ba4b_00a0c93ec93b);
 pub const PARTITION_WINDOWS_SYSTEM_GUID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57434f53_e3e3_4631_a5c5_26d2243873aa);
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type PCLFS_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pvoverlapped: *mut ::core::ffi::c_void, ulreserved: u32)>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PCOPYFILE2_PROGRESS_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pmessage: *const COPYFILE2_MESSAGE, pvcallbackcontext: *const ::core::ffi::c_void) -> COPYFILE2_MESSAGE_ACTION>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type PFE_EXPORT_FUNC = ::core::option::Option<unsafe extern "system" fn(pbdata: *const u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: u32) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type PFE_IMPORT_FUNC = ::core::option::Option<unsafe extern "system" fn(pbdata: *mut u8, pvcallbackcontext: *const ::core::ffi::c_void, ullength: *mut u32) -> u32>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PFN_IO_COMPLETION = ::core::option::Option<unsafe extern "system" fn(pcontext: *mut FIO_CONTEXT, lpo: *mut FH_OVERLAPPED, cb: u32, dwcompletionstatus: u32)>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_FULL_HANDLER_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, dwerror: u32, flogispinned: super::super::Foundation::BOOL, pvclientcontext: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_TAIL_ADVANCE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, lsntarget: CLS_LSN, pvclientcontext: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLOG_UNPINNED_CALLBACK = ::core::option::Option<unsafe extern "system" fn(hlogfile: super::super::Foundation::HANDLE, pvclientcontext: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type PREPARE_TAPE_OPERATION = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_FORMAT: PREPARE_TAPE_OPERATION = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_LOAD: PREPARE_TAPE_OPERATION = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_LOCK: PREPARE_TAPE_OPERATION = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_TENSION: PREPARE_TAPE_OPERATION = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_UNLOAD: PREPARE_TAPE_OPERATION = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_UNLOCK: PREPARE_TAPE_OPERATION = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type PRIORITY_HINT = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IoPriorityHintVeryLow: PRIORITY_HINT = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IoPriorityHintLow: PRIORITY_HINT = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const IoPriorityHintNormal: PRIORITY_HINT = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const MaximumIoPriorityHintType: PRIORITY_HINT = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::core::Result<IORING_CQE> {
     #[cfg(windows)]
@@ -10026,6 +11253,7 @@ pub unsafe fn PopIoRingCompletion(ioring: *const HIORING__) -> ::windows::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrePrepareComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10040,6 +11268,7 @@ pub unsafe fn PrePrepareComplete<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrePrepareEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10054,6 +11283,7 @@ pub unsafe fn PrePrepareEnlistment<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10068,6 +11298,7 @@ pub unsafe fn PrepareComplete<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10082,6 +11313,7 @@ pub unsafe fn PrepareEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hlog: Param0, pszbaselogfilename: Param1, clen: u32, plsnlow: *const CLS_LSN, plsnhigh: *const CLS_LSN, pcactuallength: *mut u32, poffbaselogfiledata: *mut u64, pcbbaselogfilelength: *mut u64, plsnbase: *mut CLS_LSN, plsnlast: *mut CLS_LSN, plsncurrentarchivetail: *mut CLS_LSN, ppvarchivecontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10096,6 +11328,7 @@ pub unsafe fn PrepareLogArchive<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrepareTape<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwoperation: PREPARE_TAPE_OPERATION, bimmediate: Param2) -> u32 {
@@ -10110,6 +11343,7 @@ pub unsafe fn PrepareTape<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryDosDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdevicename: Param0, lptargetpath: super::super::Foundation::PSTR, ucchmax: u32) -> u32 {
@@ -10124,6 +11358,7 @@ pub unsafe fn QueryDosDeviceA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryDosDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdevicename: Param0, lptargetpath: super::super::Foundation::PWSTR, ucchmax: u32) -> u32 {
@@ -10138,6 +11373,7 @@ pub unsafe fn QueryDosDeviceW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABILITIES> {
     #[cfg(windows)]
@@ -10152,6 +11388,7 @@ pub unsafe fn QueryIoRingCapabilities() -> ::windows::core::Result<IORING_CAPABI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn QueryLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, epolicytype: CLFS_MGMT_POLICY_TYPE, ppolicybuffer: *mut CLFS_MGMT_POLICY, pcbpolicybuffer: *mut u32) -> super::super::Foundation::BOOL {
@@ -10166,6 +11403,7 @@ pub unsafe fn QueryLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, precoveryagents: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
@@ -10180,6 +11418,7 @@ pub unsafe fn QueryRecoveryAgentsOnEncryptedFile<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn QueryUsersOnEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pusers: *mut *mut ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
@@ -10194,10 +11433,14 @@ pub unsafe fn QueryUsersOnEncryptedFile<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ReadDirectoryNotifyInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ReadDirectoryNotifyExtendedInformation: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct REPARSE_GUID_DATA_BUFFER {
     pub ReparseTag: u32,
     pub ReparseDataLength: u16,
@@ -10226,6 +11469,7 @@ impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct REPARSE_GUID_DATA_BUFFER_0 {
     pub DataBuffer: [u8; 1],
 }
@@ -10249,13 +11493,21 @@ impl ::core::default::Default for REPARSE_GUID_DATA_BUFFER_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type REPLACE_FILE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const REPLACEFILE_WRITE_THROUGH: REPLACE_FILE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const REPLACEFILE_IGNORE_MERGE_ERRORS: REPLACE_FILE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const REPLACEFILE_IGNORE_ACL_ERRORS: REPLACE_FILE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const RESOURCE_MANAGER_COMMUNICATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const RESOURCE_MANAGER_MAXIMUM_OPTION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const RESOURCE_MANAGER_VOLATILE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReOpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(horiginalfile: Param0, dwdesiredaccess: FILE_ACCESS_FLAGS, dwsharemode: FILE_SHARE_MODE, dwflagsandattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::HANDLE {
@@ -10270,6 +11522,7 @@ pub unsafe fn ReOpenFile<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdirectory: Param0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: Param3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE, readdirectorynotifyinformationclass: READ_DIRECTORY_NOTIFY_INFORMATION_CLASS) -> super::super::Foundation::BOOL {
@@ -10284,6 +11537,7 @@ pub unsafe fn ReadDirectoryChangesExW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdirectory: Param0, lpbuffer: *mut ::core::ffi::c_void, nbufferlength: u32, bwatchsubtree: Param3, dwnotifyfilter: FILE_NOTIFY_CHANGE, lpbytesreturned: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL {
@@ -10298,6 +11552,7 @@ pub unsafe fn ReadDirectoryChangesW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -10311,6 +11566,7 @@ pub unsafe fn ReadEncryptedFileRaw(pfexportcallback: PFE_EXPORT_FUNC, pvcallback
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpnumberofbytesread: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10325,6 +11581,7 @@ pub unsafe fn ReadFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *mut ::core::ffi::c_void, nnumberofbytestoread: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL {
@@ -10339,6 +11596,7 @@ pub unsafe fn ReadFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadFileScatter<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestoread: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10353,6 +11611,7 @@ pub unsafe fn ReadFileScatter<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void, cboffset: u32, cbbytestoread: u32, pbreadbuffer: *mut u8, pcbbytesread: *mut u32) -> super::super::Foundation::BOOL {
@@ -10367,6 +11626,7 @@ pub unsafe fn ReadLogArchiveMetadata(pvarchivecontext: *mut ::core::ffi::c_void,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pnotification: *mut CLFS_MGMT_NOTIFICATION, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10381,6 +11641,7 @@ pub unsafe fn ReadLogNotification<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut CLS_LSN, econtextmode: CLFS_CONTEXT_MODE, ppvreadbuffer: *mut *mut ::core::ffi::c_void, pcbreadbuffer: *mut u32, perecordtype: *mut u8, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, ppvreadcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10395,6 +11656,7 @@ pub unsafe fn ReadLogRecord(pvmarshal: *mut ::core::ffi::c_void, plsnfirst: *mut
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsn: *mut CLS_LSN, ppvcontext: *mut *mut ::core::ffi::c_void, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10409,6 +11671,7 @@ pub unsafe fn ReadLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, ppvrestart
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuffer: *mut *mut ::core::ffi::c_void, pcbbuffer: *mut u32, perecordtype: *mut u8, plsnuser: *mut CLS_LSN, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, plsnrecord: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10423,6 +11686,7 @@ pub unsafe fn ReadNextLogRecord(pvreadcontext: *mut ::core::ffi::c_void, ppvbuff
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReadOnlyEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10437,6 +11701,7 @@ pub unsafe fn ReadOnlyEnlistment<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void, ppvrestartbuffer: *mut *mut ::core::ffi::c_void, pcbrestartbuffer: *mut u32, plsnrestart: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10451,6 +11716,7 @@ pub unsafe fn ReadPreviousLogRestartArea(pvreadcontext: *mut ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RecoverEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, enlistmentkey: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10465,6 +11731,7 @@ pub unsafe fn RecoverEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RecoverResourceManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0) -> super::super::Foundation::BOOL {
@@ -10479,6 +11746,7 @@ pub unsafe fn RecoverResourceManager<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RecoverTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0) -> super::super::Foundation::BOOL {
@@ -10493,6 +11761,7 @@ pub unsafe fn RecoverTransactionManager<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterForLogWriteNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, cbthreshold: u32, fenable: Param2) -> super::super::Foundation::BOOL {
@@ -10507,6 +11776,7 @@ pub unsafe fn RegisterForLogWriteNotification<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterManageableLogClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pcallbacks: *mut LOG_MANAGEMENT_CALLBACKS) -> super::super::Foundation::BOOL {
@@ -10521,6 +11791,7 @@ pub unsafe fn RegisterManageableLogClient<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
@@ -10535,6 +11806,7 @@ pub unsafe fn RemoveDirectoryA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
@@ -10549,6 +11821,7 @@ pub unsafe fn RemoveDirectoryFromAppW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lppathname: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
@@ -10563,6 +11836,7 @@ pub unsafe fn RemoveDirectoryTransactedA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lppathname: Param0, htransaction: Param1) -> super::super::Foundation::BOOL {
@@ -10577,6 +11851,7 @@ pub unsafe fn RemoveDirectoryTransactedW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppathname: Param0) -> super::super::Foundation::BOOL {
@@ -10591,6 +11866,7 @@ pub unsafe fn RemoveDirectoryW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, pwszcontainerpath: Param1, fforce: Param2, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10605,6 +11881,7 @@ pub unsafe fn RemoveLogContainer<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveLogContainerSet<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hlog: Param0, ccontainer: u16, rgwszcontainerpath: *const super::super::Foundation::PWSTR, fforce: Param3, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10619,6 +11896,7 @@ pub unsafe fn RemoveLogContainerSet<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, epolicytype: CLFS_MGMT_POLICY_TYPE) -> super::super::Foundation::BOOL {
@@ -10633,6 +11911,7 @@ pub unsafe fn RemoveLogPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn RemoveUsersFromEncryptedFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, phashes: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
@@ -10647,6 +11926,7 @@ pub unsafe fn RemoveUsersFromEncryptedFile<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RenameTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(logfilename: Param0, existingtransactionmanagerguid: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
@@ -10661,6 +11941,7 @@ pub unsafe fn RenameTransactionManager<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10675,6 +11956,7 @@ pub unsafe fn ReplaceFileA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: u32, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10689,6 +11971,7 @@ pub unsafe fn ReplaceFileFromAppW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReplaceFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpreplacedfilename: Param0, lpreplacementfilename: Param1, lpbackupfilename: Param2, dwreplaceflags: REPLACE_FILE_FLAGS, lpexclude: *mut ::core::ffi::c_void, lpreserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10703,6 +11986,7 @@ pub unsafe fn ReplaceFileW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10717,6 +12001,7 @@ pub unsafe fn ReserveAndAppendLog(pvmarshal: *mut ::core::ffi::c_void, rgwriteen
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rgwriteentries: *mut CLS_WRITE_ENTRY, cwriteentries: u32, cbentryalignment: u32, plsnundonext: *mut CLS_LSN, plsnprevious: *mut CLS_LSN, creserverecords: u32, rgcbreservation: *mut i64, fflags: CLFS_FLAG, plsn: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -10731,6 +12016,7 @@ pub unsafe fn ReserveAndAppendLogAligned(pvmarshal: *mut ::core::ffi::c_void, rg
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackComplete<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10745,6 +12031,7 @@ pub unsafe fn RollbackComplete<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackEnlistment<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10759,6 +12046,7 @@ pub unsafe fn RollbackEnlistment<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackTransaction<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
@@ -10773,6 +12061,7 @@ pub unsafe fn RollbackTransaction<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollbackTransactionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionhandle: Param0) -> super::super::Foundation::BOOL {
@@ -10787,6 +12076,7 @@ pub unsafe fn RollbackTransactionAsync<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RollforwardTransactionManager<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(transactionmanagerhandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -10802,6 +12092,7 @@ pub unsafe fn RollforwardTransactionManager<'a, Param0: ::windows::core::IntoPar
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_ALIAS_INFO_0 {
     pub srvai0_alias: super::super::Foundation::PWSTR,
@@ -10836,6 +12127,7 @@ impl ::core::default::Default for SERVER_ALIAS_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SERVER_CERTIFICATE_INFO_0 {
     pub srvci0_name: super::super::Foundation::PWSTR,
@@ -10877,11 +12169,16 @@ impl ::core::default::Default for SERVER_CERTIFICATE_INFO_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SERVER_CERTIFICATE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const QUIC: SERVER_CERTIFICATE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SESI1_NUM_ELEMENTS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SESI2_NUM_ELEMENTS: u32 = 9u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_0 {
     pub sesi0_cname: super::super::Foundation::PWSTR,
@@ -10913,6 +12210,7 @@ impl ::core::default::Default for SESSION_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_1 {
     pub sesi1_cname: super::super::Foundation::PWSTR,
@@ -10949,6 +12247,7 @@ impl ::core::default::Default for SESSION_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_10 {
     pub sesi10_cname: super::super::Foundation::PWSTR,
@@ -10983,6 +12282,7 @@ impl ::core::default::Default for SESSION_INFO_10 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_2 {
     pub sesi2_cname: super::super::Foundation::PWSTR,
@@ -11020,6 +12320,7 @@ impl ::core::default::Default for SESSION_INFO_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SESSION_INFO_502 {
     pub sesi502_cname: super::super::Foundation::PWSTR,
@@ -11057,16 +12358,26 @@ impl ::core::default::Default for SESSION_INFO_502 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SESSION_INFO_USER_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SESS_GUEST: SESSION_INFO_USER_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SESS_NOENCRYPTION: SESSION_INFO_USER_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SET_FILE_POINTER_MOVE_METHOD = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_BEGIN: SET_FILE_POINTER_MOVE_METHOD = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_CURRENT: SET_FILE_POINTER_MOVE_METHOD = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FILE_END: SET_FILE_POINTER_MOVE_METHOD = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_CURRENT_USES_PARMNUM: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_FILE_SD_PARMNUM: u32 = 501u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_0 {
     pub shi0_netname: super::super::Foundation::PWSTR,
@@ -11098,6 +12409,7 @@ impl ::core::default::Default for SHARE_INFO_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_1 {
     pub shi1_netname: super::super::Foundation::PWSTR,
@@ -11131,6 +12443,7 @@ impl ::core::default::Default for SHARE_INFO_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_1004 {
     pub shi1004_remark: super::super::Foundation::PWSTR,
@@ -11162,6 +12475,7 @@ impl ::core::default::Default for SHARE_INFO_1004 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct SHARE_INFO_1005 {
     pub shi1005_flags: u32,
 }
@@ -11186,6 +12500,7 @@ impl ::core::default::Default for SHARE_INFO_1005 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct SHARE_INFO_1006 {
     pub shi1006_max_uses: u32,
 }
@@ -11210,6 +12525,7 @@ impl ::core::default::Default for SHARE_INFO_1006 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SHARE_INFO_1501 {
     pub shi1501_reserved: u32,
@@ -11242,6 +12558,7 @@ impl ::core::default::Default for SHARE_INFO_1501 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct SHARE_INFO_1503 {
     pub shi1503_sharefilter: ::windows::core::GUID,
 }
@@ -11266,6 +12583,7 @@ impl ::core::default::Default for SHARE_INFO_1503 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_2 {
     pub shi2_netname: super::super::Foundation::PWSTR,
@@ -11304,6 +12622,7 @@ impl ::core::default::Default for SHARE_INFO_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SHARE_INFO_501 {
     pub shi501_netname: super::super::Foundation::PWSTR,
@@ -11338,6 +12657,7 @@ impl ::core::default::Default for SHARE_INFO_501 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SHARE_INFO_502 {
     pub shi502_netname: super::super::Foundation::PWSTR,
@@ -11378,6 +12698,7 @@ impl ::core::default::Default for SHARE_INFO_502 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 pub struct SHARE_INFO_503 {
     pub shi503_netname: super::super::Foundation::PWSTR,
@@ -11418,51 +12739,96 @@ impl ::core::default::Default for SHARE_INFO_503 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SHARE_INFO_PERMISSIONS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_READ: SHARE_INFO_PERMISSIONS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_WRITE: SHARE_INFO_PERMISSIONS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_CREATE: SHARE_INFO_PERMISSIONS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_EXEC: SHARE_INFO_PERMISSIONS = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_DELETE: SHARE_INFO_PERMISSIONS = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_ATRIB: SHARE_INFO_PERMISSIONS = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_PERM: SHARE_INFO_PERMISSIONS = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const ACCESS_ALL: SHARE_INFO_PERMISSIONS = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_MAX_USES_PARMNUM: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_NETNAME_PARMNUM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_PASSWD_PARMNUM: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_PATH_PARMNUM: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_PERMISSIONS_PARMNUM: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_REMARK_PARMNUM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_SERVER_PARMNUM: u32 = 503u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SHARE_TYPE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_DISKTREE: SHARE_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_PRINTQ: SHARE_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_DEVICE: SHARE_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_IPC: SHARE_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_SPECIAL: SHARE_TYPE = 2147483648u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_TEMPORARY: SHARE_TYPE = 1073741824u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_MASK: SHARE_TYPE = 255u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHARE_TYPE_PARMNUM: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ACCESS_BASED_DIRECTORY_ENUM: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ALLOW_NAMESPACE_CACHING: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_CLUSTER_MANAGED: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_COMPRESS_DATA: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_DFS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_DFS_ROOT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_DISABLE_CLIENT_BUFFERING: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ENABLE_CA: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ENABLE_HASH: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_ENCRYPT_DATA: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_FORCE_LEVELII_OPLOCK: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_FORCE_SHARED_DELETE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_IDENTITY_REMOTING: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_RESERVED: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1005_FLAGS_RESTRICT_EXCLUSIVE_OPENS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI1_NUM_ELEMENTS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI2_NUM_ELEMENTS: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SHI_USES_UNLIMITED: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STATSOPT_CLR: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct STAT_SERVER_0 {
     pub sts0_start: u32,
     pub sts0_fopens: u32,
@@ -11503,6 +12869,7 @@ impl ::core::default::Default for STAT_SERVER_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct STAT_WORKSTATION_0 {
     pub StatisticsStartTime: i64,
     pub BytesReceived: i64,
@@ -11565,41 +12932,77 @@ impl ::core::default::Default for STAT_WORKSTATION_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type STORAGE_BUS_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeUnknown: STORAGE_BUS_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeScsi: STORAGE_BUS_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeAtapi: STORAGE_BUS_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeAta: STORAGE_BUS_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusType1394: STORAGE_BUS_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeSsa: STORAGE_BUS_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeFibre: STORAGE_BUS_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeUsb: STORAGE_BUS_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeRAID: STORAGE_BUS_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeiScsi: STORAGE_BUS_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeSas: STORAGE_BUS_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeSata: STORAGE_BUS_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeSd: STORAGE_BUS_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeMmc: STORAGE_BUS_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeVirtual: STORAGE_BUS_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeFileBackedVirtual: STORAGE_BUS_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeSpaces: STORAGE_BUS_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeNvme: STORAGE_BUS_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeSCM: STORAGE_BUS_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeUfs: STORAGE_BUS_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeMax: STORAGE_BUS_TYPE = 20i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BusTypeMaxReserved: STORAGE_BUS_TYPE = 127i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type STREAM_INFO_LEVELS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindStreamInfoStandard: STREAM_INFO_LEVELS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const FindStreamInfoMaxInfoLevel: STREAM_INFO_LEVELS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED1: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED2: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED3: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED4: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED5: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const STYPE_RESERVED_ALL: u32 = 1073741568u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type SYMBOLIC_LINK_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SYMBOLIC_LINK_FLAG_DIRECTORY: SYMBOLIC_LINK_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SYMBOLIC_LINK_FLAG_ALLOW_UNPRIVILEGED_CREATE: SYMBOLIC_LINK_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -11614,6 +13017,7 @@ pub unsafe fn ScanLogContainers(pcxscan: *mut CLS_SCAN_CONTEXT, escanmode: u8, p
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SearchPathA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lppath: Param0, lpfilename: Param1, lpextension: Param2, nbufferlength: u32, lpbuffer: super::super::Foundation::PSTR, lpfilepart: *mut super::super::Foundation::PSTR) -> u32 {
@@ -11628,6 +13032,7 @@ pub unsafe fn SearchPathA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lppath: Param0, lpfilename: Param1, lpextension: Param2, nbufferlength: u32, lpbuffer: super::super::Foundation::PWSTR, lpfilepart: *mut super::super::Foundation::PWSTR) -> u32 {
@@ -11642,6 +13047,7 @@ pub unsafe fn SearchPathW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn SetEncryptedFileMetadata<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, pboldmetadata: *const u8, pbnewmetadata: *const u8, pownerhash: *const ENCRYPTION_CERTIFICATE_HASH, dwoperation: u32, pcertificatesadded: *const ENCRYPTION_CERTIFICATE_HASH_LIST) -> u32 {
@@ -11656,6 +13062,7 @@ pub unsafe fn SetEncryptedFileMetadata<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEndOfFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0) -> super::super::Foundation::BOOL {
@@ -11670,6 +13077,7 @@ pub unsafe fn SetEndOfFile<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn SetEndOfLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnend: *mut CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -11684,6 +13092,7 @@ pub unsafe fn SetEndOfLog<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetEnlistmentRecoveryInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, buffersize: u32, buffer: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -11698,6 +13107,7 @@ pub unsafe fn SetEnlistmentRecoveryInformation<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn SetFileApisToANSI() {
     #[cfg(windows)]
@@ -11711,6 +13121,7 @@ pub unsafe fn SetFileApisToANSI() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn SetFileApisToOEM() {
     #[cfg(windows)]
@@ -11724,6 +13135,7 @@ pub unsafe fn SetFileApisToOEM() {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -11738,6 +13150,7 @@ pub unsafe fn SetFileAttributesA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesFromAppW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwfileattributes: u32) -> super::super::Foundation::BOOL {
@@ -11752,6 +13165,7 @@ pub unsafe fn SetFileAttributesFromAppW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesTransactedA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwfileattributes: u32, htransaction: Param2) -> super::super::Foundation::BOOL {
@@ -11766,6 +13180,7 @@ pub unsafe fn SetFileAttributesTransactedA<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesTransactedW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(lpfilename: Param0, dwfileattributes: u32, htransaction: Param2) -> super::super::Foundation::BOOL {
@@ -11780,6 +13195,7 @@ pub unsafe fn SetFileAttributesTransactedW<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileAttributesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0, dwfileattributes: FILE_FLAGS_AND_ATTRIBUTES) -> super::super::Foundation::BOOL {
@@ -11794,6 +13210,7 @@ pub unsafe fn SetFileAttributesW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileBandwidthReservation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hfile: Param0, nperiodmilliseconds: u32, nbytesperperiod: u32, bdiscardable: Param3, lptransfersize: *mut u32, lpnumoutstandingrequests: *mut u32) -> super::super::Foundation::BOOL {
@@ -11808,6 +13225,7 @@ pub unsafe fn SetFileBandwidthReservation<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileCompletionNotificationModes<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, flags: u8) -> super::super::Foundation::BOOL {
@@ -11822,6 +13240,7 @@ pub unsafe fn SetFileCompletionNotificationModes<'a, Param0: ::windows::core::In
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileInformationByHandle<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, fileinformationclass: FILE_INFO_BY_HANDLE_CLASS, lpfileinformation: *const ::core::ffi::c_void, dwbuffersize: u32) -> super::super::Foundation::BOOL {
@@ -11836,6 +13255,7 @@ pub unsafe fn SetFileInformationByHandle<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileIoOverlappedRange<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, overlappedrangestart: *const u8, length: u32) -> super::super::Foundation::BOOL {
@@ -11850,6 +13270,7 @@ pub unsafe fn SetFileIoOverlappedRange<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFilePointer<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, ldistancetomove: i32, lpdistancetomovehigh: *mut i32, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> u32 {
@@ -11864,6 +13285,7 @@ pub unsafe fn SetFilePointer<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFilePointerEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lidistancetomove: i64, lpnewfilepointer: *mut i64, dwmovemethod: SET_FILE_POINTER_MOVE_METHOD) -> super::super::Foundation::BOOL {
@@ -11878,6 +13300,7 @@ pub unsafe fn SetFilePointerEx<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileShortNameA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hfile: Param0, lpshortname: Param1) -> super::super::Foundation::BOOL {
@@ -11892,6 +13315,7 @@ pub unsafe fn SetFileShortNameA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileShortNameW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hfile: Param0, lpshortname: Param1) -> super::super::Foundation::BOOL {
@@ -11906,6 +13330,7 @@ pub unsafe fn SetFileShortNameW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileTime<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpcreationtime: *const super::super::Foundation::FILETIME, lplastaccesstime: *const super::super::Foundation::FILETIME, lplastwritetime: *const super::super::Foundation::FILETIME) -> super::super::Foundation::BOOL {
@@ -11920,6 +13345,7 @@ pub unsafe fn SetFileTime<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileValidData<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, validdatalength: i64) -> super::super::Foundation::BOOL {
@@ -11934,6 +13360,7 @@ pub unsafe fn SetFileValidData<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetIoRingCompletionEvent<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(ioring: *const HIORING__, hevent: Param1) -> ::windows::core::Result<()> {
@@ -11948,6 +13375,7 @@ pub unsafe fn SetIoRingCompletionEvent<'a, Param1: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLogArchiveMode<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, emode: CLFS_LOG_ARCHIVE_MODE) -> super::super::Foundation::BOOL {
@@ -11962,6 +13390,7 @@ pub unsafe fn SetLogArchiveMode<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLogArchiveTail<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, plsnarchivetail: *mut CLS_LSN, preserved: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -11976,6 +13405,7 @@ pub unsafe fn SetLogArchiveTail<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetLogFileSizeWithPolicy<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hlog: Param0, pdesiredsize: *mut u64, presultingsize: *mut u64) -> super::super::Foundation::BOOL {
@@ -11990,6 +13420,7 @@ pub unsafe fn SetLogFileSizeWithPolicy<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetResourceManagerCompletionPort<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(resourcemanagerhandle: Param0, iocompletionporthandle: Param1, completionkey: usize) -> super::super::Foundation::BOOL {
@@ -12004,6 +13435,7 @@ pub unsafe fn SetResourceManagerCompletionPort<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
@@ -12018,6 +13450,7 @@ pub unsafe fn SetSearchPathMode(flags: u32) -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTapeParameters<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdevice: Param0, dwoperation: TAPE_INFORMATION_TYPE, lptapeinformation: *const ::core::ffi::c_void) -> u32 {
@@ -12032,6 +13465,7 @@ pub unsafe fn SetTapeParameters<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTapePosition<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwpositionmethod: TAPE_POSITION_METHOD, dwpartition: u32, dwoffsetlow: u32, dwoffsethigh: u32, bimmediate: Param5) -> u32 {
@@ -12046,6 +13480,7 @@ pub unsafe fn SetTapePosition<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTransactionInformation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(transactionhandle: Param0, isolationlevel: u32, isolationflags: u32, timeout: u32, description: Param4) -> super::super::Foundation::BOOL {
@@ -12060,6 +13495,7 @@ pub unsafe fn SetTransactionInformation<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Security'*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE) -> u32 {
@@ -12074,6 +13510,7 @@ pub unsafe fn SetUserFileEncryptionKey(pencryptioncertificate: *const ENCRYPTION
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Security'*"]
 #[cfg(feature = "Win32_Security")]
 #[inline]
 pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTION_CERTIFICATE, dwcapabilities: u32, dwflags: u32, pvreserved: *mut ::core::ffi::c_void) -> u32 {
@@ -12088,6 +13525,7 @@ pub unsafe fn SetUserFileEncryptionKeyEx(pencryptioncertificate: *const ENCRYPTI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeLabelA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lprootpathname: Param0, lpvolumename: Param1) -> super::super::Foundation::BOOL {
@@ -12102,6 +13540,7 @@ pub unsafe fn SetVolumeLabelA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeLabelW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lprootpathname: Param0, lpvolumename: Param1) -> super::super::Foundation::BOOL {
@@ -12116,6 +13555,7 @@ pub unsafe fn SetVolumeLabelW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: Param1) -> super::super::Foundation::BOOL {
@@ -12130,6 +13570,7 @@ pub unsafe fn SetVolumeMountPointA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszvolumemountpoint: Param0, lpszvolumename: Param1) -> super::super::Foundation::BOOL {
@@ -12144,6 +13585,7 @@ pub unsafe fn SetVolumeMountPointW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SinglePhaseReject<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(enlistmenthandle: Param0, tmvirtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -12158,6 +13600,7 @@ pub unsafe fn SinglePhaseReject<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, milliseconds: u32) -> ::windows::core::Result<u32> {
     #[cfg(windows)]
@@ -12172,12 +13615,18 @@ pub unsafe fn SubmitIoRing(ioring: *const HIORING__, waitoperations: u32, millis
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TAPEMARK_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_FILEMARKS: TAPEMARK_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_LONG_FILEMARKS: TAPEMARK_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SETMARKS: TAPEMARK_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SHORT_FILEMARKS: TAPEMARK_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_ERASE {
     pub Type: ERASE_TAPE_TYPE,
@@ -12210,6 +13659,7 @@ impl ::core::default::Default for TAPE_ERASE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TAPE_GET_POSITION {
     pub Type: TAPE_POSITION_TYPE,
     pub Partition: u32,
@@ -12235,23 +13685,40 @@ impl ::core::default::Default for TAPE_GET_POSITION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TAPE_INFORMATION_TYPE = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SET_TAPE_DRIVE_INFORMATION: TAPE_INFORMATION_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const SET_TAPE_MEDIA_INFORMATION: TAPE_INFORMATION_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TAPE_POSITION_METHOD = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_ABSOLUTE_BLOCK: TAPE_POSITION_METHOD = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_LOGICAL_BLOCK: TAPE_POSITION_METHOD = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_REWIND: TAPE_POSITION_METHOD = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SPACE_END_OF_DATA: TAPE_POSITION_METHOD = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SPACE_FILEMARKS: TAPE_POSITION_METHOD = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SPACE_RELATIVE_BLOCKS: TAPE_POSITION_METHOD = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SPACE_SEQUENTIAL_FMKS: TAPE_POSITION_METHOD = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SPACE_SEQUENTIAL_SMKS: TAPE_POSITION_METHOD = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_SPACE_SETMARKS: TAPE_POSITION_METHOD = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TAPE_POSITION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_ABSOLUTE_POSITION: TAPE_POSITION_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TAPE_LOGICAL_POSITION: TAPE_POSITION_TYPE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_PREPARE {
     pub Operation: PREPARE_TAPE_OPERATION,
@@ -12284,6 +13751,7 @@ impl ::core::default::Default for TAPE_PREPARE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_SET_POSITION {
     pub Method: TAPE_POSITION_METHOD,
@@ -12318,6 +13786,7 @@ impl ::core::default::Default for TAPE_SET_POSITION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TAPE_WRITE_MARKS {
     pub Type: TAPEMARK_TYPE,
@@ -12350,17 +13819,28 @@ impl ::core::default::Default for TAPE_WRITE_MARKS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_DO_NOT_PROMOTE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_LOWEST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_HIVES: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_COMMIT_SYSTEM_VOLUME: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_CORRUPT_FOR_PROGRESS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_CORRUPT_FOR_RECOVERY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_MAXIMUM_OPTION: u32 = 63u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MANAGER_VOLATILE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_MAXIMUM_OPTION: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TRANSACTION_NOTIFICATION {
     pub TransactionKey: *mut ::core::ffi::c_void,
     pub TransactionNotification: u32,
@@ -12388,6 +13868,7 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     pub MarshalCookie: u32,
     pub UOW: ::windows::core::GUID,
@@ -12413,6 +13894,7 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_MARSHAL_ARGUMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     pub PropagationCookie: u32,
     pub UOW: ::windows::core::GUID,
@@ -12440,6 +13922,7 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_PROPAGATE_ARGUMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     pub EnlistmentId: ::windows::core::GUID,
     pub UOW: ::windows::core::GUID,
@@ -12465,6 +13948,7 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_RECOVERY_ARGUMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     pub SavepointId: u32,
 }
@@ -12489,6 +13973,7 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_SAVEPOINT_ARGUMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
     pub TmIdentity: ::windows::core::GUID,
     pub Flags: u32,
@@ -12513,43 +13998,80 @@ impl ::core::default::Default for TRANSACTION_NOTIFICATION_TM_ONLINE_ARGUMENT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFICATION_TM_ONLINE_FLAG_IS_CLUSTERED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT_COMPLETE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT_FINALIZE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_COMMIT_REQUEST: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_DELEGATE_COMMIT: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ENLIST_MASK: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ENLIST_PREPREPARE: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_INDOUBT: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_LAST_RECOVER: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_MARSHAL: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_MASK: u32 = 1073741823u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPARE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPARE_COMPLETE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPREPARE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PREPREPARE_COMPLETE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROMOTE: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROMOTE_NEW: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROPAGATE_PULL: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_PROPAGATE_PUSH: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_RECOVER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_RECOVER_QUERY: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_REQUEST_OUTCOME: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_RM_DISCONNECTED: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ROLLBACK: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_ROLLBACK_COMPLETE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_SINGLE_PHASE_COMMIT: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TRANSACTION_NOTIFY_TM_ONLINE: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TRANSACTION_OUTCOME = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TransactionOutcomeUndetermined: TRANSACTION_OUTCOME = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TransactionOutcomeCommitted: TRANSACTION_OUTCOME = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TransactionOutcomeAborted: TRANSACTION_OUTCOME = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TXFS_MINIVERSION = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXFS_MINIVERSION_COMMITTED_VIEW: TXFS_MINIVERSION = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXFS_MINIVERSION_DIRTY_VIEW: TXFS_MINIVERSION = 65535u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXFS_MINIVERSION_DEFAULT_VIEW: TXFS_MINIVERSION = 65534u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TXF_ID {
     pub Anonymous: TXF_ID_0,
 }
@@ -12574,6 +14096,7 @@ impl ::core::default::Default for TXF_ID {
     }
 }
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TXF_ID_0 {
     pub LowPart: i64,
     pub HighPart: i64,
@@ -12599,6 +14122,7 @@ impl ::core::default::Default for TXF_ID_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TXF_LOG_RECORD_AFFECTED_FILE {
     pub Version: u16,
     pub RecordLength: u32,
@@ -12629,6 +14153,7 @@ impl ::core::default::Default for TXF_LOG_RECORD_AFFECTED_FILE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TXF_LOG_RECORD_BASE {
     pub Version: u16,
     pub RecordType: TXF_LOG_RECORD_TYPE,
@@ -12654,11 +14179,16 @@ impl ::core::default::Default for TXF_LOG_RECORD_BASE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_ABORT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_COMMIT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_DATA: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_GENERIC_TYPE_PREPARE: u32 = 4u32;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TXF_LOG_RECORD_TRUNCATE {
     pub Version: u16,
     pub RecordType: u16,
@@ -12690,11 +14220,16 @@ impl ::core::default::Default for TXF_LOG_RECORD_TRUNCATE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type TXF_LOG_RECORD_TYPE = u16;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_TYPE_AFFECTED_FILE: TXF_LOG_RECORD_TYPE = 4u16;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_TYPE_TRUNCATE: TXF_LOG_RECORD_TYPE = 2u16;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const TXF_LOG_RECORD_TYPE_WRITE: TXF_LOG_RECORD_TYPE = 1u16;
 #[repr(C, packed(4))]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct TXF_LOG_RECORD_WRITE {
     pub Version: u16,
     pub RecordType: u16,
@@ -12728,6 +14263,7 @@ impl ::core::default::Default for TXF_LOG_RECORD_WRITE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -12742,6 +14278,7 @@ pub unsafe fn TerminateLogArchive(pvarchivecontext: *mut ::core::ffi::c_void) ->
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -12756,6 +14293,7 @@ pub unsafe fn TerminateReadLog(pvcursorcontext: *mut ::core::ffi::c_void) -> sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const CLS_LSN, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -12770,6 +14308,7 @@ pub unsafe fn TruncateLog(pvmarshal: *const ::core::ffi::c_void, plsnend: *const
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
     #[cfg(windows)]
@@ -12783,6 +14322,7 @@ pub unsafe fn TxfGetThreadMiniVersionForCreate(miniversion: *mut u16) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, CLS_LSN>, Param2: ::windows::core::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, txffileid: *const TXF_ID, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -12797,6 +14337,7 @@ pub unsafe fn TxfLogCreateFileReadContext<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogCreateRangeReadContext<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, CLS_LSN>, Param2: ::windows::core::IntoParam<'a, CLS_LSN>>(logpath: Param0, beginninglsn: Param1, endinglsn: Param2, beginningvirtualclock: *const i64, endingvirtualclock: *const i64, recordtypemask: u32, txflogcontext: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -12811,6 +14352,7 @@ pub unsafe fn TxfLogCreateRangeReadContext<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -12825,6 +14367,7 @@ pub unsafe fn TxfLogDestroyReadContext(txflogcontext: *const ::core::ffi::c_void
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, bufferlength: u32, buffer: *mut ::core::ffi::c_void, bytesused: *mut u32, recordcount: *mut u32) -> super::super::Foundation::BOOL {
@@ -12839,6 +14382,7 @@ pub unsafe fn TxfLogReadRecords(txflogcontext: *const ::core::ffi::c_void, buffe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, namebuffer: super::super::Foundation::PWSTR, namebufferlengthinbytes: *mut u32, txfid: *mut TXF_ID) -> super::super::Foundation::BOOL {
@@ -12853,6 +14397,7 @@ pub unsafe fn TxfLogRecordGetFileName(recordbuffer: *const ::core::ffi::c_void, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_void, recordbufferlengthinbytes: u32, generictype: *mut u32, virtualclock: *mut i64) -> super::super::Foundation::BOOL {
@@ -12867,6 +14412,7 @@ pub unsafe fn TxfLogRecordGetGenericType(recordbuffer: *const ::core::ffi::c_voi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TxfReadMetadataInfo<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, txffileid: *mut TXF_ID, lastlsn: *mut CLS_LSN, transactionstate: *mut u32, lockingtransaction: *mut ::windows::core::GUID) -> super::super::Foundation::BOOL {
@@ -12881,6 +14427,7 @@ pub unsafe fn TxfReadMetadataInfo<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     #[cfg(windows)]
@@ -12894,6 +14441,7 @@ pub unsafe fn TxfSetThreadMiniVersionForCreate(miniversion: u16) {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnlockFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwfileoffsetlow: u32, dwfileoffsethigh: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32) -> super::super::Foundation::BOOL {
@@ -12908,6 +14456,7 @@ pub unsafe fn UnlockFile<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn UnlockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, dwreserved: u32, nnumberofbytestounlocklow: u32, nnumberofbytestounlockhigh: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -12922,38 +14471,70 @@ pub unsafe fn UnlockFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VER_FIND_FILE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFFF_ISSHAREDFILE: VER_FIND_FILE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VER_FIND_FILE_STATUS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFF_CURNEDEST: VER_FIND_FILE_STATUS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFF_FILEINUSE: VER_FIND_FILE_STATUS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFF_BUFFTOOSMALL: VER_FIND_FILE_STATUS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VER_INSTALL_FILE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIFF_FORCEINSTALL: VER_INSTALL_FILE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIFF_DONTDELETEOLD: VER_INSTALL_FILE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VER_INSTALL_FILE_STATUS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_TEMPFILE: VER_INSTALL_FILE_STATUS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_MISMATCH: VER_INSTALL_FILE_STATUS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_SRCOLD: VER_INSTALL_FILE_STATUS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_DIFFLANG: VER_INSTALL_FILE_STATUS = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_DIFFCODEPG: VER_INSTALL_FILE_STATUS = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_DIFFTYPE: VER_INSTALL_FILE_STATUS = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_WRITEPROT: VER_INSTALL_FILE_STATUS = 64u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_FILEINUSE: VER_INSTALL_FILE_STATUS = 128u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_OUTOFSPACE: VER_INSTALL_FILE_STATUS = 256u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_ACCESSVIOLATION: VER_INSTALL_FILE_STATUS = 512u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_SHARINGVIOLATION: VER_INSTALL_FILE_STATUS = 1024u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTCREATE: VER_INSTALL_FILE_STATUS = 2048u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTDELETE: VER_INSTALL_FILE_STATUS = 4096u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTRENAME: VER_INSTALL_FILE_STATUS = 8192u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTDELETECUR: VER_INSTALL_FILE_STATUS = 16384u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_OUTOFMEMORY: VER_INSTALL_FILE_STATUS = 32768u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTREADSRC: VER_INSTALL_FILE_STATUS = 65536u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTREADDST: VER_INSTALL_FILE_STATUS = 131072u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_BUFFTOOSMALL: VER_INSTALL_FILE_STATUS = 262144u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTLOADLZ32: VER_INSTALL_FILE_STATUS = 524288u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VIF_CANNOTLOADCABINET: VER_INSTALL_FILE_STATUS = 1048576u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VOLUME_ALLOCATE_BC_STREAM_INPUT {
     pub Version: u32,
@@ -12994,6 +14575,7 @@ impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     pub RequestSize: u64,
     pub NumOutStandingRequests: u32,
@@ -13019,6 +14601,7 @@ impl ::core::default::Default for VOLUME_ALLOCATE_BC_STREAM_OUTPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_ALLOCATION_HINT_INPUT {
     pub ClusterSize: u32,
     pub NumberOfClusters: u32,
@@ -13045,6 +14628,7 @@ impl ::core::default::Default for VOLUME_ALLOCATION_HINT_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_ALLOCATION_HINT_OUTPUT {
     pub Bitmap: [u32; 1],
 }
@@ -13069,6 +14653,7 @@ impl ::core::default::Default for VOLUME_ALLOCATION_HINT_OUTPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_CRITICAL_IO {
     pub AccessType: u32,
     pub ExtentsCount: u32,
@@ -13095,6 +14680,7 @@ impl ::core::default::Default for VOLUME_CRITICAL_IO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_FAILOVER_SET {
     pub NumberOfDisks: u32,
     pub DiskNumbers: [u32; 1],
@@ -13120,6 +14706,7 @@ impl ::core::default::Default for VOLUME_FAILOVER_SET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_GET_BC_PROPERTIES_INPUT {
     pub Version: u32,
     pub Reserved1: u32,
@@ -13149,6 +14736,7 @@ impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_GET_BC_PROPERTIES_OUTPUT {
     pub MaximumRequestsPerPeriod: u32,
     pub MinimumPeriod: u32,
@@ -13178,6 +14766,7 @@ impl ::core::default::Default for VOLUME_GET_BC_PROPERTIES_OUTPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_LOGICAL_OFFSET {
     pub LogicalOffset: i64,
 }
@@ -13202,6 +14791,7 @@ impl ::core::default::Default for VOLUME_LOGICAL_OFFSET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_NUMBER {
     pub VolumeNumber: u32,
     pub VolumeManagerName: [u16; 8],
@@ -13227,6 +14817,7 @@ impl ::core::default::Default for VOLUME_NUMBER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_PHYSICAL_OFFSET {
     pub DiskNumber: u32,
     pub Offset: i64,
@@ -13252,6 +14843,7 @@ impl ::core::default::Default for VOLUME_PHYSICAL_OFFSET {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_PHYSICAL_OFFSETS {
     pub NumberOfPhysicalOffsets: u32,
     pub PhysicalOffset: [VOLUME_PHYSICAL_OFFSET; 1],
@@ -13277,6 +14869,7 @@ impl ::core::default::Default for VOLUME_PHYSICAL_OFFSETS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_READ_PLEX_INPUT {
     pub ByteOffset: i64,
     pub Length: u32,
@@ -13303,6 +14896,7 @@ impl ::core::default::Default for VOLUME_READ_PLEX_INPUT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     pub GptAttributes: u64,
@@ -13338,6 +14932,7 @@ impl ::core::default::Default for VOLUME_SET_GPT_ATTRIBUTES_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VOLUME_SHRINK_INFO {
     pub VolumeSize: u64,
 }
@@ -13361,10 +14956,14 @@ impl ::core::default::Default for VOLUME_SHRINK_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FFI_FILEFLAGSMASK: i32 = 63i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FFI_SIGNATURE: i32 = -17890115i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FFI_STRUCVERSION: i32 = 65536i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct VS_FIXEDFILEINFO {
     pub dwSignature: u32,
     pub dwStrucVersion: u32,
@@ -13400,57 +14999,109 @@ impl ::core::default::Default for VS_FIXEDFILEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VS_FIXEDFILEINFO_FILE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FF_DEBUG: VS_FIXEDFILEINFO_FILE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FF_PRERELEASE: VS_FIXEDFILEINFO_FILE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FF_PATCHED: VS_FIXEDFILEINFO_FILE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FF_PRIVATEBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FF_INFOINFERRED: VS_FIXEDFILEINFO_FILE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_FF_SPECIALBUILD: VS_FIXEDFILEINFO_FILE_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VS_FIXEDFILEINFO_FILE_OS = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_UNKNOWN: VS_FIXEDFILEINFO_FILE_OS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_DOS: VS_FIXEDFILEINFO_FILE_OS = 65536i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_OS216: VS_FIXEDFILEINFO_FILE_OS = 131072i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_OS232: VS_FIXEDFILEINFO_FILE_OS = 196608i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_NT: VS_FIXEDFILEINFO_FILE_OS = 262144i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_WINCE: VS_FIXEDFILEINFO_FILE_OS = 327680i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS__BASE: VS_FIXEDFILEINFO_FILE_OS = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS__WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS__PM16: VS_FIXEDFILEINFO_FILE_OS = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS__PM32: VS_FIXEDFILEINFO_FILE_OS = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS__WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_DOS_WINDOWS16: VS_FIXEDFILEINFO_FILE_OS = 65537i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_DOS_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = 65540i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_OS216_PM16: VS_FIXEDFILEINFO_FILE_OS = 131074i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_OS232_PM32: VS_FIXEDFILEINFO_FILE_OS = 196611i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VOS_NT_WINDOWS32: VS_FIXEDFILEINFO_FILE_OS = 262148i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VS_FIXEDFILEINFO_FILE_SUBTYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_UNKNOWN: VS_FIXEDFILEINFO_FILE_SUBTYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_KEYBOARD: VS_FIXEDFILEINFO_FILE_SUBTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_LANGUAGE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_DISPLAY: VS_FIXEDFILEINFO_FILE_SUBTYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_MOUSE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_NETWORK: VS_FIXEDFILEINFO_FILE_SUBTYPE = 6i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_SYSTEM: VS_FIXEDFILEINFO_FILE_SUBTYPE = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_INSTALLABLE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 8i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_SOUND: VS_FIXEDFILEINFO_FILE_SUBTYPE = 9i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_COMM: VS_FIXEDFILEINFO_FILE_SUBTYPE = 10i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_INPUTMETHOD: VS_FIXEDFILEINFO_FILE_SUBTYPE = 11i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_DRV_VERSIONED_PRINTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = 12i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_FONT_RASTER: VS_FIXEDFILEINFO_FILE_SUBTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_FONT_VECTOR: VS_FIXEDFILEINFO_FILE_SUBTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT2_FONT_TRUETYPE: VS_FIXEDFILEINFO_FILE_SUBTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type VS_FIXEDFILEINFO_FILE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_UNKNOWN: VS_FIXEDFILEINFO_FILE_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_APP: VS_FIXEDFILEINFO_FILE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_DLL: VS_FIXEDFILEINFO_FILE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_DRV: VS_FIXEDFILEINFO_FILE_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_FONT: VS_FIXEDFILEINFO_FILE_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_VXD: VS_FIXEDFILEINFO_FILE_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VFT_STATIC_LIB: VS_FIXEDFILEINFO_FILE_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_USER_DEFINED: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const VS_VERSION_INFO: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
 pub unsafe fn ValidateLog<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszlogfilename: Param0, psalogfile: *mut super::super::Security::SECURITY_ATTRIBUTES, pinfobuffer: *mut CLS_INFORMATION, pcbbuffer: *mut u32) -> super::super::Foundation::BOOL {
@@ -13465,6 +15116,7 @@ pub unsafe fn ValidateLog<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerFindFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uflags: VER_FIND_FILE_FLAGS, szfilename: Param1, szwindir: Param2, szappdir: Param3, szcurdir: super::super::Foundation::PSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS {
@@ -13479,6 +15131,7 @@ pub unsafe fn VerFindFileA<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerFindFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uflags: VER_FIND_FILE_FLAGS, szfilename: Param1, szwindir: Param2, szappdir: Param3, szcurdir: super::super::Foundation::PWSTR, pucurdirlen: *mut u32, szdestdir: super::super::Foundation::PWSTR, pudestdirlen: *mut u32) -> VER_FIND_FILE_STATUS {
@@ -13493,6 +15146,7 @@ pub unsafe fn VerFindFileW<'a, Param1: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerInstallFileA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: Param1, szdestfilename: Param2, szsrcdir: Param3, szdestdir: Param4, szcurdir: Param5, sztmpfile: super::super::Foundation::PSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS {
@@ -13507,6 +15161,7 @@ pub unsafe fn VerInstallFileA<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerInstallFileW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(uflags: VER_INSTALL_FILE_FLAGS, szsrcfilename: Param1, szdestfilename: Param2, szsrcdir: Param3, szdestdir: Param4, szcurdir: Param5, sztmpfile: super::super::Foundation::PWSTR, putmpfilelen: *mut u32) -> VER_INSTALL_FILE_STATUS {
@@ -13521,6 +15176,7 @@ pub unsafe fn VerInstallFileW<'a, Param1: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerLanguageNameA(wlang: u32, szlang: super::super::Foundation::PSTR, cchlang: u32) -> u32 {
@@ -13535,6 +15191,7 @@ pub unsafe fn VerLanguageNameA(wlang: u32, szlang: super::super::Foundation::PST
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerLanguageNameW(wlang: u32, szlang: super::super::Foundation::PWSTR, cchlang: u32) -> u32 {
@@ -13549,6 +15206,7 @@ pub unsafe fn VerLanguageNameW(wlang: u32, szlang: super::super::Foundation::PWS
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerQueryValueA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
@@ -13563,6 +15221,7 @@ pub unsafe fn VerQueryValueA<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn VerQueryValueW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pblock: *const ::core::ffi::c_void, lpsubblock: Param1, lplpbuffer: *mut *mut ::core::ffi::c_void, pulen: *mut u32) -> super::super::Foundation::BOOL {
@@ -13577,11 +15236,16 @@ pub unsafe fn VerQueryValueW<'a, Param1: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_BOOT_NOT_OS_WIM: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_BOOT_OS_WIM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_ENTRY_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_ENTRY_FLAG_SUSPENDED: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIM_ENTRY_INFO {
     pub WimEntryInfoSize: u32,
@@ -13619,6 +15283,7 @@ impl ::core::default::Default for WIM_ENTRY_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct WIM_EXTERNAL_FILE_INFO {
     pub DataSourceId: i64,
     pub ResourceHash: [u8; 20],
@@ -13644,10 +15309,14 @@ impl ::core::default::Default for WIM_EXTERNAL_FILE_INFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_NOT_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_EXTERNAL_FILE_INFO_FLAG_SUSPENDED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WIM_PROVIDER_HASH_SIZE: u32 = 20u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FILE_ATTRIBUTE_DATA {
     pub dwFileAttributes: u32,
@@ -13684,6 +15353,7 @@ impl ::core::default::Default for WIN32_FILE_ATTRIBUTE_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FIND_DATAA {
     pub dwFileAttributes: u32,
@@ -13724,6 +15394,7 @@ impl ::core::default::Default for WIN32_FIND_DATAA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WIN32_FIND_DATAW {
     pub dwFileAttributes: u32,
@@ -13764,6 +15435,7 @@ impl ::core::default::Default for WIN32_FIND_DATAW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct WIN32_FIND_STREAM_DATA {
     pub StreamSize: i64,
     pub cStreamName: [u16; 296],
@@ -13789,6 +15461,7 @@ impl ::core::default::Default for WIN32_FIND_STREAM_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct WIN32_STREAM_ID {
     pub dwStreamId: WIN_STREAM_ID,
     pub dwStreamAttributes: u32,
@@ -13816,19 +15489,32 @@ impl ::core::default::Default for WIN32_STREAM_ID {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WINEFS_SETUSERKEY_SET_CAPABILITIES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub type WIN_STREAM_ID = u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_ALTERNATE_DATA: WIN_STREAM_ID = 4u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_DATA: WIN_STREAM_ID = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_EA_DATA: WIN_STREAM_ID = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_LINK: WIN_STREAM_ID = 5u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_OBJECT_ID: WIN_STREAM_ID = 7u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_PROPERTY_DATA: WIN_STREAM_ID = 6u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_REPARSE_DATA: WIN_STREAM_ID = 8u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_SECURITY_DATA: WIN_STREAM_ID = 3u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_SPARSE_BLOCK: WIN_STREAM_ID = 9u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const BACKUP_TXFS_DATA: WIN_STREAM_ID = 10u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct WOF_FILE_COMPRESSION_INFO_V0 {
     pub Algorithm: u32,
 }
@@ -13853,6 +15539,7 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub struct WOF_FILE_COMPRESSION_INFO_V1 {
     pub Algorithm: u32,
     pub Flags: u32,
@@ -13877,8 +15564,11 @@ impl ::core::default::Default for WOF_FILE_COMPRESSION_INFO_V1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WOF_PROVIDER_FILE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const WOF_PROVIDER_WIM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofEnumEntries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, provider: u32, enumproc: WofEnumEntryProc, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -13893,10 +15583,13 @@ pub unsafe fn WofEnumEntries<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WofEnumEntryProc = ::core::option::Option<unsafe extern "system" fn(entryinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type WofEnumFilesProc = ::core::option::Option<unsafe extern "system" fn(filepath: super::super::Foundation::PWSTR, externalfileinfo: *const ::core::ffi::c_void, userdata: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofFileEnumFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, algorithm: u32, enumproc: WofEnumFilesProc, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -13911,6 +15604,7 @@ pub unsafe fn WofFileEnumFiles<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofGetDriverVersion<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(fileorvolumehandle: Param0, provider: u32) -> ::windows::core::Result<u32> {
@@ -13926,6 +15620,7 @@ pub unsafe fn WofGetDriverVersion<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(filepath: Param0, isexternalfile: *mut super::super::Foundation::BOOL, provider: *mut u32, externalfileinfo: *mut ::core::ffi::c_void, bufferlength: *mut u32) -> ::windows::core::Result<()> {
@@ -13940,6 +15635,7 @@ pub unsafe fn WofIsExternalFile<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofSetFileDataLocation<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(filehandle: Param0, provider: u32, externalfileinfo: *const ::core::ffi::c_void, length: u32) -> ::windows::core::Result<()> {
@@ -13954,6 +15650,7 @@ pub unsafe fn WofSetFileDataLocation<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofShouldCompressBinaries<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volume: Param0, algorithm: *mut u32) -> super::super::Foundation::BOOL {
@@ -13968,6 +15665,7 @@ pub unsafe fn WofShouldCompressBinaries<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofWimAddEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, wimpath: Param1, wimtype: u32, wimindex: u32) -> ::windows::core::Result<i64> {
@@ -13983,6 +15681,7 @@ pub unsafe fn WofWimAddEntry<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofWimEnumFiles<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, enumproc: WofEnumFilesProc, userdata: *const ::core::ffi::c_void) -> ::windows::core::Result<()> {
@@ -13997,6 +15696,7 @@ pub unsafe fn WofWimEnumFiles<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofWimRemoveEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64) -> ::windows::core::Result<()> {
@@ -14011,6 +15711,7 @@ pub unsafe fn WofWimRemoveEntry<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofWimSuspendEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64) -> ::windows::core::Result<()> {
@@ -14025,6 +15726,7 @@ pub unsafe fn WofWimSuspendEntry<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WofWimUpdateEntry<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(volumename: Param0, datasourceid: i64, newwimpath: Param2) -> ::windows::core::Result<()> {
@@ -14039,6 +15741,7 @@ pub unsafe fn WofWimUpdateEntry<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -14053,6 +15756,7 @@ pub unsafe fn Wow64DisableWow64FsRedirection(oldvalue: *mut *mut ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64EnableWow64FsRedirection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(wow64fsenableredirection: Param0) -> super::super::Foundation::BOOLEAN {
@@ -14067,6 +15771,7 @@ pub unsafe fn Wow64EnableWow64FsRedirection<'a, Param0: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -14081,6 +15786,7 @@ pub unsafe fn Wow64RevertWow64FsRedirection(olvalue: *const ::core::ffi::c_void)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 #[inline]
 pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbackcontext: *const ::core::ffi::c_void, pvcontext: *const ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -14094,6 +15800,7 @@ pub unsafe fn WriteEncryptedFileRaw(pfimportcallback: PFE_IMPORT_FUNC, pvcallbac
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpnumberofbyteswritten: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14108,6 +15815,7 @@ pub unsafe fn WriteFile<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, lpbuffer: *const ::core::ffi::c_void, nnumberofbytestowrite: u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED, lpcompletionroutine: super::super::System::IO::LPOVERLAPPED_COMPLETION_ROUTINE) -> super::super::Foundation::BOOL {
@@ -14122,6 +15830,7 @@ pub unsafe fn WriteFileEx<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteFileGather<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfile: Param0, asegmentarray: *const FILE_SEGMENT_ELEMENT, nnumberofbytestowrite: u32, lpreserved: *mut u32, lpoverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14136,6 +15845,7 @@ pub unsafe fn WriteFileGather<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation', 'Win32_System_IO'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_IO"))]
 #[inline]
 pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestartbuffer: *mut ::core::ffi::c_void, cbrestartbuffer: u32, plsnbase: *mut CLS_LSN, fflags: CLFS_FLAG, pcbwritten: *mut u32, plsnnext: *mut CLS_LSN, poverlapped: *mut super::super::System::IO::OVERLAPPED) -> super::super::Foundation::BOOL {
@@ -14150,6 +15860,7 @@ pub unsafe fn WriteLogRestartArea(pvmarshal: *mut ::core::ffi::c_void, pvrestart
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WriteTapemark<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdevice: Param0, dwtapemarktype: TAPEMARK_TYPE, dwtapemarkcount: u32, bimmediate: Param3) -> u32 {
@@ -14164,4 +15875,5 @@ pub unsafe fn WriteTapemark<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Storage_FileSystem'*"]
 pub const _FT_TYPES_DEFINITION_: u32 = 1u32;

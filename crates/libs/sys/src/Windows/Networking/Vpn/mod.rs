@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IVpnChannelStatics = *mut ::core::ffi::c_void;
 pub type IVpnCredential = *mut ::core::ffi::c_void;
 pub type IVpnCustomPrompt = *mut ::core::ffi::c_void;
@@ -13,6 +11,7 @@ pub type IVpnPlugIn = *mut ::core::ffi::c_void;
 pub type IVpnProfile = *mut ::core::ffi::c_void;
 pub type IVpnRouteFactory = *mut ::core::ffi::c_void;
 pub type VpnAppId = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnAppIdType(pub i32);
 impl VpnAppIdType {
@@ -26,6 +25,7 @@ impl ::core::clone::Clone for VpnAppIdType {
         *self
     }
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnAuthenticationMethod(pub i32);
 impl VpnAuthenticationMethod {
@@ -42,6 +42,7 @@ impl ::core::clone::Clone for VpnAuthenticationMethod {
 }
 pub type VpnChannel = *mut ::core::ffi::c_void;
 pub type VpnChannelActivityEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannelActivityEventType(pub i32);
 impl VpnChannelActivityEventType {
@@ -56,6 +57,7 @@ impl ::core::clone::Clone for VpnChannelActivityEventType {
 }
 pub type VpnChannelActivityStateChangedArgs = *mut ::core::ffi::c_void;
 pub type VpnChannelConfiguration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnChannelRequestCredentialsOptions(pub u32);
 impl VpnChannelRequestCredentialsOptions {
@@ -70,6 +72,7 @@ impl ::core::clone::Clone for VpnChannelRequestCredentialsOptions {
     }
 }
 pub type VpnCredential = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnCredentialType(pub i32);
 impl VpnCredentialType {
@@ -96,6 +99,7 @@ pub type VpnCustomPromptOptionSelector = *mut ::core::ffi::c_void;
 pub type VpnCustomPromptText = *mut ::core::ffi::c_void;
 pub type VpnCustomPromptTextInput = *mut ::core::ffi::c_void;
 pub type VpnCustomTextBox = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnDataPathType(pub i32);
 impl VpnDataPathType {
@@ -110,6 +114,7 @@ impl ::core::clone::Clone for VpnDataPathType {
 }
 pub type VpnDomainNameAssignment = *mut ::core::ffi::c_void;
 pub type VpnDomainNameInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnDomainNameType(pub i32);
 impl VpnDomainNameType {
@@ -125,6 +130,7 @@ impl ::core::clone::Clone for VpnDomainNameType {
 }
 pub type VpnForegroundActivatedEventArgs = *mut ::core::ffi::c_void;
 pub type VpnForegroundActivationOperation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnIPProtocol(pub i32);
 impl VpnIPProtocol {
@@ -144,6 +150,7 @@ impl ::core::clone::Clone for VpnIPProtocol {
 }
 pub type VpnInterfaceId = *mut ::core::ffi::c_void;
 pub type VpnManagementAgent = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnManagementConnectionStatus(pub i32);
 impl VpnManagementConnectionStatus {
@@ -158,6 +165,7 @@ impl ::core::clone::Clone for VpnManagementConnectionStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnManagementErrorStatus(pub i32);
 impl VpnManagementErrorStatus {
@@ -190,6 +198,7 @@ impl ::core::clone::Clone for VpnManagementErrorStatus {
 pub type VpnNamespaceAssignment = *mut ::core::ffi::c_void;
 pub type VpnNamespaceInfo = *mut ::core::ffi::c_void;
 pub type VpnNativeProfile = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnNativeProtocolType(pub i32);
 impl VpnNativeProtocolType {
@@ -205,6 +214,7 @@ impl ::core::clone::Clone for VpnNativeProtocolType {
 }
 pub type VpnPacketBuffer = *mut ::core::ffi::c_void;
 pub type VpnPacketBufferList = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnPacketBufferStatus(pub i32);
 impl VpnPacketBufferStatus {
@@ -221,6 +231,7 @@ pub type VpnPickedCredential = *mut ::core::ffi::c_void;
 pub type VpnPlugInProfile = *mut ::core::ffi::c_void;
 pub type VpnRoute = *mut ::core::ffi::c_void;
 pub type VpnRouteAssignment = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_Vpn'*"]
 #[repr(transparent)]
 pub struct VpnRoutingPolicyType(pub i32);
 impl VpnRoutingPolicyType {

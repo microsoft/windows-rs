@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IPrintCustomOptionDetails = *mut ::core::ffi::c_void;
 pub type IPrintItemListOptionDetails = *mut ::core::ffi::c_void;
 pub type IPrintNumberOptionDetails = *mut ::core::ffi::c_void;
@@ -19,6 +17,7 @@ pub type PrintDuplexOptionDetails = *mut ::core::ffi::c_void;
 pub type PrintHolePunchOptionDetails = *mut ::core::ffi::c_void;
 pub type PrintMediaSizeOptionDetails = *mut ::core::ffi::c_void;
 pub type PrintMediaTypeOptionDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintOptionStates(pub u32);
 impl PrintOptionStates {
@@ -32,6 +31,7 @@ impl ::core::clone::Clone for PrintOptionStates {
         *self
     }
 }
+#[doc = "*Required features: 'Graphics_Printing_OptionDetails'*"]
 #[repr(transparent)]
 pub struct PrintOptionType(pub i32);
 impl PrintOptionType {

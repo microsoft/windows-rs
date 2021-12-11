@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type TargetedContentAction = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentAppInstallationState(pub i32);
 impl TargetedContentAppInstallationState {
@@ -15,6 +14,7 @@ impl ::core::clone::Clone for TargetedContentAppInstallationState {
         *self
     }
 }
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentAvailability(pub i32);
 impl TargetedContentAvailability {
@@ -34,6 +34,7 @@ pub type TargetedContentCollection = *mut ::core::ffi::c_void;
 pub type TargetedContentContainer = *mut ::core::ffi::c_void;
 pub type TargetedContentFile = *mut ::core::ffi::c_void;
 pub type TargetedContentImage = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentInteraction(pub i32);
 impl TargetedContentInteraction {
@@ -60,6 +61,7 @@ impl ::core::clone::Clone for TargetedContentInteraction {
 pub type TargetedContentItem = *mut ::core::ffi::c_void;
 pub type TargetedContentItemState = *mut ::core::ffi::c_void;
 pub type TargetedContentObject = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentObjectKind(pub i32);
 impl TargetedContentObjectKind {
@@ -77,6 +79,7 @@ pub type TargetedContentStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type TargetedContentSubscription = *mut ::core::ffi::c_void;
 pub type TargetedContentSubscriptionOptions = *mut ::core::ffi::c_void;
 pub type TargetedContentValue = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_TargetedContent'*"]
 #[repr(transparent)]
 pub struct TargetedContentValueKind(pub i32);
 impl TargetedContentValueKind {

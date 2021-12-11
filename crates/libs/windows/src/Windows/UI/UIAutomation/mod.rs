@@ -1,9 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_UIAutomation_Core")]
 pub mod Core;
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationConnection(::windows::core::IUnknown);
 impl AutomationConnection {
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn IsRemoteSystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl AutomationConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -18,6 +21,7 @@ impl AutomationConnection {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -89,9 +93,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationConnection {}
 unsafe impl ::core::marker::Sync for AutomationConnection {}
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationConnectionBoundObject(::windows::core::IUnknown);
 impl AutomationConnectionBoundObject {
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn Connection(&self) -> ::windows::core::Result<AutomationConnection> {
         let this = self;
         unsafe {
@@ -163,9 +169,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationConnectionBoundObject {}
 unsafe impl ::core::marker::Sync for AutomationConnectionBoundObject {}
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationElement(::windows::core::IUnknown);
 impl AutomationElement {
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn IsRemoteSystem(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -173,6 +181,7 @@ impl AutomationElement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn AppUserModelId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -180,6 +189,7 @@ impl AutomationElement {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_UIAutomation'*"]
     pub fn ExecutableFileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -251,6 +261,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Auto
 }
 unsafe impl ::core::marker::Send for AutomationElement {}
 unsafe impl ::core::marker::Sync for AutomationElement {}
+#[doc = "*Required features: 'UI_UIAutomation'*"]
 #[repr(transparent)]
 pub struct AutomationTextRange(::windows::core::IUnknown);
 impl AutomationTextRange {}

@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct BufferProtectUnprotectResult(::windows::core::IUnknown);
 impl BufferProtectUnprotectResult {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Buffer(&self) -> ::windows::core::Result<super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -10,6 +12,7 @@ impl BufferProtectUnprotectResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn ProtectionInfo(&self) -> ::windows::core::Result<DataProtectionInfo> {
         let this = self;
         unsafe {
@@ -81,9 +84,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Buff
 }
 unsafe impl ::core::marker::Send for BufferProtectUnprotectResult {}
 unsafe impl ::core::marker::Sync for BufferProtectUnprotectResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct DataProtectionInfo(::windows::core::IUnknown);
 impl DataProtectionInfo {
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Status(&self) -> ::windows::core::Result<DataProtectionStatus> {
         let this = self;
         unsafe {
@@ -91,6 +96,7 @@ impl DataProtectionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DataProtectionStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Identity(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -162,8 +168,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Data
 }
 unsafe impl ::core::marker::Send for DataProtectionInfo {}
 unsafe impl ::core::marker::Sync for DataProtectionInfo {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 pub struct DataProtectionManager {}
 impl DataProtectionManager {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ProtectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(data: Param0, identity: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>> {
         Self::IDataProtectionManagerStatics(|this| unsafe {
@@ -171,6 +179,7 @@ impl DataProtectionManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), data.into_param().abi(), identity.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn UnprotectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(data: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>> {
         Self::IDataProtectionManagerStatics(|this| unsafe {
@@ -178,6 +187,7 @@ impl DataProtectionManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), data.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<BufferProtectUnprotectResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ProtectStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(unprotectedstream: Param0, identity: Param1, protectedstream: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>> {
         Self::IDataProtectionManagerStatics(|this| unsafe {
@@ -185,6 +195,7 @@ impl DataProtectionManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), unprotectedstream.into_param().abi(), identity.into_param().abi(), protectedstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn UnprotectStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IOutputStream>>(protectedstream: Param0, unprotectedstream: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>> {
         Self::IDataProtectionManagerStatics(|this| unsafe {
@@ -192,6 +203,7 @@ impl DataProtectionManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), protectedstream.into_param().abi(), unprotectedstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetProtectionInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IBuffer>>(protecteddata: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>> {
         Self::IDataProtectionManagerStatics(|this| unsafe {
@@ -199,6 +211,7 @@ impl DataProtectionManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), protecteddata.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn GetStreamProtectionInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(protectedstream: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DataProtectionInfo>> {
         Self::IDataProtectionManagerStatics(|this| unsafe {
@@ -206,6 +219,7 @@ impl DataProtectionManager {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), protectedstream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DataProtectionInfo>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDataProtectionManagerStatics<R, F: FnOnce(&IDataProtectionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DataProtectionManager, IDataProtectionManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -214,6 +228,7 @@ impl DataProtectionManager {
 impl ::windows::core::RuntimeName for DataProtectionManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.DataProtectionManager";
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct DataProtectionStatus(pub i32);
 impl DataProtectionStatus {
@@ -245,6 +260,7 @@ unsafe impl ::windows::core::RuntimeType for DataProtectionStatus {
 impl ::windows::core::DefaultType for DataProtectionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
@@ -274,9 +290,11 @@ unsafe impl ::windows::core::RuntimeType for EnforcementLevel {
 impl ::windows::core::DefaultType for EnforcementLevel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct FileProtectionInfo(::windows::core::IUnknown);
 impl FileProtectionInfo {
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Status(&self) -> ::windows::core::Result<FileProtectionStatus> {
         let this = self;
         unsafe {
@@ -284,6 +302,7 @@ impl FileProtectionInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FileProtectionStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn IsRoamable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -291,6 +310,7 @@ impl FileProtectionInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Identity(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -298,6 +318,7 @@ impl FileProtectionInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn IsProtectWhileOpenSupported(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IFileProtectionInfo2>(self)?;
         unsafe {
@@ -369,8 +390,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
 }
 unsafe impl ::core::marker::Send for FileProtectionInfo {}
 unsafe impl ::core::marker::Sync for FileProtectionInfo {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 pub struct FileProtectionManager {}
 impl FileProtectionManager {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn ProtectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(target: Param0, identity: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>> {
         Self::IFileProtectionManagerStatics(|this| unsafe {
@@ -378,6 +401,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), target.into_param().abi(), identity.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CopyProtectionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>>(source: Param0, target: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IFileProtectionManagerStatics(|this| unsafe {
@@ -385,6 +409,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), source.into_param().abi(), target.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn GetProtectionInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>>(source: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>> {
         Self::IFileProtectionManagerStatics(|this| unsafe {
@@ -392,6 +417,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), source.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn SaveFileAsContainerAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(protectedfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>> {
         Self::IFileProtectionManagerStatics(|this| unsafe {
@@ -399,6 +425,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), protectedfile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFileFromContainerAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(containerfile: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>> {
         Self::IFileProtectionManagerStatics(|this| unsafe {
@@ -406,6 +433,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), containerfile.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFileFromContainerWithTargetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>>(containerfile: Param0, target: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>> {
         Self::IFileProtectionManagerStatics(|this| unsafe {
@@ -413,6 +441,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), containerfile.into_param().abi(), target.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateProtectedAndOpenAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(parentfolder: Param0, desiredname: Param1, identity: Param2, collisionoption: super::super::Storage::CreationCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedFileCreateResult>> {
         Self::IFileProtectionManagerStatics(|this| unsafe {
@@ -420,6 +449,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), parentfolder.into_param().abi(), desiredname.into_param().abi(), identity.into_param().abi(), collisionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectedFileCreateResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn IsContainerAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(file: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IFileProtectionManagerStatics2(|this| unsafe {
@@ -427,6 +457,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn LoadFileFromContainerWithTargetAndNameCollisionOptionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>>(containerfile: Param0, target: Param1, collisionoption: super::super::Storage::NameCollisionOption) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>> {
         Self::IFileProtectionManagerStatics2(|this| unsafe {
@@ -434,6 +465,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), containerfile.into_param().abi(), target.into_param().abi(), collisionoption, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectedContainerImportResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
     pub fn SaveFileAsContainerWithSharingAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<::windows::core::HSTRING>>>(protectedfile: Param0, sharedwithidentities: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>> {
         Self::IFileProtectionManagerStatics2(|this| unsafe {
@@ -441,6 +473,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), protectedfile.into_param().abi(), sharedwithidentities.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectedContainerExportResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn UnprotectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>>(target: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>> {
         Self::IFileProtectionManagerStatics3(|this| unsafe {
@@ -448,6 +481,7 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn UnprotectWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>, Param1: ::windows::core::IntoParam<'a, FileUnprotectOptions>>(target: Param0, options: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionInfo>> {
         Self::IFileProtectionManagerStatics3(|this| unsafe {
@@ -455,14 +489,17 @@ impl FileProtectionManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), target.into_param().abi(), options.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionInfo>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFileProtectionManagerStatics<R, F: FnOnce(&IFileProtectionManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFileProtectionManagerStatics2<R, F: FnOnce(&IFileProtectionManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IFileProtectionManagerStatics3<R, F: FnOnce(&IFileProtectionManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FileProtectionManager, IFileProtectionManagerStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -471,6 +508,7 @@ impl FileProtectionManager {
 impl ::windows::core::RuntimeName for FileProtectionManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileProtectionManager";
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct FileProtectionStatus(pub i32);
 impl FileProtectionStatus {
@@ -508,51 +546,61 @@ unsafe impl ::windows::core::RuntimeType for FileProtectionStatus {
 impl ::windows::core::DefaultType for FileProtectionStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 pub struct FileRevocationManager {}
+#[cfg(feature = "deprecated")]
 impl FileRevocationManager {
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
     pub fn ProtectAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(storageitem: Param0, enterpriseidentity: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>> {
         Self::IFileRevocationManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), storageitem.into_param().abi(), enterpriseidentity.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
     pub fn CopyProtectionAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>>(sourcestorageitem: Param0, targetstorageitem: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IFileRevocationManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), sourcestorageitem.into_param().abi(), targetstorageitem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Revoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(enterpriseidentity: Param0) -> ::windows::core::Result<()> {
         Self::IFileRevocationManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), enterpriseidentity.into_param().abi()).ok() })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Storage"))]
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))]
     pub fn GetStatusAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>>(storageitem: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<FileProtectionStatus>> {
         Self::IFileRevocationManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), storageitem.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<FileProtectionStatus>>(result__)
         })
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IFileRevocationManagerStatics<R, F: FnOnce(&IFileRevocationManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FileRevocationManager, IFileRevocationManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FileRevocationManager {
     const NAME: &'static str = "Windows.Security.EnterpriseData.FileRevocationManager";
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct FileUnprotectOptions(::windows::core::IUnknown);
 impl FileUnprotectOptions {
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SetAudit(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Audit(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -560,12 +608,14 @@ impl FileUnprotectOptions {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Create(audit: bool) -> ::windows::core::Result<FileUnprotectOptions> {
         Self::IFileUnprotectOptionsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), audit, &mut result__).from_abi::<FileUnprotectOptions>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IFileUnprotectOptionsFactory<R, F: FnOnce(&IFileUnprotectOptionsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<FileUnprotectOptions, IFileUnprotectOptionsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -816,12 +866,15 @@ pub struct IFileProtectionManagerStatics3Vtbl(
     #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IFileRevocationManagerStatics(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileRevocationManagerStatics {
     type Vtable = IFileRevocationManagerStaticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x256bbc3d_1c5d_4260_8c75_9144cfb78ba9);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileRevocationManagerStaticsVtbl(
@@ -831,13 +884,14 @@ pub struct IFileRevocationManagerStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, enterpriseidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestorageitem: ::windows::core::RawPtr, targetstorageitem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enterpriseidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Storage"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Storage")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, enterpriseidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sourcestorageitem: ::windows::core::RawPtr, targetstorageitem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, enterpriseidentity: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Storage", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, storageitem: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Storage", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1230,9 +1284,11 @@ pub struct IThreadNetworkContextVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedAccessResumedEventArgs(::windows::core::IUnknown);
 impl ProtectedAccessResumedEventArgs {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1305,9 +1361,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedAccessResumedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessResumedEventArgs {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedAccessSuspendingEventArgs(::windows::core::IUnknown);
 impl ProtectedAccessSuspendingEventArgs {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1316,6 +1374,7 @@ impl ProtectedAccessSuspendingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::Foundation::DateTime> {
         let this = self;
@@ -1324,6 +1383,7 @@ impl ProtectedAccessSuspendingEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -1396,9 +1456,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedAccessSuspendingEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedAccessSuspendingEventArgs {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedContainerExportResult(::windows::core::IUnknown);
 impl ProtectedContainerExportResult {
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Status(&self) -> ::windows::core::Result<ProtectedImportExportStatus> {
         let this = self;
         unsafe {
@@ -1406,6 +1468,7 @@ impl ProtectedContainerExportResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProtectedImportExportStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Storage'*"]
     #[cfg(feature = "Storage")]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -1478,9 +1541,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedContainerExportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerExportResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedContainerImportResult(::windows::core::IUnknown);
 impl ProtectedContainerImportResult {
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Status(&self) -> ::windows::core::Result<ProtectedImportExportStatus> {
         let this = self;
         unsafe {
@@ -1488,6 +1553,7 @@ impl ProtectedContainerImportResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProtectedImportExportStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Storage'*"]
     #[cfg(feature = "Storage")]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -1560,9 +1626,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedContainerImportResult {}
 unsafe impl ::core::marker::Sync for ProtectedContainerImportResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedContentRevokedEventArgs(::windows::core::IUnknown);
 impl ProtectedContentRevokedEventArgs {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Identities(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -1635,9 +1703,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedContentRevokedEventArgs {}
 unsafe impl ::core::marker::Sync for ProtectedContentRevokedEventArgs {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedFileCreateResult(::windows::core::IUnknown);
 impl ProtectedFileCreateResult {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Storage'*"]
     #[cfg(feature = "Storage")]
     pub fn File(&self) -> ::windows::core::Result<super::super::Storage::StorageFile> {
         let this = self;
@@ -1646,6 +1716,7 @@ impl ProtectedFileCreateResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::StorageFile>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Stream(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStream> {
         let this = self;
@@ -1654,6 +1725,7 @@ impl ProtectedFileCreateResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStream>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn ProtectionInfo(&self) -> ::windows::core::Result<FileProtectionInfo> {
         let this = self;
         unsafe {
@@ -1725,6 +1797,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectedFileCreateResult {}
 unsafe impl ::core::marker::Sync for ProtectedFileCreateResult {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
@@ -1758,6 +1831,7 @@ unsafe impl ::windows::core::RuntimeType for ProtectedImportExportStatus {
 impl ::windows::core::DefaultType for ProtectedImportExportStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
@@ -1787,13 +1861,16 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyAuditAction {
 impl ::windows::core::DefaultType for ProtectionPolicyAuditAction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyAuditInfo(::windows::core::IUnknown);
 impl ProtectionPolicyAuditInfo {
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SetAction(&self, value: ProtectionPolicyAuditAction) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Action(&self) -> ::windows::core::Result<ProtectionPolicyAuditAction> {
         let this = self;
         unsafe {
@@ -1801,10 +1878,12 @@ impl ProtectionPolicyAuditInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProtectionPolicyAuditAction>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SetDataDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn DataDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1812,10 +1891,12 @@ impl ProtectionPolicyAuditInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SetSourceDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SourceDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1823,10 +1904,12 @@ impl ProtectionPolicyAuditInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SetTargetDescription<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn TargetDescription(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1834,18 +1917,21 @@ impl ProtectionPolicyAuditInfo {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Create<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(action: ProtectionPolicyAuditAction, datadescription: Param1, sourcedescription: Param2, targetdescription: Param3) -> ::windows::core::Result<ProtectionPolicyAuditInfo> {
         Self::IProtectionPolicyAuditInfoFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), action, datadescription.into_param().abi(), sourcedescription.into_param().abi(), targetdescription.into_param().abi(), &mut result__).from_abi::<ProtectionPolicyAuditInfo>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn CreateWithActionAndDataDescription<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(action: ProtectionPolicyAuditAction, datadescription: Param1) -> ::windows::core::Result<ProtectionPolicyAuditInfo> {
         Self::IProtectionPolicyAuditInfoFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), action, datadescription.into_param().abi(), &mut result__).from_abi::<ProtectionPolicyAuditInfo>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IProtectionPolicyAuditInfoFactory<R, F: FnOnce(&IProtectionPolicyAuditInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProtectionPolicyAuditInfo, IProtectionPolicyAuditInfoFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1914,6 +2000,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectionPolicyAuditInfo {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyAuditInfo {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
@@ -1942,13 +2029,16 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyEvaluationResult {
 impl ::windows::core::DefaultType for ProtectionPolicyEvaluationResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyManager(::windows::core::IUnknown);
 impl ProtectionPolicyManager {
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SetIdentity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn Identity(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1956,10 +2046,12 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn SetShowEnterpriseIndicator(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IProtectionPolicyManager2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn ShowEnterpriseIndicator(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IProtectionPolicyManager2>(self)?;
         unsafe {
@@ -1967,27 +2059,32 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn IsIdentityManaged<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn TryApplyProcessUIPolicy<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn ClearProcessUIPolicy() -> ::windows::core::Result<()> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn CreateCurrentThreadNetworkContext<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<ThreadNetworkContext> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<ThreadNetworkContext>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Networking'*"]
     #[cfg(all(feature = "Foundation", feature = "Networking"))]
     pub fn GetPrimaryManagedIdentityForNetworkEndpointAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Networking::HostName>>(endpointhost: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
@@ -1995,15 +2092,18 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), endpointhost.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<::windows::core::HSTRING>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn RevokeContent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<()> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), identity.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<ProtectionPolicyManager> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ProtectionPolicyManager>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtectedAccessSuspending<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ProtectedAccessSuspendingEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
@@ -2011,10 +2111,12 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProtectedAccessSuspending<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtectedAccessResumed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ProtectedAccessResumedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
@@ -2022,10 +2124,12 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProtectedAccessResumed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ProtectedContentRevoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<ProtectedContentRevokedEventArgs>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
@@ -2033,16 +2137,19 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveProtectedContentRevoked<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn CheckAccess<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, targetidentity: Param1) -> ::windows::core::Result<ProtectionPolicyEvaluationResult> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
             let mut result__: ProtectionPolicyEvaluationResult = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), &mut result__).from_abi::<ProtectionPolicyEvaluationResult>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, targetidentity: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics(|this| unsafe {
@@ -2050,6 +2157,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn HasContentBeenRevokedSince<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::DateTime>>(identity: Param0, since: Param1) -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
@@ -2057,12 +2165,14 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), identity.into_param().abi(), since.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn CheckAccessForApp<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, apppackagefamilyname: Param1) -> ::windows::core::Result<ProtectionPolicyEvaluationResult> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__: ProtectionPolicyEvaluationResult = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), &mut result__).from_abi::<ProtectionPolicyEvaluationResult>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessForAppAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, apppackagefamilyname: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
@@ -2070,24 +2180,28 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn GetEnforcementLevel<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<EnforcementLevel> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__: EnforcementLevel = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<EnforcementLevel>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn IsUserDecryptionAllowed<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn IsProtectionUnderLockRequired<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PolicyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
@@ -2095,16 +2209,19 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePolicyChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn IsProtectionEnabled() -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessWithAuditingInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>>(sourceidentity: Param0, targetidentity: Param1, auditinfo: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
@@ -2112,6 +2229,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessWithMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, targetidentity: Param1, auditinfo: Param2, messagefromapp: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
@@ -2119,6 +2237,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), auditinfo.into_param().abi(), messagefromapp.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessForAppWithAuditingInfoAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>>(sourceidentity: Param0, apppackagefamilyname: Param1, auditinfo: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
@@ -2126,6 +2245,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessForAppWithMessageAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, apppackagefamilyname: Param1, auditinfo: Param2, messagefromapp: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe {
@@ -2133,15 +2253,18 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), messagefromapp.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn LogAuditEvent<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>>(sourceidentity: Param0, targetidentity: Param1, auditinfo: Param2) -> ::windows::core::Result<()> {
         Self::IProtectionPolicyManagerStatics3(|this| unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), auditinfo.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn IsRoamableProtectionEnabled<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<bool> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessWithBehaviorAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, targetidentity: Param1, auditinfo: Param2, messagefromapp: Param3, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2149,6 +2272,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), targetidentity.into_param().abi(), auditinfo.into_param().abi(), messagefromapp.into_param().abi(), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestAccessForAppWithBehaviorAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceidentity: Param0, apppackagefamilyname: Param1, auditinfo: Param2, messagefromapp: Param3, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2156,6 +2280,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), sourceidentity.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), messagefromapp.into_param().abi(), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForAppAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>>(sourceitemlist: Param0, apppackagefamilyname: Param1, auditinfo: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2163,6 +2288,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), sourceitemlist.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForAppWithMessageAndBehaviorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceitemlist: Param0, apppackagefamilyname: Param1, auditinfo: Param2, messagefromapp: Param3, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2170,6 +2296,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), sourceitemlist.into_param().abi(), apppackagefamilyname.into_param().abi(), auditinfo.into_param().abi(), messagefromapp.into_param().abi(), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForProcessAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>>(sourceitemlist: Param0, processid: u32, auditinfo: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2177,6 +2304,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), sourceitemlist.into_param().abi(), processid, auditinfo.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Foundation_Collections', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage"))]
     pub fn RequestAccessToFilesForProcessWithMessageAndBehaviorAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<super::super::Storage::IStorageItem>>, Param2: ::windows::core::IntoParam<'a, ProtectionPolicyAuditInfo>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(sourceitemlist: Param0, processid: u32, auditinfo: Param2, messagefromapp: Param3, behavior: ProtectionPolicyRequestAccessBehavior) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2184,6 +2312,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), sourceitemlist.into_param().abi(), processid, auditinfo.into_param().abi(), messagefromapp.into_param().abi(), behavior, &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<ProtectionPolicyEvaluationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn IsFileProtectionRequiredAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageItem>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(target: Param0, identity: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2191,6 +2320,7 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), target.into_param().abi(), identity.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn IsFileProtectionRequiredForNewFileAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFolder>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(parentfolder: Param0, identity: Param1, desiredname: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<bool>> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
@@ -2198,30 +2328,36 @@ impl ProtectionPolicyManager {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), parentfolder.into_param().abi(), identity.into_param().abi(), desiredname.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<bool>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn PrimaryManagedIdentity() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_EnterpriseData'*"]
     pub fn GetPrimaryManagedIdentityForIdentity<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(identity: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IProtectionPolicyManagerStatics4(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), identity.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics<R, F: FnOnce(&IProtectionPolicyManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics2<R, F: FnOnce(&IProtectionPolicyManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics3<R, F: FnOnce(&IProtectionPolicyManagerStatics3) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics3> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IProtectionPolicyManagerStatics4<R, F: FnOnce(&IProtectionPolicyManagerStatics4) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ProtectionPolicyManager, IProtectionPolicyManagerStatics4> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2290,6 +2426,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Prot
 }
 unsafe impl ::core::marker::Send for ProtectionPolicyManager {}
 unsafe impl ::core::marker::Sync for ProtectionPolicyManager {}
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {
@@ -2317,9 +2454,11 @@ unsafe impl ::windows::core::RuntimeType for ProtectionPolicyRequestAccessBehavi
 impl ::windows::core::DefaultType for ProtectionPolicyRequestAccessBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ThreadNetworkContext(::windows::core::IUnknown);
 impl ThreadNetworkContext {
+    #[doc = "*Required features: 'Security_EnterpriseData', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::Foundation::IClosable>(self)?;

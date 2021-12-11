@@ -3,11 +3,10 @@
 pub mod DataProvider;
 #[cfg(feature = "ApplicationModel_Contacts_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
-extern "system" {}
 pub type AggregateContactManager = *mut ::core::ffi::c_void;
 pub type Contact = *mut ::core::ffi::c_void;
 pub type ContactAddress = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAddressKind(pub i32);
 impl ContactAddressKind {
@@ -23,6 +22,7 @@ impl ::core::clone::Clone for ContactAddressKind {
 }
 pub type ContactAnnotation = *mut ::core::ffi::c_void;
 pub type ContactAnnotationList = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAnnotationOperations(pub u32);
 impl ContactAnnotationOperations {
@@ -41,6 +41,7 @@ impl ::core::clone::Clone for ContactAnnotationOperations {
     }
 }
 pub type ContactAnnotationStore = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactAnnotationStoreAccessType(pub i32);
 impl ContactAnnotationStoreAccessType {
@@ -54,6 +55,7 @@ impl ::core::clone::Clone for ContactAnnotationStoreAccessType {
     }
 }
 pub type ContactBatch = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactBatchStatus(pub i32);
 impl ContactBatchStatus {
@@ -68,6 +70,7 @@ impl ::core::clone::Clone for ContactBatchStatus {
     }
 }
 pub type ContactCardDelayedDataLoader = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactCardHeaderKind(pub i32);
 impl ContactCardHeaderKind {
@@ -82,6 +85,7 @@ impl ::core::clone::Clone for ContactCardHeaderKind {
     }
 }
 pub type ContactCardOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactCardTabKind(pub i32);
 impl ContactCardTabKind {
@@ -101,6 +105,7 @@ impl ::core::clone::Clone for ContactCardTabKind {
 pub type ContactChange = *mut ::core::ffi::c_void;
 pub type ContactChangeReader = *mut ::core::ffi::c_void;
 pub type ContactChangeTracker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactChangeType(pub i32);
 impl ContactChangeType {
@@ -119,6 +124,7 @@ pub type ContactChangedDeferral = *mut ::core::ffi::c_void;
 pub type ContactChangedEventArgs = *mut ::core::ffi::c_void;
 pub type ContactConnectedServiceAccount = *mut ::core::ffi::c_void;
 pub type ContactDate = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactDateKind(pub i32);
 impl ContactDateKind {
@@ -133,6 +139,7 @@ impl ::core::clone::Clone for ContactDateKind {
     }
 }
 pub type ContactEmail = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactEmailKind(pub i32);
 impl ContactEmailKind {
@@ -147,6 +154,7 @@ impl ::core::clone::Clone for ContactEmailKind {
     }
 }
 pub type ContactField = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactFieldCategory(pub i32);
 impl ContactFieldCategory {
@@ -163,6 +171,7 @@ impl ::core::clone::Clone for ContactFieldCategory {
     }
 }
 pub type ContactFieldFactory = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactFieldType(pub i32);
 impl ContactFieldType {
@@ -191,6 +200,7 @@ pub type ContactInstantMessageField = *mut ::core::ffi::c_void;
 pub type ContactJobInfo = *mut ::core::ffi::c_void;
 pub type ContactList = *mut ::core::ffi::c_void;
 pub type ContactListLimitedWriteOperations = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListOtherAppReadAccess(pub i32);
 impl ContactListOtherAppReadAccess {
@@ -205,6 +215,7 @@ impl ::core::clone::Clone for ContactListOtherAppReadAccess {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListOtherAppWriteAccess(pub i32);
 impl ContactListOtherAppWriteAccess {
@@ -220,6 +231,7 @@ impl ::core::clone::Clone for ContactListOtherAppWriteAccess {
 }
 pub type ContactListSyncConstraints = *mut ::core::ffi::c_void;
 pub type ContactListSyncManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactListSyncStatus(pub i32);
 impl ContactListSyncStatus {
@@ -240,6 +252,7 @@ impl ::core::clone::Clone for ContactListSyncStatus {
 pub type ContactLocationField = *mut ::core::ffi::c_void;
 pub type ContactManagerForUser = *mut ::core::ffi::c_void;
 pub type ContactMatchReason = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactMatchReasonKind(pub i32);
 impl ContactMatchReasonKind {
@@ -256,6 +269,7 @@ impl ::core::clone::Clone for ContactMatchReasonKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactNameOrder(pub i32);
 impl ContactNameOrder {
@@ -272,6 +286,7 @@ pub type ContactPanel = *mut ::core::ffi::c_void;
 pub type ContactPanelClosingEventArgs = *mut ::core::ffi::c_void;
 pub type ContactPanelLaunchFullAppRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type ContactPhone = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactPhoneKind(pub i32);
 impl ContactPhoneKind {
@@ -293,6 +308,7 @@ impl ::core::clone::Clone for ContactPhoneKind {
     }
 }
 pub type ContactPicker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQueryDesiredFields(pub u32);
 impl ContactQueryDesiredFields {
@@ -308,6 +324,7 @@ impl ::core::clone::Clone for ContactQueryDesiredFields {
     }
 }
 pub type ContactQueryOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQuerySearchFields(pub u32);
 impl ContactQuerySearchFields {
@@ -323,6 +340,7 @@ impl ::core::clone::Clone for ContactQuerySearchFields {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactQuerySearchScope(pub i32);
 impl ContactQuerySearchScope {
@@ -337,6 +355,7 @@ impl ::core::clone::Clone for ContactQuerySearchScope {
 }
 pub type ContactQueryTextSearch = *mut ::core::ffi::c_void;
 pub type ContactReader = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactRelationship(pub i32);
 impl ContactRelationship {
@@ -353,6 +372,7 @@ impl ::core::clone::Clone for ContactRelationship {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactSelectionMode(pub i32);
 impl ContactSelectionMode {
@@ -367,6 +387,7 @@ impl ::core::clone::Clone for ContactSelectionMode {
 }
 pub type ContactSignificantOther = *mut ::core::ffi::c_void;
 pub type ContactStore = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct ContactStoreAccessType(pub i32);
 impl ContactStoreAccessType {
@@ -389,6 +410,7 @@ pub type IContactInstantMessageFieldFactory = *mut ::core::ffi::c_void;
 pub type IContactLocationFieldFactory = *mut ::core::ffi::c_void;
 pub type PinnedContactIdsQueryResult = *mut ::core::ffi::c_void;
 pub type PinnedContactManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Contacts'*"]
 #[repr(transparent)]
 pub struct PinnedContactSurface(pub i32);
 impl PinnedContactSurface {

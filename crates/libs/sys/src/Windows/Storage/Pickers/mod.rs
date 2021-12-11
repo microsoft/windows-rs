@@ -1,14 +1,13 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Storage_Pickers_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
-extern "system" {}
 pub type FileExtensionVector = *mut ::core::ffi::c_void;
 pub type FileOpenPicker = *mut ::core::ffi::c_void;
 pub type FilePickerFileTypesOrderedMap = *mut ::core::ffi::c_void;
 pub type FilePickerSelectedFilesArray = *mut ::core::ffi::c_void;
 pub type FileSavePicker = *mut ::core::ffi::c_void;
 pub type FolderPicker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct PickerLocationId(pub i32);
 impl PickerLocationId {
@@ -29,6 +28,7 @@ impl ::core::clone::Clone for PickerLocationId {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Pickers'*"]
 #[repr(transparent)]
 pub struct PickerViewMode(pub i32);
 impl PickerViewMode {

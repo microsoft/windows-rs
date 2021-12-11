@@ -1,10 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Media_Protection_PlayReady")]
 pub mod PlayReady;
-#[link(name = "windows")]
-extern "system" {}
 pub type ComponentLoadFailedEventArgs = *mut ::core::ffi::c_void;
 pub type ComponentLoadFailedEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct GraphicsTrustStatus(pub i32);
 impl GraphicsTrustStatus {
@@ -21,6 +20,7 @@ impl ::core::clone::Clone for GraphicsTrustStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct HdcpProtection(pub i32);
 impl HdcpProtection {
@@ -35,6 +35,7 @@ impl ::core::clone::Clone for HdcpProtection {
     }
 }
 pub type HdcpSession = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct HdcpSetProtectionResult(pub i32);
 impl HdcpSetProtectionResult {
@@ -54,6 +55,7 @@ pub type MediaProtectionManager = *mut ::core::ffi::c_void;
 pub type MediaProtectionPMPServer = *mut ::core::ffi::c_void;
 pub type MediaProtectionServiceCompletion = *mut ::core::ffi::c_void;
 pub type ProtectionCapabilities = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct ProtectionCapabilityResult(pub i32);
 impl ProtectionCapabilityResult {
@@ -68,6 +70,7 @@ impl ::core::clone::Clone for ProtectionCapabilityResult {
     }
 }
 pub type RebootNeededEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct RenewalStatus(pub i32);
 impl RenewalStatus {
@@ -85,6 +88,7 @@ impl ::core::clone::Clone for RenewalStatus {
 }
 pub type RevocationAndRenewalInformation = *mut ::core::ffi::c_void;
 pub type RevocationAndRenewalItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Protection'*"]
 #[repr(transparent)]
 pub struct RevocationAndRenewalReasons(pub u32);
 impl RevocationAndRenewalReasons {

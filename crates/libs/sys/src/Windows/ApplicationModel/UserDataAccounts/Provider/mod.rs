@@ -1,9 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IUserDataAccountProviderOperation = *mut ::core::ffi::c_void;
 pub type UserDataAccountPartnerAccountInfo = *mut ::core::ffi::c_void;
 pub type UserDataAccountProviderAddAccountOperation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderOperationKind(pub i32);
 impl UserDataAccountProviderOperationKind {
@@ -17,6 +16,7 @@ impl ::core::clone::Clone for UserDataAccountProviderOperationKind {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts_Provider'*"]
 #[repr(transparent)]
 pub struct UserDataAccountProviderPartnerAccountKind(pub i32);
 impl UserDataAccountProviderPartnerAccountKind {

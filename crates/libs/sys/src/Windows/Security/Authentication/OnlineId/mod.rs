@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct CredentialPromptType(pub i32);
 impl CredentialPromptType {
@@ -20,6 +19,7 @@ pub type OnlineIdServiceTicketRequest = *mut ::core::ffi::c_void;
 pub type OnlineIdSystemAuthenticatorForUser = *mut ::core::ffi::c_void;
 pub type OnlineIdSystemIdentity = *mut ::core::ffi::c_void;
 pub type OnlineIdSystemTicketResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_OnlineId'*"]
 #[repr(transparent)]
 pub struct OnlineIdSystemTicketStatus(pub i32);
 impl OnlineIdSystemTicketStatus {

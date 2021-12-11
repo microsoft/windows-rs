@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateAttentionRequiredReason(pub i32);
 impl SystemUpdateAttentionRequiredReason {
@@ -17,6 +16,7 @@ impl ::core::clone::Clone for SystemUpdateAttentionRequiredReason {
     }
 }
 pub type SystemUpdateItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateItemState(pub i32);
 impl SystemUpdateItemState {
@@ -37,6 +37,7 @@ impl ::core::clone::Clone for SystemUpdateItemState {
     }
 }
 pub type SystemUpdateLastErrorInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateManagerState(pub i32);
 impl SystemUpdateManagerState {
@@ -59,6 +60,7 @@ impl ::core::clone::Clone for SystemUpdateManagerState {
         *self
     }
 }
+#[doc = "*Required features: 'System_Update'*"]
 #[repr(transparent)]
 pub struct SystemUpdateStartInstallAction(pub i32);
 impl SystemUpdateStartInstallAction {

@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameChatMessageOrigin(pub i32);
 impl GameChatMessageOrigin {
@@ -16,6 +15,7 @@ impl ::core::clone::Clone for GameChatMessageOrigin {
 pub type GameChatMessageReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type GameChatOverlay = *mut ::core::ffi::c_void;
 pub type GameChatOverlayMessageSource = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_UI'*"]
 #[repr(transparent)]
 pub struct GameChatOverlayPosition(pub i32);
 impl GameChatOverlayPosition {

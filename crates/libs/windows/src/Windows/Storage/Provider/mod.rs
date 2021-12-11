@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
@@ -28,6 +29,7 @@ unsafe impl ::windows::core::RuntimeType for CachedFileOptions {
 impl ::windows::core::DefaultType for CachedFileOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
@@ -55,11 +57,14 @@ unsafe impl ::windows::core::RuntimeType for CachedFileTarget {
 impl ::windows::core::DefaultType for CachedFileTarget {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 pub struct CachedFileUpdater {}
 impl CachedFileUpdater {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetUpdateInformation<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(file: Param0, contentid: Param1, readmode: ReadActivationMode, writemode: WriteActivationMode, options: CachedFileOptions) -> ::windows::core::Result<()> {
         Self::ICachedFileUpdaterStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), file.into_param().abi(), contentid.into_param().abi(), readmode, writemode, options).ok() })
     }
+    #[doc(hidden)]
     pub fn ICachedFileUpdaterStatics<R, F: FnOnce(&ICachedFileUpdaterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<CachedFileUpdater, ICachedFileUpdaterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -68,9 +73,11 @@ impl CachedFileUpdater {
 impl ::windows::core::RuntimeName for CachedFileUpdater {
     const NAME: &'static str = "Windows.Storage.Provider.CachedFileUpdater";
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileUpdaterUI(::windows::core::IUnknown);
 impl CachedFileUpdaterUI {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -78,10 +85,12 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn UpdateTarget(&self) -> ::windows::core::Result<CachedFileTarget> {
         let this = self;
         unsafe {
@@ -89,6 +98,7 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<CachedFileTarget>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FileUpdateRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, FileUpdateRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -97,11 +107,13 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFileUpdateRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn UIRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<CachedFileUpdaterUI, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -110,11 +122,13 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUIRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn UIStatus(&self) -> ::windows::core::Result<UIStatus> {
         let this = self;
         unsafe {
@@ -122,6 +136,7 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<UIStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn UpdateRequest(&self) -> ::windows::core::Result<FileUpdateRequest> {
         let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
@@ -129,6 +144,7 @@ impl CachedFileUpdaterUI {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FileUpdateRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
         let this = &::windows::core::Interface::cast::<ICachedFileUpdaterUI2>(self)?;
         unsafe {
@@ -198,9 +214,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cach
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateRequest(::windows::core::IUnknown);
 impl FileUpdateRequest {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -208,6 +226,7 @@ impl FileUpdateRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn File(&self) -> ::windows::core::Result<super::StorageFile> {
         let this = self;
         unsafe {
@@ -215,6 +234,7 @@ impl FileUpdateRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::StorageFile>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Status(&self) -> ::windows::core::Result<FileUpdateStatus> {
         let this = self;
         unsafe {
@@ -222,10 +242,12 @@ impl FileUpdateRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FileUpdateStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetStatus(&self, value: FileUpdateStatus) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<FileUpdateRequestDeferral> {
         let this = self;
         unsafe {
@@ -233,10 +255,12 @@ impl FileUpdateRequest {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FileUpdateRequestDeferral>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn UpdateLocalFile<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFile>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn UserInputNeededMessage(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
         unsafe {
@@ -244,6 +268,7 @@ impl FileUpdateRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetUserInputNeededMessage<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IFileUpdateRequest2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -310,9 +335,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestDeferral(::windows::core::IUnknown);
 impl FileUpdateRequestDeferral {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -379,9 +406,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateRequestedEventArgs(::windows::core::IUnknown);
 impl FileUpdateRequestedEventArgs {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<FileUpdateRequest> {
         let this = self;
         unsafe {
@@ -451,6 +480,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
@@ -792,9 +822,11 @@ pub struct IStorageProviderGetPathForContentUriResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderHandlerFactory(::windows::core::IUnknown);
 impl IStorageProviderHandlerFactory {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetStatusSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, syncrootid: Param0) -> ::windows::core::Result<IStorageProviderStatusSource> {
         let this = self;
         unsafe {
@@ -935,9 +967,11 @@ pub struct IStorageProviderItemPropertyDefinitionVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderItemPropertySource(::windows::core::IUnknown);
 impl IStorageProviderItemPropertySource {
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetItemProperties<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, itempath: Param0) -> ::windows::core::Result<super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>> {
         let this = self;
@@ -1017,9 +1051,11 @@ pub struct IStorageProviderItemPropertySourceVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, itempath: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderPropertyCapabilities(::windows::core::IUnknown);
 impl IStorageProviderPropertyCapabilities {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn IsPropertySupported<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, propertycanonicalname: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1138,9 +1174,11 @@ pub struct IStorageProviderStatusFactoryVtbl(
     #[cfg(feature = "Foundation_Collections")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, state: StorageProviderState, message: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, errormessages: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderStatusSource(::windows::core::IUnknown);
 impl IStorageProviderStatusSource {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetStatus(&self) -> ::windows::core::Result<StorageProviderStatus> {
         let this = self;
         unsafe {
@@ -1148,6 +1186,7 @@ impl IStorageProviderStatusSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<IStorageProviderStatusSource, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1156,6 +1195,7 @@ impl IStorageProviderStatusSource {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -1367,13 +1407,16 @@ pub struct IStorageProviderSyncRootManagerStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct IStorageProviderUriSource(::windows::core::IUnknown);
 impl IStorageProviderUriSource {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetPathForContentUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, StorageProviderGetPathForContentUriResult>>(&self, contenturi: Param0, result: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), contenturi.into_param().abi(), result.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetContentInfoForPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, StorageProviderGetContentInfoForPathResult>>(&self, path: Param0, result: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), path.into_param().abi(), result.into_param().abi()).ok() }
@@ -1449,6 +1492,7 @@ pub struct IStorageProviderUriSourceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, contenturi: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, path: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
@@ -1476,9 +1520,11 @@ unsafe impl ::windows::core::RuntimeType for ReadActivationMode {
 impl ::windows::core::DefaultType for ReadActivationMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderError(::windows::core::IUnknown);
 impl StorageProviderError {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1486,6 +1532,7 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1493,6 +1540,7 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1500,6 +1548,7 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn FilePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1507,10 +1556,12 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetFilePath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn PrimaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
         let this = self;
         unsafe {
@@ -1518,10 +1569,12 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetPrimaryAction<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SecondaryAction(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
         let this = self;
         unsafe {
@@ -1529,10 +1582,12 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetSecondaryAction<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn InformationalLink(&self) -> ::windows::core::Result<StorageProviderErrorCommand> {
         let this = self;
         unsafe {
@@ -1540,16 +1595,19 @@ impl StorageProviderError {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderErrorCommand>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetInformationalLink<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderErrorCommand>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0, title: Param1, message: Param2) -> ::windows::core::Result<StorageProviderError> {
         Self::IStorageProviderErrorFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), title.into_param().abi(), message.into_param().abi(), &mut result__).from_abi::<StorageProviderError>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageProviderErrorFactory<R, F: FnOnce(&IStorageProviderErrorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderError, IStorageProviderErrorFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1618,9 +1676,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderError {}
 unsafe impl ::core::marker::Sync for StorageProviderError {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderErrorCommand(::windows::core::IUnknown);
 impl StorageProviderErrorCommand {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Label(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1628,6 +1688,7 @@ impl StorageProviderErrorCommand {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ActionUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -1636,6 +1697,7 @@ impl StorageProviderErrorCommand {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(label: Param0, actionuri: Param1) -> ::windows::core::Result<StorageProviderErrorCommand> {
         Self::IStorageProviderErrorCommandFactory(|this| unsafe {
@@ -1643,6 +1705,7 @@ impl StorageProviderErrorCommand {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), label.into_param().abi(), actionuri.into_param().abi(), &mut result__).from_abi::<StorageProviderErrorCommand>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageProviderErrorCommandFactory<R, F: FnOnce(&IStorageProviderErrorCommandFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderErrorCommand, IStorageProviderErrorCommandFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1711,9 +1774,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderErrorCommand {}
 unsafe impl ::core::marker::Sync for StorageProviderErrorCommand {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderFileTypeInfo(::windows::core::IUnknown);
 impl StorageProviderFileTypeInfo {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn FileExtension(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1721,6 +1786,7 @@ impl StorageProviderFileTypeInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1728,12 +1794,14 @@ impl StorageProviderFileTypeInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(fileextension: Param0, iconresource: Param1) -> ::windows::core::Result<StorageProviderFileTypeInfo> {
         Self::IStorageProviderFileTypeInfoFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), fileextension.into_param().abi(), iconresource.into_param().abi(), &mut result__).from_abi::<StorageProviderFileTypeInfo>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageProviderFileTypeInfoFactory<R, F: FnOnce(&IStorageProviderFileTypeInfoFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderFileTypeInfo, IStorageProviderFileTypeInfoFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1802,6 +1870,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderFileTypeInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderFileTypeInfo {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderGetContentInfoForPathResult(::windows::core::IUnknown);
 impl StorageProviderGetContentInfoForPathResult {
@@ -1812,6 +1881,7 @@ impl StorageProviderGetContentInfoForPathResult {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetContentInfoForPathResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus> {
         let this = self;
         unsafe {
@@ -1819,10 +1889,12 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderUriSourceStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn ContentUri(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1830,10 +1902,12 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetContentUri<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn ContentId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1841,6 +1915,7 @@ impl StorageProviderGetContentInfoForPathResult {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetContentId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -1909,6 +1984,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderGetContentInfoForPathResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetContentInfoForPathResult {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderGetPathForContentUriResult(::windows::core::IUnknown);
 impl StorageProviderGetPathForContentUriResult {
@@ -1919,6 +1995,7 @@ impl StorageProviderGetPathForContentUriResult {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderGetPathForContentUriResult, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Status(&self) -> ::windows::core::Result<StorageProviderUriSourceStatus> {
         let this = self;
         unsafe {
@@ -1926,10 +2003,12 @@ impl StorageProviderGetPathForContentUriResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderUriSourceStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetStatus(&self, value: StorageProviderUriSourceStatus) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Path(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1937,6 +2016,7 @@ impl StorageProviderGetPathForContentUriResult {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2005,6 +2085,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderGetPathForContentUriResult {}
 unsafe impl ::core::marker::Sync for StorageProviderGetPathForContentUriResult {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
@@ -2032,6 +2113,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHardlinkPolicy {
 impl ::windows::core::DefaultType for StorageProviderHardlinkPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
@@ -2061,6 +2143,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicy {
 impl ::windows::core::DefaultType for StorageProviderHydrationPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
@@ -2091,6 +2174,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderHydrationPolicyModif
 impl ::windows::core::DefaultType for StorageProviderHydrationPolicyModifier {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
@@ -2128,8 +2212,10 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderInSyncPolicy {
 impl ::windows::core::DefaultType for StorageProviderInSyncPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 pub struct StorageProviderItemProperties {}
 impl StorageProviderItemProperties {
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn SetAsync<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageItem>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderItemProperty>>>(item: Param0, itemproperties: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncAction> {
         Self::IStorageProviderItemPropertiesStatics(|this| unsafe {
@@ -2137,6 +2223,7 @@ impl StorageProviderItemProperties {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), item.into_param().abi(), itemproperties.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncAction>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageProviderItemPropertiesStatics<R, F: FnOnce(&IStorageProviderItemPropertiesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemProperties, IStorageProviderItemPropertiesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2145,6 +2232,7 @@ impl StorageProviderItemProperties {
 impl ::windows::core::RuntimeName for StorageProviderItemProperties {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderItemProperties";
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderItemProperty(::windows::core::IUnknown);
 impl StorageProviderItemProperty {
@@ -2155,10 +2243,12 @@ impl StorageProviderItemProperty {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemProperty, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetId(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Id(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2166,10 +2256,12 @@ impl StorageProviderItemProperty {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetValue<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Value(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2177,10 +2269,12 @@ impl StorageProviderItemProperty {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetIconResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2252,6 +2346,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderItemProperty {}
 unsafe impl ::core::marker::Sync for StorageProviderItemProperty {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderItemPropertyDefinition(::windows::core::IUnknown);
 impl StorageProviderItemPropertyDefinition {
@@ -2262,6 +2357,7 @@ impl StorageProviderItemPropertyDefinition {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderItemPropertyDefinition, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Id(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -2269,10 +2365,12 @@ impl StorageProviderItemPropertyDefinition {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetId(&self, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2280,6 +2378,7 @@ impl StorageProviderItemPropertyDefinition {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetDisplayNameResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
@@ -2348,6 +2447,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderItemPropertyDefinition {}
 unsafe impl ::core::marker::Sync for StorageProviderItemPropertyDefinition {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
@@ -2375,6 +2475,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderPopulationPolicy {
 impl ::windows::core::DefaultType for StorageProviderPopulationPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
@@ -2402,6 +2503,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderProtectionMode {
 impl ::windows::core::DefaultType for StorageProviderProtectionMode {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
@@ -2433,9 +2535,11 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderState {
 impl ::windows::core::DefaultType for StorageProviderState {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderStatus(::windows::core::IUnknown);
 impl StorageProviderStatus {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Message(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2443,6 +2547,7 @@ impl StorageProviderStatus {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn State(&self) -> ::windows::core::Result<StorageProviderState> {
         let this = self;
         unsafe {
@@ -2450,6 +2555,7 @@ impl StorageProviderStatus {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderState>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ErrorMessages(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderError>> {
         let this = self;
@@ -2458,12 +2564,14 @@ impl StorageProviderStatus {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StorageProviderError>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn CreateInstance<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(state: StorageProviderState, message: Param1) -> ::windows::core::Result<StorageProviderStatus> {
         Self::IStorageProviderStatusFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), state, message.into_param().abi(), &mut result__).from_abi::<StorageProviderStatus>(result__)
         })
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateInstance2<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<StorageProviderError>>>(state: StorageProviderState, message: Param1, errormessages: Param2) -> ::windows::core::Result<StorageProviderStatus> {
         Self::IStorageProviderStatusFactory(|this| unsafe {
@@ -2471,6 +2579,7 @@ impl StorageProviderStatus {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), state, message.into_param().abi(), errormessages.into_param().abi(), &mut result__).from_abi::<StorageProviderStatus>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageProviderStatusFactory<R, F: FnOnce(&IStorageProviderStatusFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderStatus, IStorageProviderStatusFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2539,6 +2648,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderStatus {}
 unsafe impl ::core::marker::Sync for StorageProviderStatus {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderSyncRootInfo(::windows::core::IUnknown);
 impl StorageProviderSyncRootInfo {
@@ -2549,6 +2659,7 @@ impl StorageProviderSyncRootInfo {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootInfo, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2556,10 +2667,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Context(&self) -> ::windows::core::Result<super::Streams::IBuffer> {
         let this = self;
@@ -2568,11 +2681,13 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetContext<'a, Param0: ::windows::core::IntoParam<'a, super::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Path(&self) -> ::windows::core::Result<super::IStorageFolder> {
         let this = self;
         unsafe {
@@ -2580,10 +2695,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::IStorageFolder>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetPath<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFolder>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn DisplayNameResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2591,10 +2708,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetDisplayNameResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn IconResource(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2602,10 +2721,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetIconResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn HydrationPolicy(&self) -> ::windows::core::Result<StorageProviderHydrationPolicy> {
         let this = self;
         unsafe {
@@ -2613,10 +2734,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderHydrationPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetHydrationPolicy(&self, value: StorageProviderHydrationPolicy) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn HydrationPolicyModifier(&self) -> ::windows::core::Result<StorageProviderHydrationPolicyModifier> {
         let this = self;
         unsafe {
@@ -2624,10 +2747,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderHydrationPolicyModifier>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetHydrationPolicyModifier(&self, value: StorageProviderHydrationPolicyModifier) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn PopulationPolicy(&self) -> ::windows::core::Result<StorageProviderPopulationPolicy> {
         let this = self;
         unsafe {
@@ -2635,10 +2760,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderPopulationPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetPopulationPolicy(&self, value: StorageProviderPopulationPolicy) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn InSyncPolicy(&self) -> ::windows::core::Result<StorageProviderInSyncPolicy> {
         let this = self;
         unsafe {
@@ -2646,10 +2773,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderInSyncPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetInSyncPolicy(&self, value: StorageProviderInSyncPolicy) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn HardlinkPolicy(&self) -> ::windows::core::Result<StorageProviderHardlinkPolicy> {
         let this = self;
         unsafe {
@@ -2657,10 +2786,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderHardlinkPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetHardlinkPolicy(&self, value: StorageProviderHardlinkPolicy) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn ShowSiblingsAsGroup(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2668,10 +2799,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetShowSiblingsAsGroup(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Version(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2679,10 +2812,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetVersion<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn ProtectionMode(&self) -> ::windows::core::Result<StorageProviderProtectionMode> {
         let this = self;
         unsafe {
@@ -2690,10 +2825,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), &mut result__).from_abi::<StorageProviderProtectionMode>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetProtectionMode(&self, value: StorageProviderProtectionMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn AllowPinning(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2701,10 +2838,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetAllowPinning(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn StorageProviderItemPropertyDefinitions(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>> {
         let this = self;
@@ -2713,6 +2852,7 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<StorageProviderItemPropertyDefinition>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RecycleBinUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2721,11 +2861,13 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRecycleBinUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn ProviderId(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe {
@@ -2733,10 +2875,12 @@ impl StorageProviderSyncRootInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn SetProviderId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FallbackFileTypeInfo(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<StorageProviderFileTypeInfo>> {
         let this = &::windows::core::Interface::cast::<IStorageProviderSyncRootInfo3>(self)?;
@@ -2809,26 +2953,32 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Stor
 }
 unsafe impl ::core::marker::Send for StorageProviderSyncRootInfo {}
 unsafe impl ::core::marker::Sync for StorageProviderSyncRootInfo {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 pub struct StorageProviderSyncRootManager {}
 impl StorageProviderSyncRootManager {
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Register<'a, Param0: ::windows::core::IntoParam<'a, StorageProviderSyncRootInfo>>(syncrootinformation: Param0) -> ::windows::core::Result<()> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), syncrootinformation.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn Unregister<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<()> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), id.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetSyncRootInformationForFolder<'a, Param0: ::windows::core::IntoParam<'a, super::IStorageFolder>>(folder: Param0) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), folder.into_param().abi(), &mut result__).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn GetSyncRootInformationForId<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(id: Param0) -> ::windows::core::Result<StorageProviderSyncRootInfo> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<StorageProviderSyncRootInfo>(result__)
         })
     }
+    #[doc = "*Required features: 'Storage_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentSyncRoots() -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>> {
         Self::IStorageProviderSyncRootManagerStatics(|this| unsafe {
@@ -2836,16 +2986,19 @@ impl StorageProviderSyncRootManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<StorageProviderSyncRootInfo>>(result__)
         })
     }
+    #[doc = "*Required features: 'Storage_Provider'*"]
     pub fn IsSupported() -> ::windows::core::Result<bool> {
         Self::IStorageProviderSyncRootManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IStorageProviderSyncRootManagerStatics<R, F: FnOnce(&IStorageProviderSyncRootManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootManager, IStorageProviderSyncRootManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IStorageProviderSyncRootManagerStatics2<R, F: FnOnce(&IStorageProviderSyncRootManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<StorageProviderSyncRootManager, IStorageProviderSyncRootManagerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -2854,6 +3007,7 @@ impl StorageProviderSyncRootManager {
 impl ::windows::core::RuntimeName for StorageProviderSyncRootManager {
     const NAME: &'static str = "Windows.Storage.Provider.StorageProviderSyncRootManager";
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
@@ -2882,6 +3036,7 @@ unsafe impl ::windows::core::RuntimeType for StorageProviderUriSourceStatus {
 impl ::windows::core::DefaultType for StorageProviderUriSourceStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
@@ -2911,6 +3066,7 @@ unsafe impl ::windows::core::RuntimeType for UIStatus {
 impl ::windows::core::DefaultType for UIStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {

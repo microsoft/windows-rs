@@ -37,24 +37,29 @@ pub struct IVibrationDeviceStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Phone_Devices_Notification'*"]
 #[repr(transparent)]
 pub struct VibrationDevice(::windows::core::IUnknown);
 impl VibrationDevice {
+    #[doc = "*Required features: 'Phone_Devices_Notification', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Vibrate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, duration: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), duration.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Phone_Devices_Notification'*"]
     pub fn Cancel(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Phone_Devices_Notification'*"]
     pub fn GetDefault() -> ::windows::core::Result<VibrationDevice> {
         Self::IVibrationDeviceStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<VibrationDevice>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IVibrationDeviceStatics<R, F: FnOnce(&IVibrationDeviceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<VibrationDevice, IVibrationDeviceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

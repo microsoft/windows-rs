@@ -1,11 +1,14 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 #[repr(transparent)]
 pub struct IWsbApplicationAsync(::windows::core::IUnknown);
 impl IWsbApplicationAsync {
+    #[doc = "*Required features: 'Win32_System_ServerBackup'*"]
     pub unsafe fn QueryStatus(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let mut result__: ::windows::core::HRESULT = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::HRESULT>(result__)
     }
+    #[doc = "*Required features: 'Win32_System_ServerBackup'*"]
     pub unsafe fn Abort(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
@@ -54,9 +57,11 @@ pub struct IWsbApplicationAsyncVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, phrresult: *mut ::windows::core::HRESULT) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 #[repr(transparent)]
 pub struct IWsbApplicationBackupSupport(::windows::core::IUnknown);
 impl IWsbApplicationBackupSupport {
+    #[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CheckConsistency<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, cvolumes: u32, rgwszsourcevolumepath: *const super::super::Foundation::PWSTR, rgwszsnapshotvolumepath: *const super::super::Foundation::PWSTR) -> ::windows::core::Result<IWsbApplicationAsync> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
@@ -107,21 +112,26 @@ pub struct IWsbApplicationBackupSupportVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, wszwritermetadata: super::super::Foundation::PWSTR, wszcomponentname: super::super::Foundation::PWSTR, wszcomponentlogicalpath: super::super::Foundation::PWSTR, cvolumes: u32, rgwszsourcevolumepath: *const super::super::Foundation::PWSTR, rgwszsnapshotvolumepath: *const super::super::Foundation::PWSTR, ppasync: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 #[repr(transparent)]
 pub struct IWsbApplicationRestoreSupport(::windows::core::IUnknown);
 impl IWsbApplicationRestoreSupport {
+    #[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PreRestore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, bnorollforward: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), bnorollforward.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostRestore<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOLEAN>>(&self, wszwritermetadata: Param0, wszcomponentname: Param1, wszcomponentlogicalpath: Param2, bnorollforward: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), wszwritermetadata.into_param().abi(), wszcomponentname.into_param().abi(), wszcomponentlogicalpath.into_param().abi(), bnorollforward.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn OrderComponents(&self, ccomponents: u32, rgcomponentname: *const super::super::Foundation::PWSTR, rgcomponentlogicalpaths: *const super::super::Foundation::PWSTR, prgcomponentname: *mut *mut super::super::Foundation::PWSTR, prgcomponentlogicalpath: *mut *mut super::super::Foundation::PWSTR) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(ccomponents), ::core::mem::transmute(rgcomponentname), ::core::mem::transmute(rgcomponentlogicalpaths), ::core::mem::transmute(prgcomponentname), ::core::mem::transmute(prgcomponentlogicalpath)).ok()
     }
+    #[doc = "*Required features: 'Win32_System_ServerBackup'*"]
     pub unsafe fn IsRollForwardSupported(&self) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
@@ -176,10 +186,14 @@ pub struct IWsbApplicationRestoreSupportVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pbrollforwardsupported: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSBAPP_ASYNC_IN_PROGRESS: ::windows::core::HRESULT = ::windows::core::HRESULT(7995396i32);
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_MAX_OB_STATUS_ENTRY: u32 = 5u32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_MAX_OB_STATUS_VALUE_TYPE_PAIR: u32 = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_REGISTRATION_INFO {
     pub m_wszResourceDLL: super::super::Foundation::PWSTR,
@@ -215,6 +229,7 @@ impl ::core::default::Default for WSB_OB_REGISTRATION_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_ENTRY {
     pub m_dwIcon: u32,
@@ -249,15 +264,24 @@ impl ::core::default::Default for WSB_OB_STATUS_ENTRY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub type WSB_OB_STATUS_ENTRY_PAIR_TYPE = i32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_OB_ET_UNDEFINED: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_OB_ET_STRING: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_OB_ET_NUMBER: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_OB_ET_DATETIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_OB_ET_TIME: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_OB_ET_SIZE: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_System_ServerBackup'*"]
 pub const WSB_OB_ET_MAX: WSB_OB_STATUS_ENTRY_PAIR_TYPE = 6i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     pub m_wszObStatusEntryPairValue: super::super::Foundation::PWSTR,
@@ -290,6 +314,7 @@ impl ::core::default::Default for WSB_OB_STATUS_ENTRY_VALUE_TYPE_PAIR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_System_ServerBackup', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct WSB_OB_STATUS_INFO {
     pub m_guidSnapinId: ::windows::core::GUID,

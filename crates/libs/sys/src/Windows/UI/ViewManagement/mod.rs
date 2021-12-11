@@ -1,11 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_ViewManagement_Core")]
 pub mod Core;
-#[link(name = "windows")]
-extern "system" {}
 pub type AccessibilitySettings = *mut ::core::ffi::c_void;
 pub type ActivationViewSwitcher = *mut ::core::ffi::c_void;
 pub type ApplicationView = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewBoundsMode(pub i32);
 impl ApplicationViewBoundsMode {
@@ -19,6 +18,7 @@ impl ::core::clone::Clone for ApplicationViewBoundsMode {
     }
 }
 pub type ApplicationViewConsolidatedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewMode(pub i32);
 impl ApplicationViewMode {
@@ -31,6 +31,7 @@ impl ::core::clone::Clone for ApplicationViewMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewOrientation(pub i32);
 impl ApplicationViewOrientation {
@@ -44,20 +45,26 @@ impl ::core::clone::Clone for ApplicationViewOrientation {
     }
 }
 pub type ApplicationViewScaling = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct ApplicationViewState(pub i32);
+#[cfg(feature = "deprecated")]
 impl ApplicationViewState {
     pub const FullScreenLandscape: Self = Self(0i32);
     pub const Filled: Self = Self(1i32);
     pub const Snapped: Self = Self(2i32);
     pub const FullScreenPortrait: Self = Self(3i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for ApplicationViewState {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for ApplicationViewState {
     fn clone(&self) -> Self {
         *self
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewSwitchingOptions(pub u32);
 impl ApplicationViewSwitchingOptions {
@@ -73,6 +80,7 @@ impl ::core::clone::Clone for ApplicationViewSwitchingOptions {
 }
 pub type ApplicationViewTitleBar = *mut ::core::ffi::c_void;
 pub type ApplicationViewTransferContext = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ApplicationViewWindowingMode(pub i32);
 impl ApplicationViewWindowingMode {
@@ -88,6 +96,7 @@ impl ::core::clone::Clone for ApplicationViewWindowingMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct FullScreenSystemOverlayMode(pub i32);
 impl FullScreenSystemOverlayMode {
@@ -100,6 +109,7 @@ impl ::core::clone::Clone for FullScreenSystemOverlayMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct HandPreference(pub i32);
 impl HandPreference {
@@ -116,6 +126,7 @@ pub type InputPane = *mut ::core::ffi::c_void;
 pub type InputPaneVisibilityEventArgs = *mut ::core::ffi::c_void;
 pub type StatusBar = *mut ::core::ffi::c_void;
 pub type StatusBarProgressIndicator = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UIColorType(pub i32);
 impl UIColorType {
@@ -136,6 +147,7 @@ impl ::core::clone::Clone for UIColorType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UIElementType(pub i32);
 impl UIElementType {
@@ -177,6 +189,7 @@ pub type UISettingsAnimationsEnabledChangedEventArgs = *mut ::core::ffi::c_void;
 pub type UISettingsAutoHideScrollBarsChangedEventArgs = *mut ::core::ffi::c_void;
 pub type UISettingsMessageDurationChangedEventArgs = *mut ::core::ffi::c_void;
 pub type UIViewSettings = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct UserInteractionMode(pub i32);
 impl UserInteractionMode {
@@ -190,6 +203,7 @@ impl ::core::clone::Clone for UserInteractionMode {
     }
 }
 pub type ViewModePreferences = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ViewManagement'*"]
 #[repr(transparent)]
 pub struct ViewSizePreference(pub i32);
 impl ViewSizePreference {

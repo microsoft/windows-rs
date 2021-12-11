@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Web_UI_Interop")]
 pub mod Interop;
-#[link(name = "windows")]
-extern "system" {}
 pub type IWebViewControl = *mut ::core::ffi::c_void;
 pub type IWebViewControl2 = *mut ::core::ffi::c_void;
 pub type WebViewControlContentLoadingEventArgs = *mut ::core::ffi::c_void;
@@ -14,6 +12,7 @@ pub type WebViewControlNavigationStartingEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewControlNewWindowRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewControlPermissionRequest = *mut ::core::ffi::c_void;
 pub type WebViewControlPermissionRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionState(pub i32);
 impl WebViewControlPermissionState {
@@ -28,6 +27,7 @@ impl ::core::clone::Clone for WebViewControlPermissionState {
         *self
     }
 }
+#[doc = "*Required features: 'Web_UI'*"]
 #[repr(transparent)]
 pub struct WebViewControlPermissionType(pub i32);
 impl WebViewControlPermissionType {

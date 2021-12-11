@@ -5,9 +5,8 @@ pub mod Custom;
 pub mod ForceFeedback;
 #[cfg(feature = "Gaming_Input_Preview")]
 pub mod Preview;
-#[link(name = "windows")]
-extern "system" {}
 pub type ArcadeStick = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct ArcadeStickButtons(pub u32);
 impl ArcadeStickButtons {
@@ -32,6 +31,7 @@ impl ::core::clone::Clone for ArcadeStickButtons {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct ArcadeStickReading {
     pub Timestamp: u64,
     pub Buttons: ArcadeStickButtons,
@@ -43,6 +43,7 @@ impl ::core::clone::Clone for ArcadeStickReading {
     }
 }
 pub type FlightStick = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct FlightStickButtons(pub u32);
 impl FlightStickButtons {
@@ -57,6 +58,7 @@ impl ::core::clone::Clone for FlightStickButtons {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct FlightStickReading {
     pub Timestamp: u64,
     pub Buttons: FlightStickButtons,
@@ -72,6 +74,7 @@ impl ::core::clone::Clone for FlightStickReading {
         *self
     }
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GameControllerButtonLabel(pub i32);
 impl GameControllerButtonLabel {
@@ -151,6 +154,7 @@ impl ::core::clone::Clone for GameControllerButtonLabel {
         *self
     }
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GameControllerSwitchKind(pub i32);
 impl GameControllerSwitchKind {
@@ -164,6 +168,7 @@ impl ::core::clone::Clone for GameControllerSwitchKind {
         *self
     }
 }
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GameControllerSwitchPosition(pub i32);
 impl GameControllerSwitchPosition {
@@ -184,6 +189,7 @@ impl ::core::clone::Clone for GameControllerSwitchPosition {
     }
 }
 pub type Gamepad = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct GamepadButtons(pub u32);
 impl GamepadButtons {
@@ -214,6 +220,7 @@ impl ::core::clone::Clone for GamepadButtons {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct GamepadReading {
     pub Timestamp: u64,
     pub Buttons: GamepadButtons,
@@ -231,6 +238,7 @@ impl ::core::clone::Clone for GamepadReading {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct GamepadVibration {
     pub LeftMotor: f64,
     pub RightMotor: f64,
@@ -246,6 +254,7 @@ impl ::core::clone::Clone for GamepadVibration {
 pub type Headset = *mut ::core::ffi::c_void;
 pub type IGameController = *mut ::core::ffi::c_void;
 pub type IGameControllerBatteryInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct OptionalUINavigationButtons(pub u32);
 impl OptionalUINavigationButtons {
@@ -270,6 +279,7 @@ impl ::core::clone::Clone for OptionalUINavigationButtons {
     }
 }
 pub type RacingWheel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct RacingWheelButtons(pub u32);
 impl RacingWheelButtons {
@@ -304,6 +314,7 @@ impl ::core::clone::Clone for RacingWheelButtons {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct RacingWheelReading {
     pub Timestamp: u64,
     pub Buttons: RacingWheelButtons,
@@ -321,6 +332,7 @@ impl ::core::clone::Clone for RacingWheelReading {
     }
 }
 pub type RawGameController = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Gaming_Input'*"]
 #[repr(transparent)]
 pub struct RequiredUINavigationButtons(pub u32);
 impl RequiredUINavigationButtons {
@@ -342,6 +354,7 @@ impl ::core::clone::Clone for RequiredUINavigationButtons {
 }
 pub type UINavigationController = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Gaming_Input'*"]
 pub struct UINavigationReading {
     pub Timestamp: u64,
     pub RequiredButtons: RequiredUINavigationButtons,

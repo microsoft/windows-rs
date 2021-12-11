@@ -56,9 +56,11 @@ pub struct IXsltProcessorFactoryVtbl(
     #[cfg(feature = "Data_Xml_Dom")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, document: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Data_Xml_Dom"))] usize,
 );
+#[doc = "*Required features: 'Data_Xml_Xsl'*"]
 #[repr(transparent)]
 pub struct XsltProcessor(::windows::core::IUnknown);
 impl XsltProcessor {
+    #[doc = "*Required features: 'Data_Xml_Xsl', 'Data_Xml_Dom'*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToString<'a, Param0: ::windows::core::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -67,6 +69,7 @@ impl XsltProcessor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Xml_Xsl', 'Data_Xml_Dom'*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn TransformToDocument<'a, Param0: ::windows::core::IntoParam<'a, super::Dom::IXmlNode>>(&self, inputnode: Param0) -> ::windows::core::Result<super::Dom::XmlDocument> {
         let this = &::windows::core::Interface::cast::<IXsltProcessor2>(self)?;
@@ -75,6 +78,7 @@ impl XsltProcessor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), inputnode.into_param().abi(), &mut result__).from_abi::<super::Dom::XmlDocument>(result__)
         }
     }
+    #[doc = "*Required features: 'Data_Xml_Xsl', 'Data_Xml_Dom'*"]
     #[cfg(feature = "Data_Xml_Dom")]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, super::Dom::XmlDocument>>(document: Param0) -> ::windows::core::Result<XsltProcessor> {
         Self::IXsltProcessorFactory(|this| unsafe {
@@ -82,6 +86,7 @@ impl XsltProcessor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), document.into_param().abi(), &mut result__).from_abi::<XsltProcessor>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IXsltProcessorFactory<R, F: FnOnce(&IXsltProcessorFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<XsltProcessor, IXsltProcessorFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

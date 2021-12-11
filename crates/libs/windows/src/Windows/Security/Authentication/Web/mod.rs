@@ -73,6 +73,7 @@ pub struct IWebAuthenticationResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut WebAuthenticationStatus) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct TokenBindingKeyType(pub i32);
 impl TokenBindingKeyType {
@@ -101,8 +102,10 @@ unsafe impl ::windows::core::RuntimeType for TokenBindingKeyType {
 impl ::windows::core::DefaultType for TokenBindingKeyType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 pub struct WebAuthenticationBroker {}
 impl WebAuthenticationBroker {
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateWithCallbackUriAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(options: WebAuthenticationOptions, requesturi: Param1, callbackuri: Param2) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
@@ -110,6 +113,7 @@ impl WebAuthenticationBroker {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), options, requesturi.into_param().abi(), callbackuri.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateWithoutCallbackUriAsync<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(options: WebAuthenticationOptions, requesturi: Param1) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
@@ -117,6 +121,7 @@ impl WebAuthenticationBroker {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), options, requesturi.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetCurrentApplicationCallbackUri() -> ::windows::core::Result<super::super::super::Foundation::Uri> {
         Self::IWebAuthenticationBrokerStatics(|this| unsafe {
@@ -124,18 +129,22 @@ impl WebAuthenticationBroker {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Uri>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateAndContinue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0) -> ::windows::core::Result<()> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), requesturi.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateWithCallbackUriAndContinue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0, callbackuri: Param1) -> ::windows::core::Result<()> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), callbackuri.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn AuthenticateWithCallbackUriContinuationDataAndOptionsAndContinue<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::ValueSet>>(requesturi: Param0, callbackuri: Param1, continuationdata: Param2, options: WebAuthenticationOptions) -> ::windows::core::Result<()> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), callbackuri.into_param().abi(), continuationdata.into_param().abi(), options).ok() })
     }
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateSilentlyAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
@@ -143,6 +152,7 @@ impl WebAuthenticationBroker {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Security_Authentication_Web', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AuthenticateSilentlyWithOptionsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Uri>>(requesturi: Param0, options: WebAuthenticationOptions) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>> {
         Self::IWebAuthenticationBrokerStatics2(|this| unsafe {
@@ -150,10 +160,12 @@ impl WebAuthenticationBroker {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), requesturi.into_param().abi(), options, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WebAuthenticationResult>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWebAuthenticationBrokerStatics<R, F: FnOnce(&IWebAuthenticationBrokerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IWebAuthenticationBrokerStatics2<R, F: FnOnce(&IWebAuthenticationBrokerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebAuthenticationBroker, IWebAuthenticationBrokerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -162,6 +174,7 @@ impl WebAuthenticationBroker {
 impl ::windows::core::RuntimeName for WebAuthenticationBroker {
     const NAME: &'static str = "Windows.Security.Authentication.Web.WebAuthenticationBroker";
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationOptions(pub u32);
 impl WebAuthenticationOptions {
@@ -192,9 +205,11 @@ unsafe impl ::windows::core::RuntimeType for WebAuthenticationOptions {
 impl ::windows::core::DefaultType for WebAuthenticationOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationResult(::windows::core::IUnknown);
 impl WebAuthenticationResult {
+    #[doc = "*Required features: 'Security_Authentication_Web'*"]
     pub fn ResponseData(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -202,6 +217,7 @@ impl WebAuthenticationResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_Authentication_Web'*"]
     pub fn ResponseStatus(&self) -> ::windows::core::Result<WebAuthenticationStatus> {
         let this = self;
         unsafe {
@@ -209,6 +225,7 @@ impl WebAuthenticationResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<WebAuthenticationStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Security_Authentication_Web'*"]
     pub fn ResponseErrorDetail(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -278,6 +295,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &WebA
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Security_Authentication_Web'*"]
 #[repr(transparent)]
 pub struct WebAuthenticationStatus(pub i32);
 impl WebAuthenticationStatus {

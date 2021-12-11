@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
 pub struct CompositionFrameDisplayInstance {
     pub displayAdapterLUID: super::super::Foundation::LUID,
@@ -37,10 +38,15 @@ impl ::core::default::Default for CompositionFrameDisplayInstance {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type CompositionFrameInstanceKind = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ComposedOnScreen: CompositionFrameInstanceKind = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ScanoutOnScreen: CompositionFrameInstanceKind = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const CompositionFrameInstanceKind_ComposedToIntermediate: CompositionFrameInstanceKind = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[inline]
 pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(d3ddevice: Param0, riid: *const ::windows::core::GUID, presentationfactory: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
@@ -54,21 +60,27 @@ pub unsafe fn CreatePresentationFactory<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct ICompositionFramePresentStatistics(::windows::core::IUnknown);
 impl ICompositionFramePresentStatistics {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetPresentId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetContentTag(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))]
     pub unsafe fn GetDisplayInstanceArray(&self, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance) {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(displayinstancearraycount), ::core::mem::transmute(displayinstancearray))
@@ -142,32 +154,40 @@ pub struct ICompositionFramePresentStatisticsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, displayinstancearraycount: *mut u32, displayinstancearray: *mut *mut CompositionFrameDisplayInstance),
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Dxgi_Common")))] usize,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IIndependentFlipFramePresentStatistics(::windows::core::IUnknown);
 impl IIndependentFlipFramePresentStatistics {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetPresentId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetOutputAdapterLUID(&self) -> super::super::Foundation::LUID {
         let mut result__: super::super::Foundation::LUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetOutputVidPnSourceId(&self) -> u32 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetContentTag(&self) -> usize {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetDisplayedTime(&self) -> SystemInterruptTime {
         let mut result__: SystemInterruptTime = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), &mut result__);
         result__
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetPresentDuration(&self) -> SystemInterruptTime {
         let mut result__: SystemInterruptTime = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), &mut result__);
@@ -244,12 +264,15 @@ pub struct IIndependentFlipFramePresentStatisticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemInterruptTime),
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut SystemInterruptTime),
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatistics {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetPresentId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
@@ -292,18 +315,23 @@ unsafe impl ::windows::core::Interface for IPresentStatistics {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentStatisticsVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatisticsKind);
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentStatusPresentStatistics(::windows::core::IUnknown);
 impl IPresentStatusPresentStatistics {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetPresentId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetKind(&self) -> PresentStatisticsKind {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetCompositionFrameId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetPresentStatus(&self) -> PresentStatus {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self)))
     }
@@ -374,14 +402,17 @@ pub struct IPresentStatusPresentStatisticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u64,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> PresentStatus,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationBuffer(::windows::core::IUnknown);
 impl IPresentationBuffer {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn IsAvailable(&self) -> ::windows::core::Result<u8> {
         let mut result__: u8 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u8>(result__)
@@ -432,9 +463,11 @@ pub struct IPresentationBufferVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, isavailable: *mut u8) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationContent(::windows::core::IUnknown);
 impl IPresentationContent {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetTag(&self, tag: usize) {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag))
     }
@@ -477,15 +510,19 @@ unsafe impl ::windows::core::Interface for IPresentationContent {
 #[repr(C)]
 #[doc(hidden)]
 pub struct IPresentationContentVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, tag: usize));
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationFactory(::windows::core::IUnknown);
 impl IPresentationFactory {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn IsPresentationSupported(&self) -> u8 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn IsPresentationSupportedWithIndependentFlip(&self) -> u8 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn CreatePresentationManager(&self) -> ::windows::core::Result<IPresentationManager> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPresentationManager>(result__)
@@ -536,52 +573,66 @@ pub struct IPresentationFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u8,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pppresentationmanager: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationManager(::windows::core::IUnknown);
 impl IPresentationManager {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn AddBufferFromResource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, resource: Param0) -> ::windows::core::Result<IPresentationBuffer> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), resource.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPresentationBuffer>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CreatePresentationSurface<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(&self, compositionsurfacehandle: Param0) -> ::windows::core::Result<IPresentationSurface> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), compositionsurfacehandle.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<IPresentationSurface>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetNextPresentId(&self) -> u64 {
         ::core::mem::transmute((::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self)))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetTargetTime<'a, Param0: ::windows::core::IntoParam<'a, SystemInterruptTime>>(&self, targettime: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), targettime.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetPreferredPresentDuration<'a, Param0: ::windows::core::IntoParam<'a, SystemInterruptTime>, Param1: ::windows::core::IntoParam<'a, SystemInterruptTime>>(&self, preferredduration: Param0, deviationtolerance: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), preferredduration.into_param().abi(), deviationtolerance.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn ForceVSyncInterrupt(&self, forcevsyncinterrupt: u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(forcevsyncinterrupt)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn Present(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetPresentRetiringFence(&self, riid: *const ::windows::core::GUID, fence: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(fence)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn CancelPresentsFrom(&self, presentidtocancelfrom: u64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(presentidtocancelfrom)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetLostEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPresentStatisticsAvailableEvent(&self) -> ::windows::core::Result<super::super::Foundation::HANDLE> {
         let mut result__: super::super::Foundation::HANDLE = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::HANDLE>(result__)
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn EnablePresentStatisticsKind(&self, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(presentstatisticskind), ::core::mem::transmute(enabled)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn GetNextPresentStatistics(&self) -> ::windows::core::Result<IPresentStatistics> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IPresentStatistics>(result__)
@@ -645,36 +696,46 @@ pub struct IPresentationManagerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, presentstatisticskind: PresentStatisticsKind, enabled: u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, nextpresentstatistics: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 #[repr(transparent)]
 pub struct IPresentationSurface(::windows::core::IUnknown);
 impl IPresentationSurface {
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetTag(&self, tag: usize) {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(tag))
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetBuffer<'a, Param0: ::windows::core::IntoParam<'a, IPresentationBuffer>>(&self, presentationbuffer: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), presentationbuffer.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetColorSpace(&self, colorspace: super::Dxgi::Common::DXGI_COLOR_SPACE_TYPE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(colorspace)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Graphics_Dxgi_Common'*"]
     #[cfg(feature = "Win32_Graphics_Dxgi_Common")]
     pub unsafe fn SetAlphaMode(&self, alphamode: super::Dxgi::Common::DXGI_ALPHA_MODE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(alphamode)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn SetSourceRect(&self, sourcerect: *const super::super::Foundation::RECT) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(sourcerect)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetTransform(&self, transform: *const PresentationTransform) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(transform)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn RestrictToOutput<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IUnknown>>(&self, output: Param0) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), output.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetDisableReadback(&self, value: u8) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(value)).ok()
     }
+    #[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
     pub unsafe fn SetLetterboxingMargins(&self, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(leftletterboxsize), ::core::mem::transmute(topletterboxsize), ::core::mem::transmute(rightletterboxsize), ::core::mem::transmute(bottomletterboxsize)).ok()
     }
@@ -753,15 +814,24 @@ pub struct IPresentationSurfaceVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: u8) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, leftletterboxsize: f32, topletterboxsize: f32, rightletterboxsize: f32, bottomletterboxsize: f32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type PresentStatisticsKind = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_PresentStatus: PresentStatisticsKind = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_CompositionFrame: PresentStatisticsKind = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatisticsKind_IndependentFlipFrame: PresentStatisticsKind = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub type PresentStatus = i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Queued: PresentStatus = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Skipped: PresentStatus = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub const PresentStatus_Canceled: PresentStatus = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub struct PresentationTransform {
     pub M11: f32,
     pub M12: f32,
@@ -791,6 +861,7 @@ impl ::core::default::Default for PresentationTransform {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_CompositionSwapchain'*"]
 pub struct SystemInterruptTime {
     pub value: u64,
 }

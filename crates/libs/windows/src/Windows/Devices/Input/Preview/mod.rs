@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceConfigurationStatePreview(pub i32);
 impl GazeDeviceConfigurationStatePreview {
@@ -29,9 +30,11 @@ unsafe impl ::windows::core::RuntimeType for GazeDeviceConfigurationStatePreview
 impl ::windows::core::DefaultType for GazeDeviceConfigurationStatePreview {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDevicePreview(::windows::core::IUnknown);
 impl GazeDevicePreview {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Id(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -39,6 +42,7 @@ impl GazeDevicePreview {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn CanTrackEyes(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -46,6 +50,7 @@ impl GazeDevicePreview {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn CanTrackHead(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -53,6 +58,7 @@ impl GazeDevicePreview {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn ConfigurationState(&self) -> ::windows::core::Result<GazeDeviceConfigurationStatePreview> {
         let this = self;
         unsafe {
@@ -60,6 +66,7 @@ impl GazeDevicePreview {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GazeDeviceConfigurationStatePreview>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestCalibrationAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -68,6 +75,7 @@ impl GazeDevicePreview {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Devices_HumanInterfaceDevice', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
     pub fn GetNumericControlDescriptions(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>> {
         let this = self;
@@ -76,6 +84,7 @@ impl GazeDevicePreview {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), usagepage, usageid, &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidNumericControlDescription>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Devices_HumanInterfaceDevice', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Devices_HumanInterfaceDevice", feature = "Foundation_Collections"))]
     pub fn GetBooleanControlDescriptions(&self, usagepage: u16, usageid: u16) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<super::super::HumanInterfaceDevice::HidBooleanControlDescription>> {
         let this = self;
@@ -148,9 +157,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDevicePreview {}
 unsafe impl ::core::marker::Sync for GazeDevicePreview {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherAddedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherAddedPreviewEventArgs {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Device(&self) -> ::windows::core::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
@@ -222,9 +233,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherAddedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherAddedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherPreview(::windows::core::IUnknown);
 impl GazeDeviceWatcherPreview {
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Added<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherAddedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -233,11 +246,13 @@ impl GazeDeviceWatcherPreview {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAdded<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Removed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherRemovedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -246,11 +261,13 @@ impl GazeDeviceWatcherPreview {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Updated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, GazeDeviceWatcherUpdatedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -259,11 +276,13 @@ impl GazeDeviceWatcherPreview {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveUpdated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GazeDeviceWatcherPreview, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -272,15 +291,18 @@ impl GazeDeviceWatcherPreview {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnumerationCompleted<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
@@ -349,9 +371,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherPreview {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherPreview {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherRemovedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherRemovedPreviewEventArgs {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Device(&self) -> ::windows::core::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
@@ -423,9 +447,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherRemovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherRemovedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeDeviceWatcherUpdatedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeDeviceWatcherUpdatedPreviewEventArgs {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Device(&self) -> ::windows::core::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
@@ -497,9 +523,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeDeviceWatcherUpdatedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeDeviceWatcherUpdatedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeEnteredPreviewEventArgs(::windows::core::IUnknown);
 impl GazeEnteredPreviewEventArgs {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -507,10 +535,12 @@ impl GazeEnteredPreviewEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn CurrentPoint(&self) -> ::windows::core::Result<GazePointPreview> {
         let this = self;
         unsafe {
@@ -582,9 +612,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeEnteredPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeEnteredPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeExitedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeExitedPreviewEventArgs {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -592,10 +624,12 @@ impl GazeExitedPreviewEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn CurrentPoint(&self) -> ::windows::core::Result<GazePointPreview> {
         let this = self;
         unsafe {
@@ -667,9 +701,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeExitedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeExitedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeInputSourcePreview(::windows::core::IUnknown);
 impl GazeInputSourcePreview {
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GazeMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeMovedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -678,11 +714,13 @@ impl GazeInputSourcePreview {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGazeMoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GazeEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeEnteredPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -691,11 +729,13 @@ impl GazeInputSourcePreview {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGazeEntered<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GazeExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<GazeInputSourcePreview, GazeExitedPreviewEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -704,23 +744,27 @@ impl GazeInputSourcePreview {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGazeExited<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn GetForCurrentView() -> ::windows::core::Result<GazeInputSourcePreview> {
         Self::IGazeInputSourcePreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GazeInputSourcePreview>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn CreateWatcher() -> ::windows::core::Result<GazeDeviceWatcherPreview> {
         Self::IGazeInputSourcePreviewStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GazeDeviceWatcherPreview>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IGazeInputSourcePreviewStatics<R, F: FnOnce(&IGazeInputSourcePreviewStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<GazeInputSourcePreview, IGazeInputSourcePreviewStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -789,9 +833,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeInputSourcePreview {}
 unsafe impl ::core::marker::Sync for GazeInputSourcePreview {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazeMovedPreviewEventArgs(::windows::core::IUnknown);
 impl GazeMovedPreviewEventArgs {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -799,10 +845,12 @@ impl GazeMovedPreviewEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn CurrentPoint(&self) -> ::windows::core::Result<GazePointPreview> {
         let this = self;
         unsafe {
@@ -810,6 +858,7 @@ impl GazeMovedPreviewEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GazePointPreview>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetIntermediatePoints(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<GazePointPreview>> {
         let this = self;
@@ -882,9 +931,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Gaze
 }
 unsafe impl ::core::marker::Send for GazeMovedPreviewEventArgs {}
 unsafe impl ::core::marker::Sync for GazeMovedPreviewEventArgs {}
+#[doc = "*Required features: 'Devices_Input_Preview'*"]
 #[repr(transparent)]
 pub struct GazePointPreview(::windows::core::IUnknown);
 impl GazePointPreview {
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn SourceDevice(&self) -> ::windows::core::Result<GazeDevicePreview> {
         let this = self;
         unsafe {
@@ -892,6 +943,7 @@ impl GazePointPreview {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<GazeDevicePreview>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EyeGazePosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
         let this = self;
@@ -900,6 +952,7 @@ impl GazePointPreview {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn HeadGazePosition(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>> {
         let this = self;
@@ -908,6 +961,7 @@ impl GazePointPreview {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Foundation::Point>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview'*"]
     pub fn Timestamp(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -915,6 +969,7 @@ impl GazePointPreview {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Input_Preview', 'Devices_HumanInterfaceDevice'*"]
     #[cfg(feature = "Devices_HumanInterfaceDevice")]
     pub fn HidInputReport(&self) -> ::windows::core::Result<super::super::HumanInterfaceDevice::HidInputReport> {
         let this = self;

@@ -1,10 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "System_Profile_SystemManufacturers")]
 pub mod SystemManufacturers;
-#[link(name = "windows")]
-extern "system" {}
 pub type AnalyticsVersionInfo = *mut ::core::ffi::c_void;
 pub type HardwareToken = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct PlatformDataCollectionLevel(pub i32);
 impl PlatformDataCollectionLevel {
@@ -20,6 +19,7 @@ impl ::core::clone::Clone for PlatformDataCollectionLevel {
     }
 }
 pub type SystemIdentificationInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct SystemIdentificationSource(pub i32);
 impl SystemIdentificationSource {
@@ -34,6 +34,7 @@ impl ::core::clone::Clone for SystemIdentificationSource {
         *self
     }
 }
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct SystemOutOfBoxExperienceState(pub i32);
 impl SystemOutOfBoxExperienceState {
@@ -48,6 +49,7 @@ impl ::core::clone::Clone for SystemOutOfBoxExperienceState {
     }
 }
 pub type UnsupportedAppRequirement = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Profile'*"]
 #[repr(transparent)]
 pub struct UnsupportedAppRequirementReasons(pub u32);
 impl UnsupportedAppRequirementReasons {

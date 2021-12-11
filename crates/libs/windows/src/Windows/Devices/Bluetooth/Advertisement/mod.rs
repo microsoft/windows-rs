@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisement(::windows::core::IUnknown);
 impl BluetoothLEAdvertisement {
@@ -9,6 +10,7 @@ impl BluetoothLEAdvertisement {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisement, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Flags(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>> {
         let this = self;
@@ -17,11 +19,13 @@ impl BluetoothLEAdvertisement {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetFlags<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<BluetoothLEAdvertisementFlags>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn LocalName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -29,10 +33,12 @@ impl BluetoothLEAdvertisement {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetLocalName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ServiceUuids(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<::windows::core::GUID>> {
         let this = self;
@@ -41,6 +47,7 @@ impl BluetoothLEAdvertisement {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<::windows::core::GUID>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn ManufacturerData(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEManufacturerData>> {
         let this = self;
@@ -49,6 +56,7 @@ impl BluetoothLEAdvertisement {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<BluetoothLEManufacturerData>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn DataSections(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementDataSection>> {
         let this = self;
@@ -57,6 +65,7 @@ impl BluetoothLEAdvertisement {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementDataSection>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetManufacturerDataByCompanyId(&self, companyid: u16) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEManufacturerData>> {
         let this = self;
@@ -65,6 +74,7 @@ impl BluetoothLEAdvertisement {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), companyid, &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<BluetoothLEManufacturerData>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetSectionsByType(&self, r#type: u8) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<BluetoothLEAdvertisementDataSection>> {
         let this = self;
@@ -137,6 +147,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisement {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisement {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementBytePattern(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementBytePattern {
@@ -147,6 +158,7 @@ impl BluetoothLEAdvertisementBytePattern {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementBytePattern, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn DataType(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
@@ -154,10 +166,12 @@ impl BluetoothLEAdvertisementBytePattern {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetDataType(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Offset(&self) -> ::windows::core::Result<i16> {
         let this = self;
         unsafe {
@@ -165,10 +179,12 @@ impl BluetoothLEAdvertisementBytePattern {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i16>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetOffset(&self, value: i16) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -177,11 +193,13 @@ impl BluetoothLEAdvertisementBytePattern {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<'a, Param2: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(datatype: u8, offset: i16, data: Param2) -> ::windows::core::Result<BluetoothLEAdvertisementBytePattern> {
         Self::IBluetoothLEAdvertisementBytePatternFactory(|this| unsafe {
@@ -189,6 +207,7 @@ impl BluetoothLEAdvertisementBytePattern {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), datatype, offset, data.into_param().abi(), &mut result__).from_abi::<BluetoothLEAdvertisementBytePattern>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementBytePatternFactory<R, F: FnOnce(&IBluetoothLEAdvertisementBytePatternFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementBytePattern, IBluetoothLEAdvertisementBytePatternFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -257,6 +276,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementBytePattern {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementBytePattern {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementDataSection(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementDataSection {
@@ -267,6 +287,7 @@ impl BluetoothLEAdvertisementDataSection {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementDataSection, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn DataType(&self) -> ::windows::core::Result<u8> {
         let this = self;
         unsafe {
@@ -274,10 +295,12 @@ impl BluetoothLEAdvertisementDataSection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetDataType(&self, value: u8) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -286,11 +309,13 @@ impl BluetoothLEAdvertisementDataSection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(datatype: u8, data: Param1) -> ::windows::core::Result<BluetoothLEAdvertisementDataSection> {
         Self::IBluetoothLEAdvertisementDataSectionFactory(|this| unsafe {
@@ -298,6 +323,7 @@ impl BluetoothLEAdvertisementDataSection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), datatype, data.into_param().abi(), &mut result__).from_abi::<BluetoothLEAdvertisementDataSection>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementDataSectionFactory<R, F: FnOnce(&IBluetoothLEAdvertisementDataSectionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementDataSection, IBluetoothLEAdvertisementDataSectionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -366,140 +392,164 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementDataSection {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementDataSection {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 pub struct BluetoothLEAdvertisementDataTypes {}
 impl BluetoothLEAdvertisementDataTypes {
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Flags() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IncompleteService16BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn CompleteService16BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IncompleteService32BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn CompleteService32BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IncompleteService128BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn CompleteService128BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ShortenedLocalName() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn CompleteLocalName() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn TxPowerLevel() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SlaveConnectionIntervalRange() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ServiceSolicitation16BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ServiceSolicitation32BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ServiceSolicitation128BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ServiceData16BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ServiceData32BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ServiceData128BitUuids() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn PublicTargetAddress() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn RandomTargetAddress() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Appearance() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn AdvertisingInterval() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ManufacturerSpecificData() -> ::windows::core::Result<u8> {
         Self::IBluetoothLEAdvertisementDataTypesStatics(|this| unsafe {
             let mut result__: u8 = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u8>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementDataTypesStatics<R, F: FnOnce(&IBluetoothLEAdvertisementDataTypesStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementDataTypes, IBluetoothLEAdvertisementDataTypesStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -508,6 +558,7 @@ impl BluetoothLEAdvertisementDataTypes {
 impl ::windows::core::RuntimeName for BluetoothLEAdvertisementDataTypes {
     const NAME: &'static str = "Windows.Devices.Bluetooth.Advertisement.BluetoothLEAdvertisementDataTypes";
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementFilter(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementFilter {
@@ -518,6 +569,7 @@ impl BluetoothLEAdvertisementFilter {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementFilter, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Advertisement(&self) -> ::windows::core::Result<BluetoothLEAdvertisement> {
         let this = self;
         unsafe {
@@ -525,10 +577,12 @@ impl BluetoothLEAdvertisementFilter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisement>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetAdvertisement<'a, Param0: ::windows::core::IntoParam<'a, BluetoothLEAdvertisement>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn BytePatterns(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVector<BluetoothLEAdvertisementBytePattern>> {
         let this = self;
@@ -601,6 +655,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementFilter {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementFilter {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementFlags(pub u32);
 impl BluetoothLEAdvertisementFlags {
@@ -632,6 +687,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementFlags {
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementFlags {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisher(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisher {
@@ -642,6 +698,7 @@ impl BluetoothLEAdvertisementPublisher {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementPublisher, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Status(&self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus> {
         let this = self;
         unsafe {
@@ -649,6 +706,7 @@ impl BluetoothLEAdvertisementPublisher {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisementPublisherStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Advertisement(&self) -> ::windows::core::Result<BluetoothLEAdvertisement> {
         let this = self;
         unsafe {
@@ -656,14 +714,17 @@ impl BluetoothLEAdvertisementPublisher {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisement>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementPublisher, BluetoothLEAdvertisementPublisherStatusChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -672,11 +733,13 @@ impl BluetoothLEAdvertisementPublisher {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PreferredTransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
@@ -685,11 +748,13 @@ impl BluetoothLEAdvertisementPublisher {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i16>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPreferredTransmitPowerLevelInDBm<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<i16>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn UseExtendedAdvertisement(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
@@ -697,10 +762,12 @@ impl BluetoothLEAdvertisementPublisher {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetUseExtendedAdvertisement(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IsAnonymous(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
@@ -708,10 +775,12 @@ impl BluetoothLEAdvertisementPublisher {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetIsAnonymous(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IncludeTransmitPowerLevel(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe {
@@ -719,16 +788,19 @@ impl BluetoothLEAdvertisementPublisher {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetIncludeTransmitPowerLevel(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisher2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, BluetoothLEAdvertisement>>(advertisement: Param0) -> ::windows::core::Result<BluetoothLEAdvertisementPublisher> {
         Self::IBluetoothLEAdvertisementPublisherFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), advertisement.into_param().abi(), &mut result__).from_abi::<BluetoothLEAdvertisementPublisher>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementPublisherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementPublisherFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementPublisher, IBluetoothLEAdvertisementPublisherFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -797,6 +869,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisher {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherStatus(pub i32);
 impl BluetoothLEAdvertisementPublisherStatus {
@@ -828,9 +901,11 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherSt
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementPublisherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementPublisherStatusChangedEventArgs(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Status(&self) -> ::windows::core::Result<BluetoothLEAdvertisementPublisherStatus> {
         let this = self;
         unsafe {
@@ -838,6 +913,7 @@ impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisementPublisherStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
@@ -845,6 +921,7 @@ impl BluetoothLEAdvertisementPublisherStatusChangedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SelectedTransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementPublisherStatusChangedEventArgs2>(self)?;
@@ -917,9 +994,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementPublisherStatusChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementReceivedEventArgs(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementReceivedEventArgs {
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn RawSignalStrengthInDBm(&self) -> ::windows::core::Result<i16> {
         let this = self;
         unsafe {
@@ -927,6 +1006,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i16>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn BluetoothAddress(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -934,6 +1014,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn AdvertisementType(&self) -> ::windows::core::Result<BluetoothLEAdvertisementType> {
         let this = self;
         unsafe {
@@ -941,6 +1022,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisementType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Timestamp(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -949,6 +1031,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Advertisement(&self) -> ::windows::core::Result<BluetoothLEAdvertisement> {
         let this = self;
         unsafe {
@@ -956,6 +1039,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisement>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn BluetoothAddressType(&self) -> ::windows::core::Result<super::BluetoothAddressType> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
@@ -963,6 +1047,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothAddressType>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TransmitPowerLevelInDBm(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<i16>> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
@@ -971,6 +1056,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<i16>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IsAnonymous(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
@@ -978,6 +1064,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IsConnectable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
@@ -985,6 +1072,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IsScannable(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
@@ -992,6 +1080,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IsDirected(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
@@ -999,6 +1088,7 @@ impl BluetoothLEAdvertisementReceivedEventArgs {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn IsScanResponse(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementReceivedEventArgs2>(self)?;
         unsafe {
@@ -1070,6 +1160,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementReceivedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementReceivedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementType(pub i32);
 impl BluetoothLEAdvertisementType {
@@ -1101,6 +1192,7 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementType {
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcher(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcher {
@@ -1111,6 +1203,7 @@ impl BluetoothLEAdvertisementWatcher {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementWatcher, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn MinSamplingInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1119,6 +1212,7 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxSamplingInterval(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1127,6 +1221,7 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn MinOutOfRangeTimeout(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1135,6 +1230,7 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn MaxOutOfRangeTimeout(&self) -> ::windows::core::Result<super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -1143,6 +1239,7 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Status(&self) -> ::windows::core::Result<BluetoothLEAdvertisementWatcherStatus> {
         let this = self;
         unsafe {
@@ -1150,6 +1247,7 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisementWatcherStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn ScanningMode(&self) -> ::windows::core::Result<BluetoothLEScanningMode> {
         let this = self;
         unsafe {
@@ -1157,10 +1255,12 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEScanningMode>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetScanningMode(&self, value: BluetoothLEScanningMode) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SignalStrengthFilter(&self) -> ::windows::core::Result<super::BluetoothSignalStrengthFilter> {
         let this = self;
         unsafe {
@@ -1168,10 +1268,12 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothSignalStrengthFilter>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetSignalStrengthFilter<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothSignalStrengthFilter>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn AdvertisementFilter(&self) -> ::windows::core::Result<BluetoothLEAdvertisementFilter> {
         let this = self;
         unsafe {
@@ -1179,18 +1281,22 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BluetoothLEAdvertisementFilter>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetAdvertisementFilter<'a, Param0: ::windows::core::IntoParam<'a, BluetoothLEAdvertisementFilter>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Received<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1199,11 +1305,13 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Stopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<BluetoothLEAdvertisementWatcher, BluetoothLEAdvertisementWatcherStoppedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -1212,11 +1320,13 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStopped<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn AllowExtendedAdvertisements(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementWatcher2>(self)?;
         unsafe {
@@ -1224,16 +1334,19 @@ impl BluetoothLEAdvertisementWatcher {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetAllowExtendedAdvertisements(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBluetoothLEAdvertisementWatcher2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Create<'a, Param0: ::windows::core::IntoParam<'a, BluetoothLEAdvertisementFilter>>(advertisementfilter: Param0) -> ::windows::core::Result<BluetoothLEAdvertisementWatcher> {
         Self::IBluetoothLEAdvertisementWatcherFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), advertisementfilter.into_param().abi(), &mut result__).from_abi::<BluetoothLEAdvertisementWatcher>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBluetoothLEAdvertisementWatcherFactory<R, F: FnOnce(&IBluetoothLEAdvertisementWatcherFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEAdvertisementWatcher, IBluetoothLEAdvertisementWatcherFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1302,6 +1415,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcher {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcher {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherStatus(pub i32);
 impl BluetoothLEAdvertisementWatcherStatus {
@@ -1332,9 +1446,11 @@ unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherStat
 impl ::windows::core::DefaultType for BluetoothLEAdvertisementWatcherStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEAdvertisementWatcherStoppedEventArgs(::windows::core::IUnknown);
 impl BluetoothLEAdvertisementWatcherStoppedEventArgs {
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
@@ -1406,6 +1522,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
 unsafe impl ::core::marker::Sync for BluetoothLEAdvertisementWatcherStoppedEventArgs {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEManufacturerData(::windows::core::IUnknown);
 impl BluetoothLEManufacturerData {
@@ -1416,6 +1533,7 @@ impl BluetoothLEManufacturerData {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEManufacturerData, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn CompanyId(&self) -> ::windows::core::Result<u16> {
         let this = self;
         unsafe {
@@ -1423,10 +1541,12 @@ impl BluetoothLEManufacturerData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u16>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
     pub fn SetCompanyId(&self, value: u16) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Data(&self) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1435,11 +1555,13 @@ impl BluetoothLEManufacturerData {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn SetData<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Advertisement', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn Create<'a, Param1: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IBuffer>>(companyid: u16, data: Param1) -> ::windows::core::Result<BluetoothLEManufacturerData> {
         Self::IBluetoothLEManufacturerDataFactory(|this| unsafe {
@@ -1447,6 +1569,7 @@ impl BluetoothLEManufacturerData {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), companyid, data.into_param().abi(), &mut result__).from_abi::<BluetoothLEManufacturerData>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBluetoothLEManufacturerDataFactory<R, F: FnOnce(&IBluetoothLEManufacturerDataFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BluetoothLEManufacturerData, IBluetoothLEManufacturerDataFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1515,6 +1638,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Blue
 }
 unsafe impl ::core::marker::Send for BluetoothLEManufacturerData {}
 unsafe impl ::core::marker::Sync for BluetoothLEManufacturerData {}
+#[doc = "*Required features: 'Devices_Bluetooth_Advertisement'*"]
 #[repr(transparent)]
 pub struct BluetoothLEScanningMode(pub i32);
 impl BluetoothLEScanningMode {

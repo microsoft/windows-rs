@@ -24,16 +24,19 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
     let method = def.invoke_method();
     let signature = method.signature(&def.generics);
     let fn_constraint = gen_fn_constraint(&signature, gen);
-    let cfg = gen.function_cfg(&method);
+    let cfg = gen.type_cfg(def);
+    let doc = cfg.gen_doc(gen);
+    let features = cfg.gen(gen);
     let vtbl_signature = gen_vtbl_signature(def, &method, gen);
     let invoke = gen_winrt_method(def, InterfaceKind::Default, &method, 3, &mut BTreeMap::new(), gen);
     let invoke_upcall = gen_winrt_upcall(&signature, quote! { ((*this).invoke) }, gen);
 
     let mut tokens = quote! {
-        #cfg
+        #doc
+        #features
         #[repr(transparent)]
         pub struct #name<#(#generics)*>(pub ::windows::core::IUnknown, #(#phantoms)*) where #(#constraints)*;
-        #cfg
+        #features
         impl<#(#constraints)*> #name<#(#generics)*> {
             pub fn new<#fn_constraint>(invoke: F) -> Self {
                 let com = #boxed::<#(#generics)* F> {
@@ -47,14 +50,14 @@ fn gen_win_delegate(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
             #invoke
         }
-        #cfg
+        #features
         #[repr(C)]
         struct #boxed<#(#generics)* #fn_constraint> where #(#constraints)* {
             vtable: *const #vtbl<#(#generics)*>,
             invoke: F,
             count: ::windows::core::RefCount,
         }
-        #cfg
+        #features
         impl<#(#constraints)* #fn_constraint> #boxed<#(#generics)* F> {
             const VTABLE: #vtbl<#(#generics)*> = #vtbl::<#(#generics)*>(
                 Self::QueryInterface,

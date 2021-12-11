@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileOptions(pub u32);
 impl CachedFileOptions {
@@ -15,6 +14,7 @@ impl ::core::clone::Clone for CachedFileOptions {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct CachedFileTarget(pub i32);
 impl CachedFileTarget {
@@ -31,6 +31,7 @@ pub type CachedFileUpdaterUI = *mut ::core::ffi::c_void;
 pub type FileUpdateRequest = *mut ::core::ffi::c_void;
 pub type FileUpdateRequestDeferral = *mut ::core::ffi::c_void;
 pub type FileUpdateRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct FileUpdateStatus(pub i32);
 impl FileUpdateStatus {
@@ -52,6 +53,7 @@ pub type IStorageProviderItemPropertySource = *mut ::core::ffi::c_void;
 pub type IStorageProviderPropertyCapabilities = *mut ::core::ffi::c_void;
 pub type IStorageProviderStatusSource = *mut ::core::ffi::c_void;
 pub type IStorageProviderUriSource = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct ReadActivationMode(pub i32);
 impl ReadActivationMode {
@@ -69,6 +71,7 @@ pub type StorageProviderErrorCommand = *mut ::core::ffi::c_void;
 pub type StorageProviderFileTypeInfo = *mut ::core::ffi::c_void;
 pub type StorageProviderGetContentInfoForPathResult = *mut ::core::ffi::c_void;
 pub type StorageProviderGetPathForContentUriResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHardlinkPolicy(pub u32);
 impl StorageProviderHardlinkPolicy {
@@ -81,6 +84,7 @@ impl ::core::clone::Clone for StorageProviderHardlinkPolicy {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicy(pub i32);
 impl StorageProviderHydrationPolicy {
@@ -95,6 +99,7 @@ impl ::core::clone::Clone for StorageProviderHydrationPolicy {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderHydrationPolicyModifier(pub u32);
 impl StorageProviderHydrationPolicyModifier {
@@ -110,6 +115,7 @@ impl ::core::clone::Clone for StorageProviderHydrationPolicyModifier {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderInSyncPolicy(pub u32);
 impl StorageProviderInSyncPolicy {
@@ -134,6 +140,7 @@ impl ::core::clone::Clone for StorageProviderInSyncPolicy {
 }
 pub type StorageProviderItemProperty = *mut ::core::ffi::c_void;
 pub type StorageProviderItemPropertyDefinition = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderPopulationPolicy(pub i32);
 impl StorageProviderPopulationPolicy {
@@ -146,6 +153,7 @@ impl ::core::clone::Clone for StorageProviderPopulationPolicy {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderProtectionMode(pub i32);
 impl StorageProviderProtectionMode {
@@ -158,6 +166,7 @@ impl ::core::clone::Clone for StorageProviderProtectionMode {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderState(pub i32);
 impl StorageProviderState {
@@ -176,6 +185,7 @@ impl ::core::clone::Clone for StorageProviderState {
 }
 pub type StorageProviderStatus = *mut ::core::ffi::c_void;
 pub type StorageProviderSyncRootInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct StorageProviderUriSourceStatus(pub i32);
 impl StorageProviderUriSourceStatus {
@@ -189,6 +199,7 @@ impl ::core::clone::Clone for StorageProviderUriSourceStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct UIStatus(pub i32);
 impl UIStatus {
@@ -203,6 +214,7 @@ impl ::core::clone::Clone for UIStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_Provider'*"]
 #[repr(transparent)]
 pub struct WriteActivationMode(pub i32);
 impl WriteActivationMode {

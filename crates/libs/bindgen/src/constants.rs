@@ -4,15 +4,14 @@ use super::*;
 
 pub fn gen(def: &Field, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
-
     let signature = def.signature(None);
-
-    let cfg = gen.field_cfg(def);
+    let cfg = gen.field_cfg(def).gen_with_doc(gen);
 
     if let Some(constant) = def.constant() {
         if signature.kind == constant.value_type() {
             let value = gen_constant_type_value(&constant.value());
             quote! {
+                #cfg
                 pub const #name: #value;
             }
         } else {

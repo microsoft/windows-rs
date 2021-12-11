@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_System_WinRT_CoreInputView'*"]
 #[repr(transparent)]
 pub struct ICoreFrameworkInputViewInterop(::windows::core::IUnknown);
 impl ICoreFrameworkInputViewInterop {
+    #[doc = "*Required features: 'Win32_System_WinRT_CoreInputView', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetForWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::HWND>, T: ::windows::core::Interface>(&self, appwindow: Param0) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;

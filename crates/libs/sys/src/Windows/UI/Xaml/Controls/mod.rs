@@ -3,11 +3,10 @@
 pub mod Maps;
 #[cfg(feature = "UI_Xaml_Controls_Primitives")]
 pub mod Primitives;
-#[link(name = "windows")]
-extern "system" {}
 pub type AnchorRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type AppBar = *mut ::core::ffi::c_void;
 pub type AppBarButton = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct AppBarClosedDisplayMode(pub i32);
 impl AppBarClosedDisplayMode {
@@ -28,6 +27,7 @@ pub type AutoSuggestBox = *mut ::core::ffi::c_void;
 pub type AutoSuggestBoxQuerySubmittedEventArgs = *mut ::core::ffi::c_void;
 pub type AutoSuggestBoxSuggestionChosenEventArgs = *mut ::core::ffi::c_void;
 pub type AutoSuggestBoxTextChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct AutoSuggestionBoxTextChangeReason(pub i32);
 impl AutoSuggestionBoxTextChangeReason {
@@ -43,6 +43,7 @@ impl ::core::clone::Clone for AutoSuggestionBoxTextChangeReason {
 }
 pub type BackClickEventArgs = *mut ::core::ffi::c_void;
 pub type BackClickEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct BackgroundSizing(pub i32);
 impl BackgroundSizing {
@@ -65,6 +66,7 @@ pub type CalendarView = *mut ::core::ffi::c_void;
 pub type CalendarViewDayItem = *mut ::core::ffi::c_void;
 pub type CalendarViewDayItemChangingEventArgs = *mut ::core::ffi::c_void;
 pub type CalendarViewDayItemChangingEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CalendarViewDisplayMode(pub i32);
 impl CalendarViewDisplayMode {
@@ -79,6 +81,7 @@ impl ::core::clone::Clone for CalendarViewDisplayMode {
     }
 }
 pub type CalendarViewSelectedDatesChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CalendarViewSelectionMode(pub i32);
 impl CalendarViewSelectionMode {
@@ -92,6 +95,7 @@ impl ::core::clone::Clone for CalendarViewSelectionMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CandidateWindowAlignment(pub i32);
 impl CandidateWindowAlignment {
@@ -107,6 +111,7 @@ impl ::core::clone::Clone for CandidateWindowAlignment {
 pub type CandidateWindowBoundsChangedEventArgs = *mut ::core::ffi::c_void;
 pub type Canvas = *mut ::core::ffi::c_void;
 pub type CaptureElement = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CharacterCasing(pub i32);
 impl CharacterCasing {
@@ -125,6 +130,7 @@ pub type ChoosingGroupHeaderContainerEventArgs = *mut ::core::ffi::c_void;
 pub type ChoosingItemContainerEventArgs = *mut ::core::ffi::c_void;
 pub type CleanUpVirtualizedItemEventArgs = *mut ::core::ffi::c_void;
 pub type CleanUpVirtualizedItemEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ClickMode(pub i32);
 impl ClickMode {
@@ -140,6 +146,7 @@ impl ::core::clone::Clone for ClickMode {
 }
 pub type ColorChangedEventArgs = *mut ::core::ffi::c_void;
 pub type ColorPicker = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ColorPickerHsvChannel(pub i32);
 impl ColorPickerHsvChannel {
@@ -154,6 +161,7 @@ impl ::core::clone::Clone for ColorPickerHsvChannel {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ColorSpectrumComponents(pub i32);
 impl ColorSpectrumComponents {
@@ -170,6 +178,7 @@ impl ::core::clone::Clone for ColorSpectrumComponents {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ColorSpectrumShape(pub i32);
 impl ColorSpectrumShape {
@@ -186,6 +195,7 @@ pub type ColumnDefinition = *mut ::core::ffi::c_void;
 pub type ColumnDefinitionCollection = *mut ::core::ffi::c_void;
 pub type ComboBox = *mut ::core::ffi::c_void;
 pub type ComboBoxItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ComboBoxSelectionChangedTrigger(pub i32);
 impl ComboBoxSelectionChangedTrigger {
@@ -200,6 +210,7 @@ impl ::core::clone::Clone for ComboBoxSelectionChangedTrigger {
 }
 pub type ComboBoxTextSubmittedEventArgs = *mut ::core::ffi::c_void;
 pub type CommandBar = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CommandBarDefaultLabelPosition(pub i32);
 impl CommandBarDefaultLabelPosition {
@@ -213,6 +224,7 @@ impl ::core::clone::Clone for CommandBarDefaultLabelPosition {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CommandBarDynamicOverflowAction(pub i32);
 impl CommandBarDynamicOverflowAction {
@@ -226,6 +238,7 @@ impl ::core::clone::Clone for CommandBarDynamicOverflowAction {
     }
 }
 pub type CommandBarFlyout = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CommandBarLabelPosition(pub i32);
 impl CommandBarLabelPosition {
@@ -238,6 +251,7 @@ impl ::core::clone::Clone for CommandBarLabelPosition {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct CommandBarOverflowButtonVisibility(pub i32);
 impl CommandBarOverflowButtonVisibility {
@@ -255,6 +269,7 @@ pub type CommandBarOverflowPresenter = *mut ::core::ffi::c_void;
 pub type ContainerContentChangingEventArgs = *mut ::core::ffi::c_void;
 pub type ContentControl = *mut ::core::ffi::c_void;
 pub type ContentDialog = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ContentDialogButton(pub i32);
 impl ContentDialogButton {
@@ -275,6 +290,7 @@ pub type ContentDialogClosedEventArgs = *mut ::core::ffi::c_void;
 pub type ContentDialogClosingDeferral = *mut ::core::ffi::c_void;
 pub type ContentDialogClosingEventArgs = *mut ::core::ffi::c_void;
 pub type ContentDialogOpenedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ContentDialogPlacement(pub i32);
 impl ContentDialogPlacement {
@@ -287,6 +303,7 @@ impl ::core::clone::Clone for ContentDialogPlacement {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ContentDialogResult(pub i32);
 impl ContentDialogResult {
@@ -300,6 +317,7 @@ impl ::core::clone::Clone for ContentDialogResult {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ContentLinkChangeKind(pub i32);
 impl ContentLinkChangeKind {
@@ -327,6 +345,7 @@ pub type DatePickerFlyoutItem = *mut ::core::ffi::c_void;
 pub type DatePickerFlyoutPresenter = *mut ::core::ffi::c_void;
 pub type DatePickerSelectedValueChangedEventArgs = *mut ::core::ffi::c_void;
 pub type DatePickerValueChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct DisabledFormattingAccelerators(pub u32);
 impl DisabledFormattingAccelerators {
@@ -366,6 +385,7 @@ pub type GroupStyle = *mut ::core::ffi::c_void;
 pub type GroupStyleSelector = *mut ::core::ffi::c_void;
 pub type HandwritingPanelClosedEventArgs = *mut ::core::ffi::c_void;
 pub type HandwritingPanelOpenedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct HandwritingPanelPlacementAlignment(pub i32);
 impl HandwritingPanelPlacementAlignment {
@@ -401,6 +421,7 @@ pub type IconElement = *mut ::core::ffi::c_void;
 pub type IconSource = *mut ::core::ffi::c_void;
 pub type IconSourceElement = *mut ::core::ffi::c_void;
 pub type Image = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct IncrementalLoadingTrigger(pub i32);
 impl IncrementalLoadingTrigger {
@@ -416,6 +437,7 @@ impl ::core::clone::Clone for IncrementalLoadingTrigger {
 pub type InkCanvas = *mut ::core::ffi::c_void;
 pub type InkToolbar = *mut ::core::ffi::c_void;
 pub type InkToolbarBallpointPenButton = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct InkToolbarButtonFlyoutPlacement(pub i32);
 impl InkToolbarButtonFlyoutPlacement {
@@ -437,6 +459,7 @@ pub type InkToolbarCustomToggleButton = *mut ::core::ffi::c_void;
 pub type InkToolbarCustomToolButton = *mut ::core::ffi::c_void;
 pub type InkToolbarEraserButton = *mut ::core::ffi::c_void;
 pub type InkToolbarFlyoutItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct InkToolbarFlyoutItemKind(pub i32);
 impl InkToolbarFlyoutItemKind {
@@ -452,6 +475,7 @@ impl ::core::clone::Clone for InkToolbarFlyoutItemKind {
     }
 }
 pub type InkToolbarHighlighterButton = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct InkToolbarInitialControls(pub i32);
 impl InkToolbarInitialControls {
@@ -468,6 +492,7 @@ impl ::core::clone::Clone for InkToolbarInitialControls {
 }
 pub type InkToolbarIsStencilButtonCheckedChangedEventArgs = *mut ::core::ffi::c_void;
 pub type InkToolbarMenuButton = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct InkToolbarMenuKind(pub i32);
 impl InkToolbarMenuKind {
@@ -484,6 +509,7 @@ pub type InkToolbarPenConfigurationControl = *mut ::core::ffi::c_void;
 pub type InkToolbarPencilButton = *mut ::core::ffi::c_void;
 pub type InkToolbarRulerButton = *mut ::core::ffi::c_void;
 pub type InkToolbarStencilButton = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct InkToolbarStencilKind(pub i32);
 impl InkToolbarStencilKind {
@@ -496,6 +522,7 @@ impl ::core::clone::Clone for InkToolbarStencilKind {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct InkToolbarToggle(pub i32);
 impl InkToolbarToggle {
@@ -509,6 +536,7 @@ impl ::core::clone::Clone for InkToolbarToggle {
     }
 }
 pub type InkToolbarToggleButton = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct InkToolbarTool(pub i32);
 impl InkToolbarTool {
@@ -536,6 +564,7 @@ pub type ItemsPanelTemplate = *mut ::core::ffi::c_void;
 pub type ItemsPickedEventArgs = *mut ::core::ffi::c_void;
 pub type ItemsPresenter = *mut ::core::ffi::c_void;
 pub type ItemsStackPanel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ItemsUpdatingScrollMode(pub i32);
 impl ItemsUpdatingScrollMode {
@@ -550,6 +579,7 @@ impl ::core::clone::Clone for ItemsUpdatingScrollMode {
     }
 }
 pub type ItemsWrapGrid = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct LightDismissOverlayMode(pub i32);
 impl LightDismissOverlayMode {
@@ -567,6 +597,7 @@ pub type ListBox = *mut ::core::ffi::c_void;
 pub type ListBoxItem = *mut ::core::ffi::c_void;
 pub type ListPickerFlyout = *mut ::core::ffi::c_void;
 pub type ListPickerFlyoutPresenter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ListPickerFlyoutSelectionMode(pub i32);
 impl ListPickerFlyoutSelectionMode {
@@ -587,6 +618,7 @@ pub type ListViewItem = *mut ::core::ffi::c_void;
 pub type ListViewItemToKeyHandler = *mut ::core::ffi::c_void;
 pub type ListViewKeyToItemHandler = *mut ::core::ffi::c_void;
 pub type ListViewPersistenceHelper = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ListViewReorderMode(pub i32);
 impl ListViewReorderMode {
@@ -599,6 +631,7 @@ impl ::core::clone::Clone for ListViewReorderMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ListViewSelectionMode(pub i32);
 impl ListViewSelectionMode {
@@ -628,6 +661,7 @@ pub type MenuFlyoutPresenter = *mut ::core::ffi::c_void;
 pub type MenuFlyoutSeparator = *mut ::core::ffi::c_void;
 pub type MenuFlyoutSubItem = *mut ::core::ffi::c_void;
 pub type NavigationView = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct NavigationViewBackButtonVisible(pub i32);
 impl NavigationViewBackButtonVisible {
@@ -642,6 +676,7 @@ impl ::core::clone::Clone for NavigationViewBackButtonVisible {
     }
 }
 pub type NavigationViewBackRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct NavigationViewDisplayMode(pub i32);
 impl NavigationViewDisplayMode {
@@ -662,6 +697,7 @@ pub type NavigationViewItemHeader = *mut ::core::ffi::c_void;
 pub type NavigationViewItemInvokedEventArgs = *mut ::core::ffi::c_void;
 pub type NavigationViewItemSeparator = *mut ::core::ffi::c_void;
 pub type NavigationViewList = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct NavigationViewOverflowLabelMode(pub i32);
 impl NavigationViewOverflowLabelMode {
@@ -675,6 +711,7 @@ impl ::core::clone::Clone for NavigationViewOverflowLabelMode {
     }
 }
 pub type NavigationViewPaneClosingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct NavigationViewPaneDisplayMode(pub i32);
 impl NavigationViewPaneDisplayMode {
@@ -691,6 +728,7 @@ impl ::core::clone::Clone for NavigationViewPaneDisplayMode {
     }
 }
 pub type NavigationViewSelectionChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct NavigationViewSelectionFollowsFocus(pub i32);
 impl NavigationViewSelectionFollowsFocus {
@@ -703,6 +741,7 @@ impl ::core::clone::Clone for NavigationViewSelectionFollowsFocus {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct NavigationViewShoulderNavigationEnabled(pub i32);
 impl NavigationViewShoulderNavigationEnabled {
@@ -719,6 +758,7 @@ impl ::core::clone::Clone for NavigationViewShoulderNavigationEnabled {
 pub type NavigationViewTemplateSettings = *mut ::core::ffi::c_void;
 pub type NotifyEventArgs = *mut ::core::ffi::c_void;
 pub type NotifyEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct Orientation(pub i32);
 impl Orientation {
@@ -733,6 +773,7 @@ impl ::core::clone::Clone for Orientation {
 }
 pub type Page = *mut ::core::ffi::c_void;
 pub type Panel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct PanelScrollingDirection(pub i32);
 impl PanelScrollingDirection {
@@ -746,6 +787,7 @@ impl ::core::clone::Clone for PanelScrollingDirection {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ParallaxSourceOffsetKind(pub i32);
 impl ParallaxSourceOffsetKind {
@@ -761,6 +803,7 @@ impl ::core::clone::Clone for ParallaxSourceOffsetKind {
 pub type ParallaxView = *mut ::core::ffi::c_void;
 pub type PasswordBox = *mut ::core::ffi::c_void;
 pub type PasswordBoxPasswordChangingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct PasswordRevealMode(pub i32);
 impl PasswordRevealMode {
@@ -781,6 +824,7 @@ pub type PickerConfirmedEventArgs = *mut ::core::ffi::c_void;
 pub type PickerFlyout = *mut ::core::ffi::c_void;
 pub type PickerFlyoutPresenter = *mut ::core::ffi::c_void;
 pub type Pivot = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct PivotHeaderFocusVisualPlacement(pub i32);
 impl PivotHeaderFocusVisualPlacement {
@@ -795,6 +839,7 @@ impl ::core::clone::Clone for PivotHeaderFocusVisualPlacement {
 }
 pub type PivotItem = *mut ::core::ffi::c_void;
 pub type PivotItemEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct PivotSlideInAnimationGroup(pub i32);
 impl PivotSlideInAnimationGroup {
@@ -818,6 +863,7 @@ pub type RatingItemImageInfo = *mut ::core::ffi::c_void;
 pub type RatingItemInfo = *mut ::core::ffi::c_void;
 pub type RefreshContainer = *mut ::core::ffi::c_void;
 pub type RefreshInteractionRatioChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct RefreshPullDirection(pub i32);
 impl RefreshPullDirection {
@@ -835,6 +881,7 @@ impl ::core::clone::Clone for RefreshPullDirection {
 pub type RefreshRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type RefreshStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type RefreshVisualizer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct RefreshVisualizerOrientation(pub i32);
 impl RefreshVisualizerOrientation {
@@ -849,6 +896,7 @@ impl ::core::clone::Clone for RefreshVisualizerOrientation {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct RefreshVisualizerState(pub i32);
 impl RefreshVisualizerState {
@@ -865,6 +913,7 @@ impl ::core::clone::Clone for RefreshVisualizerState {
     }
 }
 pub type RelativePanel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct RequiresPointer(pub i32);
 impl RequiresPointer {
@@ -881,6 +930,7 @@ impl ::core::clone::Clone for RequiresPointer {
 pub type RichEditBox = *mut ::core::ffi::c_void;
 pub type RichEditBoxSelectionChangingEventArgs = *mut ::core::ffi::c_void;
 pub type RichEditBoxTextChangingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct RichEditClipboardFormat(pub i32);
 impl RichEditClipboardFormat {
@@ -897,6 +947,7 @@ pub type RichTextBlock = *mut ::core::ffi::c_void;
 pub type RichTextBlockOverflow = *mut ::core::ffi::c_void;
 pub type RowDefinition = *mut ::core::ffi::c_void;
 pub type RowDefinitionCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ScrollBarVisibility(pub i32);
 impl ScrollBarVisibility {
@@ -912,6 +963,7 @@ impl ::core::clone::Clone for ScrollBarVisibility {
     }
 }
 pub type ScrollContentPresenter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ScrollIntoViewAlignment(pub i32);
 impl ScrollIntoViewAlignment {
@@ -924,6 +976,7 @@ impl ::core::clone::Clone for ScrollIntoViewAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ScrollMode(pub i32);
 impl ScrollMode {
@@ -950,6 +1003,7 @@ pub type SectionsInViewChangedEventArgs = *mut ::core::ffi::c_void;
 pub type SectionsInViewChangedEventHandler = *mut ::core::ffi::c_void;
 pub type SelectionChangedEventArgs = *mut ::core::ffi::c_void;
 pub type SelectionChangedEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct SelectionMode(pub i32);
 impl SelectionMode {
@@ -969,6 +1023,7 @@ pub type SemanticZoomViewChangedEventArgs = *mut ::core::ffi::c_void;
 pub type SemanticZoomViewChangedEventHandler = *mut ::core::ffi::c_void;
 pub type SettingsFlyout = *mut ::core::ffi::c_void;
 pub type Slider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct SnapPointsType(pub i32);
 impl SnapPointsType {
@@ -988,6 +1043,7 @@ pub type SplitButton = *mut ::core::ffi::c_void;
 pub type SplitButtonAutomationPeer = *mut ::core::ffi::c_void;
 pub type SplitButtonClickEventArgs = *mut ::core::ffi::c_void;
 pub type SplitView = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct SplitViewDisplayMode(pub i32);
 impl SplitViewDisplayMode {
@@ -1003,6 +1059,7 @@ impl ::core::clone::Clone for SplitViewDisplayMode {
     }
 }
 pub type SplitViewPaneClosingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct SplitViewPanePlacement(pub i32);
 impl SplitViewPanePlacement {
@@ -1016,6 +1073,7 @@ impl ::core::clone::Clone for SplitViewPanePlacement {
     }
 }
 pub type StackPanel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct StretchDirection(pub i32);
 impl StretchDirection {
@@ -1032,6 +1090,7 @@ impl ::core::clone::Clone for StretchDirection {
 pub type StyleSelector = *mut ::core::ffi::c_void;
 pub type SwapChainBackgroundPanel = *mut ::core::ffi::c_void;
 pub type SwapChainPanel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct SwipeBehaviorOnInvoked(pub i32);
 impl SwipeBehaviorOnInvoked {
@@ -1049,6 +1108,7 @@ pub type SwipeControl = *mut ::core::ffi::c_void;
 pub type SwipeItem = *mut ::core::ffi::c_void;
 pub type SwipeItemInvokedEventArgs = *mut ::core::ffi::c_void;
 pub type SwipeItems = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct SwipeMode(pub i32);
 impl SwipeMode {
@@ -1061,6 +1121,7 @@ impl ::core::clone::Clone for SwipeMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct Symbol(pub i32);
 impl Symbol {
@@ -1308,6 +1369,7 @@ pub type TreeViewItemInvokedEventArgs = *mut ::core::ffi::c_void;
 pub type TreeViewItemTemplateSettings = *mut ::core::ffi::c_void;
 pub type TreeViewList = *mut ::core::ffi::c_void;
 pub type TreeViewNode = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct TreeViewSelectionMode(pub i32);
 impl TreeViewSelectionMode {
@@ -1322,6 +1384,7 @@ impl ::core::clone::Clone for TreeViewSelectionMode {
     }
 }
 pub type TwoPaneView = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct TwoPaneViewMode(pub i32);
 impl TwoPaneViewMode {
@@ -1335,6 +1398,7 @@ impl ::core::clone::Clone for TwoPaneViewMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct TwoPaneViewPriority(pub i32);
 impl TwoPaneViewPriority {
@@ -1347,6 +1411,7 @@ impl ::core::clone::Clone for TwoPaneViewPriority {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct TwoPaneViewTallModeConfiguration(pub i32);
 impl TwoPaneViewTallModeConfiguration {
@@ -1360,6 +1425,7 @@ impl ::core::clone::Clone for TwoPaneViewTallModeConfiguration {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct TwoPaneViewWideModeConfiguration(pub i32);
 impl TwoPaneViewWideModeConfiguration {
@@ -1377,6 +1443,7 @@ pub type UIElementCollection = *mut ::core::ffi::c_void;
 pub type UserControl = *mut ::core::ffi::c_void;
 pub type VariableSizedWrapGrid = *mut ::core::ffi::c_void;
 pub type Viewbox = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct VirtualizationMode(pub i32);
 impl VirtualizationMode {
@@ -1396,6 +1463,7 @@ pub type WebViewBrush = *mut ::core::ffi::c_void;
 pub type WebViewContentLoadingEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewDOMContentLoadedEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewDeferredPermissionRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct WebViewExecutionMode(pub i32);
 impl WebViewExecutionMode {
@@ -1417,6 +1485,7 @@ pub type WebViewNavigationStartingEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewNewWindowRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewPermissionRequest = *mut ::core::ffi::c_void;
 pub type WebViewPermissionRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct WebViewPermissionState(pub i32);
 impl WebViewPermissionState {
@@ -1431,6 +1500,7 @@ impl ::core::clone::Clone for WebViewPermissionState {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct WebViewPermissionType(pub i32);
 impl WebViewPermissionType {
@@ -1454,6 +1524,7 @@ pub type WebViewUnsupportedUriSchemeIdentifiedEventArgs = *mut ::core::ffi::c_vo
 pub type WebViewUnviewableContentIdentifiedEventArgs = *mut ::core::ffi::c_void;
 pub type WebViewWebResourceRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type WrapGrid = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Controls'*"]
 #[repr(transparent)]
 pub struct ZoomMode(pub i32);
 impl ZoomMode {

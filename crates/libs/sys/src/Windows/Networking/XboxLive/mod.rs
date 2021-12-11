@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type XboxLiveDeviceAddress = *mut ::core::ffi::c_void;
 pub type XboxLiveEndpointPair = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationBehaviors(pub u32);
 impl XboxLiveEndpointPairCreationBehaviors {
@@ -16,6 +15,7 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationBehaviors {
     }
 }
 pub type XboxLiveEndpointPairCreationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairCreationStatus(pub i32);
 impl XboxLiveEndpointPairCreationStatus {
@@ -35,6 +35,7 @@ impl ::core::clone::Clone for XboxLiveEndpointPairCreationStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveEndpointPairState(pub i32);
 impl XboxLiveEndpointPairState {
@@ -55,6 +56,7 @@ impl ::core::clone::Clone for XboxLiveEndpointPairState {
 pub type XboxLiveEndpointPairStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type XboxLiveEndpointPairTemplate = *mut ::core::ffi::c_void;
 pub type XboxLiveInboundEndpointPairCreatedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveNetworkAccessKind(pub i32);
 impl XboxLiveNetworkAccessKind {
@@ -69,6 +71,7 @@ impl ::core::clone::Clone for XboxLiveNetworkAccessKind {
     }
 }
 pub type XboxLiveQualityOfServiceMeasurement = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMeasurementStatus(pub i32);
 impl XboxLiveQualityOfServiceMeasurementStatus {
@@ -91,6 +94,7 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMeasurementStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveQualityOfServiceMetric(pub i32);
 impl XboxLiveQualityOfServiceMetric {
@@ -112,6 +116,7 @@ impl ::core::clone::Clone for XboxLiveQualityOfServiceMetric {
 }
 pub type XboxLiveQualityOfServiceMetricResult = *mut ::core::ffi::c_void;
 pub type XboxLiveQualityOfServicePrivatePayloadResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Networking_XboxLive'*"]
 #[repr(transparent)]
 pub struct XboxLiveSocketKind(pub i32);
 impl XboxLiveSocketKind {

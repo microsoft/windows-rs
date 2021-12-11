@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type CurrencyFormatter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct CurrencyFormatterMode(pub i32);
 impl CurrencyFormatterMode {
@@ -27,6 +26,7 @@ pub type IncrementNumberRounder = *mut ::core::ffi::c_void;
 pub type NumeralSystemTranslator = *mut ::core::ffi::c_void;
 pub type PercentFormatter = *mut ::core::ffi::c_void;
 pub type PermilleFormatter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Globalization_NumberFormatting'*"]
 #[repr(transparent)]
 pub struct RoundingAlgorithm(pub i32);
 impl RoundingAlgorithm {

@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct BitmapCreateOptions(pub u32);
 impl BitmapCreateOptions {
@@ -15,6 +14,7 @@ impl ::core::clone::Clone for BitmapCreateOptions {
 }
 pub type BitmapImage = *mut ::core::ffi::c_void;
 pub type BitmapSource = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct DecodePixelType(pub i32);
 impl DecodePixelType {
@@ -34,6 +34,7 @@ pub type SoftwareBitmapSource = *mut ::core::ffi::c_void;
 pub type SurfaceImageSource = *mut ::core::ffi::c_void;
 pub type SvgImageSource = *mut ::core::ffi::c_void;
 pub type SvgImageSourceFailedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Imaging'*"]
 #[repr(transparent)]
 pub struct SvgImageSourceLoadStatus(pub i32);
 impl SvgImageSourceLoadStatus {

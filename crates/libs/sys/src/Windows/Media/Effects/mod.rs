@@ -1,9 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type AudioCaptureEffectsManager = *mut ::core::ffi::c_void;
 pub type AudioEffect = *mut ::core::ffi::c_void;
 pub type AudioEffectDefinition = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct AudioEffectType(pub i32);
 impl AudioEffectType {
@@ -42,6 +41,7 @@ pub type IBasicVideoEffect = *mut ::core::ffi::c_void;
 pub type IVideoCompositor = *mut ::core::ffi::c_void;
 pub type IVideoCompositorDefinition = *mut ::core::ffi::c_void;
 pub type IVideoEffectDefinition = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct MediaEffectClosedReason(pub i32);
 impl MediaEffectClosedReason {
@@ -56,6 +56,7 @@ impl ::core::clone::Clone for MediaEffectClosedReason {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Effects'*"]
 #[repr(transparent)]
 pub struct MediaMemoryTypes(pub i32);
 impl MediaMemoryTypes {

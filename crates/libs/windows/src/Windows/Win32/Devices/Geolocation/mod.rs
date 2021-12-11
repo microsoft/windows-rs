@@ -1,19 +1,29 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const BREADCRUMBING_UNSUPPORTED: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const BREADCRUMBING_VERSION_1: u32 = 1u32;
 pub const CivicAddressReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd39e7bdd_7d05_46b8_8721_80cf035f57d7);
 pub const CivicAddressReportFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a11f42c_3e81_4ad4_9cbe_45579d89671a);
 pub const DefaultLocation: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b7fbfe0_5cd7_494a_af8c_283a65707506);
 pub const DispCivicAddressReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c596aec_8544_4082_ba9f_eb0a7d8e65c6);
 pub const DispLatLongReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a7c3277_8f84_4636_95b2_ebb5507ff77e);
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_LTO: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA3: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA3_1: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA3_2: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSSFORMAT_XTRA_INT: u32 = 64u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_AGNSS_INJECT {
     pub Size: u32,
@@ -51,6 +61,7 @@ impl ::core::default::Default for GNSS_AGNSS_INJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union GNSS_AGNSS_INJECT_0 {
     pub Time: GNSS_AGNSS_INJECTTIME,
@@ -84,6 +95,7 @@ impl ::core::default::Default for GNSS_AGNSS_INJECT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_AGNSS_INJECTBLOB {
     pub Size: u32,
     pub Version: u32,
@@ -114,6 +126,7 @@ impl ::core::default::Default for GNSS_AGNSS_INJECTBLOB {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_AGNSS_INJECTPOSITION {
     pub Size: u32,
     pub Version: u32,
@@ -142,6 +155,7 @@ impl ::core::default::Default for GNSS_AGNSS_INJECTPOSITION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_AGNSS_INJECTTIME {
     pub Size: u32,
@@ -176,6 +190,7 @@ impl ::core::default::Default for GNSS_AGNSS_INJECTTIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_AGNSS_REQUEST_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -202,11 +217,16 @@ impl ::core::default::Default for GNSS_AGNSS_REQUEST_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_AGNSS_REQUEST_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSS_TimeInjection: GNSS_AGNSS_REQUEST_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSS_PositionInjection: GNSS_AGNSS_REQUEST_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_AGNSS_BlobInjection: GNSS_AGNSS_REQUEST_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_BREADCRUMBING_ALERT_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -233,6 +253,7 @@ impl ::core::default::Default for GNSS_BREADCRUMBING_ALERT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_BREADCRUMBING_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -262,6 +283,7 @@ impl ::core::default::Default for GNSS_BREADCRUMBING_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_BREADCRUMB_LIST {
     pub Size: u32,
@@ -296,6 +318,7 @@ impl ::core::default::Default for GNSS_BREADCRUMB_LIST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union GNSS_BREADCRUMB_LIST_0 {
     pub v1: [GNSS_BREADCRUMB_V1; 50],
@@ -327,6 +350,7 @@ impl ::core::default::Default for GNSS_BREADCRUMB_LIST_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_BREADCRUMB_V1 {
     pub FixTimeStamp: super::super::Foundation::FILETIME,
@@ -368,6 +392,7 @@ impl ::core::default::Default for GNSS_BREADCRUMB_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_CHIPSETINFO {
     pub Size: u32,
     pub Version: u32,
@@ -397,6 +422,7 @@ impl ::core::default::Default for GNSS_CHIPSETINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_CONTINUOUSTRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -423,6 +449,7 @@ impl ::core::default::Default for GNSS_CONTINUOUSTRACKING_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_CP_NI_INFO {
     pub Size: u32,
     pub Version: u32,
@@ -450,6 +477,7 @@ impl ::core::default::Default for GNSS_CP_NI_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_CWTESTDATA {
     pub Size: u32,
@@ -486,6 +514,7 @@ impl ::core::default::Default for GNSS_CWTESTDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_DEVICE_CAPABILITY {
     pub Size: u32,
@@ -543,6 +572,7 @@ impl ::core::default::Default for GNSS_DEVICE_CAPABILITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_DISTANCETRACKING_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -569,6 +599,7 @@ impl ::core::default::Default for GNSS_DISTANCETRACKING_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_DRIVERCOMMAND_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -598,23 +629,40 @@ impl ::core::default::Default for GNSS_DRIVERCOMMAND_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_DRIVERCOMMAND_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SetLocationServiceEnabled: GNSS_DRIVERCOMMAND_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SetLocationNIRequestAllowed: GNSS_DRIVERCOMMAND_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_ForceSatelliteSystem: GNSS_DRIVERCOMMAND_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_ForceOperationMode: GNSS_DRIVERCOMMAND_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_ResetEngine: GNSS_DRIVERCOMMAND_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_ClearAgnssData: GNSS_DRIVERCOMMAND_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SetSuplVersion: GNSS_DRIVERCOMMAND_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SetNMEALogging: GNSS_DRIVERCOMMAND_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SetUplServerAccessInterval: GNSS_DRIVERCOMMAND_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SetNiTimeoutInterval: GNSS_DRIVERCOMMAND_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_ResetGeofencesTracking: GNSS_DRIVERCOMMAND_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SetSuplVersion2: GNSS_DRIVERCOMMAND_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_CustomCommand: GNSS_DRIVERCOMMAND_TYPE = 256i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_DRIVER_REQUEST = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const SUPL_CONFIG_DATA: GNSS_DRIVER_REQUEST = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_DRIVER_REQUEST_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -641,13 +689,20 @@ impl ::core::default::Default for GNSS_DRIVER_REQUEST_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_2: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_3: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_4: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_5: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_DRIVER_VERSION_6: u32 = 6u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_ERRORINFO {
     pub Size: u32,
@@ -684,6 +739,7 @@ impl ::core::default::Default for GNSS_ERRORINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_EVENT {
     pub Size: u32,
@@ -720,6 +776,7 @@ impl ::core::default::Default for GNSS_EVENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union GNSS_EVENT_0 {
     pub FixData: GNSS_FIXDATA,
@@ -760,6 +817,7 @@ impl ::core::default::Default for GNSS_EVENT_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_EVENT_2 {
     pub Size: u32,
@@ -796,6 +854,7 @@ impl ::core::default::Default for GNSS_EVENT_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union GNSS_EVENT_2_0 {
     pub FixData: GNSS_FIXDATA,
@@ -836,19 +895,32 @@ impl ::core::default::Default for GNSS_EVENT_2_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_FixAvailable: GNSS_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_RequireAgnss: GNSS_EVENT_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_Error: GNSS_EVENT_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_NiRequest: GNSS_EVENT_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_NmeaData: GNSS_EVENT_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_GeofenceAlertData: GNSS_EVENT_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_GeofencesTrackingStatus: GNSS_EVENT_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_DriverRequest: GNSS_EVENT_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_BreadcrumbAlertEvent: GNSS_EVENT_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_FixAvailable_2: GNSS_EVENT_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Event_Custom: GNSS_EVENT_TYPE = 32768i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_FIXDATA {
     pub Size: u32,
@@ -889,6 +961,7 @@ impl ::core::default::Default for GNSS_FIXDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_FIXDATA_2 {
     pub Size: u32,
@@ -929,6 +1002,7 @@ impl ::core::default::Default for GNSS_FIXDATA_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_FIXDATA_ACCURACY {
     pub Size: u32,
     pub Version: u32,
@@ -968,6 +1042,7 @@ impl ::core::default::Default for GNSS_FIXDATA_ACCURACY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_FIXDATA_ACCURACY_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1009,6 +1084,7 @@ impl ::core::default::Default for GNSS_FIXDATA_ACCURACY_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_FIXDATA_BASIC {
     pub Size: u32,
     pub Version: u32,
@@ -1039,6 +1115,7 @@ impl ::core::default::Default for GNSS_FIXDATA_BASIC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_FIXDATA_BASIC_2 {
     pub Size: u32,
     pub Version: u32,
@@ -1070,6 +1147,7 @@ impl ::core::default::Default for GNSS_FIXDATA_BASIC_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_FIXDATA_SATELLITE {
     pub Size: u32,
@@ -1103,15 +1181,24 @@ impl ::core::default::Default for GNSS_FIXDATA_SATELLITE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FIXDETAIL_ACCURACY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FIXDETAIL_BASIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FIXDETAIL_SATELLITE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_FIXSESSIONTYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FixSession_SingleShot: GNSS_FIXSESSIONTYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FixSession_DistanceTracking: GNSS_FIXSESSIONTYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FixSession_ContinuousTracking: GNSS_FIXSESSIONTYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_FixSession_LKG: GNSS_FIXSESSIONTYPE = 4i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_FIXSESSION_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1145,6 +1232,7 @@ impl ::core::default::Default for GNSS_FIXSESSION_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub union GNSS_FIXSESSION_PARAM_0 {
     pub SingleShotParam: GNSS_SINGLESHOT_PARAM,
     pub DistanceParam: GNSS_DISTANCETRACKING_PARAM,
@@ -1172,9 +1260,12 @@ impl ::core::default::Default for GNSS_FIXSESSION_PARAM_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GEOFENCESUPPORT_CIRCLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GEOFENCESUPPORT_SUPPORTED: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     pub Size: u32,
@@ -1210,6 +1301,7 @@ impl ::core::default::Default for GNSS_GEOFENCES_TRACKINGSTATUS_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_GEOFENCE_ALERT_DATA {
     pub Size: u32,
     pub Version: u32,
@@ -1240,6 +1332,7 @@ impl ::core::default::Default for GNSS_GEOFENCE_ALERT_DATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_GEOFENCE_CREATE_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1269,6 +1362,7 @@ impl ::core::default::Default for GNSS_GEOFENCE_CREATE_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_GEOFENCE_CREATE_RESPONSE {
     pub Size: u32,
@@ -1304,6 +1398,7 @@ impl ::core::default::Default for GNSS_GEOFENCE_CREATE_RESPONSE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_GEOFENCE_DELETE_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1330,11 +1425,16 @@ impl ::core::default::Default for GNSS_GEOFENCE_DELETE_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_GEOFENCE_STATE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GeofenceState_Unknown: GNSS_GEOFENCE_STATE = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GeofenceState_Entered: GNSS_GEOFENCE_STATE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GeofenceState_Exited: GNSS_GEOFENCE_STATE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_GEOREGION {
     pub Size: u32,
     pub Version: u32,
@@ -1362,6 +1462,7 @@ impl ::core::default::Default for GNSS_GEOREGION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub union GNSS_GEOREGION_0 {
     pub Circle: GNSS_GEOREGION_CIRCLE,
     pub Unused: [u8; 512],
@@ -1386,9 +1487,12 @@ impl ::core::default::Default for GNSS_GEOREGION_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_GEOREGIONTYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_GeoRegion_Circle: GNSS_GEOREGIONTYPE = 1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_GEOREGION_CIRCLE {
     pub Latitude: f64,
     pub Longitude: f64,
@@ -1415,6 +1519,7 @@ impl ::core::default::Default for GNSS_GEOREGION_CIRCLE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_LKGFIX_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1439,18 +1544,30 @@ impl ::core::default::Default for GNSS_LKGFIX_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_MAXSATELLITE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_NI_NOTIFICATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_NoNotifyNoVerify: GNSS_NI_NOTIFICATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_NotifyOnly: GNSS_NI_NOTIFICATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_NotifyVerifyDefaultAllow: GNSS_NI_NOTIFICATION_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_NotifyVerifyDefaultNotAllow: GNSS_NI_NOTIFICATION_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_PrivacyOverride: GNSS_NI_NOTIFICATION_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_NI_PLANE_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_SUPL: GNSS_NI_PLANE_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_CP: GNSS_NI_PLANE_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_V2UPL: GNSS_NI_PLANE_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_NI_REQUEST_PARAM {
     pub Size: u32,
@@ -1490,6 +1607,7 @@ impl ::core::default::Default for GNSS_NI_REQUEST_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union GNSS_NI_REQUEST_PARAM_0 {
     pub SuplNiInfo: GNSS_SUPL_NI_INFO,
@@ -1522,10 +1640,14 @@ impl ::core::default::Default for GNSS_NI_REQUEST_PARAM_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_NI_REQUEST_TYPE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_Request_SingleShot: GNSS_NI_REQUEST_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NI_Request_AreaTrigger: GNSS_NI_REQUEST_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_NI_RESPONSE {
     pub Size: u32,
     pub Version: u32,
@@ -1552,13 +1674,20 @@ impl ::core::default::Default for GNSS_NI_RESPONSE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_NI_USER_RESPONSE = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Ni_UserResponseAccept: GNSS_NI_USER_RESPONSE = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Ni_UserResponseDeny: GNSS_NI_USER_RESPONSE = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Ni_UserResponseTimeout: GNSS_NI_USER_RESPONSE = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NMEALOGGING_ALL: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_NMEALOGGING_NONE: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_NMEA_DATA {
     pub Size: u32,
@@ -1591,14 +1720,22 @@ impl ::core::default::Default for GNSS_NMEA_DATA {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_AFLT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_CELLID: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_MSA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_MSB: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_MSS: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_OPERMODE_OTDOA: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_PLATFORM_CAPABILITY {
     pub Size: u32,
@@ -1634,6 +1771,7 @@ impl ::core::default::Default for GNSS_PLATFORM_CAPABILITY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SATELLITEINFO {
     pub SatelliteId: u32,
@@ -1668,12 +1806,18 @@ impl ::core::default::Default for GNSS_SATELLITEINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_BEIDOU: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_GALILEO: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_GLONASS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_SATELLITE_GPS: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_SELFTESTCONFIG {
     pub Size: u32,
     pub Version: u32,
@@ -1703,6 +1847,7 @@ impl ::core::default::Default for GNSS_SELFTESTCONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SELFTESTRESULT {
     pub Size: u32,
@@ -1741,6 +1886,7 @@ impl ::core::default::Default for GNSS_SELFTESTRESULT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_SINGLESHOT_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1767,6 +1913,7 @@ impl ::core::default::Default for GNSS_SINGLESHOT_PARAM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_STOPFIXSESSION_PARAM {
     pub Size: u32,
     pub Version: u32,
@@ -1793,11 +1940,16 @@ impl ::core::default::Default for GNSS_STOPFIXSESSION_PARAM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type GNSS_SUPL_CERT_ACTION = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Supl_Cert_Inject: GNSS_SUPL_CERT_ACTION = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Supl_Cert_Delete: GNSS_SUPL_CERT_ACTION = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const GNSS_Supl_Cert_Purge: GNSS_SUPL_CERT_ACTION = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SUPL_CERT_CONFIG {
     pub Size: u32,
@@ -1835,6 +1987,7 @@ impl ::core::default::Default for GNSS_SUPL_CERT_CONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SUPL_HSLP_CONFIG {
     pub Size: u32,
@@ -1871,6 +2024,7 @@ impl ::core::default::Default for GNSS_SUPL_HSLP_CONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_SUPL_NI_INFO {
     pub Size: u32,
@@ -1906,6 +2060,7 @@ impl ::core::default::Default for GNSS_SUPL_NI_INFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_SUPL_VERSION {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -1931,6 +2086,7 @@ impl ::core::default::Default for GNSS_SUPL_VERSION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_SUPL_VERSION_2 {
     pub MajorVersion: u32,
     pub MinorVersion: u32,
@@ -1957,6 +2113,7 @@ impl ::core::default::Default for GNSS_SUPL_VERSION_2 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GNSS_V2UPL_CONFIG {
     pub Size: u32,
@@ -1993,6 +2150,7 @@ impl ::core::default::Default for GNSS_V2UPL_CONFIG {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub struct GNSS_V2UPL_NI_INFO {
     pub Size: u32,
     pub Version: u32,
@@ -2019,53 +2177,64 @@ impl ::core::default::Default for GNSS_V2UPL_NI_INFO {
     }
 }
 pub const GUID_DEVINTERFACE_GNSS: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3336e5e4_018a_4669_84c5_bd05f3bd368b);
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ICivicAddressReport(::windows::core::IUnknown);
 impl ICivicAddressReport {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAddressLine1(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetAddressLine2(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCity(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetStateProvince(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetPostalCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetCountryRegion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetDetailLevel(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
@@ -2151,54 +2320,68 @@ pub struct ICivicAddressReportVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ICivicAddressReportFactory(::windows::core::IUnknown);
 impl ICivicAddressReportFactory {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn CivicAddressReport(&self) -> ::windows::core::Result<IDispCivicAddressReport> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDispCivicAddressReport>(result__)
@@ -2307,12 +2490,15 @@ pub struct ICivicAddressReportFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *const u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct IDefaultLocation(::windows::core::IUnknown);
 impl IDefaultLocation {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetReport<'a, Param1: ::windows::core::IntoParam<'a, ILocationReport>>(&self, reporttype: *const ::windows::core::GUID, plocationreport: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), plocationreport.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(&mut result__)).from_abi::<ILocationReport>(result__)
@@ -2362,61 +2548,74 @@ pub struct IDefaultLocationVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, pplocationreport: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct IDispCivicAddressReport(::windows::core::IUnknown);
 impl IDispCivicAddressReport {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddressLine1(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AddressLine2(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn City(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn StateProvince(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn PostalCode(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn CountryRegion(&self) -> ::windows::core::Result<super::super::Foundation::BSTR> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::Foundation::BSTR> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::BSTR>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn DetailLevel(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Timestamp(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
@@ -2510,47 +2709,58 @@ pub struct IDispCivicAddressReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pdetaillevel: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct IDispLatLongReport(::windows::core::IUnknown);
 impl IDispLatLongReport {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Latitude(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Longitude(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn ErrorRadius(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Altitude(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn AltitudeError(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Timestamp(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
@@ -2636,39 +2846,48 @@ pub struct IDispLatLongReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ILatLongReport(::windows::core::IUnknown);
 impl ILatLongReport {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(pkey), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::StructuredStorage::PROPVARIANT>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetLatitude(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetLongitude(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetErrorRadius(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetAltitude(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetAltitudeError(&self) -> ::windows::core::Result<f64> {
         let mut result__: f64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<f64>(result__)
@@ -2746,54 +2965,68 @@ pub struct ILatLongReportVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paltitude: *mut f64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, paltitudeerror: *mut f64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ILatLongReportFactory(::windows::core::IUnknown);
 impl ILatLongReportFactory {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn LatLongReport(&self) -> ::windows::core::Result<IDispLatLongReport> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).15)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<IDispLatLongReport>(result__)
@@ -2902,39 +3135,49 @@ pub struct ILatLongReportFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *const u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pval: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ILocation(::windows::core::IUnknown);
 impl ILocation {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn RegisterForReport<'a, Param0: ::windows::core::IntoParam<'a, ILocationEvents>>(&self, pevents: Param0, reporttype: *const ::windows::core::GUID, dwrequestedreportinterval: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pevents.into_param().abi(), ::core::mem::transmute(reporttype), ::core::mem::transmute(dwrequestedreportinterval)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn UnregisterForReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetReport(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<ILocationReport> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(&mut result__)).from_abi::<ILocationReport>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetReportStatus(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<LOCATION_REPORT_STATUS> {
         let mut result__: LOCATION_REPORT_STATUS = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(&mut result__)).from_abi::<LOCATION_REPORT_STATUS>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetReportInterval(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetReportInterval(&self, reporttype: *const ::windows::core::GUID, millisecondsrequested: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(millisecondsrequested)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Devices_Sensors'*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn GetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID) -> ::windows::core::Result<super::Sensors::LOCATION_DESIRED_ACCURACY> {
         let mut result__: super::Sensors::LOCATION_DESIRED_ACCURACY = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(&mut result__)).from_abi::<super::Sensors::LOCATION_DESIRED_ACCURACY>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Devices_Sensors'*"]
     #[cfg(feature = "Win32_Devices_Sensors")]
     pub unsafe fn SetDesiredAccuracy(&self, reporttype: *const ::windows::core::GUID, desiredaccuracy: super::Sensors::LOCATION_DESIRED_ACCURACY) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(desiredaccuracy)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn RequestPermissions<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(&self, hparent: Param0, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: Param3) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), hparent.into_param().abi(), ::core::mem::transmute(preporttypes), ::core::mem::transmute(count), fmodal.into_param().abi()).ok()
@@ -2994,12 +3237,15 @@ pub struct ILocationVtbl(
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hparent: super::super::Foundation::HWND, preporttypes: *const ::windows::core::GUID, count: u32, fmodal: super::super::Foundation::BOOL) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ILocationEvents(::windows::core::IUnknown);
 impl ILocationEvents {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn OnLocationChanged<'a, Param1: ::windows::core::IntoParam<'a, ILocationReport>>(&self, reporttype: *const ::windows::core::GUID, plocationreport: Param1) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), plocationreport.into_param().abi()).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn OnStatusChanged(&self, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(reporttype), ::core::mem::transmute(newstatus)).ok()
     }
@@ -3048,12 +3294,15 @@ pub struct ILocationEventsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, plocationreport: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reporttype: *const ::windows::core::GUID, newstatus: LOCATION_REPORT_STATUS) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ILocationPower(::windows::core::IUnknown);
 impl ILocationPower {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Connect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Disconnect(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self)).ok()
     }
@@ -3102,18 +3351,22 @@ pub struct ILocationPowerVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ILocationReport(::windows::core::IUnknown);
 impl ILocationReport {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn GetSensorID(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let mut result__: ::windows::core::GUID = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<::windows::core::GUID>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn GetTimestamp(&self) -> ::windows::core::Result<super::super::Foundation::SYSTEMTIME> {
         let mut result__: super::super::Foundation::SYSTEMTIME = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::SYSTEMTIME>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Com_StructuredStorage', 'Win32_UI_Shell_PropertiesSystem'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))]
     pub unsafe fn GetValue(&self, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY) -> ::windows::core::Result<super::super::System::Com::StructuredStorage::PROPVARIANT> {
         let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::StructuredStorage::PROPVARIANT> = ::core::mem::zeroed();
@@ -3167,51 +3420,64 @@ pub struct ILocationReportVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pkey: *const super::super::UI::Shell::PropertiesSystem::PROPERTYKEY, pvalue: *mut super::super::System::Com::StructuredStorage::PROPVARIANT) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Com_StructuredStorage", feature = "Win32_UI_Shell_PropertiesSystem")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct ILocationReportFactory(::windows::core::IUnknown);
 impl ILocationReportFactory {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn ListenForReports(&self, requestedreportinterval: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(requestedreportinterval)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn StopListeningForReports(&self) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn Status(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn ReportInterval(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).10)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetReportInterval(&self, millisecondsrequested: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).11)(::core::mem::transmute_copy(self), ::core::mem::transmute(millisecondsrequested)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn DesiredAccuracy(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).12)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn SetDesiredAccuracy(&self, desiredaccuracy: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).13)(::core::mem::transmute_copy(self), ::core::mem::transmute(desiredaccuracy)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
     pub unsafe fn RequestPermissions(&self, hwnd: *const u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).14)(::core::mem::transmute_copy(self), ::core::mem::transmute(hwnd)).ok()
     }
@@ -3298,64 +3564,107 @@ pub struct ILocationReportFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, desiredaccuracy: u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hwnd: *const u32) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_CONFIG_SUPL_CERT: u32 = 2228488u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_CREATE_GEOFENCE: u32 = 2228544u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_DELETE_GEOFENCE: u32 = 2228548u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_EXECUTE_CWTEST: u32 = 2228496u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_EXECUTE_SELFTEST: u32 = 2228500u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_GET_CHIPSETINFO: u32 = 2228504u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_GET_DEVICE_CAPABILITY: u32 = 2228232u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_GET_FIXDATA: u32 = 2228300u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_INJECT_AGNSS: u32 = 2228352u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_AGNSS: u32 = 2228416u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_BREADCRUMBING_ALERT: u32 = 2228680u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_DRIVER_REQUEST: u32 = 2228608u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_ERROR: u32 = 2228420u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_GEOFENCES_TRACKINGSTATUS: u32 = 2228556u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_GEOFENCE_ALERT: u32 = 2228552u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_NI: u32 = 2228480u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_LISTEN_NMEA: u32 = 2228508u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_MODIFY_FIXSESSION: u32 = 2228292u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_POP_BREADCRUMBS: u32 = 2228684u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_RESPOND_NI: u32 = 2228492u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SEND_DRIVERCOMMAND: u32 = 2228236u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SEND_PLATFORM_CAPABILITY: u32 = 2228228u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SET_SUPL_HSLP: u32 = 2228484u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_SET_V2UPL_CONFIG: u32 = 2228512u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_START_BREADCRUMBING: u32 = 2228672u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_START_FIXSESSION: u32 = 2228288u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_STOP_BREADCRUMBING: u32 = 2228676u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const IOCTL_GNSS_STOP_FIXSESSION: u32 = 2228296u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const LOCATION_API_VERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub type LOCATION_REPORT_STATUS = i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const REPORT_NOT_SUPPORTED: LOCATION_REPORT_STATUS = 0i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const REPORT_ERROR: LOCATION_REPORT_STATUS = 1i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const REPORT_ACCESS_DENIED: LOCATION_REPORT_STATUS = 2i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const REPORT_INITIALIZING: LOCATION_REPORT_STATUS = 3i32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const REPORT_RUNNING: LOCATION_REPORT_STATUS = 4i32;
 pub const LatLongReport: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed81c073_1f84_4ca8_a161_183c776bc651);
 pub const LatLongReportFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dcc3cc8_8609_4863_bad4_03601f4c65e8);
 pub const Location: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5b8e079_ee6d_4e33_a438_c87f2e959254);
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const MAX_SERVER_URL_NAME: u32 = 260u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const MIN_BREADCRUMBS_SUPPORTED: u32 = 120u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 pub const MIN_GEOFENCES_REQUIRED: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct _ICivicAddressReportFactoryEvents(::windows::core::IUnknown);
 impl _ICivicAddressReportFactoryEvents {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()
@@ -3435,23 +3744,28 @@ pub struct _ICivicAddressReportFactoryEventsVtbl(
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole")))] usize,
 );
+#[doc = "*Required features: 'Win32_Devices_Geolocation'*"]
 #[repr(transparent)]
 pub struct _ILatLongReportFactoryEvents(::windows::core::IUnknown);
 impl _ILatLongReportFactoryEvents {
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfoCount(&self) -> ::windows::core::Result<u32> {
         let mut result__: u32 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<u32>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_System_Com'*"]
     #[cfg(feature = "Win32_System_Com")]
     pub unsafe fn GetTypeInfo(&self, itinfo: u32, lcid: u32) -> ::windows::core::Result<super::super::System::Com::ITypeInfo> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(itinfo), ::core::mem::transmute(lcid), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::ITypeInfo>(result__)
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com"))]
     pub unsafe fn GetIDsOfNames(&self, riid: *const ::windows::core::GUID, rgsznames: *const super::super::Foundation::PWSTR, cnames: u32, lcid: u32, rgdispid: *mut i32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(riid), ::core::mem::transmute(rgsznames), ::core::mem::transmute(cnames), ::core::mem::transmute(lcid), ::core::mem::transmute(rgdispid)).ok()
     }
+    #[doc = "*Required features: 'Win32_Devices_Geolocation', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
     pub unsafe fn Invoke(&self, dispidmember: i32, riid: *const ::windows::core::GUID, lcid: u32, wflags: u16, pdispparams: *const super::super::System::Com::DISPPARAMS, pvarresult: *mut super::super::System::Com::VARIANT, pexcepinfo: *mut super::super::System::Com::EXCEPINFO, puargerr: *mut u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dispidmember), ::core::mem::transmute(riid), ::core::mem::transmute(lcid), ::core::mem::transmute(wflags), ::core::mem::transmute(pdispparams), ::core::mem::transmute(pvarresult), ::core::mem::transmute(pexcepinfo), ::core::mem::transmute(puargerr)).ok()

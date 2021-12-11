@@ -16,6 +16,7 @@ pub mod Printing;
 #[cfg(feature = "Graphics_Printing3D")]
 pub mod Printing3D;
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct DisplayAdapterId {
     pub LowPart: u32,
     pub HighPart: i32,
@@ -47,6 +48,7 @@ impl ::core::default::Default for DisplayAdapterId {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct DisplayId {
     pub Value: u64,
 }
@@ -76,6 +78,7 @@ impl ::core::default::Default for DisplayId {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Graphics'*"]
 #[repr(transparent)]
 pub struct IGeometrySource2D(::windows::core::IUnknown);
 impl IGeometrySource2D {}
@@ -148,6 +151,7 @@ pub struct IGeometrySource2DVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct PointInt32 {
     pub X: i32,
     pub Y: i32,
@@ -179,6 +183,7 @@ impl ::core::default::Default for PointInt32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct RectInt32 {
     pub X: i32,
     pub Y: i32,
@@ -212,6 +217,7 @@ impl ::core::default::Default for RectInt32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Graphics'*"]
 pub struct SizeInt32 {
     pub Width: i32,
     pub Height: i32,

@@ -32,6 +32,7 @@ pub mod WinTrust;
 #[cfg(feature = "Win32_Security_WinWlx")]
 pub mod WinWlx;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_ALLOWED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -58,6 +59,7 @@ impl ::core::default::Default for ACCESS_ALLOWED_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_ALLOWED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -84,6 +86,7 @@ impl ::core::default::Default for ACCESS_ALLOWED_CALLBACK_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -113,6 +116,7 @@ impl ::core::default::Default for ACCESS_ALLOWED_CALLBACK_OBJECT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_ALLOWED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -142,6 +146,7 @@ impl ::core::default::Default for ACCESS_ALLOWED_OBJECT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_DENIED_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -168,6 +173,7 @@ impl ::core::default::Default for ACCESS_DENIED_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_DENIED_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -194,6 +200,7 @@ impl ::core::default::Default for ACCESS_DENIED_CALLBACK_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -223,6 +230,7 @@ impl ::core::default::Default for ACCESS_DENIED_CALLBACK_OBJECT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_DENIED_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -252,6 +260,7 @@ impl ::core::default::Default for ACCESS_DENIED_OBJECT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACCESS_REASONS {
     pub Data: [u32; 32],
 }
@@ -275,22 +284,38 @@ impl ::core::default::Default for ACCESS_REASONS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type ACE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CONTAINER_INHERIT_ACE: ACE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const FAILED_ACCESS_ACE_FLAG: ACE_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const INHERIT_ONLY_ACE: ACE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const INHERITED_ACE: ACE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const NO_PROPAGATE_INHERIT_ACE: ACE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const OBJECT_INHERIT_ACE: ACE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SUCCESSFUL_ACCESS_ACE_FLAG: ACE_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SUB_CONTAINERS_AND_OBJECTS_INHERIT: ACE_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SUB_CONTAINERS_ONLY_INHERIT: ACE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SUB_OBJECTS_ONLY_INHERIT: ACE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const INHERIT_NO_PROPAGATE: ACE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const INHERIT_ONLY: ACE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const NO_INHERITANCE: ACE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const INHERIT_ONLY_ACE_: ACE_FLAGS = 8u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACE_HEADER {
     pub AceType: u8,
     pub AceFlags: u8,
@@ -316,10 +341,14 @@ impl ::core::default::Default for ACE_HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type ACE_REVISION = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ACL_REVISION: ACE_REVISION = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ACL_REVISION_DS: ACE_REVISION = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACL {
     pub AclRevision: u8,
     pub Sbz1: u8,
@@ -347,10 +376,14 @@ impl ::core::default::Default for ACL {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type ACL_INFORMATION_CLASS = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const AclRevisionInformation: ACL_INFORMATION_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const AclSizeInformation: ACL_INFORMATION_CLASS = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACL_REVISION_INFORMATION {
     pub AclRevision: u32,
 }
@@ -375,6 +408,7 @@ impl ::core::default::Default for ACL_REVISION_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct ACL_SIZE_INFORMATION {
     pub AceCount: u32,
     pub AclBytesInUse: u32,
@@ -400,9 +434,13 @@ impl ::core::default::Default for ACL_SIZE_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type AUDIT_EVENT_TYPE = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const AuditEventObjectAccess: AUDIT_EVENT_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const AuditEventDirectoryServiceAccess: AUDIT_EVENT_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheck<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: Param1, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
@@ -417,6 +455,7 @@ pub unsafe fn AccessCheck<'a, Param1: ::windows::core::IntoParam<'a, super::Foun
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, securitydescriptor: *const SECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: Param7, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL {
@@ -431,6 +470,7 @@ pub unsafe fn AccessCheckAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, securitydescriptor: *const SECURITY_DESCRIPTOR, desiredaccess: u32, genericmapping: *const GENERIC_MAPPING, objectcreation: Param7, grantedaccess: *mut u32, accessstatus: *mut i32, pfgenerateonclose: *mut i32) -> super::Foundation::BOOL {
@@ -445,6 +485,7 @@ pub unsafe fn AccessCheckAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccess: *mut u32, accessstatus: *mut i32) -> super::Foundation::BOOL {
@@ -459,6 +500,7 @@ pub unsafe fn AccessCheckByType<'a, Param1: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
@@ -507,6 +549,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmA<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
@@ -555,6 +598,7 @@ pub unsafe fn AccessCheckByTypeAndAuditAlarmW<'a, Param0: ::windows::core::IntoP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(psecuritydescriptor: *const SECURITY_DESCRIPTOR, principalselfsid: Param1, clienttoken: Param2, desiredaccess: u32, objecttypelist: *mut OBJECT_TYPE_LIST, objecttypelistlength: u32, genericmapping: *const GENERIC_MAPPING, privilegeset: *mut PRIVILEGE_SET, privilegesetlength: *mut u32, grantedaccesslist: *mut u32, accessstatuslist: *mut u32) -> super::Foundation::BOOL {
@@ -569,6 +613,7 @@ pub unsafe fn AccessCheckByTypeResultList<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
@@ -617,6 +662,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmA<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
@@ -667,6 +713,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleA<'a, Param0: ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param4: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param13: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
@@ -717,6 +764,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmByHandleW<'a, Param0: ::wi
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param12: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(
@@ -765,6 +813,7 @@ pub unsafe fn AccessCheckByTypeResultListAndAuditAlarmW<'a, Param0: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAccessAllowedAce<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: Param3) -> super::Foundation::BOOL {
@@ -779,6 +828,7 @@ pub unsafe fn AddAccessAllowedAce<'a, Param3: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAccessAllowedAceEx<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: Param4) -> super::Foundation::BOOL {
@@ -793,6 +843,7 @@ pub unsafe fn AddAccessAllowedAceEx<'a, Param4: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAccessAllowedObjectAce<'a, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows::core::GUID, inheritedobjecttypeguid: *const ::windows::core::GUID, psid: Param6) -> super::Foundation::BOOL {
@@ -807,6 +858,7 @@ pub unsafe fn AddAccessAllowedObjectAce<'a, Param6: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAccessDeniedAce<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, accessmask: u32, psid: Param3) -> super::Foundation::BOOL {
@@ -821,6 +873,7 @@ pub unsafe fn AddAccessDeniedAce<'a, Param3: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAccessDeniedAceEx<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: Param4) -> super::Foundation::BOOL {
@@ -835,6 +888,7 @@ pub unsafe fn AddAccessDeniedAceEx<'a, Param4: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAccessDeniedObjectAce<'a, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows::core::GUID, inheritedobjecttypeguid: *const ::windows::core::GUID, psid: Param6) -> super::Foundation::BOOL {
@@ -849,6 +903,7 @@ pub unsafe fn AddAccessDeniedObjectAce<'a, Param6: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32, pacelist: *const ::core::ffi::c_void, nacelistlength: u32) -> super::Foundation::BOOL {
@@ -863,6 +918,7 @@ pub unsafe fn AddAce(pacl: *mut ACL, dwacerevision: u32, dwstartingaceindex: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAuditAccessAce<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(pacl: *mut ACL, dwacerevision: u32, dwaccessmask: u32, psid: Param3, bauditsuccess: Param4, bauditfailure: Param5) -> super::Foundation::BOOL {
@@ -877,6 +933,7 @@ pub unsafe fn AddAuditAccessAce<'a, Param3: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAuditAccessAceEx<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, dwaccessmask: u32, psid: Param4, bauditsuccess: Param5, bauditfailure: Param6) -> super::Foundation::BOOL {
@@ -891,6 +948,7 @@ pub unsafe fn AddAuditAccessAceEx<'a, Param4: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddAuditAccessObjectAce<'a, Param6: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param7: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param8: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, objecttypeguid: *const ::windows::core::GUID, inheritedobjecttypeguid: *const ::windows::core::GUID, psid: Param6, bauditsuccess: Param7, bauditfailure: Param8) -> super::Foundation::BOOL {
@@ -905,6 +963,7 @@ pub unsafe fn AddAuditAccessObjectAce<'a, Param6: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddConditionalAce<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param6: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, acetype: u8, accessmask: u32, psid: Param5, conditionstr: Param6, returnlength: *mut u32) -> super::Foundation::BOOL {
@@ -919,6 +978,7 @@ pub unsafe fn AddConditionalAce<'a, Param5: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddMandatoryAce<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: ACE_REVISION, aceflags: ACE_FLAGS, mandatorypolicy: u32, plabelsid: Param4) -> super::Foundation::BOOL {
@@ -933,6 +993,7 @@ pub unsafe fn AddMandatoryAce<'a, Param4: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddResourceAttributeAce<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: Param4, pattributeinfo: *const CLAIM_SECURITY_ATTRIBUTES_INFORMATION, preturnlength: *mut u32) -> super::Foundation::BOOL {
@@ -947,6 +1008,7 @@ pub unsafe fn AddResourceAttributeAce<'a, Param4: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddScopedPolicyIDAce<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(pacl: *mut ACL, dwacerevision: u32, aceflags: ACE_FLAGS, accessmask: u32, psid: Param4) -> super::Foundation::BOOL {
@@ -961,6 +1023,7 @@ pub unsafe fn AddScopedPolicyIDAce<'a, Param4: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdjustTokenGroups<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(tokenhandle: Param0, resettodefault: Param1, newstate: *const TOKEN_GROUPS, bufferlength: u32, previousstate: *mut TOKEN_GROUPS, returnlength: *mut u32) -> super::Foundation::BOOL {
@@ -975,6 +1038,7 @@ pub unsafe fn AdjustTokenGroups<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AdjustTokenPrivileges<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(tokenhandle: Param0, disableallprivileges: Param1, newstate: *const TOKEN_PRIVILEGES, bufferlength: u32, previousstate: *mut TOKEN_PRIVILEGES, returnlength: *mut u32) -> super::Foundation::BOOL {
@@ -989,6 +1053,7 @@ pub unsafe fn AdjustTokenPrivileges<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AllocateAndInitializeSid(pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8, nsubauthority0: u32, nsubauthority1: u32, nsubauthority2: u32, nsubauthority3: u32, nsubauthority4: u32, nsubauthority5: u32, nsubauthority6: u32, nsubauthority7: u32, psid: *mut super::Foundation::PSID) -> super::Foundation::BOOL {
@@ -1003,6 +1068,7 @@ pub unsafe fn AllocateAndInitializeSid(pidentifierauthority: *const SID_IDENTIFI
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AllocateLocallyUniqueId(luid: *mut super::Foundation::LUID) -> super::Foundation::BOOL {
@@ -1017,6 +1083,7 @@ pub unsafe fn AllocateLocallyUniqueId(luid: *mut super::Foundation::LUID) -> sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreAllAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> super::Foundation::BOOL {
@@ -1031,6 +1098,7 @@ pub unsafe fn AreAllAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AreAnyAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> super::Foundation::BOOL {
@@ -1046,6 +1114,7 @@ pub unsafe fn AreAnyAccessesGranted(grantedaccess: u32, desiredaccess: u32) -> s
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     pub Version: u16,
@@ -1080,6 +1149,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
     pub pAttributeV1: *mut CLAIM_SECURITY_ATTRIBUTE_V1,
@@ -1110,14 +1180,22 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTES_INFORMATION_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type CLAIM_SECURITY_ATTRIBUTE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_NON_INHERITABLE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_VALUE_CASE_SENSITIVE: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_USE_FOR_DENY_ONLY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED_BY_DEFAULT: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_DISABLED: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_MANDATORY: CLAIM_SECURITY_ATTRIBUTE_FLAGS = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     pub Version: u64,
@@ -1150,6 +1228,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_FQBN_VALUE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     pub pValue: *mut ::core::ffi::c_void,
     pub ValueLength: u32,
@@ -1175,6 +1254,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_OCTET_STRING_VALUE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     pub Name: u32,
     pub ValueType: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE,
@@ -1204,6 +1284,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub union CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     pub pInt64: [u32; 1],
     pub pUint64: [u32; 1],
@@ -1232,6 +1313,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_RELATIVE_V1_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct CLAIM_SECURITY_ATTRIBUTE_V1 {
     pub Name: super::Foundation::PWSTR,
@@ -1268,6 +1350,7 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_V1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union CLAIM_SECURITY_ATTRIBUTE_V1_0 {
     pub pInt64: *mut i64,
@@ -1302,20 +1385,35 @@ impl ::core::default::Default for CLAIM_SECURITY_ATTRIBUTE_V1_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_INT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 1u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_UINT64: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 2u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 3u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_OCTET_STRING: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 16u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_FQBN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 4u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_SID: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 5u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CLAIM_SECURITY_ATTRIBUTE_TYPE_BOOLEAN: CLAIM_SECURITY_ATTRIBUTE_VALUE_TYPE = 6u16;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type CREATE_RESTRICTED_TOKEN_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const DISABLE_MAX_PRIVILEGE: CREATE_RESTRICTED_TOKEN_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SANDBOX_INERT: CREATE_RESTRICTED_TOKEN_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LUA_TOKEN: CREATE_RESTRICTED_TOKEN_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WRITE_RESTRICTED: CREATE_RESTRICTED_TOKEN_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const CVT_SECONDS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckTokenCapability<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(tokenhandle: Param0, capabilitysidtocheck: Param1, hascapability: *mut super::Foundation::BOOL) -> super::Foundation::BOOL {
@@ -1330,6 +1428,7 @@ pub unsafe fn CheckTokenCapability<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckTokenMembership<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(tokenhandle: Param0, sidtocheck: Param1, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL {
@@ -1344,6 +1443,7 @@ pub unsafe fn CheckTokenMembership<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CheckTokenMembershipEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(tokenhandle: Param0, sidtocheck: Param1, flags: u32, ismember: *mut super::Foundation::BOOL) -> super::Foundation::BOOL {
@@ -1358,6 +1458,7 @@ pub unsafe fn CheckTokenMembershipEx<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOLEAN>>(parentdescriptor: *const SECURITY_DESCRIPTOR, currentsecuritydescriptor: *const SECURITY_DESCRIPTOR, newsecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttype: *const ::windows::core::GUID, isdirectoryobject: Param4, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
@@ -1372,6 +1473,7 @@ pub unsafe fn ConvertToAutoInheritPrivateObjectSecurity<'a, Param4: ::windows::c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopySid<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(ndestinationsidlength: u32, pdestinationsid: super::Foundation::PSID, psourcesid: Param2) -> super::Foundation::BOOL {
@@ -1386,6 +1488,7 @@ pub unsafe fn CopySid<'a, Param2: ::windows::core::IntoParam<'a, super::Foundati
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePrivateObjectSecurity<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param4: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, isdirectoryobject: Param3, token: Param4, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
@@ -1400,6 +1503,7 @@ pub unsafe fn CreatePrivateObjectSecurity<'a, Param3: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePrivateObjectSecurityEx<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param6: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttype: *const ::windows::core::GUID, iscontainerobject: Param4, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param6, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
@@ -1414,6 +1518,7 @@ pub unsafe fn CreatePrivateObjectSecurityEx<'a, Param4: ::windows::core::IntoPar
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param7: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(parentdescriptor: *const SECURITY_DESCRIPTOR, creatordescriptor: *const SECURITY_DESCRIPTOR, newdescriptor: *mut *mut SECURITY_DESCRIPTOR, objecttypes: *const *const ::windows::core::GUID, guidcount: u32, iscontainerobject: Param5, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, token: Param7, genericmapping: *const GENERIC_MAPPING) -> super::Foundation::BOOL {
@@ -1428,6 +1533,7 @@ pub unsafe fn CreatePrivateObjectSecurityWithMultipleInheritance<'a, Param5: ::w
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateRestrictedToken<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(existingtokenhandle: Param0, flags: CREATE_RESTRICTED_TOKEN_FLAGS, disablesidcount: u32, sidstodisable: *const SID_AND_ATTRIBUTES, deleteprivilegecount: u32, privilegestodelete: *const LUID_AND_ATTRIBUTES, restrictedsidcount: u32, sidstorestrict: *const SID_AND_ATTRIBUTES, newtokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL {
@@ -1442,6 +1548,7 @@ pub unsafe fn CreateRestrictedToken<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateWellKnownSid<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(wellknownsidtype: WELL_KNOWN_SID_TYPE, domainsid: Param1, psid: super::Foundation::PSID, cbsid: *mut u32) -> super::Foundation::BOOL {
@@ -1456,6 +1563,7 @@ pub unsafe fn CreateWellKnownSid<'a, Param1: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::BOOL {
@@ -1470,6 +1578,7 @@ pub unsafe fn DeleteAce(pacl: *mut ACL, dwaceindex: u32) -> super::Foundation::B
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeriveCapabilitySidsFromName<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(capname: Param0, capabilitygroupsids: *mut *mut super::Foundation::PSID, capabilitygroupsidcount: *mut u32, capabilitysids: *mut *mut super::Foundation::PSID, capabilitysidcount: *mut u32) -> super::Foundation::BOOL {
@@ -1484,6 +1593,7 @@ pub unsafe fn DeriveCapabilitySidsFromName<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *const *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL {
@@ -1498,6 +1608,7 @@ pub unsafe fn DestroyPrivateObjectSecurity(objectdescriptor: *const *const SECUR
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DuplicateToken<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(existingtokenhandle: Param0, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, duplicatetokenhandle: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL {
@@ -1512,6 +1623,7 @@ pub unsafe fn DuplicateToken<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DuplicateTokenEx<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(hexistingtoken: Param0, dwdesiredaccess: TOKEN_ACCESS_MASK, lptokenattributes: *const SECURITY_ATTRIBUTES, impersonationlevel: SECURITY_IMPERSONATION_LEVEL, tokentype: TOKEN_TYPE, phnewtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL {
@@ -1526,15 +1638,25 @@ pub unsafe fn DuplicateTokenEx<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type ENUM_PERIOD = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_INVALID: ENUM_PERIOD = -1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_SECONDS: ENUM_PERIOD = 0i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_MINUTES: ENUM_PERIOD = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_HOURS: ENUM_PERIOD = 2i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_DAYS: ENUM_PERIOD = 3i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_WEEKS: ENUM_PERIOD = 4i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_MONTHS: ENUM_PERIOD = 5i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ENUM_PERIOD_YEARS: ENUM_PERIOD = 6i32;
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualDomainSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid1: Param0, psid2: Param1, pfequal: *mut super::Foundation::BOOL) -> super::Foundation::BOOL {
@@ -1549,6 +1671,7 @@ pub unsafe fn EqualDomainSid<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualPrefixSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid1: Param0, psid2: Param1) -> super::Foundation::BOOL {
@@ -1563,6 +1686,7 @@ pub unsafe fn EqualPrefixSid<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid1: Param0, psid2: Param1) -> super::Foundation::BOOL {
@@ -1577,6 +1701,7 @@ pub unsafe fn EqualSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundat
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL {
@@ -1591,6 +1716,7 @@ pub unsafe fn FindFirstFreeAce(pacl: *const ACL, pace: *mut *mut ::core::ffi::c_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FreeSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0) -> *mut ::core::ffi::c_void {
@@ -1606,6 +1732,7 @@ pub unsafe fn FreeSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundati
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct GENERIC_MAPPING {
     pub GenericRead: u32,
     pub GenericWrite: u32,
@@ -1632,6 +1759,7 @@ impl ::core::default::Default for GENERIC_MAPPING {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::core::ffi::c_void) -> super::Foundation::BOOL {
@@ -1646,6 +1774,7 @@ pub unsafe fn GetAce(pacl: *const ACL, dwaceindex: u32, pace: *mut *mut ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
@@ -1660,6 +1789,7 @@ pub unsafe fn GetAclInformation(pacl: *const ACL, paclinformation: *mut ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcontainerace: *mut *mut ::core::ffi::c_void, appcontaineraceindex: *mut u32) -> super::Foundation::BOOL {
@@ -1674,6 +1804,7 @@ pub unsafe fn GetAppContainerAce(acl: *const ACL, startingaceindex: u32, appcont
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCachedSigningLevel<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(file: Param0, flags: *mut u32, signinglevel: *mut u32, thumbprint: *mut u8, thumbprintsize: *mut u32, thumbprintalgorithm: *mut u32) -> super::Foundation::BOOL {
@@ -1688,6 +1819,7 @@ pub unsafe fn GetCachedSigningLevel<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpfilename: Param0, requestedinformation: u32, psecuritydescriptor: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
@@ -1702,6 +1834,7 @@ pub unsafe fn GetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpfilename: Param0, requestedinformation: u32, psecuritydescriptor: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
@@ -1716,6 +1849,7 @@ pub unsafe fn GetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(handle: Param0, requestedinformation: u32, psecuritydescriptor: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
@@ -1730,6 +1864,7 @@ pub unsafe fn GetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetLengthSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0) -> u32 {
@@ -1744,6 +1879,7 @@ pub unsafe fn GetLengthSid<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPrivateObjectSecurity(objectdescriptor: *const SECURITY_DESCRIPTOR, securityinformation: u32, resultantdescriptor: *mut SECURITY_DESCRIPTOR, descriptorlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL {
@@ -1758,6 +1894,7 @@ pub unsafe fn GetPrivateObjectSecurity(objectdescriptor: *const SECURITY_DESCRIP
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, pcontrol: *mut u16, lpdwrevision: *mut u32) -> super::Foundation::BOOL {
@@ -1772,6 +1909,7 @@ pub unsafe fn GetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorDacl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, lpbdaclpresent: *mut i32, pdacl: *mut *mut ACL, lpbdacldefaulted: *mut i32) -> super::Foundation::BOOL {
@@ -1786,6 +1924,7 @@ pub unsafe fn GetSecurityDescriptorDacl(psecuritydescriptor: *const SECURITY_DES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorGroup(psecuritydescriptor: *const SECURITY_DESCRIPTOR, pgroup: *mut super::Foundation::PSID, lpbgroupdefaulted: *mut i32) -> super::Foundation::BOOL {
@@ -1800,6 +1939,7 @@ pub unsafe fn GetSecurityDescriptorGroup(psecuritydescriptor: *const SECURITY_DE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> u32 {
@@ -1814,6 +1954,7 @@ pub unsafe fn GetSecurityDescriptorLength(psecuritydescriptor: *const SECURITY_D
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorOwner(psecuritydescriptor: *const SECURITY_DESCRIPTOR, powner: *mut super::Foundation::PSID, lpbownerdefaulted: *mut i32) -> super::Foundation::BOOL {
@@ -1828,6 +1969,7 @@ pub unsafe fn GetSecurityDescriptorOwner(psecuritydescriptor: *const SECURITY_DE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorRMControl(securitydescriptor: *const SECURITY_DESCRIPTOR, rmcontrol: *mut u8) -> u32 {
@@ -1842,6 +1984,7 @@ pub unsafe fn GetSecurityDescriptorRMControl(securitydescriptor: *const SECURITY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSecurityDescriptorSacl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, lpbsaclpresent: *mut i32, psacl: *mut *mut ACL, lpbsacldefaulted: *mut i32) -> super::Foundation::BOOL {
@@ -1856,6 +1999,7 @@ pub unsafe fn GetSecurityDescriptorSacl(psecuritydescriptor: *const SECURITY_DES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSidIdentifierAuthority<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0) -> *mut SID_IDENTIFIER_AUTHORITY {
@@ -1870,6 +2014,7 @@ pub unsafe fn GetSidIdentifierAuthority<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 #[inline]
 pub unsafe fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32 {
     #[cfg(windows)]
@@ -1883,6 +2028,7 @@ pub unsafe fn GetSidLengthRequired(nsubauthoritycount: u8) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSidSubAuthority<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0, nsubauthority: u32) -> *mut u32 {
@@ -1897,6 +2043,7 @@ pub unsafe fn GetSidSubAuthority<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetSidSubAuthorityCount<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0) -> *mut u8 {
@@ -1911,6 +2058,7 @@ pub unsafe fn GetSidSubAuthorityCount<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTokenInformation<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(tokenhandle: Param0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *mut ::core::ffi::c_void, tokeninformationlength: u32, returnlength: *mut u32) -> super::Foundation::BOOL {
@@ -1925,6 +2073,7 @@ pub unsafe fn GetTokenInformation<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(hobj: Param0, psirequested: *const u32, psid: *mut SECURITY_DESCRIPTOR, nlength: u32, lpnlengthneeded: *mut u32) -> super::Foundation::BOOL {
@@ -1939,6 +2088,7 @@ pub unsafe fn GetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowsAccountDomainSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0, pdomainsid: super::Foundation::PSID, cbdomainsid: *mut u32) -> super::Foundation::BOOL {
@@ -1959,6 +2109,7 @@ pub type HDIAGNOSTIC_EVENT_PRODUCER_DESCRIPTION = isize;
 pub type HDIAGNOSTIC_EVENT_TAG_DESCRIPTION = isize;
 pub type HDIAGNOSTIC_RECORD = isize;
 pub type HDIAGNOSTIC_REPORT = isize;
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImpersonateAnonymousToken<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(threadhandle: Param0) -> super::Foundation::BOOL {
@@ -1973,6 +2124,7 @@ pub unsafe fn ImpersonateAnonymousToken<'a, Param0: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImpersonateLoggedOnUser<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(htoken: Param0) -> super::Foundation::BOOL {
@@ -1987,6 +2139,7 @@ pub unsafe fn ImpersonateLoggedOnUser<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL) -> super::Foundation::BOOL {
@@ -2001,6 +2154,7 @@ pub unsafe fn ImpersonateSelf(impersonationlevel: SECURITY_IMPERSONATION_LEVEL) 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: u32) -> super::Foundation::BOOL {
@@ -2015,6 +2169,7 @@ pub unsafe fn InitializeAcl(pacl: *mut ACL, nacllength: u32, dwaclrevision: u32)
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeSecurityDescriptor(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, dwrevision: u32) -> super::Foundation::BOOL {
@@ -2029,6 +2184,7 @@ pub unsafe fn InitializeSecurityDescriptor(psecuritydescriptor: *mut SECURITY_DE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: *const SID_IDENTIFIER_AUTHORITY, nsubauthoritycount: u8) -> super::Foundation::BOOL {
@@ -2043,6 +2199,7 @@ pub unsafe fn InitializeSid(sid: super::Foundation::PSID, pidentifierauthority: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsTokenRestricted<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(tokenhandle: Param0) -> super::Foundation::BOOL {
@@ -2057,6 +2214,7 @@ pub unsafe fn IsTokenRestricted<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL {
@@ -2071,6 +2229,7 @@ pub unsafe fn IsValidAcl(pacl: *const ACL) -> super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidSecurityDescriptor(psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL {
@@ -2085,6 +2244,7 @@ pub unsafe fn IsValidSecurityDescriptor(psecuritydescriptor: *const SECURITY_DES
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsValidSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0) -> super::Foundation::BOOL {
@@ -2099,6 +2259,7 @@ pub unsafe fn IsValidSid<'a, Param0: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsWellKnownSid<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(psid: Param0, wellknownsidtype: WELL_KNOWN_SID_TYPE) -> super::Foundation::BOOL {
@@ -2114,6 +2275,7 @@ pub unsafe fn IsWellKnownSid<'a, Param0: ::windows::core::IntoParam<'a, super::F
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LLFILETIME {
     pub Anonymous: LLFILETIME_0,
@@ -2145,6 +2307,7 @@ impl ::core::default::Default for LLFILETIME {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union LLFILETIME_0 {
     pub ll: i64,
@@ -2176,19 +2339,32 @@ impl ::core::default::Default for LLFILETIME_0 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type LOGON32_LOGON = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_LOGON_BATCH: LOGON32_LOGON = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_LOGON_INTERACTIVE: LOGON32_LOGON = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_LOGON_NETWORK: LOGON32_LOGON = 3u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_LOGON_NETWORK_CLEARTEXT: LOGON32_LOGON = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_LOGON_NEW_CREDENTIALS: LOGON32_LOGON = 9u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_LOGON_SERVICE: LOGON32_LOGON = 5u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_LOGON_UNLOCK: LOGON32_LOGON = 7u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type LOGON32_PROVIDER = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_PROVIDER_DEFAULT: LOGON32_PROVIDER = 0u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_PROVIDER_WINNT50: LOGON32_PROVIDER = 3u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LOGON32_PROVIDER_WINNT40: LOGON32_PROVIDER = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LUID_AND_ATTRIBUTES {
     pub Luid: super::Foundation::LUID,
@@ -2220,6 +2396,7 @@ impl ::core::default::Default for LUID_AND_ATTRIBUTES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogonUserA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpszusername: Param0, lpszdomain: Param1, lpszpassword: Param2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL {
@@ -2234,6 +2411,7 @@ pub unsafe fn LogonUserA<'a, Param0: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogonUserExA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpszusername: Param0, lpszdomain: Param1, lpszpassword: Param2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::core::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL {
@@ -2248,6 +2426,7 @@ pub unsafe fn LogonUserExA<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogonUserExW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpszusername: Param0, lpszdomain: Param1, lpszpassword: Param2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE, pplogonsid: *mut super::Foundation::PSID, ppprofilebuffer: *mut *mut ::core::ffi::c_void, pdwprofilelength: *mut u32, pquotalimits: *mut QUOTA_LIMITS) -> super::Foundation::BOOL {
@@ -2262,6 +2441,7 @@ pub unsafe fn LogonUserExW<'a, Param0: ::windows::core::IntoParam<'a, super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LogonUserW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpszusername: Param0, lpszdomain: Param1, lpszpassword: Param2, dwlogontype: LOGON32_LOGON, dwlogonprovider: LOGON32_PROVIDER, phtoken: *mut super::Foundation::HANDLE) -> super::Foundation::BOOL {
@@ -2276,6 +2456,7 @@ pub unsafe fn LogonUserW<'a, Param0: ::windows::core::IntoParam<'a, super::Found
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupAccountNameA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpsystemname: Param0, lpaccountname: Param1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: super::Foundation::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL {
@@ -2290,6 +2471,7 @@ pub unsafe fn LookupAccountNameA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupAccountNameW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpsystemname: Param0, lpaccountname: Param1, sid: super::Foundation::PSID, cbsid: *mut u32, referenceddomainname: super::Foundation::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL {
@@ -2304,6 +2486,7 @@ pub unsafe fn LookupAccountNameW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupAccountSidA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(lpsystemname: Param0, sid: Param1, name: super::Foundation::PSTR, cchname: *mut u32, referenceddomainname: super::Foundation::PSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL {
@@ -2318,6 +2501,7 @@ pub unsafe fn LookupAccountSidA<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupAccountSidW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>>(lpsystemname: Param0, sid: Param1, name: super::Foundation::PWSTR, cchname: *mut u32, referenceddomainname: super::Foundation::PWSTR, cchreferenceddomainname: *mut u32, peuse: *mut SID_NAME_USE) -> super::Foundation::BOOL {
@@ -2332,6 +2516,7 @@ pub unsafe fn LookupAccountSidW<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupPrivilegeDisplayNameA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpsystemname: Param0, lpname: Param1, lpdisplayname: super::Foundation::PSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL {
@@ -2346,6 +2531,7 @@ pub unsafe fn LookupPrivilegeDisplayNameA<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupPrivilegeDisplayNameW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpsystemname: Param0, lpname: Param1, lpdisplayname: super::Foundation::PWSTR, cchdisplayname: *mut u32, lplanguageid: *mut u32) -> super::Foundation::BOOL {
@@ -2360,6 +2546,7 @@ pub unsafe fn LookupPrivilegeDisplayNameW<'a, Param0: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupPrivilegeNameA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpsystemname: Param0, lpluid: *const super::Foundation::LUID, lpname: super::Foundation::PSTR, cchname: *mut u32) -> super::Foundation::BOOL {
@@ -2374,6 +2561,7 @@ pub unsafe fn LookupPrivilegeNameA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupPrivilegeNameW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpsystemname: Param0, lpluid: *const super::Foundation::LUID, lpname: super::Foundation::PWSTR, cchname: *mut u32) -> super::Foundation::BOOL {
@@ -2388,6 +2576,7 @@ pub unsafe fn LookupPrivilegeNameW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupPrivilegeValueA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpsystemname: Param0, lpname: Param1, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL {
@@ -2402,6 +2591,7 @@ pub unsafe fn LookupPrivilegeValueA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LookupPrivilegeValueW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpsystemname: Param0, lpname: Param1, lpluid: *mut super::Foundation::LUID) -> super::Foundation::BOOL {
@@ -2416,14 +2606,23 @@ pub unsafe fn LookupPrivilegeValueW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type MANDATORY_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MandatoryLevelUntrusted: MANDATORY_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MandatoryLevelLow: MANDATORY_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MandatoryLevelMedium: MANDATORY_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MandatoryLevelHigh: MANDATORY_LEVEL = 3i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MandatoryLevelSystem: MANDATORY_LEVEL = 4i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MandatoryLevelSecureProcess: MANDATORY_LEVEL = 5i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MandatoryLevelCount: MANDATORY_LEVEL = 6i32;
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const SECURITY_DESCRIPTOR, pabsolutesecuritydescriptor: *mut SECURITY_DESCRIPTOR, lpdwabsolutesecuritydescriptorsize: *mut u32, pdacl: *mut ACL, lpdwdaclsize: *mut u32, psacl: *mut ACL, lpdwsaclsize: *mut u32, powner: super::Foundation::PSID, lpdwownersize: *mut u32, pprimarygroup: super::Foundation::PSID, lpdwprimarygroupsize: *mut u32) -> super::Foundation::BOOL {
@@ -2438,6 +2637,7 @@ pub unsafe fn MakeAbsoluteSD(pselfrelativesecuritydescriptor: *const SECURITY_DE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: *const SECURITY_DESCRIPTOR, pselfrelativesecuritydescriptor: *mut SECURITY_DESCRIPTOR, lpdwbufferlength: *mut u32) -> super::Foundation::BOOL {
@@ -2452,6 +2652,7 @@ pub unsafe fn MakeSelfRelativeSD(pabsolutesecuritydescriptor: *const SECURITY_DE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 #[inline]
 pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERIC_MAPPING) {
     #[cfg(windows)]
@@ -2467,20 +2668,34 @@ pub unsafe fn MapGenericMask(accessmask: *mut u32, genericmapping: *const GENERI
 }
 pub type NCRYPT_DESCRIPTOR_HANDLE = isize;
 pub type NCRYPT_STREAM_HANDLE = isize;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type OBJECT_SECURITY_INFORMATION = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ATTRIBUTE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 32u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const BACKUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 65536u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const GROUP_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const LABEL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 16u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const OWNER_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const PROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 2147483648u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const PROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 1073741824u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SCOPE_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 64u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const UNPROTECTED_DACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 536870912u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const UNPROTECTED_SACL_SECURITY_INFORMATION: OBJECT_SECURITY_INFORMATION = 268435456u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct OBJECT_TYPE_LIST {
     pub Level: u16,
     pub Sbz: u16,
@@ -2506,6 +2721,7 @@ impl ::core::default::Default for OBJECT_TYPE_LIST {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectCloseAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
@@ -2520,6 +2736,7 @@ pub unsafe fn ObjectCloseAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectCloseAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
@@ -2534,6 +2751,7 @@ pub unsafe fn ObjectCloseAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectDeleteAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
@@ -2548,6 +2766,7 @@ pub unsafe fn ObjectDeleteAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectDeleteAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, generateonclose: Param2) -> super::Foundation::BOOL {
@@ -2562,6 +2781,7 @@ pub unsafe fn ObjectDeleteAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: Param5, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: Param9, accessgranted: Param10, generateonclose: *mut i32) -> super::Foundation::BOOL {
@@ -2576,6 +2796,7 @@ pub unsafe fn ObjectOpenAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectOpenAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param9: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param10: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, objecttypename: Param2, objectname: Param3, psecuritydescriptor: *const SECURITY_DESCRIPTOR, clienttoken: Param5, desiredaccess: u32, grantedaccess: u32, privileges: *const PRIVILEGE_SET, objectcreation: Param9, accessgranted: Param10, generateonclose: *mut i32) -> super::Foundation::BOOL {
@@ -2590,6 +2811,7 @@ pub unsafe fn ObjectOpenAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectPrivilegeAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, clienttoken: Param2, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: Param5) -> super::Foundation::BOOL {
@@ -2604,6 +2826,7 @@ pub unsafe fn ObjectPrivilegeAuditAlarmA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ObjectPrivilegeAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param5: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, handleid: *const ::core::ffi::c_void, clienttoken: Param2, desiredaccess: u32, privileges: *const PRIVILEGE_SET, accessgranted: Param5) -> super::Foundation::BOOL {
@@ -2618,9 +2841,11 @@ pub unsafe fn ObjectPrivilegeAuditAlarmW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PLSA_AP_CALL_PACKAGE_UNTRUSTED = ::core::option::Option<unsafe extern "system" fn(clientrequest: *const *const ::core::ffi::c_void, protocolsubmitbuffer: *const ::core::ffi::c_void, clientbufferbase: *const ::core::ffi::c_void, submitbufferlength: u32, protocolreturnbuffer: *mut *mut ::core::ffi::c_void, returnbufferlength: *mut u32, protocolstatus: *mut i32) -> super::Foundation::NTSTATUS>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PRIVILEGE_SET {
     pub PrivilegeCount: u32,
@@ -2653,6 +2878,7 @@ impl ::core::default::Default for PRIVILEGE_SET {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrivilegeCheck<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(clienttoken: Param0, requiredprivileges: *mut PRIVILEGE_SET, pfresult: *mut i32) -> super::Foundation::BOOL {
@@ -2667,6 +2893,7 @@ pub unsafe fn PrivilegeCheck<'a, Param0: ::windows::core::IntoParam<'a, super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrivilegedServiceAuditAlarmA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, servicename: Param1, clienttoken: Param2, privileges: *const PRIVILEGE_SET, accessgranted: Param4) -> super::Foundation::BOOL {
@@ -2681,6 +2908,7 @@ pub unsafe fn PrivilegedServiceAuditAlarmA<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PrivilegedServiceAuditAlarmW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(subsystemname: Param0, servicename: Param1, clienttoken: Param2, privileges: *const PRIVILEGE_SET, accessgranted: Param4) -> super::Foundation::BOOL {
@@ -2696,6 +2924,7 @@ pub unsafe fn PrivilegedServiceAuditAlarmW<'a, Param0: ::windows::core::IntoPara
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct QUOTA_LIMITS {
     pub PagedPoolLimit: usize,
     pub NonPagedPoolLimit: usize,
@@ -2724,6 +2953,7 @@ impl ::core::default::Default for QUOTA_LIMITS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 #[inline]
 pub unsafe fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32) {
     #[cfg(windows)]
@@ -2737,6 +2967,7 @@ pub unsafe fn QuerySecurityAccessMask(securityinformation: u32, desiredaccess: *
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RevertToSelf() -> super::Foundation::BOOL {
@@ -2751,6 +2982,7 @@ pub unsafe fn RevertToSelf() -> super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlConvertSidToUnicodeString<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOLEAN>>(unicodestring: *mut super::Foundation::UNICODE_STRING, sid: Param1, allocatedestinationstring: Param2) -> ::windows::core::Result<()> {
@@ -2765,6 +2997,7 @@ pub unsafe fn RtlConvertSidToUnicodeString<'a, Param1: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::BOOLEAN>>(securitydescriptor: *mut *mut SECURITY_DESCRIPTOR, securitydescriptorlength: u32, newsecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, newsecuritydescriptorlength: *mut u32, checkonly: Param4) -> super::Foundation::BOOLEAN {
@@ -2782,6 +3015,7 @@ pub unsafe fn RtlNormalizeSecurityDescriptor<'a, Param4: ::windows::core::IntoPa
 pub type SAFER_LEVEL_HANDLE = isize;
 pub type SC_HANDLE = isize;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_ATTRIBUTES {
     pub nLength: u32,
@@ -2814,19 +3048,32 @@ impl ::core::default::Default for SECURITY_ATTRIBUTES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type SECURITY_AUTO_INHERIT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_AVOID_OWNER_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_AVOID_OWNER_RESTRICTION: SECURITY_AUTO_INHERIT_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_AVOID_PRIVILEGE_CHECK: SECURITY_AUTO_INHERIT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_DACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_DEFAULT_DESCRIPTOR_FOR_OBJECT: SECURITY_AUTO_INHERIT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_DEFAULT_GROUP_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_DEFAULT_OWNER_FROM_PARENT: SECURITY_AUTO_INHERIT_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_MACL_NO_EXECUTE_UP: SECURITY_AUTO_INHERIT_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_MACL_NO_READ_UP: SECURITY_AUTO_INHERIT_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_MACL_NO_WRITE_UP: SECURITY_AUTO_INHERIT_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SEF_SACL_AUTO_INHERIT: SECURITY_AUTO_INHERIT_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_CAPABILITIES {
     pub AppContainerSid: super::Foundation::PSID,
@@ -2861,6 +3108,7 @@ impl ::core::default::Default for SECURITY_CAPABILITIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_DESCRIPTOR {
     pub Revision: u8,
@@ -2897,12 +3145,18 @@ impl ::core::default::Default for SECURITY_DESCRIPTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type SECURITY_IMPERSONATION_LEVEL = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SecurityAnonymous: SECURITY_IMPERSONATION_LEVEL = 0i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SecurityIdentification: SECURITY_IMPERSONATION_LEVEL = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SecurityImpersonation: SECURITY_IMPERSONATION_LEVEL = 2i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SecurityDelegation: SECURITY_IMPERSONATION_LEVEL = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SECURITY_QUALITY_OF_SERVICE {
     pub Length: u32,
@@ -2936,8 +3190,10 @@ impl ::core::default::Default for SECURITY_QUALITY_OF_SERVICE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type SEC_THREAD_START = ::core::option::Option<unsafe extern "system" fn(lpthreadparameter: *mut ::core::ffi::c_void) -> u32>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SE_ACCESS_REPLY {
     pub Size: u32,
@@ -2974,6 +3230,7 @@ impl ::core::default::Default for SE_ACCESS_REPLY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SE_ACCESS_REQUEST {
     pub Size: u32,
@@ -3012,6 +3269,7 @@ impl ::core::default::Default for SE_ACCESS_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SE_IMPERSONATION_STATE {
     pub Token: *mut ::core::ffi::c_void,
@@ -3046,6 +3304,7 @@ impl ::core::default::Default for SE_IMPERSONATION_STATE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SE_SECURITY_DESCRIPTOR {
     pub Size: u32,
@@ -3079,6 +3338,7 @@ impl ::core::default::Default for SE_SECURITY_DESCRIPTOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub union SE_SID {
     pub Sid: SID,
     pub Buffer: [u8; 68],
@@ -3104,6 +3364,7 @@ impl ::core::default::Default for SE_SID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SID {
     pub Revision: u8,
     pub SubAuthorityCount: u8,
@@ -3131,6 +3392,7 @@ impl ::core::default::Default for SID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SID_AND_ATTRIBUTES {
     pub Sid: super::Foundation::PSID,
@@ -3163,6 +3425,7 @@ impl ::core::default::Default for SID_AND_ATTRIBUTES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct SID_AND_ATTRIBUTES_HASH {
     pub SidCount: u32,
@@ -3196,6 +3459,7 @@ impl ::core::default::Default for SID_AND_ATTRIBUTES_HASH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SID_IDENTIFIER_AUTHORITY {
     pub Value: [u8; 6],
 }
@@ -3219,19 +3483,32 @@ impl ::core::default::Default for SID_IDENTIFIER_AUTHORITY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type SID_NAME_USE = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeUser: SID_NAME_USE = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeGroup: SID_NAME_USE = 2i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeDomain: SID_NAME_USE = 3i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeAlias: SID_NAME_USE = 4i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeWellKnownGroup: SID_NAME_USE = 5i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeDeletedAccount: SID_NAME_USE = 6i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeInvalid: SID_NAME_USE = 7i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeUnknown: SID_NAME_USE = 8i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeComputer: SID_NAME_USE = 9i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeLabel: SID_NAME_USE = 10i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SidTypeLogonSession: SID_NAME_USE = 11i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_ACCESS_FILTER_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3258,6 +3535,7 @@ impl ::core::default::Default for SYSTEM_ACCESS_FILTER_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_ALARM_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3284,6 +3562,7 @@ impl ::core::default::Default for SYSTEM_ALARM_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_ALARM_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3310,6 +3589,7 @@ impl ::core::default::Default for SYSTEM_ALARM_CALLBACK_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3339,6 +3619,7 @@ impl ::core::default::Default for SYSTEM_ALARM_CALLBACK_OBJECT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_ALARM_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3368,6 +3649,7 @@ impl ::core::default::Default for SYSTEM_ALARM_OBJECT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_AUDIT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3394,6 +3676,7 @@ impl ::core::default::Default for SYSTEM_AUDIT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_AUDIT_CALLBACK_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3420,6 +3703,7 @@ impl ::core::default::Default for SYSTEM_AUDIT_CALLBACK_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3449,6 +3733,7 @@ impl ::core::default::Default for SYSTEM_AUDIT_CALLBACK_OBJECT_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_AUDIT_OBJECT_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3477,10 +3762,14 @@ impl ::core::default::Default for SYSTEM_AUDIT_OBJECT_ACE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type SYSTEM_AUDIT_OBJECT_ACE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ACE_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const ACE_INHERITED_OBJECT_TYPE_PRESENT: SYSTEM_AUDIT_OBJECT_ACE_FLAGS = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_MANDATORY_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3507,6 +3796,7 @@ impl ::core::default::Default for SYSTEM_MANDATORY_LABEL_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_PROCESS_TRUST_LABEL_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3533,6 +3823,7 @@ impl ::core::default::Default for SYSTEM_PROCESS_TRUST_LABEL_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3559,6 +3850,7 @@ impl ::core::default::Default for SYSTEM_RESOURCE_ATTRIBUTE_ACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct SYSTEM_SCOPED_POLICY_ID_ACE {
     pub Header: ACE_HEADER,
     pub Mask: u32,
@@ -3584,6 +3876,7 @@ impl ::core::default::Default for SYSTEM_SCOPED_POLICY_ID_ACE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::ffi::c_void, naclinformationlength: u32, dwaclinformationclass: ACL_INFORMATION_CLASS) -> super::Foundation::BOOL {
@@ -3598,6 +3891,7 @@ pub unsafe fn SetAclInformation(pacl: *mut ACL, paclinformation: *const ::core::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetCachedSigningLevel<'a, Param3: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(sourcefiles: *const super::Foundation::HANDLE, sourcefilecount: u32, flags: u32, targetfile: Param3) -> super::Foundation::BOOL {
@@ -3612,6 +3906,7 @@ pub unsafe fn SetCachedSigningLevel<'a, Param3: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PSTR>>(lpfilename: Param0, securityinformation: u32, psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL {
@@ -3626,6 +3921,7 @@ pub unsafe fn SetFileSecurityA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::PWSTR>>(lpfilename: Param0, securityinformation: u32, psecuritydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL {
@@ -3640,6 +3936,7 @@ pub unsafe fn SetFileSecurityW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(handle: Param0, securityinformation: u32, securitydescriptor: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL {
@@ -3654,6 +3951,7 @@ pub unsafe fn SetKernelObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrivateObjectSecurity<'a, Param4: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(securityinformation: u32, modificationdescriptor: *const SECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, genericmapping: *const GENERIC_MAPPING, token: Param4) -> super::Foundation::BOOL {
@@ -3668,6 +3966,7 @@ pub unsafe fn SetPrivateObjectSecurity<'a, Param4: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPrivateObjectSecurityEx<'a, Param5: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(securityinformation: u32, modificationdescriptor: *const SECURITY_DESCRIPTOR, objectssecuritydescriptor: *mut *mut SECURITY_DESCRIPTOR, autoinheritflags: SECURITY_AUTO_INHERIT_FLAGS, genericmapping: *const GENERIC_MAPPING, token: Param5) -> super::Foundation::BOOL {
@@ -3682,6 +3981,7 @@ pub unsafe fn SetPrivateObjectSecurityEx<'a, Param5: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 #[inline]
 pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mut u32) {
     #[cfg(windows)]
@@ -3695,6 +3995,7 @@ pub unsafe fn SetSecurityAccessMask(securityinformation: u32, desiredaccess: *mu
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_DESCRIPTOR, controlbitsofinterest: u16, controlbitstoset: u16) -> super::Foundation::BOOL {
@@ -3709,6 +4010,7 @@ pub unsafe fn SetSecurityDescriptorControl(psecuritydescriptor: *const SECURITY_
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorDacl<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, bdaclpresent: Param1, pdacl: *const ACL, bdacldefaulted: Param3) -> super::Foundation::BOOL {
@@ -3723,6 +4025,7 @@ pub unsafe fn SetSecurityDescriptorDacl<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorGroup<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, pgroup: Param1, bgroupdefaulted: Param2) -> super::Foundation::BOOL {
@@ -3737,6 +4040,7 @@ pub unsafe fn SetSecurityDescriptorGroup<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorOwner<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::PSID>, Param2: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, powner: Param1, bownerdefaulted: Param2) -> super::Foundation::BOOL {
@@ -3751,6 +4055,7 @@ pub unsafe fn SetSecurityDescriptorOwner<'a, Param1: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: *mut SECURITY_DESCRIPTOR, rmcontrol: *const u8) -> u32 {
@@ -3765,6 +4070,7 @@ pub unsafe fn SetSecurityDescriptorRMControl(securitydescriptor: *mut SECURITY_D
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetSecurityDescriptorSacl<'a, Param1: ::windows::core::IntoParam<'a, super::Foundation::BOOL>, Param3: ::windows::core::IntoParam<'a, super::Foundation::BOOL>>(psecuritydescriptor: *mut SECURITY_DESCRIPTOR, bsaclpresent: Param1, psacl: *const ACL, bsacldefaulted: Param3) -> super::Foundation::BOOL {
@@ -3779,6 +4085,7 @@ pub unsafe fn SetSecurityDescriptorSacl<'a, Param1: ::windows::core::IntoParam<'
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTokenInformation<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(tokenhandle: Param0, tokeninformationclass: TOKEN_INFORMATION_CLASS, tokeninformation: *const ::core::ffi::c_void, tokeninformationlength: u32) -> super::Foundation::BOOL {
@@ -3793,6 +4100,7 @@ pub unsafe fn SetTokenInformation<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(hobj: Param0, psirequested: *const OBJECT_SECURITY_INFORMATION, psid: *const SECURITY_DESCRIPTOR) -> super::Foundation::BOOL {
@@ -3808,6 +4116,7 @@ pub unsafe fn SetUserObjectSecurity<'a, Param0: ::windows::core::IntoParam<'a, s
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_ACCESS_INFORMATION {
     pub SidHash: *mut SID_AND_ATTRIBUTES_HASH,
@@ -3850,23 +4159,40 @@ impl ::core::default::Default for TOKEN_ACCESS_INFORMATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type TOKEN_ACCESS_MASK = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_DELETE: TOKEN_ACCESS_MASK = 65536u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_READ_CONTROL: TOKEN_ACCESS_MASK = 131072u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_WRITE_DAC: TOKEN_ACCESS_MASK = 262144u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_WRITE_OWNER: TOKEN_ACCESS_MASK = 524288u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_ACCESS_SYSTEM_SECURITY: TOKEN_ACCESS_MASK = 16777216u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_ASSIGN_PRIMARY: TOKEN_ACCESS_MASK = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_DUPLICATE: TOKEN_ACCESS_MASK = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_IMPERSONATE: TOKEN_ACCESS_MASK = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_QUERY: TOKEN_ACCESS_MASK = 8u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_QUERY_SOURCE: TOKEN_ACCESS_MASK = 16u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_ADJUST_PRIVILEGES: TOKEN_ACCESS_MASK = 32u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_ADJUST_GROUPS: TOKEN_ACCESS_MASK = 64u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_ADJUST_DEFAULT: TOKEN_ACCESS_MASK = 128u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_ADJUST_SESSIONID: TOKEN_ACCESS_MASK = 256u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_ALL_ACCESS: TOKEN_ACCESS_MASK = 983295u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_APPCONTAINER_INFORMATION {
     pub TokenAppContainer: super::Foundation::PSID,
@@ -3898,6 +4224,7 @@ impl ::core::default::Default for TOKEN_APPCONTAINER_INFORMATION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct TOKEN_AUDIT_POLICY {
     pub PerUserPolicy: [u8; 30],
 }
@@ -3922,6 +4249,7 @@ impl ::core::default::Default for TOKEN_AUDIT_POLICY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_CONTROL {
     pub TokenId: super::Foundation::LUID,
@@ -3956,6 +4284,7 @@ impl ::core::default::Default for TOKEN_CONTROL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct TOKEN_DEFAULT_DACL {
     pub DefaultDacl: *mut ACL,
 }
@@ -3980,6 +4309,7 @@ impl ::core::default::Default for TOKEN_DEFAULT_DACL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct TOKEN_DEVICE_CLAIMS {
     pub DeviceClaims: *mut ::core::ffi::c_void,
 }
@@ -4004,6 +4334,7 @@ impl ::core::default::Default for TOKEN_DEVICE_CLAIMS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct TOKEN_ELEVATION {
     pub TokenIsElevated: u32,
 }
@@ -4027,11 +4358,16 @@ impl ::core::default::Default for TOKEN_ELEVATION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type TOKEN_ELEVATION_TYPE = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenElevationTypeDefault: TOKEN_ELEVATION_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenElevationTypeFull: TOKEN_ELEVATION_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenElevationTypeLimited: TOKEN_ELEVATION_TYPE = 3i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_GROUPS {
     pub GroupCount: u32,
@@ -4064,6 +4400,7 @@ impl ::core::default::Default for TOKEN_GROUPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_GROUPS_AND_PRIVILEGES {
     pub SidCount: u32,
@@ -4103,56 +4440,106 @@ impl ::core::default::Default for TOKEN_GROUPS_AND_PRIVILEGES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type TOKEN_INFORMATION_CLASS = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenUser: TOKEN_INFORMATION_CLASS = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenGroups: TOKEN_INFORMATION_CLASS = 2i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenPrivileges: TOKEN_INFORMATION_CLASS = 3i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenOwner: TOKEN_INFORMATION_CLASS = 4i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenPrimaryGroup: TOKEN_INFORMATION_CLASS = 5i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenDefaultDacl: TOKEN_INFORMATION_CLASS = 6i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenSource: TOKEN_INFORMATION_CLASS = 7i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenType: TOKEN_INFORMATION_CLASS = 8i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenImpersonationLevel: TOKEN_INFORMATION_CLASS = 9i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenStatistics: TOKEN_INFORMATION_CLASS = 10i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenRestrictedSids: TOKEN_INFORMATION_CLASS = 11i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenSessionId: TOKEN_INFORMATION_CLASS = 12i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenGroupsAndPrivileges: TOKEN_INFORMATION_CLASS = 13i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenSessionReference: TOKEN_INFORMATION_CLASS = 14i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenSandBoxInert: TOKEN_INFORMATION_CLASS = 15i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenAuditPolicy: TOKEN_INFORMATION_CLASS = 16i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenOrigin: TOKEN_INFORMATION_CLASS = 17i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenElevationType: TOKEN_INFORMATION_CLASS = 18i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenLinkedToken: TOKEN_INFORMATION_CLASS = 19i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenElevation: TOKEN_INFORMATION_CLASS = 20i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenHasRestrictions: TOKEN_INFORMATION_CLASS = 21i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenAccessInformation: TOKEN_INFORMATION_CLASS = 22i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenVirtualizationAllowed: TOKEN_INFORMATION_CLASS = 23i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenVirtualizationEnabled: TOKEN_INFORMATION_CLASS = 24i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenIntegrityLevel: TOKEN_INFORMATION_CLASS = 25i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenUIAccess: TOKEN_INFORMATION_CLASS = 26i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenMandatoryPolicy: TOKEN_INFORMATION_CLASS = 27i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenLogonSid: TOKEN_INFORMATION_CLASS = 28i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenIsAppContainer: TOKEN_INFORMATION_CLASS = 29i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenCapabilities: TOKEN_INFORMATION_CLASS = 30i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenAppContainerSid: TOKEN_INFORMATION_CLASS = 31i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenAppContainerNumber: TOKEN_INFORMATION_CLASS = 32i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenUserClaimAttributes: TOKEN_INFORMATION_CLASS = 33i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = 34i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenRestrictedUserClaimAttributes: TOKEN_INFORMATION_CLASS = 35i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenRestrictedDeviceClaimAttributes: TOKEN_INFORMATION_CLASS = 36i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenDeviceGroups: TOKEN_INFORMATION_CLASS = 37i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenRestrictedDeviceGroups: TOKEN_INFORMATION_CLASS = 38i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenSecurityAttributes: TOKEN_INFORMATION_CLASS = 39i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenIsRestricted: TOKEN_INFORMATION_CLASS = 40i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenProcessTrustLevel: TOKEN_INFORMATION_CLASS = 41i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenPrivateNameSpace: TOKEN_INFORMATION_CLASS = 42i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenSingletonAttributes: TOKEN_INFORMATION_CLASS = 43i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenBnoIsolation: TOKEN_INFORMATION_CLASS = 44i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenChildProcessFlags: TOKEN_INFORMATION_CLASS = 45i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenIsLessPrivilegedAppContainer: TOKEN_INFORMATION_CLASS = 46i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenIsSandboxed: TOKEN_INFORMATION_CLASS = 47i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const MaxTokenInfoClass: TOKEN_INFORMATION_CLASS = 48i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_LINKED_TOKEN {
     pub LinkedToken: super::Foundation::HANDLE,
@@ -4184,6 +4571,7 @@ impl ::core::default::Default for TOKEN_LINKED_TOKEN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_MANDATORY_LABEL {
     pub Label: SID_AND_ATTRIBUTES,
@@ -4215,6 +4603,7 @@ impl ::core::default::Default for TOKEN_MANDATORY_LABEL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct TOKEN_MANDATORY_POLICY {
     pub Policy: TOKEN_MANDATORY_POLICY_ID,
 }
@@ -4238,12 +4627,18 @@ impl ::core::default::Default for TOKEN_MANDATORY_POLICY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type TOKEN_MANDATORY_POLICY_ID = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_MANDATORY_POLICY_OFF: TOKEN_MANDATORY_POLICY_ID = 0u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_MANDATORY_POLICY_NO_WRITE_UP: TOKEN_MANDATORY_POLICY_ID = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_MANDATORY_POLICY_NEW_PROCESS_MIN: TOKEN_MANDATORY_POLICY_ID = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TOKEN_MANDATORY_POLICY_VALID_MASK: TOKEN_MANDATORY_POLICY_ID = 3u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_ORIGIN {
     pub OriginatingLogonSession: super::Foundation::LUID,
@@ -4275,6 +4670,7 @@ impl ::core::default::Default for TOKEN_ORIGIN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_OWNER {
     pub Owner: super::Foundation::PSID,
@@ -4306,6 +4702,7 @@ impl ::core::default::Default for TOKEN_OWNER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_PRIMARY_GROUP {
     pub PrimaryGroup: super::Foundation::PSID,
@@ -4337,6 +4734,7 @@ impl ::core::default::Default for TOKEN_PRIMARY_GROUP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_PRIVILEGES {
     pub PrivilegeCount: u32,
@@ -4368,12 +4766,18 @@ impl ::core::default::Default for TOKEN_PRIVILEGES {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type TOKEN_PRIVILEGES_ATTRIBUTES = u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SE_PRIVILEGE_ENABLED: TOKEN_PRIVILEGES_ATTRIBUTES = 2u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SE_PRIVILEGE_ENABLED_BY_DEFAULT: TOKEN_PRIVILEGES_ATTRIBUTES = 1u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SE_PRIVILEGE_REMOVED: TOKEN_PRIVILEGES_ATTRIBUTES = 4u32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const SE_PRIVILEGE_USED_FOR_ACCESS: TOKEN_PRIVILEGES_ATTRIBUTES = 2147483648u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_SOURCE {
     pub SourceName: [super::Foundation::CHAR; 8],
@@ -4406,6 +4810,7 @@ impl ::core::default::Default for TOKEN_SOURCE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_STATISTICS {
     pub TokenId: super::Foundation::LUID,
@@ -4445,10 +4850,14 @@ impl ::core::default::Default for TOKEN_STATISTICS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type TOKEN_TYPE = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenPrimary: TOKEN_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const TokenImpersonation: TOKEN_TYPE = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct TOKEN_USER {
     pub User: SID_AND_ATTRIBUTES,
@@ -4480,6 +4889,7 @@ impl ::core::default::Default for TOKEN_USER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Security'*"]
 pub struct TOKEN_USER_CLAIMS {
     pub UserClaims: *mut ::core::ffi::c_void,
 }
@@ -4503,124 +4913,245 @@ impl ::core::default::Default for TOKEN_USER_CLAIMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Security'*"]
 pub type WELL_KNOWN_SID_TYPE = i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinNullSid: WELL_KNOWN_SID_TYPE = 0i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinWorldSid: WELL_KNOWN_SID_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLocalSid: WELL_KNOWN_SID_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCreatorOwnerSid: WELL_KNOWN_SID_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCreatorGroupSid: WELL_KNOWN_SID_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCreatorOwnerServerSid: WELL_KNOWN_SID_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCreatorGroupServerSid: WELL_KNOWN_SID_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinNtAuthoritySid: WELL_KNOWN_SID_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinDialupSid: WELL_KNOWN_SID_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinNetworkSid: WELL_KNOWN_SID_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBatchSid: WELL_KNOWN_SID_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinInteractiveSid: WELL_KNOWN_SID_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinServiceSid: WELL_KNOWN_SID_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAnonymousSid: WELL_KNOWN_SID_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinProxySid: WELL_KNOWN_SID_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinEnterpriseControllersSid: WELL_KNOWN_SID_TYPE = 15i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinSelfSid: WELL_KNOWN_SID_TYPE = 16i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAuthenticatedUserSid: WELL_KNOWN_SID_TYPE = 17i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinRestrictedCodeSid: WELL_KNOWN_SID_TYPE = 18i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinTerminalServerSid: WELL_KNOWN_SID_TYPE = 19i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinRemoteLogonIdSid: WELL_KNOWN_SID_TYPE = 20i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLogonIdsSid: WELL_KNOWN_SID_TYPE = 21i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLocalSystemSid: WELL_KNOWN_SID_TYPE = 22i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLocalServiceSid: WELL_KNOWN_SID_TYPE = 23i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinNetworkServiceSid: WELL_KNOWN_SID_TYPE = 24i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinDomainSid: WELL_KNOWN_SID_TYPE = 25i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinAdministratorsSid: WELL_KNOWN_SID_TYPE = 26i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinUsersSid: WELL_KNOWN_SID_TYPE = 27i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinGuestsSid: WELL_KNOWN_SID_TYPE = 28i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinPowerUsersSid: WELL_KNOWN_SID_TYPE = 29i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinAccountOperatorsSid: WELL_KNOWN_SID_TYPE = 30i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinSystemOperatorsSid: WELL_KNOWN_SID_TYPE = 31i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinPrintOperatorsSid: WELL_KNOWN_SID_TYPE = 32i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinBackupOperatorsSid: WELL_KNOWN_SID_TYPE = 33i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinReplicatorSid: WELL_KNOWN_SID_TYPE = 34i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinPreWindows2000CompatibleAccessSid: WELL_KNOWN_SID_TYPE = 35i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinRemoteDesktopUsersSid: WELL_KNOWN_SID_TYPE = 36i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinNetworkConfigurationOperatorsSid: WELL_KNOWN_SID_TYPE = 37i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountAdministratorSid: WELL_KNOWN_SID_TYPE = 38i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountGuestSid: WELL_KNOWN_SID_TYPE = 39i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountKrbtgtSid: WELL_KNOWN_SID_TYPE = 40i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountDomainAdminsSid: WELL_KNOWN_SID_TYPE = 41i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountDomainUsersSid: WELL_KNOWN_SID_TYPE = 42i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountDomainGuestsSid: WELL_KNOWN_SID_TYPE = 43i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountComputersSid: WELL_KNOWN_SID_TYPE = 44i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountControllersSid: WELL_KNOWN_SID_TYPE = 45i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountCertAdminsSid: WELL_KNOWN_SID_TYPE = 46i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountSchemaAdminsSid: WELL_KNOWN_SID_TYPE = 47i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountEnterpriseAdminsSid: WELL_KNOWN_SID_TYPE = 48i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountPolicyAdminsSid: WELL_KNOWN_SID_TYPE = 49i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountRasAndIasServersSid: WELL_KNOWN_SID_TYPE = 50i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinNTLMAuthenticationSid: WELL_KNOWN_SID_TYPE = 51i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinDigestAuthenticationSid: WELL_KNOWN_SID_TYPE = 52i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinSChannelAuthenticationSid: WELL_KNOWN_SID_TYPE = 53i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinThisOrganizationSid: WELL_KNOWN_SID_TYPE = 54i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinOtherOrganizationSid: WELL_KNOWN_SID_TYPE = 55i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinIncomingForestTrustBuildersSid: WELL_KNOWN_SID_TYPE = 56i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinPerfMonitoringUsersSid: WELL_KNOWN_SID_TYPE = 57i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinPerfLoggingUsersSid: WELL_KNOWN_SID_TYPE = 58i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinAuthorizationAccessSid: WELL_KNOWN_SID_TYPE = 59i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinTerminalServerLicenseServersSid: WELL_KNOWN_SID_TYPE = 60i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinDCOMUsersSid: WELL_KNOWN_SID_TYPE = 61i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinIUsersSid: WELL_KNOWN_SID_TYPE = 62i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinIUserSid: WELL_KNOWN_SID_TYPE = 63i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinCryptoOperatorsSid: WELL_KNOWN_SID_TYPE = 64i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinUntrustedLabelSid: WELL_KNOWN_SID_TYPE = 65i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLowLabelSid: WELL_KNOWN_SID_TYPE = 66i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinMediumLabelSid: WELL_KNOWN_SID_TYPE = 67i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinHighLabelSid: WELL_KNOWN_SID_TYPE = 68i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinSystemLabelSid: WELL_KNOWN_SID_TYPE = 69i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinWriteRestrictedCodeSid: WELL_KNOWN_SID_TYPE = 70i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCreatorOwnerRightsSid: WELL_KNOWN_SID_TYPE = 71i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = 72i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinNonCacheablePrincipalsGroupSid: WELL_KNOWN_SID_TYPE = 73i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = 74i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountReadonlyControllersSid: WELL_KNOWN_SID_TYPE = 75i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinEventLogReadersGroup: WELL_KNOWN_SID_TYPE = 76i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinNewEnterpriseReadonlyControllersSid: WELL_KNOWN_SID_TYPE = 77i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinCertSvcDComAccessGroup: WELL_KNOWN_SID_TYPE = 78i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinMediumPlusLabelSid: WELL_KNOWN_SID_TYPE = 79i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLocalLogonSid: WELL_KNOWN_SID_TYPE = 80i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinConsoleLogonSid: WELL_KNOWN_SID_TYPE = 81i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinThisOrganizationCertificateSid: WELL_KNOWN_SID_TYPE = 82i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinApplicationPackageAuthoritySid: WELL_KNOWN_SID_TYPE = 83i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinAnyPackageSid: WELL_KNOWN_SID_TYPE = 84i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityInternetClientSid: WELL_KNOWN_SID_TYPE = 85i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityInternetClientServerSid: WELL_KNOWN_SID_TYPE = 86i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityPrivateNetworkClientServerSid: WELL_KNOWN_SID_TYPE = 87i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityPicturesLibrarySid: WELL_KNOWN_SID_TYPE = 88i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityVideosLibrarySid: WELL_KNOWN_SID_TYPE = 89i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityMusicLibrarySid: WELL_KNOWN_SID_TYPE = 90i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityDocumentsLibrarySid: WELL_KNOWN_SID_TYPE = 91i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilitySharedUserCertificatesSid: WELL_KNOWN_SID_TYPE = 92i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityEnterpriseAuthenticationSid: WELL_KNOWN_SID_TYPE = 93i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityRemovableStorageSid: WELL_KNOWN_SID_TYPE = 94i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinRDSRemoteAccessServersSid: WELL_KNOWN_SID_TYPE = 95i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinRDSEndpointServersSid: WELL_KNOWN_SID_TYPE = 96i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinRDSManagementServersSid: WELL_KNOWN_SID_TYPE = 97i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinUserModeDriversSid: WELL_KNOWN_SID_TYPE = 98i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinHyperVAdminsSid: WELL_KNOWN_SID_TYPE = 99i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountCloneableControllersSid: WELL_KNOWN_SID_TYPE = 100i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinAccessControlAssistanceOperatorsSid: WELL_KNOWN_SID_TYPE = 101i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinRemoteManagementUsersSid: WELL_KNOWN_SID_TYPE = 102i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAuthenticationAuthorityAssertedSid: WELL_KNOWN_SID_TYPE = 103i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAuthenticationServiceAssertedSid: WELL_KNOWN_SID_TYPE = 104i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLocalAccountSid: WELL_KNOWN_SID_TYPE = 105i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinLocalAccountAndAdministratorSid: WELL_KNOWN_SID_TYPE = 106i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountProtectedUsersSid: WELL_KNOWN_SID_TYPE = 107i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityAppointmentsSid: WELL_KNOWN_SID_TYPE = 108i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinCapabilityContactsSid: WELL_KNOWN_SID_TYPE = 109i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountDefaultSystemManagedSid: WELL_KNOWN_SID_TYPE = 110i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinDefaultSystemManagedGroupSid: WELL_KNOWN_SID_TYPE = 111i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinStorageReplicaAdminsSid: WELL_KNOWN_SID_TYPE = 112i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountKeyAdminsSid: WELL_KNOWN_SID_TYPE = 113i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAccountEnterpriseKeyAdminsSid: WELL_KNOWN_SID_TYPE = 114i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAuthenticationKeyTrustSid: WELL_KNOWN_SID_TYPE = 115i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAuthenticationKeyPropertyMFASid: WELL_KNOWN_SID_TYPE = 116i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAuthenticationKeyPropertyAttestationSid: WELL_KNOWN_SID_TYPE = 117i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinAuthenticationFreshKeyAuthSid: WELL_KNOWN_SID_TYPE = 118i32;
+#[doc = "*Required features: 'Win32_Security'*"]
 pub const WinBuiltinDeviceOwnersSid: WELL_KNOWN_SID_TYPE = 119i32;

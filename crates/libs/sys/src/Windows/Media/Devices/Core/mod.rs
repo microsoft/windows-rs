@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type CameraIntrinsics = *mut ::core::ffi::c_void;
 pub type DepthCorrelatedCoordinateMapper = *mut ::core::ffi::c_void;
 pub type FrameControlCapabilities = *mut ::core::ffi::c_void;
@@ -11,6 +9,7 @@ pub type FrameExposureCompensationControl = *mut ::core::ffi::c_void;
 pub type FrameExposureControl = *mut ::core::ffi::c_void;
 pub type FrameFlashCapabilities = *mut ::core::ffi::c_void;
 pub type FrameFlashControl = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Devices_Core'*"]
 #[repr(transparent)]
 pub struct FrameFlashMode(pub i32);
 impl FrameFlashMode {

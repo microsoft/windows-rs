@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataAvailability(pub i32);
 impl UserDataAvailability {
@@ -16,6 +15,7 @@ impl ::core::clone::Clone for UserDataAvailability {
 }
 pub type UserDataAvailabilityStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type UserDataBufferUnprotectResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataBufferUnprotectStatus(pub i32);
 impl UserDataBufferUnprotectStatus {
@@ -30,6 +30,7 @@ impl ::core::clone::Clone for UserDataBufferUnprotectStatus {
 }
 pub type UserDataProtectionManager = *mut ::core::ffi::c_void;
 pub type UserDataStorageItemProtectionInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_DataProtection'*"]
 #[repr(transparent)]
 pub struct UserDataStorageItemProtectionStatus(pub i32);
 impl UserDataStorageItemProtectionStatus {

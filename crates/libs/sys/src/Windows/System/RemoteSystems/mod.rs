@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IRemoteSystemFilter = *mut ::core::ffi::c_void;
 pub type RemoteSystem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemAccessStatus(pub i32);
 impl RemoteSystemAccessStatus {
@@ -20,6 +19,7 @@ impl ::core::clone::Clone for RemoteSystemAccessStatus {
 pub type RemoteSystemAddedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemApp = *mut ::core::ffi::c_void;
 pub type RemoteSystemAppRegistration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemAuthorizationKind(pub i32);
 impl RemoteSystemAuthorizationKind {
@@ -35,6 +35,7 @@ impl ::core::clone::Clone for RemoteSystemAuthorizationKind {
 pub type RemoteSystemAuthorizationKindFilter = *mut ::core::ffi::c_void;
 pub type RemoteSystemConnectionInfo = *mut ::core::ffi::c_void;
 pub type RemoteSystemConnectionRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemDiscoveryType(pub i32);
 impl RemoteSystemDiscoveryType {
@@ -52,6 +53,7 @@ impl ::core::clone::Clone for RemoteSystemDiscoveryType {
 pub type RemoteSystemDiscoveryTypeFilter = *mut ::core::ffi::c_void;
 pub type RemoteSystemEnumerationCompletedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemKindFilter = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemPlatform(pub i32);
 impl RemoteSystemPlatform {
@@ -72,6 +74,7 @@ pub type RemoteSystemSession = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionAddedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionController = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionCreationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionCreationStatus(pub i32);
 impl RemoteSystemSessionCreationStatus {
@@ -86,6 +89,7 @@ impl ::core::clone::Clone for RemoteSystemSessionCreationStatus {
     }
 }
 pub type RemoteSystemSessionDisconnectedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionDisconnectedReason(pub i32);
 impl RemoteSystemSessionDisconnectedReason {
@@ -106,6 +110,7 @@ pub type RemoteSystemSessionInvitationReceivedEventArgs = *mut ::core::ffi::c_vo
 pub type RemoteSystemSessionJoinRequest = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionJoinRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionJoinResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionJoinStatus(pub i32);
 impl RemoteSystemSessionJoinStatus {
@@ -122,6 +127,7 @@ impl ::core::clone::Clone for RemoteSystemSessionJoinStatus {
     }
 }
 pub type RemoteSystemSessionMessageChannel = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionMessageChannelReliability(pub i32);
 impl RemoteSystemSessionMessageChannelReliability {
@@ -139,6 +145,7 @@ pub type RemoteSystemSessionParticipant = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionParticipantAddedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionParticipantRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionParticipantWatcher = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionParticipantWatcherStatus(pub i32);
 impl RemoteSystemSessionParticipantWatcherStatus {
@@ -159,6 +166,7 @@ pub type RemoteSystemSessionRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionValueSetReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemSessionWatcher = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemSessionWatcherStatus(pub i32);
 impl RemoteSystemSessionWatcherStatus {
@@ -175,6 +183,7 @@ impl ::core::clone::Clone for RemoteSystemSessionWatcherStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemStatus(pub i32);
 impl RemoteSystemStatus {
@@ -189,6 +198,7 @@ impl ::core::clone::Clone for RemoteSystemStatus {
         *self
     }
 }
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemStatusType(pub i32);
 impl RemoteSystemStatusType {
@@ -204,6 +214,7 @@ impl ::core::clone::Clone for RemoteSystemStatusType {
 pub type RemoteSystemStatusTypeFilter = *mut ::core::ffi::c_void;
 pub type RemoteSystemUpdatedEventArgs = *mut ::core::ffi::c_void;
 pub type RemoteSystemWatcher = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_RemoteSystems'*"]
 #[repr(transparent)]
 pub struct RemoteSystemWatcherError(pub i32);
 impl RemoteSystemWatcherError {

@@ -5,10 +5,9 @@ pub mod Guidance;
 pub mod LocalSearch;
 #[cfg(feature = "Services_Maps_OfflineMaps")]
 pub mod OfflineMaps;
-#[link(name = "windows")]
-extern "system" {}
 pub type EnhancedWaypoint = *mut ::core::ffi::c_void;
 pub type ManeuverWarning = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct ManeuverWarningKind(pub i32);
 impl ManeuverWarningKind {
@@ -55,6 +54,7 @@ impl ::core::clone::Clone for ManeuverWarningKind {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct ManeuverWarningSeverity(pub i32);
 impl ManeuverWarningSeverity {
@@ -72,6 +72,7 @@ impl ::core::clone::Clone for ManeuverWarningSeverity {
 }
 pub type MapAddress = *mut ::core::ffi::c_void;
 pub type MapLocation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapLocationDesiredAccuracy(pub i32);
 impl MapLocationDesiredAccuracy {
@@ -85,6 +86,7 @@ impl ::core::clone::Clone for MapLocationDesiredAccuracy {
     }
 }
 pub type MapLocationFinderResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapLocationFinderStatus(pub i32);
 impl MapLocationFinderStatus {
@@ -102,6 +104,7 @@ impl ::core::clone::Clone for MapLocationFinderStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapManeuverNotices(pub u32);
 impl MapManeuverNotices {
@@ -118,6 +121,7 @@ impl ::core::clone::Clone for MapManeuverNotices {
 pub type MapRoute = *mut ::core::ffi::c_void;
 pub type MapRouteDrivingOptions = *mut ::core::ffi::c_void;
 pub type MapRouteFinderResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteFinderStatus(pub i32);
 impl MapRouteFinderStatus {
@@ -140,6 +144,7 @@ impl ::core::clone::Clone for MapRouteFinderStatus {
 }
 pub type MapRouteLeg = *mut ::core::ffi::c_void;
 pub type MapRouteManeuver = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteManeuverKind(pub i32);
 impl MapRouteManeuverKind {
@@ -175,6 +180,7 @@ impl ::core::clone::Clone for MapRouteManeuverKind {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteOptimization(pub i32);
 impl MapRouteOptimization {
@@ -189,6 +195,7 @@ impl ::core::clone::Clone for MapRouteOptimization {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapRouteRestrictions(pub u32);
 impl MapRouteRestrictions {
@@ -206,6 +213,7 @@ impl ::core::clone::Clone for MapRouteRestrictions {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct MapServiceDataUsagePreference(pub i32);
 impl MapServiceDataUsagePreference {
@@ -220,6 +228,7 @@ impl ::core::clone::Clone for MapServiceDataUsagePreference {
 }
 pub type PlaceInfo = *mut ::core::ffi::c_void;
 pub type PlaceInfoCreateOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct TrafficCongestion(pub i32);
 impl TrafficCongestion {
@@ -235,6 +244,7 @@ impl ::core::clone::Clone for TrafficCongestion {
         *self
     }
 }
+#[doc = "*Required features: 'Services_Maps'*"]
 #[repr(transparent)]
 pub struct WaypointKind(pub i32);
 impl WaypointKind {

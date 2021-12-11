@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type AppServiceClosedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceClosedStatus(pub i32);
 impl AppServiceClosedStatus {
@@ -17,6 +16,7 @@ impl ::core::clone::Clone for AppServiceClosedStatus {
     }
 }
 pub type AppServiceConnection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceConnectionStatus(pub i32);
 impl AppServiceConnectionStatus {
@@ -43,6 +43,7 @@ pub type AppServiceDeferral = *mut ::core::ffi::c_void;
 pub type AppServiceRequest = *mut ::core::ffi::c_void;
 pub type AppServiceRequestReceivedEventArgs = *mut ::core::ffi::c_void;
 pub type AppServiceResponse = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct AppServiceResponseStatus(pub i32);
 impl AppServiceResponseStatus {
@@ -66,6 +67,7 @@ impl ::core::clone::Clone for AppServiceResponseStatus {
 }
 pub type AppServiceTriggerDetails = *mut ::core::ffi::c_void;
 pub type StatelessAppServiceResponse = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_AppService'*"]
 #[repr(transparent)]
 pub struct StatelessAppServiceResponseStatus(pub i32);
 impl StatelessAppServiceResponseStatus {

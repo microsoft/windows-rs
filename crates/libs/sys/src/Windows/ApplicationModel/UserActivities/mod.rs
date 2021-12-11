@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_UserActivities_Core")]
 pub mod Core;
-#[link(name = "windows")]
-extern "system" {}
 pub type IUserActivityContentInfo = *mut ::core::ffi::c_void;
 pub type UserActivity = *mut ::core::ffi::c_void;
 pub type UserActivityAttribution = *mut ::core::ffi::c_void;
@@ -13,6 +11,7 @@ pub type UserActivityRequestManager = *mut ::core::ffi::c_void;
 pub type UserActivityRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type UserActivitySession = *mut ::core::ffi::c_void;
 pub type UserActivitySessionHistoryItem = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_UserActivities'*"]
 #[repr(transparent)]
 pub struct UserActivityState(pub i32);
 impl UserActivityState {

@@ -1,11 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type BasicProperties = *mut ::core::ffi::c_void;
 pub type DocumentProperties = *mut ::core::ffi::c_void;
 pub type IStorageItemExtraProperties = *mut ::core::ffi::c_void;
 pub type ImageProperties = *mut ::core::ffi::c_void;
 pub type MusicProperties = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct PhotoOrientation(pub i32);
 impl PhotoOrientation {
@@ -25,6 +24,7 @@ impl ::core::clone::Clone for PhotoOrientation {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct PropertyPrefetchOptions(pub u32);
 impl PropertyPrefetchOptions {
@@ -43,6 +43,7 @@ impl ::core::clone::Clone for PropertyPrefetchOptions {
 }
 pub type StorageItemContentProperties = *mut ::core::ffi::c_void;
 pub type StorageItemThumbnail = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailMode(pub i32);
 impl ThumbnailMode {
@@ -59,6 +60,7 @@ impl ::core::clone::Clone for ThumbnailMode {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailOptions(pub u32);
 impl ThumbnailOptions {
@@ -73,6 +75,7 @@ impl ::core::clone::Clone for ThumbnailOptions {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct ThumbnailType(pub i32);
 impl ThumbnailType {
@@ -85,6 +88,7 @@ impl ::core::clone::Clone for ThumbnailType {
         *self
     }
 }
+#[doc = "*Required features: 'Storage_FileProperties'*"]
 #[repr(transparent)]
 pub struct VideoOrientation(pub i32);
 impl VideoOrientation {

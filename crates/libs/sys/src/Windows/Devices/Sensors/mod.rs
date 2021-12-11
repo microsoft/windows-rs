@@ -1,12 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Sensors_Custom")]
 pub mod Custom;
-#[link(name = "windows")]
-extern "system" {}
 pub type Accelerometer = *mut ::core::ffi::c_void;
 pub type AccelerometerDataThreshold = *mut ::core::ffi::c_void;
 pub type AccelerometerReading = *mut ::core::ffi::c_void;
 pub type AccelerometerReadingChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct AccelerometerReadingType(pub i32);
 impl AccelerometerReadingType {
@@ -25,6 +24,7 @@ pub type ActivitySensor = *mut ::core::ffi::c_void;
 pub type ActivitySensorReading = *mut ::core::ffi::c_void;
 pub type ActivitySensorReadingChangeReport = *mut ::core::ffi::c_void;
 pub type ActivitySensorReadingChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivitySensorReadingConfidence(pub i32);
 impl ActivitySensorReadingConfidence {
@@ -38,6 +38,7 @@ impl ::core::clone::Clone for ActivitySensorReadingConfidence {
     }
 }
 pub type ActivitySensorTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct ActivityType(pub i32);
 impl ActivityType {
@@ -84,6 +85,7 @@ pub type LightSensorDataThreshold = *mut ::core::ffi::c_void;
 pub type LightSensorReading = *mut ::core::ffi::c_void;
 pub type LightSensorReadingChangedEventArgs = *mut ::core::ffi::c_void;
 pub type Magnetometer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct MagnetometerAccuracy(pub i32);
 impl MagnetometerAccuracy {
@@ -108,6 +110,7 @@ pub type Pedometer = *mut ::core::ffi::c_void;
 pub type PedometerDataThreshold = *mut ::core::ffi::c_void;
 pub type PedometerReading = *mut ::core::ffi::c_void;
 pub type PedometerReadingChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct PedometerStepKind(pub i32);
 impl PedometerStepKind {
@@ -127,6 +130,7 @@ pub type ProximitySensorDisplayOnOffController = *mut ::core::ffi::c_void;
 pub type ProximitySensorReading = *mut ::core::ffi::c_void;
 pub type ProximitySensorReadingChangedEventArgs = *mut ::core::ffi::c_void;
 pub type SensorDataThresholdTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorOptimizationGoal(pub i32);
 impl SensorOptimizationGoal {
@@ -140,6 +144,7 @@ impl ::core::clone::Clone for SensorOptimizationGoal {
     }
 }
 pub type SensorQuaternion = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorReadingType(pub i32);
 impl SensorReadingType {
@@ -153,6 +158,7 @@ impl ::core::clone::Clone for SensorReadingType {
     }
 }
 pub type SensorRotationMatrix = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SensorType(pub i32);
 impl SensorType {
@@ -177,6 +183,7 @@ impl ::core::clone::Clone for SensorType {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Sensors'*"]
 #[repr(transparent)]
 pub struct SimpleOrientation(pub i32);
 impl SimpleOrientation {

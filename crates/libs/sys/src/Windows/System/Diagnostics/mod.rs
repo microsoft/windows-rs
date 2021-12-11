@@ -5,9 +5,8 @@ pub mod DevicePortal;
 pub mod Telemetry;
 #[cfg(feature = "System_Diagnostics_TraceReporting")]
 pub mod TraceReporting;
-#[link(name = "windows")]
-extern "system" {}
 pub type DiagnosticActionResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'System_Diagnostics'*"]
 #[repr(transparent)]
 pub struct DiagnosticActionState(pub i32);
 impl DiagnosticActionState {

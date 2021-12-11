@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct BindableVectorChangedEventHandler(pub ::windows::core::IUnknown);
 impl BindableVectorChangedEventHandler {
@@ -6,6 +7,7 @@ impl BindableVectorChangedEventHandler {
         let com = BindableVectorChangedEventHandlerBox::<F> { vtable: &BindableVectorChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, IBindableObservableVector>, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, vector: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), vector.into_param().abi(), e.into_param().abi()).ok() }
@@ -67,9 +69,11 @@ unsafe impl ::windows::core::RuntimeType for BindableVectorChangedEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct BindableVectorChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, vector: ::windows::core::RawPtr, e: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableIterable(::windows::core::IUnknown);
 impl IBindableIterable {
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn First(&self) -> ::windows::core::Result<IBindableIterator> {
         let this = self;
         unsafe {
@@ -147,9 +151,11 @@ pub struct IBindableIterableVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableIterator(::windows::core::IUnknown);
 impl IBindableIterator {
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Current(&self) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -157,6 +163,7 @@ impl IBindableIterator {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn HasCurrent(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -164,6 +171,7 @@ impl IBindableIterator {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn MoveNext(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -243,9 +251,11 @@ pub struct IBindableIteratorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableObservableVector(::windows::core::IUnknown);
 impl IBindableObservableVector {
+    #[doc = "*Required features: 'UI_Xaml_Interop', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn VectorChanged<'a, Param0: ::windows::core::IntoParam<'a, BindableVectorChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -254,11 +264,13 @@ impl IBindableObservableVector {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveVectorChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn First(&self) -> ::windows::core::Result<IBindableIterator> {
         let this = &::windows::core::Interface::cast::<IBindableIterable>(self)?;
         unsafe {
@@ -266,6 +278,7 @@ impl IBindableObservableVector {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IBindableIterator>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe {
@@ -273,6 +286,7 @@ impl IBindableObservableVector {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe {
@@ -280,6 +294,7 @@ impl IBindableObservableVector {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn GetView(&self) -> ::windows::core::Result<IBindableVectorView> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe {
@@ -287,6 +302,7 @@ impl IBindableObservableVector {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IBindableVectorView>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe {
@@ -294,26 +310,32 @@ impl IBindableObservableVector {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBindableVector>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
@@ -435,9 +457,11 @@ pub struct IBindableObservableVectorVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableVector(::windows::core::IUnknown);
 impl IBindableVector {
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -445,6 +469,7 @@ impl IBindableVector {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -452,6 +477,7 @@ impl IBindableVector {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn GetView(&self) -> ::windows::core::Result<IBindableVectorView> {
         let this = self;
         unsafe {
@@ -459,6 +485,7 @@ impl IBindableVector {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IBindableVectorView>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -466,30 +493,37 @@ impl IBindableVector {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn SetAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn InsertAt<'a, Param1: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, index: u32, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn RemoveAt(&self, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), index).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Append<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn RemoveAtEnd(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Clear(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn First(&self) -> ::windows::core::Result<IBindableIterator> {
         let this = &::windows::core::Interface::cast::<IBindableIterable>(self)?;
         unsafe {
@@ -598,9 +632,11 @@ pub struct IBindableVectorVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct IBindableVectorView(::windows::core::IUnknown);
 impl IBindableVectorView {
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn GetAt(&self, index: u32) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -608,6 +644,7 @@ impl IBindableVectorView {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), index, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Size(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -615,6 +652,7 @@ impl IBindableVectorView {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn IndexOf<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, value: Param0, index: &mut u32) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -622,6 +660,7 @@ impl IBindableVectorView {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi(), index, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn First(&self) -> ::windows::core::Result<IBindableIterator> {
         let this = &::windows::core::Interface::cast::<IBindableIterable>(self)?;
         unsafe {
@@ -723,9 +762,11 @@ pub struct IBindableVectorViewVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut u32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut ::core::ffi::c_void, index: *mut u32, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct INotifyCollectionChanged(::windows::core::IUnknown);
 impl INotifyCollectionChanged {
+    #[doc = "*Required features: 'UI_Xaml_Interop', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CollectionChanged<'a, Param0: ::windows::core::IntoParam<'a, NotifyCollectionChangedEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -734,6 +775,7 @@ impl INotifyCollectionChanged {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCollectionChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -852,6 +894,7 @@ pub struct INotifyCollectionChangedEventArgsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, action: NotifyCollectionChangedAction, newitems: ::windows::core::RawPtr, olditems: ::windows::core::RawPtr, newindex: i32, oldindex: i32, baseinterface: *mut ::core::ffi::c_void, innerinterface: *mut *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct NotifyCollectionChangedAction(pub i32);
 impl NotifyCollectionChangedAction {
@@ -882,9 +925,11 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedAction {
 impl ::windows::core::DefaultType for NotifyCollectionChangedAction {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventArgs(::windows::core::IUnknown);
 impl NotifyCollectionChangedEventArgs {
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Action(&self) -> ::windows::core::Result<NotifyCollectionChangedAction> {
         let this = self;
         unsafe {
@@ -892,6 +937,7 @@ impl NotifyCollectionChangedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<NotifyCollectionChangedAction>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn NewItems(&self) -> ::windows::core::Result<IBindableVector> {
         let this = self;
         unsafe {
@@ -899,6 +945,7 @@ impl NotifyCollectionChangedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IBindableVector>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn OldItems(&self) -> ::windows::core::Result<IBindableVector> {
         let this = self;
         unsafe {
@@ -906,6 +953,7 @@ impl NotifyCollectionChangedEventArgs {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<IBindableVector>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn NewStartingIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -913,6 +961,7 @@ impl NotifyCollectionChangedEventArgs {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn OldStartingIndex(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -920,12 +969,14 @@ impl NotifyCollectionChangedEventArgs {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn CreateInstanceWithAllParameters<'a, Param1: ::windows::core::IntoParam<'a, IBindableVector>, Param2: ::windows::core::IntoParam<'a, IBindableVector>>(action: NotifyCollectionChangedAction, newitems: Param1, olditems: Param2, newindex: i32, oldindex: i32) -> ::windows::core::Result<NotifyCollectionChangedEventArgs> {
         Self::INotifyCollectionChangedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), action, newitems.into_param().abi(), olditems.into_param().abi(), newindex, oldindex, ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<NotifyCollectionChangedEventArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn INotifyCollectionChangedEventArgsFactory<R, F: FnOnce(&INotifyCollectionChangedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<NotifyCollectionChangedEventArgs, INotifyCollectionChangedEventArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -994,6 +1045,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Noti
 }
 unsafe impl ::core::marker::Send for NotifyCollectionChangedEventArgs {}
 unsafe impl ::core::marker::Sync for NotifyCollectionChangedEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct NotifyCollectionChangedEventHandler(pub ::windows::core::IUnknown);
 impl NotifyCollectionChangedEventHandler {
@@ -1001,6 +1053,7 @@ impl NotifyCollectionChangedEventHandler {
         let com = NotifyCollectionChangedEventHandlerBox::<F> { vtable: &NotifyCollectionChangedEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Interop'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, NotifyCollectionChangedEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -1062,6 +1115,7 @@ unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventHandler
 #[repr(C)]
 #[doc(hidden)]
 pub struct NotifyCollectionChangedEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 #[repr(transparent)]
 pub struct TypeKind(pub i32);
 impl TypeKind {
@@ -1091,6 +1145,7 @@ impl ::windows::core::DefaultType for TypeKind {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Interop'*"]
 pub struct TypeName {
     pub Name: ::windows::core::HSTRING,
     pub Kind: TypeKind,

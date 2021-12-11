@@ -1,13 +1,12 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Spi_Provider")]
 pub mod Provider;
-#[link(name = "windows")]
-extern "system" {}
 pub type ISpiDeviceStatics = *mut ::core::ffi::c_void;
 pub type SpiBusInfo = *mut ::core::ffi::c_void;
 pub type SpiConnectionSettings = *mut ::core::ffi::c_void;
 pub type SpiController = *mut ::core::ffi::c_void;
 pub type SpiDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiMode(pub i32);
 impl SpiMode {
@@ -22,6 +21,7 @@ impl ::core::clone::Clone for SpiMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Spi'*"]
 #[repr(transparent)]
 pub struct SpiSharingMode(pub i32);
 impl SpiSharingMode {

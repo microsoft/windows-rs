@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IXamlDirectObject = *mut ::core::ffi::c_void;
 pub type XamlDirect = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlEventIndex(pub i32);
 impl XamlEventIndex {
@@ -151,6 +150,7 @@ impl ::core::clone::Clone for XamlEventIndex {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlPropertyIndex(pub i32);
 impl XamlPropertyIndex {
@@ -1830,6 +1830,7 @@ impl ::core::clone::Clone for XamlPropertyIndex {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlTypeIndex(pub i32);
 impl XamlTypeIndex {

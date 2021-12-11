@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Media_Core_Preview")]
 pub mod Preview;
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioDecoderDegradation(pub i32);
 impl AudioDecoderDegradation {
@@ -17,6 +16,7 @@ impl ::core::clone::Clone for AudioDecoderDegradation {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct AudioDecoderDegradationReason(pub i32);
 impl AudioDecoderDegradationReason {
@@ -35,6 +35,7 @@ pub type AudioTrack = *mut ::core::ffi::c_void;
 pub type AudioTrackOpenFailedEventArgs = *mut ::core::ffi::c_void;
 pub type AudioTrackSupportInfo = *mut ::core::ffi::c_void;
 pub type ChapterCue = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct CodecCategory(pub i32);
 impl CodecCategory {
@@ -48,6 +49,7 @@ impl ::core::clone::Clone for CodecCategory {
     }
 }
 pub type CodecInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct CodecKind(pub i32);
 impl CodecKind {
@@ -66,6 +68,7 @@ pub type FaceDetectedEventArgs = *mut ::core::ffi::c_void;
 pub type FaceDetectionEffect = *mut ::core::ffi::c_void;
 pub type FaceDetectionEffectDefinition = *mut ::core::ffi::c_void;
 pub type FaceDetectionEffectFrame = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct FaceDetectionMode(pub i32);
 impl FaceDetectionMode {
@@ -94,6 +97,7 @@ pub type LowLightFusionResult = *mut ::core::ffi::c_void;
 pub type MediaBinder = *mut ::core::ffi::c_void;
 pub type MediaBindingEventArgs = *mut ::core::ffi::c_void;
 pub type MediaCueEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaDecoderStatus(pub i32);
 impl MediaDecoderStatus {
@@ -112,6 +116,7 @@ pub type MediaSource = *mut ::core::ffi::c_void;
 pub type MediaSourceAppServiceConnection = *mut ::core::ffi::c_void;
 pub type MediaSourceError = *mut ::core::ffi::c_void;
 pub type MediaSourceOpenOperationCompletedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceState(pub i32);
 impl MediaSourceState {
@@ -128,6 +133,7 @@ impl ::core::clone::Clone for MediaSourceState {
     }
 }
 pub type MediaSourceStateChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaSourceStatus(pub i32);
 impl MediaSourceStatus {
@@ -145,6 +151,7 @@ pub type MediaStreamSamplePropertySet = *mut ::core::ffi::c_void;
 pub type MediaStreamSampleProtectionProperties = *mut ::core::ffi::c_void;
 pub type MediaStreamSource = *mut ::core::ffi::c_void;
 pub type MediaStreamSourceClosedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceClosedReason(pub i32);
 impl MediaStreamSourceClosedReason {
@@ -163,6 +170,7 @@ impl ::core::clone::Clone for MediaStreamSourceClosedReason {
     }
 }
 pub type MediaStreamSourceClosedRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaStreamSourceErrorStatus(pub i32);
 impl MediaStreamSourceErrorStatus {
@@ -191,6 +199,7 @@ pub type MediaStreamSourceStartingRequestDeferral = *mut ::core::ffi::c_void;
 pub type MediaStreamSourceSwitchStreamsRequest = *mut ::core::ffi::c_void;
 pub type MediaStreamSourceSwitchStreamsRequestDeferral = *mut ::core::ffi::c_void;
 pub type MediaStreamSourceSwitchStreamsRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MediaTrackKind(pub i32);
 impl MediaTrackKind {
@@ -204,6 +213,7 @@ impl ::core::clone::Clone for MediaTrackKind {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseAppendMode(pub i32);
 impl MseAppendMode {
@@ -216,6 +226,7 @@ impl ::core::clone::Clone for MseAppendMode {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseEndOfStreamStatus(pub i32);
 impl MseEndOfStreamStatus {
@@ -230,6 +241,7 @@ impl ::core::clone::Clone for MseEndOfStreamStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct MseReadyState(pub i32);
 impl MseReadyState {
@@ -247,6 +259,7 @@ pub type MseSourceBuffer = *mut ::core::ffi::c_void;
 pub type MseSourceBufferList = *mut ::core::ffi::c_void;
 pub type MseStreamSource = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct MseTimeRange {
     pub Start: super::super::Foundation::TimeSpan,
@@ -263,6 +276,7 @@ impl ::core::clone::Clone for MseTimeRange {
 pub type SceneAnalysisEffect = *mut ::core::ffi::c_void;
 pub type SceneAnalysisEffectDefinition = *mut ::core::ffi::c_void;
 pub type SceneAnalysisEffectFrame = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct SceneAnalysisRecommendation(pub i32);
 impl SceneAnalysisRecommendation {
@@ -278,6 +292,7 @@ impl ::core::clone::Clone for SceneAnalysisRecommendation {
 }
 pub type SceneAnalyzedEventArgs = *mut ::core::ffi::c_void;
 pub type SpeechCue = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataKind(pub i32);
 impl TimedMetadataKind {
@@ -299,6 +314,7 @@ impl ::core::clone::Clone for TimedMetadataKind {
 pub type TimedMetadataStreamDescriptor = *mut ::core::ffi::c_void;
 pub type TimedMetadataTrack = *mut ::core::ffi::c_void;
 pub type TimedMetadataTrackError = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedMetadataTrackErrorCode(pub i32);
 impl TimedMetadataTrackErrorCode {
@@ -315,6 +331,7 @@ impl ::core::clone::Clone for TimedMetadataTrackErrorCode {
 }
 pub type TimedMetadataTrackFailedEventArgs = *mut ::core::ffi::c_void;
 pub type TimedTextBouten = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextBoutenPosition(pub i32);
 impl TimedTextBoutenPosition {
@@ -328,6 +345,7 @@ impl ::core::clone::Clone for TimedTextBoutenPosition {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextBoutenType(pub i32);
 impl TimedTextBoutenType {
@@ -347,6 +365,7 @@ impl ::core::clone::Clone for TimedTextBoutenType {
     }
 }
 pub type TimedTextCue = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextDisplayAlignment(pub i32);
 impl TimedTextDisplayAlignment {
@@ -361,6 +380,7 @@ impl ::core::clone::Clone for TimedTextDisplayAlignment {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextDouble {
     pub Value: f64,
     pub Unit: TimedTextUnit,
@@ -371,6 +391,7 @@ impl ::core::clone::Clone for TimedTextDouble {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextFlowDirection(pub i32);
 impl TimedTextFlowDirection {
@@ -383,6 +404,7 @@ impl ::core::clone::Clone for TimedTextFlowDirection {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextFontStyle(pub i32);
 impl TimedTextFontStyle {
@@ -397,6 +419,7 @@ impl ::core::clone::Clone for TimedTextFontStyle {
     }
 }
 pub type TimedTextLine = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextLineAlignment(pub i32);
 impl TimedTextLineAlignment {
@@ -411,6 +434,7 @@ impl ::core::clone::Clone for TimedTextLineAlignment {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextPadding {
     pub Before: f64,
     pub After: f64,
@@ -425,6 +449,7 @@ impl ::core::clone::Clone for TimedTextPadding {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextPoint {
     pub X: f64,
     pub Y: f64,
@@ -438,6 +463,7 @@ impl ::core::clone::Clone for TimedTextPoint {
 }
 pub type TimedTextRegion = *mut ::core::ffi::c_void;
 pub type TimedTextRuby = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRubyAlign(pub i32);
 impl TimedTextRubyAlign {
@@ -454,6 +480,7 @@ impl ::core::clone::Clone for TimedTextRubyAlign {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRubyPosition(pub i32);
 impl TimedTextRubyPosition {
@@ -467,6 +494,7 @@ impl ::core::clone::Clone for TimedTextRubyPosition {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextRubyReserve(pub i32);
 impl TimedTextRubyReserve {
@@ -482,6 +510,7 @@ impl ::core::clone::Clone for TimedTextRubyReserve {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextScrollMode(pub i32);
 impl TimedTextScrollMode {
@@ -495,6 +524,7 @@ impl ::core::clone::Clone for TimedTextScrollMode {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Media_Core'*"]
 pub struct TimedTextSize {
     pub Height: f64,
     pub Width: f64,
@@ -510,6 +540,7 @@ pub type TimedTextSource = *mut ::core::ffi::c_void;
 pub type TimedTextSourceResolveResultEventArgs = *mut ::core::ffi::c_void;
 pub type TimedTextStyle = *mut ::core::ffi::c_void;
 pub type TimedTextSubformat = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextUnit(pub i32);
 impl TimedTextUnit {
@@ -522,6 +553,7 @@ impl ::core::clone::Clone for TimedTextUnit {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextWeight(pub i32);
 impl TimedTextWeight {
@@ -534,6 +566,7 @@ impl ::core::clone::Clone for TimedTextWeight {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextWrapping(pub i32);
 impl TimedTextWrapping {
@@ -546,6 +579,7 @@ impl ::core::clone::Clone for TimedTextWrapping {
         *self
     }
 }
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct TimedTextWritingMode(pub i32);
 impl TimedTextWritingMode {
@@ -566,6 +600,7 @@ impl ::core::clone::Clone for TimedTextWritingMode {
 pub type VideoStabilizationEffect = *mut ::core::ffi::c_void;
 pub type VideoStabilizationEffectDefinition = *mut ::core::ffi::c_void;
 pub type VideoStabilizationEffectEnabledChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media_Core'*"]
 #[repr(transparent)]
 pub struct VideoStabilizationEffectEnabledChangedReason(pub i32);
 impl VideoStabilizationEffectEnabledChangedReason {

@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayAdapter(::windows::core::IUnknown);
 impl DisplayAdapter {
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
     pub fn Id(&self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId> {
         let this = self;
@@ -10,6 +12,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DisplayAdapterId>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn DeviceInterfacePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -17,6 +20,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SourceCount(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -24,6 +28,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn PciVendorId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -31,6 +36,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn PciDeviceId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -38,6 +44,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn PciSubSystemId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -45,6 +52,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn PciRevision(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -52,6 +60,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -60,6 +69,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
     pub fn FromId<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Graphics::DisplayAdapterId>>(id: Param0) -> ::windows::core::Result<DisplayAdapter> {
         Self::IDisplayAdapterStatics(|this| unsafe {
@@ -67,6 +77,7 @@ impl DisplayAdapter {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<DisplayAdapter>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDisplayAdapterStatics<R, F: FnOnce(&IDisplayAdapterStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayAdapter, IDisplayAdapterStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -135,6 +146,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayAdapter {}
 unsafe impl ::core::marker::Sync for DisplayAdapter {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayBitsPerChannel(pub u32);
 impl DisplayBitsPerChannel {
@@ -167,9 +179,11 @@ unsafe impl ::windows::core::RuntimeType for DisplayBitsPerChannel {
 impl ::windows::core::DefaultType for DisplayBitsPerChannel {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayDevice(::windows::core::IUnknown);
 impl DisplayDevice {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CreateScanoutSource<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplaySource> {
         let this = self;
         unsafe {
@@ -177,6 +191,7 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplaySource>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CreatePrimary<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, DisplayPrimaryDescription>>(&self, target: Param0, desc: Param1) -> ::windows::core::Result<DisplaySurface> {
         let this = self;
         unsafe {
@@ -184,6 +199,7 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), target.into_param().abi(), desc.into_param().abi(), &mut result__).from_abi::<DisplaySurface>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CreateTaskPool(&self) -> ::windows::core::Result<DisplayTaskPool> {
         let this = self;
         unsafe {
@@ -191,6 +207,7 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayTaskPool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreatePeriodicFence<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::TimeSpan>>(&self, target: Param0, offsetfromvblank: Param1) -> ::windows::core::Result<DisplayFence> {
         let this = self;
@@ -199,10 +216,12 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), target.into_param().abi(), offsetfromvblank.into_param().abi(), &mut result__).from_abi::<DisplayFence>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn WaitForVBlank<'a, Param0: ::windows::core::IntoParam<'a, DisplaySource>>(&self, source: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), source.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CreateSimpleScanout<'a, Param0: ::windows::core::IntoParam<'a, DisplaySource>, Param1: ::windows::core::IntoParam<'a, DisplaySurface>>(&self, psource: Param0, psurface: Param1, subresourceindex: u32, syncinterval: u32) -> ::windows::core::Result<DisplayScanout> {
         let this = self;
         unsafe {
@@ -210,6 +229,7 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), psource.into_param().abi(), psurface.into_param().abi(), subresourceindex, syncinterval, &mut result__).from_abi::<DisplayScanout>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsCapabilitySupported(&self, capability: DisplayDeviceCapability) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -217,6 +237,7 @@ impl DisplayDevice {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), capability, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections', 'Graphics'*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics"))]
     pub fn CreateSimpleScanoutWithDirtyRectsAndOptions<'a, Param0: ::windows::core::IntoParam<'a, DisplaySource>, Param1: ::windows::core::IntoParam<'a, DisplaySurface>, Param4: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Graphics::RectInt32>>>(&self, source: Param0, surface: Param1, subresourceindex: u32, syncinterval: u32, dirtyrects: Param4, options: DisplayScanoutOptions) -> ::windows::core::Result<DisplayScanout> {
         let this = &::windows::core::Interface::cast::<IDisplayDevice2>(self)?;
@@ -289,6 +310,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayDevice {}
 unsafe impl ::core::marker::Sync for DisplayDevice {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayDeviceCapability(pub i32);
 impl DisplayDeviceCapability {
@@ -315,6 +337,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayDeviceCapability {
 impl ::windows::core::DefaultType for DisplayDeviceCapability {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayFence(::windows::core::IUnknown);
 impl DisplayFence {}
@@ -381,14 +404,17 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayFence {}
 unsafe impl ::core::marker::Sync for DisplayFence {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManager(::windows::core::IUnknown);
 impl DisplayManager {
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentTargets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
         let this = self;
@@ -397,6 +423,7 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetCurrentAdapters(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>> {
         let this = self;
@@ -405,6 +432,7 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayAdapter>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn TryAcquireTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayManagerResult> {
         let this = self;
         unsafe {
@@ -412,10 +440,12 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayManagerResult>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ReleaseTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), target.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn TryReadCurrentStateForAllTargets(&self) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
         unsafe {
@@ -423,6 +453,7 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndReadCurrentState<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
@@ -431,6 +462,7 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), targets.into_param().abi(), &mut result__).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateEmptyState<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, targets: Param0) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
@@ -439,6 +471,7 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), targets.into_param().abi(), &mut result__).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn TryAcquireTargetsAndCreateSubstate<'a, Param0: ::windows::core::IntoParam<'a, DisplayState>, Param1: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<DisplayTarget>>>(&self, existingstate: Param0, targets: Param1) -> ::windows::core::Result<DisplayManagerResultWithState> {
         let this = self;
@@ -447,6 +480,7 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), existingstate.into_param().abi(), targets.into_param().abi(), &mut result__).from_abi::<DisplayManagerResultWithState>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CreateDisplayDevice<'a, Param0: ::windows::core::IntoParam<'a, DisplayAdapter>>(&self, adapter: Param0) -> ::windows::core::Result<DisplayDevice> {
         let this = self;
         unsafe {
@@ -454,6 +488,7 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), adapter.into_param().abi(), &mut result__).from_abi::<DisplayDevice>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Enabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerEnabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -462,11 +497,13 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEnabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Disabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerDisabledEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -475,11 +512,13 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDisabled<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Changed<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerChangedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -488,11 +527,13 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PathsFailedOrInvalidated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplayManager, DisplayManagerPathsFailedOrInvalidatedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -501,25 +542,30 @@ impl DisplayManager {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePathsFailedOrInvalidated<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Stop(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Create(options: DisplayManagerOptions) -> ::windows::core::Result<DisplayManager> {
         Self::IDisplayManagerStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), options, &mut result__).from_abi::<DisplayManager>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDisplayManagerStatics<R, F: FnOnce(&IDisplayManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayManager, IDisplayManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -614,9 +660,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for DisplayManager {}
 unsafe impl ::core::marker::Sync for DisplayManager {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerChangedEventArgs(::windows::core::IUnknown);
 impl DisplayManagerChangedEventArgs {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -624,10 +672,12 @@ impl DisplayManagerChangedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -700,9 +750,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerChangedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerChangedEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerDisabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerDisabledEventArgs {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -710,10 +762,12 @@ impl DisplayManagerDisabledEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -786,9 +840,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerDisabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerDisabledEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerEnabledEventArgs(::windows::core::IUnknown);
 impl DisplayManagerEnabledEventArgs {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -796,10 +852,12 @@ impl DisplayManagerEnabledEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -872,6 +930,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerEnabledEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerEnabledEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerOptions(pub u32);
 impl DisplayManagerOptions {
@@ -900,9 +959,11 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerOptions {
 impl ::windows::core::DefaultType for DisplayManagerOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerPathsFailedOrInvalidatedEventArgs(::windows::core::IUnknown);
 impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Handled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -910,10 +971,12 @@ impl DisplayManagerPathsFailedOrInvalidatedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetHandled(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -986,6 +1049,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
 unsafe impl ::core::marker::Sync for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerResult(pub i32);
 impl DisplayManagerResult {
@@ -1016,9 +1080,11 @@ unsafe impl ::windows::core::RuntimeType for DisplayManagerResult {
 impl ::windows::core::DefaultType for DisplayManagerResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayManagerResultWithState(::windows::core::IUnknown);
 impl DisplayManagerResultWithState {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ErrorCode(&self) -> ::windows::core::Result<DisplayManagerResult> {
         let this = self;
         unsafe {
@@ -1026,6 +1092,7 @@ impl DisplayManagerResultWithState {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayManagerResult>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -1033,6 +1100,7 @@ impl DisplayManagerResultWithState {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HRESULT>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn State(&self) -> ::windows::core::Result<DisplayState> {
         let this = self;
         unsafe {
@@ -1104,9 +1172,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayManagerResultWithState {}
 unsafe impl ::core::marker::Sync for DisplayManagerResultWithState {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayModeInfo(::windows::core::IUnknown);
 impl DisplayModeInfo {
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
     pub fn SourceResolution(&self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32> {
         let this = self;
@@ -1115,6 +1185,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::SizeInt32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1122,6 +1193,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX'*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SourcePixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -1130,6 +1202,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
     pub fn TargetResolution(&self) -> ::windows::core::Result<super::super::super::Graphics::SizeInt32> {
         let this = self;
@@ -1138,6 +1211,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::SizeInt32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PresentationRate(&self) -> ::windows::core::Result<DisplayPresentationRate> {
         let this = self;
@@ -1146,6 +1220,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayPresentationRate>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsInterlaced(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1153,6 +1228,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn GetWireFormatSupportedBitsPerChannel(&self, encoding: DisplayWireFormatPixelEncoding) -> ::windows::core::Result<DisplayBitsPerChannel> {
         let this = self;
         unsafe {
@@ -1160,6 +1236,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), encoding, &mut result__).from_abi::<DisplayBitsPerChannel>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsWireFormatSupported<'a, Param0: ::windows::core::IntoParam<'a, DisplayWireFormat>>(&self, wireformat: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1167,6 +1244,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), wireformat.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -1175,6 +1253,7 @@ impl DisplayModeInfo {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
     #[cfg(feature = "Foundation_Numerics")]
     pub fn PhysicalPresentationRate(&self) -> ::windows::core::Result<DisplayPresentationRate> {
         let this = &::windows::core::Interface::cast::<IDisplayModeInfo2>(self)?;
@@ -1247,6 +1326,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayModeInfo {}
 unsafe impl ::core::marker::Sync for DisplayModeInfo {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayModeQueryOptions(pub u32);
 impl DisplayModeQueryOptions {
@@ -1274,9 +1354,11 @@ unsafe impl ::windows::core::RuntimeType for DisplayModeQueryOptions {
 impl ::windows::core::DefaultType for DisplayModeQueryOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPath(::windows::core::IUnknown);
 impl DisplayPath {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn View(&self) -> ::windows::core::Result<DisplayView> {
         let this = self;
         unsafe {
@@ -1284,6 +1366,7 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayView>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Target(&self) -> ::windows::core::Result<DisplayTarget> {
         let this = self;
         unsafe {
@@ -1291,6 +1374,7 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayTarget>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Status(&self) -> ::windows::core::Result<DisplayPathStatus> {
         let this = self;
         unsafe {
@@ -1298,6 +1382,7 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayPathStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Graphics'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SourceResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
@@ -1306,11 +1391,13 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Graphics'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SetSourceResolution<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX'*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SourcePixelFormat(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -1319,11 +1406,13 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX'*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn SetSourcePixelFormat(&self, value: super::super::super::Graphics::DirectX::DirectXPixelFormat) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1331,10 +1420,12 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetIsStereo(&self, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Graphics'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn TargetResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
@@ -1343,11 +1434,13 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Graphics'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SetTargetResolution<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub fn PresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = self;
@@ -1356,11 +1449,13 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub fn SetPresentationRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn IsInterlaced(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<bool>> {
         let this = self;
@@ -1369,11 +1464,13 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIsInterlaced<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<bool>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn WireFormat(&self) -> ::windows::core::Result<DisplayWireFormat> {
         let this = self;
         unsafe {
@@ -1381,10 +1478,12 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormat>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetWireFormat<'a, Param0: ::windows::core::IntoParam<'a, DisplayWireFormat>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Rotation(&self) -> ::windows::core::Result<DisplayRotation> {
         let this = self;
         unsafe {
@@ -1392,10 +1491,12 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayRotation>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetRotation(&self, value: DisplayRotation) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Scaling(&self) -> ::windows::core::Result<DisplayPathScaling> {
         let this = self;
         unsafe {
@@ -1403,10 +1504,12 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayPathScaling>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetScaling(&self, value: DisplayPathScaling) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn FindModes(&self, flags: DisplayModeQueryOptions) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>> {
         let this = self;
@@ -1415,10 +1518,12 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), flags, &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayModeInfo>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ApplyPropertiesFromMode<'a, Param0: ::windows::core::IntoParam<'a, DisplayModeInfo>>(&self, moderesult: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), moderesult.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -1427,6 +1532,7 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub fn PhysicalPresentationRate(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<DisplayPresentationRate>> {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
@@ -1435,6 +1541,7 @@ impl DisplayPath {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<DisplayPresentationRate>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Foundation_Numerics'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Numerics"))]
     pub fn SetPhysicalPresentationRate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<DisplayPresentationRate>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplayPath2>(self)?;
@@ -1504,6 +1611,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayPath {}
 unsafe impl ::core::marker::Sync for DisplayPath {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPathScaling(pub i32);
 impl DisplayPathScaling {
@@ -1535,6 +1643,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathScaling {
 impl ::windows::core::DefaultType for DisplayPathScaling {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPathStatus(pub i32);
 impl DisplayPathStatus {
@@ -1566,6 +1675,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayPathStatus {
 impl ::windows::core::DefaultType for DisplayPathStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPresentStatus(pub i32);
 impl DisplayPresentStatus {
@@ -1598,6 +1708,7 @@ impl ::windows::core::DefaultType for DisplayPresentStatus {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Numerics'*"]
 #[cfg(feature = "Foundation_Numerics")]
 pub struct DisplayPresentationRate {
     pub VerticalSyncRate: super::super::super::Foundation::Numerics::Rational,
@@ -1637,9 +1748,11 @@ impl ::core::default::Default for DisplayPresentationRate {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayPrimaryDescription(::windows::core::IUnknown);
 impl DisplayPrimaryDescription {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Width(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1647,6 +1760,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Height(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1654,6 +1768,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX'*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn Format(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXPixelFormat> {
         let this = self;
@@ -1662,6 +1777,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXPixelFormat>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX'*"]
     #[cfg(feature = "Graphics_DirectX")]
     pub fn ColorSpace(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::DirectXColorSpace> {
         let this = self;
@@ -1670,6 +1786,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::DirectXColorSpace>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsStereo(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -1677,6 +1794,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX_Direct3D11'*"]
     #[cfg(feature = "Graphics_DirectX_Direct3D11")]
     pub fn MultisampleDescription(&self) -> ::windows::core::Result<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription> {
         let this = self;
@@ -1685,6 +1803,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -1693,6 +1812,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics_DirectX', 'Graphics_DirectX_Direct3D11'*"]
     #[cfg(all(feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateInstance<'a, Param5: ::windows::core::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: Param5) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionFactory(|this| unsafe {
@@ -1700,6 +1820,7 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), width, height, pixelformat, colorspace, isstereo, multisampledescription.into_param().abi(), &mut result__).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections', 'Graphics_DirectX', 'Graphics_DirectX_Direct3D11'*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Graphics_DirectX", feature = "Graphics_DirectX_Direct3D11"))]
     pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>, Param6: ::windows::core::IntoParam<'a, super::super::super::Graphics::DirectX::Direct3D11::Direct3DMultisampleDescription>>(extraproperties: Param0, width: u32, height: u32, pixelformat: super::super::super::Graphics::DirectX::DirectXPixelFormat, colorspace: super::super::super::Graphics::DirectX::DirectXColorSpace, isstereo: bool, multisampledescription: Param6) -> ::windows::core::Result<DisplayPrimaryDescription> {
         Self::IDisplayPrimaryDescriptionStatics(|this| unsafe {
@@ -1707,10 +1828,12 @@ impl DisplayPrimaryDescription {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), extraproperties.into_param().abi(), width, height, pixelformat, colorspace, isstereo, multisampledescription.into_param().abi(), &mut result__).from_abi::<DisplayPrimaryDescription>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDisplayPrimaryDescriptionFactory<R, F: FnOnce(&IDisplayPrimaryDescriptionFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IDisplayPrimaryDescriptionStatics<R, F: FnOnce(&IDisplayPrimaryDescriptionStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayPrimaryDescription, IDisplayPrimaryDescriptionStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1779,6 +1902,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayPrimaryDescription {}
 unsafe impl ::core::marker::Sync for DisplayPrimaryDescription {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayRotation(pub i32);
 impl DisplayRotation {
@@ -1808,6 +1932,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayRotation {
 impl ::windows::core::DefaultType for DisplayRotation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayScanout(::windows::core::IUnknown);
 impl DisplayScanout {}
@@ -1874,6 +1999,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayScanout {}
 unsafe impl ::core::marker::Sync for DisplayScanout {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayScanoutOptions(pub u32);
 impl DisplayScanoutOptions {
@@ -1901,9 +2027,11 @@ unsafe impl ::windows::core::RuntimeType for DisplayScanoutOptions {
 impl ::windows::core::DefaultType for DisplayScanoutOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplaySource(::windows::core::IUnknown);
 impl DisplaySource {
+    #[doc = "*Required features: 'Devices_Display_Core', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
     pub fn AdapterId(&self) -> ::windows::core::Result<super::super::super::Graphics::DisplayAdapterId> {
         let this = self;
@@ -1912,6 +2040,7 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::DisplayAdapterId>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SourceId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -1919,6 +2048,7 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetMetadata<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(&self, key: Param0) -> ::windows::core::Result<super::super::super::Storage::Streams::IBuffer> {
         let this = self;
@@ -1927,6 +2057,7 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), key.into_param().abi(), &mut result__).from_abi::<super::super::super::Storage::Streams::IBuffer>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Status(&self) -> ::windows::core::Result<DisplaySourceStatus> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
         unsafe {
@@ -1934,6 +2065,7 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplaySourceStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<DisplaySource, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
@@ -1942,6 +2074,7 @@ impl DisplaySource {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplaySource2>(self)?;
@@ -2011,6 +2144,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplaySource {}
 unsafe impl ::core::marker::Sync for DisplaySource {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplaySourceStatus(pub i32);
 impl DisplaySourceStatus {
@@ -2041,9 +2175,11 @@ unsafe impl ::windows::core::RuntimeType for DisplaySourceStatus {
 impl ::windows::core::DefaultType for DisplaySourceStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayState(::windows::core::IUnknown);
 impl DisplayState {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsReadOnly(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2051,6 +2187,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsStale(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2058,6 +2195,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Targets(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>> {
         let this = self;
@@ -2066,6 +2204,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayTarget>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Views(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayView>> {
         let this = self;
@@ -2074,6 +2213,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayView>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -2082,6 +2222,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ConnectTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
@@ -2089,6 +2230,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayPath>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ConnectTargetToView<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, DisplayView>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
@@ -2096,6 +2238,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), target.into_param().abi(), view.into_param().abi(), &mut result__).from_abi::<DisplayPath>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CanConnectTargetToView<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>, Param1: ::windows::core::IntoParam<'a, DisplayView>>(&self, target: Param0, view: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2103,6 +2246,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), target.into_param().abi(), view.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn GetViewForTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayView> {
         let this = self;
         unsafe {
@@ -2110,6 +2254,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayView>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn GetPathForTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<DisplayPath> {
         let this = self;
         unsafe {
@@ -2117,10 +2262,12 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), target.into_param().abi(), &mut result__).from_abi::<DisplayPath>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn DisconnectTarget<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, target: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), target.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn TryFunctionalize(&self, options: DisplayStateFunctionalizeOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
@@ -2128,6 +2275,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), options, &mut result__).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn TryApply(&self, options: DisplayStateApplyOptions) -> ::windows::core::Result<DisplayStateOperationResult> {
         let this = self;
         unsafe {
@@ -2135,6 +2283,7 @@ impl DisplayState {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), options, &mut result__).from_abi::<DisplayStateOperationResult>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Clone(&self) -> ::windows::core::Result<DisplayState> {
         let this = self;
         unsafe {
@@ -2206,6 +2355,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayState {}
 unsafe impl ::core::marker::Sync for DisplayState {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateApplyOptions(pub u32);
 impl DisplayStateApplyOptions {
@@ -2235,6 +2385,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateApplyOptions {
 impl ::windows::core::DefaultType for DisplayStateApplyOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateFunctionalizeOptions(pub u32);
 impl DisplayStateFunctionalizeOptions {
@@ -2263,9 +2414,11 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateFunctionalizeOptions {
 impl ::windows::core::DefaultType for DisplayStateFunctionalizeOptions {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateOperationResult(::windows::core::IUnknown);
 impl DisplayStateOperationResult {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Status(&self) -> ::windows::core::Result<DisplayStateOperationStatus> {
         let this = self;
         unsafe {
@@ -2273,6 +2426,7 @@ impl DisplayStateOperationResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayStateOperationStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ExtendedErrorCode(&self) -> ::windows::core::Result<::windows::core::HRESULT> {
         let this = self;
         unsafe {
@@ -2344,6 +2498,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayStateOperationResult {}
 unsafe impl ::core::marker::Sync for DisplayStateOperationResult {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayStateOperationStatus(pub i32);
 impl DisplayStateOperationStatus {
@@ -2377,6 +2532,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayStateOperationStatus {
 impl ::windows::core::DefaultType for DisplayStateOperationStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplaySurface(::windows::core::IUnknown);
 impl DisplaySurface {}
@@ -2443,9 +2599,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplaySurface {}
 unsafe impl ::core::marker::Sync for DisplaySurface {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTarget(::windows::core::IUnknown);
 impl DisplayTarget {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Adapter(&self) -> ::windows::core::Result<DisplayAdapter> {
         let this = self;
         unsafe {
@@ -2453,6 +2611,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayAdapter>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn DeviceInterfacePath(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2460,6 +2619,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn AdapterRelativeId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2467,6 +2627,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsConnected(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2474,6 +2635,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsVirtualModeEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2481,6 +2643,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsVirtualTopologyEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2488,6 +2651,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn UsageKind(&self) -> ::windows::core::Result<super::DisplayMonitorUsageKind> {
         let this = self;
         unsafe {
@@ -2495,6 +2659,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DisplayMonitorUsageKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn MonitorPersistence(&self) -> ::windows::core::Result<DisplayTargetPersistence> {
         let this = self;
         unsafe {
@@ -2502,6 +2667,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayTargetPersistence>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn StableMonitorId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2509,6 +2675,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn TryGetMonitor(&self) -> ::windows::core::Result<super::DisplayMonitor> {
         let this = self;
         unsafe {
@@ -2516,6 +2683,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DisplayMonitor>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -2524,6 +2692,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsStale(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2531,6 +2700,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsSame<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2538,6 +2708,7 @@ impl DisplayTarget {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), othertarget.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn IsEqual<'a, Param0: ::windows::core::IntoParam<'a, DisplayTarget>>(&self, othertarget: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2609,6 +2780,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTarget {}
 unsafe impl ::core::marker::Sync for DisplayTarget {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTargetPersistence(pub i32);
 impl DisplayTargetPersistence {
@@ -2638,17 +2810,21 @@ unsafe impl ::windows::core::RuntimeType for DisplayTargetPersistence {
 impl ::windows::core::DefaultType for DisplayTargetPersistence {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTask(::windows::core::IUnknown);
 impl DisplayTask {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetScanout<'a, Param0: ::windows::core::IntoParam<'a, DisplayScanout>>(&self, scanout: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), scanout.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetWait<'a, Param0: ::windows::core::IntoParam<'a, DisplayFence>>(&self, readyfence: Param0, readyfencevalue: u64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), readyfence.into_param().abi(), readyfencevalue).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetSignal<'a, Param1: ::windows::core::IntoParam<'a, DisplayFence>>(&self, signalkind: DisplayTaskSignalKind, fence: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDisplayTask2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), signalkind, fence.into_param().abi()).ok() }
@@ -2717,9 +2893,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTask {}
 unsafe impl ::core::marker::Sync for DisplayTask {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTaskPool(::windows::core::IUnknown);
 impl DisplayTaskPool {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CreateTask(&self) -> ::windows::core::Result<DisplayTask> {
         let this = self;
         unsafe {
@@ -2727,11 +2905,13 @@ impl DisplayTaskPool {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayTask>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn ExecuteTask<'a, Param0: ::windows::core::IntoParam<'a, DisplayTask>>(&self, task: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), task.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn TryExecuteTask<'a, Param0: ::windows::core::IntoParam<'a, DisplayTask>>(&self, task: Param0) -> ::windows::core::Result<DisplayTaskResult> {
         let this = &::windows::core::Interface::cast::<IDisplayTaskPool2>(self)?;
         unsafe {
@@ -2803,9 +2983,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTaskPool {}
 unsafe impl ::core::marker::Sync for DisplayTaskPool {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTaskResult(::windows::core::IUnknown);
 impl DisplayTaskResult {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn PresentStatus(&self) -> ::windows::core::Result<DisplayPresentStatus> {
         let this = self;
         unsafe {
@@ -2813,6 +2995,7 @@ impl DisplayTaskResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayPresentStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn PresentId(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -2820,6 +3003,7 @@ impl DisplayTaskResult {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SourceStatus(&self) -> ::windows::core::Result<DisplaySourceStatus> {
         let this = self;
         unsafe {
@@ -2891,6 +3075,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayTaskResult {}
 unsafe impl ::core::marker::Sync for DisplayTaskResult {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayTaskSignalKind(pub i32);
 impl DisplayTaskSignalKind {
@@ -2918,9 +3103,11 @@ unsafe impl ::windows::core::RuntimeType for DisplayTaskSignalKind {
 impl ::windows::core::DefaultType for DisplayTaskSignalKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayView(::windows::core::IUnknown);
 impl DisplayView {
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Paths(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<DisplayPath>> {
         let this = self;
@@ -2929,6 +3116,7 @@ impl DisplayView {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<DisplayPath>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Graphics'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn ContentResolution(&self) -> ::windows::core::Result<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>> {
         let this = self;
@@ -2937,15 +3125,18 @@ impl DisplayView {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation', 'Graphics'*"]
     #[cfg(all(feature = "Foundation", feature = "Graphics"))]
     pub fn SetContentResolution<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::IReference<super::super::super::Graphics::SizeInt32>>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn SetPrimaryPath<'a, Param0: ::windows::core::IntoParam<'a, DisplayPath>>(&self, path: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), path.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -3018,9 +3209,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayView {}
 unsafe impl ::core::marker::Sync for DisplayView {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormat(::windows::core::IUnknown);
 impl DisplayWireFormat {
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn PixelEncoding(&self) -> ::windows::core::Result<DisplayWireFormatPixelEncoding> {
         let this = self;
         unsafe {
@@ -3028,6 +3221,7 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormatPixelEncoding>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn BitsPerChannel(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -3035,6 +3229,7 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn ColorSpace(&self) -> ::windows::core::Result<DisplayWireFormatColorSpace> {
         let this = self;
         unsafe {
@@ -3042,6 +3237,7 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormatColorSpace>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn Eotf(&self) -> ::windows::core::Result<DisplayWireFormatEotf> {
         let this = self;
         unsafe {
@@ -3049,6 +3245,7 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormatEotf>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn HdrMetadata(&self) -> ::windows::core::Result<DisplayWireFormatHdrMetadata> {
         let this = self;
         unsafe {
@@ -3056,6 +3253,7 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayWireFormatHdrMetadata>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Properties(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>> {
         let this = self;
@@ -3064,12 +3262,14 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMapView<::windows::core::GUID, ::windows::core::IInspectable>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display_Core'*"]
     pub fn CreateInstance(pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat> {
         Self::IDisplayWireFormatFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, &mut result__).from_abi::<DisplayWireFormat>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Display_Core', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn CreateWithProperties<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::Collections::IIterable<super::super::super::Foundation::Collections::IKeyValuePair<::windows::core::GUID, ::windows::core::IInspectable>>>>(extraproperties: Param0, pixelencoding: DisplayWireFormatPixelEncoding, bitsperchannel: i32, colorspace: DisplayWireFormatColorSpace, eotf: DisplayWireFormatEotf, hdrmetadata: DisplayWireFormatHdrMetadata) -> ::windows::core::Result<DisplayWireFormat> {
         Self::IDisplayWireFormatStatics(|this| unsafe {
@@ -3077,10 +3277,12 @@ impl DisplayWireFormat {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), extraproperties.into_param().abi(), pixelencoding, bitsperchannel, colorspace, eotf, hdrmetadata, &mut result__).from_abi::<DisplayWireFormat>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDisplayWireFormatFactory<R, F: FnOnce(&IDisplayWireFormatFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayWireFormat, IDisplayWireFormatFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IDisplayWireFormatStatics<R, F: FnOnce(&IDisplayWireFormatStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayWireFormat, IDisplayWireFormatStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -3149,6 +3351,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayWireFormat {}
 unsafe impl ::core::marker::Sync for DisplayWireFormat {}
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatColorSpace(pub i32);
 impl DisplayWireFormatColorSpace {
@@ -3177,6 +3380,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatColorSpace {
 impl ::windows::core::DefaultType for DisplayWireFormatColorSpace {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatEotf(pub i32);
 impl DisplayWireFormatEotf {
@@ -3204,6 +3408,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatEotf {
 impl ::windows::core::DefaultType for DisplayWireFormatEotf {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatHdrMetadata(pub i32);
 impl DisplayWireFormatHdrMetadata {
@@ -3233,6 +3438,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayWireFormatHdrMetadata {
 impl ::windows::core::DefaultType for DisplayWireFormatHdrMetadata {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display_Core'*"]
 #[repr(transparent)]
 pub struct DisplayWireFormatPixelEncoding(pub i32);
 impl DisplayWireFormatPixelEncoding {
@@ -3948,7 +4154,8 @@ pub struct IDisplayTaskPoolVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, task: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, task: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]

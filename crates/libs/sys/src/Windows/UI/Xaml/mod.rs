@@ -27,10 +27,9 @@ pub mod Printing;
 pub mod Resources;
 #[cfg(feature = "UI_Xaml_Shapes")]
 pub mod Shapes;
-#[link(name = "windows")]
-extern "system" {}
 pub type AdaptiveTrigger = *mut ::core::ffi::c_void;
 pub type Application = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationHighContrastAdjustment(pub u32);
 impl ApplicationHighContrastAdjustment {
@@ -45,6 +44,7 @@ impl ::core::clone::Clone for ApplicationHighContrastAdjustment {
 }
 pub type ApplicationInitializationCallback = *mut ::core::ffi::c_void;
 pub type ApplicationInitializationCallbackParams = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationRequiresPointerMode(pub i32);
 impl ApplicationRequiresPointerMode {
@@ -57,6 +57,7 @@ impl ::core::clone::Clone for ApplicationRequiresPointerMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ApplicationTheme(pub i32);
 impl ApplicationTheme {
@@ -69,6 +70,7 @@ impl ::core::clone::Clone for ApplicationTheme {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct AutomationTextAttributesEnum(pub i32);
 impl AutomationTextAttributesEnum {
@@ -126,6 +128,7 @@ pub type BringIntoViewRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type BrushTransition = *mut ::core::ffi::c_void;
 pub type ColorPaletteResources = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml'*"]
 pub struct CornerRadius {
     pub TopLeft: f64,
     pub TopRight: f64,
@@ -159,6 +162,7 @@ pub type DragUI = *mut ::core::ffi::c_void;
 pub type DragUIOverride = *mut ::core::ffi::c_void;
 pub type DropCompletedEventArgs = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct Duration {
     pub TimeSpan: super::super::Foundation::TimeSpan,
@@ -173,6 +177,7 @@ impl ::core::clone::Clone for Duration {
     }
 }
 pub type DurationHelper = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct DurationType(pub i32);
 impl DurationType {
@@ -189,6 +194,7 @@ impl ::core::clone::Clone for DurationType {
 pub type EffectiveViewportChangedEventArgs = *mut ::core::ffi::c_void;
 pub type ElementFactoryGetArgs = *mut ::core::ffi::c_void;
 pub type ElementFactoryRecycleArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementHighContrastAdjustment(pub u32);
 impl ElementHighContrastAdjustment {
@@ -202,6 +208,7 @@ impl ::core::clone::Clone for ElementHighContrastAdjustment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSoundKind(pub i32);
 impl ElementSoundKind {
@@ -219,6 +226,7 @@ impl ::core::clone::Clone for ElementSoundKind {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSoundMode(pub i32);
 impl ElementSoundMode {
@@ -233,6 +241,7 @@ impl ::core::clone::Clone for ElementSoundMode {
     }
 }
 pub type ElementSoundPlayer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSoundPlayerState(pub i32);
 impl ElementSoundPlayerState {
@@ -246,6 +255,7 @@ impl ::core::clone::Clone for ElementSoundPlayerState {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementSpatialAudioMode(pub i32);
 impl ElementSpatialAudioMode {
@@ -259,6 +269,7 @@ impl ::core::clone::Clone for ElementSpatialAudioMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct ElementTheme(pub i32);
 impl ElementTheme {
@@ -276,6 +287,7 @@ pub type EnteredBackgroundEventHandler = *mut ::core::ffi::c_void;
 pub type EventTrigger = *mut ::core::ffi::c_void;
 pub type ExceptionRoutedEventArgs = *mut ::core::ffi::c_void;
 pub type ExceptionRoutedEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FlowDirection(pub i32);
 impl FlowDirection {
@@ -288,6 +300,7 @@ impl ::core::clone::Clone for FlowDirection {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FocusState(pub i32);
 impl FocusState {
@@ -302,6 +315,7 @@ impl ::core::clone::Clone for FocusState {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FocusVisualKind(pub i32);
 impl FocusVisualKind {
@@ -315,6 +329,7 @@ impl ::core::clone::Clone for FocusVisualKind {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontCapitals(pub i32);
 impl FontCapitals {
@@ -332,6 +347,7 @@ impl ::core::clone::Clone for FontCapitals {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontEastAsianLanguage(pub i32);
 impl FontEastAsianLanguage {
@@ -352,6 +368,7 @@ impl ::core::clone::Clone for FontEastAsianLanguage {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontEastAsianWidths(pub i32);
 impl FontEastAsianWidths {
@@ -368,6 +385,7 @@ impl ::core::clone::Clone for FontEastAsianWidths {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontFraction(pub i32);
 impl FontFraction {
@@ -381,6 +399,7 @@ impl ::core::clone::Clone for FontFraction {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontNumeralAlignment(pub i32);
 impl FontNumeralAlignment {
@@ -394,6 +413,7 @@ impl ::core::clone::Clone for FontNumeralAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontNumeralStyle(pub i32);
 impl FontNumeralStyle {
@@ -407,6 +427,7 @@ impl ::core::clone::Clone for FontNumeralStyle {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct FontVariants(pub i32);
 impl FontVariants {
@@ -428,6 +449,7 @@ pub type FrameworkTemplate = *mut ::core::ffi::c_void;
 pub type FrameworkView = *mut ::core::ffi::c_void;
 pub type FrameworkViewSource = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml'*"]
 pub struct GridLength {
     pub Value: f64,
     pub GridUnitType: GridUnitType,
@@ -439,6 +461,7 @@ impl ::core::clone::Clone for GridLength {
     }
 }
 pub type GridLengthHelper = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct GridUnitType(pub i32);
 impl GridUnitType {
@@ -452,6 +475,7 @@ impl ::core::clone::Clone for GridUnitType {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct HorizontalAlignment(pub i32);
 impl HorizontalAlignment {
@@ -469,6 +493,7 @@ impl ::core::clone::Clone for HorizontalAlignment {
 pub type IDataTemplateExtension = *mut ::core::ffi::c_void;
 pub type IElementFactory = *mut ::core::ffi::c_void;
 pub type LeavingBackgroundEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct LineStackingStrategy(pub i32);
 impl LineStackingStrategy {
@@ -483,6 +508,7 @@ impl ::core::clone::Clone for LineStackingStrategy {
     }
 }
 pub type MediaFailedRoutedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct OpticalMarginAlignment(pub i32);
 impl OpticalMarginAlignment {
@@ -516,6 +542,7 @@ pub type StateTriggerBase = *mut ::core::ffi::c_void;
 pub type Style = *mut ::core::ffi::c_void;
 pub type SuspendingEventHandler = *mut ::core::ffi::c_void;
 pub type TargetPropertyPath = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextAlignment(pub i32);
 impl TextAlignment {
@@ -533,6 +560,7 @@ impl ::core::clone::Clone for TextAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextLineBounds(pub i32);
 impl TextLineBounds {
@@ -547,6 +575,7 @@ impl ::core::clone::Clone for TextLineBounds {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextReadingOrder(pub i32);
 impl TextReadingOrder {
@@ -560,6 +589,7 @@ impl ::core::clone::Clone for TextReadingOrder {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextTrimming(pub i32);
 impl TextTrimming {
@@ -574,6 +604,7 @@ impl ::core::clone::Clone for TextTrimming {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct TextWrapping(pub i32);
 impl TextWrapping {
@@ -588,6 +619,7 @@ impl ::core::clone::Clone for TextWrapping {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml'*"]
 pub struct Thickness {
     pub Left: f64,
     pub Top: f64,
@@ -610,6 +642,7 @@ pub type UIElementWeakCollection = *mut ::core::ffi::c_void;
 pub type UnhandledExceptionEventArgs = *mut ::core::ffi::c_void;
 pub type UnhandledExceptionEventHandler = *mut ::core::ffi::c_void;
 pub type Vector3Transition = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Vector3TransitionComponents(pub u32);
 impl Vector3TransitionComponents {
@@ -623,6 +656,7 @@ impl ::core::clone::Clone for Vector3TransitionComponents {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct VerticalAlignment(pub i32);
 impl VerticalAlignment {
@@ -637,6 +671,7 @@ impl ::core::clone::Clone for VerticalAlignment {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml'*"]
 #[repr(transparent)]
 pub struct Visibility(pub i32);
 impl Visibility {

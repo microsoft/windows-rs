@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "ApplicationModel_ExtendedExecution_Foreground")]
 pub mod Foreground;
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionReason(pub i32);
 impl ExtendedExecutionReason {
@@ -16,6 +15,7 @@ impl ::core::clone::Clone for ExtendedExecutionReason {
         *self
     }
 }
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionResult(pub i32);
 impl ExtendedExecutionResult {
@@ -29,6 +29,7 @@ impl ::core::clone::Clone for ExtendedExecutionResult {
     }
 }
 pub type ExtendedExecutionRevokedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_ExtendedExecution'*"]
 #[repr(transparent)]
 pub struct ExtendedExecutionRevokedReason(pub i32);
 impl ExtendedExecutionRevokedReason {

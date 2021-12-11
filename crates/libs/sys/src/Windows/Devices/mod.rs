@@ -61,8 +61,6 @@ pub mod Usb;
 pub mod WiFi;
 #[cfg(feature = "Devices_WiFiDirect")]
 pub mod WiFiDirect;
-#[link(name = "windows")]
-extern "system" {}
 pub type ILowLevelDevicesAggregateProvider = *mut ::core::ffi::c_void;
 pub type LowLevelDevicesAggregateProvider = *mut ::core::ffi::c_void;
 pub type LowLevelDevicesController = *mut ::core::ffi::c_void;

@@ -1,10 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type Binding = *mut ::core::ffi::c_void;
 pub type BindingBase = *mut ::core::ffi::c_void;
 pub type BindingExpression = *mut ::core::ffi::c_void;
 pub type BindingExpressionBase = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct BindingMode(pub i32);
 impl BindingMode {
@@ -34,6 +33,7 @@ pub type ISupportIncrementalLoading = *mut ::core::ffi::c_void;
 pub type IValueConverter = *mut ::core::ffi::c_void;
 pub type ItemIndexRange = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 pub struct LoadMoreItemsResult {
     pub Count: u32,
 }
@@ -46,6 +46,7 @@ impl ::core::clone::Clone for LoadMoreItemsResult {
 pub type PropertyChangedEventArgs = *mut ::core::ffi::c_void;
 pub type PropertyChangedEventHandler = *mut ::core::ffi::c_void;
 pub type RelativeSource = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct RelativeSourceMode(pub i32);
 impl RelativeSourceMode {
@@ -59,6 +60,7 @@ impl ::core::clone::Clone for RelativeSourceMode {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Data'*"]
 #[repr(transparent)]
 pub struct UpdateSourceTrigger(pub i32);
 impl UpdateSourceTrigger {

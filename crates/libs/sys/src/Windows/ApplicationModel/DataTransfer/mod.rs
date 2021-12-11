@@ -3,12 +3,11 @@
 pub mod DragDrop;
 #[cfg(feature = "ApplicationModel_DataTransfer_ShareTarget")]
 pub mod ShareTarget;
-#[link(name = "windows")]
-extern "system" {}
 pub type ClipboardContentOptions = *mut ::core::ffi::c_void;
 pub type ClipboardHistoryChangedEventArgs = *mut ::core::ffi::c_void;
 pub type ClipboardHistoryItem = *mut ::core::ffi::c_void;
 pub type ClipboardHistoryItemsResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ClipboardHistoryItemsResultStatus(pub i32);
 impl ClipboardHistoryItemsResultStatus {
@@ -23,6 +22,7 @@ impl ::core::clone::Clone for ClipboardHistoryItemsResultStatus {
     }
 }
 pub type DataPackage = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct DataPackageOperation(pub u32);
 impl DataPackageOperation {
@@ -48,6 +48,7 @@ pub type DataRequestDeferral = *mut ::core::ffi::c_void;
 pub type DataRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type DataTransferManager = *mut ::core::ffi::c_void;
 pub type OperationCompletedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct SetHistoryItemAsContentStatus(pub i32);
 impl SetHistoryItemAsContentStatus {
@@ -68,6 +69,7 @@ pub type ShareProviderOperation = *mut ::core::ffi::c_void;
 pub type ShareProvidersRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type ShareTargetInfo = *mut ::core::ffi::c_void;
 pub type ShareUIOptions = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_DataTransfer'*"]
 #[repr(transparent)]
 pub struct ShareUITheme(pub i32);
 impl ShareUITheme {

@@ -2,13 +2,17 @@ use super::*;
 
 pub fn gen_sys_functions(tree: &TypeTree, gen: &Gen) -> TokenStream {
     if gen.sys {
-        let mut functions = tree.types.values().map(|entry| gen_function_if(entry, gen)).peekable();
+        let mut tokens = quote! {};
 
-        if functions.peek().is_some() {
+        for entry in tree.types.values() {
+            tokens.combine(&gen_function_if(entry, gen));
+        }
+
+        if !tokens.is_empty() {
             quote! {
                 #[link(name = "windows")]
                 extern "system" {
-                    #(#functions)*
+                    #tokens
                 }
             }
         } else {
@@ -50,8 +54,7 @@ fn gen_sys_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     let name = gen_ident(def.name());
     let signature = def.signature(&[]);
     let return_type = gen_return_sig(&signature, gen);
-    let arch_cfg = gen.arch_cfg(def.attributes());
-    let feature_cfg = gen.function_cfg(def);
+    let cfg = gen.function_cfg(def).gen_with_doc(gen);
 
     let params = signature.params.iter().map(|p| {
         let name = gen_param_name(&p.param);
@@ -60,8 +63,7 @@ fn gen_sys_function(def: &MethodDef, gen: &Gen) -> TokenStream {
     });
 
     quote! {
-        #arch_cfg
-        #feature_cfg
+        #cfg
         pub fn #name(#(#params),*) #return_type;
     }
 }
@@ -92,8 +94,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
         }
     };
 
-    let arch_cfg = gen.arch_cfg(def.attributes());
-    let feature_cfg = gen.function_cfg(def);
+    let cfg = gen.function_cfg(def).gen_with_doc(gen);
 
     match signature.kind() {
         SignatureKind::Query => {
@@ -102,8 +103,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #arch_cfg
-                #feature_cfg
+                #cfg
                 #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(#params) -> ::windows::core::Result<T> {
                     #[cfg(windows)]
@@ -126,8 +126,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let params = gen_win32_params(leading_params, gen);
 
             quote! {
-                #arch_cfg
-                #feature_cfg
+                #cfg
                 #[inline]
                 pub unsafe fn #name<#constraints T: ::windows::core::Interface>(#params result__: *mut ::core::option::Option<T>) -> ::windows::core::Result<()> {
                     #[cfg(windows)]
@@ -153,8 +152,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let abi_return_type_tokens = gen_abi_sig(&return_sig, gen);
 
             quote! {
-                #arch_cfg
-                #feature_cfg
+                #cfg
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<#return_type_tokens> {
                     #[cfg(windows)]
@@ -176,8 +174,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #arch_cfg
-                #feature_cfg
+                #cfg
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) -> ::windows::core::Result<()> {
                     #[cfg(windows)]
@@ -198,8 +195,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #arch_cfg
-                #feature_cfg
+                #cfg
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) #abi_return_type {
                     #[cfg(windows)]
@@ -220,8 +216,7 @@ fn gen_win_function(def: &MethodDef, gen: &Gen) -> TokenStream {
             let args = signature.params.iter().map(gen_win32_abi_arg);
 
             quote! {
-                #arch_cfg
-                #feature_cfg
+                #cfg
                 #[inline]
                 pub unsafe fn #name<#constraints>(#params) {
                     #[cfg(windows)]

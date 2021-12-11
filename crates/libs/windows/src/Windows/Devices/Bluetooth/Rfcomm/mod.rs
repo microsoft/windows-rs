@@ -234,14 +234,17 @@ pub struct IRfcommServiceProviderStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, serviceid: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommDeviceService(::windows::core::IUnknown);
 impl RfcommDeviceService {
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Close(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<super::super::super::Foundation::IClosable>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Networking'*"]
     #[cfg(feature = "Networking")]
     pub fn ConnectionHostName(&self) -> ::windows::core::Result<super::super::super::Networking::HostName> {
         let this = self;
@@ -250,6 +253,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::HostName>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn ConnectionServiceName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -257,6 +261,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<RfcommServiceId> {
         let this = self;
         unsafe {
@@ -264,6 +269,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Networking_Sockets'*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn ProtectionLevel(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
         let this = self;
@@ -272,6 +278,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::SocketProtectionLevel>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Networking_Sockets'*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn MaxProtectionLevel(&self) -> ::windows::core::Result<super::super::super::Networking::Sockets::SocketProtectionLevel> {
         let this = self;
@@ -280,6 +287,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Networking::Sockets::SocketProtectionLevel>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation', 'Foundation_Collections', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
@@ -288,6 +296,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation', 'Foundation_Collections', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn GetSdpRawAttributesWithCacheModeAsync(&self, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>> {
         let this = self;
@@ -296,6 +305,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), cachemode, &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IMapView<u32, super::super::super::Storage::Streams::IBuffer>>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn Device(&self) -> ::windows::core::Result<super::BluetoothDevice> {
         let this = &::windows::core::Interface::cast::<IRfcommDeviceService2>(self)?;
         unsafe {
@@ -303,6 +313,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothDevice>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Devices_Enumeration'*"]
     #[cfg(feature = "Devices_Enumeration")]
     pub fn DeviceAccessInformation(&self) -> ::windows::core::Result<super::super::Enumeration::DeviceAccessInformation> {
         let this = &::windows::core::Interface::cast::<IRfcommDeviceService3>(self)?;
@@ -311,6 +322,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Enumeration::DeviceAccessInformation>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Devices_Enumeration', 'Foundation'*"]
     #[cfg(all(feature = "Devices_Enumeration", feature = "Foundation"))]
     pub fn RequestAccessAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>> {
         let this = &::windows::core::Interface::cast::<IRfcommDeviceService3>(self)?;
@@ -319,6 +331,7 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::Enumeration::DeviceAccessStatus>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommDeviceService>> {
         Self::IRfcommDeviceServiceStatics(|this| unsafe {
@@ -326,40 +339,47 @@ impl RfcommDeviceService {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<RfcommDeviceService>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn GetDeviceSelector<'a, Param0: ::windows::core::IntoParam<'a, RfcommServiceId>>(serviceid: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRfcommDeviceServiceStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), serviceid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn GetDeviceSelectorForBluetoothDevice<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDevice>>(bluetoothdevice: Param0) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), bluetoothdevice.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn GetDeviceSelectorForBluetoothDeviceWithCacheMode<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDevice>>(bluetoothdevice: Param0, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), bluetoothdevice.into_param().abi(), cachemode, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn GetDeviceSelectorForBluetoothDeviceAndServiceId<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDevice>, Param1: ::windows::core::IntoParam<'a, RfcommServiceId>>(bluetoothdevice: Param0, serviceid: Param1) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), bluetoothdevice.into_param().abi(), serviceid.into_param().abi(), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn GetDeviceSelectorForBluetoothDeviceAndServiceIdWithCacheMode<'a, Param0: ::windows::core::IntoParam<'a, super::BluetoothDevice>, Param1: ::windows::core::IntoParam<'a, RfcommServiceId>>(bluetoothdevice: Param0, serviceid: Param1, cachemode: super::BluetoothCacheMode) -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IRfcommDeviceServiceStatics2(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), bluetoothdevice.into_param().abi(), serviceid.into_param().abi(), cachemode, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRfcommDeviceServiceStatics<R, F: FnOnce(&IRfcommDeviceServiceStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IRfcommDeviceServiceStatics2<R, F: FnOnce(&IRfcommDeviceServiceStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RfcommDeviceService, IRfcommDeviceServiceStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -454,9 +474,11 @@ impl<'a> ::windows::core::IntoParam<'a, super::super::super::Foundation::IClosab
 }
 unsafe impl ::core::marker::Send for RfcommDeviceService {}
 unsafe impl ::core::marker::Sync for RfcommDeviceService {}
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommDeviceServicesResult(::windows::core::IUnknown);
 impl RfcommDeviceServicesResult {
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn Error(&self) -> ::windows::core::Result<super::BluetoothError> {
         let this = self;
         unsafe {
@@ -464,6 +486,7 @@ impl RfcommDeviceServicesResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::BluetoothError>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Services(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<RfcommDeviceService>> {
         let this = self;
@@ -536,9 +559,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommDeviceServicesResult {}
 unsafe impl ::core::marker::Sync for RfcommDeviceServicesResult {}
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommServiceId(::windows::core::IUnknown);
 impl RfcommServiceId {
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn Uuid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -546,6 +571,7 @@ impl RfcommServiceId {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn AsShortId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -553,6 +579,7 @@ impl RfcommServiceId {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn AsString(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -560,54 +587,63 @@ impl RfcommServiceId {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn FromUuid<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::GUID>>(uuid: Param0) -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), uuid.into_param().abi(), &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn FromShortId(shortid: u32) -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), shortid, &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn SerialPort() -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn ObexObjectPush() -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn ObexFileTransfer() -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn PhoneBookAccessPce() -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn PhoneBookAccessPse() -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn GenericFileTransfer() -> ::windows::core::Result<RfcommServiceId> {
         Self::IRfcommServiceIdStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRfcommServiceIdStatics<R, F: FnOnce(&IRfcommServiceIdStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RfcommServiceId, IRfcommServiceIdStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -676,9 +712,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Rfco
 }
 unsafe impl ::core::marker::Send for RfcommServiceId {}
 unsafe impl ::core::marker::Sync for RfcommServiceId {}
+#[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
 #[repr(transparent)]
 pub struct RfcommServiceProvider(::windows::core::IUnknown);
 impl RfcommServiceProvider {
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn ServiceId(&self) -> ::windows::core::Result<RfcommServiceId> {
         let this = self;
         unsafe {
@@ -686,6 +724,7 @@ impl RfcommServiceProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<RfcommServiceId>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation_Collections', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Storage_Streams"))]
     pub fn SdpRawAttributes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>> {
         let this = self;
@@ -694,20 +733,24 @@ impl RfcommServiceProvider {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IMap<u32, super::super::super::Storage::Streams::IBuffer>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Networking_Sockets'*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn StartAdvertising<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Networking::Sockets::StreamSocketListener>>(&self, listener: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), listener.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm'*"]
     pub fn StopAdvertising(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Networking_Sockets'*"]
     #[cfg(feature = "Networking_Sockets")]
     pub fn StartAdvertisingWithRadioDiscoverability<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Networking::Sockets::StreamSocketListener>>(&self, listener: Param0, radiodiscoverable: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IRfcommServiceProvider2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), listener.into_param().abi(), radiodiscoverable).ok() }
     }
+    #[doc = "*Required features: 'Devices_Bluetooth_Rfcomm', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateAsync<'a, Param0: ::windows::core::IntoParam<'a, RfcommServiceId>>(serviceid: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>> {
         Self::IRfcommServiceProviderStatics(|this| unsafe {
@@ -715,6 +758,7 @@ impl RfcommServiceProvider {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), serviceid.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<RfcommServiceProvider>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IRfcommServiceProviderStatics<R, F: FnOnce(&IRfcommServiceProviderStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<RfcommServiceProvider, IRfcommServiceProviderStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

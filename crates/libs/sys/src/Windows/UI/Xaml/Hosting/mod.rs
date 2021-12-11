@@ -1,9 +1,8 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type DesignerAppExitedEventArgs = *mut ::core::ffi::c_void;
 pub type DesignerAppManager = *mut ::core::ffi::c_void;
 pub type DesignerAppView = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct DesignerAppViewState(pub i32);
 impl DesignerAppViewState {
@@ -24,6 +23,7 @@ pub type IXamlUIPresenterHost = *mut ::core::ffi::c_void;
 pub type IXamlUIPresenterHost2 = *mut ::core::ffi::c_void;
 pub type IXamlUIPresenterHost3 = *mut ::core::ffi::c_void;
 pub type WindowsXamlManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Hosting'*"]
 #[repr(transparent)]
 pub struct XamlSourceFocusNavigationReason(pub i32);
 impl XamlSourceFocusNavigationReason {

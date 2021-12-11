@@ -1,11 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type FrameNavigationOptions = *mut ::core::ffi::c_void;
 pub type LoadCompletedEventHandler = *mut ::core::ffi::c_void;
 pub type NavigatedEventHandler = *mut ::core::ffi::c_void;
 pub type NavigatingCancelEventArgs = *mut ::core::ffi::c_void;
 pub type NavigatingCancelEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationCacheMode(pub i32);
 impl NavigationCacheMode {
@@ -22,6 +21,7 @@ impl ::core::clone::Clone for NavigationCacheMode {
 pub type NavigationEventArgs = *mut ::core::ffi::c_void;
 pub type NavigationFailedEventArgs = *mut ::core::ffi::c_void;
 pub type NavigationFailedEventHandler = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Navigation'*"]
 #[repr(transparent)]
 pub struct NavigationMode(pub i32);
 impl NavigationMode {

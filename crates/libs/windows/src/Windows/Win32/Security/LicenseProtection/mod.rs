@@ -1,10 +1,17 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
 pub type LicenseProtectionStatus = i32;
+#[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
 pub const Success: LicenseProtectionStatus = 0i32;
+#[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
 pub const LicenseKeyNotFound: LicenseProtectionStatus = 1i32;
+#[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
 pub const LicenseKeyUnprotected: LicenseProtectionStatus = 2i32;
+#[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
 pub const LicenseKeyCorrupted: LicenseProtectionStatus = 3i32;
+#[doc = "*Required features: 'Win32_Security_LicenseProtection'*"]
 pub const LicenseKeyAlreadyExists: LicenseProtectionStatus = 4i32;
+#[doc = "*Required features: 'Win32_Security_LicenseProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, validityindays: u32) -> ::windows::core::Result<LicenseProtectionStatus> {
@@ -20,6 +27,7 @@ pub unsafe fn RegisterLicenseKeyWithExpiration<'a, Param0: ::windows::core::Into
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Security_LicenseProtection', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateLicenseKeyProtection<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(licensekey: Param0, notvalidbefore: *mut super::super::Foundation::FILETIME, notvalidafter: *mut super::super::Foundation::FILETIME, status: *mut LicenseProtectionStatus) -> ::windows::core::Result<()> {

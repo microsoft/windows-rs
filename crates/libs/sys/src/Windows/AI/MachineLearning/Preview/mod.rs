@@ -1,8 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FeatureElementKindPreview(pub i32);
+#[cfg(feature = "deprecated")]
 impl FeatureElementKindPreview {
     pub const Undefined: Self = Self(0i32);
     pub const Float: Self = Self(1i32);
@@ -21,7 +22,9 @@ impl FeatureElementKindPreview {
     pub const Complex64: Self = Self(14i32);
     pub const Complex128: Self = Self(15i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for FeatureElementKindPreview {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FeatureElementKindPreview {
     fn clone(&self) -> Self {
         *self
@@ -32,8 +35,11 @@ pub type ImageVariableDescriptorPreview = *mut ::core::ffi::c_void;
 pub type InferencingOptionsPreview = *mut ::core::ffi::c_void;
 pub type LearningModelBindingPreview = *mut ::core::ffi::c_void;
 pub type LearningModelDescriptionPreview = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelDeviceKindPreview(pub i32);
+#[cfg(feature = "deprecated")]
 impl LearningModelDeviceKindPreview {
     pub const LearningDeviceAny: Self = Self(0i32);
     pub const LearningDeviceCpu: Self = Self(1i32);
@@ -42,15 +48,20 @@ impl LearningModelDeviceKindPreview {
     pub const LearningDeviceDsp: Self = Self(4i32);
     pub const LearningDeviceFpga: Self = Self(5i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for LearningModelDeviceKindPreview {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for LearningModelDeviceKindPreview {
     fn clone(&self) -> Self {
         *self
     }
 }
 pub type LearningModelEvaluationResultPreview = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'AI_MachineLearning_Preview', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct LearningModelFeatureKindPreview(pub i32);
+#[cfg(feature = "deprecated")]
 impl LearningModelFeatureKindPreview {
     pub const Undefined: Self = Self(0i32);
     pub const Tensor: Self = Self(1i32);
@@ -58,7 +69,9 @@ impl LearningModelFeatureKindPreview {
     pub const Map: Self = Self(3i32);
     pub const Image: Self = Self(4i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for LearningModelFeatureKindPreview {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for LearningModelFeatureKindPreview {
     fn clone(&self) -> Self {
         *self

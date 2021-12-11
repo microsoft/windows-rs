@@ -1,10 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IImageScannerFormatConfiguration = *mut ::core::ffi::c_void;
 pub type IImageScannerSourceConfiguration = *mut ::core::ffi::c_void;
 pub type ImageScanner = *mut ::core::ffi::c_void;
 pub type ImageScannerAutoConfiguration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerAutoCroppingMode(pub i32);
 impl ImageScannerAutoCroppingMode {
@@ -18,6 +17,7 @@ impl ::core::clone::Clone for ImageScannerAutoCroppingMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerColorMode(pub i32);
 impl ImageScannerColorMode {
@@ -34,6 +34,7 @@ impl ::core::clone::Clone for ImageScannerColorMode {
 }
 pub type ImageScannerFeederConfiguration = *mut ::core::ffi::c_void;
 pub type ImageScannerFlatbedConfiguration = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerFormat(pub i32);
 impl ImageScannerFormat {
@@ -53,6 +54,7 @@ impl ::core::clone::Clone for ImageScannerFormat {
 }
 pub type ImageScannerPreviewResult = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Devices_Scanners'*"]
 pub struct ImageScannerResolution {
     pub DpiX: f32,
     pub DpiY: f32,
@@ -64,6 +66,7 @@ impl ::core::clone::Clone for ImageScannerResolution {
     }
 }
 pub type ImageScannerScanResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Scanners'*"]
 #[repr(transparent)]
 pub struct ImageScannerScanSource(pub i32);
 impl ImageScannerScanSource {

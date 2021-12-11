@@ -84,6 +84,7 @@ pub struct IXamlDirectVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void, handledeventstoo: bool) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, xamldirectobject: ::windows::core::RawPtr, eventindex: XamlEventIndex, handler: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct IXamlDirectObject(::windows::core::IUnknown);
 impl IXamlDirectObject {}
@@ -173,9 +174,11 @@ pub struct IXamlDirectStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlDirect(::windows::core::IUnknown);
 impl XamlDirect {
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetObject<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -183,6 +186,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetXamlDirectObject<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, object: Param0) -> ::windows::core::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
@@ -190,6 +194,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), object.into_param().abi(), &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn CreateInstance(&self, typeindex: XamlTypeIndex) -> ::windows::core::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
@@ -197,90 +202,110 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), typeindex, &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetObjectProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetXamlDirectObjectProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetBooleanProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetDoubleProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: f64) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetInt32Property<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: i32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetStringProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDateTimeProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::DateTime>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetPointProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Point>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRectProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Rect>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetSizeProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::Size>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetTimeSpanProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::TimeSpan>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetColorProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::super::Color>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetCornerRadiusProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::CornerRadius>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetDurationProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::Duration>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetGridLengthProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::GridLength>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetThicknessProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::Thickness>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'UI_Xaml_Media'*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn SetMatrixProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::Media::Matrix>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'UI_Xaml_Media_Media3D'*"]
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
     pub fn SetMatrix3DProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, super::super::Media::Media3D::Matrix3D>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).26)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn SetEnumProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex, value: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).27)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, value).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetObjectProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<::windows::core::IInspectable> {
         let this = self;
         unsafe {
@@ -288,6 +313,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).28)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<::windows::core::IInspectable>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetXamlDirectObjectProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
@@ -295,6 +321,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).29)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetBooleanProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -302,6 +329,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).30)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetDoubleProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<f64> {
         let this = self;
         unsafe {
@@ -309,6 +337,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).31)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<f64>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetInt32Property<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -316,6 +345,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).32)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<i32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetStringProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -323,6 +353,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).33)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDateTimeProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::super::super::Foundation::DateTime> {
         let this = self;
@@ -331,6 +362,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).34)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::DateTime>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPointProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::super::super::Foundation::Point> {
         let this = self;
@@ -339,6 +371,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).35)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetRectProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::super::super::Foundation::Rect> {
         let this = self;
@@ -347,6 +380,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).36)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::Rect>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetSizeProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::super::super::Foundation::Size> {
         let this = self;
@@ -355,6 +389,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).37)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::Size>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetTimeSpanProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::super::super::Foundation::TimeSpan> {
         let this = self;
@@ -363,6 +398,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).38)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::super::Foundation::TimeSpan>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetColorProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::super::Color> {
         let this = self;
         unsafe {
@@ -370,6 +406,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).39)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::super::Color>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetCornerRadiusProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::CornerRadius> {
         let this = self;
         unsafe {
@@ -377,6 +414,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).40)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::CornerRadius>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDurationProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::Duration> {
         let this = self;
@@ -385,6 +423,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).41)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Duration>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetGridLengthProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::GridLength> {
         let this = self;
         unsafe {
@@ -392,6 +431,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).42)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::GridLength>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetThicknessProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::Thickness> {
         let this = self;
         unsafe {
@@ -399,6 +439,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).43)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Thickness>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'UI_Xaml_Media'*"]
     #[cfg(feature = "UI_Xaml_Media")]
     pub fn GetMatrixProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::Media::Matrix> {
         let this = self;
@@ -407,6 +448,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).44)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Media::Matrix>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct', 'UI_Xaml_Media_Media3D'*"]
     #[cfg(feature = "UI_Xaml_Media_Media3D")]
     pub fn GetMatrix3DProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<super::super::Media::Media3D::Matrix3D> {
         let this = self;
@@ -415,6 +457,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).45)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<super::super::Media::Media3D::Matrix3D>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetEnumProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -422,10 +465,12 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).46)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex, &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn ClearProperty<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, propertyindex: XamlPropertyIndex) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).47)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), propertyindex).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetCollectionCount<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -433,6 +478,7 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).48)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetXamlDirectObjectFromCollectionAt<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, index: u32) -> ::windows::core::Result<IXamlDirectObject> {
         let this = self;
         unsafe {
@@ -440,14 +486,17 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).49)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), index, &mut result__).from_abi::<IXamlDirectObject>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn AddToCollection<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param1: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, value: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).50)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn InsertIntoCollectionAt<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, index: u32, value: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).51)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), index, value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn RemoveFromCollection<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param1: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, value: Param1) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -455,32 +504,39 @@ impl XamlDirect {
             (::windows::core::Interface::vtable(this).52)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), value.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn RemoveFromCollectionAt<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0, index: u32) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).53)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), index).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn ClearCollection<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>>(&self, xamldirectobject: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).54)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn AddEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xamldirectobject: Param0, eventindex: XamlEventIndex, handler: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).55)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), eventindex, handler.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn AddEventHandler_HandledEventsToo<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xamldirectobject: Param0, eventindex: XamlEventIndex, handler: Param2, handledeventstoo: bool) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).56)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), eventindex, handler.into_param().abi(), handledeventstoo).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn RemoveEventHandler<'a, Param0: ::windows::core::IntoParam<'a, IXamlDirectObject>, Param2: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>>(&self, xamldirectobject: Param0, eventindex: XamlEventIndex, handler: Param2) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).57)(::core::mem::transmute_copy(this), xamldirectobject.into_param().abi(), eventindex, handler.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
     pub fn GetDefault() -> ::windows::core::Result<XamlDirect> {
         Self::IXamlDirectStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<XamlDirect>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IXamlDirectStatics<R, F: FnOnce(&IXamlDirectStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<XamlDirect, IXamlDirectStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -549,6 +605,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Xaml
 }
 unsafe impl ::core::marker::Send for XamlDirect {}
 unsafe impl ::core::marker::Sync for XamlDirect {}
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlEventIndex(pub i32);
 impl XamlEventIndex {
@@ -712,6 +769,7 @@ unsafe impl ::windows::core::RuntimeType for XamlEventIndex {
 impl ::windows::core::DefaultType for XamlEventIndex {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlPropertyIndex(pub i32);
 impl XamlPropertyIndex {
@@ -2406,6 +2464,7 @@ unsafe impl ::windows::core::RuntimeType for XamlPropertyIndex {
 impl ::windows::core::DefaultType for XamlPropertyIndex {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Core_Direct'*"]
 #[repr(transparent)]
 pub struct XamlTypeIndex(pub i32);
 impl XamlTypeIndex {

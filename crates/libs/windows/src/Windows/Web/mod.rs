@@ -7,9 +7,11 @@ pub mod Http;
 pub mod Syndication;
 #[cfg(feature = "Web_UI")]
 pub mod UI;
+#[doc = "*Required features: 'Web'*"]
 #[repr(transparent)]
 pub struct IUriToStreamResolver(::windows::core::IUnknown);
 impl IUriToStreamResolver {
+    #[doc = "*Required features: 'Web', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn UriToStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Foundation::Uri>>(&self, uri: Param0) -> ::windows::core::Result<super::Foundation::IAsyncOperation<super::Storage::Streams::IInputStream>> {
         let this = self;
@@ -107,14 +109,17 @@ pub struct IWebErrorStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, hresult: i32, result__: *mut WebErrorStatus) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Web'*"]
 pub struct WebError {}
 impl WebError {
+    #[doc = "*Required features: 'Web'*"]
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<WebErrorStatus> {
         Self::IWebErrorStatics(|this| unsafe {
             let mut result__: WebErrorStatus = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<WebErrorStatus>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWebErrorStatics<R, F: FnOnce(&IWebErrorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WebError, IWebErrorStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -123,6 +128,7 @@ impl WebError {
 impl ::windows::core::RuntimeName for WebError {
     const NAME: &'static str = "Windows.Web.WebError";
 }
+#[doc = "*Required features: 'Web'*"]
 #[repr(transparent)]
 pub struct WebErrorStatus(pub i32);
 impl WebErrorStatus {

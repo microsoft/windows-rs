@@ -39,14 +39,17 @@ pub struct IPowerManagerStatics2Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Phone_System_Power'*"]
 pub struct PowerManager {}
 impl PowerManager {
+    #[doc = "*Required features: 'Phone_System_Power'*"]
     pub fn PowerSavingMode() -> ::windows::core::Result<PowerSavingMode> {
         Self::IPowerManagerStatics(|this| unsafe {
             let mut result__: PowerSavingMode = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PowerSavingMode>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_System_Power', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PowerSavingModeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventHandler<::windows::core::IInspectable>>>(changehandler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         Self::IPowerManagerStatics(|this| unsafe {
@@ -54,20 +57,24 @@ impl PowerManager {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), changehandler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         })
     }
+    #[doc = "*Required features: 'Phone_System_Power', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePowerSavingModeChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(token: Param0) -> ::windows::core::Result<()> {
         Self::IPowerManagerStatics(|this| unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Phone_System_Power'*"]
     pub fn PowerSavingModeEnabled() -> ::windows::core::Result<bool> {
         Self::IPowerManagerStatics2(|this| unsafe {
             let mut result__: bool = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPowerManagerStatics<R, F: FnOnce(&IPowerManagerStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PowerManager, IPowerManagerStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPowerManagerStatics2<R, F: FnOnce(&IPowerManagerStatics2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PowerManager, IPowerManagerStatics2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -76,6 +83,7 @@ impl PowerManager {
 impl ::windows::core::RuntimeName for PowerManager {
     const NAME: &'static str = "Windows.Phone.System.Power.PowerManager";
 }
+#[doc = "*Required features: 'Phone_System_Power'*"]
 #[repr(transparent)]
 pub struct PowerSavingMode(pub i32);
 impl PowerSavingMode {

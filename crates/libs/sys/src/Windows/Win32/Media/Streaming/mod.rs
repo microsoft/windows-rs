@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct CapturedMetadataExposureCompensation {
     pub Flags: u64,
     pub Value: i32,
@@ -13,6 +12,7 @@ impl ::core::clone::Clone for CapturedMetadataExposureCompensation {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct CapturedMetadataISOGains {
     pub AnalogGain: f32,
     pub DigitalGain: f32,
@@ -24,6 +24,7 @@ impl ::core::clone::Clone for CapturedMetadataISOGains {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct CapturedMetadataWhiteBalanceGains {
     pub R: f32,
     pub G: f32,
@@ -36,6 +37,7 @@ impl ::core::clone::Clone for CapturedMetadataWhiteBalanceGains {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct FaceCharacterization {
     pub BlinkScoreLeft: u32,
     pub BlinkScoreRight: u32,
@@ -49,6 +51,7 @@ impl ::core::clone::Clone for FaceCharacterization {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct FaceCharacterizationBlobHeader {
     pub Size: u32,
     pub Count: u32,
@@ -60,6 +63,7 @@ impl ::core::clone::Clone for FaceCharacterizationBlobHeader {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct FaceRectInfo {
     pub Region: super::super::Foundation::RECT,
@@ -74,6 +78,7 @@ impl ::core::clone::Clone for FaceRectInfo {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct FaceRectInfoBlobHeader {
     pub Size: u32,
     pub Count: u32,
@@ -85,6 +90,7 @@ impl ::core::clone::Clone for FaceRectInfoBlobHeader {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct HistogramBlobHeader {
     pub Size: u32,
     pub Histograms: u32,
@@ -96,6 +102,7 @@ impl ::core::clone::Clone for HistogramBlobHeader {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct HistogramDataHeader {
     pub Size: u32,
     pub ChannelMask: u32,
@@ -108,6 +115,7 @@ impl ::core::clone::Clone for HistogramDataHeader {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HistogramGrid {
     pub Width: u32,
@@ -123,6 +131,7 @@ impl ::core::clone::Clone for HistogramGrid {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct HistogramHeader {
     pub Size: u32,
@@ -141,14 +150,22 @@ impl ::core::clone::Clone for HistogramHeader {
 }
 pub type IMFDeviceTransform = *mut ::core::ffi::c_void;
 pub type IMFDeviceTransformCallback = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub type MF_MEDIASOURCE_STATUS_INFO = i32;
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub const MF_MEDIASOURCE_STATUS_INFO_FULLYSUPPORTED: MF_MEDIASOURCE_STATUS_INFO = 0i32;
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub const MF_MEDIASOURCE_STATUS_INFO_UNKNOWN: MF_MEDIASOURCE_STATUS_INFO = 1i32;
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub type MF_TRANSFER_VIDEO_FRAME_FLAGS = i32;
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub const MF_TRANSFER_VIDEO_FRAME_DEFAULT: MF_TRANSFER_VIDEO_FRAME_FLAGS = 0i32;
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub const MF_TRANSFER_VIDEO_FRAME_STRETCH: MF_TRANSFER_VIDEO_FRAME_FLAGS = 1i32;
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub const MF_TRANSFER_VIDEO_FRAME_IGNORE_PAR: MF_TRANSFER_VIDEO_FRAME_FLAGS = 2i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media_Streaming'*"]
 pub struct MetadataTimeStamps {
     pub Flags: u32,
     pub Device: i64,

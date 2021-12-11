@@ -160,6 +160,10 @@ impl TypeDef {
         }
     }
 
+    pub fn is_deprecated(&self) -> bool {
+        self.has_attribute("DeprecatedAttribute")
+    }
+
     pub fn is_handle(&self) -> bool {
         self.has_attribute("NativeTypedefAttribute")
     }

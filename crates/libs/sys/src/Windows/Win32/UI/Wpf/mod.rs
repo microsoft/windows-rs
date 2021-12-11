@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub const CLSID_MILBitmapEffectBevel: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 4248182206, data2: 27803, data3: 19936, data4: [130, 144, 246, 64, 12, 39, 55, 237] };
 pub const CLSID_MILBitmapEffectBlur: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 2837766023, data2: 8797, data3: 17267, data4: [143, 91, 185, 14, 200, 90, 227, 222] };
 pub const CLSID_MILBitmapEffectDropShadow: ::windows_sys::core::GUID = ::windows_sys::core::GUID { data1: 1167736766, data2: 55468, data3: 18066, data4: [135, 75, 122, 38, 87, 21, 170, 22] };
@@ -27,8 +25,10 @@ pub type IMILBitmapEffectPrimitiveImpl = *mut ::core::ffi::c_void;
 pub type IMILBitmapEffectRenderContext = *mut ::core::ffi::c_void;
 pub type IMILBitmapEffectRenderContextImpl = *mut ::core::ffi::c_void;
 pub type IMILBitmapEffects = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub const MILBITMAPEFFECT_SDK_VERSION: u32 = 16777216u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MILMatrixF {
     pub _11: f64,
     pub _12: f64,
@@ -54,6 +54,7 @@ impl ::core::clone::Clone for MILMatrixF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MilPoint2D {
     pub X: f64,
     pub Y: f64,
@@ -65,6 +66,7 @@ impl ::core::clone::Clone for MilPoint2D {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Wpf'*"]
 pub struct MilRectD {
     pub left: f64,
     pub top: f64,

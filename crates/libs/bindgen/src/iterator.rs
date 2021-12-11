@@ -5,7 +5,7 @@ use super::*;
 // only falls back to IIterator<T> if nothing faster is available. VectorIterator and
 // VectorViewIterator are faster iterators than IIterator<T> because they only require a single
 // vcall per iteration whereas IIterator<T> requires two.
-pub fn gen_iterator(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+pub fn gen_iterator(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     match def.type_name() {
         // If the type is IIterator<T> then simply implement the Iterator trait over top.
         TypeName::IIterator => {
@@ -148,8 +148,7 @@ pub fn gen_iterator(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream 
 
     let mut iterable = None;
     let wfc = gen.namespace("Windows.Foundation.Collections");
-    let mut cfg = cfg.clone();
-    cfg.combine(&gen.iterator_cfg());
+    let cfg = cfg.and_iterator().gen(gen);
 
     let interfaces = if def.kind() == TypeKind::Class { def.class_interfaces().iter().map(|(def, _)| def.clone()).collect() } else { def.required_interfaces() };
 

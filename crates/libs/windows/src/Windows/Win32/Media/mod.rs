@@ -26,23 +26,28 @@ pub mod Streaming;
 #[cfg(feature = "Win32_Media_WindowsMediaFormat")]
 pub mod WindowsMediaFormat;
 pub type HTASK = isize;
+#[doc = "*Required features: 'Win32_Media'*"]
 #[repr(transparent)]
 pub struct IReferenceClock(::windows::core::IUnknown);
 impl IReferenceClock {
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub unsafe fn GetTime(&self) -> ::windows::core::Result<i64> {
         let mut result__: i64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, basetime: i64, streamtime: i64, hevent: Param2) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(basetime), ::core::mem::transmute(streamtime), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, starttime: i64, periodtime: i64, hsemaphore: Param2) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime), ::core::mem::transmute(periodtime), hsemaphore.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwadvisecookie)).ok()
     }
@@ -95,23 +100,28 @@ pub struct IReferenceClockVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media'*"]
 #[repr(transparent)]
 pub struct IReferenceClock2(::windows::core::IUnknown);
 impl IReferenceClock2 {
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub unsafe fn GetTime(&self) -> ::windows::core::Result<i64> {
         let mut result__: i64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdviseTime<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, basetime: i64, streamtime: i64, hevent: Param2) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(basetime), ::core::mem::transmute(streamtime), hevent.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn AdvisePeriodic<'a, Param2: ::windows::core::IntoParam<'a, super::Foundation::HANDLE>>(&self, starttime: i64, periodtime: i64, hsemaphore: Param2) -> ::windows::core::Result<usize> {
         let mut result__: usize = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(starttime), ::core::mem::transmute(periodtime), hsemaphore.into_param().abi(), ::core::mem::transmute(&mut result__)).from_abi::<usize>(result__)
     }
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub unsafe fn Unadvise(&self, dwadvisecookie: usize) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(dwadvisecookie)).ok()
     }
@@ -184,12 +194,15 @@ pub struct IReferenceClock2Vtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, dwadvisecookie: usize) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media'*"]
 #[repr(transparent)]
 pub struct IReferenceClockTimerControl(::windows::core::IUnknown);
 impl IReferenceClockTimerControl {
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub unsafe fn SetDefaultTimerResolution(&self, timerresolution: i64) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(timerresolution)).ok()
     }
+    #[doc = "*Required features: 'Win32_Media'*"]
     pub unsafe fn GetDefaultTimerResolution(&self) -> ::windows::core::Result<i64> {
         let mut result__: i64 = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<i64>(result__)
@@ -239,45 +252,83 @@ pub struct IReferenceClockTimerControlVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, timerresolution: i64) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ptimerresolution: *mut i64) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const JOYERR_BASE: u32 = 160u32;
+#[doc = "*Required features: 'Win32_Media', 'Win32_Media_Multimedia'*"]
 #[cfg(feature = "Win32_Media_Multimedia")]
 pub type LPDRVCALLBACK = ::core::option::Option<unsafe extern "system" fn(hdrvr: Multimedia::HDRVR, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub type LPTIMECALLBACK = ::core::option::Option<unsafe extern "system" fn(utimerid: u32, umsg: u32, dwuser: usize, dw1: usize, dw2: usize)>;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MAXERRORLENGTH: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MAXPNAMELEN: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MCIERR_BASE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MCI_CD_OFFSET: u32 = 1088u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MCI_SEQ_OFFSET: u32 = 1216u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MCI_STRING_OFFSET: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MCI_VD_OFFSET: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MCI_WAVE_OFFSET: u32 = 1152u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MIDIERR_BASE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MIXERR_BASE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_ALLOCATED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_BADDB: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_BADDEVICEID: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_BADERRNUM: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_BASE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_DELETEERROR: u32 = 18u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_ERROR: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_HANDLEBUSY: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_INVALFLAG: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_INVALHANDLE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_INVALIDALIAS: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_INVALPARAM: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_KEYNOTFOUND: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_LASTERROR: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_MOREDATA: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_NODRIVER: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_NODRIVERCB: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_NOERROR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_NOMEM: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_NOTENABLED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_NOTSUPPORTED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_READERROR: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_VALNOTFOUND: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MMSYSERR_WRITEERROR: u32 = 17u32;
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME {
     pub wType: u32,
     pub u: MMTIME_0,
@@ -303,6 +354,7 @@ impl ::core::default::Default for MMTIME {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub union MMTIME_0 {
     pub ms: u32,
     pub sample: u32,
@@ -332,6 +384,7 @@ impl ::core::default::Default for MMTIME_0 {
     }
 }
 #[repr(C, packed(1))]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME_0_0 {
     pub songptrpos: u32,
 }
@@ -356,6 +409,7 @@ impl ::core::default::Default for MMTIME_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct MMTIME_0_1 {
     pub hour: u8,
     pub min: u8,
@@ -385,56 +439,106 @@ impl ::core::default::Default for MMTIME_0_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_ADLIB: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_DRVM_CLOSE: u32 = 977u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_DRVM_DATA: u32 = 978u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_DRVM_ERROR: u32 = 979u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_DRVM_OPEN: u32 = 976u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY1BUTTONDOWN: u32 = 949u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY1BUTTONUP: u32 = 951u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY1MOVE: u32 = 928u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY1ZMOVE: u32 = 930u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY2BUTTONDOWN: u32 = 950u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY2BUTTONUP: u32 = 952u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY2MOVE: u32 = 929u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_JOY2ZMOVE: u32 = 931u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MCINOTIFY: u32 = 953u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MCISIGNAL: u32 = 971u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MICROSOFT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIDI_MAPPER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIM_CLOSE: u32 = 962u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIM_DATA: u32 = 963u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIM_ERROR: u32 = 965u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIM_LONGDATA: u32 = 964u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIM_LONGERROR: u32 = 966u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIM_MOREDATA: u32 = 972u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIM_OPEN: u32 = 961u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIXM_CONTROL_CHANGE: u32 = 977u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MIXM_LINE_CHANGE: u32 = 976u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MOM_CLOSE: u32 = 968u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MOM_DONE: u32 = 969u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MOM_OPEN: u32 = 967u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MOM_POSITIONCB: u32 = 970u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MPU401_MIDIIN: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_MPU401_MIDIOUT: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_PC_JOYSTICK: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_SNDBLST_MIDIIN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_SNDBLST_MIDIOUT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_SNDBLST_SYNTH: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_SNDBLST_WAVEIN: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_SNDBLST_WAVEOUT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_STREAM_CLOSE: u32 = 981u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_STREAM_DONE: u32 = 982u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_STREAM_ERROR: u32 = 983u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_STREAM_OPEN: u32 = 980u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_WAVE_MAPPER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_WIM_CLOSE: u32 = 959u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_WIM_DATA: u32 = 960u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_WIM_OPEN: u32 = 958u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_WOM_CLOSE: u32 = 956u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_WOM_DONE: u32 = 957u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const MM_WOM_OPEN: u32 = 955u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECAPS {
     pub wPeriodMin: u32,
     pub wPeriodMax: u32,
@@ -460,6 +564,7 @@ impl ::core::default::Default for TIMECAPS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub union TIMECODE {
     pub Anonymous: TIMECODE_0,
     pub qw: u64,
@@ -485,6 +590,7 @@ impl ::core::default::Default for TIMECODE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECODE_0 {
     pub wFrameRate: u16,
     pub wFrameFract: u16,
@@ -511,6 +617,7 @@ impl ::core::default::Default for TIMECODE_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Media'*"]
 pub struct TIMECODE_SAMPLE {
     pub qwTick: i64,
     pub timecode: TIMECODE,
@@ -537,27 +644,49 @@ impl ::core::default::Default for TIMECODE_SAMPLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 pub type TIMECODE_SAMPLE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_TIMECODE_READ: TIMECODE_SAMPLE_FLAGS = 4121u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_ATN_READ: TIMECODE_SAMPLE_FLAGS = 5047u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const ED_DEVCAP_RTC_READ: TIMECODE_SAMPLE_FLAGS = 5050u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIMERR_BASE: u32 = 96u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIMERR_NOCANDO: u32 = 97u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIMERR_NOERROR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIMERR_STRUCT: u32 = 129u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_BYTES: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_CALLBACK_EVENT_PULSE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_CALLBACK_EVENT_SET: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_CALLBACK_FUNCTION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_KILL_SYNCHRONOUS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_MIDI: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_MS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_ONESHOT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_PERIODIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_SAMPLES: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_SMPTE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const TIME_TICKS: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 pub const WAVERR_BASE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
@@ -571,6 +700,7 @@ pub unsafe fn timeBeginPeriod(uperiod: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(windows)]
@@ -584,6 +714,7 @@ pub unsafe fn timeEndPeriod(uperiod: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(windows)]
@@ -597,6 +728,7 @@ pub unsafe fn timeGetDevCaps(ptc: *mut TIMECAPS, cbtc: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(windows)]
@@ -610,6 +742,7 @@ pub unsafe fn timeGetSystemTime(pmmt: *mut MMTIME, cbmmt: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeGetTime() -> u32 {
     #[cfg(windows)]
@@ -623,6 +756,7 @@ pub unsafe fn timeGetTime() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(windows)]
@@ -636,6 +770,7 @@ pub unsafe fn timeKillEvent(utimerid: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Media'*"]
 #[inline]
 pub unsafe fn timeSetEvent(udelay: u32, uresolution: u32, fptc: LPTIMECALLBACK, dwuser: usize, fuevent: u32) -> u32 {
     #[cfg(windows)]

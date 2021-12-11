@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactDataProviderConnection(::windows::core::IUnknown);
 impl ContactDataProviderConnection {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SyncRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListSyncManagerSyncRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -10,11 +12,13 @@ impl ContactDataProviderConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveSyncRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ServerSearchReadBatchRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListServerSearchReadBatchRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -23,15 +27,18 @@ impl ContactDataProviderConnection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveServerSearchReadBatchRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Start(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn CreateOrUpdateContactRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListCreateOrUpdateContactRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IContactDataProviderConnection2>(self)?;
@@ -40,11 +47,13 @@ impl ContactDataProviderConnection {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveCreateOrUpdateContactRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IContactDataProviderConnection2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteContactRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ContactDataProviderConnection, ContactListDeleteContactRequestEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IContactDataProviderConnection2>(self)?;
@@ -53,6 +62,7 @@ impl ContactDataProviderConnection {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveDeleteContactRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IContactDataProviderConnection2>(self)?;
@@ -122,9 +132,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactDataProviderConnection {}
 unsafe impl ::core::marker::Sync for ContactDataProviderConnection {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactDataProviderTriggerDetails(::windows::core::IUnknown);
 impl ContactDataProviderTriggerDetails {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Connection(&self) -> ::windows::core::Result<ContactDataProviderConnection> {
         let this = self;
         unsafe {
@@ -196,9 +208,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactDataProviderTriggerDetails {}
 unsafe impl ::core::marker::Sync for ContactDataProviderTriggerDetails {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListCreateOrUpdateContactRequest(::windows::core::IUnknown);
 impl ContactListCreateOrUpdateContactRequest {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -206,6 +220,7 @@ impl ContactListCreateOrUpdateContactRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Contact(&self) -> ::windows::core::Result<super::Contact> {
         let this = self;
         unsafe {
@@ -213,6 +228,7 @@ impl ContactListCreateOrUpdateContactRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::Contact>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Contact>>(&self, createdorupdatedcontact: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -221,6 +237,7 @@ impl ContactListCreateOrUpdateContactRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), createdorupdatedcontact.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -293,9 +310,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListCreateOrUpdateContactRequestEventArgs(::windows::core::IUnknown);
 impl ContactListCreateOrUpdateContactRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<ContactListCreateOrUpdateContactRequest> {
         let this = self;
         unsafe {
@@ -303,6 +322,7 @@ impl ContactListCreateOrUpdateContactRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListCreateOrUpdateContactRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -375,9 +395,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListCreateOrUpdateContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListCreateOrUpdateContactRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListDeleteContactRequest(::windows::core::IUnknown);
 impl ContactListDeleteContactRequest {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -385,6 +407,7 @@ impl ContactListDeleteContactRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn ContactId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -392,6 +415,7 @@ impl ContactListDeleteContactRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -400,6 +424,7 @@ impl ContactListDeleteContactRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -472,9 +497,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequest {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListDeleteContactRequestEventArgs(::windows::core::IUnknown);
 impl ContactListDeleteContactRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<ContactListDeleteContactRequest> {
         let this = self;
         unsafe {
@@ -482,6 +509,7 @@ impl ContactListDeleteContactRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListDeleteContactRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -554,9 +582,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListDeleteContactRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListDeleteContactRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListServerSearchReadBatchRequest(::windows::core::IUnknown);
 impl ContactListServerSearchReadBatchRequest {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn SessionId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -564,6 +594,7 @@ impl ContactListServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -571,6 +602,7 @@ impl ContactListServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Options(&self) -> ::windows::core::Result<super::ContactQueryOptions> {
         let this = self;
         unsafe {
@@ -578,6 +610,7 @@ impl ContactListServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::ContactQueryOptions>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn SuggestedBatchSize(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -585,6 +618,7 @@ impl ContactListServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SaveContactAsync<'a, Param0: ::windows::core::IntoParam<'a, super::Contact>>(&self, contact: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -593,6 +627,7 @@ impl ContactListServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), contact.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -601,6 +636,7 @@ impl ContactListServerSearchReadBatchRequest {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self, batchstatus: super::ContactBatchStatus) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -673,9 +709,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequest {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListServerSearchReadBatchRequestEventArgs(::windows::core::IUnknown);
 impl ContactListServerSearchReadBatchRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<ContactListServerSearchReadBatchRequest> {
         let this = self;
         unsafe {
@@ -683,6 +721,7 @@ impl ContactListServerSearchReadBatchRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListServerSearchReadBatchRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;
@@ -755,9 +794,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListServerSearchReadBatchRequestEventArgs {}
 unsafe impl ::core::marker::Sync for ContactListServerSearchReadBatchRequestEventArgs {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListSyncManagerSyncRequest(::windows::core::IUnknown);
 impl ContactListSyncManagerSyncRequest {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn ContactListId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -765,6 +806,7 @@ impl ContactListSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportCompletedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -773,6 +815,7 @@ impl ContactListSyncManagerSyncRequest {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ReportFailedAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -845,9 +888,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Cont
 }
 unsafe impl ::core::marker::Send for ContactListSyncManagerSyncRequest {}
 unsafe impl ::core::marker::Sync for ContactListSyncManagerSyncRequest {}
+#[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
 #[repr(transparent)]
 pub struct ContactListSyncManagerSyncRequestEventArgs(::windows::core::IUnknown);
 impl ContactListSyncManagerSyncRequestEventArgs {
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider'*"]
     pub fn Request(&self) -> ::windows::core::Result<ContactListSyncManagerSyncRequest> {
         let this = self;
         unsafe {
@@ -855,6 +900,7 @@ impl ContactListSyncManagerSyncRequestEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ContactListSyncManagerSyncRequest>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Contacts_DataProvider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::super::Foundation::Deferral> {
         let this = self;

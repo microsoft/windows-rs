@@ -1,10 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Lights_Effects")]
 pub mod Effects;
-#[link(name = "windows")]
-extern "system" {}
 pub type Lamp = *mut ::core::ffi::c_void;
 pub type LampArray = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct LampArrayKind(pub i32);
 impl LampArrayKind {
@@ -28,6 +27,7 @@ impl ::core::clone::Clone for LampArrayKind {
 }
 pub type LampAvailabilityChangedEventArgs = *mut ::core::ffi::c_void;
 pub type LampInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Lights'*"]
 #[repr(transparent)]
 pub struct LampPurposes(pub u32);
 impl LampPurposes {

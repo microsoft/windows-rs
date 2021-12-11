@@ -9,10 +9,9 @@ pub mod Fonts;
 pub mod NumberFormatting;
 #[cfg(feature = "Globalization_PhoneNumberFormatting")]
 pub mod PhoneNumberFormatting;
-#[link(name = "windows")]
-extern "system" {}
 pub type Calendar = *mut ::core::ffi::c_void;
 pub type CurrencyAmount = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct DayOfWeek(pub i32);
 impl DayOfWeek {
@@ -33,6 +32,7 @@ impl ::core::clone::Clone for DayOfWeek {
 pub type GeographicRegion = *mut ::core::ffi::c_void;
 pub type JapanesePhoneme = *mut ::core::ffi::c_void;
 pub type Language = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Globalization'*"]
 #[repr(transparent)]
 pub struct LanguageLayoutDirection(pub i32);
 impl LanguageLayoutDirection {

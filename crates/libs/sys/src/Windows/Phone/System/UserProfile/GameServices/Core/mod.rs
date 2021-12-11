@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
 #[repr(transparent)]
 pub struct GameServiceGameOutcome(pub i32);
 impl GameServiceGameOutcome {
@@ -16,6 +15,7 @@ impl ::core::clone::Clone for GameServiceGameOutcome {
     }
 }
 pub type GameServicePropertyCollection = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Phone_System_UserProfile_GameServices_Core'*"]
 #[repr(transparent)]
 pub struct GameServiceScoreKind(pub i32);
 impl GameServiceScoreKind {

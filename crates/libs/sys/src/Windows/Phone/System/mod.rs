@@ -5,5 +5,3 @@ pub mod Power;
 pub mod Profile;
 #[cfg(feature = "Phone_System_UserProfile")]
 pub mod UserProfile;
-#[link(name = "windows")]
-extern "system" {}

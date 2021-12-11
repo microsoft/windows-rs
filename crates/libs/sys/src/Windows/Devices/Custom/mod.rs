@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type CustomDevice = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct DeviceAccessMode(pub i32);
 impl DeviceAccessMode {
@@ -15,6 +14,7 @@ impl ::core::clone::Clone for DeviceAccessMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct DeviceSharingMode(pub i32);
 impl DeviceSharingMode {
@@ -28,6 +28,7 @@ impl ::core::clone::Clone for DeviceSharingMode {
     }
 }
 pub type IIOControlCode = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct IOControlAccessMode(pub i32);
 impl IOControlAccessMode {
@@ -42,6 +43,7 @@ impl ::core::clone::Clone for IOControlAccessMode {
         *self
     }
 }
+#[doc = "*Required features: 'Devices_Custom'*"]
 #[repr(transparent)]
 pub struct IOControlBufferingMethod(pub i32);
 impl IOControlBufferingMethod {

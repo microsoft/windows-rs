@@ -1,8 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "UI_WebUI_Core")]
 pub mod Core;
-#[link(name = "windows")]
-extern "system" {}
 pub type ActivatedDeferral = *mut ::core::ffi::c_void;
 pub type ActivatedEventHandler = *mut ::core::ffi::c_void;
 pub type ActivatedOperation = *mut ::core::ffi::c_void;
@@ -18,6 +16,7 @@ pub type LeavingBackgroundEventArgs = *mut ::core::ffi::c_void;
 pub type LeavingBackgroundEventHandler = *mut ::core::ffi::c_void;
 pub type NavigatedEventHandler = *mut ::core::ffi::c_void;
 pub type NewWebUIViewCreatedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WebUI'*"]
 #[repr(transparent)]
 pub struct PrintContent(pub i32);
 impl PrintContent {

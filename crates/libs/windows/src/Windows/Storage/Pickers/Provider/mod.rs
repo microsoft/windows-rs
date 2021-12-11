@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct AddFileResult(pub i32);
 impl AddFileResult {
@@ -28,9 +29,11 @@ unsafe impl ::windows::core::RuntimeType for AddFileResult {
 impl ::windows::core::DefaultType for AddFileResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct FileOpenPickerUI(::windows::core::IUnknown);
 impl FileOpenPickerUI {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn AddFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, super::super::IStorageFile>>(&self, id: Param0, file: Param1) -> ::windows::core::Result<AddFileResult> {
         let this = self;
         unsafe {
@@ -38,10 +41,12 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), id.into_param().abi(), file.into_param().abi(), &mut result__).from_abi::<AddFileResult>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn RemoveFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), id.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn ContainsFile<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, id: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -49,6 +54,7 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), id.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn CanAddFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::IStorageFile>>(&self, file: Param0) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -56,6 +62,7 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), file.into_param().abi(), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllowedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -64,6 +71,7 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn SelectionMode(&self) -> ::windows::core::Result<FileSelectionMode> {
         let this = self;
         unsafe {
@@ -71,6 +79,7 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<FileSelectionMode>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -78,6 +87,7 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -85,12 +95,13 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn FileRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, FileRemovedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
         unsafe {
@@ -98,12 +109,13 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(feature = "Foundation")]
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))]
     pub fn RemoveFileRemoved<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Closing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<FileOpenPickerUI, PickerClosingEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -112,6 +124,7 @@ impl FileOpenPickerUI {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveClosing<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -179,9 +192,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct FileRemovedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl FileRemovedEventArgs {
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Id(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -191,70 +208,86 @@ impl FileRemovedEventArgs {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for FileRemovedEventArgs {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for FileRemovedEventArgs {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for FileRemovedEventArgs {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for FileRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Pickers.Provider.FileRemovedEventArgs;{13043da7-7fca-4c2b-9eca-6890f9f00185})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for FileRemovedEventArgs {
     type Vtable = IFileRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for FileRemovedEventArgs {
     const NAME: &'static str = "Windows.Storage.Pickers.Provider.FileRemovedEventArgs";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FileRemovedEventArgs> for ::windows::core::IUnknown {
     fn from(value: FileRemovedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FileRemovedEventArgs> for ::windows::core::IUnknown {
     fn from(value: &FileRemovedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for FileRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &FileRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<FileRemovedEventArgs> for ::windows::core::IInspectable {
     fn from(value: FileRemovedEventArgs) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&FileRemovedEventArgs> for ::windows::core::IInspectable {
     fn from(value: &FileRemovedEventArgs) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for FileRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &FileRemovedEventArgs {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct FileSavePickerUI(::windows::core::IUnknown);
 impl FileSavePickerUI {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn Title(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -262,10 +295,12 @@ impl FileSavePickerUI {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn SetTitle<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AllowedFileTypes(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>> {
         let this = self;
@@ -274,6 +309,7 @@ impl FileSavePickerUI {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::Collections::IVectorView<::windows::core::HSTRING>>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn SettingsIdentifier(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -281,6 +317,7 @@ impl FileSavePickerUI {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn FileName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -288,6 +325,7 @@ impl FileSavePickerUI {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn TrySetFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<SetFileNameResult> {
         let this = self;
         unsafe {
@@ -295,6 +333,7 @@ impl FileSavePickerUI {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<SetFileNameResult>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FileNameChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -303,11 +342,13 @@ impl FileSavePickerUI {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveFileNameChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn TargetFileRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<FileSavePickerUI, TargetFileRequestedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -316,6 +357,7 @@ impl FileSavePickerUI {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveTargetFileRequested<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -383,6 +425,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &File
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct FileSelectionMode(pub i32);
 impl FileSelectionMode {
@@ -436,22 +479,25 @@ pub struct IFileOpenPickerUIVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
-    #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
-    #[cfg(not(feature = "Foundation"))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "deprecated")))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, handler: ::windows::core::RawPtr, result__: *mut super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IFileRemovedEventArgs(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IFileRemovedEventArgs {
     type Vtable = IFileRemovedEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13043da7_7fca_4c2b_9eca_6890f9f00185);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IFileRemovedEventArgsVtbl(
@@ -461,7 +507,8 @@ pub struct IFileRemovedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -608,9 +655,11 @@ pub struct ITargetFileRequestedEventArgsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct PickerClosingDeferral(::windows::core::IUnknown);
 impl PickerClosingDeferral {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -677,9 +726,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pick
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct PickerClosingEventArgs(::windows::core::IUnknown);
 impl PickerClosingEventArgs {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn ClosingOperation(&self) -> ::windows::core::Result<PickerClosingOperation> {
         let this = self;
         unsafe {
@@ -687,6 +738,7 @@ impl PickerClosingEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PickerClosingOperation>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn IsCanceled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -756,9 +808,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pick
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct PickerClosingOperation(::windows::core::IUnknown);
 impl PickerClosingOperation {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<PickerClosingDeferral> {
         let this = self;
         unsafe {
@@ -766,6 +820,7 @@ impl PickerClosingOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<PickerClosingDeferral>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Deadline(&self) -> ::windows::core::Result<super::super::super::Foundation::DateTime> {
         let this = self;
@@ -836,6 +891,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pick
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct SetFileNameResult(pub i32);
 impl SetFileNameResult {
@@ -864,9 +920,11 @@ unsafe impl ::windows::core::RuntimeType for SetFileNameResult {
 impl ::windows::core::DefaultType for SetFileNameResult {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct TargetFileRequest(::windows::core::IUnknown);
 impl TargetFileRequest {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn TargetFile(&self) -> ::windows::core::Result<super::super::IStorageFile> {
         let this = self;
         unsafe {
@@ -874,10 +932,12 @@ impl TargetFileRequest {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::IStorageFile>(result__)
         }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn SetTargetFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::IStorageFile>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn GetDeferral(&self) -> ::windows::core::Result<TargetFileRequestDeferral> {
         let this = self;
         unsafe {
@@ -947,9 +1007,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct TargetFileRequestDeferral(::windows::core::IUnknown);
 impl TargetFileRequestDeferral {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn Complete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
@@ -1016,9 +1078,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Targ
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct TargetFileRequestedEventArgs(::windows::core::IUnknown);
 impl TargetFileRequestedEventArgs {
+    #[doc = "*Required features: 'Storage_Pickers_Provider'*"]
     pub fn Request(&self) -> ::windows::core::Result<TargetFileRequest> {
         let this = self;
         unsafe {

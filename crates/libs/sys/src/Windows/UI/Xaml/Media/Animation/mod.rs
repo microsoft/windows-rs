@@ -1,12 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type AddDeleteThemeTransition = *mut ::core::ffi::c_void;
 pub type BackEase = *mut ::core::ffi::c_void;
 pub type BasicConnectedAnimationConfiguration = *mut ::core::ffi::c_void;
 pub type BeginStoryboard = *mut ::core::ffi::c_void;
 pub type BounceEase = *mut ::core::ffi::c_void;
 pub type CircleEase = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ClockState(pub i32);
 impl ClockState {
@@ -26,6 +25,7 @@ pub type ColorKeyFrame = *mut ::core::ffi::c_void;
 pub type ColorKeyFrameCollection = *mut ::core::ffi::c_void;
 pub type CommonNavigationTransitionInfo = *mut ::core::ffi::c_void;
 pub type ConnectedAnimation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct ConnectedAnimationComponent(pub i32);
 impl ConnectedAnimationComponent {
@@ -63,6 +63,7 @@ pub type DropTargetItemThemeAnimation = *mut ::core::ffi::c_void;
 pub type EasingColorKeyFrame = *mut ::core::ffi::c_void;
 pub type EasingDoubleKeyFrame = *mut ::core::ffi::c_void;
 pub type EasingFunctionBase = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct EasingMode(pub i32);
 impl EasingMode {
@@ -84,6 +85,7 @@ pub type EntranceThemeTransition = *mut ::core::ffi::c_void;
 pub type ExponentialEase = *mut ::core::ffi::c_void;
 pub type FadeInThemeAnimation = *mut ::core::ffi::c_void;
 pub type FadeOutThemeAnimation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct FillBehavior(pub i32);
 impl FillBehavior {
@@ -99,6 +101,7 @@ impl ::core::clone::Clone for FillBehavior {
 pub type GravityConnectedAnimationConfiguration = *mut ::core::ffi::c_void;
 pub type KeySpline = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct KeyTime {
     pub TimeSpan: super::super::super::super::Foundation::TimeSpan,
@@ -136,6 +139,7 @@ pub type QuarticEase = *mut ::core::ffi::c_void;
 pub type QuinticEase = *mut ::core::ffi::c_void;
 pub type ReorderThemeTransition = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Media_Animation', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct RepeatBehavior {
     pub Count: f64,
@@ -151,6 +155,7 @@ impl ::core::clone::Clone for RepeatBehavior {
     }
 }
 pub type RepeatBehaviorHelper = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct RepeatBehaviorType(pub i32);
 impl RepeatBehaviorType {
@@ -167,6 +172,7 @@ impl ::core::clone::Clone for RepeatBehaviorType {
 pub type RepositionThemeAnimation = *mut ::core::ffi::c_void;
 pub type RepositionThemeTransition = *mut ::core::ffi::c_void;
 pub type SineEase = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Xaml_Media_Animation'*"]
 #[repr(transparent)]
 pub struct SlideNavigationTransitionEffect(pub i32);
 impl SlideNavigationTransitionEffect {

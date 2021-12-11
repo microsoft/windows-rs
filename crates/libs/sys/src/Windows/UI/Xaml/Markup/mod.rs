@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IComponentConnector = *mut ::core::ffi::c_void;
 pub type IComponentConnector2 = *mut ::core::ffi::c_void;
 pub type IDataTemplateComponent = *mut ::core::ffi::c_void;
@@ -12,6 +10,7 @@ pub type IXamlType2 = *mut ::core::ffi::c_void;
 pub type MarkupExtension = *mut ::core::ffi::c_void;
 pub type XamlBinaryWriter = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 pub struct XamlBinaryWriterErrorInformation {
     pub InputStreamIndex: u32,
     pub LineNumber: u32,
@@ -27,6 +26,7 @@ pub type XamlBindingHelper = *mut ::core::ffi::c_void;
 pub type XamlMarkupHelper = *mut ::core::ffi::c_void;
 pub type XamlReader = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Xaml_Markup'*"]
 pub struct XmlnsDefinition {
     pub XmlNamespace: ::windows_sys::core::HSTRING,
     pub Namespace: ::windows_sys::core::HSTRING,

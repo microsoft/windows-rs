@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type IWebUICommandBarElement = *mut ::core::ffi::c_void;
 pub type IWebUICommandBarIcon = *mut ::core::ffi::c_void;
 pub type MenuClosedEventHandler = *mut ::core::ffi::c_void;
@@ -8,6 +6,7 @@ pub type MenuOpenedEventHandler = *mut ::core::ffi::c_void;
 pub type SizeChangedEventHandler = *mut ::core::ffi::c_void;
 pub type WebUICommandBar = *mut ::core::ffi::c_void;
 pub type WebUICommandBarBitmapIcon = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_WebUI_Core'*"]
 #[repr(transparent)]
 pub struct WebUICommandBarClosedDisplayMode(pub i32);
 impl WebUICommandBarClosedDisplayMode {

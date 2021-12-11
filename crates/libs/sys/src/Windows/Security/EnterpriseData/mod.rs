@@ -1,8 +1,7 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type BufferProtectUnprotectResult = *mut ::core::ffi::c_void;
 pub type DataProtectionInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct DataProtectionStatus(pub i32);
 impl DataProtectionStatus {
@@ -19,6 +18,7 @@ impl ::core::clone::Clone for DataProtectionStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct EnforcementLevel(pub i32);
 impl EnforcementLevel {
@@ -34,6 +34,7 @@ impl ::core::clone::Clone for EnforcementLevel {
     }
 }
 pub type FileProtectionInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct FileProtectionStatus(pub i32);
 impl FileProtectionStatus {
@@ -63,6 +64,7 @@ pub type ProtectedContainerExportResult = *mut ::core::ffi::c_void;
 pub type ProtectedContainerImportResult = *mut ::core::ffi::c_void;
 pub type ProtectedContentRevokedEventArgs = *mut ::core::ffi::c_void;
 pub type ProtectedFileCreateResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectedImportExportStatus(pub i32);
 impl ProtectedImportExportStatus {
@@ -81,6 +83,7 @@ impl ::core::clone::Clone for ProtectedImportExportStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyAuditAction(pub i32);
 impl ProtectionPolicyAuditAction {
@@ -96,6 +99,7 @@ impl ::core::clone::Clone for ProtectionPolicyAuditAction {
     }
 }
 pub type ProtectionPolicyAuditInfo = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyEvaluationResult(pub i32);
 impl ProtectionPolicyEvaluationResult {
@@ -110,6 +114,7 @@ impl ::core::clone::Clone for ProtectionPolicyEvaluationResult {
     }
 }
 pub type ProtectionPolicyManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_EnterpriseData'*"]
 #[repr(transparent)]
 pub struct ProtectionPolicyRequestAccessBehavior(pub i32);
 impl ProtectionPolicyRequestAccessBehavior {

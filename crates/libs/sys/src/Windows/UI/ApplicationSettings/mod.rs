@@ -1,19 +1,22 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type AccountsSettingsPane = *mut ::core::ffi::c_void;
 pub type AccountsSettingsPaneCommandsRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type AccountsSettingsPaneEventDeferral = *mut ::core::ffi::c_void;
 pub type CredentialCommand = *mut ::core::ffi::c_void;
 pub type CredentialCommandCredentialDeletedHandler = *mut ::core::ffi::c_void;
 pub type SettingsCommand = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ApplicationSettings', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct SettingsEdgeLocation(pub i32);
+#[cfg(feature = "deprecated")]
 impl SettingsEdgeLocation {
     pub const Right: Self = Self(0i32);
     pub const Left: Self = Self(1i32);
 }
+#[cfg(feature = "deprecated")]
 impl ::core::marker::Copy for SettingsEdgeLocation {}
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for SettingsEdgeLocation {
     fn clone(&self) -> Self {
         *self
@@ -22,6 +25,7 @@ impl ::core::clone::Clone for SettingsEdgeLocation {
 pub type SettingsPane = *mut ::core::ffi::c_void;
 pub type SettingsPaneCommandsRequest = *mut ::core::ffi::c_void;
 pub type SettingsPaneCommandsRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct SupportedWebAccountActions(pub u32);
 impl SupportedWebAccountActions {
@@ -38,6 +42,7 @@ impl ::core::clone::Clone for SupportedWebAccountActions {
         *self
     }
 }
+#[doc = "*Required features: 'UI_ApplicationSettings'*"]
 #[repr(transparent)]
 pub struct WebAccountAction(pub i32);
 impl WebAccountAction {

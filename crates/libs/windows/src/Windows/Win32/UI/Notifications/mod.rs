@@ -1,7 +1,9 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'Win32_UI_Notifications'*"]
 #[repr(transparent)]
 pub struct INotificationActivationCallback(::windows::core::IUnknown);
 impl INotificationActivationCallback {
+    #[doc = "*Required features: 'Win32_UI_Notifications', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub unsafe fn Activate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(&self, appusermodelid: Param0, invokedargs: Param1, data: *const NOTIFICATION_USER_INPUT_DATA, count: u32) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), appusermodelid.into_param().abi(), invokedargs.into_param().abi(), ::core::mem::transmute(data), ::core::mem::transmute(count)).ok()
@@ -52,6 +54,7 @@ pub struct INotificationActivationCallbackVtbl(
     #[cfg(not(feature = "Win32_Foundation"))] usize,
 );
 #[repr(C)]
+#[doc = "*Required features: 'Win32_UI_Notifications', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct NOTIFICATION_USER_INPUT_DATA {
     pub Key: super::super::Foundation::PWSTR,

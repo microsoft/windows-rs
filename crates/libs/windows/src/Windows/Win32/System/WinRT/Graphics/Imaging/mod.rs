@@ -1,8 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 pub const CLSID_SoftwareBitmapNativeFactory: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84e65691_8602_4a84_be46_708be9cd4b74);
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct ISoftwareBitmapNative(::windows::core::IUnknown);
 impl ISoftwareBitmapNative {
+    #[doc = "*Required features: 'Win32_System_WinRT_Graphics_Imaging'*"]
     pub unsafe fn GetData<T: ::windows::core::Interface>(&self) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
@@ -74,14 +76,17 @@ pub struct ISoftwareBitmapNativeVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, riid: *const ::windows::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Win32_System_WinRT_Graphics_Imaging'*"]
 #[repr(transparent)]
 pub struct ISoftwareBitmapNativeFactory(::windows::core::IUnknown);
 impl ISoftwareBitmapNativeFactory {
+    #[doc = "*Required features: 'Win32_System_WinRT_Graphics_Imaging', 'Win32_Foundation', 'Win32_Graphics_Imaging'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Imaging"))]
     pub unsafe fn CreateFromWICBitmap<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Graphics::Imaging::IWICBitmap>, Param1: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, forcereadonly: Param1) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), data.into_param().abi(), forcereadonly.into_param().abi(), &<T as ::windows::core::Interface>::IID, &mut result__ as *mut _ as *mut _).and_some(result__)
     }
+    #[doc = "*Required features: 'Win32_System_WinRT_Graphics_Imaging', 'Win32_Foundation', 'Win32_Media_MediaFoundation'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Media_MediaFoundation"))]
     pub unsafe fn CreateFromMF2DBuffer2<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::super::Media::MediaFoundation::IMF2DBuffer2>, Param4: ::windows::core::IntoParam<'a, super::super::super::super::Foundation::BOOL>, T: ::windows::core::Interface>(&self, data: Param0, subtype: *const ::windows::core::GUID, width: u32, height: u32, forcereadonly: Param4, mindisplayaperture: *const super::super::super::super::Media::MediaFoundation::MFVideoArea) -> ::windows::core::Result<T> {
         let mut result__ = ::core::option::Option::None;

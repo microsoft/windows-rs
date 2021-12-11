@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'UI_Xaml_Automation_Text'*"]
 #[repr(transparent)]
 pub struct TextPatternRangeEndpoint(pub i32);
 impl TextPatternRangeEndpoint {
@@ -13,6 +12,7 @@ impl ::core::clone::Clone for TextPatternRangeEndpoint {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Xaml_Automation_Text'*"]
 #[repr(transparent)]
 pub struct TextUnit(pub i32);
 impl TextUnit {

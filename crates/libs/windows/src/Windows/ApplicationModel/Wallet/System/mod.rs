@@ -65,6 +65,7 @@ pub struct IWalletManagerSystemStaticsVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
 #[repr(transparent)]
 pub struct WalletItemAppAssociation(pub i32);
 impl WalletItemAppAssociation {
@@ -93,9 +94,11 @@ unsafe impl ::windows::core::RuntimeType for WalletItemAppAssociation {
 impl ::windows::core::DefaultType for WalletItemAppAssociation {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
 #[repr(transparent)]
 pub struct WalletItemSystemStore(::windows::core::IUnknown);
 impl WalletItemSystemStore {
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetItemsAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>> {
         let this = self;
@@ -104,6 +107,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::super::super::Foundation::Collections::IVectorView<super::WalletItem>>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn DeleteAsync<'a, Param0: ::windows::core::IntoParam<'a, super::WalletItem>>(&self, item: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncAction> {
         let this = self;
@@ -112,6 +116,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncAction>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn ImportItemAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Storage::Streams::IRandomAccessStreamReference>>(&self, stream: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::WalletItem>> {
         let this = self;
@@ -120,6 +125,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), stream.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<super::WalletItem>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
     pub fn GetAppStatusForItem<'a, Param0: ::windows::core::IntoParam<'a, super::WalletItem>>(&self, item: Param0) -> ::windows::core::Result<WalletItemAppAssociation> {
         let this = self;
         unsafe {
@@ -127,6 +133,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<WalletItemAppAssociation>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn LaunchAppForItemAsync<'a, Param0: ::windows::core::IntoParam<'a, super::WalletItem>>(&self, item: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<bool>> {
         let this = self;
@@ -135,6 +142,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), item.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<bool>>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ItemsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<WalletItemSystemStore, ::windows::core::IInspectable>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IWalletItemSystemStore2>(self)?;
@@ -143,6 +151,7 @@ impl WalletItemSystemStore {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveItemsChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, cookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IWalletItemSystemStore2>(self)?;
@@ -212,8 +221,10 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Wall
 }
 unsafe impl ::core::marker::Send for WalletItemSystemStore {}
 unsafe impl ::core::marker::Sync for WalletItemSystemStore {}
+#[doc = "*Required features: 'ApplicationModel_Wallet_System'*"]
 pub struct WalletManagerSystem {}
 impl WalletManagerSystem {
+    #[doc = "*Required features: 'ApplicationModel_Wallet_System', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStoreAsync() -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>> {
         Self::IWalletManagerSystemStatics(|this| unsafe {
@@ -221,6 +232,7 @@ impl WalletManagerSystem {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<WalletItemSystemStore>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IWalletManagerSystemStatics<R, F: FnOnce(&IWalletManagerSystemStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<WalletManagerSystem, IWalletManagerSystemStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

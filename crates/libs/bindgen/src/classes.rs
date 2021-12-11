@@ -22,6 +22,10 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
     let mut methods = quote! {};
     let mut method_names = BTreeMap::<String, u32>::new();
 
+    let cfg = gen.type_cfg(def);
+    let features = cfg.gen(gen);
+    let doc = cfg.gen_doc(gen);
+
     for (def, kind) in &interfaces {
         if gen.min_xaml && *kind == InterfaceKind::Base && gen.namespace.starts_with("Windows.UI.Xaml") && !def.namespace().starts_with("Windows.Foundation") {
             continue;
@@ -39,8 +43,17 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             if def.methods().next().is_some() {
                 let interface_name = format_token!("{}", def.name());
                 let interface_type = gen_type_name(def, gen);
+                let features = gen.type_cfg(def).gen(gen);
+
+                let hidden = if gen.doc {
+                    quote! { #[doc(hidden)] }
+                } else {
+                    quote! {}
+                };
 
                 Some(quote! {
+                    #hidden
+                    #features
                     pub fn #interface_name<R, F: FnOnce(&#interface_type) -> ::windows::core::Result<R>>(
                         callback: F,
                     ) -> ::windows::core::Result<R> {
@@ -74,13 +87,12 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
             quote! {}
         };
 
-        let cfg = gen.type_cfg(def);
-
         let mut tokens = quote! {
-            #cfg
+            #doc
+            #features
             #[repr(transparent)]
             pub struct #name(::windows::core::IUnknown);
-            #cfg
+            #features
             impl #name {
                 #new
                 #methods
@@ -99,21 +111,25 @@ fn gen_class(def: &TypeDef, gen: &Gen) -> TokenStream {
         tokens
     } else {
         let mut tokens = quote! {
+            #doc
+            #features
             pub struct #name {}
+            #features
             impl #name {
                 #methods
                 #(#factories)*
             }
         };
 
-        tokens.combine(&gen_runtime_name(def, &quote! {}, gen));
+        tokens.combine(&gen_runtime_name(def, &cfg, gen));
         tokens
     }
 }
 
-fn gen_agile(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+fn gen_agile(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     if def.is_agile() {
         let name = gen_type_ident(def, gen);
+        let cfg = cfg.gen(gen);
         quote! {
             #cfg
             unsafe impl ::core::marker::Send for #name {}
@@ -125,9 +141,10 @@ fn gen_agile(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
     }
 }
 
-fn gen_runtime_name(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+fn gen_runtime_name(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let runtime_name = format!("{}", def.type_name());
+    let cfg = cfg.gen(gen);
 
     quote! {
         #cfg
@@ -137,12 +154,13 @@ fn gen_runtime_name(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream 
     }
 }
 
-fn gen_conversions(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
+fn gen_conversions(def: &TypeDef, cfg: &Cfg, gen: &Gen) -> TokenStream {
     let name = gen_type_ident(def, gen);
     let mut tokens = quote! {};
 
     for def in &[ElementType::IUnknown, ElementType::IInspectable] {
         let into = gen_element_name(def, gen);
+        let cfg = cfg.gen(gen);
         tokens.combine(&quote! {
             #cfg
             impl ::core::convert::From<#name> for #into {
@@ -181,8 +199,7 @@ fn gen_conversions(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
         }
 
         let into = gen_type_name(&def, gen);
-        let mut cfg = cfg.clone();
-        cfg.combine(&gen.type_cfg(&def));
+        let cfg = cfg.union(gen.type_cfg(&def)).gen(gen);
 
         tokens.combine(&quote! {
             #cfg
@@ -218,8 +235,7 @@ fn gen_conversions(def: &TypeDef, cfg: &TokenStream, gen: &Gen) -> TokenStream {
 
     for def in def.bases() {
         let into = gen_type_name(&def, gen);
-        let mut cfg = cfg.clone();
-        cfg.combine(&gen.type_cfg(&def));
+        let cfg = cfg.union(gen.type_cfg(&def)).gen(gen);
 
         tokens.combine(&quote! {
             #cfg

@@ -1,6 +1,4 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type BarcodeScannerDisableScannerRequest = *mut ::core::ffi::c_void;
 pub type BarcodeScannerDisableScannerRequestEventArgs = *mut ::core::ffi::c_void;
 pub type BarcodeScannerEnableScannerRequest = *mut ::core::ffi::c_void;
@@ -21,6 +19,7 @@ pub type BarcodeScannerStartSoftwareTriggerRequest = *mut ::core::ffi::c_void;
 pub type BarcodeScannerStartSoftwareTriggerRequestEventArgs = *mut ::core::ffi::c_void;
 pub type BarcodeScannerStopSoftwareTriggerRequest = *mut ::core::ffi::c_void;
 pub type BarcodeScannerStopSoftwareTriggerRequestEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_PointOfService_Provider'*"]
 #[repr(transparent)]
 pub struct BarcodeScannerTriggerState(pub i32);
 impl BarcodeScannerTriggerState {

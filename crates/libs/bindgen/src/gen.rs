@@ -7,6 +7,7 @@ pub struct Gen<'a> {
     pub sys: bool,
     pub flatten: bool,
     pub cfg: bool,
+    pub doc: bool,
     pub min_enum: bool,
     pub min_inherit: bool,
     pub min_xaml: bool,
@@ -43,90 +44,51 @@ impl Gen<'_> {
         }
     }
 
-    pub(crate) fn arch_cfg(&self, attributes: impl Iterator<Item = Attribute>) -> TokenStream {
-        for attribute in attributes {
-            if attribute.name() == "SupportedArchitectureAttribute" {
-                if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
-                    let mut cfg = "#[cfg(any(".to_string();
-                    if value & 1 == 1 {
-                        cfg.push_str(r#"target_arch = "x86", "#);
-                    }
-                    if value & 2 == 2 {
-                        cfg.push_str(r#"target_arch = "x86_64", "#);
-                    }
-                    if value & 4 == 4 {
-                        cfg.push_str(r#"target_arch = "aarch64", "#);
-                    }
-                    cfg.push_str("))]");
-                    return cfg.into();
-                }
-            }
-        }
-
-        quote! {}
-    }
-
-    pub(crate) fn iterator_cfg(&self) -> TokenStream {
-        if !self.cfg {
-            quote! {}
-        } else {
-            let mut namespaces = BTreeSet::new();
-            self.add_namespace("Windows.Foundation.Collections", &mut namespaces);
-            cfg(&namespaces)
-        }
-    }
-
-    pub(crate) fn element_cfg(&self, def: &ElementType) -> TokenStream {
+    pub(crate) fn element_cfg(&self, def: &ElementType) -> Cfg {
         if let ElementType::TypeDef(def) = def {
             self.type_cfg(def)
         } else {
-            quote! {}
+            Default::default()
         }
     }
 
-    pub(crate) fn type_cfg(&self, def: &TypeDef) -> TokenStream {
-        if !self.cfg {
-            quote! {}
-        } else {
-            let mut namespaces = BTreeSet::new();
-            let mut keys = HashSet::new();
-            self.type_requirements(def, &mut namespaces, &mut keys);
-            cfg(&namespaces)
+    pub(crate) fn type_cfg(&self, def: &TypeDef) -> Cfg {
+        let mut features = BTreeSet::new();
+        let mut keys = HashSet::new();
+        self.type_requirements(def, &mut features, &mut keys);
+
+        if def.is_deprecated() {
+            features.insert("deprecated");
         }
+
+        Cfg { arch: arch(def.attributes()), features }
     }
 
-    pub(crate) fn field_cfg(&self, def: &Field) -> TokenStream {
-        if !self.cfg {
-            quote! {}
-        } else {
-            let mut namespaces = BTreeSet::new();
-            let mut keys = HashSet::new();
-            self.field_requirements(def, None, &mut namespaces, &mut keys);
-            cfg(&namespaces)
-        }
+    pub(crate) fn field_cfg(&self, def: &Field) -> Cfg {
+        let mut features = BTreeSet::new();
+        let mut keys = HashSet::new();
+        self.field_requirements(def, None, &mut features, &mut keys);
+        Cfg { arch: Default::default(), features }
     }
 
-    pub(crate) fn function_cfg(&self, def: &MethodDef) -> TokenStream {
-        if !self.cfg {
-            quote! {}
-        } else {
-            let mut namespaces = BTreeSet::new();
-            let mut keys = HashSet::new();
-            self.method_requirements(&def.signature(&[]), &mut namespaces, &mut keys);
-            cfg(&namespaces)
-        }
+    pub(crate) fn function_cfg(&self, method: &MethodDef) -> Cfg {
+        let mut features = BTreeSet::new();
+        let mut keys = HashSet::new();
+        self.method_requirements(&method.signature(&[]), &mut features, &mut keys);
+        Cfg { arch: arch(method.attributes()), features }
     }
 
-    pub(crate) fn method_cfg(&self, def: &TypeDef, method: &MethodDef) -> (TokenStream, TokenStream) {
-        if !self.cfg {
-            (quote! {}, quote! {})
-        } else {
-            let mut namespaces = BTreeSet::new();
-            let mut keys = HashSet::new();
-            self.add_namespace(def.namespace(), &mut namespaces);
-            self.method_requirements(&method.signature(&[]), &mut namespaces, &mut keys);
-            (cfg(&namespaces), cfg_not(&namespaces))
+    pub(crate) fn method_cfg(&self, def: &TypeDef, method: &MethodDef) -> Cfg {
+        let mut features = BTreeSet::new();
+        let mut keys = HashSet::new();
+        self.add_namespace(def.namespace(), &mut features);
+        self.method_requirements(&method.signature(&[]), &mut features, &mut keys);
+
+        if method.is_deprecated() {
+            features.insert("deprecated");
         }
+
+        Cfg { arch: Default::default(), features }
     }
 
     fn add_namespace(&self, namespace: &'static str, namespaces: &mut BTreeSet<&'static str>) {
@@ -196,42 +158,25 @@ impl Gen<'_> {
     }
 }
 
-fn cfg(namespaces: &BTreeSet<&'static str>) -> TokenStream {
-    if namespaces.is_empty() {
-        quote! {}
-    } else {
-        format!("#[cfg({})]", namespaces_to_features(namespaces)).into()
-    }
-}
+fn arch(attributes: impl Iterator<Item = Attribute>) -> BTreeSet<&'static str> {
+    let mut set = BTreeSet::new();
 
-fn cfg_not(namespaces: &BTreeSet<&'static str>) -> TokenStream {
-    if namespaces.is_empty() {
-        quote! {}
-    } else {
-        format!("#[cfg(not({}))]", namespaces_to_features(namespaces)).into()
-    }
-}
-
-fn namespaces_to_features(namespaces: &BTreeSet<&'static str>) -> String {
-    let mut features = String::new();
-
-    for namespace in namespaces {
-        features.push_str("feature = \"");
-
-        for namespace in namespace.split('.').skip(1) {
-            features.push_str(namespace);
-            features.push('_');
+    for attribute in attributes {
+        if attribute.name() == "SupportedArchitectureAttribute" {
+            if let Some((_, ConstantValue::I32(value))) = attribute.args().get(0) {
+                if value & 1 == 1 {
+                    set.insert("x86");
+                }
+                if value & 2 == 2 {
+                    set.insert("x86_64");
+                }
+                if value & 4 == 4 {
+                    set.insert("aarch64");
+                }
+            }
+            break;
         }
-
-        features.truncate(features.len() - 1);
-        features.push_str("\",")
     }
 
-    features.truncate(features.len() - 1);
-
-    if namespaces.len() > 1 {
-        format!("all({})", features)
-    } else {
-        features
-    }
+    set
 }

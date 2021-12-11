@@ -1,5 +1,6 @@
 mod r#async;
 mod callbacks;
+mod cfg;
 mod classes;
 mod constants;
 mod delegates;
@@ -16,6 +17,7 @@ mod replacements;
 mod signatures;
 mod structs;
 
+use cfg::*;
 use functions::*;
 pub use gen::*;
 use helpers::*;

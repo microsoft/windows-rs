@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct ABC {
     pub abcA: i32,
     pub abcB: u32,
@@ -26,6 +27,7 @@ impl ::core::default::Default for ABC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct ABCFLOAT {
     pub abcfA: f32,
     pub abcfB: f32,
@@ -51,8 +53,10 @@ impl ::core::default::Default for ABCFLOAT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ABORTDOC: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct ABORTPATH {
     pub emr: EMR,
 }
@@ -76,16 +80,26 @@ impl ::core::default::Default for ABORTPATH {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ABSOLUTE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const AC_SRC_ALPHA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const AC_SRC_OVER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ANSI_CHARSET: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ARABIC_CHARSET: u32 = 178u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type ARC_DIRECTION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const AD_COUNTERCLOCKWISE: ARC_DIRECTION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const AD_CLOCKWISE: ARC_DIRECTION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ASPECT_FILTERING: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct AXESLISTA {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
@@ -112,6 +126,7 @@ impl ::core::default::Default for AXESLISTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct AXESLISTW {
     pub axlReserved: u32,
     pub axlNumAxes: u32,
@@ -138,6 +153,7 @@ impl ::core::default::Default for AXESLISTW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct AXISINFOA {
     pub axMinValue: i32,
     pub axMaxValue: i32,
@@ -164,6 +180,7 @@ impl ::core::default::Default for AXISINFOA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct AXISINFOW {
     pub axMinValue: i32,
     pub axMaxValue: i32,
@@ -189,6 +206,7 @@ impl ::core::default::Default for AXISINFOW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AbortPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -203,6 +221,7 @@ pub unsafe fn AbortPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize: u32, pvresrved: *mut ::core::ffi::c_void, pnumfonts: *const u32) -> super::super::Foundation::HANDLE {
@@ -217,6 +236,7 @@ pub unsafe fn AddFontMemResourceEx(pfileview: *const ::core::ffi::c_void, cjsize
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0) -> i32 {
@@ -231,6 +251,7 @@ pub unsafe fn AddFontResourceA<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32 {
@@ -245,6 +266,7 @@ pub unsafe fn AddFontResourceExA<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, fl: FONT_RESOURCE_CHARACTERISTICS, res: *mut ::core::ffi::c_void) -> i32 {
@@ -259,6 +281,7 @@ pub unsafe fn AddFontResourceExW<'a, Param0: ::windows::core::IntoParam<'a, supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AddFontResourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0) -> i32 {
@@ -273,6 +296,7 @@ pub unsafe fn AddFontResourceW<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AlphaBlend<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, HDC>, Param10: ::windows::core::IntoParam<'a, BLENDFUNCTION>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: Param10) -> super::super::Foundation::BOOL {
@@ -287,6 +311,7 @@ pub unsafe fn AlphaBlend<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AngleArc<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, r: u32, startangle: f32, sweepangle: f32) -> super::super::Foundation::BOOL {
@@ -301,6 +326,7 @@ pub unsafe fn AngleArc<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn AnimatePalette<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE>>(hpal: Param0, istartindex: u32, centries: u32, ppe: *const PALETTEENTRY) -> super::super::Foundation::BOOL {
@@ -315,6 +341,7 @@ pub unsafe fn AnimatePalette<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Arc<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL {
@@ -329,6 +356,7 @@ pub unsafe fn Arc<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ArcTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL {
@@ -343,13 +371,20 @@ pub unsafe fn ArcTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type BACKGROUND_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OPAQUE: BACKGROUND_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TRANSPARENT: BACKGROUND_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BALTIC_CHARSET: u32 = 186u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BANDINFO: u32 = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BEGIN_PATH: u32 = 4096u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAP {
     pub bmType: i32,
     pub bmWidth: i32,
@@ -380,6 +415,7 @@ impl ::core::default::Default for BITMAP {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAPCOREHEADER {
     pub bcSize: u32,
     pub bcWidth: u16,
@@ -408,6 +444,7 @@ impl ::core::default::Default for BITMAPCOREHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAPCOREINFO {
     pub bmciHeader: BITMAPCOREHEADER,
     pub bmciColors: [RGBTRIPLE; 1],
@@ -433,6 +470,7 @@ impl ::core::default::Default for BITMAPCOREINFO {
     }
 }
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAPFILEHEADER {
     pub bfType: u16,
     pub bfSize: u32,
@@ -461,6 +499,7 @@ impl ::core::default::Default for BITMAPFILEHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAPINFO {
     pub bmiHeader: BITMAPINFOHEADER,
     pub bmiColors: [RGBQUAD; 1],
@@ -486,6 +525,7 @@ impl ::core::default::Default for BITMAPINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAPINFOHEADER {
     pub biSize: u32,
     pub biWidth: i32,
@@ -520,6 +560,7 @@ impl ::core::default::Default for BITMAPINFOHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAPV4HEADER {
     pub bV4Size: u32,
     pub bV4Width: i32,
@@ -563,6 +604,7 @@ impl ::core::default::Default for BITMAPV4HEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BITMAPV5HEADER {
     pub bV5Size: u32,
     pub bV5Width: i32,
@@ -609,14 +651,22 @@ impl ::core::default::Default for BITMAPV5HEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BI_BITFIELDS: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BI_JPEG: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BI_PNG: i32 = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BI_RGB: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BI_RLE4: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BI_RLE8: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BKMODE_LAST: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct BLENDFUNCTION {
     pub BlendOp: u8,
     pub BlendFlags: u8,
@@ -643,17 +693,29 @@ impl ::core::default::Default for BLENDFUNCTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_DIBPATTERN: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_DIBPATTERN8X8: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_DIBPATTERNPT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_HATCHED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_HOLLOW: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_INDEXED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_MONOPATTERN: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_NULL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_PATTERN: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_PATTERN8X8: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BS_SOLID: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BeginPaint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppaint: *mut PAINTSTRUCT) -> HDC {
@@ -668,6 +730,7 @@ pub unsafe fn BeginPaint<'a, Param0: ::windows::core::IntoParam<'a, super::super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BeginPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -682,6 +745,7 @@ pub unsafe fn BeginPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn BitBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, cx: i32, cy: i32, hdcsrc: Param5, x1: i32, y1: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
@@ -696,41 +760,76 @@ pub unsafe fn BitBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CA_LOG_FILTER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CA_NEGATIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CBM_INIT: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CCHFORMNAME: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_CHORD: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_CIRCLES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_ELLIPSES: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_INTERIORS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_PIE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_ROUNDRECT: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_STYLED: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_WIDE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CC_WIDESTYLED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CDS_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_FULLSCREEN: CDS_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_GLOBAL: CDS_TYPE = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_NORESET: CDS_TYPE = 268435456u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_RESET: CDS_TYPE = 1073741824u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_SET_PRIMARY: CDS_TYPE = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_TEST: CDS_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_UPDATEREGISTRY: CDS_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_VIDEOPARAMETERS: CDS_TYPE = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_ENABLE_UNSAFE_MODES: CDS_TYPE = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_DISABLE_UNSAFE_MODES: CDS_TYPE = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CDS_RESET_EX: CDS_TYPE = 536870912u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CFP_ALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: usize) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CFP_FREEPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void)>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CFP_REALLOCPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: usize) -> *mut ::core::ffi::c_void>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CHARSET_DEFAULT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CHARSET_GLYPHIDX: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CHECKJPEGFORMAT: u32 = 4119u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CHECKPNGFORMAT: u32 = 4120u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CHINESEBIG5_CHARSET: u32 = 136u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct CIEXYZ {
     pub ciexyzX: i32,
     pub ciexyzY: i32,
@@ -757,6 +856,7 @@ impl ::core::default::Default for CIEXYZ {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct CIEXYZTRIPLE {
     pub ciexyzRed: CIEXYZ,
     pub ciexyzGreen: CIEXYZ,
@@ -782,17 +882,28 @@ impl ::core::default::Default for CIEXYZTRIPLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLEARTYPE_NATURAL_QUALITY: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_TO_PATH: u32 = 4097u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLOSECHANNEL: u32 = 4112u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLR_INVALID: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CM_CMYK_COLOR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CM_DEVICE_ICM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CM_GAMMA_RAMP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CM_IN_GAMUT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CM_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CM_OUT_OF_GAMUT: u32 = 255u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct COLORADJUSTMENT {
     pub caSize: u16,
     pub caFlags: u16,
@@ -828,6 +939,7 @@ impl ::core::default::Default for COLORADJUSTMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct COLORCORRECTPALETTE {
     pub emr: EMR,
     pub ihPalette: u32,
@@ -856,6 +968,7 @@ impl ::core::default::Default for COLORCORRECTPALETTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct COLORMATCHTOTARGET {
     pub emr: EMR,
     pub dwAction: u32,
@@ -884,22 +997,39 @@ impl ::core::default::Default for COLORMATCHTOTARGET {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const COLORMATCHTOTARGET_EMBEDED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const COMPLEXREGION: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CP_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CP_RECTANGLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CP_REGION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CREATECOLORSPACE_EMBEDED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CREATE_FONT_PACKAGE_SUBSET_ENCODING = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_STD_MAC_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_SYMBOL_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_UNICODE_CHAR_SET: CREATE_FONT_PACKAGE_SUBSET_ENCODING = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CREATE_FONT_PACKAGE_SUBSET_PLATFORM = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_UNICODE_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_ISO_PLATFORMID: CREATE_FONT_PACKAGE_SUBSET_PLATFORM = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type CREATE_POLYGON_RGN_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ALTERNATE: CREATE_POLYGON_RGN_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WINDING: CREATE_POLYGON_RGN_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CancelDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -914,6 +1044,7 @@ pub unsafe fn CancelDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TYPE) -> DISP_CHANGE {
@@ -928,6 +1059,7 @@ pub unsafe fn ChangeDisplaySettingsA(lpdevmode: *const DEVMODEA, dwflags: CDS_TY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszdevicename: Param0, lpdevmode: *const DEVMODEA, hwnd: Param2, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE {
@@ -942,6 +1074,7 @@ pub unsafe fn ChangeDisplaySettingsExA<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(lpszdevicename: Param0, lpdevmode: *const DEVMODEW, hwnd: Param2, dwflags: CDS_TYPE, lparam: *const ::core::ffi::c_void) -> DISP_CHANGE {
@@ -956,6 +1089,7 @@ pub unsafe fn ChangeDisplaySettingsExW<'a, Param0: ::windows::core::IntoParam<'a
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TYPE) -> DISP_CHANGE {
@@ -970,6 +1104,7 @@ pub unsafe fn ChangeDisplaySettingsW(lpdevmode: *const DEVMODEW, dwflags: CDS_TY
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Chord<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x1: i32, y1: i32, x2: i32, y2: i32, x3: i32, y3: i32, x4: i32, y4: i32) -> super::super::Foundation::BOOL {
@@ -984,6 +1119,7 @@ pub unsafe fn Chord<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ClientToScreen<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -998,6 +1134,7 @@ pub unsafe fn ClientToScreen<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CloseEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> HENHMETAFILE {
     #[cfg(windows)]
@@ -1011,6 +1148,7 @@ pub unsafe fn CloseEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CloseFigure<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -1025,6 +1163,7 @@ pub unsafe fn CloseFigure<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CloseMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> HMETAFILE {
     #[cfg(windows)]
@@ -1038,6 +1177,7 @@ pub unsafe fn CloseMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CombineRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>, Param1: ::windows::core::IntoParam<'a, HRGN>, Param2: ::windows::core::IntoParam<'a, HRGN>>(hrgndst: Param0, hrgnsrc1: Param1, hrgnsrc2: Param2, imode: RGN_COMBINE_MODE) -> i32 {
     #[cfg(windows)]
@@ -1051,6 +1191,7 @@ pub unsafe fn CombineRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: *const XFORM) -> super::super::Foundation::BOOL {
@@ -1065,6 +1206,7 @@ pub unsafe fn CombineTransform(lpxfout: *mut XFORM, lpxf1: *const XFORM, lpxf2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyEnhMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(henh: Param0, lpfilename: Param1) -> HENHMETAFILE {
@@ -1079,6 +1221,7 @@ pub unsafe fn CopyEnhMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, HENHME
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyEnhMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(henh: Param0, lpfilename: Param1) -> HENHMETAFILE {
@@ -1093,6 +1236,7 @@ pub unsafe fn CopyEnhMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, HENHME
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, HMETAFILE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(param0: Param0, param1: Param1) -> HMETAFILE {
@@ -1107,6 +1251,7 @@ pub unsafe fn CopyMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, HMETAFILE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, HMETAFILE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(param0: Param0, param1: Param1) -> HMETAFILE {
@@ -1121,6 +1266,7 @@ pub unsafe fn CopyMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, HMETAFILE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -1135,6 +1281,7 @@ pub unsafe fn CopyRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc: *c
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u32, lpbits: *const ::core::ffi::c_void) -> HBITMAP {
     #[cfg(windows)]
@@ -1148,6 +1295,7 @@ pub unsafe fn CreateBitmap(nwidth: i32, nheight: i32, nplanes: u32, nbitcount: u
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
     #[cfg(windows)]
@@ -1161,6 +1309,7 @@ pub unsafe fn CreateBitmapIndirect(pbm: *const BITMAP) -> HBITMAP {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH {
     #[cfg(windows)]
@@ -1174,6 +1323,7 @@ pub unsafe fn CreateBrushIndirect(plbrush: *const LOGBRUSH) -> HBRUSH {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateCompatibleBitmap<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, cx: i32, cy: i32) -> HBITMAP {
     #[cfg(windows)]
@@ -1187,6 +1337,7 @@ pub unsafe fn CreateCompatibleBitmap<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateCompatibleDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> CreatedHDC {
     #[cfg(windows)]
@@ -1200,6 +1351,7 @@ pub unsafe fn CreateCompatibleDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDCA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pwszdriver: Param0, pwszdevice: Param1, pszport: Param2, pdm: *const DEVMODEA) -> CreatedHDC {
@@ -1214,6 +1366,7 @@ pub unsafe fn CreateDCA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDCW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pwszdriver: Param0, pwszdevice: Param1, pszport: Param2, pdm: *const DEVMODEW) -> CreatedHDC {
@@ -1228,6 +1381,7 @@ pub unsafe fn CreateDCW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg(windows)]
@@ -1241,6 +1395,7 @@ pub unsafe fn CreateDIBPatternBrush(h: isize, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, iusage: DIB_USAGE) -> HBRUSH {
     #[cfg(windows)]
@@ -1254,6 +1409,7 @@ pub unsafe fn CreateDIBPatternBrushPt(lppackeddib: *const ::core::ffi::c_void, i
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateDIBSection<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hdc: Param0, pbmi: *const BITMAPINFO, usage: DIB_USAGE, ppvbits: *mut *mut ::core::ffi::c_void, hsection: Param4, offset: u32) -> HBITMAP {
@@ -1268,6 +1424,7 @@ pub unsafe fn CreateDIBSection<'a, Param0: ::windows::core::IntoParam<'a, HDC>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateDIBitmap<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, pbmih: *const BITMAPINFOHEADER, flinit: u32, pjbits: *const ::core::ffi::c_void, pbmi: *const BITMAPINFO, iusage: DIB_USAGE) -> HBITMAP {
     #[cfg(windows)]
@@ -1281,6 +1438,7 @@ pub unsafe fn CreateDIBitmap<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateDiscardableBitmap<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, cx: i32, cy: i32) -> HBITMAP {
     #[cfg(windows)]
@@ -1294,6 +1452,7 @@ pub unsafe fn CreateDiscardableBitmap<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(windows)]
@@ -1307,6 +1466,7 @@ pub unsafe fn CreateEllipticRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
@@ -1321,6 +1481,7 @@ pub unsafe fn CreateEllipticRgnIndirect(lprect: *const super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnhMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpfilename: Param1, lprc: *const super::super::Foundation::RECT, lpdesc: Param3) -> HdcMetdataEnhFileHandle {
@@ -1335,6 +1496,7 @@ pub unsafe fn CreateEnhMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateEnhMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpfilename: Param1, lprc: *const super::super::Foundation::RECT, lpdesc: Param3) -> HdcMetdataEnhFileHandle {
@@ -1349,6 +1511,7 @@ pub unsafe fn CreateEnhMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontA<'a, Param13: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: Param13) -> HFONT {
@@ -1378,6 +1541,7 @@ pub unsafe fn CreateFontA<'a, Param13: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
@@ -1392,6 +1556,7 @@ pub unsafe fn CreateFontIndirectA(lplf: *const LOGFONTA) -> HFONT {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
@@ -1406,6 +1571,7 @@ pub unsafe fn CreateFontIndirectExA(param0: *const ENUMLOGFONTEXDVA) -> HFONT {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
     #[cfg(windows)]
@@ -1419,6 +1585,7 @@ pub unsafe fn CreateFontIndirectExW(param0: *const ENUMLOGFONTEXDVW) -> HFONT {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     #[cfg(windows)]
@@ -1432,6 +1599,7 @@ pub unsafe fn CreateFontIndirectW(lplf: *const LOGFONTW) -> HFONT {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, ppuchfontpackagebuffer: *mut *mut u8, pulfontpackagebuffersize: *mut u32, pulbyteswritten: *mut u32, usflag: u16, usttcindex: u16, ussubsetformat: u16, ussubsetlanguage: u16, ussubsetplatform: CREATE_FONT_PACKAGE_SUBSET_PLATFORM, ussubsetencoding: CREATE_FONT_PACKAGE_SUBSET_ENCODING, pussubsetkeeplist: *const u16, ussubsetlistcount: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -1463,6 +1631,7 @@ pub unsafe fn CreateFontPackage(puchsrcbuffer: *const u8, ulsrcbuffersize: u32, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateFontW<'a, Param13: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(cheight: i32, cwidth: i32, cescapement: i32, corientation: i32, cweight: i32, bitalic: u32, bunderline: u32, bstrikeout: u32, icharset: u32, ioutprecision: FONT_OUTPUT_PRECISION, iclipprecision: FONT_CLIP_PRECISION, iquality: FONT_QUALITY, ipitchandfamily: FONT_PITCH_AND_FAMILY, pszfacename: Param13) -> HFONT {
@@ -1492,6 +1661,7 @@ pub unsafe fn CreateFontW<'a, Param13: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateHalftonePalette<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> HPALETTE {
     #[cfg(windows)]
@@ -1505,6 +1675,7 @@ pub unsafe fn CreateHalftonePalette<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH {
     #[cfg(windows)]
@@ -1518,6 +1689,7 @@ pub unsafe fn CreateHatchBrush(ihatch: HATCH_BRUSH_STYLE, color: u32) -> HBRUSH 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateICA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszdriver: Param0, pszdevice: Param1, pszport: Param2, pdm: *const DEVMODEA) -> CreatedHDC {
@@ -1532,6 +1704,7 @@ pub unsafe fn CreateICA<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateICW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszdriver: Param0, pszdevice: Param1, pszport: Param2, pdm: *const DEVMODEW) -> CreatedHDC {
@@ -1546,6 +1719,7 @@ pub unsafe fn CreateICW<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(pszfile: Param0) -> HdcMetdataFileHandle {
@@ -1560,6 +1734,7 @@ pub unsafe fn CreateMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(pszfile: Param0) -> HdcMetdataFileHandle {
@@ -1574,6 +1749,7 @@ pub unsafe fn CreateMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE {
     #[cfg(windows)]
@@ -1587,6 +1763,7 @@ pub unsafe fn CreatePalette(plpal: *const LOGPALETTE) -> HPALETTE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreatePatternBrush<'a, Param0: ::windows::core::IntoParam<'a, HBITMAP>>(hbm: Param0) -> HBRUSH {
     #[cfg(windows)]
@@ -1600,6 +1777,7 @@ pub unsafe fn CreatePatternBrush<'a, Param0: ::windows::core::IntoParam<'a, HBIT
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
     #[cfg(windows)]
@@ -1613,6 +1791,7 @@ pub unsafe fn CreatePen(istyle: PEN_STYLE, cwidth: i32, color: u32) -> HPEN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
@@ -1627,6 +1806,7 @@ pub unsafe fn CreatePenIndirect(plpen: *const LOGPEN) -> HPEN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT, pc: *const i32, cpoly: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
@@ -1641,6 +1821,7 @@ pub unsafe fn CreatePolyPolygonRgn(pptl: *const super::super::Foundation::POINT,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreatePolygonRgn(pptl: *const super::super::Foundation::POINT, cpoint: i32, imode: CREATE_POLYGON_RGN_MODE) -> HRGN {
@@ -1655,6 +1836,7 @@ pub unsafe fn CreatePolygonRgn(pptl: *const super::super::Foundation::POINT, cpo
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(windows)]
@@ -1668,6 +1850,7 @@ pub unsafe fn CreateRectRgn(x1: i32, y1: i32, x2: i32, y2: i32) -> HRGN {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::RECT) -> HRGN {
@@ -1682,6 +1865,7 @@ pub unsafe fn CreateRectRgnIndirect(lprect: *const super::super::Foundation::REC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: i32) -> HRGN {
     #[cfg(windows)]
@@ -1695,6 +1879,7 @@ pub unsafe fn CreateRoundRectRgn(x1: i32, y1: i32, x2: i32, y2: i32, w: i32, h: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateScalableFontResourceA<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(fdwhidden: u32, lpszfont: Param1, lpszfile: Param2, lpszpath: Param3) -> super::super::Foundation::BOOL {
@@ -1709,6 +1894,7 @@ pub unsafe fn CreateScalableFontResourceA<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn CreateScalableFontResourceW<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(fdwhidden: u32, lpszfont: Param1, lpszfile: Param2, lpszpath: Param3) -> super::super::Foundation::BOOL {
@@ -1723,6 +1909,7 @@ pub unsafe fn CreateScalableFontResourceW<'a, Param1: ::windows::core::IntoParam
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
     #[cfg(windows)]
@@ -1737,29 +1924,52 @@ pub unsafe fn CreateSolidBrush(color: u32) -> HBRUSH {
     unimplemented!("Unsupported target OS");
 }
 pub type CreatedHDC = isize;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEDOWNCENTER: u32 = 257u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEDOWNLEFT: u32 = 258u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEDOWNNONE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEDOWNRIGHT: u32 = 259u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEUPCENTER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEUPLEFT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEUPNONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCBA_FACEUPRIGHT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCTT_BITMAP: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCTT_DOWNLOAD: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCTT_DOWNLOAD_OUTLINE: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCTT_SUBDEV: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_BINADJUST: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_DATATYPE_PRODUCED: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_EMF_COMPLIANT: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DC_LAYOUT = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LAYOUT_BITMAPORIENTATIONPRESERVED: DC_LAYOUT = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LAYOUT_RTL: DC_LAYOUT = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_MANUFACTURER: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_MODEL: u32 = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEFAULT_CHARSET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEFAULT_PITCH: u32 = 0u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct DESIGNVECTOR {
     pub dvReserved: u32,
     pub dvNumAxes: u32,
@@ -1785,9 +1995,12 @@ impl ::core::default::Default for DESIGNVECTOR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEVICEDATA: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEVICE_FONTTYPE: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA {
     pub dmDeviceName: [u8; 32],
@@ -1845,6 +2058,7 @@ impl ::core::default::Default for DEVMODEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEA_0 {
     pub Anonymous1: DEVMODEA_0_0,
@@ -1877,6 +2091,7 @@ impl ::core::default::Default for DEVMODEA_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA_0_0 {
     pub dmOrientation: i16,
@@ -1915,6 +2130,7 @@ impl ::core::default::Default for DEVMODEA_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEA_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
@@ -1948,6 +2164,7 @@ impl ::core::default::Default for DEVMODEA_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEA_1 {
     pub dmDisplayFlags: u32,
@@ -1980,6 +2197,7 @@ impl ::core::default::Default for DEVMODEA_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW {
     pub dmDeviceName: [u16; 32],
@@ -2037,6 +2255,7 @@ impl ::core::default::Default for DEVMODEW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEW_0 {
     pub Anonymous1: DEVMODEW_0_0,
@@ -2069,6 +2288,7 @@ impl ::core::default::Default for DEVMODEW_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW_0_0 {
     pub dmOrientation: i16,
@@ -2107,6 +2327,7 @@ impl ::core::default::Default for DEVMODEW_0_0 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DEVMODEW_0_1 {
     pub dmPosition: super::super::Foundation::POINTL,
@@ -2140,6 +2361,7 @@ impl ::core::default::Default for DEVMODEW_0_1 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub union DEVMODEW_1 {
     pub dmDisplayFlags: u32,
@@ -2171,44 +2393,82 @@ impl ::core::default::Default for DEVMODEW_1 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DFCS_STATE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_CAPTIONCLOSE: DFCS_STATE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_CAPTIONMIN: DFCS_STATE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_CAPTIONMAX: DFCS_STATE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_CAPTIONRESTORE: DFCS_STATE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_CAPTIONHELP: DFCS_STATE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_MENUARROW: DFCS_STATE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_MENUCHECK: DFCS_STATE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_MENUBULLET: DFCS_STATE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_MENUARROWRIGHT: DFCS_STATE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_SCROLLUP: DFCS_STATE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_SCROLLDOWN: DFCS_STATE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_SCROLLLEFT: DFCS_STATE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_SCROLLRIGHT: DFCS_STATE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_SCROLLCOMBOBOX: DFCS_STATE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_SCROLLSIZEGRIP: DFCS_STATE = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_SCROLLSIZEGRIPRIGHT: DFCS_STATE = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_BUTTONCHECK: DFCS_STATE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_BUTTONRADIOIMAGE: DFCS_STATE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_BUTTONRADIOMASK: DFCS_STATE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_BUTTONRADIO: DFCS_STATE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_BUTTON3STATE: DFCS_STATE = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_BUTTONPUSH: DFCS_STATE = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_INACTIVE: DFCS_STATE = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_PUSHED: DFCS_STATE = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_CHECKED: DFCS_STATE = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_TRANSPARENT: DFCS_STATE = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_HOT: DFCS_STATE = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_ADJUSTRECT: DFCS_STATE = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_FLAT: DFCS_STATE = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFCS_MONO: DFCS_STATE = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DFC_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFC_CAPTION: DFC_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFC_MENU: DFC_TYPE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFC_SCROLL: DFC_TYPE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFC_BUTTON: DFC_TYPE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DFC_POPUPMENU: DFC_TYPE = 5u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DIBSECTION {
     pub dsBm: BITMAP,
@@ -2243,34 +2503,62 @@ impl ::core::default::Default for DIBSECTION {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DIB_USAGE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DIB_RGB_COLORS: DIB_USAGE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DIB_PAL_COLORS: DIB_USAGE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DISPLAYCONFIG_COLOR_ENCODING = i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_RGB: DISPLAYCONFIG_COLOR_ENCODING = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR444: DISPLAYCONFIG_COLOR_ENCODING = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR422: DISPLAYCONFIG_COLOR_ENCODING = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_YCBCR420: DISPLAYCONFIG_COLOR_ENCODING = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_INTENSITY: DISPLAYCONFIG_COLOR_ENCODING = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_COLOR_ENCODING_FORCE_UINT32: DISPLAYCONFIG_COLOR_ENCODING = -1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_MAXPATH: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_CLONE_GROUP_INVALID: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_DESKTOP_IMAGE_IDX_INVALID: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_MODE_IDX_INVALID: u32 = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_PREFERRED_UNSCALED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_SOURCE_MODE_IDX_INVALID: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_SUPPORT_VIRTUAL_MODE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_TARGET_MODE_IDX_INVALID: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_PATH_VALID_FLAGS: u32 = 29u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_SOURCE_IN_USE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_BOOT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_PATH: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_TARGET_FORCED_AVAILABILITY_SYSTEM: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_TARGET_FORCIBLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_TARGET_IN_USE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAYCONFIG_TARGET_IS_HMD: u32 = 32u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct DISPLAY_DEVICEA {
     pub cb: u32,
@@ -2307,6 +2595,7 @@ impl ::core::default::Default for DISPLAY_DEVICEA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct DISPLAY_DEVICEW {
     pub cb: u32,
     pub DeviceName: [u16; 32],
@@ -2335,254 +2624,503 @@ impl ::core::default::Default for DISPLAY_DEVICEW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_ACC_DRIVER: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_ACTIVE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_ATTACHED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_ATTACHED_TO_DESKTOP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_DISCONNECT: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_MIRRORING_DRIVER: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_MODESPRUNED: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_MULTI_DRIVER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_PRIMARY_DEVICE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_RDPUDD: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_REMOTE: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_REMOVABLE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_TS_COMPATIBLE: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_UNSAFE_MODES_ON: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISPLAY_DEVICE_VGA_COMPATIBLE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DISP_CHANGE = i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_SUCCESSFUL: DISP_CHANGE = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_RESTART: DISP_CHANGE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_FAILED: DISP_CHANGE = -1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_BADMODE: DISP_CHANGE = -2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_NOTUPDATED: DISP_CHANGE = -3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_BADFLAGS: DISP_CHANGE = -4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_BADPARAM: DISP_CHANGE = -5i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DISP_CHANGE_BADDUALVIEW: DISP_CHANGE = -6i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DI_APPBANDING: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DI_ROPS_READ_DESTINATION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_AUTO: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_CASSETTE: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_ENVELOPE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_ENVMANUAL: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_FORMSOURCE: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_LARGECAPACITY: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_LARGEFMT: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_LAST: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_LOWER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_MANUAL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_MIDDLE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_ONLYONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_SMALLFMT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_TRACTOR: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_UPPER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMBIN_USER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMCOLLATE_FALSE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMCOLLATE_TRUE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMCOLOR_COLOR: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMCOLOR_MONOCHROME: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDFO_CENTER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDFO_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDFO_STRETCH: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDISPLAYFLAGS_TEXTMODE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_COARSE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_ERRORDIFFUSION: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_FINE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_GRAYSCALE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_LINEART: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_NONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_RESERVED6: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_RESERVED7: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_RESERVED8: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_RESERVED9: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDITHER_USER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDO_180: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDO_270: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDO_90: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDO_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDUP_HORIZONTAL: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDUP_SIMPLEX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMDUP_VERTICAL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICMMETHOD_DEVICE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICMMETHOD_DRIVER: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICMMETHOD_NONE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICMMETHOD_SYSTEM: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICMMETHOD_USER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICM_ABS_COLORIMETRIC: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICM_COLORIMETRIC: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICM_CONTRAST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICM_SATURATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMICM_USER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMMEDIA_GLOSSY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMMEDIA_STANDARD: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMMEDIA_TRANSPARENCY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMMEDIA_USER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMNUP_ONEUP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMNUP_SYSTEM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMORIENT_LANDSCAPE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMORIENT_PORTRAIT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_10X11: u32 = 45u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_10X14: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_11X17: u32 = 17u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_12X11: u32 = 90u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_15X11: u32 = 46u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_9X11: u32 = 44u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A2: u32 = 66u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A3: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A3_EXTRA: u32 = 63u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A3_EXTRA_TRANSVERSE: u32 = 68u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A3_ROTATED: u32 = 76u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A3_TRANSVERSE: u32 = 67u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A4: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A4SMALL: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A4_EXTRA: u32 = 53u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A4_PLUS: u32 = 60u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A4_ROTATED: u32 = 77u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A4_TRANSVERSE: u32 = 55u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A5: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A5_EXTRA: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A5_ROTATED: u32 = 78u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A5_TRANSVERSE: u32 = 61u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A6: u32 = 70u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A6_ROTATED: u32 = 83u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_A_PLUS: u32 = 57u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B4: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B4_JIS_ROTATED: u32 = 79u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B5: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B5_EXTRA: u32 = 65u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B5_JIS_ROTATED: u32 = 80u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B5_TRANSVERSE: u32 = 62u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B6_JIS: u32 = 88u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B6_JIS_ROTATED: u32 = 89u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_B_PLUS: u32 = 58u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_CSHEET: u32 = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_DBL_JAPANESE_POSTCARD: u32 = 69u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_DBL_JAPANESE_POSTCARD_ROTATED: u32 = 82u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_DSHEET: u32 = 25u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_10: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_11: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_12: u32 = 22u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_14: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_9: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_B4: u32 = 33u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_B5: u32 = 34u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_B6: u32 = 35u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_C3: u32 = 29u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_C4: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_C5: u32 = 28u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_C6: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_C65: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_DL: u32 = 27u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_INVITE: u32 = 47u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_ITALY: u32 = 36u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_MONARCH: u32 = 37u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ENV_PERSONAL: u32 = 38u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ESHEET: u32 = 26u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_EXECUTIVE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_FANFOLD_LGL_GERMAN: u32 = 41u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_FANFOLD_STD_GERMAN: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_FANFOLD_US: u32 = 39u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_FOLIO: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_ISO_B4: u32 = 42u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JAPANESE_POSTCARD: u32 = 43u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JAPANESE_POSTCARD_ROTATED: u32 = 81u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_CHOU3: u32 = 73u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_CHOU3_ROTATED: u32 = 86u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_CHOU4: u32 = 74u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_CHOU4_ROTATED: u32 = 87u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_KAKU2: u32 = 71u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_KAKU2_ROTATED: u32 = 84u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_KAKU3: u32 = 72u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_KAKU3_ROTATED: u32 = 85u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_YOU4: u32 = 91u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_JENV_YOU4_ROTATED: u32 = 92u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LAST: u32 = 118u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LEDGER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LEGAL: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LEGAL_EXTRA: u32 = 51u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LETTER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LETTERSMALL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LETTER_EXTRA: u32 = 50u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LETTER_EXTRA_TRANSVERSE: u32 = 56u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LETTER_PLUS: u32 = 59u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LETTER_ROTATED: u32 = 75u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_LETTER_TRANSVERSE: u32 = 54u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_NOTE: u32 = 18u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_P16K: u32 = 93u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_P16K_ROTATED: u32 = 106u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_P32K: u32 = 94u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_P32KBIG: u32 = 95u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_P32KBIG_ROTATED: u32 = 108u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_P32K_ROTATED: u32 = 107u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_1: u32 = 96u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_10: u32 = 105u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_10_ROTATED: u32 = 118u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_1_ROTATED: u32 = 109u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_2: u32 = 97u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_2_ROTATED: u32 = 110u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_3: u32 = 98u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_3_ROTATED: u32 = 111u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_4: u32 = 99u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_4_ROTATED: u32 = 112u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_5: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_5_ROTATED: u32 = 113u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_6: u32 = 101u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_6_ROTATED: u32 = 114u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_7: u32 = 102u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_7_ROTATED: u32 = 115u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_8: u32 = 103u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_8_ROTATED: u32 = 116u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_9: u32 = 104u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_PENV_9_ROTATED: u32 = 117u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_QUARTO: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_RESERVED_48: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_RESERVED_49: u32 = 49u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_STATEMENT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_TABLOID: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_TABLOID_EXTRA: u32 = 52u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMPAPER_USER: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMRES_DRAFT: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMRES_HIGH: i32 = -4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMRES_LOW: i32 = -2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMRES_MEDIUM: i32 = -3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMTT_BITMAP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMTT_DOWNLOAD: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMTT_DOWNLOAD_OUTLINE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DMTT_SUBDEV: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_BITSPERPEL: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_COLLATE: i32 = 32768i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_COLOR: i32 = 2048i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_COPIES: i32 = 256i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_DEFAULTSOURCE: i32 = 512i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_DISPLAYFIXEDOUTPUT: i32 = 536870912i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_DISPLAYFLAGS: i32 = 2097152i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_DISPLAYFREQUENCY: i32 = 4194304i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_DISPLAYORIENTATION: i32 = 128i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_DITHERTYPE: i32 = 67108864i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_DUPLEX: i32 = 4096i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_FORMNAME: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_ICMINTENT: i32 = 16777216i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_ICMMETHOD: i32 = 8388608i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_INTERLACED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_LOGPIXELS: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_MEDIATYPE: i32 = 33554432i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_NUP: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_ORIENTATION: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PANNINGHEIGHT: i32 = 268435456i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PANNINGWIDTH: i32 = 134217728i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PAPERLENGTH: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PAPERSIZE: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PAPERWIDTH: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PELSHEIGHT: i32 = 1048576i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PELSWIDTH: i32 = 524288i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_POSITION: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_PRINTQUALITY: i32 = 1024i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_SCALE: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_SPECVERSION: u32 = 1025u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_TTOPTION: i32 = 16384i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DM_YRESOLUTION: i32 = 8192i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DOWNLOADFACE: u32 = 514u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DOWNLOADHEADER: u32 = 4111u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DPtoLP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL {
@@ -2597,37 +3135,67 @@ pub unsafe fn DPtoLP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DRAFTMODE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DRAWEDGE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_RAISEDOUTER: DRAWEDGE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_SUNKENOUTER: DRAWEDGE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_RAISEDINNER: DRAWEDGE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_SUNKENINNER: DRAWEDGE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_OUTER: DRAWEDGE_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_INNER: DRAWEDGE_FLAGS = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_RAISED: DRAWEDGE_FLAGS = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BDR_SUNKEN: DRAWEDGE_FLAGS = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EDGE_RAISED: DRAWEDGE_FLAGS = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EDGE_SUNKEN: DRAWEDGE_FLAGS = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EDGE_ETCHED: DRAWEDGE_FLAGS = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EDGE_BUMP: DRAWEDGE_FLAGS = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DRAWPATTERNRECT: u32 = 25u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type DRAWSTATEPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, ldata: super::super::Foundation::LPARAM, wdata: super::super::Foundation::WPARAM, cx: i32, cy: i32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DRAWSTATE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DST_COMPLEX: DRAWSTATE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DST_TEXT: DRAWSTATE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DST_PREFIXTEXT: DRAWSTATE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DST_ICON: DRAWSTATE_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DST_BITMAP: DRAWSTATE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSS_NORMAL: DRAWSTATE_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSS_UNION: DRAWSTATE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSS_DISABLED: DRAWSTATE_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSS_MONO: DRAWSTATE_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSS_HIDEPREFIX: DRAWSTATE_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSS_PREFIXONLY: DRAWSTATE_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSS_RIGHT: DRAWSTATE_FLAGS = 32768u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct DRAWTEXTPARAMS {
     pub cbSize: u32,
     pub iTabLength: i32,
@@ -2655,66 +3223,127 @@ impl ::core::default::Default for DRAWTEXTPARAMS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DRAW_CAPTION_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_ACTIVE: DRAW_CAPTION_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_BUTTONS: DRAW_CAPTION_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_GRADIENT: DRAW_CAPTION_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_ICON: DRAW_CAPTION_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_INBUTTON: DRAW_CAPTION_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_SMALLCAP: DRAW_CAPTION_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_TEXT: DRAW_CAPTION_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DRAW_EDGE_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_ADJUST: DRAW_EDGE_FLAGS = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_BOTTOM: DRAW_EDGE_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_BOTTOMLEFT: DRAW_EDGE_FLAGS = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_BOTTOMRIGHT: DRAW_EDGE_FLAGS = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_DIAGONAL: DRAW_EDGE_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_DIAGONAL_ENDBOTTOMLEFT: DRAW_EDGE_FLAGS = 25u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_DIAGONAL_ENDBOTTOMRIGHT: DRAW_EDGE_FLAGS = 28u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_DIAGONAL_ENDTOPLEFT: DRAW_EDGE_FLAGS = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_DIAGONAL_ENDTOPRIGHT: DRAW_EDGE_FLAGS = 22u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_FLAT: DRAW_EDGE_FLAGS = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_LEFT: DRAW_EDGE_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_MIDDLE: DRAW_EDGE_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_MONO: DRAW_EDGE_FLAGS = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_RECT: DRAW_EDGE_FLAGS = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_RIGHT: DRAW_EDGE_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_SOFT: DRAW_EDGE_FLAGS = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_TOP: DRAW_EDGE_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_TOPLEFT: DRAW_EDGE_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BF_TOPRIGHT: DRAW_EDGE_FLAGS = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type DRAW_TEXT_FORMAT = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_BOTTOM: DRAW_TEXT_FORMAT = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_CALCRECT: DRAW_TEXT_FORMAT = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_CENTER: DRAW_TEXT_FORMAT = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_EDITCONTROL: DRAW_TEXT_FORMAT = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_END_ELLIPSIS: DRAW_TEXT_FORMAT = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_EXPANDTABS: DRAW_TEXT_FORMAT = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_EXTERNALLEADING: DRAW_TEXT_FORMAT = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_HIDEPREFIX: DRAW_TEXT_FORMAT = 1048576u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_INTERNAL: DRAW_TEXT_FORMAT = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_LEFT: DRAW_TEXT_FORMAT = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_MODIFYSTRING: DRAW_TEXT_FORMAT = 65536u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_NOCLIP: DRAW_TEXT_FORMAT = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_NOFULLWIDTHCHARBREAK: DRAW_TEXT_FORMAT = 524288u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_NOPREFIX: DRAW_TEXT_FORMAT = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_PATH_ELLIPSIS: DRAW_TEXT_FORMAT = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_PREFIXONLY: DRAW_TEXT_FORMAT = 2097152u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_RIGHT: DRAW_TEXT_FORMAT = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_RTLREADING: DRAW_TEXT_FORMAT = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_SINGLELINE: DRAW_TEXT_FORMAT = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_TABSTOP: DRAW_TEXT_FORMAT = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_TOP: DRAW_TEXT_FORMAT = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_VCENTER: DRAW_TEXT_FORMAT = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_WORDBREAK: DRAW_TEXT_FORMAT = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_WORD_ELLIPSIS: DRAW_TEXT_FORMAT = 262144u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_CHARSTREAM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_DISPFILE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_METAFILE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_PLOTTER: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_RASCAMERA: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_RASDISPLAY: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DT_RASPRINTER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteDC<'a, Param0: ::windows::core::IntoParam<'a, CreatedHDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -2729,6 +3358,7 @@ pub unsafe fn DeleteDC<'a, Param0: ::windows::core::IntoParam<'a, CreatedHDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hmf: Param0) -> super::super::Foundation::BOOL {
@@ -2743,6 +3373,7 @@ pub unsafe fn DeleteEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HENHM
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HMETAFILE>>(hmf: Param0) -> super::super::Foundation::BOOL {
@@ -2757,6 +3388,7 @@ pub unsafe fn DeleteMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HMETAFIL
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DeleteObject<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(ho: Param0) -> super::super::Foundation::BOOL {
@@ -2771,6 +3403,7 @@ pub unsafe fn DeleteObject<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawAnimatedRects<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, idani: i32, lprcfrom: *const super::super::Foundation::RECT, lprcto: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -2785,6 +3418,7 @@ pub unsafe fn DrawAnimatedRects<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawCaption<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HDC>>(hwnd: Param0, hdc: Param1, lprect: *const super::super::Foundation::RECT, flags: DRAW_CAPTION_FLAGS) -> super::super::Foundation::BOOL {
@@ -2799,6 +3433,7 @@ pub unsafe fn DrawCaption<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawEdge<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, qrc: *mut super::super::Foundation::RECT, edge: DRAWEDGE_FLAGS, grfflags: DRAW_EDGE_FLAGS) -> super::super::Foundation::BOOL {
@@ -2813,6 +3448,7 @@ pub unsafe fn DrawEdge<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawEscape<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, iescape: i32, cjin: i32, lpin: Param3) -> i32 {
@@ -2827,6 +3463,7 @@ pub unsafe fn DrawEscape<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawFocusRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -2841,6 +3478,7 @@ pub unsafe fn DrawFocusRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawFrameControl<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(param0: Param0, param1: *mut super::super::Foundation::RECT, param2: DFC_TYPE, param3: DFCS_STATE) -> super::super::Foundation::BOOL {
@@ -2855,6 +3493,7 @@ pub unsafe fn DrawFrameControl<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawStateA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HBRUSH>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>>(hdc: Param0, hbrfore: Param1, qfncallback: DRAWSTATEPROC, ldata: Param3, wdata: Param4, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL {
@@ -2869,6 +3508,7 @@ pub unsafe fn DrawStateA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawStateW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HBRUSH>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>, Param4: ::windows::core::IntoParam<'a, super::super::Foundation::WPARAM>>(hdc: Param0, hbrfore: Param1, qfncallback: DRAWSTATEPROC, ldata: Param3, wdata: Param4, x: i32, y: i32, cx: i32, cy: i32, uflags: DRAWSTATE_FLAGS) -> super::super::Foundation::BOOL {
@@ -2883,6 +3523,7 @@ pub unsafe fn DrawStateW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32 {
@@ -2897,6 +3538,7 @@ pub unsafe fn DrawTextA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextExA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32 {
@@ -2911,6 +3553,7 @@ pub unsafe fn DrawTextExA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextExW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT, lpdtp: *const DRAWTEXTPARAMS) -> i32 {
@@ -2925,6 +3568,7 @@ pub unsafe fn DrawTextExW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn DrawTextW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpchtext: Param1, cchtext: i32, lprc: *mut super::super::Foundation::RECT, format: DRAW_TEXT_FORMAT) -> i32 {
@@ -2939,19 +3583,32 @@ pub unsafe fn DrawTextW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EASTEUROPE_CHARSET: u32 = 238u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ELF_CULTURE_LATIN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ELF_VENDOR_SIZE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ELF_VERSION: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type EMBEDDED_FONT_PRIV_STATUS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMBED_PREVIEWPRINT: EMBEDDED_FONT_PRIV_STATUS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMBED_EDITABLE: EMBEDDED_FONT_PRIV_STATUS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMBED_INSTALLABLE: EMBEDDED_FONT_PRIV_STATUS = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMBED_NOEMBEDDING: EMBEDDED_FONT_PRIV_STATUS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type EMBED_FONT_CHARSET = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CHARSET_UNICODE: EMBED_FONT_CHARSET = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CHARSET_SYMBOL: EMBED_FONT_CHARSET = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMR {
     pub iType: u32,
     pub nSize: u32,
@@ -2977,6 +3634,7 @@ impl ::core::default::Default for EMR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRALPHABLEND {
     pub emr: EMR,
@@ -3025,6 +3683,7 @@ impl ::core::default::Default for EMRALPHABLEND {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRANGLEARC {
     pub emr: EMR,
@@ -3060,6 +3719,7 @@ impl ::core::default::Default for EMRANGLEARC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRARC {
     pub emr: EMR,
@@ -3094,6 +3754,7 @@ impl ::core::default::Default for EMRARC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRBITBLT {
     pub emr: EMR,
@@ -3140,6 +3801,7 @@ impl ::core::default::Default for EMRBITBLT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRCREATEBRUSHINDIRECT {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -3166,6 +3828,7 @@ impl ::core::default::Default for EMRCREATEBRUSHINDIRECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRCREATEDIBPATTERNBRUSHPT {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -3196,6 +3859,7 @@ impl ::core::default::Default for EMRCREATEDIBPATTERNBRUSHPT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRCREATEMONOBRUSH {
     pub emr: EMR,
     pub ihBrush: u32,
@@ -3226,6 +3890,7 @@ impl ::core::default::Default for EMRCREATEMONOBRUSH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRCREATEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
@@ -3252,6 +3917,7 @@ impl ::core::default::Default for EMRCREATEPALETTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRCREATEPEN {
     pub emr: EMR,
@@ -3285,6 +3951,7 @@ impl ::core::default::Default for EMRCREATEPEN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRELLIPSE {
     pub emr: EMR,
@@ -3317,6 +3984,7 @@ impl ::core::default::Default for EMRELLIPSE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMREOF {
     pub emr: EMR,
     pub nPalEntries: u32,
@@ -3344,6 +4012,7 @@ impl ::core::default::Default for EMREOF {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMREXCLUDECLIPRECT {
     pub emr: EMR,
@@ -3376,6 +4045,7 @@ impl ::core::default::Default for EMREXCLUDECLIPRECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMREXTCREATEFONTINDIRECTW {
     pub emr: EMR,
     pub ihFont: u32,
@@ -3402,6 +4072,7 @@ impl ::core::default::Default for EMREXTCREATEFONTINDIRECTW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMREXTCREATEPEN {
     pub emr: EMR,
     pub ihPen: u32,
@@ -3432,6 +4103,7 @@ impl ::core::default::Default for EMREXTCREATEPEN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMREXTESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -3459,6 +4131,7 @@ impl ::core::default::Default for EMREXTESCAPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTFLOODFILL {
     pub emr: EMR,
@@ -3493,6 +4166,7 @@ impl ::core::default::Default for EMREXTFLOODFILL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMREXTSELECTCLIPRGN {
     pub emr: EMR,
     pub cbRgnData: u32,
@@ -3520,6 +4194,7 @@ impl ::core::default::Default for EMREXTSELECTCLIPRGN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMREXTTEXTOUTA {
     pub emr: EMR,
@@ -3556,6 +4231,7 @@ impl ::core::default::Default for EMREXTTEXTOUTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRFILLPATH {
     pub emr: EMR,
@@ -3588,6 +4264,7 @@ impl ::core::default::Default for EMRFILLPATH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRFILLRGN {
     pub emr: EMR,
@@ -3623,6 +4300,7 @@ impl ::core::default::Default for EMRFILLRGN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRFORMAT {
     pub dSignature: u32,
     pub nVersion: u32,
@@ -3650,6 +4328,7 @@ impl ::core::default::Default for EMRFORMAT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRFRAMERGN {
     pub emr: EMR,
@@ -3686,6 +4365,7 @@ impl ::core::default::Default for EMRFRAMERGN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRGDICOMMENT {
     pub emr: EMR,
     pub cbData: u32,
@@ -3712,6 +4392,7 @@ impl ::core::default::Default for EMRGDICOMMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRGLSBOUNDEDRECORD {
     pub emr: EMR,
@@ -3746,6 +4427,7 @@ impl ::core::default::Default for EMRGLSBOUNDEDRECORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRGLSRECORD {
     pub emr: EMR,
     pub cbData: u32,
@@ -3772,6 +4454,7 @@ impl ::core::default::Default for EMRGLSRECORD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRGRADIENTFILL {
     pub emr: EMR,
@@ -3808,6 +4491,7 @@ impl ::core::default::Default for EMRGRADIENTFILL {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRINVERTRGN {
     pub emr: EMR,
@@ -3842,6 +4526,7 @@ impl ::core::default::Default for EMRINVERTRGN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRLINETO {
     pub emr: EMR,
@@ -3874,6 +4559,7 @@ impl ::core::default::Default for EMRLINETO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRMASKBLT {
     pub emr: EMR,
@@ -3927,6 +4613,7 @@ impl ::core::default::Default for EMRMASKBLT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRMODIFYWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
@@ -3953,6 +4640,7 @@ impl ::core::default::Default for EMRMODIFYWORLDTRANSFORM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRNAMEDESCAPE {
     pub emr: EMR,
     pub iEscape: i32,
@@ -3981,6 +4669,7 @@ impl ::core::default::Default for EMRNAMEDESCAPE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMROFFSETCLIPRGN {
     pub emr: EMR,
@@ -4013,6 +4702,7 @@ impl ::core::default::Default for EMROFFSETCLIPRGN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPLGBLT {
     pub emr: EMR,
@@ -4064,6 +4754,7 @@ impl ::core::default::Default for EMRPLGBLT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYDRAW {
     pub emr: EMR,
@@ -4099,6 +4790,7 @@ impl ::core::default::Default for EMRPOLYDRAW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYDRAW16 {
     pub emr: EMR,
@@ -4134,6 +4826,7 @@ impl ::core::default::Default for EMRPOLYDRAW16 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYLINE {
     pub emr: EMR,
@@ -4168,6 +4861,7 @@ impl ::core::default::Default for EMRPOLYLINE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYLINE16 {
     pub emr: EMR,
@@ -4202,6 +4896,7 @@ impl ::core::default::Default for EMRPOLYLINE16 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYPOLYLINE {
     pub emr: EMR,
@@ -4238,6 +4933,7 @@ impl ::core::default::Default for EMRPOLYPOLYLINE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYPOLYLINE16 {
     pub emr: EMR,
@@ -4274,6 +4970,7 @@ impl ::core::default::Default for EMRPOLYPOLYLINE16 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRPOLYTEXTOUTA {
     pub emr: EMR,
@@ -4311,6 +5008,7 @@ impl ::core::default::Default for EMRPOLYTEXTOUTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRRESIZEPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
@@ -4337,6 +5035,7 @@ impl ::core::default::Default for EMRRESIZEPALETTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRRESTOREDC {
     pub emr: EMR,
     pub iRelative: i32,
@@ -4362,6 +5061,7 @@ impl ::core::default::Default for EMRRESTOREDC {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRROUNDRECT {
     pub emr: EMR,
@@ -4395,6 +5095,7 @@ impl ::core::default::Default for EMRROUNDRECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSCALEVIEWPORTEXTEX {
     pub emr: EMR,
     pub xNum: i32,
@@ -4423,6 +5124,7 @@ impl ::core::default::Default for EMRSCALEVIEWPORTEXTEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSELECTCLIPPATH {
     pub emr: EMR,
     pub iMode: u32,
@@ -4448,6 +5150,7 @@ impl ::core::default::Default for EMRSELECTCLIPPATH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSELECTOBJECT {
     pub emr: EMR,
     pub ihObject: u32,
@@ -4473,6 +5176,7 @@ impl ::core::default::Default for EMRSELECTOBJECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSELECTPALETTE {
     pub emr: EMR,
     pub ihPal: u32,
@@ -4498,6 +5202,7 @@ impl ::core::default::Default for EMRSELECTPALETTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETARCDIRECTION {
     pub emr: EMR,
     pub iArcDirection: u32,
@@ -4523,6 +5228,7 @@ impl ::core::default::Default for EMRSETARCDIRECTION {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETCOLORADJUSTMENT {
     pub emr: EMR,
     pub ColorAdjustment: COLORADJUSTMENT,
@@ -4548,6 +5254,7 @@ impl ::core::default::Default for EMRSETCOLORADJUSTMENT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETCOLORSPACE {
     pub emr: EMR,
     pub ihCS: u32,
@@ -4573,6 +5280,7 @@ impl ::core::default::Default for EMRSETCOLORSPACE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETDIBITSTODEVICE {
     pub emr: EMR,
@@ -4618,6 +5326,7 @@ impl ::core::default::Default for EMRSETDIBITSTODEVICE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETICMPROFILE {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -4646,6 +5355,7 @@ impl ::core::default::Default for EMRSETICMPROFILE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETMAPPERFLAGS {
     pub emr: EMR,
     pub dwFlags: u32,
@@ -4671,6 +5381,7 @@ impl ::core::default::Default for EMRSETMAPPERFLAGS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETMITERLIMIT {
     pub emr: EMR,
     pub eMiterLimit: f32,
@@ -4696,6 +5407,7 @@ impl ::core::default::Default for EMRSETMITERLIMIT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETPALETTEENTRIES {
     pub emr: EMR,
     pub ihPal: u32,
@@ -4724,6 +5436,7 @@ impl ::core::default::Default for EMRSETPALETTEENTRIES {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETPIXELV {
     pub emr: EMR,
@@ -4757,6 +5470,7 @@ impl ::core::default::Default for EMRSETPIXELV {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETTEXTCOLOR {
     pub emr: EMR,
     pub crColor: u32,
@@ -4782,6 +5496,7 @@ impl ::core::default::Default for EMRSETTEXTCOLOR {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETVIEWPORTEXTEX {
     pub emr: EMR,
@@ -4814,6 +5529,7 @@ impl ::core::default::Default for EMRSETVIEWPORTEXTEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSETVIEWPORTORGEX {
     pub emr: EMR,
@@ -4846,6 +5562,7 @@ impl ::core::default::Default for EMRSETVIEWPORTORGEX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EMRSETWORLDTRANSFORM {
     pub emr: EMR,
     pub xform: XFORM,
@@ -4871,6 +5588,7 @@ impl ::core::default::Default for EMRSETWORLDTRANSFORM {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSTRETCHBLT {
     pub emr: EMR,
@@ -4919,6 +5637,7 @@ impl ::core::default::Default for EMRSTRETCHBLT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRSTRETCHDIBITS {
     pub emr: EMR,
@@ -4965,6 +5684,7 @@ impl ::core::default::Default for EMRSTRETCHDIBITS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRTEXT {
     pub ptlReference: super::super::Foundation::POINTL,
@@ -5001,6 +5721,7 @@ impl ::core::default::Default for EMRTEXT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EMRTRANSPARENTBLT {
     pub emr: EMR,
@@ -5048,136 +5769,266 @@ impl ::core::default::Default for EMRTRANSPARENTBLT {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ABORTPATH: u32 = 68u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ALPHABLEND: u32 = 114u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ANGLEARC: u32 = 41u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ARC: u32 = 45u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ARCTO: u32 = 55u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_BEGINPATH: u32 = 59u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_BITBLT: u32 = 76u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CHORD: u32 = 46u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CLOSEFIGURE: u32 = 61u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_COLORCORRECTPALETTE: u32 = 111u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_COLORMATCHTOTARGETW: u32 = 121u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CREATEBRUSHINDIRECT: u32 = 39u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CREATECOLORSPACE: u32 = 99u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CREATECOLORSPACEW: u32 = 122u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CREATEDIBPATTERNBRUSHPT: u32 = 94u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CREATEMONOBRUSH: u32 = 93u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CREATEPALETTE: u32 = 49u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_CREATEPEN: u32 = 38u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_DELETECOLORSPACE: u32 = 101u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_DELETEOBJECT: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ELLIPSE: u32 = 42u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ENDPATH: u32 = 60u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EOF: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EXCLUDECLIPRECT: u32 = 29u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EXTCREATEFONTINDIRECTW: u32 = 82u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EXTCREATEPEN: u32 = 95u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EXTFLOODFILL: u32 = 53u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EXTSELECTCLIPRGN: u32 = 75u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EXTTEXTOUTA: u32 = 83u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_EXTTEXTOUTW: u32 = 84u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_FILLPATH: u32 = 62u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_FILLRGN: u32 = 71u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_FLATTENPATH: u32 = 65u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_FRAMERGN: u32 = 72u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_GDICOMMENT: u32 = 70u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_GLSBOUNDEDRECORD: u32 = 103u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_GLSRECORD: u32 = 102u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_GRADIENTFILL: u32 = 118u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_HEADER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_INTERSECTCLIPRECT: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_INVERTRGN: u32 = 73u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_LINETO: u32 = 54u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_MASKBLT: u32 = 78u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_MAX: u32 = 122u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_MIN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_MODIFYWORLDTRANSFORM: u32 = 36u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_MOVETOEX: u32 = 27u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_OFFSETCLIPRGN: u32 = 26u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_PAINTRGN: u32 = 74u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_PIE: u32 = 47u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_PIXELFORMAT: u32 = 104u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_PLGBLT: u32 = 79u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYBEZIER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYBEZIER16: u32 = 85u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYBEZIERTO: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYBEZIERTO16: u32 = 88u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYDRAW: u32 = 56u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYDRAW16: u32 = 92u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYGON: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYGON16: u32 = 86u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYLINE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYLINE16: u32 = 87u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYLINETO: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYLINETO16: u32 = 89u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYPOLYGON: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYPOLYGON16: u32 = 91u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYPOLYLINE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYPOLYLINE16: u32 = 90u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYTEXTOUTA: u32 = 96u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_POLYTEXTOUTW: u32 = 97u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_REALIZEPALETTE: u32 = 52u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RECTANGLE: u32 = 43u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_105: u32 = 105u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_106: u32 = 106u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_107: u32 = 107u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_108: u32 = 108u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_109: u32 = 109u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_110: u32 = 110u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_117: u32 = 117u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_119: u32 = 119u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESERVED_120: u32 = 120u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESIZEPALETTE: u32 = 51u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_RESTOREDC: u32 = 34u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_ROUNDRECT: u32 = 44u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SAVEDC: u32 = 33u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SCALEVIEWPORTEXTEX: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SCALEWINDOWEXTEX: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SELECTCLIPPATH: u32 = 67u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SELECTOBJECT: u32 = 37u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SELECTPALETTE: u32 = 48u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETARCDIRECTION: u32 = 57u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETBKCOLOR: u32 = 25u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETBKMODE: u32 = 18u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETBRUSHORGEX: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETCOLORADJUSTMENT: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETCOLORSPACE: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETDIBITSTODEVICE: u32 = 80u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETICMMODE: u32 = 98u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETICMPROFILEA: u32 = 112u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETICMPROFILEW: u32 = 113u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETLAYOUT: u32 = 115u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETMAPMODE: u32 = 17u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETMAPPERFLAGS: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETMETARGN: u32 = 28u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETMITERLIMIT: u32 = 58u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETPALETTEENTRIES: u32 = 50u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETPIXELV: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETPOLYFILLMODE: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETROP2: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETSTRETCHBLTMODE: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETTEXTALIGN: u32 = 22u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETTEXTCOLOR: u32 = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETVIEWPORTEXTEX: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETVIEWPORTORGEX: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETWINDOWEXTEX: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETWINDOWORGEX: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_SETWORLDTRANSFORM: u32 = 35u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_STRETCHBLT: u32 = 77u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_STRETCHDIBITS: u32 = 81u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_STROKEANDFILLPATH: u32 = 63u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_STROKEPATH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_TRANSPARENTBLT: u32 = 116u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EMR_WIDENPATH: u32 = 66u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENABLEDUPLEX: u32 = 28u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENABLEPAIRKERNING: u32 = 769u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENABLERELATIVEWIDTHS: u32 = 768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENCAPSULATED_POSTSCRIPT: u32 = 4116u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENDDOC: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const END_PATH: u32 = 4098u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENHMETAHEADER {
     pub iType: u32,
@@ -5227,6 +6078,7 @@ impl ::core::default::Default for ENHMETAHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct ENHMETARECORD {
     pub iType: u32,
     pub nSize: u32,
@@ -5252,11 +6104,15 @@ impl ::core::default::Default for ENHMETARECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENHMETA_SIGNATURE: u32 = 1179469088u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENHMETA_STOCK_OBJECT: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type ENHMFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const ENHMETARECORD, nhandles: i32, data: super::super::Foundation::LPARAM) -> i32>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTA {
     pub elfLogFont: LOGFONTA,
@@ -5290,6 +6146,7 @@ impl ::core::default::Default for ENUMLOGFONTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTEXA {
     pub elfLogFont: LOGFONTA,
@@ -5324,6 +6181,7 @@ impl ::core::default::Default for ENUMLOGFONTEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct ENUMLOGFONTEXDVA {
     pub elfEnumLogfontEx: ENUMLOGFONTEXA,
@@ -5356,6 +6214,7 @@ impl ::core::default::Default for ENUMLOGFONTEXDVA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct ENUMLOGFONTEXDVW {
     pub elfEnumLogfontEx: ENUMLOGFONTEXW,
     pub elfDesignVector: DESIGNVECTOR,
@@ -5381,6 +6240,7 @@ impl ::core::default::Default for ENUMLOGFONTEXDVW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct ENUMLOGFONTEXW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -5408,6 +6268,7 @@ impl ::core::default::Default for ENUMLOGFONTEXW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct ENUMLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -5433,97 +6294,188 @@ impl ::core::default::Default for ENUMLOGFONTW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENUMPAPERBINS: u32 = 31u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENUMPAPERMETRICS: u32 = 34u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type ENUM_DISPLAY_SETTINGS_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENUM_CURRENT_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = 4294967295u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ENUM_REGISTRY_SETTINGS: ENUM_DISPLAY_SETTINGS_MODE = 4294967294u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EPSPRINTING: u32 = 33u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EPS_SIGNATURE: u32 = 1179865157u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERROR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_FORMAT: u32 = 1006u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_GENERIC: u32 = 1000u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_BASE: u32 = 1085u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_CMAP: u32 = 1060u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_DELTA_FORMAT: u32 = 1013u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_EBLC: u32 = 1086u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_GDEF: u32 = 1083u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_GLYF: u32 = 1061u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_GPOS: u32 = 1082u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_GSUB: u32 = 1081u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_HDMX: u32 = 1089u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_HEAD: u32 = 1062u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_HHEA: u32 = 1063u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_HHEA_OR_VHEA: u32 = 1072u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_HMTX: u32 = 1064u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_HMTX_OR_VMTX: u32 = 1073u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_JSTF: u32 = 1084u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_LOCA: u32 = 1065u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_LTSH: u32 = 1087u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_MAXP: u32 = 1066u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_MERGE_CHECKSUMS: u32 = 1011u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_MERGE_FORMATS: u32 = 1010u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_MERGE_NUMGLYPHS: u32 = 1012u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_NAME: u32 = 1067u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_OS2: u32 = 1069u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_POST: u32 = 1068u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_TTC_INDEX: u32 = 1015u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_TTO: u32 = 1080u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_VDMX: u32 = 1088u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_VHEA: u32 = 1070u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_INVALID_VMTX: u32 = 1071u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MEM: u32 = 1005u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_CMAP: u32 = 1030u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_EBDT: u32 = 1044u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_GLYF: u32 = 1031u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_HEAD: u32 = 1032u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_HHEA: u32 = 1033u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_HHEA_OR_VHEA: u32 = 1042u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_HMTX: u32 = 1034u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_HMTX_OR_VMTX: u32 = 1043u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_LOCA: u32 = 1035u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_MAXP: u32 = 1036u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_NAME: u32 = 1037u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_OS2: u32 = 1039u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_POST: u32 = 1038u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_VHEA: u32 = 1040u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_MISSING_VMTX: u32 = 1041u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_NOT_TTC: u32 = 1014u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_NO_GLYPHS: u32 = 1009u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER0: u32 = 1100u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER1: u32 = 1101u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER10: u32 = 1110u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER11: u32 = 1111u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER12: u32 = 1112u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER13: u32 = 1113u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER14: u32 = 1114u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER15: u32 = 1115u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER16: u32 = 1116u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER2: u32 = 1102u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER3: u32 = 1103u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER4: u32 = 1104u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER5: u32 = 1105u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER6: u32 = 1106u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER7: u32 = 1107u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER8: u32 = 1108u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_PARAMETER9: u32 = 1109u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_READCONTROL: u32 = 1003u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_READOUTOFBOUNDS: u32 = 1001u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_VERSION: u32 = 1008u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_WOULD_GROW: u32 = 1007u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_WRITECONTROL: u32 = 1004u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ERR_WRITEOUTOFBOUNDS: u32 = 1002u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type ETO_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_OPAQUE: ETO_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_CLIPPED: ETO_OPTIONS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_GLYPH_INDEX: ETO_OPTIONS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_RTLREADING: ETO_OPTIONS = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_NUMERICSLOCAL: ETO_OPTIONS = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_NUMERICSLATIN: ETO_OPTIONS = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_IGNORELANGUAGE: ETO_OPTIONS = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_PDY: ETO_OPTIONS = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ETO_REVERSE_INDEX_MAP: ETO_OPTIONS = 65536u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct EXTLOGFONTA {
     pub elfLogFont: LOGFONTA,
@@ -5564,6 +6516,7 @@ impl ::core::default::Default for EXTLOGFONTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EXTLOGFONTW {
     pub elfLogFont: LOGFONTW,
     pub elfFullName: [u16; 64],
@@ -5597,6 +6550,7 @@ impl ::core::default::Default for EXTLOGFONTW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EXTLOGPEN {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -5627,6 +6581,7 @@ impl ::core::default::Default for EXTLOGPEN {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct EXTLOGPEN32 {
     pub elpPenStyle: u32,
     pub elpWidth: u32,
@@ -5656,68 +6611,131 @@ impl ::core::default::Default for EXTLOGPEN32 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EXTTEXTOUT: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const EXT_DEVICE_CAPS: u32 = 4099u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type EXT_FLOOD_FILL_TYPE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FLOODFILLBORDER: EXT_FLOOD_FILL_TYPE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FLOODFILLSURFACE: EXT_FLOOD_FILL_TYPE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ADDFONTFAILED: i32 = 512i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_API_NOTIMPL: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_CHARCODECOUNTINVALID: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_CHARCODESETINVALID: i32 = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_CHARSETINVALID: i32 = 21i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_COULDNTCREATETEMPFILE: i32 = 513i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_DEVICETRUETYPEFONT: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORACCESSINGEXCLUDELIST: i32 = 274i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORACCESSINGFACENAME: i32 = 13i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORACCESSINGFONTDATA: i32 = 12i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORCOMPRESSINGFONTDATA: i32 = 256i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORCONVERTINGCHARS: i32 = 18i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORCREATINGFONTFILE: i32 = 269i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORDECOMPRESSINGFONTDATA: i32 = 273i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERROREXPANDINGFONTDATA: i32 = 519i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORGETTINGDC: i32 = 520i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORREADINGFONTDATA: i32 = 267i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_ERRORUNICODECONVERSION: i32 = 17i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_EXCEPTION: i32 = 19i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_EXCEPTIONINCOMPRESSION: i32 = 522i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_EXCEPTIONINDECOMPRESSION: i32 = 521i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FACENAMEINVALID: i32 = 275i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FILE_NOT_FOUND: i32 = 23i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FLAGSINVALID: i32 = 268i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTALREADYEXISTS: i32 = 270i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTDATAINVALID: i32 = 258i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTFAMILYNAMENOTINFULL: i32 = 285i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTFILECREATEFAILED: i32 = 515i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTFILENOTFOUND: i32 = 517i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTINSTALLFAILED: i32 = 272i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTNAMEALREADYEXISTS: i32 = 271i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTNOTEMBEDDABLE: i32 = 260i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTREFERENCEINVALID: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_FONTVARIATIONSIMULATED: i32 = 283i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_HDCINVALID: i32 = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_INPUTPARAMINVALID: i32 = 25i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_NAMECHANGEFAILED: i32 = 259i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_NOFREEMEMORY: i32 = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_NONE: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_NOOS2: i32 = 265i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_NOTATRUETYPEFONT: i32 = 10i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_PBENABLEDINVALID: i32 = 280i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_PERMISSIONSINVALID: i32 = 279i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_PRIVSINVALID: i32 = 261i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_PRIVSTATUSINVALID: i32 = 278i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_READFROMSTREAMFAILED: i32 = 263i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_RESERVEDPARAMNOTNULL: i32 = 20i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_RESOURCEFILECREATEFAILED: i32 = 518i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_SAVETOSTREAMFAILED: i32 = 264i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_STATUSINVALID: i32 = 277i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_STREAMINVALID: i32 = 276i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_SUBSETTINGEXCEPTION: i32 = 281i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_SUBSETTINGFAILED: i32 = 262i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_SUBSTRING_TEST_FAIL: i32 = 282i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_T2NOFREEMEMORY: i32 = 266i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_TTC_INDEX_OUT_OF_RANGE: i32 = 24i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const E_WINDOWSAPI: i32 = 516i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Ellipse<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
@@ -5732,6 +6750,7 @@ pub unsafe fn Ellipse<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndPaint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppaint: *const PAINTSTRUCT) -> super::super::Foundation::BOOL {
@@ -5746,6 +6765,7 @@ pub unsafe fn EndPaint<'a, Param0: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EndPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -5760,6 +6780,7 @@ pub unsafe fn EndPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayDevicesA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpdevice: Param0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEA, dwflags: u32) -> super::super::Foundation::BOOL {
@@ -5774,6 +6795,7 @@ pub unsafe fn EnumDisplayDevicesA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayDevicesW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpdevice: Param0, idevnum: u32, lpdisplaydevice: *mut DISPLAY_DEVICEW, dwflags: u32) -> super::super::Foundation::BOOL {
@@ -5788,6 +6810,7 @@ pub unsafe fn EnumDisplayDevicesW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplayMonitors<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lprcclip: *const super::super::Foundation::RECT, lpfnenum: MONITORENUMPROC, dwdata: Param3) -> super::super::Foundation::BOOL {
@@ -5802,6 +6825,7 @@ pub unsafe fn EnumDisplayMonitors<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA) -> super::super::Foundation::BOOL {
@@ -5816,6 +6840,7 @@ pub unsafe fn EnumDisplaySettingsA<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEA, dwflags: u32) -> super::super::Foundation::BOOL {
@@ -5830,6 +6855,7 @@ pub unsafe fn EnumDisplaySettingsExA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW, dwflags: u32) -> super::super::Foundation::BOOL {
@@ -5844,6 +6870,7 @@ pub unsafe fn EnumDisplaySettingsExW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumDisplaySettingsW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpszdevicename: Param0, imodenum: ENUM_DISPLAY_SETTINGS_MODE, lpdevmode: *mut DEVMODEW) -> super::super::Foundation::BOOL {
@@ -5858,6 +6885,7 @@ pub unsafe fn EnumDisplaySettingsW<'a, Param0: ::windows::core::IntoParam<'a, su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hdc: Param0, hmf: Param1, proc: ENHMFENUMPROC, param3: *const ::core::ffi::c_void, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -5872,6 +6900,7 @@ pub unsafe fn EnumEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: FONTENUMPROCA, lparam: Param3) -> i32 {
@@ -5886,6 +6915,7 @@ pub unsafe fn EnumFontFamiliesA<'a, Param0: ::windows::core::IntoParam<'a, HDC>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesExA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: *const LOGFONTA, lpproc: FONTENUMPROCA, lparam: Param3, dwflags: u32) -> i32 {
@@ -5900,6 +6930,7 @@ pub unsafe fn EnumFontFamiliesExA<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesExW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: *const LOGFONTW, lpproc: FONTENUMPROCW, lparam: Param3, dwflags: u32) -> i32 {
@@ -5914,6 +6945,7 @@ pub unsafe fn EnumFontFamiliesExW<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontFamiliesW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: FONTENUMPROCW, lparam: Param3) -> i32 {
@@ -5928,6 +6960,7 @@ pub unsafe fn EnumFontFamiliesW<'a, Param0: ::windows::core::IntoParam<'a, HDC>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: FONTENUMPROCA, lparam: Param3) -> i32 {
@@ -5942,6 +6975,7 @@ pub unsafe fn EnumFontsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumFontsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, lplogfont: Param1, lpproc: FONTENUMPROCW, lparam: Param3) -> i32 {
@@ -5956,6 +6990,7 @@ pub unsafe fn EnumFontsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HMETAFILE>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, hmf: Param1, proc: MFENUMPROC, param3: Param3) -> super::super::Foundation::BOOL {
@@ -5970,6 +7005,7 @@ pub unsafe fn EnumMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EnumObjects<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, ntype: OBJ_TYPE, lpfunc: GOBJENUMPROC, lparam: Param3) -> i32 {
@@ -5984,6 +7020,7 @@ pub unsafe fn EnumObjects<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -5998,6 +7035,7 @@ pub unsafe fn EqualRect(lprc1: *const super::super::Foundation::RECT, lprc2: *co
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn EqualRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hrgn1: Param0, hrgn2: Param1) -> super::super::Foundation::BOOL {
@@ -6012,6 +7050,7 @@ pub unsafe fn EqualRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>, Param1:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn ExcludeClipRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32) -> i32 {
     #[cfg(windows)]
@@ -6025,6 +7064,7 @@ pub unsafe fn ExcludeClipRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExcludeUpdateRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hdc: Param0, hwnd: Param1) -> i32 {
@@ -6039,6 +7079,7 @@ pub unsafe fn ExcludeUpdateRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LOGBRUSH, cstyle: u32, pstyle: *const u32) -> HPEN {
     #[cfg(windows)]
@@ -6052,6 +7093,7 @@ pub unsafe fn ExtCreatePen(ipenstyle: PEN_STYLE, cwidth: u32, plbrush: *const LO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGNDATA) -> HRGN {
@@ -6066,6 +7108,7 @@ pub unsafe fn ExtCreateRegion(lpx: *const XFORM, ncount: u32, lpdata: *const RGN
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtFloodFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, color: u32, r#type: EXT_FLOOD_FILL_TYPE) -> super::super::Foundation::BOOL {
@@ -6080,6 +7123,7 @@ pub unsafe fn ExtFloodFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn ExtSelectClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1, mode: RGN_COMBINE_MODE) -> i32 {
     #[cfg(windows)]
@@ -6093,6 +7137,7 @@ pub unsafe fn ExtSelectClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: Param5, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL {
@@ -6107,6 +7152,7 @@ pub unsafe fn ExtTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ExtTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, x: i32, y: i32, options: ETO_OPTIONS, lprect: *const super::super::Foundation::RECT, lpstring: Param5, c: u32, lpdx: *const i32) -> super::super::Foundation::BOOL {
@@ -6121,16 +7167,26 @@ pub unsafe fn ExtTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_CUSTPAPER: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_MIRROR: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_NEGATIVE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_NUP: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_OUTPUT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_PRIVATE_BEGIN: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_PRIVATE_END: u32 = 8191u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_PROTOCOL: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FEATURESETTING_PSLEVEL: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct FIXED {
     pub fract: u16,
     pub value: i16,
@@ -6155,89 +7211,171 @@ impl ::core::default::Default for FIXED {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FIXED_PITCH: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FLI_GLYPHS: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FLI_MASK: u32 = 4155u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FLUSHOUTPUT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FONTENUMPROCA = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTA, param1: *const TEXTMETRICA, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type FONTENUMPROCW = ::core::option::Option<unsafe extern "system" fn(param0: *const LOGFONTW, param1: *const TEXTMETRICW, param2: u32, param3: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FONTMAPPER_MAX: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type FONT_CLIP_PRECISION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_CHARACTER_PRECIS: FONT_CLIP_PRECISION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_DEFAULT_PRECIS: FONT_CLIP_PRECISION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_DFA_DISABLE: FONT_CLIP_PRECISION = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_EMBEDDED: FONT_CLIP_PRECISION = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_LH_ANGLES: FONT_CLIP_PRECISION = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_MASK: FONT_CLIP_PRECISION = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_STROKE_PRECIS: FONT_CLIP_PRECISION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIP_TT_ALWAYS: FONT_CLIP_PRECISION = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type FONT_LICENSE_PRIVS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LICENSE_PREVIEWPRINT: FONT_LICENSE_PRIVS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LICENSE_EDITABLE: FONT_LICENSE_PRIVS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LICENSE_INSTALLABLE: FONT_LICENSE_PRIVS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LICENSE_NOEMBEDDING: FONT_LICENSE_PRIVS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LICENSE_DEFAULT: FONT_LICENSE_PRIVS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type FONT_OUTPUT_PRECISION = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_CHARACTER_PRECIS: FONT_OUTPUT_PRECISION = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_DEFAULT_PRECIS: FONT_OUTPUT_PRECISION = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_DEVICE_PRECIS: FONT_OUTPUT_PRECISION = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_OUTLINE_PRECIS: FONT_OUTPUT_PRECISION = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_PS_ONLY_PRECIS: FONT_OUTPUT_PRECISION = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_RASTER_PRECIS: FONT_OUTPUT_PRECISION = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_STRING_PRECIS: FONT_OUTPUT_PRECISION = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_STROKE_PRECIS: FONT_OUTPUT_PRECISION = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_TT_ONLY_PRECIS: FONT_OUTPUT_PRECISION = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_TT_PRECIS: FONT_OUTPUT_PRECISION = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type FONT_PITCH_AND_FAMILY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FF_DECORATIVE: FONT_PITCH_AND_FAMILY = 80u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FF_DONTCARE: FONT_PITCH_AND_FAMILY = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FF_MODERN: FONT_PITCH_AND_FAMILY = 48u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FF_ROMAN: FONT_PITCH_AND_FAMILY = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FF_SCRIPT: FONT_PITCH_AND_FAMILY = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FF_SWISS: FONT_PITCH_AND_FAMILY = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type FONT_QUALITY = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ANTIALIASED_QUALITY: FONT_QUALITY = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLEARTYPE_QUALITY: FONT_QUALITY = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEFAULT_QUALITY: FONT_QUALITY = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DRAFT_QUALITY: FONT_QUALITY = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NONANTIALIASED_QUALITY: FONT_QUALITY = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PROOF_QUALITY: FONT_QUALITY = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type FONT_RESOURCE_CHARACTERISTICS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FR_PRIVATE: FONT_RESOURCE_CHARACTERISTICS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FR_NOT_ENUM: FONT_RESOURCE_CHARACTERISTICS = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_ARABIC: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_BALTIC: i32 = 128i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_CHINESESIMP: i32 = 262144i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_CHINESETRAD: i32 = 1048576i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_CYRILLIC: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_GREEK: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_HEBREW: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_JISJAPAN: i32 = 131072i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_JOHAB: i32 = 2097152i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_LATIN1: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_LATIN2: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_SYMBOL: i32 = -2147483648i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_THAI: i32 = 65536i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_TURKISH: i32 = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_VIETNAMESE: i32 = 256i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FS_WANSUNG: i32 = 524288i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_BLACK: u32 = 900u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_BOLD: u32 = 700u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_DEMIBOLD: u32 = 600u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_DONTCARE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_EXTRABOLD: u32 = 800u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_EXTRALIGHT: u32 = 200u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_HEAVY: u32 = 900u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_LIGHT: u32 = 300u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_MEDIUM: u32 = 500u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_NORMAL: u32 = 400u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_REGULAR: u32 = 400u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_SEMIBOLD: u32 = 600u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_THIN: u32 = 100u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_ULTRABOLD: u32 = 800u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const FW_ULTRALIGHT: u32 = 200u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -6252,6 +7390,7 @@ pub unsafe fn FillPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: ::windows::core::IntoParam<'a, HBRUSH>>(hdc: Param0, lprc: *const super::super::Foundation::RECT, hbr: Param2) -> i32 {
@@ -6266,6 +7405,7 @@ pub unsafe fn FillRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FillRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>, Param2: ::windows::core::IntoParam<'a, HBRUSH>>(hdc: Param0, hrgn: Param1, hbr: Param2) -> super::super::Foundation::BOOL {
@@ -6280,6 +7420,7 @@ pub unsafe fn FillRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FixBrushOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, ptl: *const super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -6294,6 +7435,7 @@ pub unsafe fn FixBrushOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FlattenPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -6308,6 +7450,7 @@ pub unsafe fn FlattenPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FloodFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL {
@@ -6322,6 +7465,7 @@ pub unsafe fn FloodFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FrameRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: ::windows::core::IntoParam<'a, HBRUSH>>(hdc: Param0, lprc: *const super::super::Foundation::RECT, hbr: Param2) -> i32 {
@@ -6336,6 +7480,7 @@ pub unsafe fn FrameRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn FrameRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>, Param2: ::windows::core::IntoParam<'a, HBRUSH>>(hdc: Param0, hrgn: Param1, hbr: Param2, w: i32, h: i32) -> super::super::Foundation::BOOL {
@@ -6350,26 +7495,46 @@ pub unsafe fn FrameRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GB2312_CHARSET: u32 = 134u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_ARABIC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_HEBREW: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_LATIN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_LATINNUMBER: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_LATINNUMERICSEPARATOR: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_LATINNUMERICTERMINATOR: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_LOCALNUMBER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_NEUTRAL: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_NUMERICSEPARATOR: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_POSTBOUNDLTR: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_POSTBOUNDRTL: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_PREBOUNDLTR: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPCLASS_PREBOUNDRTL: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPGLYPH_LINKAFTER: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCPGLYPH_LINKBEFORE: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_DBCS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_ERROR: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_JUSTIFYIN: i32 = 2097152i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GCP_RESULTSA {
     pub lStructSize: u32,
@@ -6409,6 +7574,7 @@ impl ::core::default::Default for GCP_RESULTSA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GCP_RESULTSW {
     pub lStructSize: u32,
@@ -6447,139 +7613,272 @@ impl ::core::default::Default for GCP_RESULTSW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDICOMMENT_BEGINGROUP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDICOMMENT_ENDGROUP: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDICOMMENT_IDENTIFIER: u32 = 1128875079u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDICOMMENT_MULTIFORMATS: u32 = 1073741828u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDICOMMENT_UNICODE_END: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDICOMMENT_UNICODE_STRING: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDICOMMENT_WINDOWS_METAFILE: u32 = 2147483649u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDIPLUS_TS_QUERYVER: u32 = 4122u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDIPLUS_TS_RECORD: u32 = 4123u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDIREGISTERDDRAWPACKETVERSION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GDI_ERROR: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETCOLORTABLE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETDEVICEUNITS: u32 = 42u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETEXTENDEDTEXTMETRICS: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETEXTENTTABLE: u32 = 257u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETFACENAME: u32 = 513u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETPAIRKERNTABLE: u32 = 258u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETPENWIDTH: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETPHYSPAGESIZE: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETPRINTINGOFFSET: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETSCALINGFACTOR: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETSETPAPERBINS: u32 = 29u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETSETPAPERMETRICS: u32 = 35u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETSETPRINTORIENT: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETSETSCREENPARAMS: u32 = 3072u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETTECHNOLGY: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETTECHNOLOGY: u32 = 20u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETTRACKKERNTABLE: u32 = 259u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETVECTORBRUSHSIZE: u32 = 27u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GETVECTORPENSIZE: u32 = 26u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type GET_CHARACTER_PLACEMENT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_CLASSIN: GET_CHARACTER_PLACEMENT_FLAGS = 524288u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_DIACRITIC: GET_CHARACTER_PLACEMENT_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_DISPLAYZWG: GET_CHARACTER_PLACEMENT_FLAGS = 4194304u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_GLYPHSHAPE: GET_CHARACTER_PLACEMENT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_JUSTIFY: GET_CHARACTER_PLACEMENT_FLAGS = 65536u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_KASHIDA: GET_CHARACTER_PLACEMENT_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_LIGATE: GET_CHARACTER_PLACEMENT_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_MAXEXTENT: GET_CHARACTER_PLACEMENT_FLAGS = 1048576u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_NEUTRALOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = 33554432u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_NUMERICOVERRIDE: GET_CHARACTER_PLACEMENT_FLAGS = 16777216u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_NUMERICSLATIN: GET_CHARACTER_PLACEMENT_FLAGS = 67108864u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_NUMERICSLOCAL: GET_CHARACTER_PLACEMENT_FLAGS = 134217728u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_REORDER: GET_CHARACTER_PLACEMENT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_SYMSWAPOFF: GET_CHARACTER_PLACEMENT_FLAGS = 8388608u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GCP_USEKERNING: GET_CHARACTER_PLACEMENT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type GET_DCX_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_WINDOW: GET_DCX_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_CACHE: GET_DCX_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_PARENTCLIP: GET_DCX_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_CLIPSIBLINGS: GET_DCX_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_CLIPCHILDREN: GET_DCX_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_NORESETATTRS: GET_DCX_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_LOCKWINDOWUPDATE: GET_DCX_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_EXCLUDERGN: GET_DCX_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_INTERSECTRGN: GET_DCX_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_INTERSECTUPDATE: GET_DCX_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCX_VALIDATE: GET_DCX_FLAGS = 2097152u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type GET_DEVICE_CAPS_INDEX = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DRIVERVERSION: GET_DEVICE_CAPS_INDEX = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TECHNOLOGY: GET_DEVICE_CAPS_INDEX = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HORZSIZE: GET_DEVICE_CAPS_INDEX = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VERTSIZE: GET_DEVICE_CAPS_INDEX = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HORZRES: GET_DEVICE_CAPS_INDEX = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VERTRES: GET_DEVICE_CAPS_INDEX = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BITSPIXEL: GET_DEVICE_CAPS_INDEX = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PLANES: GET_DEVICE_CAPS_INDEX = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NUMBRUSHES: GET_DEVICE_CAPS_INDEX = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NUMPENS: GET_DEVICE_CAPS_INDEX = 18u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NUMMARKERS: GET_DEVICE_CAPS_INDEX = 20u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NUMFONTS: GET_DEVICE_CAPS_INDEX = 22u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NUMCOLORS: GET_DEVICE_CAPS_INDEX = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PDEVICESIZE: GET_DEVICE_CAPS_INDEX = 26u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CURVECAPS: GET_DEVICE_CAPS_INDEX = 28u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LINECAPS: GET_DEVICE_CAPS_INDEX = 30u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const POLYGONALCAPS: GET_DEVICE_CAPS_INDEX = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TEXTCAPS: GET_DEVICE_CAPS_INDEX = 34u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CLIPCAPS: GET_DEVICE_CAPS_INDEX = 36u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RASTERCAPS: GET_DEVICE_CAPS_INDEX = 38u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ASPECTX: GET_DEVICE_CAPS_INDEX = 40u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ASPECTY: GET_DEVICE_CAPS_INDEX = 42u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ASPECTXY: GET_DEVICE_CAPS_INDEX = 44u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LOGPIXELSX: GET_DEVICE_CAPS_INDEX = 88u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LOGPIXELSY: GET_DEVICE_CAPS_INDEX = 90u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SIZEPALETTE: GET_DEVICE_CAPS_INDEX = 104u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NUMRESERVED: GET_DEVICE_CAPS_INDEX = 106u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const COLORRES: GET_DEVICE_CAPS_INDEX = 108u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PHYSICALWIDTH: GET_DEVICE_CAPS_INDEX = 110u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PHYSICALHEIGHT: GET_DEVICE_CAPS_INDEX = 111u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PHYSICALOFFSETX: GET_DEVICE_CAPS_INDEX = 112u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PHYSICALOFFSETY: GET_DEVICE_CAPS_INDEX = 113u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SCALINGFACTORX: GET_DEVICE_CAPS_INDEX = 114u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SCALINGFACTORY: GET_DEVICE_CAPS_INDEX = 115u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VREFRESH: GET_DEVICE_CAPS_INDEX = 116u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DESKTOPVERTRES: GET_DEVICE_CAPS_INDEX = 117u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DESKTOPHORZRES: GET_DEVICE_CAPS_INDEX = 118u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BLTALIGNMENT: GET_DEVICE_CAPS_INDEX = 119u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SHADEBLENDCAPS: GET_DEVICE_CAPS_INDEX = 120u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const COLORMGMTCAPS: GET_DEVICE_CAPS_INDEX = 121u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type GET_GLYPH_OUTLINE_FORMAT = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_BEZIER: GET_GLYPH_OUTLINE_FORMAT = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_GLYPH_INDEX: GET_GLYPH_OUTLINE_FORMAT = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_GRAY2_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_GRAY4_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_GRAY8_BITMAP: GET_GLYPH_OUTLINE_FORMAT = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_METRICS: GET_GLYPH_OUTLINE_FORMAT = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_NATIVE: GET_GLYPH_OUTLINE_FORMAT = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGO_UNHINTED: GET_GLYPH_OUTLINE_FORMAT = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GET_PS_FEATURESETTING: u32 = 4121u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type GET_STOCK_OBJECT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BLACK_BRUSH: GET_STOCK_OBJECT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DKGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_BRUSH: GET_STOCK_OBJECT_FLAGS = 18u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HOLLOW_BRUSH: GET_STOCK_OBJECT_FLAGS = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LTGRAY_BRUSH: GET_STOCK_OBJECT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NULL_BRUSH: GET_STOCK_OBJECT_FLAGS = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WHITE_BRUSH: GET_STOCK_OBJECT_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BLACK_PEN: GET_STOCK_OBJECT_FLAGS = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DC_PEN: GET_STOCK_OBJECT_FLAGS = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NULL_PEN: GET_STOCK_OBJECT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WHITE_PEN: GET_STOCK_OBJECT_FLAGS = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ANSI_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ANSI_VAR_FONT: GET_STOCK_OBJECT_FLAGS = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEVICE_DEFAULT_FONT: GET_STOCK_OBJECT_FLAGS = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEFAULT_GUI_FONT: GET_STOCK_OBJECT_FLAGS = 17u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSTEM_FONT: GET_STOCK_OBJECT_FLAGS = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSTEM_FIXED_FONT: GET_STOCK_OBJECT_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DEFAULT_PALETTE: GET_STOCK_OBJECT_FLAGS = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GGI_MARK_NONEXISTING_GLYPHS: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct GLYPHMETRICS {
     pub gmBlackBoxX: u32,
@@ -6615,6 +7914,7 @@ impl ::core::default::Default for GLYPHMETRICS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct GLYPHSET {
     pub cbThis: u32,
     pub flAccel: u32,
@@ -6642,15 +7942,23 @@ impl ::core::default::Default for GLYPHSET {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GM_LAST: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GOBJENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type GRADIENT_FILL = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GRADIENT_FILL_RECT_H: GRADIENT_FILL = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GRADIENT_FILL_RECT_V: GRADIENT_FILL = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GRADIENT_FILL_TRIANGLE: GRADIENT_FILL = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GRADIENT_FILL_OP_FLAG: u32 = 255u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct GRADIENT_RECT {
     pub UpperLeft: u32,
     pub LowerRight: u32,
@@ -6676,6 +7984,7 @@ impl ::core::default::Default for GRADIENT_RECT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct GRADIENT_TRIANGLE {
     pub Vertex1: u32,
     pub Vertex2: u32,
@@ -6701,13 +8010,20 @@ impl ::core::default::Default for GRADIENT_TRIANGLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type GRAPHICS_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GM_COMPATIBLE: GRAPHICS_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GM_ADVANCED: GRAPHICS_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type GRAYSTRINGPROC = ::core::option::Option<unsafe extern "system" fn(param0: HDC, param1: super::super::Foundation::LPARAM, param2: i32) -> super::super::Foundation::BOOL>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GREEK_CHARSET: u32 = 161u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const GS_8BIT_INDICES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiAlphaBlend<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, HDC>, Param10: ::windows::core::IntoParam<'a, BLENDFUNCTION>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, ftn: Param10) -> super::super::Foundation::BOOL {
@@ -6722,6 +8038,7 @@ pub unsafe fn GdiAlphaBlend<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiComment<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, nsize: u32, lpdata: *const u8) -> super::super::Foundation::BOOL {
@@ -6736,6 +8053,7 @@ pub unsafe fn GdiComment<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
@@ -6750,6 +8068,7 @@ pub unsafe fn GdiFlush() -> super::super::Foundation::BOOL {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GdiGetBatchLimit() -> u32 {
     #[cfg(windows)]
@@ -6763,6 +8082,7 @@ pub unsafe fn GdiGetBatchLimit() -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiGradientFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, ncount: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL {
@@ -6777,6 +8097,7 @@ pub unsafe fn GdiGradientFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     #[cfg(windows)]
@@ -6790,6 +8111,7 @@ pub unsafe fn GdiSetBatchLimit(dw: u32) -> u32 {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GdiTransparentBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, HDC>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL {
@@ -6804,6 +8126,7 @@ pub unsafe fn GdiTransparentBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetArcDirection<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -6817,6 +8140,7 @@ pub unsafe fn GetArcDirection<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetAspectRatioFilterEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -6831,6 +8155,7 @@ pub unsafe fn GetAspectRatioFilterEx<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetBitmapBits<'a, Param0: ::windows::core::IntoParam<'a, HBITMAP>>(hbit: Param0, cb: i32, lpvbits: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -6844,6 +8169,7 @@ pub unsafe fn GetBitmapBits<'a, Param0: ::windows::core::IntoParam<'a, HBITMAP>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBitmapDimensionEx<'a, Param0: ::windows::core::IntoParam<'a, HBITMAP>>(hbit: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -6858,6 +8184,7 @@ pub unsafe fn GetBitmapDimensionEx<'a, Param0: ::windows::core::IntoParam<'a, HB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -6871,6 +8198,7 @@ pub unsafe fn GetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetBkMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -6884,6 +8212,7 @@ pub unsafe fn GetBkMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBoundsRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lprect: *mut super::super::Foundation::RECT, flags: u32) -> u32 {
@@ -6898,6 +8227,7 @@ pub unsafe fn GetBoundsRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetBrushOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -6912,6 +8242,7 @@ pub unsafe fn GetBrushOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL {
@@ -6926,6 +8257,7 @@ pub unsafe fn GetCharABCWidthsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL {
@@ -6940,6 +8272,7 @@ pub unsafe fn GetCharABCWidthsFloatA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsFloatW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpabc: *mut ABCFLOAT) -> super::super::Foundation::BOOL {
@@ -6954,6 +8287,7 @@ pub unsafe fn GetCharABCWidthsFloatW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, gifirst: u32, cgi: u32, pgi: *const u16, pabc: *mut ABC) -> super::super::Foundation::BOOL {
@@ -6968,6 +8302,7 @@ pub unsafe fn GetCharABCWidthsI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharABCWidthsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, wfirst: u32, wlast: u32, lpabc: *mut ABC) -> super::super::Foundation::BOOL {
@@ -6982,6 +8317,7 @@ pub unsafe fn GetCharABCWidthsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidth32A<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
@@ -6996,6 +8332,7 @@ pub unsafe fn GetCharWidth32A<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidth32W<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
@@ -7010,6 +8347,7 @@ pub unsafe fn GetCharWidth32W<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
@@ -7024,6 +8362,7 @@ pub unsafe fn GetCharWidthA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthFloatA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL {
@@ -7038,6 +8377,7 @@ pub unsafe fn GetCharWidthFloatA<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthFloatW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut f32) -> super::super::Foundation::BOOL {
@@ -7052,6 +8392,7 @@ pub unsafe fn GetCharWidthFloatW<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, gifirst: u32, cgi: u32, pgi: *const u16, piwidths: *mut i32) -> super::super::Foundation::BOOL {
@@ -7066,6 +8407,7 @@ pub unsafe fn GetCharWidthI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharWidthW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ifirst: u32, ilast: u32, lpbuffer: *mut i32) -> super::super::Foundation::BOOL {
@@ -7080,6 +8422,7 @@ pub unsafe fn GetCharWidthW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharacterPlacementA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSA, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32 {
@@ -7094,6 +8437,7 @@ pub unsafe fn GetCharacterPlacementA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCharacterPlacementW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, ncount: i32, nmexextent: i32, lpresults: *mut GCP_RESULTSW, dwflags: GET_CHARACTER_PLACEMENT_FLAGS) -> u32 {
@@ -7108,6 +8452,7 @@ pub unsafe fn GetCharacterPlacementW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetClipBox<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lprect: *mut super::super::Foundation::RECT) -> i32 {
@@ -7122,6 +8467,7 @@ pub unsafe fn GetClipBox<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1) -> i32 {
     #[cfg(windows)]
@@ -7135,6 +8481,7 @@ pub unsafe fn GetClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetColorAdjustment<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpca: *mut COLORADJUSTMENT) -> super::super::Foundation::BOOL {
@@ -7149,6 +8496,7 @@ pub unsafe fn GetColorAdjustment<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetCurrentObject<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, r#type: OBJ_TYPE) -> HGDIOBJ {
     #[cfg(windows)]
@@ -7162,6 +8510,7 @@ pub unsafe fn GetCurrentObject<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetCurrentPositionEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -7176,6 +8525,7 @@ pub unsafe fn GetCurrentPositionEx<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> HDC {
@@ -7190,6 +8540,7 @@ pub unsafe fn GetDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Fou
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetDCBrushColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -7203,6 +8554,7 @@ pub unsafe fn GetDCBrushColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hwnd: Param0, hrgnclip: Param1, flags: GET_DCX_FLAGS) -> HDC {
@@ -7217,6 +8569,7 @@ pub unsafe fn GetDCEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetDCOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -7231,6 +8584,7 @@ pub unsafe fn GetDCOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetDCPenColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -7244,6 +8598,7 @@ pub unsafe fn GetDCPenColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetDIBColorTable<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, istart: u32, centries: u32, prgbq: *mut RGBQUAD) -> u32 {
     #[cfg(windows)]
@@ -7257,6 +8612,7 @@ pub unsafe fn GetDIBColorTable<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetDIBits<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HBITMAP>>(hdc: Param0, hbm: Param1, start: u32, clines: u32, lpvbits: *mut ::core::ffi::c_void, lpbmi: *mut BITMAPINFO, usage: DIB_USAGE) -> i32 {
     #[cfg(windows)]
@@ -7270,6 +8626,7 @@ pub unsafe fn GetDIBits<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetDeviceCaps<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, index: GET_DEVICE_CAPS_INDEX) -> i32 {
     #[cfg(windows)]
@@ -7283,6 +8640,7 @@ pub unsafe fn GetDeviceCaps<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0) -> HENHMETAFILE {
@@ -7297,6 +8655,7 @@ pub unsafe fn GetEnhMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetEnhMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, nsize: u32, lpdata: *mut u8) -> u32 {
     #[cfg(windows)]
@@ -7310,6 +8669,7 @@ pub unsafe fn GetEnhMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionA<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, cchbuffer: u32, lpdescription: super::super::Foundation::PSTR) -> u32 {
@@ -7324,6 +8684,7 @@ pub unsafe fn GetEnhMetaFileDescriptionA<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileDescriptionW<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, cchbuffer: u32, lpdescription: super::super::Foundation::PWSTR) -> u32 {
@@ -7338,6 +8699,7 @@ pub unsafe fn GetEnhMetaFileDescriptionW<'a, Param0: ::windows::core::IntoParam<
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileHeader<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, nsize: u32, lpenhmetaheader: *mut ENHMETAHEADER) -> u32 {
@@ -7352,6 +8714,7 @@ pub unsafe fn GetEnhMetaFileHeader<'a, Param0: ::windows::core::IntoParam<'a, HE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetEnhMetaFilePaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hemf: Param0, nnumentries: u32, lppaletteentries: *mut PALETTEENTRY) -> u32 {
     #[cfg(windows)]
@@ -7365,6 +8728,7 @@ pub unsafe fn GetEnhMetaFilePaletteEntries<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetEnhMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0) -> HENHMETAFILE {
@@ -7379,6 +8743,7 @@ pub unsafe fn GetEnhMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetFontData<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, dwtable: u32, dwoffset: u32, pvbuffer: *mut ::core::ffi::c_void, cjbuffer: u32) -> u32 {
     #[cfg(windows)]
@@ -7392,6 +8757,7 @@ pub unsafe fn GetFontData<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetFontLanguageInfo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -7405,6 +8771,7 @@ pub unsafe fn GetFontLanguageInfo<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetFontUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpgs: *mut GLYPHSET) -> u32 {
     #[cfg(windows)]
@@ -7418,6 +8785,7 @@ pub unsafe fn GetFontUnicodeRanges<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphIndicesA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstr: Param1, c: i32, pgi: *mut u16, fl: u32) -> u32 {
@@ -7432,6 +8800,7 @@ pub unsafe fn GetGlyphIndicesA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphIndicesW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstr: Param1, c: i32, pgi: *mut u16, fl: u32) -> u32 {
@@ -7446,6 +8815,7 @@ pub unsafe fn GetGlyphIndicesW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphOutlineA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32 {
@@ -7460,6 +8830,7 @@ pub unsafe fn GetGlyphOutlineA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetGlyphOutlineW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, uchar: u32, fuformat: GET_GLYPH_OUTLINE_FORMAT, lpgm: *mut GLYPHMETRICS, cjbuffer: u32, pvbuffer: *mut ::core::ffi::c_void, lpmat2: *const MAT2) -> u32 {
@@ -7474,6 +8845,7 @@ pub unsafe fn GetGlyphOutlineW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetGraphicsMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -7487,6 +8859,7 @@ pub unsafe fn GetGraphicsMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetKerningPairsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, npairs: u32, lpkernpair: *mut KERNINGPAIR) -> u32 {
     #[cfg(windows)]
@@ -7500,6 +8873,7 @@ pub unsafe fn GetKerningPairsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetKerningPairsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, npairs: u32, lpkernpair: *mut KERNINGPAIR) -> u32 {
     #[cfg(windows)]
@@ -7513,6 +8887,7 @@ pub unsafe fn GetKerningPairsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetLayout<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -7526,6 +8901,7 @@ pub unsafe fn GetLayout<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetMapMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -7539,6 +8915,7 @@ pub unsafe fn GetMapMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpname: Param0) -> HMETAFILE {
@@ -7553,6 +8930,7 @@ pub unsafe fn GetMetaFileA<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetMetaFileBitsEx<'a, Param0: ::windows::core::IntoParam<'a, HMETAFILE>>(hmf: Param0, cbbuffer: u32, lpdata: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -7566,6 +8944,7 @@ pub unsafe fn GetMetaFileBitsEx<'a, Param0: ::windows::core::IntoParam<'a, HMETA
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpname: Param0) -> HMETAFILE {
@@ -7580,6 +8959,7 @@ pub unsafe fn GetMetaFileW<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetMetaRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1) -> i32 {
     #[cfg(windows)]
@@ -7593,6 +8973,7 @@ pub unsafe fn GetMetaRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMiterLimit<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, plimit: *mut f32) -> super::super::Foundation::BOOL {
@@ -7607,6 +8988,7 @@ pub unsafe fn GetMiterLimit<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorInfoA<'a, Param0: ::windows::core::IntoParam<'a, HMONITOR>>(hmonitor: Param0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL {
@@ -7621,6 +9003,7 @@ pub unsafe fn GetMonitorInfoA<'a, Param0: ::windows::core::IntoParam<'a, HMONITO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetMonitorInfoW<'a, Param0: ::windows::core::IntoParam<'a, HMONITOR>>(hmonitor: Param0, lpmi: *mut MONITORINFO) -> super::super::Foundation::BOOL {
@@ -7635,6 +9018,7 @@ pub unsafe fn GetMonitorInfoW<'a, Param0: ::windows::core::IntoParam<'a, HMONITO
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetNearestColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, color: u32) -> u32 {
     #[cfg(windows)]
@@ -7648,6 +9032,7 @@ pub unsafe fn GetNearestColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetNearestPaletteIndex<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE>>(h: Param0, color: u32) -> u32 {
     #[cfg(windows)]
@@ -7661,6 +9046,7 @@ pub unsafe fn GetNearestPaletteIndex<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetObjectA<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(h: Param0, c: i32, pv: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -7674,6 +9060,7 @@ pub unsafe fn GetObjectA<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(h:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetObjectType<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(h: Param0) -> u32 {
     #[cfg(windows)]
@@ -7687,6 +9074,7 @@ pub unsafe fn GetObjectType<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetObjectW<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(h: Param0, c: i32, pv: *mut ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -7700,6 +9088,7 @@ pub unsafe fn GetObjectW<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(h:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOutlineTextMetricsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, cjcopy: u32, potm: *mut OUTLINETEXTMETRICA) -> u32 {
@@ -7714,6 +9103,7 @@ pub unsafe fn GetOutlineTextMetricsA<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetOutlineTextMetricsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, cjcopy: u32, potm: *mut OUTLINETEXTMETRICW) -> u32 {
@@ -7728,6 +9118,7 @@ pub unsafe fn GetOutlineTextMetricsW<'a, Param0: ::windows::core::IntoParam<'a, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE>>(hpal: Param0, istart: u32, centries: u32, ppalentries: *mut PALETTEENTRY) -> u32 {
     #[cfg(windows)]
@@ -7741,6 +9132,7 @@ pub unsafe fn GetPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HPALE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *mut super::super::Foundation::POINT, aj: *mut u8, cpt: i32) -> i32 {
@@ -7755,6 +9147,7 @@ pub unsafe fn GetPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetPixel<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32) -> u32 {
     #[cfg(windows)]
@@ -7768,6 +9161,7 @@ pub unsafe fn GetPixel<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetPolyFillMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -7781,6 +9175,7 @@ pub unsafe fn GetPolyFillMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetROP2<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -7794,6 +9189,7 @@ pub unsafe fn GetROP2<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetRandomRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1, i: i32) -> i32 {
     #[cfg(windows)]
@@ -7807,6 +9203,7 @@ pub unsafe fn GetRandomRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32) -> super::super::Foundation::BOOL {
@@ -7821,6 +9218,7 @@ pub unsafe fn GetRasterizerCaps(lpraststat: *mut RASTERIZER_STATUS, cjbytes: u32
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRegionData<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: Param0, ncount: u32, lprgndata: *mut RGNDATA) -> u32 {
@@ -7835,6 +9233,7 @@ pub unsafe fn GetRegionData<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetRgnBox<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: Param0, lprc: *mut super::super::Foundation::RECT) -> i32 {
@@ -7849,6 +9248,7 @@ pub unsafe fn GetRgnBox<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     #[cfg(windows)]
@@ -7862,6 +9262,7 @@ pub unsafe fn GetStockObject(i: GET_STOCK_OBJECT_FLAGS) -> HGDIOBJ {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetStretchBltMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -7875,6 +9276,7 @@ pub unsafe fn GetStretchBltMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetSysColorBrush(nindex: i32) -> HBRUSH {
     #[cfg(windows)]
@@ -7888,6 +9290,7 @@ pub unsafe fn GetSysColorBrush(nindex: i32) -> HBRUSH {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetSystemPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, istart: u32, centries: u32, ppalentries: *mut PALETTEENTRY) -> u32 {
     #[cfg(windows)]
@@ -7901,6 +9304,7 @@ pub unsafe fn GetSystemPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetSystemPaletteUse<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -7914,6 +9318,7 @@ pub unsafe fn GetSystemPaletteUse<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTabbedTextExtentA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32 {
@@ -7928,6 +9333,7 @@ pub unsafe fn GetTabbedTextExtentA<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTabbedTextExtentW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32) -> u32 {
@@ -7942,6 +9348,7 @@ pub unsafe fn GetTabbedTextExtentW<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetTextAlign<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -7955,6 +9362,7 @@ pub unsafe fn GetTextAlign<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetTextCharacterExtra<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -7968,6 +9376,7 @@ pub unsafe fn GetTextCharacterExtra<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetTextColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -7981,6 +9390,7 @@ pub unsafe fn GetTextColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpszstring: Param1, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -7995,6 +9405,7 @@ pub unsafe fn GetTextExtentExPointA<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpwszstring: *const u16, cwchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8009,6 +9420,7 @@ pub unsafe fn GetTextExtentExPointI<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentExPointW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpszstring: Param1, cchstring: i32, nmaxextent: i32, lpnfit: *mut i32, lpndx: *mut i32, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8023,6 +9435,7 @@ pub unsafe fn GetTextExtentExPointW<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPoint32A<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, c: i32, psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8037,6 +9450,7 @@ pub unsafe fn GetTextExtentPoint32A<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPoint32W<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, c: i32, psizl: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8051,6 +9465,7 @@ pub unsafe fn GetTextExtentPoint32W<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, lpstring: Param1, c: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8065,6 +9480,7 @@ pub unsafe fn GetTextExtentPointA<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointI<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, pgiin: *const u16, cgi: i32, psize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8079,6 +9495,7 @@ pub unsafe fn GetTextExtentPointI<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextExtentPointW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, lpstring: Param1, c: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8093,6 +9510,7 @@ pub unsafe fn GetTextExtentPointW<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextFaceA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, c: i32, lpname: super::super::Foundation::PSTR) -> i32 {
@@ -8107,6 +9525,7 @@ pub unsafe fn GetTextFaceA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextFaceW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, c: i32, lpname: super::super::Foundation::PWSTR) -> i32 {
@@ -8121,6 +9540,7 @@ pub unsafe fn GetTextFaceW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextMetricsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lptm: *mut TEXTMETRICA) -> super::super::Foundation::BOOL {
@@ -8135,6 +9555,7 @@ pub unsafe fn GetTextMetricsA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetTextMetricsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lptm: *mut TEXTMETRICW) -> super::super::Foundation::BOOL {
@@ -8149,6 +9570,7 @@ pub unsafe fn GetTextMetricsW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUpdateRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, lprect: *mut super::super::Foundation::RECT, berase: Param2) -> super::super::Foundation::BOOL {
@@ -8163,6 +9585,7 @@ pub unsafe fn GetUpdateRect<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetUpdateRgn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HRGN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, hrgn: Param1, berase: Param2) -> i32 {
@@ -8177,6 +9600,7 @@ pub unsafe fn GetUpdateRgn<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetViewportExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8191,6 +9615,7 @@ pub unsafe fn GetViewportExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetViewportOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -8205,6 +9630,7 @@ pub unsafe fn GetViewportOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn GetWinMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENHMETAFILE>, Param4: ::windows::core::IntoParam<'a, HDC>>(hemf: Param0, cbdata16: u32, pdata16: *mut u8, imapmode: i32, hdcref: Param4) -> u32 {
     #[cfg(windows)]
@@ -8218,6 +9644,7 @@ pub unsafe fn GetWinMetaFileBits<'a, Param0: ::windows::core::IntoParam<'a, HENH
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> HDC {
@@ -8232,6 +9659,7 @@ pub unsafe fn GetWindowDC<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpsize: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -8246,6 +9674,7 @@ pub unsafe fn GetWindowExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -8260,6 +9689,7 @@ pub unsafe fn GetWindowOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowRgn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hwnd: Param0, hrgn: Param1) -> i32 {
@@ -8274,6 +9704,7 @@ pub unsafe fn GetWindowRgn<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWindowRgnBox<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lprc: *mut super::super::Foundation::RECT) -> i32 {
@@ -8288,6 +9719,7 @@ pub unsafe fn GetWindowRgnBox<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GetWorldTransform<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpxf: *mut XFORM) -> super::super::Foundation::BOOL {
@@ -8302,6 +9734,7 @@ pub unsafe fn GetWorldTransform<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GradientFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, pvertex: *const TRIVERTEX, nvertex: u32, pmesh: *const ::core::ffi::c_void, nmesh: u32, ulmode: GRADIENT_FILL) -> super::super::Foundation::BOOL {
@@ -8316,6 +9749,7 @@ pub unsafe fn GradientFill<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GrayStringA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HBRUSH>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, hbrush: Param1, lpoutputfunc: GRAYSTRINGPROC, lpdata: Param3, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL {
@@ -8330,6 +9764,7 @@ pub unsafe fn GrayStringA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn GrayStringW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HBRUSH>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(hdc: Param0, hbrush: Param1, lpoutputfunc: GRAYSTRINGPROC, lpdata: Param3, ncount: i32, x: i32, y: i32, nwidth: i32, nheight: i32) -> super::super::Foundation::BOOL {
@@ -8345,6 +9780,7 @@ pub unsafe fn GrayStringW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct HANDLETABLE {
     pub objectHandle: [HGDIOBJ; 1],
 }
@@ -8368,27 +9804,46 @@ impl ::core::default::Default for HANDLETABLE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HANGEUL_CHARSET: u32 = 129u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HANGUL_CHARSET: u32 = 129u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type HATCH_BRUSH_STYLE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_BDIAGONAL: HATCH_BRUSH_STYLE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_CROSS: HATCH_BRUSH_STYLE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_DIAGCROSS: HATCH_BRUSH_STYLE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_FDIAGONAL: HATCH_BRUSH_STYLE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_HORIZONTAL: HATCH_BRUSH_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_VERTICAL: HATCH_BRUSH_STYLE = 1u32;
 pub type HBITMAP = isize;
 pub type HBRUSH = isize;
 pub type HDC = isize;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type HDC_MAP_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_ANISOTROPIC: HDC_MAP_MODE = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_HIENGLISH: HDC_MAP_MODE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_HIMETRIC: HDC_MAP_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_ISOTROPIC: HDC_MAP_MODE = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_LOENGLISH: HDC_MAP_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_LOMETRIC: HDC_MAP_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_TEXT: HDC_MAP_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_TWIPS: HDC_MAP_MODE = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HEBREW_CHARSET: u32 = 177u32;
 pub type HENHMETAFILE = isize;
 pub type HFONT = isize;
@@ -8398,27 +9853,47 @@ pub type HMONITOR = isize;
 pub type HPALETTE = isize;
 pub type HPEN = isize;
 pub type HRGN = isize;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HS_API_MAX: u32 = 12u32;
 pub type HdcMetdataEnhFileHandle = isize;
 pub type HdcMetdataFileHandle = isize;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ICM_DONE_OUTSIDEDC: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ICM_OFF: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ICM_ON: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ICM_QUERY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_A: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_B: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_C: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_D50: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_D55: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_D65: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_D75: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_DAYLIGHT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_DEVICE_DEFAULT: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_F2: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_FLUORESCENT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_MAX_INDEX: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_NTSC: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const ILLUMINANT_TUNGSTEN: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
@@ -8433,6 +9908,7 @@ pub unsafe fn InflateRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn IntersectClipRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32) -> i32 {
     #[cfg(windows)]
@@ -8446,6 +9922,7 @@ pub unsafe fn IntersectClipRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -8460,6 +9937,7 @@ pub unsafe fn IntersectRect(lprcdst: *mut super::super::Foundation::RECT, lprcsr
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvalidateRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, lprect: *const super::super::Foundation::RECT, berase: Param2) -> super::super::Foundation::BOOL {
@@ -8474,6 +9952,7 @@ pub unsafe fn InvalidateRect<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvalidateRgn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HRGN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, hrgn: Param1, berase: Param2) -> super::super::Foundation::BOOL {
@@ -8488,6 +9967,7 @@ pub unsafe fn InvalidateRgn<'a, Param0: ::windows::core::IntoParam<'a, super::su
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvertRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -8502,6 +9982,7 @@ pub unsafe fn InvertRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn InvertRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1) -> super::super::Foundation::BOOL {
@@ -8516,6 +9997,7 @@ pub unsafe fn InvertRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -8530,8 +10012,10 @@ pub unsafe fn IsRectEmpty(lprc: *const super::super::Foundation::RECT) -> super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const JOHAB_CHARSET: u32 = 130u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct KERNINGPAIR {
     pub wFirst: u16,
     pub wSecond: u16,
@@ -8557,26 +10041,45 @@ impl ::core::default::Default for KERNINGPAIR {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LAYOUT_BTT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LAYOUT_VBH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LCS_CALIBRATED_RGB: i32 = 0i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LCS_GM_ABS_COLORIMETRIC: i32 = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LCS_GM_BUSINESS: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LCS_GM_GRAPHICS: i32 = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LCS_GM_IMAGES: i32 = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_INTERIORS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_MARKER: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_POLYLINE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_POLYMARKER: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_STYLED: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_WIDE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LC_WIDESTYLED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LF_FACESIZE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LF_FULLFACESIZE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LINEDDAPROC = ::core::option::Option<unsafe extern "system" fn(param0: i32, param1: i32, param2: super::super::Foundation::LPARAM)>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct LOGBRUSH {
     pub lbStyle: u32,
     pub lbColor: u32,
@@ -8603,6 +10106,7 @@ impl ::core::default::Default for LOGBRUSH {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct LOGBRUSH32 {
     pub lbStyle: u32,
     pub lbColor: u32,
@@ -8629,6 +10133,7 @@ impl ::core::default::Default for LOGBRUSH32 {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGFONTA {
     pub lfHeight: i32,
@@ -8673,6 +10178,7 @@ impl ::core::default::Default for LOGFONTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct LOGFONTW {
     pub lfHeight: i32,
     pub lfWidth: i32,
@@ -8710,6 +10216,7 @@ impl ::core::default::Default for LOGFONTW {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct LOGPALETTE {
     pub palVersion: u16,
     pub palNumEntries: u16,
@@ -8736,6 +10243,7 @@ impl ::core::default::Default for LOGPALETTE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct LOGPEN {
     pub lopnStyle: u32,
@@ -8768,22 +10276,37 @@ impl ::core::default::Default for LOGPEN {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_DOUBLEBUFFER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_SHARE_ACCUM: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_SHARE_DEPTH: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_SHARE_STENCIL: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_STEREO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_SUPPORT_GDI: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_SUPPORT_OPENGL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_SWAP_COPY: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_SWAP_EXCHANGE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_TRANSPARENT: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_TYPE_COLORINDEX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const LPD_TYPE_RGBA: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDEVCAPS = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::PSTR, param1: super::super::Foundation::PSTR, param2: u32, param3: super::super::Foundation::PSTR, param4: *mut DEVMODEA) -> u32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type LPFNDEVMODE = ::core::option::Option<unsafe extern "system" fn(param0: super::super::Foundation::HWND, param1: super::super::Foundation::HINSTANCE, param2: *mut DEVMODEA, param3: super::super::Foundation::PSTR, param4: super::super::Foundation::PSTR, param5: *mut DEVMODEA, param6: super::super::Foundation::PSTR, param7: u32) -> u32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LPtoDP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lppt: *mut super::super::Foundation::POINT, c: i32) -> super::super::Foundation::BOOL {
@@ -8798,6 +10321,7 @@ pub unsafe fn LPtoDP<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LineDDA<'a, Param5: ::windows::core::IntoParam<'a, super::super::Foundation::LPARAM>>(xstart: i32, ystart: i32, xend: i32, yend: i32, lpproc: LINEDDAPROC, data: Param5) -> super::super::Foundation::BOOL {
@@ -8812,6 +10336,7 @@ pub unsafe fn LineDDA<'a, Param5: ::windows::core::IntoParam<'a, super::super::F
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LineTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32) -> super::super::Foundation::BOOL {
@@ -8826,6 +10351,7 @@ pub unsafe fn LineTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadBitmapA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hinstance: Param0, lpbitmapname: Param1) -> HBITMAP {
@@ -8840,6 +10366,7 @@ pub unsafe fn LoadBitmapA<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LoadBitmapW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HINSTANCE>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hinstance: Param0, lpbitmapname: Param1) -> HBITMAP {
@@ -8854,6 +10381,7 @@ pub unsafe fn LoadBitmapW<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn LockWindowUpdate<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndlock: Param0) -> super::super::Foundation::BOOL {
@@ -8868,8 +10396,10 @@ pub unsafe fn LockWindowUpdate<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MAC_CHARSET: u32 = 77u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct MAT2 {
     pub eM11: FIXED,
     pub eM12: FIXED,
@@ -8896,9 +10426,12 @@ impl ::core::default::Default for MAT2 {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MAXSTRETCHBLTMODE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const METAFILE_DRIVER: u32 = 2049u32;
 #[repr(C, packed(2))]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct METAHEADER {
     pub mtType: u16,
     pub mtHeaderSize: u16,
@@ -8929,6 +10462,7 @@ impl ::core::default::Default for METAHEADER {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct METARECORD {
     pub rdSize: u32,
     pub rdFunction: u16,
@@ -8954,89 +10488,170 @@ impl ::core::default::Default for METARECORD {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_ANIMATEPALETTE: u32 = 1078u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_ARC: u32 = 2071u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_BITBLT: u32 = 2338u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_CHORD: u32 = 2096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_CREATEBRUSHINDIRECT: u32 = 764u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_CREATEFONTINDIRECT: u32 = 763u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_CREATEPALETTE: u32 = 247u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_CREATEPATTERNBRUSH: u32 = 505u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_CREATEPENINDIRECT: u32 = 762u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_CREATEREGION: u32 = 1791u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_DELETEOBJECT: u32 = 496u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_DIBBITBLT: u32 = 2368u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_DIBCREATEPATTERNBRUSH: u32 = 322u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_DIBSTRETCHBLT: u32 = 2881u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_ELLIPSE: u32 = 1048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_ESCAPE: u32 = 1574u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_EXCLUDECLIPRECT: u32 = 1045u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_EXTFLOODFILL: u32 = 1352u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_EXTTEXTOUT: u32 = 2610u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_FILLREGION: u32 = 552u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_FLOODFILL: u32 = 1049u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_FRAMEREGION: u32 = 1065u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_INTERSECTCLIPRECT: u32 = 1046u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_INVERTREGION: u32 = 298u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_LINETO: u32 = 531u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_MOVETO: u32 = 532u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_OFFSETCLIPRGN: u32 = 544u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_OFFSETVIEWPORTORG: u32 = 529u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_OFFSETWINDOWORG: u32 = 527u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_PAINTREGION: u32 = 299u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_PATBLT: u32 = 1565u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_PIE: u32 = 2074u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_POLYGON: u32 = 804u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_POLYLINE: u32 = 805u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_POLYPOLYGON: u32 = 1336u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_REALIZEPALETTE: u32 = 53u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_RECTANGLE: u32 = 1051u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_RESIZEPALETTE: u32 = 313u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_RESTOREDC: u32 = 295u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_ROUNDRECT: u32 = 1564u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SAVEDC: u32 = 30u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SCALEVIEWPORTEXT: u32 = 1042u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SCALEWINDOWEXT: u32 = 1040u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SELECTCLIPREGION: u32 = 300u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SELECTOBJECT: u32 = 301u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SELECTPALETTE: u32 = 564u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETBKCOLOR: u32 = 513u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETBKMODE: u32 = 258u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETDIBTODEV: u32 = 3379u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETLAYOUT: u32 = 329u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETMAPMODE: u32 = 259u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETMAPPERFLAGS: u32 = 561u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETPALENTRIES: u32 = 55u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETPIXEL: u32 = 1055u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETPOLYFILLMODE: u32 = 262u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETRELABS: u32 = 261u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETROP2: u32 = 260u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETSTRETCHBLTMODE: u32 = 263u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETTEXTALIGN: u32 = 302u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETTEXTCHAREXTRA: u32 = 264u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETTEXTCOLOR: u32 = 521u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETTEXTJUSTIFICATION: u32 = 522u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETVIEWPORTEXT: u32 = 526u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETVIEWPORTORG: u32 = 525u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETWINDOWEXT: u32 = 524u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_SETWINDOWORG: u32 = 523u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_STRETCHBLT: u32 = 2851u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_STRETCHDIB: u32 = 3907u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const META_TEXTOUT: u32 = 1313u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MFCOMMENT: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type MFENUMPROC = ::core::option::Option<unsafe extern "system" fn(hdc: HDC, lpht: *const HANDLETABLE, lpmr: *const METARECORD, nobj: i32, param4: super::super::Foundation::LPARAM) -> i32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MILCORE_TS_QUERYVER_RESULT_FALSE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MILCORE_TS_QUERYVER_RESULT_TRUE: u32 = 2147483647u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_MAX_AXES_NAMELEN: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MM_MAX_NUMAXES: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type MODIFY_WORLD_TRANSFORM_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MWT_IDENTITY: MODIFY_WORLD_TRANSFORM_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MWT_LEFTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MWT_RIGHTMULTIPLY: MODIFY_WORLD_TRANSFORM_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type MONITORENUMPROC = ::core::option::Option<unsafe extern "system" fn(param0: HMONITOR, param1: HDC, param2: *mut super::super::Foundation::RECT, param3: super::super::Foundation::LPARAM) -> super::super::Foundation::BOOL>;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFO {
     pub cbSize: u32,
@@ -9071,6 +10686,7 @@ impl ::core::default::Default for MONITORINFO {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXA {
     pub __AnonymousBase_winuser_L13567_C43: MONITORINFO,
@@ -9103,6 +10719,7 @@ impl ::core::default::Default for MONITORINFOEXA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXW {
     pub __AnonymousBase_winuser_L13571_C43: MONITORINFO,
@@ -9134,12 +10751,19 @@ impl ::core::default::Default for MONITORINFOEXW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type MONITOR_FROM_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MONITOR_DEFAULTTONEAREST: MONITOR_FROM_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MONITOR_DEFAULTTONULL: MONITOR_FROM_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MONITOR_DEFAULTTOPRIMARY: MONITOR_FROM_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MONO_FONT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MOUSETRAILS: u32 = 39u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MapWindowPoints<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwndfrom: Param0, hwndto: Param1, lppoints: *mut super::super::Foundation::POINT, cpoints: u32) -> i32 {
@@ -9154,6 +10778,7 @@ pub unsafe fn MapWindowPoints<'a, Param0: ::windows::core::IntoParam<'a, super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MaskBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, HDC>, Param8: ::windows::core::IntoParam<'a, HBITMAP>>(hdcdest: Param0, xdest: i32, ydest: i32, width: i32, height: i32, hdcsrc: Param5, xsrc: i32, ysrc: i32, hbmmask: Param8, xmask: i32, ymask: i32, rop: u32) -> super::super::Foundation::BOOL {
@@ -9168,6 +10793,7 @@ pub unsafe fn MaskBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: :
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffersize: u32, puchfontpackagebuffer: *const u8, ulfontpackagebuffersize: u32, ppuchdestbuffer: *mut *mut u8, puldestbuffersize: *mut u32, pulbyteswritten: *mut u32, usmode: u16, lpfnallocate: CFP_ALLOCPROC, lpfnreallocate: CFP_REALLOCPROC, lpfnfree: CFP_FREEPROC, lpvreserved: *mut ::core::ffi::c_void) -> u32 {
     #[cfg(windows)]
@@ -9194,6 +10820,7 @@ pub unsafe fn MergeFontPackage(puchmergefontbuffer: *const u8, ulmergefontbuffer
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ModifyWorldTransform<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpxf: *const XFORM, mode: MODIFY_WORLD_TRANSFORM_MODE) -> super::super::Foundation::BOOL {
@@ -9208,6 +10835,7 @@ pub unsafe fn ModifyWorldTransform<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(pt: Param0, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
@@ -9222,6 +10850,7 @@ pub unsafe fn MonitorFromPoint<'a, Param0: ::windows::core::IntoParam<'a, super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
@@ -9236,6 +10865,7 @@ pub unsafe fn MonitorFromRect(lprc: *const super::super::Foundation::RECT, dwfla
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MonitorFromWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, dwflags: MONITOR_FROM_FLAGS) -> HMONITOR {
@@ -9250,6 +10880,7 @@ pub unsafe fn MonitorFromWindow<'a, Param0: ::windows::core::IntoParam<'a, super
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn MoveToEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -9264,8 +10895,10 @@ pub unsafe fn MoveToEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NEWFRAME: u32 = 1u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct NEWTEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -9313,6 +10946,7 @@ impl ::core::default::Default for NEWTEXTMETRICA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct NEWTEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -9359,36 +10993,66 @@ impl ::core::default::Default for NEWTEXTMETRICW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NEWTRANSPARENT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NEXTBAND: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_BOLD: i32 = 32i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_DSIG: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_ITALIC: i32 = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_MULTIPLEMASTER: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_NONNEGATIVE_AC: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_PS_OPENTYPE: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_REGULAR: i32 = 64i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_TT_OPENTYPE: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NTM_TYPE1: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NULLREGION: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type OBJ_TYPE = i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_PEN: OBJ_TYPE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_BRUSH: OBJ_TYPE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_DC: OBJ_TYPE = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_METADC: OBJ_TYPE = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_PAL: OBJ_TYPE = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_FONT: OBJ_TYPE = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_BITMAP: OBJ_TYPE = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_REGION: OBJ_TYPE = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_METAFILE: OBJ_TYPE = 9i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_MEMDC: OBJ_TYPE = 10i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_EXTPEN: OBJ_TYPE = 11i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_ENHMETADC: OBJ_TYPE = 12i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_ENHMETAFILE: OBJ_TYPE = 13i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OBJ_COLORSPACE: OBJ_TYPE = 14i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OEM_CHARSET: u32 = 255u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OPENCHANNEL: u32 = 4110u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTLINETEXTMETRICA {
     pub otmSize: u32,
@@ -9451,6 +11115,7 @@ impl ::core::default::Default for OUTLINETEXTMETRICA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct OUTLINETEXTMETRICW {
     pub otmSize: u32,
@@ -9512,7 +11177,9 @@ impl ::core::default::Default for OUTLINETEXTMETRICW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const OUT_SCREEN_OUTLINE_PRECIS: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn OffsetClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32) -> i32 {
     #[cfg(windows)]
@@ -9526,6 +11193,7 @@ pub unsafe fn OffsetClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy: i32) -> super::super::Foundation::BOOL {
@@ -9540,6 +11208,7 @@ pub unsafe fn OffsetRect(lprc: *mut super::super::Foundation::RECT, dx: i32, dy:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn OffsetRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: Param0, x: i32, y: i32) -> i32 {
     #[cfg(windows)]
@@ -9553,6 +11222,7 @@ pub unsafe fn OffsetRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetViewportOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -9567,6 +11237,7 @@ pub unsafe fn OffsetViewportOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn OffsetWindowOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -9582,6 +11253,7 @@ pub unsafe fn OffsetWindowOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct PAINTSTRUCT {
     pub hdc: HDC,
@@ -9618,6 +11290,7 @@ impl ::core::default::Default for PAINTSTRUCT {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct PALETTEENTRY {
     pub peRed: u8,
     pub peGreen: u8,
@@ -9645,6 +11318,7 @@ impl ::core::default::Default for PALETTEENTRY {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct PANOSE {
     pub bFamilyType: u8,
     pub bSerifStyle: u8,
@@ -9677,130 +11351,254 @@ impl ::core::default::Default for PANOSE {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PANOSE_COUNT: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_ANY: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_ARMSTYLE_INDEX: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_BENT_ARMS_DOUBLE_SERIF: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_BENT_ARMS_HORZ: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_BENT_ARMS_SINGLE_SERIF: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_BENT_ARMS_VERT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_BENT_ARMS_WEDGE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_HIGH: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_INDEX: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_LOW: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_MEDIUM: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_MEDIUM_HIGH: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_MEDIUM_LOW: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_NONE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_VERY_HIGH: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CONTRAST_VERY_LOW: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_CULTURE_LATIN: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_FAMILYTYPE_INDEX: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_FAMILY_DECORATIVE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_FAMILY_PICTORIAL: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_FAMILY_SCRIPT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_FAMILY_TEXT_DISPLAY: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETTERFORM_INDEX: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_NORMAL_BOXED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_NORMAL_CONTACT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_NORMAL_FLATTENED: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_NORMAL_OFF_CENTER: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_NORMAL_ROUNDED: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_NORMAL_SQUARE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_NORMAL_WEIGHTED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_OBLIQUE_BOXED: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_OBLIQUE_CONTACT: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_OBLIQUE_FLATTENED: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_OBLIQUE_OFF_CENTER: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_OBLIQUE_ROUNDED: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_OBLIQUE_SQUARE: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_LETT_OBLIQUE_WEIGHTED: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_CONSTANT_POINTED: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_CONSTANT_SERIFED: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_CONSTANT_TRIMMED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_HIGH_POINTED: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_HIGH_SERIFED: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_HIGH_TRIMMED: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_INDEX: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_LOW_POINTED: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_LOW_SERIFED: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_LOW_TRIMMED: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_STANDARD_POINTED: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_STANDARD_SERIFED: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_MIDLINE_STANDARD_TRIMMED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_NO_FIT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROPORTION_INDEX: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_CONDENSED: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_EVEN_WIDTH: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_EXPANDED: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_MODERN: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_MONOSPACED: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_OLD_STYLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_VERY_CONDENSED: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_PROP_VERY_EXPANDED: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIFSTYLE_INDEX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_BONE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_COVE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_EXAGGERATED: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_FLARED: u32 = 14u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_NORMAL_SANS: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_OBTUSE_COVE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_OBTUSE_SANS: u32 = 12u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_OBTUSE_SQUARE_COVE: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_PERP_SANS: u32 = 13u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_ROUNDED: u32 = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_SQUARE: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_SQUARE_COVE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_THIN: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_SERIF_TRIANGLE: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STRAIGHT_ARMS_DOUBLE_SERIF: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STRAIGHT_ARMS_HORZ: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STRAIGHT_ARMS_SINGLE_SERIF: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STRAIGHT_ARMS_VERT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STRAIGHT_ARMS_WEDGE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKEVARIATION_INDEX: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKE_GRADUAL_DIAG: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKE_GRADUAL_HORZ: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKE_GRADUAL_TRAN: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKE_GRADUAL_VERT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKE_INSTANT_VERT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKE_RAPID_HORZ: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_STROKE_RAPID_VERT: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_BLACK: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_BOLD: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_BOOK: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_DEMI: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_HEAVY: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_INDEX: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_LIGHT: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_MEDIUM: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_NORD: u32 = 11u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_THIN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_WEIGHT_VERY_LIGHT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_XHEIGHT_CONSTANT_LARGE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_XHEIGHT_CONSTANT_SMALL: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_XHEIGHT_CONSTANT_STD: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_XHEIGHT_DUCKING_LARGE: u32 = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_XHEIGHT_DUCKING_SMALL: u32 = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_XHEIGHT_DUCKING_STD: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PAN_XHEIGHT_INDEX: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PASSTHROUGH: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_EXPLICIT: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_INTERIORS: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_NOCOLLAPSE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_PATHS: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_POLYGON: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_POLYPOLYGON: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_RECTANGLE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_RESERVED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_SCANLINE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_STYLED: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_TRAPEZOID: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_WIDE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_WIDESTYLED: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PC_WINDPOLYGON: u32 = 4u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct PELARRAY {
     pub paXCount: i32,
     pub paYCount: i32,
@@ -9828,53 +11626,100 @@ impl ::core::default::Default for PELARRAY {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type PEN_STYLE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_GEOMETRIC: PEN_STYLE = 65536u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_COSMETIC: PEN_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_SOLID: PEN_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_DASH: PEN_STYLE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_DOT: PEN_STYLE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_DASHDOT: PEN_STYLE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_DASHDOTDOT: PEN_STYLE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_NULL: PEN_STYLE = 5u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_INSIDEFRAME: PEN_STYLE = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_USERSTYLE: PEN_STYLE = 7u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_ALTERNATE: PEN_STYLE = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_STYLE_MASK: PEN_STYLE = 15u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_ENDCAP_ROUND: PEN_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_ENDCAP_SQUARE: PEN_STYLE = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_ENDCAP_FLAT: PEN_STYLE = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_ENDCAP_MASK: PEN_STYLE = 3840u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_JOIN_ROUND: PEN_STYLE = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_JOIN_BEVEL: PEN_STYLE = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_JOIN_MITER: PEN_STYLE = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_JOIN_MASK: PEN_STYLE = 61440u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PS_TYPE_MASK: PEN_STYLE = 983040u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_DEPTH_DONTCARE: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_DIRECT3D_ACCELERATED: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_DOUBLEBUFFER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_DOUBLEBUFFER_DONTCARE: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_DRAW_TO_BITMAP: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_DRAW_TO_WINDOW: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_GENERIC_ACCELERATED: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_GENERIC_FORMAT: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_MAIN_PLANE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_NEED_PALETTE: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_NEED_SYSTEM_PALETTE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_OVERLAY_PLANE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_STEREO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_STEREO_DONTCARE: u32 = 2147483648u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_SUPPORT_COMPOSITION: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_SUPPORT_DIRECTDRAW: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_SUPPORT_GDI: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_SUPPORT_OPENGL: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_SWAP_COPY: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_SWAP_EXCHANGE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_SWAP_LAYER_BUFFERS: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_TYPE_COLORINDEX: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_TYPE_RGBA: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PFD_UNDERLAY_PLANE: i32 = -1i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct POINTFX {
     pub x: FIXED,
     pub y: FIXED,
@@ -9899,8 +11744,10 @@ impl ::core::default::Default for POINTFX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const POLYFILL_LAST: u32 = 2u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLYTEXTA {
     pub x: i32,
@@ -9938,6 +11785,7 @@ impl ::core::default::Default for POLYTEXTA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct POLYTEXTW {
     pub x: i32,
@@ -9974,27 +11822,49 @@ impl ::core::default::Default for POLYTEXTW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const POSTSCRIPT_DATA: u32 = 37u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const POSTSCRIPT_IDENTIFY: u32 = 4117u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const POSTSCRIPT_IGNORE: u32 = 38u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const POSTSCRIPT_INJECTION: u32 = 4118u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const POSTSCRIPT_PASSTHROUGH: u32 = 4115u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PRINTRATEUNIT_CPS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PRINTRATEUNIT_IPM: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PRINTRATEUNIT_LPM: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PRINTRATEUNIT_PPM: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PR_JOBSTATUS: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PSIDENT_GDICENTRIC: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PSIDENT_PSCENTRIC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PSINJECT_DLFONT: u32 = 3722304989u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PSPROTOCOL_ASCII: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PSPROTOCOL_BCP: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PSPROTOCOL_BINARY: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PSPROTOCOL_TBCP: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PT_BEZIERTO: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PT_CLOSEFIGURE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PT_LINETO: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PT_MOVETO: u32 = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PaintDesktop<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -10009,6 +11879,7 @@ pub unsafe fn PaintDesktop<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PaintRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1) -> super::super::Foundation::BOOL {
@@ -10023,6 +11894,7 @@ pub unsafe fn PaintRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PatBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, w: i32, h: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
@@ -10037,6 +11909,7 @@ pub unsafe fn PatBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn PathToRegion<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> HRGN {
     #[cfg(windows)]
@@ -10050,6 +11923,7 @@ pub unsafe fn PathToRegion<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Pie<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32, xr1: i32, yr1: i32, xr2: i32, yr2: i32) -> super::super::Foundation::BOOL {
@@ -10064,6 +11938,7 @@ pub unsafe fn Pie<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HENHMETAFILE>>(hdc: Param0, hmf: Param1, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -10078,6 +11953,7 @@ pub unsafe fn PlayEnhMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayEnhMetaFileRecord<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, pht: *const HANDLETABLE, pmr: *const ENHMETARECORD, cht: u32) -> super::super::Foundation::BOOL {
@@ -10092,6 +11968,7 @@ pub unsafe fn PlayEnhMetaFileRecord<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HMETAFILE>>(hdc: Param0, hmf: Param1) -> super::super::Foundation::BOOL {
@@ -10106,6 +11983,7 @@ pub unsafe fn PlayMetaFile<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlayMetaFileRecord<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lphandletable: *const HANDLETABLE, lpmr: *const METARECORD, noobjs: u32) -> super::super::Foundation::BOOL {
@@ -10120,6 +11998,7 @@ pub unsafe fn PlayMetaFileRecord<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PlgBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: ::windows::core::IntoParam<'a, HDC>, Param7: ::windows::core::IntoParam<'a, HBITMAP>>(hdcdest: Param0, lppoint: *const super::super::Foundation::POINT, hdcsrc: Param2, xsrc: i32, ysrc: i32, width: i32, height: i32, hbmmask: Param7, xmask: i32, ymask: i32) -> super::super::Foundation::BOOL {
@@ -10134,6 +12013,7 @@ pub unsafe fn PlgBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param2: ::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyBezier<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL {
@@ -10148,6 +12028,7 @@ pub unsafe fn PolyBezier<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyBezierTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL {
@@ -10162,6 +12043,7 @@ pub unsafe fn PolyBezierTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyDraw<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, aj: *const u8, cpt: i32) -> super::super::Foundation::BOOL {
@@ -10176,6 +12058,7 @@ pub unsafe fn PolyDraw<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyPolygon<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, asz: *const i32, csz: i32) -> super::super::Foundation::BOOL {
@@ -10190,6 +12073,7 @@ pub unsafe fn PolyPolygon<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyPolyline<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, asz: *const u32, csz: u32) -> super::super::Foundation::BOOL {
@@ -10204,6 +12088,7 @@ pub unsafe fn PolyPolyline<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ppt: *const POLYTEXTA, nstrings: i32) -> super::super::Foundation::BOOL {
@@ -10218,6 +12103,7 @@ pub unsafe fn PolyTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolyTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ppt: *const POLYTEXTW, nstrings: i32) -> super::super::Foundation::BOOL {
@@ -10232,6 +12118,7 @@ pub unsafe fn PolyTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Polygon<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: i32) -> super::super::Foundation::BOOL {
@@ -10246,6 +12133,7 @@ pub unsafe fn Polygon<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Polyline<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: i32) -> super::super::Foundation::BOOL {
@@ -10260,6 +12148,7 @@ pub unsafe fn Polyline<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PolylineTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, apt: *const super::super::Foundation::POINT, cpt: u32) -> super::super::Foundation::BOOL {
@@ -10274,6 +12163,7 @@ pub unsafe fn PolylineTo<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtInRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::POINT>>(lprc: *const super::super::Foundation::RECT, pt: Param1) -> super::super::Foundation::BOOL {
@@ -10288,6 +12178,7 @@ pub unsafe fn PtInRect<'a, Param1: ::windows::core::IntoParam<'a, super::super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtInRegion<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: Param0, x: i32, y: i32) -> super::super::Foundation::BOOL {
@@ -10302,6 +12193,7 @@ pub unsafe fn PtInRegion<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn PtVisible<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32) -> super::super::Foundation::BOOL {
@@ -10316,38 +12208,70 @@ pub unsafe fn PtVisible<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDC_ALL_PATHS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDC_DATABASE_CURRENT: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDC_INCLUDE_HMD: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDC_ONLY_ACTIVE_PATHS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDC_VIRTUAL_MODE_AWARE: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDC_VIRTUAL_REFRESH_RATE_AWARE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDI_DIBTOSCREEN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDI_GETDIBITS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDI_SETDIBITS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QDI_STRETCHDIB: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QUERYDIBSUPPORT: u32 = 3073u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QUERYESCSUPPORT: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const QUERYROPSUPPORT: u32 = 40u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type R2_MODE = i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_BLACK: R2_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_NOTMERGEPEN: R2_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_MASKNOTPEN: R2_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_NOTCOPYPEN: R2_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_MASKPENNOT: R2_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_NOT: R2_MODE = 6i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_XORPEN: R2_MODE = 7i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_NOTMASKPEN: R2_MODE = 8i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_MASKPEN: R2_MODE = 9i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_NOTXORPEN: R2_MODE = 10i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_NOP: R2_MODE = 11i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_MERGENOTPEN: R2_MODE = 12i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_COPYPEN: R2_MODE = 13i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_MERGEPENNOT: R2_MODE = 14i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_MERGEPEN: R2_MODE = 15i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_WHITE: R2_MODE = 16i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const R2_LAST: R2_MODE = 16i32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct RASTERIZER_STATUS {
     pub nSize: i16,
     pub wFlags: i16,
@@ -10373,41 +12297,76 @@ impl ::core::default::Default for RASTERIZER_STATUS {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RASTER_FONTTYPE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_BANDING: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_BIGFONT: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_BITBLT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_BITMAP64: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_DEVBITS: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_DIBTODEV: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_DI_BITMAP: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_FLOODFILL: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_GDI20_OUTPUT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_GDI20_STATE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_OP_DX_OUTPUT: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_PALETTE: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_SAVEBITMAP: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_SCALING: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_STRETCHBLT: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RC_STRETCHDIB: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDH_RECTANGLES: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type READEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *mut ::core::ffi::c_void, param2: u32) -> u32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type REDRAW_WINDOW_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_INVALIDATE: REDRAW_WINDOW_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_INTERNALPAINT: REDRAW_WINDOW_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_ERASE: REDRAW_WINDOW_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_VALIDATE: REDRAW_WINDOW_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_NOINTERNALPAINT: REDRAW_WINDOW_FLAGS = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_NOERASE: REDRAW_WINDOW_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_NOCHILDREN: REDRAW_WINDOW_FLAGS = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_ALLCHILDREN: REDRAW_WINDOW_FLAGS = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_UPDATENOW: REDRAW_WINDOW_FLAGS = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_ERASENOW: REDRAW_WINDOW_FLAGS = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_FRAME: REDRAW_WINDOW_FLAGS = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RDW_NOFRAME: REDRAW_WINDOW_FLAGS = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RELATIVE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RESTORE_CTM: u32 = 4100u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct RGBQUAD {
     pub rgbBlue: u8,
     pub rgbGreen: u8,
@@ -10435,6 +12394,7 @@ impl ::core::default::Default for RGBQUAD {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct RGBTRIPLE {
     pub rgbtBlue: u8,
     pub rgbtGreen: u8,
@@ -10461,6 +12421,7 @@ impl ::core::default::Default for RGBTRIPLE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATA {
     pub rdh: RGNDATAHEADER,
@@ -10493,6 +12454,7 @@ impl ::core::default::Default for RGNDATA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct RGNDATAHEADER {
     pub dwSize: u32,
@@ -10527,34 +12489,63 @@ impl ::core::default::Default for RGNDATAHEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type RGN_COMBINE_MODE = i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_AND: RGN_COMBINE_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_OR: RGN_COMBINE_MODE = 2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_XOR: RGN_COMBINE_MODE = 3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_DIFF: RGN_COMBINE_MODE = 4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_COPY: RGN_COMBINE_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_MIN: RGN_COMBINE_MODE = 1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_MAX: RGN_COMBINE_MODE = 5i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RGN_ERROR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type ROP_CODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SRCCOPY: ROP_CODE = 13369376u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SRCPAINT: ROP_CODE = 15597702u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SRCAND: ROP_CODE = 8913094u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SRCINVERT: ROP_CODE = 6684742u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SRCERASE: ROP_CODE = 4457256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NOTSRCCOPY: ROP_CODE = 3342344u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NOTSRCERASE: ROP_CODE = 1114278u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MERGECOPY: ROP_CODE = 12583114u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const MERGEPAINT: ROP_CODE = 12255782u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PATCOPY: ROP_CODE = 15728673u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PATPAINT: ROP_CODE = 16452105u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const PATINVERT: ROP_CODE = 5898313u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DSTINVERT: ROP_CODE = 5570569u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BLACKNESS: ROP_CODE = 66u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WHITENESS: ROP_CODE = 16711778u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const NOMIRRORBITMAP: ROP_CODE = 2147483648u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const CAPTUREBLT: ROP_CODE = 1073741824u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const RUSSIAN_CHARSET: u32 = 204u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn RealizePalette<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> u32 {
     #[cfg(windows)]
@@ -10568,6 +12559,7 @@ pub unsafe fn RealizePalette<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RectInRegion<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: Param0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -10582,6 +12574,7 @@ pub unsafe fn RectInRegion<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrg
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RectVisible<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -10596,6 +12589,7 @@ pub unsafe fn RectVisible<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn Rectangle<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
@@ -10610,6 +12604,7 @@ pub unsafe fn Rectangle<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RedrawWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param2: ::windows::core::IntoParam<'a, HRGN>>(hwnd: Param0, lprcupdate: *const super::super::Foundation::RECT, hrgnupdate: Param2, flags: REDRAW_WINDOW_FLAGS) -> super::super::Foundation::BOOL {
@@ -10624,6 +12619,7 @@ pub unsafe fn RedrawWindow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HDC>>(hwnd: Param0, hdc: Param1) -> i32 {
@@ -10638,6 +12634,7 @@ pub unsafe fn ReleaseDC<'a, Param0: ::windows::core::IntoParam<'a, super::super:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontMemResourceEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(h: Param0) -> super::super::Foundation::BOOL {
@@ -10652,6 +12649,7 @@ pub unsafe fn RemoveFontMemResourceEx<'a, Param0: ::windows::core::IntoParam<'a,
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -10666,6 +12664,7 @@ pub unsafe fn RemoveFontResourceA<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExA<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(name: Param0, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10680,6 +12679,7 @@ pub unsafe fn RemoveFontResourceExA<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceExW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(name: Param0, fl: u32, pdv: *mut ::core::ffi::c_void) -> super::super::Foundation::BOOL {
@@ -10694,6 +12694,7 @@ pub unsafe fn RemoveFontResourceExW<'a, Param0: ::windows::core::IntoParam<'a, s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RemoveFontResourceW<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(lpfilename: Param0) -> super::super::Foundation::BOOL {
@@ -10708,6 +12709,7 @@ pub unsafe fn RemoveFontResourceW<'a, Param0: ::windows::core::IntoParam<'a, sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDCA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpdm: *const DEVMODEA) -> HDC {
@@ -10722,6 +12724,7 @@ pub unsafe fn ResetDCA<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResetDCW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpdm: *const DEVMODEW) -> HDC {
@@ -10736,6 +12739,7 @@ pub unsafe fn ResetDCW<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ResizePalette<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE>>(hpal: Param0, n: u32) -> super::super::Foundation::BOOL {
@@ -10750,6 +12754,7 @@ pub unsafe fn ResizePalette<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RestoreDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, nsaveddc: i32) -> super::super::Foundation::BOOL {
@@ -10764,6 +12769,7 @@ pub unsafe fn RestoreDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn RoundRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, left: i32, top: i32, right: i32, bottom: i32, width: i32, height: i32) -> super::super::Foundation::BOOL {
@@ -10778,84 +12784,163 @@ pub unsafe fn RoundRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SAVE_CTM: u32 = 4101u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SB_CONST_ALPHA: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SB_GRAD_RECT: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SB_GRAD_TRI: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SB_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SB_PIXEL_ALPHA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SB_PREMULT_ALPHA: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SC_SCREENSAVE: u32 = 61760u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_ALLOW_CHANGES: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_ALLOW_PATH_ORDER_CHANGES: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_APPLY: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_FORCE_MODE_ENUMERATION: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_NO_OPTIMIZATION: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_PATH_PERSIST_IF_REQUIRED: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_SAVE_TO_DATABASE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_TOPOLOGY_CLONE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_TOPOLOGY_EXTEND: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_TOPOLOGY_EXTERNAL: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_TOPOLOGY_INTERNAL: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_TOPOLOGY_SUPPLIED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_USE_SUPPLIED_DISPLAY_CONFIG: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_VALIDATE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_VIRTUAL_MODE_AWARE: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SDC_VIRTUAL_REFRESH_RATE_AWARE: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SELECTDIB: u32 = 41u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SELECTPAPERSOURCE: u32 = 18u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETABORTPROC: u32 = 9u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETALLJUSTVALUES: u32 = 771u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETCHARSET: u32 = 772u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETCOLORTABLE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETCOPYCOUNT: u32 = 17u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETDIBSCALING: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETICMPROFILE_EMBEDED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETKERNTRACK: u32 = 770u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETLINECAP: u32 = 21u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETLINEJOIN: u32 = 22u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SETMITERLIMIT: u32 = 23u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_ARC_DIRECTION: u32 = 4102u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_BACKGROUND_COLOR: u32 = 4103u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_BOUNDS: u32 = 4109u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type SET_BOUNDS_RECT_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCB_ACCUMULATE: SET_BOUNDS_RECT_FLAGS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCB_DISABLE: SET_BOUNDS_RECT_FLAGS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCB_ENABLE: SET_BOUNDS_RECT_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const DCB_RESET: SET_BOUNDS_RECT_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_CLIP_BOX: u32 = 4108u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_MIRROR_MODE: u32 = 4110u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_POLY_MODE: u32 = 4104u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_SCREEN_ANGLE: u32 = 4105u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SET_SPREAD: u32 = 4106u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SHIFTJIS_CHARSET: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SIMPLEREGION: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SPCLPASSTHROUGH2: u32 = 4568u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SP_APPABORT: i32 = -2i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SP_ERROR: i32 = -1i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SP_NOTREPORTED: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SP_OUTOFDISK: i32 = -4i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SP_OUTOFMEMORY: i32 = -5i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SP_USERABORT: i32 = -3i32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STARTDOC: u32 = 10u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STOCK_LAST: u32 = 19u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STRETCHBLT: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type STRETCH_BLT_MODE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const BLACKONWHITE: STRETCH_BLT_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const COLORONCOLOR: STRETCH_BLT_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const HALFTONE: STRETCH_BLT_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STRETCH_ANDSCANS: STRETCH_BLT_MODE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STRETCH_DELETESCANS: STRETCH_BLT_MODE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STRETCH_HALFTONE: STRETCH_BLT_MODE = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const STRETCH_ORSCANS: STRETCH_BLT_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WHITEONBLACK: STRETCH_BLT_MODE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYMBOL_CHARSET: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSPAL_ERROR: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSRGN: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type SYSTEM_PALETTE_USE = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSPAL_NOSTATIC: SYSTEM_PALETTE_USE = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSPAL_NOSTATIC256: SYSTEM_PALETTE_USE = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const SYSPAL_STATIC: SYSTEM_PALETTE_USE = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SaveDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -10869,6 +12954,7 @@ pub unsafe fn SaveDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScaleViewportExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, xn: i32, dx: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -10883,6 +12969,7 @@ pub unsafe fn ScaleViewportExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScaleWindowExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, xn: i32, xd: i32, yn: i32, yd: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -10897,6 +12984,7 @@ pub unsafe fn ScaleWindowExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ScreenToClient<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lppoint: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -10911,6 +12999,7 @@ pub unsafe fn ScreenToClient<'a, Param0: ::windows::core::IntoParam<'a, super::s
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SelectClipPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, mode: RGN_COMBINE_MODE) -> super::super::Foundation::BOOL {
@@ -10925,6 +13014,7 @@ pub unsafe fn SelectClipPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SelectClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hdc: Param0, hrgn: Param1) -> i32 {
     #[cfg(windows)]
@@ -10938,6 +13028,7 @@ pub unsafe fn SelectClipRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SelectObject<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HGDIOBJ>>(hdc: Param0, h: Param1) -> HGDIOBJ {
     #[cfg(windows)]
@@ -10951,6 +13042,7 @@ pub unsafe fn SelectObject<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SelectPalette<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HPALETTE>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hdc: Param0, hpal: Param1, bforcebkgd: Param2) -> HPALETTE {
@@ -10965,6 +13057,7 @@ pub unsafe fn SelectPalette<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetArcDirection<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, dir: ARC_DIRECTION) -> i32 {
     #[cfg(windows)]
@@ -10978,6 +13071,7 @@ pub unsafe fn SetArcDirection<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetBitmapBits<'a, Param0: ::windows::core::IntoParam<'a, HBITMAP>>(hbm: Param0, cb: u32, pvbits: *const ::core::ffi::c_void) -> i32 {
     #[cfg(windows)]
@@ -10991,6 +13085,7 @@ pub unsafe fn SetBitmapBits<'a, Param0: ::windows::core::IntoParam<'a, HBITMAP>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBitmapDimensionEx<'a, Param0: ::windows::core::IntoParam<'a, HBITMAP>>(hbm: Param0, w: i32, h: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -11005,6 +13100,7 @@ pub unsafe fn SetBitmapDimensionEx<'a, Param0: ::windows::core::IntoParam<'a, HB
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, color: u32) -> u32 {
     #[cfg(windows)]
@@ -11018,6 +13114,7 @@ pub unsafe fn SetBkColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetBkMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, mode: BACKGROUND_MODE) -> i32 {
     #[cfg(windows)]
@@ -11031,6 +13128,7 @@ pub unsafe fn SetBkMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBoundsRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lprect: *const super::super::Foundation::RECT, flags: SET_BOUNDS_RECT_FLAGS) -> u32 {
@@ -11045,6 +13143,7 @@ pub unsafe fn SetBoundsRect<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetBrushOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -11059,6 +13158,7 @@ pub unsafe fn SetBrushOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetColorAdjustment<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpca: *const COLORADJUSTMENT) -> super::super::Foundation::BOOL {
@@ -11073,6 +13173,7 @@ pub unsafe fn SetColorAdjustment<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetDCBrushColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, color: u32) -> u32 {
     #[cfg(windows)]
@@ -11086,6 +13187,7 @@ pub unsafe fn SetDCBrushColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetDCPenColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, color: u32) -> u32 {
     #[cfg(windows)]
@@ -11099,6 +13201,7 @@ pub unsafe fn SetDCPenColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetDIBColorTable<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, istart: u32, centries: u32, prgbq: *const RGBQUAD) -> u32 {
     #[cfg(windows)]
@@ -11112,6 +13215,7 @@ pub unsafe fn SetDIBColorTable<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetDIBits<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, HBITMAP>>(hdc: Param0, hbm: Param1, start: u32, clines: u32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32 {
     #[cfg(windows)]
@@ -11125,6 +13229,7 @@ pub unsafe fn SetDIBits<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetDIBitsToDevice<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, xdest: i32, ydest: i32, w: u32, h: u32, xsrc: i32, ysrc: i32, startscan: u32, clines: u32, lpvbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, coloruse: DIB_USAGE) -> i32 {
     #[cfg(windows)]
@@ -11138,6 +13243,7 @@ pub unsafe fn SetDIBitsToDevice<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
     #[cfg(windows)]
@@ -11151,6 +13257,7 @@ pub unsafe fn SetEnhMetaFileBits(nsize: u32, pb: *const u8) -> HENHMETAFILE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetGraphicsMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, imode: GRAPHICS_MODE) -> i32 {
     #[cfg(windows)]
@@ -11164,6 +13271,7 @@ pub unsafe fn SetGraphicsMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetLayout<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, l: DC_LAYOUT) -> u32 {
     #[cfg(windows)]
@@ -11177,6 +13285,7 @@ pub unsafe fn SetLayout<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetMapMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, imode: HDC_MAP_MODE) -> i32 {
     #[cfg(windows)]
@@ -11190,6 +13299,7 @@ pub unsafe fn SetMapMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetMapperFlags<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, flags: u32) -> u32 {
     #[cfg(windows)]
@@ -11203,6 +13313,7 @@ pub unsafe fn SetMapperFlags<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
     #[cfg(windows)]
@@ -11216,6 +13327,7 @@ pub unsafe fn SetMetaFileBitsEx(cbbuffer: u32, lpdata: *const u8) -> HMETAFILE {
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetMetaRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> i32 {
     #[cfg(windows)]
@@ -11229,6 +13341,7 @@ pub unsafe fn SetMetaRgn<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetMiterLimit<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, limit: f32, old: *mut f32) -> super::super::Foundation::BOOL {
@@ -11243,6 +13356,7 @@ pub unsafe fn SetMiterLimit<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HPALETTE>>(hpal: Param0, istart: u32, centries: u32, ppalentries: *const PALETTEENTRY) -> u32 {
     #[cfg(windows)]
@@ -11256,6 +13370,7 @@ pub unsafe fn SetPaletteEntries<'a, Param0: ::windows::core::IntoParam<'a, HPALE
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetPixel<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, color: u32) -> u32 {
     #[cfg(windows)]
@@ -11269,6 +13384,7 @@ pub unsafe fn SetPixel<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Par
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetPixelV<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, color: u32) -> super::super::Foundation::BOOL {
@@ -11283,6 +13399,7 @@ pub unsafe fn SetPixelV<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetPolyFillMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, mode: CREATE_POLYGON_RGN_MODE) -> i32 {
     #[cfg(windows)]
@@ -11296,6 +13413,7 @@ pub unsafe fn SetPolyFillMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetROP2<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, rop2: R2_MODE) -> i32 {
     #[cfg(windows)]
@@ -11309,6 +13427,7 @@ pub unsafe fn SetROP2<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Para
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, ytop: i32, xright: i32, ybottom: i32) -> super::super::Foundation::BOOL {
@@ -11323,6 +13442,7 @@ pub unsafe fn SetRect(lprc: *mut super::super::Foundation::RECT, xleft: i32, yto
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -11337,6 +13457,7 @@ pub unsafe fn SetRectEmpty(lprc: *mut super::super::Foundation::RECT) -> super::
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetRectRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn: Param0, left: i32, top: i32, right: i32, bottom: i32) -> super::super::Foundation::BOOL {
@@ -11351,6 +13472,7 @@ pub unsafe fn SetRectRgn<'a, Param0: ::windows::core::IntoParam<'a, HRGN>>(hrgn:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetStretchBltMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, mode: STRETCH_BLT_MODE) -> i32 {
     #[cfg(windows)]
@@ -11364,6 +13486,7 @@ pub unsafe fn SetStretchBltMode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetSystemPaletteUse<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, r#use: SYSTEM_PALETTE_USE) -> u32 {
     #[cfg(windows)]
@@ -11377,6 +13500,7 @@ pub unsafe fn SetSystemPaletteUse<'a, Param0: ::windows::core::IntoParam<'a, HDC
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetTextAlign<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, align: TEXT_ALIGN_OPTIONS) -> u32 {
     #[cfg(windows)]
@@ -11390,6 +13514,7 @@ pub unsafe fn SetTextAlign<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetTextCharacterExtra<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, extra: i32) -> i32 {
     #[cfg(windows)]
@@ -11403,6 +13528,7 @@ pub unsafe fn SetTextCharacterExtra<'a, Param0: ::windows::core::IntoParam<'a, H
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn SetTextColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, color: u32) -> u32 {
     #[cfg(windows)]
@@ -11416,6 +13542,7 @@ pub unsafe fn SetTextColor<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetTextJustification<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, extra: i32, count: i32) -> super::super::Foundation::BOOL {
@@ -11430,6 +13557,7 @@ pub unsafe fn SetTextJustification<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetViewportExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -11444,6 +13572,7 @@ pub unsafe fn SetViewportExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetViewportOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -11458,6 +13587,7 @@ pub unsafe fn SetViewportOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lpsz: *mut super::super::Foundation::SIZE) -> super::super::Foundation::BOOL {
@@ -11472,6 +13602,7 @@ pub unsafe fn SetWindowExtEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, x: i32, y: i32, lppt: *mut super::super::Foundation::POINT) -> super::super::Foundation::BOOL {
@@ -11486,6 +13617,7 @@ pub unsafe fn SetWindowOrgEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hd
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWindowRgn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HRGN>, Param2: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(hwnd: Param0, hrgn: Param1, bredraw: Param2) -> i32 {
@@ -11500,6 +13632,7 @@ pub unsafe fn SetWindowRgn<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SetWorldTransform<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, lpxf: *const XFORM) -> super::super::Foundation::BOOL {
@@ -11514,6 +13647,7 @@ pub unsafe fn SetWorldTransform<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StretchBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, HDC>>(hdcdest: Param0, xdest: i32, ydest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xsrc: i32, ysrc: i32, wsrc: i32, hsrc: i32, rop: ROP_CODE) -> super::super::Foundation::BOOL {
@@ -11528,6 +13662,7 @@ pub unsafe fn StretchBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn StretchDIBits<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, xdest: i32, ydest: i32, destwidth: i32, destheight: i32, xsrc: i32, ysrc: i32, srcwidth: i32, srcheight: i32, lpbits: *const ::core::ffi::c_void, lpbmi: *const BITMAPINFO, iusage: DIB_USAGE, rop: ROP_CODE) -> i32 {
     #[cfg(windows)]
@@ -11541,6 +13676,7 @@ pub unsafe fn StretchDIBits<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrokeAndFillPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -11555,6 +13691,7 @@ pub unsafe fn StrokeAndFillPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn StrokePath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -11569,6 +13706,7 @@ pub unsafe fn StrokePath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: P
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -11583,24 +13721,42 @@ pub unsafe fn SubtractRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_CP_STROKE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_CR_90: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_CR_ANY: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_EA_DOUBLE: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_IA_ABLE: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_OP_CHARACTER: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_OP_STROKE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_RA_ABLE: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_RESERVED: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_SA_CONTIN: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_SA_DOUBLE: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_SA_INTEGER: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_SCROLLBLT: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_SF_X_YINDEP: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_SO_ABLE: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_UA_ABLE: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TC_VA_ABLE: u32 = 16384u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TEXTMETRICA {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -11644,6 +13800,7 @@ impl ::core::default::Default for TEXTMETRICA {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TEXTMETRICW {
     pub tmHeight: i32,
     pub tmAscent: i32,
@@ -11686,30 +13843,54 @@ impl ::core::default::Default for TEXTMETRICW {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type TEXT_ALIGN_OPTIONS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_NOUPDATECP: TEXT_ALIGN_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_UPDATECP: TEXT_ALIGN_OPTIONS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_LEFT: TEXT_ALIGN_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_RIGHT: TEXT_ALIGN_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_CENTER: TEXT_ALIGN_OPTIONS = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_TOP: TEXT_ALIGN_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_BOTTOM: TEXT_ALIGN_OPTIONS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_BASELINE: TEXT_ALIGN_OPTIONS = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_RTLREADING: TEXT_ALIGN_OPTIONS = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TA_MASK: TEXT_ALIGN_OPTIONS = 287u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VTA_BASELINE: TEXT_ALIGN_OPTIONS = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VTA_LEFT: TEXT_ALIGN_OPTIONS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VTA_RIGHT: TEXT_ALIGN_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VTA_CENTER: TEXT_ALIGN_OPTIONS = 6u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VTA_BOTTOM: TEXT_ALIGN_OPTIONS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VTA_TOP: TEXT_ALIGN_OPTIONS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const THAI_CHARSET: u32 = 222u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TMPF_DEVICE: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TMPF_FIXED_PITCH: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TMPF_TRUETYPE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TMPF_VECTOR: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TRANSFORM_CTM: u32 = 4107u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TRIVERTEX {
     pub x: i32,
     pub y: i32,
@@ -11738,7 +13919,9 @@ impl ::core::default::Default for TRIVERTEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TRUETYPE_FONTTYPE: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn TTCharToUnicode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, puccharcodes: *const u8, ulcharcodesize: u32, pusshortcodes: *mut u16, ulshortcodesize: u32, ulflags: u32) -> i32 {
     #[cfg(windows)]
@@ -11752,7 +13935,9 @@ pub unsafe fn TTCharToUnicode<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(h
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTDELETE_DONTREMOVEFONT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTDeleteEmbeddedFont<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HANDLE>>(hfontreference: Param0, ulflags: u32, pulstatus: *mut u32) -> i32 {
@@ -11768,6 +13953,7 @@ pub unsafe fn TTDeleteEmbeddedFont<'a, Param0: ::windows::core::IntoParam<'a, su
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TTEMBEDINFO {
     pub usStructSize: u16,
     pub usRootStrSize: u16,
@@ -11793,17 +13979,29 @@ impl ::core::default::Default for TTEMBEDINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_EUDCEMBEDDED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_FAILIFVARIATIONSIMULATED: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type TTEMBED_FLAGS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_EMBEDEUDC: TTEMBED_FLAGS = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_RAW: TTEMBED_FLAGS = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_SUBSET: TTEMBED_FLAGS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_TTCOMPRESSED: TTEMBED_FLAGS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_SUBSETCANCEL: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_VARIATIONSIMULATED: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_WEBOBJECT: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTEMBED_XORENCRYPTDATA: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn TTEmbedFont<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32 {
     #[cfg(windows)]
@@ -11817,6 +14015,7 @@ pub unsafe fn TTEmbedFont<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn TTEmbedFontEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, pulcharcodeset: *const u32, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32 {
     #[cfg(windows)]
@@ -11830,6 +14029,7 @@ pub unsafe fn TTEmbedFontEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTEmbedFontFromFileA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, szfontfilename: Param1, usttcindex: u16, ulflags: TTEMBED_FLAGS, ulcharset: EMBED_FONT_CHARSET, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, pulstatus: *mut u32, lpfnwritetostream: WRITEEMBEDPROC, lpvwritestream: *const ::core::ffi::c_void, puscharcodeset: *const u16, uscharcodecount: u16, uslanguage: u16, pttembedinfo: *const TTEMBEDINFO) -> i32 {
@@ -11858,6 +14058,7 @@ pub unsafe fn TTEmbedFontFromFileA<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTEnableEmbeddingForFacename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::BOOL>>(lpszfacename: Param0, benable: Param1) -> i32 {
@@ -11872,20 +14073,35 @@ pub unsafe fn TTEnableEmbeddingForFacename<'a, Param0: ::windows::core::IntoPara
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_APPLE_PLATFORMID: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_DELTA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_DONT_CARE: u32 = 65535u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_FLAGS_COMPRESS: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_FLAGS_GLYPHLIST: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_FLAGS_SUBSET: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_FLAGS_TTC: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_LANG_KEEP_ALL: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_MS_PLATFORMID: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_SUBSET: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFCFP_SUBSET1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFMFP_DELTA: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFMFP_SUBSET: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTFMFP_SUBSET1: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut u32, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut u32, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, pttloadinfo: *const TTLOADINFO) -> i32 {
     #[cfg(windows)]
@@ -11899,6 +14115,7 @@ pub unsafe fn TTGetEmbeddedFontInfo(ulflags: TTEMBED_FLAGS, pulprivstatus: *mut 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn TTGetEmbeddingType<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, pulembedtype: *mut EMBEDDED_FONT_PRIV_STATUS) -> i32 {
     #[cfg(windows)]
@@ -11912,6 +14129,7 @@ pub unsafe fn TTGetEmbeddingType<'a, Param0: ::windows::core::IntoParam<'a, HDC>
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation::HANDLE, wzwinfamilyname: super::super::Foundation::PWSTR, cchmaxwinname: i32, szmacfamilyname: super::super::Foundation::PSTR, cchmaxmacname: i32) -> i32 {
@@ -11926,6 +14144,7 @@ pub unsafe fn TTGetNewFontName(phfontreference: *const super::super::Foundation:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabled<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, pbenabled: *mut super::super::Foundation::BOOL) -> i32 {
@@ -11940,6 +14159,7 @@ pub unsafe fn TTIsEmbeddingEnabled<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTIsEmbeddingEnabledForFacename<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(lpszfacename: Param0, pbenabled: *mut super::super::Foundation::BOOL) -> i32 {
@@ -11955,6 +14175,7 @@ pub unsafe fn TTIsEmbeddingEnabledForFacename<'a, Param0: ::windows::core::IntoP
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TTLOADINFO {
     pub usStructSize: u16,
     pub usRefStrSize: u16,
@@ -11980,12 +14201,19 @@ impl ::core::default::Default for TTLOADINFO {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type TTLOAD_EMBEDDED_FONT_STATUS = u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTLOAD_FONT_SUBSETTED: TTLOAD_EMBEDDED_FONT_STATUS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTLOAD_FONT_IN_SYSSTARTUP: TTLOAD_EMBEDDED_FONT_STATUS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTLOAD_EUDC_OVERWRITE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTLOAD_EUDC_SET: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TTLOAD_PRIVATE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TTLoadEmbeddedFont<'a, Param7: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>, Param8: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(phfontreference: *mut super::super::Foundation::HANDLE, ulflags: u32, pulprivstatus: *mut EMBEDDED_FONT_PRIV_STATUS, ulprivs: FONT_LICENSE_PRIVS, pulstatus: *mut TTLOAD_EMBEDDED_FONT_STATUS, lpfnreadfromstream: READEMBEDPROC, lpvreadstream: *const ::core::ffi::c_void, szwinfamilyname: Param7, szmacfamilyname: Param8, pttloadinfo: *const TTLOADINFO) -> i32 {
@@ -12001,6 +14229,7 @@ pub unsafe fn TTLoadEmbeddedFont<'a, Param7: ::windows::core::IntoParam<'a, supe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TTPOLYCURVE {
     pub wType: u16,
     pub cpfx: u16,
@@ -12027,6 +14256,7 @@ impl ::core::default::Default for TTPOLYCURVE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TTPOLYGONHEADER {
     pub cb: u32,
     pub dwType: u32,
@@ -12052,6 +14282,7 @@ impl ::core::default::Default for TTPOLYGONHEADER {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn TTRunValidationTests<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ptestparam: *const TTVALIDATIONTESTSPARAMS) -> i32 {
     #[cfg(windows)]
@@ -12065,6 +14296,7 @@ pub unsafe fn TTRunValidationTests<'a, Param0: ::windows::core::IntoParam<'a, HD
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn TTRunValidationTestsEx<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0, ptestparam: *const TTVALIDATIONTESTSPARAMSEX) -> i32 {
     #[cfg(windows)]
@@ -12079,6 +14311,7 @@ pub unsafe fn TTRunValidationTestsEx<'a, Param0: ::windows::core::IntoParam<'a, 
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TTVALIDATIONTESTSPARAMS {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -12109,6 +14342,7 @@ impl ::core::default::Default for TTVALIDATIONTESTSPARAMS {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct TTVALIDATIONTESTSPARAMSEX {
     pub ulStructSize: u32,
     pub lTestFromSize: i32,
@@ -12138,13 +14372,21 @@ impl ::core::default::Default for TTVALIDATIONTESTSPARAMSEX {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TT_AVAILABLE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TT_ENABLED: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TT_POLYGON_TYPE: u32 = 24u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TT_PRIM_CSPLINE: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TT_PRIM_LINE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TT_PRIM_QSPLINE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const TURKISH_CHARSET: u32 = 162u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TabbedTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32 {
@@ -12159,6 +14401,7 @@ pub unsafe fn TabbedTextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TabbedTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, chcount: i32, ntabpositions: i32, lpntabstoppositions: *const i32, ntaborigin: i32) -> i32 {
@@ -12173,6 +14416,7 @@ pub unsafe fn TabbedTextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, c: i32) -> super::super::Foundation::BOOL {
@@ -12187,6 +14431,7 @@ pub unsafe fn TextOutA<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: ::windows::core::IntoParam<'a, super::super::Foundation::PWSTR>>(hdc: Param0, x: i32, y: i32, lpstring: Param3, c: i32) -> super::super::Foundation::BOOL {
@@ -12201,6 +14446,7 @@ pub unsafe fn TextOutW<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param3: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn TransparentBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Param5: ::windows::core::IntoParam<'a, HDC>>(hdcdest: Param0, xorigindest: i32, yorigindest: i32, wdest: i32, hdest: i32, hdcsrc: Param5, xoriginsrc: i32, yoriginsrc: i32, wsrc: i32, hsrc: i32, crtransparent: u32) -> super::super::Foundation::BOOL {
@@ -12215,6 +14461,7 @@ pub unsafe fn TransparentBlt<'a, Param0: ::windows::core::IntoParam<'a, HDC>, Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: *const super::super::Foundation::RECT, lprcsrc2: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -12229,6 +14476,7 @@ pub unsafe fn UnionRect(lprcdst: *mut super::super::Foundation::RECT, lprcsrc1: 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UnrealizeObject<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ>>(h: Param0) -> super::super::Foundation::BOOL {
@@ -12243,6 +14491,7 @@ pub unsafe fn UnrealizeObject<'a, Param0: ::windows::core::IntoParam<'a, HGDIOBJ
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateColors<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -12257,6 +14506,7 @@ pub unsafe fn UpdateColors<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn UpdateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0) -> super::super::Foundation::BOOL {
@@ -12271,8 +14521,11 @@ pub unsafe fn UpdateWindow<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VARIABLE_PITCH: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const VIETNAMESE_CHARSET: u32 = 163u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateRect<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>>(hwnd: Param0, lprect: *const super::super::Foundation::RECT) -> super::super::Foundation::BOOL {
@@ -12287,6 +14540,7 @@ pub unsafe fn ValidateRect<'a, Param0: ::windows::core::IntoParam<'a, super::sup
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn ValidateRgn<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::HWND>, Param1: ::windows::core::IntoParam<'a, HRGN>>(hwnd: Param0, hrgn: Param1) -> super::super::Foundation::BOOL {
@@ -12302,6 +14556,7 @@ pub unsafe fn ValidateRgn<'a, Param0: ::windows::core::IntoParam<'a, super::supe
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct WCRANGE {
     pub wcLow: u16,
     pub cGlyphs: u16,
@@ -12327,6 +14582,7 @@ impl ::core::default::Default for WCRANGE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct WGLSWAP {
     pub hdc: HDC,
     pub uiFlags: u32,
@@ -12351,41 +14607,77 @@ impl ::core::default::Default for WGLSWAP {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_FONT_LINES: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_FONT_POLYGONS: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAPMULTIPLE_MAX: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_MAIN_PLANE: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY1: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY10: u32 = 1024u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY11: u32 = 2048u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY12: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY13: u32 = 8192u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY14: u32 = 16384u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY15: u32 = 32768u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY2: u32 = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY3: u32 = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY4: u32 = 16u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY5: u32 = 32u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY6: u32 = 64u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY7: u32 = 128u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY8: u32 = 256u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_OVERLAY9: u32 = 512u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY1: u32 = 65536u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY10: u32 = 33554432u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY11: u32 = 67108864u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY12: u32 = 134217728u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY13: u32 = 268435456u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY14: u32 = 536870912u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY15: u32 = 1073741824u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY2: u32 = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY3: u32 = 262144u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY4: u32 = 524288u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY5: u32 = 1048576u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY6: u32 = 2097152u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY7: u32 = 4194304u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY8: u32 = 8388608u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub const WGL_SWAP_UNDERLAY9: u32 = 16777216u32;
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub type WRITEEMBEDPROC = ::core::option::Option<unsafe extern "system" fn(param0: *mut ::core::ffi::c_void, param1: *const ::core::ffi::c_void, param2: u32) -> u32>;
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WidenPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::BOOL {
@@ -12400,6 +14692,7 @@ pub unsafe fn WidenPath<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Pa
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
 pub unsafe fn WindowFromDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc: Param0) -> super::super::Foundation::HWND {
@@ -12415,6 +14708,7 @@ pub unsafe fn WindowFromDC<'a, Param0: ::windows::core::IntoParam<'a, HDC>>(hdc:
     unimplemented!("Unsupported target OS");
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 pub struct XFORM {
     pub eM11: f32,
     pub eM12: f32,
@@ -12443,6 +14737,7 @@ impl ::core::default::Default for XFORM {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Win32_Graphics_Gdi'*"]
 #[inline]
 pub unsafe fn wglSwapMultipleBuffers(param0: u32, param1: *const WGLSWAP) -> u32 {
     #[cfg(windows)]

@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type GattCharacteristic = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattCharacteristicProperties(pub u32);
 impl GattCharacteristicProperties {
@@ -24,6 +23,7 @@ impl ::core::clone::Clone for GattCharacteristicProperties {
     }
 }
 pub type GattCharacteristicsResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattClientCharacteristicConfigurationDescriptorValue(pub i32);
 impl GattClientCharacteristicConfigurationDescriptorValue {
@@ -38,6 +38,7 @@ impl ::core::clone::Clone for GattClientCharacteristicConfigurationDescriptorVal
     }
 }
 pub type GattClientNotificationResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattCommunicationStatus(pub i32);
 impl GattCommunicationStatus {
@@ -63,6 +64,7 @@ pub type GattLocalDescriptor = *mut ::core::ffi::c_void;
 pub type GattLocalDescriptorParameters = *mut ::core::ffi::c_void;
 pub type GattLocalDescriptorResult = *mut ::core::ffi::c_void;
 pub type GattLocalService = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattOpenStatus(pub i32);
 impl GattOpenStatus {
@@ -80,6 +82,7 @@ impl ::core::clone::Clone for GattOpenStatus {
     }
 }
 pub type GattPresentationFormat = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattProtectionLevel(pub i32);
 impl GattProtectionLevel {
@@ -99,6 +102,7 @@ pub type GattReadRequest = *mut ::core::ffi::c_void;
 pub type GattReadRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type GattReadResult = *mut ::core::ffi::c_void;
 pub type GattReliableWriteTransaction = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattRequestState(pub i32);
 impl GattRequestState {
@@ -114,6 +118,7 @@ impl ::core::clone::Clone for GattRequestState {
 }
 pub type GattRequestStateChangedEventArgs = *mut ::core::ffi::c_void;
 pub type GattServiceProvider = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattServiceProviderAdvertisementStatus(pub i32);
 impl GattServiceProviderAdvertisementStatus {
@@ -133,6 +138,7 @@ pub type GattServiceProviderAdvertisementStatusChangedEventArgs = *mut ::core::f
 pub type GattServiceProviderAdvertisingParameters = *mut ::core::ffi::c_void;
 pub type GattServiceProviderResult = *mut ::core::ffi::c_void;
 pub type GattSession = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattSessionStatus(pub i32);
 impl GattSessionStatus {
@@ -146,6 +152,7 @@ impl ::core::clone::Clone for GattSessionStatus {
     }
 }
 pub type GattSessionStatusChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattSharingMode(pub i32);
 impl GattSharingMode {
@@ -162,6 +169,7 @@ impl ::core::clone::Clone for GattSharingMode {
 }
 pub type GattSubscribedClient = *mut ::core::ffi::c_void;
 pub type GattValueChangedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Devices_Bluetooth_GenericAttributeProfile'*"]
 #[repr(transparent)]
 pub struct GattWriteOption(pub i32);
 impl GattWriteOption {

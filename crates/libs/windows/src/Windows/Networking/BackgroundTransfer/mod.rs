@@ -1,5 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[repr(C)]
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct BackgroundDownloadProgress {
     pub BytesReceived: u64,
     pub TotalBytesToReceive: u64,
@@ -33,6 +34,7 @@ impl ::core::default::Default for BackgroundDownloadProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundDownloader(::windows::core::IUnknown);
 impl BackgroundDownloader {
@@ -43,6 +45,7 @@ impl BackgroundDownloader {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundDownloader, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateDownload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, uri: Param0, resultfile: Param1) -> ::windows::core::Result<DownloadOperation> {
         let this = self;
@@ -51,6 +54,7 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), uri.into_param().abi(), resultfile.into_param().abi(), &mut result__).from_abi::<DownloadOperation>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateDownloadFromFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, uri: Param0, resultfile: Param1, requestbodyfile: Param2) -> ::windows::core::Result<DownloadOperation> {
         let this = self;
@@ -59,6 +63,7 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), resultfile.into_param().abi(), requestbodyfile.into_param().abi(), &mut result__).from_abi::<DownloadOperation>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Storage', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage", feature = "Storage_Streams"))]
     pub fn CreateDownloadAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>, Param2: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, uri: Param0, resultfile: Param1, requestbodystream: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DownloadOperation>> {
         let this = self;
@@ -67,6 +72,7 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), uri.into_param().abi(), resultfile.into_param().abi(), requestbodystream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DownloadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe {
@@ -74,10 +80,12 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetTransferGroup<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTransferGroup>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
@@ -86,11 +94,13 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessToastNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::ToastNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
@@ -99,11 +109,13 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureToastNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::ToastNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
@@ -112,11 +124,13 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessTileNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::TileNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
@@ -125,11 +139,13 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureTileNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::TileNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CompletionGroup(&self) -> ::windows::core::Result<BackgroundTransferCompletionGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundDownloader3>(self)?;
         unsafe {
@@ -137,12 +153,14 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCompletionGroup>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CreateWithCompletionGroup<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTransferCompletionGroup>>(completiongroup: Param0) -> ::windows::core::Result<BackgroundDownloader> {
         Self::IBackgroundDownloaderFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), completiongroup.into_param().abi(), &mut result__).from_abi::<BackgroundDownloader>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetCurrentDownloadsAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
@@ -150,14 +168,15 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCurrentDownloadsForGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(group: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), group.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetCurrentDownloadsForTransferGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTransferGroup>>(group: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>> {
         Self::IBackgroundDownloaderStaticMethods2(|this| unsafe {
@@ -165,18 +184,20 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), group.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<DownloadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RequestUnconstrainedDownloadsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<DownloadOperation>>>(operations: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>> {
         Self::IBackgroundDownloaderUserConsent(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), operations.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -185,11 +206,13 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -198,11 +221,13 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
@@ -210,10 +235,12 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -222,11 +249,13 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn SetGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
@@ -234,22 +263,28 @@ impl BackgroundDownloader {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc(hidden)]
     pub fn IBackgroundDownloaderFactory<R, F: FnOnce(&IBackgroundDownloaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBackgroundDownloaderStaticMethods<R, F: FnOnce(&IBackgroundDownloaderStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBackgroundDownloaderStaticMethods2<R, F: FnOnce(&IBackgroundDownloaderStaticMethods2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderStaticMethods2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IBackgroundDownloaderUserConsent<R, F: FnOnce(&IBackgroundDownloaderUserConsent) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundDownloader, IBackgroundDownloaderUserConsent> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -340,6 +375,7 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferBase> for &Background
 }
 unsafe impl ::core::marker::Send for BackgroundDownloader {}
 unsafe impl ::core::marker::Sync for BackgroundDownloader {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferBehavior(pub i32);
 impl BackgroundTransferBehavior {
@@ -367,6 +403,7 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferBehavior {
 impl ::windows::core::DefaultType for BackgroundTransferBehavior {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroup(::windows::core::IUnknown);
 impl BackgroundTransferCompletionGroup {
@@ -377,6 +414,7 @@ impl BackgroundTransferCompletionGroup {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundTransferCompletionGroup, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'ApplicationModel_Background'*"]
     #[cfg(feature = "ApplicationModel_Background")]
     pub fn Trigger(&self) -> ::windows::core::Result<super::super::ApplicationModel::Background::IBackgroundTrigger> {
         let this = self;
@@ -385,6 +423,7 @@ impl BackgroundTransferCompletionGroup {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::ApplicationModel::Background::IBackgroundTrigger>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn IsEnabled(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -392,6 +431,7 @@ impl BackgroundTransferCompletionGroup {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Enable(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this)).ok() }
@@ -460,9 +500,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroup {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferCompletionGroupTriggerDetails(::windows::core::IUnknown);
 impl BackgroundTransferCompletionGroupTriggerDetails {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Downloads(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<DownloadOperation>> {
         let this = self;
@@ -471,6 +513,7 @@ impl BackgroundTransferCompletionGroupTriggerDetails {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVectorView<DownloadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Uploads(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVectorView<UploadOperation>> {
         let this = self;
@@ -543,6 +586,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferCompletionGroupTriggerDetails {}
 unsafe impl ::core::marker::Sync for BackgroundTransferCompletionGroupTriggerDetails {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferContentPart(::windows::core::IUnknown);
 impl BackgroundTransferContentPart {
@@ -553,31 +597,37 @@ impl BackgroundTransferContentPart {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundTransferContentPart, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetText<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Storage'*"]
     #[cfg(feature = "Storage")]
     pub fn SetFile<'a, Param0: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CreateWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<BackgroundTransferContentPart> {
         Self::IBackgroundTransferContentPartFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<BackgroundTransferContentPart>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CreateWithNameAndFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0, filename: Param1) -> ::windows::core::Result<BackgroundTransferContentPart> {
         Self::IBackgroundTransferContentPartFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), name.into_param().abi(), filename.into_param().abi(), &mut result__).from_abi::<BackgroundTransferContentPart>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBackgroundTransferContentPartFactory<R, F: FnOnce(&IBackgroundTransferContentPartFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundTransferContentPart, IBackgroundTransferContentPartFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -646,6 +696,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferContentPart {}
 unsafe impl ::core::marker::Sync for BackgroundTransferContentPart {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferCostPolicy(pub i32);
 impl BackgroundTransferCostPolicy {
@@ -674,8 +725,10 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferCostPolicy {
 impl ::windows::core::DefaultType for BackgroundTransferCostPolicy {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct BackgroundTransferError {}
 impl BackgroundTransferError {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Web'*"]
     #[cfg(feature = "Web")]
     pub fn GetStatus(hresult: i32) -> ::windows::core::Result<super::super::Web::WebErrorStatus> {
         Self::IBackgroundTransferErrorStaticMethods(|this| unsafe {
@@ -683,6 +736,7 @@ impl BackgroundTransferError {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), hresult, &mut result__).from_abi::<super::super::Web::WebErrorStatus>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBackgroundTransferErrorStaticMethods<R, F: FnOnce(&IBackgroundTransferErrorStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundTransferError, IBackgroundTransferErrorStaticMethods> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -692,6 +746,7 @@ impl ::windows::core::RuntimeName for BackgroundTransferError {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.BackgroundTransferError";
 }
 #[repr(C)]
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct BackgroundTransferFileRange {
     pub Offset: u64,
     pub Length: u64,
@@ -722,9 +777,11 @@ impl ::core::default::Default for BackgroundTransferFileRange {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferGroup(::windows::core::IUnknown);
 impl BackgroundTransferGroup {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Name(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -732,6 +789,7 @@ impl BackgroundTransferGroup {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn TransferBehavior(&self) -> ::windows::core::Result<BackgroundTransferBehavior> {
         let this = self;
         unsafe {
@@ -739,16 +797,19 @@ impl BackgroundTransferGroup {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferBehavior>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetTransferBehavior(&self, value: BackgroundTransferBehavior) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CreateGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(name: Param0) -> ::windows::core::Result<BackgroundTransferGroup> {
         Self::IBackgroundTransferGroupStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<BackgroundTransferGroup>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBackgroundTransferGroupStatics<R, F: FnOnce(&IBackgroundTransferGroupStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundTransferGroup, IBackgroundTransferGroupStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -817,6 +878,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferGroup {}
 unsafe impl ::core::marker::Sync for BackgroundTransferGroup {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferPriority(pub i32);
 impl BackgroundTransferPriority {
@@ -845,9 +907,11 @@ unsafe impl ::windows::core::RuntimeType for BackgroundTransferPriority {
 impl ::windows::core::DefaultType for BackgroundTransferPriority {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferRangesDownloadedEventArgs(::windows::core::IUnknown);
 impl BackgroundTransferRangesDownloadedEventArgs {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn WasDownloadRestarted(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -855,6 +919,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn AddedRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
         let this = self;
@@ -863,6 +928,7 @@ impl BackgroundTransferRangesDownloadedEventArgs {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetDeferral(&self) -> ::windows::core::Result<super::super::Foundation::Deferral> {
         let this = self;
@@ -935,6 +1001,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Back
 }
 unsafe impl ::core::marker::Send for BackgroundTransferRangesDownloadedEventArgs {}
 unsafe impl ::core::marker::Sync for BackgroundTransferRangesDownloadedEventArgs {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundTransferStatus(pub i32);
 impl BackgroundTransferStatus {
@@ -971,6 +1038,7 @@ impl ::windows::core::DefaultType for BackgroundTransferStatus {
     type DefaultType = Self;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct BackgroundUploadProgress {
     pub BytesReceived: u64,
     pub BytesSent: u64,
@@ -1006,6 +1074,7 @@ impl ::core::default::Default for BackgroundUploadProgress {
         unsafe { ::core::mem::zeroed() }
     }
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct BackgroundUploader(::windows::core::IUnknown);
 impl BackgroundUploader {
@@ -1016,10 +1085,12 @@ impl BackgroundUploader {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundUploader, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -1028,11 +1099,13 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -1041,11 +1114,13 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
@@ -1053,10 +1128,12 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
@@ -1065,11 +1142,13 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn SetGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe {
@@ -1077,10 +1156,12 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferBase>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Storage'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage"))]
     pub fn CreateUpload<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::IStorageFile>>(&self, uri: Param0, sourcefile: Param1) -> ::windows::core::Result<UploadOperation> {
         let this = self;
@@ -1089,6 +1170,7 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), uri.into_param().abi(), sourcefile.into_param().abi(), &mut result__).from_abi::<UploadOperation>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Storage_Streams'*"]
     #[cfg(all(feature = "Foundation", feature = "Storage_Streams"))]
     pub fn CreateUploadFromStreamAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Storage::Streams::IInputStream>>(&self, uri: Param0, sourcestream: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>> {
         let this = self;
@@ -1097,6 +1179,7 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), uri.into_param().abi(), sourcestream.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn CreateUploadWithFormDataAndAutoBoundaryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>>(&self, uri: Param0, parts: Param1) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>> {
         let this = self;
@@ -1105,6 +1188,7 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), uri.into_param().abi(), parts.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn CreateUploadWithSubTypeAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, uri: Param0, parts: Param1, subtype: Param2) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>> {
         let this = self;
@@ -1113,6 +1197,7 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), uri.into_param().abi(), parts.into_param().abi(), subtype.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn CreateUploadWithSubTypeAndBoundaryAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>, Param1: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<BackgroundTransferContentPart>>, Param2: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param3: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, uri: Param0, parts: Param1, subtype: Param2, boundary: Param3) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UploadOperation>> {
         let this = self;
@@ -1121,6 +1206,7 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), uri.into_param().abi(), parts.into_param().abi(), subtype.into_param().abi(), boundary.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UploadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe {
@@ -1128,10 +1214,12 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetTransferGroup<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTransferGroup>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
@@ -1140,11 +1228,13 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessToastNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::ToastNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureToastNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::ToastNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
@@ -1153,11 +1243,13 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::ToastNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureToastNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::ToastNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SuccessTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
@@ -1166,11 +1258,13 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetSuccessTileNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::TileNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn FailureTileNotification(&self) -> ::windows::core::Result<super::super::UI::Notifications::TileNotification> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
@@ -1179,11 +1273,13 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::UI::Notifications::TileNotification>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'UI_Notifications'*"]
     #[cfg(feature = "UI_Notifications")]
     pub fn SetFailureTileNotification<'a, Param0: ::windows::core::IntoParam<'a, super::super::UI::Notifications::TileNotification>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader2>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CompletionGroup(&self) -> ::windows::core::Result<BackgroundTransferCompletionGroup> {
         let this = &::windows::core::Interface::cast::<IBackgroundUploader3>(self)?;
         unsafe {
@@ -1191,12 +1287,14 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCompletionGroup>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CreateWithCompletionGroup<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTransferCompletionGroup>>(completiongroup: Param0) -> ::windows::core::Result<BackgroundUploader> {
         Self::IBackgroundUploaderFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), completiongroup.into_param().abi(), &mut result__).from_abi::<BackgroundUploader>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetCurrentUploadsAsync() -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
@@ -1204,14 +1302,15 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn GetCurrentUploadsForGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(group: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), group.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn GetCurrentUploadsForTransferGroupAsync<'a, Param0: ::windows::core::IntoParam<'a, BackgroundTransferGroup>>(group: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>> {
         Self::IBackgroundUploaderStaticMethods2(|this| unsafe {
@@ -1219,26 +1318,31 @@ impl BackgroundUploader {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), group.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<super::super::Foundation::Collections::IVectorView<UploadOperation>>>(result__)
         })
     }
-    #[cfg(feature = "deprecated")]
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections', 'deprecated'*"]
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))]
     pub fn RequestUnconstrainedUploadsAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Collections::IIterable<UploadOperation>>>(operations: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>> {
         Self::IBackgroundUploaderUserConsent(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), operations.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<UnconstrainedTransferRequestResult>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IBackgroundUploaderFactory<R, F: FnOnce(&IBackgroundUploaderFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBackgroundUploaderStaticMethods<R, F: FnOnce(&IBackgroundUploaderStaticMethods) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IBackgroundUploaderStaticMethods2<R, F: FnOnce(&IBackgroundUploaderStaticMethods2) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderStaticMethods2> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
+    #[cfg(feature = "deprecated")]
     pub fn IBackgroundUploaderUserConsent<R, F: FnOnce(&IBackgroundUploaderUserConsent) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<BackgroundUploader, IBackgroundUploaderUserConsent> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1329,8 +1433,10 @@ impl<'a> ::windows::core::IntoParam<'a, IBackgroundTransferBase> for &Background
 }
 unsafe impl ::core::marker::Send for BackgroundUploader {}
 unsafe impl ::core::marker::Sync for BackgroundUploader {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 pub struct ContentPrefetcher {}
 impl ContentPrefetcher {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Foundation_Collections'*"]
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))]
     pub fn ContentUris() -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>> {
         Self::IContentPrefetcher(|this| unsafe {
@@ -1338,10 +1444,12 @@ impl ContentPrefetcher {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Foundation::Uri>>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetIndirectContentUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(value: Param0) -> ::windows::core::Result<()> {
         Self::IContentPrefetcher(|this| unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn IndirectContentUri() -> ::windows::core::Result<super::super::Foundation::Uri> {
         Self::IContentPrefetcher(|this| unsafe {
@@ -1349,6 +1457,7 @@ impl ContentPrefetcher {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         })
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn LastSuccessfulPrefetchTime() -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::DateTime>> {
         Self::IContentPrefetcherTime(|this| unsafe {
@@ -1356,10 +1465,12 @@ impl ContentPrefetcher {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::DateTime>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IContentPrefetcher<R, F: FnOnce(&IContentPrefetcher) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContentPrefetcher, IContentPrefetcher> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IContentPrefetcherTime<R, F: FnOnce(&IContentPrefetcherTime) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<ContentPrefetcher, IContentPrefetcherTime> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -1368,9 +1479,11 @@ impl ContentPrefetcher {
 impl ::windows::core::RuntimeName for ContentPrefetcher {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.ContentPrefetcher";
 }
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct DownloadOperation(::windows::core::IUnknown);
 impl DownloadOperation {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -1378,6 +1491,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestedUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -1386,6 +1500,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -1393,6 +1508,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -1401,6 +1517,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -1408,10 +1525,12 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -1420,6 +1539,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn GetResponseInformation(&self) -> ::windows::core::Result<ResponseInformation> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -1427,6 +1547,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ResponseInformation>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Priority(&self) -> ::windows::core::Result<BackgroundTransferPriority> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe {
@@ -1434,10 +1555,12 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferPriority>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Storage'*"]
     #[cfg(feature = "Storage")]
     pub fn ResultFile(&self) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
         let this = self;
@@ -1446,6 +1569,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::IStorageFile>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Progress(&self) -> ::windows::core::Result<BackgroundDownloadProgress> {
         let this = self;
         unsafe {
@@ -1453,6 +1577,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundDownloadProgress>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
         let this = self;
@@ -1461,6 +1586,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>> {
         let this = self;
@@ -1469,14 +1595,17 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<DownloadOperation, DownloadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Pause(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Resume(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation2>(self)?;
         unsafe {
@@ -1484,6 +1613,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn IsRandomAccessRequired(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe {
@@ -1491,10 +1621,12 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetIsRandomAccessRequired(&self, value: bool) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultRandomAccessStreamReference(&self) -> ::windows::core::Result<super::super::Storage::Streams::IRandomAccessStreamReference> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
@@ -1503,6 +1635,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::Streams::IRandomAccessStreamReference>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn GetDownloadedRanges(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
@@ -1511,6 +1644,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<BackgroundTransferFileRange>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RangesDownloaded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::TypedEventHandler<DownloadOperation, BackgroundTransferRangesDownloadedEventArgs>>>(&self, eventhandler: Param0) -> ::windows::core::Result<super::super::Foundation::EventRegistrationToken> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
@@ -1519,16 +1653,19 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), eventhandler.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveRangesDownloaded<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::EventRegistrationToken>>(&self, eventcookie: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), eventcookie.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn SetRequestedUri<'a, Param0: ::windows::core::IntoParam<'a, super::super::Foundation::Uri>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation_Collections', 'Web'*"]
     #[cfg(all(feature = "Foundation_Collections", feature = "Web"))]
     pub fn RecoverableWebErrorStatuses(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IVector<super::super::Web::WebErrorStatus>> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
@@ -1537,6 +1674,7 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Collections::IVector<super::super::Web::WebErrorStatus>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation', 'Web'*"]
     #[cfg(all(feature = "Foundation", feature = "Web"))]
     pub fn CurrentWebErrorStatus(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Web::WebErrorStatus>> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation3>(self)?;
@@ -1545,14 +1683,17 @@ impl DownloadOperation {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Web::WebErrorStatus>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn MakeCurrentInTransferGroup(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn RemoveRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IDownloadOperation5>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), headername.into_param().abi()).ok() }
@@ -1777,8 +1918,8 @@ pub struct IBackgroundDownloaderStaticMethodsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -1800,12 +1941,15 @@ pub struct IBackgroundDownloaderStaticMethods2Vtbl(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IBackgroundDownloaderUserConsent(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundDownloaderUserConsent {
     type Vtable = IBackgroundDownloaderUserConsentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d14e906_9266_4808_bd71_5925f2a3130a);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundDownloaderUserConsentVtbl(
@@ -1815,16 +1959,19 @@ pub struct IBackgroundDownloaderUserConsentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferBase(::windows::core::IUnknown);
 impl IBackgroundTransferBase {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ServerCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -1833,11 +1980,13 @@ impl IBackgroundTransferBase {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetServerCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn ProxyCredential(&self) -> ::windows::core::Result<super::super::Security::Credentials::PasswordCredential> {
         let this = self;
@@ -1846,11 +1995,13 @@ impl IBackgroundTransferBase {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Security::Credentials::PasswordCredential>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Security_Credentials'*"]
     #[cfg(feature = "Security_Credentials")]
     pub fn SetProxyCredential<'a, Param0: ::windows::core::IntoParam<'a, super::super::Security::Credentials::PasswordCredential>>(&self, credential: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), credential.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -1858,10 +2009,12 @@ impl IBackgroundTransferBase {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetMethod<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -1870,11 +2023,13 @@ impl IBackgroundTransferBase {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn SetGroup<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, value: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), value.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = self;
         unsafe {
@@ -1882,6 +2037,7 @@ impl IBackgroundTransferBase {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), value).ok() }
@@ -1965,8 +2121,10 @@ pub struct IBackgroundTransferBaseVtbl(
     #[cfg(not(feature = "Security_Credentials"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
 );
@@ -2033,9 +2191,11 @@ pub struct IBackgroundTransferContentPartVtbl(
     #[cfg(feature = "Storage")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage"))] usize,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferContentPartFactory(::windows::core::IUnknown);
 impl IBackgroundTransferContentPartFactory {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CreateWithName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0) -> ::windows::core::Result<BackgroundTransferContentPart> {
         let this = self;
         unsafe {
@@ -2043,6 +2203,7 @@ impl IBackgroundTransferContentPartFactory {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), name.into_param().abi(), &mut result__).from_abi::<BackgroundTransferContentPart>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CreateWithNameAndFileName<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, name: Param0, filename: Param1) -> ::windows::core::Result<BackgroundTransferContentPart> {
         let this = self;
         unsafe {
@@ -2178,9 +2339,11 @@ pub struct IBackgroundTransferGroupStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, name: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferOperation(::windows::core::IUnknown);
 impl IBackgroundTransferOperation {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = self;
         unsafe {
@@ -2188,6 +2351,7 @@ impl IBackgroundTransferOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestedUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2196,6 +2360,7 @@ impl IBackgroundTransferOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -2203,6 +2368,7 @@ impl IBackgroundTransferOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
@@ -2211,6 +2377,7 @@ impl IBackgroundTransferOperation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = self;
         unsafe {
@@ -2218,10 +2385,12 @@ impl IBackgroundTransferOperation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = self;
@@ -2230,6 +2399,7 @@ impl IBackgroundTransferOperation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn GetResponseInformation(&self) -> ::windows::core::Result<ResponseInformation> {
         let this = self;
         unsafe {
@@ -2309,16 +2479,19 @@ pub struct IBackgroundTransferOperationVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: BackgroundTransferCostPolicy) -> ::windows::core::HRESULT,
     #[cfg(feature = "Storage_Streams")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, position: u64, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Storage_Streams"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct IBackgroundTransferOperationPriority(::windows::core::IUnknown);
 impl IBackgroundTransferOperationPriority {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Priority(&self) -> ::windows::core::Result<BackgroundTransferPriority> {
         let this = self;
         unsafe {
@@ -2326,6 +2499,7 @@ impl IBackgroundTransferOperationPriority {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferPriority>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
@@ -2539,8 +2713,8 @@ pub struct IBackgroundUploaderStaticMethodsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, group: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2562,12 +2736,15 @@ pub struct IBackgroundUploaderStaticMethods2Vtbl(
     #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IBackgroundUploaderUserConsent(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IBackgroundUploaderUserConsent {
     type Vtable = IBackgroundUploaderUserConsentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb384cb_0760_461d_907f_5138f84d44c1);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IBackgroundUploaderUserConsentVtbl(
@@ -2577,8 +2754,8 @@ pub struct IBackgroundUploaderUserConsentVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections")))] usize,
+    #[cfg(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, operations: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(not(all(feature = "Foundation", feature = "Foundation_Collections", feature = "deprecated")))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2760,12 +2937,15 @@ pub struct IResponseInformationVtbl(
     #[cfg(not(feature = "Foundation_Collections"))] usize,
 );
 #[doc(hidden)]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct IUnconstrainedTransferRequestResult(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for IUnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
+#[cfg(feature = "deprecated")]
 #[repr(C)]
 #[doc(hidden)]
 pub struct IUnconstrainedTransferRequestResultVtbl(
@@ -2775,7 +2955,8 @@ pub struct IUnconstrainedTransferRequestResultVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, count: *mut u32, values: *mut *mut ::windows::core::GUID) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(feature = "deprecated")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut bool) -> ::windows::core::HRESULT,
+    #[cfg(not(feature = "deprecated"))] usize,
 );
 #[doc(hidden)]
 #[repr(transparent)]
@@ -2856,9 +3037,11 @@ pub struct IUploadOperation4Vtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, headervalue: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, headername: ::core::mem::ManuallyDrop<::windows::core::HSTRING>) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct ResponseInformation(::windows::core::IUnknown);
 impl ResponseInformation {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn IsResumable(&self) -> ::windows::core::Result<bool> {
         let this = self;
         unsafe {
@@ -2866,6 +3049,7 @@ impl ResponseInformation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn ActualUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = self;
@@ -2874,6 +3058,7 @@ impl ResponseInformation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn StatusCode(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -2881,6 +3066,7 @@ impl ResponseInformation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Headers(&self) -> ::windows::core::Result<super::super::Foundation::Collections::IMapView<::windows::core::HSTRING, ::windows::core::HSTRING>> {
         let this = self;
@@ -2953,9 +3139,13 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Resp
 }
 unsafe impl ::core::marker::Send for ResponseInformation {}
 unsafe impl ::core::marker::Sync for ResponseInformation {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
+#[cfg(feature = "deprecated")]
 #[repr(transparent)]
 pub struct UnconstrainedTransferRequestResult(::windows::core::IUnknown);
+#[cfg(feature = "deprecated")]
 impl UnconstrainedTransferRequestResult {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn IsUnconstrained(&self) -> ::windows::core::Result<bool> {
         let this = self;
@@ -2965,72 +3155,90 @@ impl UnconstrainedTransferRequestResult {
         }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::clone::Clone for UnconstrainedTransferRequestResult {
     fn clone(&self) -> Self {
         Self(self.0.clone())
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::PartialEq for UnconstrainedTransferRequestResult {
     fn eq(&self, other: &Self) -> bool {
         self.0 == other.0
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for UnconstrainedTransferRequestResult {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for UnconstrainedTransferRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult;{4c24b81f-d944-4112-a98e-6a69522b7ebb})");
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for UnconstrainedTransferRequestResult {
     type Vtable = IUnconstrainedTransferRequestResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c24b81f_d944_4112_a98e_6a69522b7ebb);
 }
+#[cfg(feature = "deprecated")]
 impl ::windows::core::RuntimeName for UnconstrainedTransferRequestResult {
     const NAME: &'static str = "Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult";
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<UnconstrainedTransferRequestResult> for ::windows::core::IUnknown {
     fn from(value: UnconstrainedTransferRequestResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&UnconstrainedTransferRequestResult> for ::windows::core::IUnknown {
     fn from(value: &UnconstrainedTransferRequestResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IUnknown> for &UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IUnknown> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<UnconstrainedTransferRequestResult> for ::windows::core::IInspectable {
     fn from(value: UnconstrainedTransferRequestResult) -> Self {
         unsafe { ::core::mem::transmute(value) }
     }
 }
+#[cfg(feature = "deprecated")]
 impl ::core::convert::From<&UnconstrainedTransferRequestResult> for ::windows::core::IInspectable {
     fn from(value: &UnconstrainedTransferRequestResult) -> Self {
         ::core::convert::From::from(::core::clone::Clone::clone(value))
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Owned(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &UnconstrainedTransferRequestResult {
     fn into_param(self) -> ::windows::core::Param<'a, ::windows::core::IInspectable> {
         ::windows::core::Param::Borrowed(unsafe { ::core::mem::transmute(self) })
     }
 }
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Send for UnconstrainedTransferRequestResult {}
+#[cfg(feature = "deprecated")]
 unsafe impl ::core::marker::Sync for UnconstrainedTransferRequestResult {}
+#[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
 #[repr(transparent)]
 pub struct UploadOperation(::windows::core::IUnknown);
 impl UploadOperation {
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Guid(&self) -> ::windows::core::Result<::windows::core::GUID> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -3038,6 +3246,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::GUID>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestedUri(&self) -> ::windows::core::Result<super::super::Foundation::Uri> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -3046,6 +3255,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Uri>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Method(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -3053,6 +3263,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'deprecated'*"]
     #[cfg(feature = "deprecated")]
     pub fn Group(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -3061,6 +3272,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn CostPolicy(&self) -> ::windows::core::Result<BackgroundTransferCostPolicy> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -3068,10 +3280,12 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferCostPolicy>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetCostPolicy(&self, value: BackgroundTransferCostPolicy) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Storage_Streams'*"]
     #[cfg(feature = "Storage_Streams")]
     pub fn GetResultStreamAt(&self, position: u64) -> ::windows::core::Result<super::super::Storage::Streams::IInputStream> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
@@ -3080,6 +3294,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), position, &mut result__).from_abi::<super::super::Storage::Streams::IInputStream>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn GetResponseInformation(&self) -> ::windows::core::Result<ResponseInformation> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperation>(self)?;
         unsafe {
@@ -3087,6 +3302,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<ResponseInformation>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Priority(&self) -> ::windows::core::Result<BackgroundTransferPriority> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe {
@@ -3094,10 +3310,12 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferPriority>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetPriority(&self, value: BackgroundTransferPriority) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IBackgroundTransferOperationPriority>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), value).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Storage'*"]
     #[cfg(feature = "Storage")]
     pub fn SourceFile(&self) -> ::windows::core::Result<super::super::Storage::IStorageFile> {
         let this = self;
@@ -3106,6 +3324,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Storage::IStorageFile>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn Progress(&self) -> ::windows::core::Result<BackgroundUploadProgress> {
         let this = self;
         unsafe {
@@ -3113,6 +3332,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundUploadProgress>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StartAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
         let this = self;
@@ -3121,6 +3341,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AttachAsync(&self) -> ::windows::core::Result<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>> {
         let this = self;
@@ -3129,6 +3350,7 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IAsyncOperationWithProgress<UploadOperation, UploadOperation>>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn TransferGroup(&self) -> ::windows::core::Result<BackgroundTransferGroup> {
         let this = &::windows::core::Interface::cast::<IUploadOperation2>(self)?;
         unsafe {
@@ -3136,14 +3358,17 @@ impl UploadOperation {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<BackgroundTransferGroup>(result__)
         }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn MakeCurrentInTransferGroup(&self) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUploadOperation3>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn SetRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0, headervalue: Param1) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUploadOperation4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), headername.into_param().abi(), headervalue.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Networking_BackgroundTransfer'*"]
     pub fn RemoveRequestHeader<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, headername: Param0) -> ::windows::core::Result<()> {
         let this = &::windows::core::Interface::cast::<IUploadOperation4>(self)?;
         unsafe { (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), headername.into_param().abi()).ok() }

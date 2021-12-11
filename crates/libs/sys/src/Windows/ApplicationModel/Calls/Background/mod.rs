@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneCallBlockedReason(pub i32);
 impl PhoneCallBlockedReason {
@@ -16,6 +15,7 @@ impl ::core::clone::Clone for PhoneCallBlockedReason {
 }
 pub type PhoneCallBlockedTriggerDetails = *mut ::core::ffi::c_void;
 pub type PhoneCallOriginDataRequestTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneIncomingCallDismissedReason(pub i32);
 impl PhoneIncomingCallDismissedReason {
@@ -32,6 +32,7 @@ impl ::core::clone::Clone for PhoneIncomingCallDismissedReason {
 }
 pub type PhoneIncomingCallDismissedTriggerDetails = *mut ::core::ffi::c_void;
 pub type PhoneIncomingCallNotificationTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneLineChangeKind(pub i32);
 impl PhoneLineChangeKind {
@@ -46,6 +47,7 @@ impl ::core::clone::Clone for PhoneLineChangeKind {
     }
 }
 pub type PhoneLineChangedTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneLineProperties(pub u32);
 impl PhoneLineProperties {
@@ -67,6 +69,7 @@ impl ::core::clone::Clone for PhoneLineProperties {
     }
 }
 pub type PhoneNewVoicemailMessageTriggerDetails = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_Calls_Background'*"]
 #[repr(transparent)]
 pub struct PhoneTriggerType(pub i32);
 impl PhoneTriggerType {

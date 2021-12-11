@@ -35,9 +35,11 @@ pub struct ISysStorageProviderEventReceivedEventArgsFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, json: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct ISysStorageProviderEventSource(::windows::core::IUnknown);
 impl ISysStorageProviderEventSource {
+    #[doc = "*Required features: 'System_Implementation_FileExplorer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn EventReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<ISysStorageProviderEventSource, SysStorageProviderEventReceivedEventArgs>>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -46,6 +48,7 @@ impl ISysStorageProviderEventSource {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Implementation_FileExplorer', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveEventReceived<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
@@ -124,9 +127,11 @@ pub struct ISysStorageProviderEventSourceVtbl(
     #[cfg(feature = "Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, token: super::super::super::Foundation::EventRegistrationToken) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Foundation"))] usize,
 );
+#[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct ISysStorageProviderHandlerFactory(::windows::core::IUnknown);
 impl ISysStorageProviderHandlerFactory {
+    #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
     pub fn GetHttpRequestProvider<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, syncrootid: Param0) -> ::windows::core::Result<ISysStorageProviderHttpRequestProvider> {
         let this = self;
         unsafe {
@@ -134,6 +139,7 @@ impl ISysStorageProviderHandlerFactory {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), syncrootid.into_param().abi(), &mut result__).from_abi::<ISysStorageProviderHttpRequestProvider>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
     pub fn GetEventSource<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>, Param1: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(&self, syncrootid: Param0, eventname: Param1) -> ::windows::core::Result<ISysStorageProviderEventSource> {
         let this = self;
         unsafe {
@@ -212,9 +218,11 @@ pub struct ISysStorageProviderHandlerFactoryVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, syncrootid: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, eventname: ::core::mem::ManuallyDrop<::windows::core::HSTRING>, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct ISysStorageProviderHttpRequestProvider(::windows::core::IUnknown);
 impl ISysStorageProviderHttpRequestProvider {
+    #[doc = "*Required features: 'System_Implementation_FileExplorer', 'Foundation', 'Web_Http'*"]
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))]
     pub fn SendRequestAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Web::Http::HttpRequestMessage>>(&self, request: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<super::super::super::Web::Http::HttpResponseMessage>> {
         let this = self;
@@ -294,9 +302,11 @@ pub struct ISysStorageProviderHttpRequestProviderVtbl(
     #[cfg(all(feature = "Foundation", feature = "Web_Http"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, request: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Foundation", feature = "Web_Http")))] usize,
 );
+#[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
 #[repr(transparent)]
 pub struct SysStorageProviderEventReceivedEventArgs(::windows::core::IUnknown);
 impl SysStorageProviderEventReceivedEventArgs {
+    #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
     pub fn Json(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -304,12 +314,14 @@ impl SysStorageProviderEventReceivedEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'System_Implementation_FileExplorer'*"]
     pub fn CreateInstance<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(json: Param0) -> ::windows::core::Result<SysStorageProviderEventReceivedEventArgs> {
         Self::ISysStorageProviderEventReceivedEventArgsFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), json.into_param().abi(), &mut result__).from_abi::<SysStorageProviderEventReceivedEventArgs>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn ISysStorageProviderEventReceivedEventArgsFactory<R, F: FnOnce(&ISysStorageProviderEventReceivedEventArgsFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<SysStorageProviderEventReceivedEventArgs, ISysStorageProviderEventReceivedEventArgsFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

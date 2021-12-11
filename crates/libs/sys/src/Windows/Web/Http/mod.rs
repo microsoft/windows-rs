@@ -5,10 +5,9 @@ pub mod Diagnostics;
 pub mod Filters;
 #[cfg(feature = "Web_Http_Headers")]
 pub mod Headers;
-#[link(name = "windows")]
-extern "system" {}
 pub type HttpBufferContent = *mut ::core::ffi::c_void;
 pub type HttpClient = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpCompletionOption(pub i32);
 impl HttpCompletionOption {
@@ -32,6 +31,7 @@ pub type HttpMethod = *mut ::core::ffi::c_void;
 pub type HttpMultipartContent = *mut ::core::ffi::c_void;
 pub type HttpMultipartFormDataContent = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Web_Http', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct HttpProgress {
     pub Stage: HttpProgressStage,
@@ -49,6 +49,7 @@ impl ::core::clone::Clone for HttpProgress {
         *self
     }
 }
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpProgressStage(pub i32);
 impl HttpProgressStage {
@@ -72,6 +73,7 @@ impl ::core::clone::Clone for HttpProgressStage {
 pub type HttpRequestMessage = *mut ::core::ffi::c_void;
 pub type HttpRequestResult = *mut ::core::ffi::c_void;
 pub type HttpResponseMessage = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpResponseMessageSource(pub i32);
 impl HttpResponseMessageSource {
@@ -85,6 +87,7 @@ impl ::core::clone::Clone for HttpResponseMessageSource {
         *self
     }
 }
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpStatusCode(pub i32);
 impl HttpStatusCode {
@@ -156,6 +159,7 @@ impl ::core::clone::Clone for HttpStatusCode {
 pub type HttpStreamContent = *mut ::core::ffi::c_void;
 pub type HttpStringContent = *mut ::core::ffi::c_void;
 pub type HttpTransportInformation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Web_Http'*"]
 #[repr(transparent)]
 pub struct HttpVersion(pub i32);
 impl HttpVersion {

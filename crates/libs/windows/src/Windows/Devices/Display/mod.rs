@@ -1,9 +1,11 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[cfg(feature = "Devices_Display_Core")]
 pub mod Core;
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitor(::windows::core::IUnknown);
 impl DisplayMonitor {
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn DeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -11,6 +13,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -18,6 +21,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn ConnectionKind(&self) -> ::windows::core::Result<DisplayMonitorConnectionKind> {
         let this = self;
         unsafe {
@@ -25,6 +29,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayMonitorConnectionKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn PhysicalConnector(&self) -> ::windows::core::Result<DisplayMonitorPhysicalConnectorKind> {
         let this = self;
         unsafe {
@@ -32,6 +37,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayMonitorPhysicalConnectorKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn DisplayAdapterDeviceId(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -39,6 +45,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
     pub fn DisplayAdapterId(&self) -> ::windows::core::Result<super::super::Graphics::DisplayAdapterId> {
         let this = self;
@@ -47,6 +54,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::DisplayAdapterId>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn DisplayAdapterTargetId(&self) -> ::windows::core::Result<u32> {
         let this = self;
         unsafe {
@@ -54,6 +62,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn UsageKind(&self) -> ::windows::core::Result<DisplayMonitorUsageKind> {
         let this = self;
         unsafe {
@@ -61,6 +70,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), &mut result__).from_abi::<DisplayMonitorUsageKind>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display', 'Graphics'*"]
     #[cfg(feature = "Graphics")]
     pub fn NativeResolutionInRawPixels(&self) -> ::windows::core::Result<super::super::Graphics::SizeInt32> {
         let this = self;
@@ -69,6 +79,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Graphics::SizeInt32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn PhysicalSizeInInches(&self) -> ::windows::core::Result<super::super::Foundation::IReference<super::super::Foundation::Size>> {
         let this = self;
@@ -77,6 +88,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::IReference<super::super::Foundation::Size>>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn RawDpiX(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -84,6 +96,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn RawDpiY(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -91,6 +104,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RedPrimary(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -99,6 +113,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).18)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GreenPrimary(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -107,6 +122,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).19)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn BluePrimary(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -115,6 +131,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).20)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn WhitePoint(&self) -> ::windows::core::Result<super::super::Foundation::Point> {
         let this = self;
@@ -123,6 +140,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).21)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::Foundation::Point>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn MaxLuminanceInNits(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -130,6 +148,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).22)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn MinLuminanceInNits(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -137,6 +156,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).23)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn MaxAverageFullFrameLuminanceInNits(&self) -> ::windows::core::Result<f32> {
         let this = self;
         unsafe {
@@ -144,6 +164,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).24)(::core::mem::transmute_copy(this), &mut result__).from_abi::<f32>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn GetDescriptor(&self, descriptorkind: DisplayMonitorDescriptorKind) -> ::windows::core::Result<::windows::core::Array<u8>> {
         let this = self;
         unsafe {
@@ -151,6 +172,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).25)(::core::mem::transmute_copy(this), descriptorkind, ::windows::core::Array::<u8>::set_abi_len(&mut result__), &mut result__ as *mut _ as _).and_then(|| result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn IsDolbyVisionSupportedInHdrMode(&self) -> ::windows::core::Result<bool> {
         let this = &::windows::core::Interface::cast::<IDisplayMonitor2>(self)?;
         unsafe {
@@ -158,12 +180,14 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<bool>(result__)
         }
     }
+    #[doc = "*Required features: 'Devices_Display'*"]
     pub fn GetDeviceSelector() -> ::windows::core::Result<::windows::core::HSTRING> {
         Self::IDisplayMonitorStatics(|this| unsafe {
             let mut result__: ::core::mem::ManuallyDrop<::windows::core::HSTRING> = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Display', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
@@ -171,6 +195,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), deviceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>(result__)
         })
     }
+    #[doc = "*Required features: 'Devices_Display', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn FromInterfaceIdAsync<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::HSTRING>>(deviceinterfaceid: Param0) -> ::windows::core::Result<super::super::Foundation::IAsyncOperation<DisplayMonitor>> {
         Self::IDisplayMonitorStatics(|this| unsafe {
@@ -178,6 +203,7 @@ impl DisplayMonitor {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), deviceinterfaceid.into_param().abi(), &mut result__).from_abi::<super::super::Foundation::IAsyncOperation<DisplayMonitor>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IDisplayMonitorStatics<R, F: FnOnce(&IDisplayMonitorStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<DisplayMonitor, IDisplayMonitorStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -246,6 +272,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Disp
 }
 unsafe impl ::core::marker::Send for DisplayMonitor {}
 unsafe impl ::core::marker::Sync for DisplayMonitor {}
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorConnectionKind(pub i32);
 impl DisplayMonitorConnectionKind {
@@ -275,6 +302,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorConnectionKind {
 impl ::windows::core::DefaultType for DisplayMonitorConnectionKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorDescriptorKind(pub i32);
 impl DisplayMonitorDescriptorKind {
@@ -302,6 +330,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorDescriptorKind {
 impl ::windows::core::DefaultType for DisplayMonitorDescriptorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorPhysicalConnectorKind(pub i32);
 impl DisplayMonitorPhysicalConnectorKind {
@@ -335,6 +364,7 @@ unsafe impl ::windows::core::RuntimeType for DisplayMonitorPhysicalConnectorKind
 impl ::windows::core::DefaultType for DisplayMonitorPhysicalConnectorKind {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Devices_Display'*"]
 #[repr(transparent)]
 pub struct DisplayMonitorUsageKind(pub i32);
 impl DisplayMonitorUsageKind {

@@ -87,9 +87,11 @@ pub struct IOfflineMapPackageStaticsVtbl(
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, querycircle: ::windows::core::RawPtr, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(all(feature = "Devices_Geolocation", feature = "Foundation")))] usize,
 );
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackage(::windows::core::IUnknown);
 impl OfflineMapPackage {
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
     pub fn Status(&self) -> ::windows::core::Result<OfflineMapPackageStatus> {
         let this = self;
         unsafe {
@@ -97,6 +99,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OfflineMapPackageStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
     pub fn DisplayName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -104,6 +107,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
     pub fn EnclosingRegionName(&self) -> ::windows::core::Result<::windows::core::HSTRING> {
         let this = self;
         unsafe {
@@ -111,6 +115,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), &mut result__).from_abi::<::windows::core::HSTRING>(result__)
         }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
     pub fn EstimatedSizeInBytes(&self) -> ::windows::core::Result<u64> {
         let this = self;
         unsafe {
@@ -118,11 +123,13 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), &mut result__).from_abi::<u64>(result__)
         }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveStatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn StatusChanged<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::TypedEventHandler<OfflineMapPackage, ::windows::core::IInspectable>>>(&self, value: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -131,6 +138,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), value.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RequestStartDownloadAsync(&self) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>> {
         let this = self;
@@ -139,6 +147,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageStartDownloadResult>>(result__)
         }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps', 'Devices_Geolocation', 'Foundation'*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geopoint>>(querypoint: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
@@ -146,6 +155,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), querypoint.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps', 'Devices_Geolocation', 'Foundation'*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesInBoundingBoxAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::GeoboundingBox>>(queryboundingbox: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
@@ -153,6 +163,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), queryboundingbox.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps', 'Devices_Geolocation', 'Foundation'*"]
     #[cfg(all(feature = "Devices_Geolocation", feature = "Foundation"))]
     pub fn FindPackagesInGeocircleAsync<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Devices::Geolocation::Geocircle>>(querycircle: Param0) -> ::windows::core::Result<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>> {
         Self::IOfflineMapPackageStatics(|this| unsafe {
@@ -160,6 +171,7 @@ impl OfflineMapPackage {
             (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), querycircle.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::IAsyncOperation<OfflineMapPackageQueryResult>>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IOfflineMapPackageStatics<R, F: FnOnce(&IOfflineMapPackageStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<OfflineMapPackage, IOfflineMapPackageStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
@@ -228,9 +240,11 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
 }
 unsafe impl ::core::marker::Send for OfflineMapPackage {}
 unsafe impl ::core::marker::Sync for OfflineMapPackage {}
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryResult(::windows::core::IUnknown);
 impl OfflineMapPackageQueryResult {
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
     pub fn Status(&self) -> ::windows::core::Result<OfflineMapPackageQueryStatus> {
         let this = self;
         unsafe {
@@ -238,6 +252,7 @@ impl OfflineMapPackageQueryResult {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<OfflineMapPackageQueryStatus>(result__)
         }
     }
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps', 'Foundation_Collections'*"]
     #[cfg(feature = "Foundation_Collections")]
     pub fn Packages(&self) -> ::windows::core::Result<super::super::super::Foundation::Collections::IVectorView<OfflineMapPackage>> {
         let this = self;
@@ -310,6 +325,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
 }
 unsafe impl ::core::marker::Send for OfflineMapPackageQueryResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageQueryResult {}
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageQueryStatus(pub i32);
 impl OfflineMapPackageQueryStatus {
@@ -339,9 +355,11 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryStatus {
 impl ::windows::core::DefaultType for OfflineMapPackageQueryStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadResult(::windows::core::IUnknown);
 impl OfflineMapPackageStartDownloadResult {
+    #[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
     pub fn Status(&self) -> ::windows::core::Result<OfflineMapPackageStartDownloadStatus> {
         let this = self;
         unsafe {
@@ -413,6 +431,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Offl
 }
 unsafe impl ::core::marker::Send for OfflineMapPackageStartDownloadResult {}
 unsafe impl ::core::marker::Sync for OfflineMapPackageStartDownloadResult {}
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageStartDownloadStatus(pub i32);
 impl OfflineMapPackageStartDownloadStatus {
@@ -442,6 +461,7 @@ unsafe impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadStatu
 impl ::windows::core::DefaultType for OfflineMapPackageStartDownloadStatus {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'Services_Maps_OfflineMaps'*"]
 #[repr(transparent)]
 pub struct OfflineMapPackageStatus(pub i32);
 impl OfflineMapPackageStatus {

@@ -1,11 +1,10 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type CoreTextCompositionCompletedEventArgs = *mut ::core::ffi::c_void;
 pub type CoreTextCompositionSegment = *mut ::core::ffi::c_void;
 pub type CoreTextCompositionStartedEventArgs = *mut ::core::ffi::c_void;
 pub type CoreTextEditContext = *mut ::core::ffi::c_void;
 pub type CoreTextFormatUpdatingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingReason(pub i32);
 impl CoreTextFormatUpdatingReason {
@@ -21,6 +20,7 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingReason {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextFormatUpdatingResult(pub i32);
 impl CoreTextFormatUpdatingResult {
@@ -33,6 +33,7 @@ impl ::core::clone::Clone for CoreTextFormatUpdatingResult {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextInputPaneDisplayPolicy(pub i32);
 impl CoreTextInputPaneDisplayPolicy {
@@ -45,6 +46,7 @@ impl ::core::clone::Clone for CoreTextInputPaneDisplayPolicy {
         *self
     }
 }
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextInputScope(pub i32);
 impl CoreTextInputScope {
@@ -126,6 +128,7 @@ pub type CoreTextLayoutBounds = *mut ::core::ffi::c_void;
 pub type CoreTextLayoutRequest = *mut ::core::ffi::c_void;
 pub type CoreTextLayoutRequestedEventArgs = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'UI_Text_Core'*"]
 pub struct CoreTextRange {
     pub StartCaretPosition: i32,
     pub EndCaretPosition: i32,
@@ -139,6 +142,7 @@ impl ::core::clone::Clone for CoreTextRange {
 pub type CoreTextSelectionRequest = *mut ::core::ffi::c_void;
 pub type CoreTextSelectionRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type CoreTextSelectionUpdatingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextSelectionUpdatingResult(pub i32);
 impl CoreTextSelectionUpdatingResult {
@@ -155,6 +159,7 @@ pub type CoreTextServicesManager = *mut ::core::ffi::c_void;
 pub type CoreTextTextRequest = *mut ::core::ffi::c_void;
 pub type CoreTextTextRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type CoreTextTextUpdatingEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'UI_Text_Core'*"]
 #[repr(transparent)]
 pub struct CoreTextTextUpdatingResult(pub i32);
 impl CoreTextTextUpdatingResult {

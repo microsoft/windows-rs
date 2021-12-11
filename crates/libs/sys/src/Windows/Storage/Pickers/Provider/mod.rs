@@ -1,6 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct AddFileResult(pub i32);
 impl AddFileResult {
@@ -18,6 +17,7 @@ impl ::core::clone::Clone for AddFileResult {
 pub type FileOpenPickerUI = *mut ::core::ffi::c_void;
 pub type FileRemovedEventArgs = *mut ::core::ffi::c_void;
 pub type FileSavePickerUI = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct FileSelectionMode(pub i32);
 impl FileSelectionMode {
@@ -33,6 +33,7 @@ impl ::core::clone::Clone for FileSelectionMode {
 pub type PickerClosingDeferral = *mut ::core::ffi::c_void;
 pub type PickerClosingEventArgs = *mut ::core::ffi::c_void;
 pub type PickerClosingOperation = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Storage_Pickers_Provider'*"]
 #[repr(transparent)]
 pub struct SetFileNameResult(pub i32);
 impl SetFileNameResult {

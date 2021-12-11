@@ -1,4 +1,5 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct AddPagesEventArgs(::windows::core::IUnknown);
 impl AddPagesEventArgs {
@@ -9,6 +10,7 @@ impl AddPagesEventArgs {
         static mut SHARED: ::windows::core::FactoryCache<AddPagesEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Graphics_Printing'*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PrintTaskOptions(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions> {
         let this = self;
@@ -81,6 +83,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &AddP
 }
 unsafe impl ::core::marker::Send for AddPagesEventArgs {}
 unsafe impl ::core::marker::Sync for AddPagesEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct AddPagesEventHandler(pub ::windows::core::IUnknown);
 impl AddPagesEventHandler {
@@ -88,6 +91,7 @@ impl AddPagesEventHandler {
         let com = AddPagesEventHandlerBox::<F> { vtable: &AddPagesEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, AddPagesEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -149,6 +153,7 @@ unsafe impl ::windows::core::RuntimeType for AddPagesEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct AddPagesEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct GetPreviewPageEventArgs(::windows::core::IUnknown);
 impl GetPreviewPageEventArgs {
@@ -159,6 +164,7 @@ impl GetPreviewPageEventArgs {
         static mut SHARED: ::windows::core::FactoryCache<GetPreviewPageEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn PageNumber(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -230,6 +236,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &GetP
 }
 unsafe impl ::core::marker::Send for GetPreviewPageEventArgs {}
 unsafe impl ::core::marker::Sync for GetPreviewPageEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct GetPreviewPageEventHandler(pub ::windows::core::IUnknown);
 impl GetPreviewPageEventHandler {
@@ -237,6 +244,7 @@ impl GetPreviewPageEventHandler {
         let com = GetPreviewPageEventHandlerBox::<F> { vtable: &GetPreviewPageEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, GetPreviewPageEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -427,6 +435,7 @@ pub struct IPrintDocumentStaticsVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, value: *mut i32) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, result__: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
 );
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PaginateEventArgs(::windows::core::IUnknown);
 impl PaginateEventArgs {
@@ -437,6 +446,7 @@ impl PaginateEventArgs {
         static mut SHARED: ::windows::core::FactoryCache<PaginateEventArgs, ::windows::core::IActivationFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Graphics_Printing'*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn PrintTaskOptions(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::PrintTaskOptions> {
         let this = self;
@@ -445,6 +455,7 @@ impl PaginateEventArgs {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::Printing::PrintTaskOptions>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn CurrentPreviewPageNumber(&self) -> ::windows::core::Result<i32> {
         let this = self;
         unsafe {
@@ -516,6 +527,7 @@ impl<'a> ::windows::core::IntoParam<'a, ::windows::core::IInspectable> for &Pagi
 }
 unsafe impl ::core::marker::Send for PaginateEventArgs {}
 unsafe impl ::core::marker::Sync for PaginateEventArgs {}
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PaginateEventHandler(pub ::windows::core::IUnknown);
 impl PaginateEventHandler {
@@ -523,6 +535,7 @@ impl PaginateEventHandler {
         let com = PaginateEventHandlerBox::<F> { vtable: &PaginateEventHandlerBox::<F>::VTABLE, count: ::windows::core::RefCount::new(1), invoke };
         unsafe { ::core::mem::transmute(::windows::core::alloc::boxed::Box::new(com)) }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn Invoke<'a, Param0: ::windows::core::IntoParam<'a, ::windows::core::IInspectable>, Param1: ::windows::core::IntoParam<'a, PaginateEventArgs>>(&self, sender: Param0, e: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).3)(::core::mem::transmute_copy(this), sender.into_param().abi(), e.into_param().abi()).ok() }
@@ -584,6 +597,7 @@ unsafe impl ::windows::core::RuntimeType for PaginateEventHandler {
 #[repr(C)]
 #[doc(hidden)]
 pub struct PaginateEventHandlerVtbl(pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32, pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, sender: *mut ::core::ffi::c_void, e: ::windows::core::RawPtr) -> ::windows::core::HRESULT);
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PreviewPageCountType(pub i32);
 impl PreviewPageCountType {
@@ -611,9 +625,11 @@ unsafe impl ::windows::core::RuntimeType for PreviewPageCountType {
 impl ::windows::core::DefaultType for PreviewPageCountType {
     type DefaultType = Self;
 }
+#[doc = "*Required features: 'UI_Xaml_Printing'*"]
 #[repr(transparent)]
 pub struct PrintDocument(::windows::core::IUnknown);
 impl PrintDocument {
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Graphics_Printing'*"]
     #[cfg(feature = "Graphics_Printing")]
     pub fn DocumentSource(&self) -> ::windows::core::Result<super::super::super::Graphics::Printing::IPrintDocumentSource> {
         let this = self;
@@ -622,6 +638,7 @@ impl PrintDocument {
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::super::super::Graphics::Printing::IPrintDocumentSource>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn Paginate<'a, Param0: ::windows::core::IntoParam<'a, PaginateEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -630,11 +647,13 @@ impl PrintDocument {
             (::windows::core::Interface::vtable(this).7)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemovePaginate<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).8)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn GetPreviewPage<'a, Param0: ::windows::core::IntoParam<'a, GetPreviewPageEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -643,11 +662,13 @@ impl PrintDocument {
             (::windows::core::Interface::vtable(this).9)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveGetPreviewPage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).10)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn AddPages<'a, Param0: ::windows::core::IntoParam<'a, AddPagesEventHandler>>(&self, handler: Param0) -> ::windows::core::Result<super::super::super::Foundation::EventRegistrationToken> {
         let this = self;
@@ -656,47 +677,57 @@ impl PrintDocument {
             (::windows::core::Interface::vtable(this).11)(::core::mem::transmute_copy(this), handler.into_param().abi(), &mut result__).from_abi::<super::super::super::Foundation::EventRegistrationToken>(result__)
         }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing', 'Foundation'*"]
     #[cfg(feature = "Foundation")]
     pub fn RemoveAddPages<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::EventRegistrationToken>>(&self, token: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).12)(::core::mem::transmute_copy(this), token.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn AddPage<'a, Param0: ::windows::core::IntoParam<'a, super::UIElement>>(&self, pagevisual: Param0) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).13)(::core::mem::transmute_copy(this), pagevisual.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn AddPagesComplete(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).14)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn SetPreviewPageCount(&self, count: i32, r#type: PreviewPageCountType) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).15)(::core::mem::transmute_copy(this), count, r#type).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn SetPreviewPage<'a, Param1: ::windows::core::IntoParam<'a, super::UIElement>>(&self, pagenumber: i32, pagevisual: Param1) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).16)(::core::mem::transmute_copy(this), pagenumber, pagevisual.into_param().abi()).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn InvalidatePreview(&self) -> ::windows::core::Result<()> {
         let this = self;
         unsafe { (::windows::core::Interface::vtable(this).17)(::core::mem::transmute_copy(this)).ok() }
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn new() -> ::windows::core::Result<PrintDocument> {
         Self::IPrintDocumentFactory(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), ::core::ptr::null_mut(), &mut ::core::option::Option::<::windows::core::IInspectable>::None as *mut _ as _, &mut result__).from_abi::<PrintDocument>(result__)
         })
     }
+    #[doc = "*Required features: 'UI_Xaml_Printing'*"]
     pub fn DocumentSourceProperty() -> ::windows::core::Result<super::DependencyProperty> {
         Self::IPrintDocumentStatics(|this| unsafe {
             let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
             (::windows::core::Interface::vtable(this).6)(::core::mem::transmute_copy(this), &mut result__).from_abi::<super::DependencyProperty>(result__)
         })
     }
+    #[doc(hidden)]
     pub fn IPrintDocumentFactory<R, F: FnOnce(&IPrintDocumentFactory) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PrintDocument, IPrintDocumentFactory> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }
     }
+    #[doc(hidden)]
     pub fn IPrintDocumentStatics<R, F: FnOnce(&IPrintDocumentStatics) -> ::windows::core::Result<R>>(callback: F) -> ::windows::core::Result<R> {
         static mut SHARED: ::windows::core::FactoryCache<PrintDocument, IPrintDocumentStatics> = ::windows::core::FactoryCache::new();
         unsafe { SHARED.call(callback) }

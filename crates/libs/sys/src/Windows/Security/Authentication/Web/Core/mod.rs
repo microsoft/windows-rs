@@ -1,7 +1,6 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
-#[link(name = "windows")]
-extern "system" {}
 pub type FindAllAccountsResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct FindAllWebAccountsStatus(pub i32);
 impl FindAllWebAccountsStatus {
@@ -20,6 +19,7 @@ pub type WebAccountEventArgs = *mut ::core::ffi::c_void;
 pub type WebAccountMonitor = *mut ::core::ffi::c_void;
 pub type WebProviderError = *mut ::core::ffi::c_void;
 pub type WebTokenRequest = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebTokenRequestPromptType(pub i32);
 impl WebTokenRequestPromptType {
@@ -33,6 +33,7 @@ impl ::core::clone::Clone for WebTokenRequestPromptType {
     }
 }
 pub type WebTokenRequestResult = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Security_Authentication_Web_Core'*"]
 #[repr(transparent)]
 pub struct WebTokenRequestStatus(pub i32);
 impl WebTokenRequestStatus {

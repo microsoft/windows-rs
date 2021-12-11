@@ -53,9 +53,8 @@ pub mod SpeechSynthesis;
 pub mod Streaming;
 #[cfg(feature = "Media_Transcoding")]
 pub mod Transcoding;
-#[link(name = "windows")]
-extern "system" {}
 pub type AudioBuffer = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct AudioBufferAccessMode(pub i32);
 impl AudioBufferAccessMode {
@@ -70,6 +69,7 @@ impl ::core::clone::Clone for AudioBufferAccessMode {
     }
 }
 pub type AudioFrame = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct AudioProcessing(pub i32);
 impl AudioProcessing {
@@ -89,6 +89,7 @@ pub type IMediaMarker = *mut ::core::ffi::c_void;
 pub type IMediaMarkers = *mut ::core::ffi::c_void;
 pub type ImageDisplayProperties = *mut ::core::ffi::c_void;
 pub type MediaExtensionManager = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackAutoRepeatMode(pub i32);
 impl MediaPlaybackAutoRepeatMode {
@@ -102,6 +103,7 @@ impl ::core::clone::Clone for MediaPlaybackAutoRepeatMode {
         *self
     }
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackStatus(pub i32);
 impl MediaPlaybackStatus {
@@ -117,6 +119,7 @@ impl ::core::clone::Clone for MediaPlaybackStatus {
         *self
     }
 }
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaPlaybackType(pub i32);
 impl MediaPlaybackType {
@@ -133,6 +136,7 @@ impl ::core::clone::Clone for MediaPlaybackType {
 }
 pub type MediaProcessingTriggerDetails = *mut ::core::ffi::c_void;
 #[repr(C)]
+#[doc = "*Required features: 'Media', 'Foundation'*"]
 #[cfg(feature = "Foundation")]
 pub struct MediaTimeRange {
     pub Start: super::Foundation::TimeSpan,
@@ -148,6 +152,7 @@ impl ::core::clone::Clone for MediaTimeRange {
 }
 pub type MediaTimelineController = *mut ::core::ffi::c_void;
 pub type MediaTimelineControllerFailedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct MediaTimelineControllerState(pub i32);
 impl MediaTimelineControllerState {
@@ -166,6 +171,7 @@ pub type MusicDisplayProperties = *mut ::core::ffi::c_void;
 pub type PlaybackPositionChangeRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type PlaybackRateChangeRequestedEventArgs = *mut ::core::ffi::c_void;
 pub type ShuffleEnabledChangeRequestedEventArgs = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SoundLevel(pub i32);
 impl SoundLevel {
@@ -180,6 +186,7 @@ impl ::core::clone::Clone for SoundLevel {
     }
 }
 pub type SystemMediaTransportControls = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsButton(pub i32);
 impl SystemMediaTransportControlsButton {
@@ -202,6 +209,7 @@ impl ::core::clone::Clone for SystemMediaTransportControlsButton {
 }
 pub type SystemMediaTransportControlsButtonPressedEventArgs = *mut ::core::ffi::c_void;
 pub type SystemMediaTransportControlsDisplayUpdater = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'Media'*"]
 #[repr(transparent)]
 pub struct SystemMediaTransportControlsProperty(pub i32);
 impl SystemMediaTransportControlsProperty {

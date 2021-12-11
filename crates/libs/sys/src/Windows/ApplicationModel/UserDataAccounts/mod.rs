@@ -3,9 +3,8 @@
 pub mod Provider;
 #[cfg(feature = "ApplicationModel_UserDataAccounts_SystemAccess")]
 pub mod SystemAccess;
-#[link(name = "windows")]
-extern "system" {}
 pub type UserDataAccount = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountContentKinds(pub u32);
 impl UserDataAccountContentKinds {
@@ -20,6 +19,7 @@ impl ::core::clone::Clone for UserDataAccountContentKinds {
     }
 }
 pub type UserDataAccountManagerForUser = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountOtherAppReadAccess(pub i32);
 impl UserDataAccountOtherAppReadAccess {
@@ -34,6 +34,7 @@ impl ::core::clone::Clone for UserDataAccountOtherAppReadAccess {
     }
 }
 pub type UserDataAccountStore = *mut ::core::ffi::c_void;
+#[doc = "*Required features: 'ApplicationModel_UserDataAccounts'*"]
 #[repr(transparent)]
 pub struct UserDataAccountStoreAccessType(pub i32);
 impl UserDataAccountStoreAccessType {

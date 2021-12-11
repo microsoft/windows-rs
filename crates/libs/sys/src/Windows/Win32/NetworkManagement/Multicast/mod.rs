@@ -1,16 +1,24 @@
 #![allow(non_snake_case, non_camel_case_types, non_upper_case_globals, clashing_extern_declarations, clippy::all)]
 #[link(name = "windows")]
 extern "system" {
+    #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
     pub fn McastApiCleanup();
+    #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
     pub fn McastApiStartup(version: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Multicast', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn McastEnumerateScopes(addrfamily: u16, requery: super::super::Foundation::BOOL, pscopelist: *mut MCAST_SCOPE_ENTRY, pscopelen: *mut u32, pscopecount: *mut u32) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
     pub fn McastGenUID(prequestid: *mut MCAST_CLIENT_UID) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
     pub fn McastReleaseAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, preleaserequest: *mut MCAST_LEASE_REQUEST) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
     pub fn McastRenewAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, prenewrequest: *mut MCAST_LEASE_REQUEST, prenewresponse: *mut MCAST_LEASE_RESPONSE) -> u32;
+    #[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
     pub fn McastRequestAddress(addrfamily: u16, prequestid: *mut MCAST_CLIENT_UID, pscopectx: *mut MCAST_SCOPE_CTX, paddrrequest: *mut MCAST_LEASE_REQUEST, paddrresponse: *mut MCAST_LEASE_RESPONSE) -> u32;
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub union IPNG_ADDRESS {
     pub IpAddrV4: u32,
     pub IpAddrV6: [u8; 16],
@@ -21,11 +29,16 @@ impl ::core::clone::Clone for IPNG_ADDRESS {
         *self
     }
 }
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_CURRENT_VERSION: i32 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_VERSION_0: i32 = 0i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_API_VERSION_1: i32 = 1i32;
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub const MCAST_CLIENT_ID_LEN: u32 = 17u32;
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub struct MCAST_CLIENT_UID {
     pub ClientUID: *mut u8,
     pub ClientUIDLength: u32,
@@ -37,6 +50,7 @@ impl ::core::clone::Clone for MCAST_CLIENT_UID {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub struct MCAST_LEASE_REQUEST {
     pub LeaseStartTime: i32,
     pub MaxLeaseStartTime: i32,
@@ -54,6 +68,7 @@ impl ::core::clone::Clone for MCAST_LEASE_REQUEST {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub struct MCAST_LEASE_RESPONSE {
     pub LeaseStartTime: i32,
     pub LeaseEndTime: i32,
@@ -68,6 +83,7 @@ impl ::core::clone::Clone for MCAST_LEASE_RESPONSE {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast'*"]
 pub struct MCAST_SCOPE_CTX {
     pub ScopeID: IPNG_ADDRESS,
     pub Interface: IPNG_ADDRESS,
@@ -80,6 +96,7 @@ impl ::core::clone::Clone for MCAST_SCOPE_CTX {
     }
 }
 #[repr(C)]
+#[doc = "*Required features: 'Win32_NetworkManagement_Multicast', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MCAST_SCOPE_ENTRY {
     pub ScopeCtx: MCAST_SCOPE_CTX,
