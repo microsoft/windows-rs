@@ -168,7 +168,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
                 }
                 impl<#constraints> ::windows::core::ToImpl<#interface_ident> for #impl_ident {
                     unsafe fn to_impl(interface: &#interface_ident) -> &mut Self {
-                        let this: ::windows::core::RawPtr = core::mem::transmute_copy(interface);
+                        let this: ::windows::core::RawPtr = ::core::mem::transmute_copy(interface);
                         let this = (this as *mut ::windows::core::RawPtr).sub(2 + #interface_count) as *mut #box_ident::<#(#generics,)*>;
                         &mut (*this).implementation
                     }
@@ -179,7 +179,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
         let mut phantoms = TokenStream::new();
 
         for _ in 0..def.generic_params().count() {
-            phantoms.combine(&quote! { core::marker::PhantomData, })
+            phantoms.combine(&quote! { ::core::marker::PhantomData, })
         }
 
         vtable_ctors.combine(&quote! {
@@ -240,7 +240,7 @@ pub fn gen(attribute: proc_macro::TokenStream, original_type: proc_macro::TokenS
             }
         }
         impl <#constraints> ::windows::core::Compose for #impl_ident {
-            unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut core::option::Option<::windows::core::IInspectable>) {
+            unsafe fn compose<'a>(implementation: Self) -> (::windows::core::IInspectable, &'a mut ::core::option::Option<::windows::core::IInspectable>) {
                 let inspectable: ::windows::core::IInspectable = implementation.into();
                 let this = (&inspectable as *const _ as *mut ::windows::core::RawPtr).sub(1) as *mut #box_ident::<#(#generics,)*>;
                 (inspectable, &mut (*this).base)
