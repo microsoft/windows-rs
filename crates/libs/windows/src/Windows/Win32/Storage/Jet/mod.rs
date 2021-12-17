@@ -4348,6 +4348,8 @@ impl ::core::default::Default for JET_USERDEFINEDDEFAULT_W {
     }
 }
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
+pub const JET_VERSION: u32 = 1280u32;
+#[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_bitAbortSnapshot: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Storage_Jet'*"]
 pub const JET_bitAllDatabasesSnapshot: u32 = 1u32;

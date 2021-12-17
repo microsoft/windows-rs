@@ -39,6 +39,16 @@ extern "system" {
     pub fn CryptSIPVerifyIndirectData(psubjectinfo: *mut SIP_SUBJECTINFO, pindirectdata: *mut SIP_INDIRECT_DATA) -> super::super::super::Foundation::BOOL;
 }
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
+pub const MSSIP_ADDINFO_BLOB: u32 = 3u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
+pub const MSSIP_ADDINFO_CATMEMBER: u32 = 2u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
+pub const MSSIP_ADDINFO_FLAT: u32 = 1u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
+pub const MSSIP_ADDINFO_NONE: u32 = 0u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
+pub const MSSIP_ADDINFO_NONMSSIP: u32 = 500u32;
+#[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const MSSIP_FLAGS_MULTI_HASH: u32 = 262144u32;
 #[doc = "*Required features: 'Win32_Security_Cryptography_Sip'*"]
 pub const MSSIP_FLAGS_PROHIBIT_RESIZE_ON_CREATE: u32 = 65536u32;

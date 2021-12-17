@@ -214,6 +214,8 @@ impl ::core::clone::Clone for MI_BooleanField {
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub const MI_CALL_VERSION: u32 = 1u32;
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
+pub const MI_CHAR_TYPE: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub type MI_CallbackMode = i32;
 #[doc = "*Required features: 'Win32_System_Wmi'*"]
 pub const MI_CALLBACKMODE_REPORT: MI_CallbackMode = 0i32;

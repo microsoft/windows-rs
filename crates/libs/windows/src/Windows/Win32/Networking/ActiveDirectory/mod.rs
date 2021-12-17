@@ -16788,13 +16788,12 @@ impl IADsPropertyList {
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Com", feature = "Win32_System_Ole"))]
-    pub unsafe fn Next(&self) -> ::windows::core::Result<super::super::System::Com::VARIANT> {
-        let mut result__: ::core::mem::ManuallyDrop<super::super::System::Com::VARIANT> = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(&mut result__)).from_abi::<super::super::System::Com::VARIANT>(result__)
+    pub unsafe fn Next(&self, pvariant: *mut super::super::System::Com::VARIANT) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(pvariant)))
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
-    pub unsafe fn Skip(&self, celements: i32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(celements)).ok()
+    pub unsafe fn Skip(&self, celements: i32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(celements)))
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -20701,22 +20700,21 @@ impl IDirectorySearch {
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), ::core::mem::transmute(phsearchresult)).ok()
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
-    pub unsafe fn GetFirstRow(&self, hsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)).ok()
+    pub unsafe fn GetFirstRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)))
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
-    pub unsafe fn GetNextRow(&self, hsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)).ok()
+    pub unsafe fn GetNextRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).7)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)))
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory'*"]
-    pub unsafe fn GetPreviousRow(&self, hsearchresult: isize) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)).ok()
+    pub unsafe fn GetPreviousRow(&self, hsearchresult: isize) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchresult)))
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn GetNextColumnName(&self, hsearchhandle: isize) -> ::windows::core::Result<super::super::Foundation::PWSTR> {
-        let mut result__: super::super::Foundation::PWSTR = ::core::mem::zeroed();
-        (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchhandle), ::core::mem::transmute(&mut result__)).from_abi::<super::super::Foundation::PWSTR>(result__)
+    pub unsafe fn GetNextColumnName(&self, hsearchhandle: isize, ppszcolumnname: *mut super::super::Foundation::PWSTR) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(hsearchhandle), ::core::mem::transmute(ppszcolumnname)))
     }
     #[doc = "*Required features: 'Win32_Networking_ActiveDirectory', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]

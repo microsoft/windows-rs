@@ -10689,7 +10689,7 @@ impl ::core::default::Default for MONITORINFO {
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXA {
-    pub __AnonymousBase_winuser_L13567_C43: MONITORINFO,
+    pub monitorInfo: MONITORINFO,
     pub szDevice: [super::super::Foundation::CHAR; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
@@ -10722,7 +10722,7 @@ impl ::core::default::Default for MONITORINFOEXA {
 #[doc = "*Required features: 'Win32_Graphics_Gdi', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub struct MONITORINFOEXW {
-    pub __AnonymousBase_winuser_L13571_C43: MONITORINFO,
+    pub monitorInfo: MONITORINFO,
     pub szDevice: [u16; 32],
 }
 #[cfg(feature = "Win32_Foundation")]
