@@ -1,3 +1,13 @@
+# 0.29
+
+- Update win32 metadata ([1387](https://github.com/microsoft/windows-rs/pull/1387))
+- Feature and doc generation for `windows-sys` ([1381](https://github.com/microsoft/windows-rs/pull/1381))
+- New `windows-bindgen` for simpler code generation ([1379](https://github.com/microsoft/windows-rs/pull/1379))
+- Simplify and unify underlying types ([1368](https://github.com/microsoft/windows-rs/pull/1368))
+- Callbacks now consistently use `Option` ([1344](https://github.com/microsoft/windows-rs/pull/1344))
+- Reduce crate size by limiting Xaml bindings ([1341](https://github.com/microsoft/windows-rs/pull/1341))
+- Other small improvements and fixes
+
 # 0.28
 
 - Prefer type aliases for the `windows-sys` crate ([1331](https://github.com/microsoft/windows-rs/pull/1331))
