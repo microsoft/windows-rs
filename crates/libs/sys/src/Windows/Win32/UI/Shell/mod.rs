@@ -992,10 +992,10 @@ extern "system" {
     pub fn SHCoCreateInstance(pszclsid: super::super::Foundation::PWSTR, pclsid: *const ::windows_sys::core::GUID, punkouter: ::windows_sys::core::IUnknown, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHCopyKeyA(hkeysrc: super::super::System::Registry::HKEY, pszsrcsubkey: super::super::Foundation::PSTR, hkeydest: super::super::System::Registry::HKEY, freserved: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHCopyKeyA(hkeysrc: super::super::System::Registry::HKEY, pszsrcsubkey: super::super::Foundation::PSTR, hkeydest: super::super::System::Registry::HKEY, freserved: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHCopyKeyW(hkeysrc: super::super::System::Registry::HKEY, pszsrcsubkey: super::super::Foundation::PWSTR, hkeydest: super::super::System::Registry::HKEY, freserved: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHCopyKeyW(hkeysrc: super::super::System::Registry::HKEY, pszsrcsubkey: super::super::Foundation::PWSTR, hkeydest: super::super::System::Registry::HKEY, freserved: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn SHCreateAssociationRegistration(riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_System_Com', 'Win32_UI_Shell_Common'*"]
@@ -1097,22 +1097,22 @@ extern "system" {
     pub fn SHDefExtractIconW(psziconfile: super::super::Foundation::PWSTR, iindex: i32, uflags: u32, phiconlarge: *mut super::WindowsAndMessaging::HICON, phiconsmall: *mut super::WindowsAndMessaging::HICON, niconsize: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHDeleteEmptyKeyA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR) -> super::super::Foundation::LSTATUS;
+    pub fn SHDeleteEmptyKeyA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHDeleteEmptyKeyW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::LSTATUS;
+    pub fn SHDeleteEmptyKeyW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHDeleteKeyA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR) -> super::super::Foundation::LSTATUS;
+    pub fn SHDeleteKeyA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHDeleteKeyW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::LSTATUS;
+    pub fn SHDeleteKeyW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHDeleteValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR) -> super::super::Foundation::LSTATUS;
+    pub fn SHDeleteValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHDeleteValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR) -> super::super::Foundation::LSTATUS;
+    pub fn SHDeleteValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn SHDestroyPropSheetExtArray(hpsxa: HPSXA);
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Com', 'Win32_System_Ole'*"]
@@ -1126,16 +1126,16 @@ extern "system" {
     pub fn SHEmptyRecycleBinW(hwnd: super::super::Foundation::HWND, pszrootpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHEnumKeyExA(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszname: super::super::Foundation::PSTR, pcchname: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHEnumKeyExA(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszname: super::super::Foundation::PSTR, pcchname: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHEnumKeyExW(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHEnumKeyExW(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszname: super::super::Foundation::PWSTR, pcchname: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHEnumValueA(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszvaluename: super::super::Foundation::PSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHEnumValueA(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszvaluename: super::super::Foundation::PSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHEnumValueW(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszvaluename: super::super::Foundation::PWSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHEnumValueW(hkey: super::super::System::Registry::HKEY, dwindex: u32, pszvaluename: super::super::Foundation::PWSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
     pub fn SHEnumerateUnreadMailAccountsW(hkeyuser: super::super::System::Registry::HKEY, dwindex: u32, pszmailaddress: super::super::Foundation::PWSTR, cchmailaddress: i32) -> ::windows_sys::core::HRESULT;
@@ -1300,10 +1300,10 @@ extern "system" {
     pub fn SHGetUnreadMailCountW(hkeyuser: super::super::System::Registry::HKEY, pszmailaddress: super::super::Foundation::PWSTR, pdwcount: *mut u32, pfiletime: *mut super::super::Foundation::FILETIME, pszshellexecutecommand: super::super::Foundation::PWSTR, cchshellexecutecommand: i32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHGetValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHGetValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHGetValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHGetValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_UI_Shell_Common'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_UI_Shell_Common"))]
     pub fn SHGetViewStatePropertyBag(pidl: *const Common::ITEMIDLIST, pszbagname: super::super::Foundation::PWSTR, dwflags: u32, riid: *const ::windows_sys::core::GUID, ppv: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
@@ -1391,10 +1391,10 @@ extern "system" {
     pub fn SHPathPrepareForWriteW(hwnd: super::super::Foundation::HWND, punkenablemodless: ::windows_sys::core::IUnknown, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHQueryInfoKeyA(hkey: super::super::System::Registry::HKEY, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHQueryInfoKeyA(hkey: super::super::System::Registry::HKEY, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHQueryInfoKeyW(hkey: super::super::System::Registry::HKEY, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHQueryInfoKeyW(hkey: super::super::System::Registry::HKEY, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHQueryRecycleBinA(pszrootpath: super::super::Foundation::PSTR, pshqueryrbinfo: *mut SHQUERYRBINFO) -> ::windows_sys::core::HRESULT;
@@ -1405,112 +1405,112 @@ extern "system" {
     pub fn SHQueryUserNotificationState(pquns: *mut QUERY_USER_NOTIFICATION_STATE) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHQueryValueExA(hkey: super::super::System::Registry::HKEY, pszvalue: super::super::Foundation::PSTR, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHQueryValueExA(hkey: super::super::System::Registry::HKEY, pszvalue: super::super::Foundation::PSTR, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHQueryValueExW(hkey: super::super::System::Registry::HKEY, pszvalue: super::super::Foundation::PWSTR, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHQueryValueExW(hkey: super::super::System::Registry::HKEY, pszvalue: super::super::Foundation::PWSTR, pdwreserved: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegCloseUSKey(huskey: isize) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegCloseUSKey(huskey: isize) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegCreateUSKeyA(pszpath: super::super::Foundation::PSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegCreateUSKeyA(pszpath: super::super::Foundation::PSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegCreateUSKeyW(pwzpath: super::super::Foundation::PWSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegCreateUSKeyW(pwzpath: super::super::Foundation::PWSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegDeleteEmptyUSKeyA(huskey: isize, pszsubkey: super::super::Foundation::PSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegDeleteEmptyUSKeyA(huskey: isize, pszsubkey: super::super::Foundation::PSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegDeleteEmptyUSKeyW(huskey: isize, pwzsubkey: super::super::Foundation::PWSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegDeleteEmptyUSKeyW(huskey: isize, pwzsubkey: super::super::Foundation::PWSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegDeleteUSValueA(huskey: isize, pszvalue: super::super::Foundation::PSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegDeleteUSValueA(huskey: isize, pszvalue: super::super::Foundation::PSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegDeleteUSValueW(huskey: isize, pwzvalue: super::super::Foundation::PWSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_System_Registry'*"]
-    #[cfg(feature = "Win32_System_Registry")]
-    pub fn SHRegDuplicateHKey(hkey: super::super::System::Registry::HKEY) -> super::super::System::Registry::HKEY;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegEnumUSKeyA(huskey: isize, dwindex: u32, pszname: super::super::Foundation::PSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegEnumUSKeyW(huskey: isize, dwindex: u32, pwzname: super::super::Foundation::PWSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegEnumUSValueA(huskey: isize, dwindex: u32, pszvaluename: super::super::Foundation::PSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegEnumUSValueW(huskey: isize, dwindex: u32, pszvaluename: super::super::Foundation::PWSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegGetBoolUSValueA(pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegGetBoolUSValueW(pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::BOOL;
+    pub fn SHRegDeleteUSValueW(huskey: isize, pwzvalue: super::super::Foundation::PWSTR, delregflags: SHREGDEL_FLAGS) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegGetIntW(hk: super::super::System::Registry::HKEY, pwzkey: super::super::Foundation::PWSTR, idefault: i32) -> i32;
+    pub fn SHRegDuplicateHKey(hkey: super::super::System::Registry::HKEY) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegEnumUSKeyA(huskey: isize, dwindex: u32, pszname: super::super::Foundation::PSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegEnumUSKeyW(huskey: isize, dwindex: u32, pwzname: super::super::Foundation::PWSTR, pcchname: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegEnumUSValueA(huskey: isize, dwindex: u32, pszvaluename: super::super::Foundation::PSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegEnumUSValueW(huskey: isize, dwindex: u32, pszvaluename: super::super::Foundation::PWSTR, pcchvaluename: *mut u32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegGetBoolUSValueA(pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegGetBoolUSValueW(pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, fignorehkcu: super::super::Foundation::BOOL, fdefault: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegGetPathA(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PSTR, pcszvalue: super::super::Foundation::PSTR, pszpath: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegGetIntW(hk: super::super::System::Registry::HKEY, pwzkey: super::super::Foundation::PWSTR, idefault: i32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegGetPathW(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PWSTR, pcszvalue: super::super::Foundation::PWSTR, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegGetUSValueA(pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegGetUSValueW(pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegGetPathA(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PSTR, pcszvalue: super::super::Foundation::PSTR, pszpath: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegGetValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegGetPathW(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PWSTR, pcszvalue: super::super::Foundation::PWSTR, pszpath: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegGetValueFromHKCUHKLM(pwszkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegGetUSValueA(pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegGetUSValueW(pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegGetValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegGetValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegOpenUSKeyA(pszpath: super::super::Foundation::PSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, fignorehkcu: super::super::Foundation::BOOL) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegOpenUSKeyW(pwzpath: super::super::Foundation::PWSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, fignorehkcu: super::super::Foundation::BOOL) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegQueryInfoUSKeyA(huskey: isize, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegQueryInfoUSKeyW(huskey: isize, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegQueryUSValueA(huskey: isize, pszvalue: super::super::Foundation::PSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS;
-    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
-    #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegQueryUSValueW(huskey: isize, pszvalue: super::super::Foundation::PWSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegGetValueFromHKCUHKLM(pwszkey: super::super::Foundation::PWSTR, pwszvalue: super::super::Foundation::PWSTR, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegSetPathA(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PSTR, pcszvalue: super::super::Foundation::PSTR, pcszpath: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegGetValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, srrfflags: i32, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegOpenUSKeyA(pszpath: super::super::Foundation::PSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, fignorehkcu: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegOpenUSKeyW(pwzpath: super::super::Foundation::PWSTR, samdesired: u32, hrelativeuskey: isize, phnewuskey: *mut isize, fignorehkcu: super::super::Foundation::BOOL) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegQueryInfoUSKeyA(huskey: isize, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegQueryInfoUSKeyW(huskey: isize, pcsubkeys: *mut u32, pcchmaxsubkeylen: *mut u32, pcvalues: *mut u32, pcchmaxvaluenamelen: *mut u32, enumregflags: SHREGENUM_FLAGS) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegQueryUSValueA(huskey: isize, pszvalue: super::super::Foundation::PSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
+    #[cfg(feature = "Win32_Foundation")]
+    pub fn SHRegQueryUSValueW(huskey: isize, pszvalue: super::super::Foundation::PWSTR, pdwtype: *mut u32, pvdata: *mut ::core::ffi::c_void, pcbdata: *mut u32, fignorehkcu: super::super::Foundation::BOOL, pvdefaultdata: *const ::core::ffi::c_void, dwdefaultdatasize: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHRegSetPathW(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PWSTR, pcszvalue: super::super::Foundation::PWSTR, pcszpath: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegSetPathA(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PSTR, pcszvalue: super::super::Foundation::PSTR, pcszpath: super::super::Foundation::PSTR, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
+    #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
+    #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
+    pub fn SHRegSetPathW(hkey: super::super::System::Registry::HKEY, pcszsubkey: super::super::Foundation::PWSTR, pcszvalue: super::super::Foundation::PWSTR, pcszpath: super::super::Foundation::PWSTR, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegSetUSValueA(pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegSetUSValueA(pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegSetUSValueW(pwzsubkey: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegSetUSValueW(pwzsubkey: super::super::Foundation::PWSTR, pwzvalue: super::super::Foundation::PWSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegWriteUSValueA(huskey: isize, pszvalue: super::super::Foundation::PSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegWriteUSValueA(huskey: isize, pszvalue: super::super::Foundation::PSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn SHRegWriteUSValueW(huskey: isize, pwzvalue: super::super::Foundation::PWSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHRegWriteUSValueW(huskey: isize, pwzvalue: super::super::Foundation::PWSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32, dwflags: u32) -> super::super::Foundation::WIN32_ERROR;
     #[doc = "*Required features: 'Win32_UI_Shell'*"]
     pub fn SHReleaseThreadRef() -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
@@ -1556,10 +1556,10 @@ extern "system" {
     pub fn SHSetUnreadMailCountW(pszmailaddress: super::super::Foundation::PWSTR, dwcount: u32, pszshellexecutecommand: super::super::Foundation::PWSTR) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHSetValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHSetValueA(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PSTR, pszvalue: super::super::Foundation::PSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> i32;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation', 'Win32_System_Registry'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_System_Registry"))]
-    pub fn SHSetValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> super::super::Foundation::LSTATUS;
+    pub fn SHSetValueW(hkey: super::super::System::Registry::HKEY, pszsubkey: super::super::Foundation::PWSTR, pszvalue: super::super::Foundation::PWSTR, dwtype: u32, pvdata: *const ::core::ffi::c_void, cbdata: u32) -> i32;
     #[doc = "*Required features: 'Win32_UI_Shell', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn SHShellFolderView_Message(hwndmain: super::super::Foundation::HWND, umsg: u32, lparam: super::super::Foundation::LPARAM) -> super::super::Foundation::LRESULT;

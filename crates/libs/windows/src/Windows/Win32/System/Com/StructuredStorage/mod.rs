@@ -889,12 +889,12 @@ pub struct IEnumSTATPROPSETSTG(::windows::core::IUnknown);
 impl IEnumSTATPROPSETSTG {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATPROPSETSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)))
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)))
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -959,12 +959,12 @@ pub struct IEnumSTATPROPSTG(::windows::core::IUnknown);
 impl IEnumSTATPROPSTG {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)).ok()
+    pub unsafe fn Next(&self, celt: u32, rgelt: *mut STATPROPSTG, pceltfetched: *mut u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt), ::core::mem::transmute(rgelt), ::core::mem::transmute(pceltfetched)))
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::Result<()> {
-        (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)).ok()
+    pub unsafe fn Skip(&self, celt: u32) -> ::windows::core::HRESULT {
+        ::core::mem::transmute((::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), ::core::mem::transmute(celt)))
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub unsafe fn Reset(&self) -> ::windows::core::Result<()> {
@@ -1825,24 +1825,24 @@ pub struct IStorage(::windows::core::IUnknown);
 impl IStorage {
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, grfmode: u32, reserved1: u32, reserved2: u32) -> ::windows::core::Result<super::IStream> {
+    pub unsafe fn CreateStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, grfmode: STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<super::IStream> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).3)(::core::mem::transmute_copy(self), pwcsname.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(reserved1), ::core::mem::transmute(reserved2), ::core::mem::transmute(&mut result__)).from_abi::<super::IStream>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, reserved1: *mut ::core::ffi::c_void, grfmode: u32, reserved2: u32, ppstm: *mut ::core::option::Option<super::IStream>) -> ::windows::core::Result<()> {
+    pub unsafe fn OpenStream<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, reserved1: *mut ::core::ffi::c_void, grfmode: STGM, reserved2: u32, ppstm: *mut ::core::option::Option<super::IStream>) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).4)(::core::mem::transmute_copy(self), pwcsname.into_param().abi(), ::core::mem::transmute(reserved1), ::core::mem::transmute(grfmode), ::core::mem::transmute(reserved2), ::core::mem::transmute(ppstm)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn CreateStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, grfmode: u32, reserved1: u32, reserved2: u32) -> ::windows::core::Result<IStorage> {
+    pub unsafe fn CreateStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, grfmode: STGM, reserved1: u32, reserved2: u32) -> ::windows::core::Result<IStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).5)(::core::mem::transmute_copy(self), pwcsname.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(reserved1), ::core::mem::transmute(reserved2), ::core::mem::transmute(&mut result__)).from_abi::<IStorage>(result__)
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn OpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>>(&self, pwcsname: Param0, pstgpriority: Param1, grfmode: u32, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
+    pub unsafe fn OpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>>(&self, pwcsname: Param0, pstgpriority: Param1, grfmode: STGM, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         (::windows::core::Interface::vtable(self).6)(::core::mem::transmute_copy(self), pwcsname.into_param().abi(), pstgpriority.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(snbexclude), ::core::mem::transmute(reserved), ::core::mem::transmute(&mut result__)).from_abi::<IStorage>(result__)
     }
@@ -1852,11 +1852,11 @@ impl IStorage {
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub unsafe fn MoveElementTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, pstgdest: Param1, pwcsnewname: Param2, grfflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn MoveElementTo<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>, Param2: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(&self, pwcsname: Param0, pstgdest: Param1, pwcsnewname: Param2, grfflags: STGMOVE) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).8)(::core::mem::transmute_copy(self), pwcsname.into_param().abi(), pstgdest.into_param().abi(), pwcsnewname.into_param().abi(), ::core::mem::transmute(grfflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-    pub unsafe fn Commit(&self, grfcommitflags: u32) -> ::windows::core::Result<()> {
+    pub unsafe fn Commit(&self, grfcommitflags: STGC) -> ::windows::core::Result<()> {
         (::windows::core::Interface::vtable(self).9)(::core::mem::transmute_copy(self), ::core::mem::transmute(grfcommitflags)).ok()
     }
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
@@ -1937,18 +1937,18 @@ pub struct IStorageVtbl(
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, iid: &::windows::core::GUID, interface: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> u32,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved1: u32, reserved2: u32, ppstm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved1: u32, reserved2: u32, ppstm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, reserved1: *mut ::core::ffi::c_void, grfmode: u32, reserved2: u32, ppstm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, reserved1: *mut ::core::ffi::c_void, grfmode: STGM, reserved2: u32, ppstm: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved1: u32, reserved2: u32, ppstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved1: u32, reserved2: u32, ppstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: ::windows::core::RawPtr, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: ::windows::core::RawPtr, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstg: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, ciidexclude: u32, rgiidexclude: *const ::windows::core::GUID, snbexclude: *const *const u16, pstgdest: ::windows::core::RawPtr) -> ::windows::core::HRESULT,
-    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, pstgdest: ::windows::core::RawPtr, pwcsnewname: super::super::super::Foundation::PWSTR, grfflags: u32) -> ::windows::core::HRESULT,
+    #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR, pstgdest: ::windows::core::RawPtr, pwcsnewname: super::super::super::Foundation::PWSTR, grfflags: STGMOVE) -> ::windows::core::HRESULT,
     #[cfg(not(feature = "Win32_Foundation"))] usize,
-    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfcommitflags: u32) -> ::windows::core::HRESULT,
+    pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, grfcommitflags: STGC) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void) -> ::windows::core::HRESULT,
     pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, reserved1: u32, reserved2: *mut ::core::ffi::c_void, reserved3: u32, ppenum: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT,
     #[cfg(feature = "Win32_Foundation")] pub unsafe extern "system" fn(this: *mut ::core::ffi::c_void, pwcsname: super::super::super::Foundation::PWSTR) -> ::windows::core::HRESULT,
@@ -2760,29 +2760,69 @@ impl ::core::default::Default for STATPROPSTG {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type STGC = i32;
+pub type STGC = u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_DEFAULT: STGC = 0i32;
+pub const STGC_DEFAULT: STGC = 0u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_OVERWRITE: STGC = 1i32;
+pub const STGC_OVERWRITE: STGC = 1u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_ONLYIFCURRENT: STGC = 2i32;
+pub const STGC_ONLYIFCURRENT: STGC = 2u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4i32;
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_CONSOLIDATE: STGC = 8i32;
+pub const STGC_CONSOLIDATE: STGC = 8u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_ANY: u32 = 4u32;
+pub type STGFMT = u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_DOCFILE: u32 = 5u32;
+pub const STGFMT_STORAGE: STGFMT = 0u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_DOCUMENT: u32 = 0u32;
+pub const STGFMT_NATIVE: STGFMT = 1u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_FILE: u32 = 3u32;
+pub const STGFMT_FILE: STGFMT = 3u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_NATIVE: u32 = 1u32;
+pub const STGFMT_ANY: STGFMT = 4u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_STORAGE: u32 = 0u32;
+pub const STGFMT_DOCFILE: STGFMT = 5u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGFMT_DOCUMENT: STGFMT = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub type STGM = u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_DIRECT: STGM = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_TRANSACTED: STGM = 65536u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SIMPLE: STGM = 134217728u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_READ: STGM = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_WRITE: STGM = 1u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_READWRITE: STGM = 2u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_DENY_NONE: STGM = 64u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_DENY_READ: STGM = 48u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_DENY_WRITE: STGM = 32u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_EXCLUSIVE: STGM = 16u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_PRIORITY: STGM = 262144u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_DELETEONRELEASE: STGM = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_NOSCRATCH: STGM = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_CREATE: STGM = 4096u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_CONVERT: STGM = 131072u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_FAILIFTHERE: STGM = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_NOSNAPSHOT: STGM = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_DIRECT_SWMR: STGM = 4194304u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STGMOVE = i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
@@ -2791,42 +2831,6 @@ pub const STGMOVE_MOVE: STGMOVE = 0i32;
 pub const STGMOVE_COPY: STGMOVE = 1i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_CONVERT: i32 = 131072i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_CREATE: i32 = 4096i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DELETEONRELEASE: i32 = 67108864i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DIRECT: i32 = 0i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DIRECT_SWMR: i32 = 4194304i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_FAILIFTHERE: i32 = 0i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_NOSCRATCH: i32 = 1048576i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_NOSNAPSHOT: i32 = 2097152i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_PRIORITY: i32 = 262144i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_READ: i32 = 0i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_READWRITE: i32 = 2i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_NONE: i32 = 64i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_READ: i32 = 48i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_WRITE: i32 = 32i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_EXCLUSIVE: i32 = 16i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SIMPLE: i32 = 134217728i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_TRANSACTED: i32 = 65536i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_WRITE: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
@@ -2912,12 +2916,12 @@ pub unsafe fn StgConvertVariantToProperty<'a, Param5: ::windows::core::IntoParam
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage> {
+pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StgCreateDocfile(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn StgCreateDocfile(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         StgCreateDocfile(pwcsname.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(reserved), ::core::mem::transmute(&mut result__)).from_abi::<IStorage>(result__)
@@ -2927,12 +2931,12 @@ pub unsafe fn StgCreateDocfile<'a, Param0: ::windows::core::IntoParam<'a, super:
 }
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 #[inline]
-pub unsafe fn StgCreateDocfileOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0, grfmode: u32, reserved: u32) -> ::windows::core::Result<IStorage> {
+pub unsafe fn StgCreateDocfileOnILockBytes<'a, Param0: ::windows::core::IntoParam<'a, ILockBytes>>(plkbyt: Param0, grfmode: STGM, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StgCreateDocfileOnILockBytes(plkbyt: ::windows::core::RawPtr, grfmode: u32, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn StgCreateDocfileOnILockBytes(plkbyt: ::windows::core::RawPtr, grfmode: STGM, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         StgCreateDocfileOnILockBytes(plkbyt.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(reserved), ::core::mem::transmute(&mut result__)).from_abi::<IStorage>(result__)
@@ -2973,12 +2977,12 @@ pub unsafe fn StgCreatePropStg<'a, Param0: ::windows::core::IntoParam<'a, ::wind
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn StgCreateStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StgCreateStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn StgCreateStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         StgCreateStorageEx(pwcsname.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(stgfmt), ::core::mem::transmute(grfattrs), ::core::mem::transmute(pstgoptions), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(riid), ::core::mem::transmute(ppobjectopen)).ok()
     }
@@ -3110,12 +3114,12 @@ pub unsafe fn StgOpenPropStg<'a, Param0: ::windows::core::IntoParam<'a, ::window
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 #[inline]
-pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>>(pwcsname: Param0, pstgpriority: Param1, grfmode: u32, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
+pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>, Param1: ::windows::core::IntoParam<'a, IStorage>>(pwcsname: Param0, pstgpriority: Param1, grfmode: STGM, snbexclude: *const *const u16, reserved: u32) -> ::windows::core::Result<IStorage> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StgOpenStorage(pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: ::windows::core::RawPtr, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
+            fn StgOpenStorage(pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: ::windows::core::RawPtr, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut ::windows::core::RawPtr) -> ::windows::core::HRESULT;
         }
         let mut result__: ::windows::core::RawPtr = ::core::mem::zeroed();
         StgOpenStorage(pwcsname.into_param().abi(), pstgpriority.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(snbexclude), ::core::mem::transmute(reserved), ::core::mem::transmute(&mut result__)).from_abi::<IStorage>(result__)
@@ -3126,12 +3130,12 @@ pub unsafe fn StgOpenStorage<'a, Param0: ::windows::core::IntoParam<'a, super::s
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
 #[inline]
-pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
+pub unsafe fn StgOpenStorageEx<'a, Param0: ::windows::core::IntoParam<'a, super::super::super::Foundation::PWSTR>>(pwcsname: Param0, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::Result<()> {
     #[cfg(windows)]
     {
         #[link(name = "windows")]
         extern "system" {
-            fn StgOpenStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
+            fn StgOpenStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows::core::HRESULT;
         }
         StgOpenStorageEx(pwcsname.into_param().abi(), ::core::mem::transmute(grfmode), ::core::mem::transmute(stgfmt), ::core::mem::transmute(grfattrs), ::core::mem::transmute(pstgoptions), ::core::mem::transmute(psecuritydescriptor), ::core::mem::transmute(riid), ::core::mem::transmute(ppobjectopen)).ok()
     }

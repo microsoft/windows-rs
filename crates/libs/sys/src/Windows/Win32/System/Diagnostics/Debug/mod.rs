@@ -8732,11 +8732,18 @@ impl ::core::clone::Clone for JsDebugPropertyInfo {
     }
 }
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
-pub type JsDebugReadMemoryFlags = i32;
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
-pub const None: JsDebugReadMemoryFlags = 0i32;
-#[doc = "*Required features: 'Win32_System_Diagnostics_Debug'*"]
-pub const JsDebugAllowPartialRead: JsDebugReadMemoryFlags = 1i32;
+#[repr(transparent)]
+pub struct JsDebugReadMemoryFlags(pub i32);
+impl JsDebugReadMemoryFlags {
+    pub const None: Self = Self(0i32);
+    pub const JsDebugAllowPartialRead: Self = Self(1i32);
+}
+impl ::core::marker::Copy for JsDebugReadMemoryFlags {}
+impl ::core::clone::Clone for JsDebugReadMemoryFlags {
+    fn clone(&self) -> Self {
+        *self
+    }
+}
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Diagnostics_Debug', 'Win32_System_Kernel'*"]
 #[cfg(feature = "Win32_System_Kernel")]

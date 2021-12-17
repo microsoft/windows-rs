@@ -994,6 +994,22 @@ impl ::core::default::Default for HSE_EXEC_URL_USER_INFO {
     }
 }
 #[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_ASYNC: u32 = 2u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_CACHE_RESPONSE: u32 = 32u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_DISCONNECT_AFTER_SEND: u32 = 4u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_FINAL_SEND: u32 = 16u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_NODELAY: u32 = 4096u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_SEND_HEADERS: u32 = 8u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_SYNC: u32 = 1u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
+pub const HSE_IO_TRY_SKIP_CUSTOM_ERRORS: u32 = 64u32;
+#[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HSE_LOG_BUFFER_LEN: u32 = 80u32;
 #[doc = "*Required features: 'Win32_System_Iis'*"]
 pub const HSE_MAX_EXT_DLL_NAME_LEN: u32 = 256u32;

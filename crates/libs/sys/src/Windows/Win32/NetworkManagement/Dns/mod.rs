@@ -2598,7 +2598,7 @@ impl ::core::clone::Clone for MDNS_QUERY_REQUEST {
 pub type PDNS_QUERY_COMPLETION_ROUTINE = ::core::option::Option<unsafe extern "system" fn(pquerycontext: *const ::core::ffi::c_void, pqueryresults: *mut DNS_QUERY_RESULT)>;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
-pub type PDNS_SERVICE_BROWSE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: *const DNS_RECORDA)>;
+pub type PDNS_SERVICE_BROWSE_CALLBACK = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pdnsrecord: DNS_RECORDW)>;
 #[doc = "*Required features: 'Win32_NetworkManagement_Dns', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]
 pub type PDNS_SERVICE_REGISTER_COMPLETE = ::core::option::Option<unsafe extern "system" fn(status: u32, pquerycontext: *const ::core::ffi::c_void, pinstance: *const DNS_SERVICE_INSTANCE)>;

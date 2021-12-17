@@ -64,16 +64,16 @@ extern "system" {
     pub fn StgConvertVariantToProperty(pvar: *const PROPVARIANT, codepage: u16, pprop: *mut SERIALIZEDPROPERTYVALUE, pcb: *mut u32, pid: u32, freserved: super::super::super::Foundation::BOOLEAN, pcindirect: *mut u32) -> *mut SERIALIZEDPROPERTYVALUE;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StgCreateDocfile(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    pub fn StgCreateDocfile(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-    pub fn StgCreateDocfileOnILockBytes(plkbyt: ILockBytes, grfmode: u32, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    pub fn StgCreateDocfileOnILockBytes(plkbyt: ILockBytes, grfmode: STGM, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgCreatePropSetStg(pstorage: IStorage, dwreserved: u32, pppropsetstg: *mut IPropertySetStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgCreatePropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, pclsid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn StgCreateStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn StgCreateStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
     pub fn StgDeserializePropVariant(pprop: *const SERIALIZEDPROPERTYVALUE, cbmax: u32, ppropvar: *mut PROPVARIANT) -> ::windows_sys::core::HRESULT;
@@ -96,10 +96,10 @@ extern "system" {
     pub fn StgOpenPropStg(punk: ::windows_sys::core::IUnknown, fmtid: *const ::windows_sys::core::GUID, grfflags: u32, dwreserved: u32, pppropstg: *mut IPropertyStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
     #[cfg(feature = "Win32_Foundation")]
-    pub fn StgOpenStorage(pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: IStorage, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
+    pub fn StgOpenStorage(pwcsname: super::super::super::Foundation::PWSTR, pstgpriority: IStorage, grfmode: STGM, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation', 'Win32_Security'*"]
     #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Security"))]
-    pub fn StgOpenStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: u32, stgfmt: u32, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
+    pub fn StgOpenStorageEx(pwcsname: super::super::super::Foundation::PWSTR, grfmode: STGM, stgfmt: STGFMT, grfattrs: u32, pstgoptions: *mut STGOPTIONS, psecuritydescriptor: *const super::super::super::Security::SECURITY_DESCRIPTOR, riid: *const ::windows_sys::core::GUID, ppobjectopen: *mut *mut ::core::ffi::c_void) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
     pub fn StgOpenStorageOnILockBytes(plkbyt: ILockBytes, pstgpriority: IStorage, grfmode: u32, snbexclude: *const *const u16, reserved: u32, ppstgopen: *mut IStorage) -> ::windows_sys::core::HRESULT;
     #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
@@ -882,29 +882,69 @@ impl ::core::clone::Clone for STATPROPSTG {
     }
 }
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub type STGC = i32;
+pub type STGC = u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_DEFAULT: STGC = 0i32;
+pub const STGC_DEFAULT: STGC = 0u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_OVERWRITE: STGC = 1i32;
+pub const STGC_OVERWRITE: STGC = 1u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_ONLYIFCURRENT: STGC = 2i32;
+pub const STGC_ONLYIFCURRENT: STGC = 2u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4i32;
+pub const STGC_DANGEROUSLYCOMMITMERELYTODISKCACHE: STGC = 4u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGC_CONSOLIDATE: STGC = 8i32;
+pub const STGC_CONSOLIDATE: STGC = 8u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_ANY: u32 = 4u32;
+pub type STGFMT = u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_DOCFILE: u32 = 5u32;
+pub const STGFMT_STORAGE: STGFMT = 0u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_DOCUMENT: u32 = 0u32;
+pub const STGFMT_NATIVE: STGFMT = 1u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_FILE: u32 = 3u32;
+pub const STGFMT_FILE: STGFMT = 3u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_NATIVE: u32 = 1u32;
+pub const STGFMT_ANY: STGFMT = 4u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGFMT_STORAGE: u32 = 0u32;
+pub const STGFMT_DOCFILE: STGFMT = 5u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGFMT_DOCUMENT: STGFMT = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub type STGM = u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_DIRECT: STGM = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_TRANSACTED: STGM = 65536u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SIMPLE: STGM = 134217728u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_READ: STGM = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_WRITE: STGM = 1u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_READWRITE: STGM = 2u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_DENY_NONE: STGM = 64u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_DENY_READ: STGM = 48u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_DENY_WRITE: STGM = 32u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_SHARE_EXCLUSIVE: STGM = 16u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_PRIORITY: STGM = 262144u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_DELETEONRELEASE: STGM = 67108864u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_NOSCRATCH: STGM = 1048576u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_CREATE: STGM = 4096u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_CONVERT: STGM = 131072u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_FAILIFTHERE: STGM = 0u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_NOSNAPSHOT: STGM = 2097152u32;
+#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
+pub const STGM_DIRECT_SWMR: STGM = 4194304u32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub type STGMOVE = i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
@@ -913,42 +953,6 @@ pub const STGMOVE_MOVE: STGMOVE = 0i32;
 pub const STGMOVE_COPY: STGMOVE = 1i32;
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
 pub const STGMOVE_SHALLOWCOPY: STGMOVE = 2i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_CONVERT: i32 = 131072i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_CREATE: i32 = 4096i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DELETEONRELEASE: i32 = 67108864i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DIRECT: i32 = 0i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_DIRECT_SWMR: i32 = 4194304i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_FAILIFTHERE: i32 = 0i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_NOSCRATCH: i32 = 1048576i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_NOSNAPSHOT: i32 = 2097152i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_PRIORITY: i32 = 262144i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_READ: i32 = 0i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_READWRITE: i32 = 2i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_NONE: i32 = 64i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_READ: i32 = 48i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_DENY_WRITE: i32 = 32i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SHARE_EXCLUSIVE: i32 = 16i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_SIMPLE: i32 = 134217728i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_TRANSACTED: i32 = 65536i32;
-#[doc = "*Required features: 'Win32_System_Com_StructuredStorage'*"]
-pub const STGM_WRITE: i32 = 1i32;
 #[repr(C)]
 #[doc = "*Required features: 'Win32_System_Com_StructuredStorage', 'Win32_Foundation'*"]
 #[cfg(feature = "Win32_Foundation")]

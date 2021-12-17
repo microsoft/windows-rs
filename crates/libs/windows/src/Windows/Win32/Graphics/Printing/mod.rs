@@ -19043,11 +19043,51 @@ pub const PPCAPS_RIGHT_THEN_DOWN: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const PPCAPS_SQUARE_SCALING: u32 = 1u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_ACCESS_ADMINISTER: u32 = 4u32;
+pub type PRINTER_ACCESS_RIGHTS = u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_ACCESS_MANAGE_LIMITED: u32 = 64u32;
+pub const PRINTER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983052u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const PRINTER_ACCESS_USE: u32 = 8u32;
+pub const PRINTER_READ: PRINTER_ACCESS_RIGHTS = 131080u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_WRITE: PRINTER_ACCESS_RIGHTS = 131080u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131080u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SERVER_ALL_ACCESS: PRINTER_ACCESS_RIGHTS = 983043u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SERVER_READ: PRINTER_ACCESS_RIGHTS = 131074u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SERVER_WRITE: PRINTER_ACCESS_RIGHTS = 131075u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SERVER_EXECUTE: PRINTER_ACCESS_RIGHTS = 131074u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_DELETE: PRINTER_ACCESS_RIGHTS = 65536u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_READ_CONTROL: PRINTER_ACCESS_RIGHTS = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_WRITE_DAC: PRINTER_ACCESS_RIGHTS = 262144u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_WRITE_OWNER: PRINTER_ACCESS_RIGHTS = 524288u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_SYNCHRONIZE: PRINTER_ACCESS_RIGHTS = 1048576u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_STANDARD_RIGHTS_REQUIRED: PRINTER_ACCESS_RIGHTS = 983040u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_STANDARD_RIGHTS_READ: PRINTER_ACCESS_RIGHTS = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_STANDARD_RIGHTS_WRITE: PRINTER_ACCESS_RIGHTS = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_STANDARD_RIGHTS_EXECUTE: PRINTER_ACCESS_RIGHTS = 131072u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SERVER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 1u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const SERVER_ACCESS_ENUMERATE: PRINTER_ACCESS_RIGHTS = 2u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_ACCESS_ADMINISTER: PRINTER_ACCESS_RIGHTS = 4u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_ACCESS_USE: PRINTER_ACCESS_RIGHTS = 8u32;
+#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
+pub const PRINTER_ACCESS_MANAGE_LIMITED: PRINTER_ACCESS_RIGHTS = 64u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const PRINTER_ATTRIBUTE_DEFAULT: u32 = 4u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
@@ -19234,7 +19274,7 @@ pub const PRINTER_CONTROL_SET_STATUS: u32 = 4u32;
 pub struct PRINTER_DEFAULTSA {
     pub pDatatype: super::super::Foundation::PSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEA,
-    pub DesiredAccess: u32,
+    pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTER_DEFAULTSA {}
@@ -19268,7 +19308,7 @@ impl ::core::default::Default for PRINTER_DEFAULTSA {
 pub struct PRINTER_DEFAULTSW {
     pub pDatatype: super::super::Foundation::PWSTR,
     pub pDevMode: *mut super::Gdi::DEVMODEW,
-    pub DesiredAccess: u32,
+    pub DesiredAccess: PRINTER_ACCESS_RIGHTS,
 }
 #[cfg(all(feature = "Win32_Foundation", feature = "Win32_Graphics_Gdi"))]
 impl ::core::marker::Copy for PRINTER_DEFAULTSW {}
@@ -20347,7 +20387,7 @@ pub const PRINTER_OEMINTF_VERSION: u32 = 65536u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct PRINTER_OPTIONSA {
     pub cbSize: u32,
-    pub dwFlags: u32,
+    pub dwFlags: PRINTER_OPTION_FLAGS,
 }
 impl ::core::marker::Copy for PRINTER_OPTIONSA {}
 impl ::core::clone::Clone for PRINTER_OPTIONSA {
@@ -20373,7 +20413,7 @@ impl ::core::default::Default for PRINTER_OPTIONSA {
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub struct PRINTER_OPTIONSW {
     pub cbSize: u32,
-    pub dwFlags: u32,
+    pub dwFlags: PRINTER_OPTION_FLAGS,
 }
 impl ::core::marker::Copy for PRINTER_OPTIONSW {}
 impl ::core::clone::Clone for PRINTER_OPTIONSW {
@@ -21983,10 +22023,6 @@ pub unsafe fn RouterFreePrinterNotifyInfo(pinfo: *const PRINTER_NOTIFY_INFO) -> 
     #[cfg(not(windows))]
     unimplemented!("Unsupported target OS");
 }
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_ACCESS_ADMINISTER: u32 = 1u32;
-#[doc = "*Required features: 'Win32_Graphics_Printing'*"]
-pub const SERVER_ACCESS_ENUMERATE: u32 = 2u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
 pub const SERVER_NOTIFY_FIELD_PRINT_DRIVER_ISOLATION_GROUP: u32 = 0u32;
 #[doc = "*Required features: 'Win32_Graphics_Printing'*"]
