@@ -2,7 +2,7 @@ use super::*;
 
 pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
     let name = def.name();
-    let ident = gen_ident(def.name());
+    let ident = gen_ident(name);
     let underlying_type = def.underlying_type();
     let underlying_type = gen_element_name(&underlying_type, gen);
     let is_scoped = def.is_scoped();
