@@ -101,6 +101,11 @@ impl ::core::cmp::PartialEq for RemoteTextConnection {
     }
 }
 impl ::core::cmp::Eq for RemoteTextConnection {}
+impl ::core::fmt::Debug for RemoteTextConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteTextConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoteTextConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.RemoteDesktop.Input.RemoteTextConnection;{4e7bb02a-183e-5e66-b5e4-3e6e5c570cf1})");
 }
@@ -249,6 +254,11 @@ impl ::core::cmp::PartialEq for RemoteTextConnectionDataHandler {
     }
 }
 impl ::core::cmp::Eq for RemoteTextConnectionDataHandler {}
+impl ::core::fmt::Debug for RemoteTextConnectionDataHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoteTextConnectionDataHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for RemoteTextConnectionDataHandler {
     type Vtable = RemoteTextConnectionDataHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099ffbc8_8bcb_41b5_b056_57e77021bf1b);

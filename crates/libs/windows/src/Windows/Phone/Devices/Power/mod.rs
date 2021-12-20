@@ -59,6 +59,11 @@ impl ::core::cmp::PartialEq for Battery {
     }
 }
 impl ::core::cmp::Eq for Battery {}
+impl ::core::fmt::Debug for Battery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Battery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Battery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Devices.Power.Battery;{972adbdd-6720-4702-a476-b9d38a0070e3})");
 }

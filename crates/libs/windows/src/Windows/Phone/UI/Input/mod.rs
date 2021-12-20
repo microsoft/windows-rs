@@ -28,6 +28,11 @@ impl ::core::cmp::PartialEq for BackPressedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BackPressedEventArgs {}
+impl ::core::fmt::Debug for BackPressedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackPressedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.BackPressedEventArgs;{f6f555ff-64ec-42a2-b93b-2fbc0c36a121})");
 }
@@ -95,6 +100,11 @@ impl ::core::cmp::PartialEq for CameraEventArgs {
     }
 }
 impl ::core::cmp::Eq for CameraEventArgs {}
+impl ::core::fmt::Debug for CameraEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.UI.Input.CameraEventArgs;{b4063bda-201f-473d-bc69-e9e4ac57c9d0})");
 }

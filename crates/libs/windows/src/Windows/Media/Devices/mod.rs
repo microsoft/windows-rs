@@ -37,6 +37,11 @@ impl ::core::cmp::PartialEq for AdvancedPhotoCaptureSettings {
     }
 }
 impl ::core::cmp::Eq for AdvancedPhotoCaptureSettings {}
+impl ::core::fmt::Debug for AdvancedPhotoCaptureSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedPhotoCaptureSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdvancedPhotoCaptureSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoCaptureSettings;{08f3863a-0018-445b-93d2-646d1c5ed05c})");
 }
@@ -135,6 +140,11 @@ impl ::core::cmp::PartialEq for AdvancedPhotoControl {
     }
 }
 impl ::core::cmp::Eq for AdvancedPhotoControl {}
+impl ::core::fmt::Debug for AdvancedPhotoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedPhotoControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdvancedPhotoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AdvancedPhotoControl;{c5b15486-9001-4682-9309-68eae0080eec})");
 }
@@ -291,6 +301,11 @@ impl ::core::cmp::PartialEq for AudioDeviceController {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceController {}
+impl ::core::fmt::Debug for AudioDeviceController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceController;{edd4a388-79c7-4f7c-90e8-ef934b21580a})");
 }
@@ -428,6 +443,11 @@ impl ::core::cmp::PartialEq for AudioDeviceModule {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceModule {}
+impl ::core::fmt::Debug for AudioDeviceModule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceModule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceModule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModule;{86cfac36-47c1-4b33-9852-8773ec4be123})");
 }
@@ -511,6 +531,11 @@ impl ::core::cmp::PartialEq for AudioDeviceModuleNotificationEventArgs {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceModuleNotificationEventArgs {}
+impl ::core::fmt::Debug for AudioDeviceModuleNotificationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceModuleNotificationEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceModuleNotificationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModuleNotificationEventArgs;{e3e3ccaf-224c-48be-956b-9a13134e96e8})");
 }
@@ -624,6 +649,11 @@ impl ::core::cmp::PartialEq for AudioDeviceModulesManager {
     }
 }
 impl ::core::cmp::Eq for AudioDeviceModulesManager {}
+impl ::core::fmt::Debug for AudioDeviceModulesManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioDeviceModulesManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioDeviceModulesManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.AudioDeviceModulesManager;{6aa40c4d-960a-4d1c-b318-0022604547ed})");
 }
@@ -902,6 +932,11 @@ impl ::core::cmp::PartialEq for CallControl {
     }
 }
 impl ::core::cmp::Eq for CallControl {}
+impl ::core::fmt::Debug for CallControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CallControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CallControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CallControl;{a520d0d6-ae8d-45db-8011-ca49d3b3e578})");
 }
@@ -1014,6 +1049,11 @@ impl ::core::cmp::PartialEq for CallControlEventHandler {
     }
 }
 impl ::core::cmp::Eq for CallControlEventHandler {}
+impl ::core::fmt::Debug for CallControlEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CallControlEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for CallControlEventHandler {
     type Vtable = CallControlEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x596f759f_50df_4454_bc63_4d3d01b61958);
@@ -1071,6 +1111,11 @@ impl ::core::cmp::PartialEq for CameraOcclusionInfo {
     }
 }
 impl ::core::cmp::Eq for CameraOcclusionInfo {}
+impl ::core::fmt::Debug for CameraOcclusionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionInfo;{af6c4ad0-a84d-5db6-be58-a5da21cfe011})");
 }
@@ -1188,6 +1233,11 @@ impl ::core::cmp::PartialEq for CameraOcclusionState {
     }
 }
 impl ::core::cmp::Eq for CameraOcclusionState {}
+impl ::core::fmt::Debug for CameraOcclusionState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionState;{430adeb8-6842-5e55-9bde-04b4ef3a8a57})");
 }
@@ -1264,6 +1314,11 @@ impl ::core::cmp::PartialEq for CameraOcclusionStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CameraOcclusionStateChangedEventArgs {}
+impl ::core::fmt::Debug for CameraOcclusionStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraOcclusionStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraOcclusionStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.CameraOcclusionStateChangedEventArgs;{8512d848-c0de-57ca-a1ca-fb2c3d23df55})");
 }
@@ -1500,6 +1555,11 @@ impl ::core::cmp::PartialEq for DefaultAudioCaptureDeviceChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DefaultAudioCaptureDeviceChangedEventArgs {}
+impl ::core::fmt::Debug for DefaultAudioCaptureDeviceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DefaultAudioCaptureDeviceChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DefaultAudioCaptureDeviceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioCaptureDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
 }
@@ -1606,6 +1666,11 @@ impl ::core::cmp::PartialEq for DefaultAudioRenderDeviceChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DefaultAudioRenderDeviceChangedEventArgs {}
+impl ::core::fmt::Debug for DefaultAudioRenderDeviceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DefaultAudioRenderDeviceChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DefaultAudioRenderDeviceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DefaultAudioRenderDeviceChangedEventArgs;{110f882f-1c05-4657-a18e-47c9b69f07ab})");
 }
@@ -1709,6 +1774,11 @@ impl ::core::cmp::PartialEq for DialRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DialRequestedEventArgs {}
+impl ::core::fmt::Debug for DialRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DialRequestedEventArgs;{037b929e-953c-4286-8866-4f0f376c855a})");
 }
@@ -1821,6 +1891,11 @@ impl ::core::cmp::PartialEq for DialRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for DialRequestedEventHandler {}
+impl ::core::fmt::Debug for DialRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialRequestedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DialRequestedEventHandler {
     type Vtable = DialRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5abbffdb_c21f_4bc4_891b_257e28c1b1a4);
@@ -1893,6 +1968,11 @@ impl ::core::cmp::PartialEq for DigitalWindowBounds {
     }
 }
 impl ::core::cmp::Eq for DigitalWindowBounds {}
+impl ::core::fmt::Debug for DigitalWindowBounds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowBounds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DigitalWindowBounds {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowBounds;{dd4f21dd-d173-5c6b-8c25-bdd26d5122b1})");
 }
@@ -2010,6 +2090,11 @@ impl ::core::cmp::PartialEq for DigitalWindowCapability {
     }
 }
 impl ::core::cmp::Eq for DigitalWindowCapability {}
+impl ::core::fmt::Debug for DigitalWindowCapability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowCapability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DigitalWindowCapability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowCapability;{d78bad2c-f721-5244-a196-b56ccbec606c})");
 }
@@ -2137,6 +2222,11 @@ impl ::core::cmp::PartialEq for DigitalWindowControl {
     }
 }
 impl ::core::cmp::Eq for DigitalWindowControl {}
+impl ::core::fmt::Debug for DigitalWindowControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DigitalWindowControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DigitalWindowControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.DigitalWindowControl;{23b69eff-65d2-53ea-8780-de582b48b544})");
 }
@@ -2288,6 +2378,11 @@ impl ::core::cmp::PartialEq for ExposureCompensationControl {
     }
 }
 impl ::core::cmp::Eq for ExposureCompensationControl {}
+impl ::core::fmt::Debug for ExposureCompensationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExposureCompensationControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExposureCompensationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureCompensationControl;{81c8e834-dcec-4011-a610-1f3847e64aca})");
 }
@@ -2424,6 +2519,11 @@ impl ::core::cmp::PartialEq for ExposureControl {
     }
 }
 impl ::core::cmp::Eq for ExposureControl {}
+impl ::core::fmt::Debug for ExposureControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExposureControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExposureControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposureControl;{09e8cbe2-ad96-4f28-a0e0-96ed7e1b5fd2})");
 }
@@ -2511,6 +2611,11 @@ impl ::core::cmp::PartialEq for ExposurePriorityVideoControl {
     }
 }
 impl ::core::cmp::Eq for ExposurePriorityVideoControl {}
+impl ::core::fmt::Debug for ExposurePriorityVideoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExposurePriorityVideoControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExposurePriorityVideoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ExposurePriorityVideoControl;{2cb240a3-5168-4271-9ea5-47621a98a352})");
 }
@@ -2676,6 +2781,11 @@ impl ::core::cmp::PartialEq for FlashControl {
     }
 }
 impl ::core::cmp::Eq for FlashControl {}
+impl ::core::fmt::Debug for FlashControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlashControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlashControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FlashControl;{def41dbe-7d68-45e3-8c0f-be7bb32837d0})");
 }
@@ -2917,6 +3027,11 @@ impl ::core::cmp::PartialEq for FocusControl {
     }
 }
 impl ::core::cmp::Eq for FocusControl {}
+impl ::core::fmt::Debug for FocusControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FocusControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusControl;{c0d889f6-5228-4453-b153-85606592b238})");
 }
@@ -3144,6 +3259,11 @@ impl ::core::cmp::PartialEq for FocusSettings {
     }
 }
 impl ::core::cmp::Eq for FocusSettings {}
+impl ::core::fmt::Debug for FocusSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FocusSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FocusSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.FocusSettings;{79958f6b-3263-4275-85d6-aeae891c96ee})");
 }
@@ -3242,6 +3362,11 @@ impl ::core::cmp::PartialEq for HdrVideoControl {
     }
 }
 impl ::core::cmp::Eq for HdrVideoControl {}
+impl ::core::fmt::Debug for HdrVideoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdrVideoControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdrVideoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.HdrVideoControl;{55d8e2d0-30c0-43bf-9b9a-9799d70ced94})");
 }
@@ -3881,6 +4006,11 @@ impl ::core::cmp::PartialEq for IDefaultAudioDeviceChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IDefaultAudioDeviceChangedEventArgs {}
+impl ::core::fmt::Debug for IDefaultAudioDeviceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDefaultAudioDeviceChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDefaultAudioDeviceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{110f882f-1c05-4657-a18e-47c9b69f07ab}");
 }
@@ -4525,6 +4655,11 @@ impl ::core::cmp::PartialEq for IMediaDeviceController {
     }
 }
 impl ::core::cmp::Eq for IMediaDeviceController {}
+impl ::core::fmt::Debug for IMediaDeviceController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaDeviceController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaDeviceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f6f8f5ce-209a-48fb-86fc-d44578f317e6}");
 }
@@ -5054,6 +5189,11 @@ impl ::core::cmp::PartialEq for InfraredTorchControl {
     }
 }
 impl ::core::cmp::Eq for InfraredTorchControl {}
+impl ::core::fmt::Debug for InfraredTorchControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InfraredTorchControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InfraredTorchControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.InfraredTorchControl;{1cba2c83-6cb6-5a04-a6fc-3be7b33ff056})");
 }
@@ -5249,6 +5389,11 @@ impl ::core::cmp::PartialEq for IsoSpeedControl {
     }
 }
 impl ::core::cmp::Eq for IsoSpeedControl {}
+impl ::core::fmt::Debug for IsoSpeedControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IsoSpeedControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IsoSpeedControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.IsoSpeedControl;{27b6c322-25ad-4f1b-aaab-524ab376ca33})");
 }
@@ -5376,6 +5521,11 @@ impl ::core::cmp::PartialEq for KeypadPressedEventArgs {
     }
 }
 impl ::core::cmp::Eq for KeypadPressedEventArgs {}
+impl ::core::fmt::Debug for KeypadPressedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeypadPressedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeypadPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.KeypadPressedEventArgs;{d3a43900-b4fa-49cd-9442-89af6568f601})");
 }
@@ -5488,6 +5638,11 @@ impl ::core::cmp::PartialEq for KeypadPressedEventHandler {
     }
 }
 impl ::core::cmp::Eq for KeypadPressedEventHandler {}
+impl ::core::fmt::Debug for KeypadPressedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeypadPressedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for KeypadPressedEventHandler {
     type Vtable = KeypadPressedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe637a454_c527_422c_8926_c9af83b559a0);
@@ -5581,6 +5736,11 @@ impl ::core::cmp::PartialEq for LowLagPhotoControl {
     }
 }
 impl ::core::cmp::Eq for LowLagPhotoControl {}
+impl ::core::fmt::Debug for LowLagPhotoControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LowLagPhotoControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LowLagPhotoControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.LowLagPhotoControl;{6d5c4dd0-fadf-415d-aee6-3baa529300c9})");
 }
@@ -5764,6 +5924,11 @@ impl ::core::cmp::PartialEq for LowLagPhotoSequenceControl {
     }
 }
 impl ::core::cmp::Eq for LowLagPhotoSequenceControl {}
+impl ::core::fmt::Debug for LowLagPhotoSequenceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LowLagPhotoSequenceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LowLagPhotoSequenceControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.LowLagPhotoSequenceControl;{3dcf909d-6d16-409c-bafe-b9a594c6fde6})");
 }
@@ -6084,6 +6249,11 @@ impl ::core::cmp::PartialEq for MediaDeviceControl {
     }
 }
 impl ::core::cmp::Eq for MediaDeviceControl {}
+impl ::core::fmt::Debug for MediaDeviceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaDeviceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaDeviceControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.MediaDeviceControl;{efa8dfa9-6f75-4863-ba0b-583f3036b4de})");
 }
@@ -6198,6 +6368,11 @@ impl ::core::cmp::PartialEq for MediaDeviceControlCapabilities {
     }
 }
 impl ::core::cmp::Eq for MediaDeviceControlCapabilities {}
+impl ::core::fmt::Debug for MediaDeviceControlCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaDeviceControlCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaDeviceControlCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.MediaDeviceControlCapabilities;{23005816-eb85-43e2-b92b-8240d5ee70ec})");
 }
@@ -6281,6 +6456,11 @@ impl ::core::cmp::PartialEq for ModuleCommandResult {
     }
 }
 impl ::core::cmp::Eq for ModuleCommandResult {}
+impl ::core::fmt::Debug for ModuleCommandResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ModuleCommandResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ModuleCommandResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ModuleCommandResult;{520d1eb4-1374-4c7d-b1e4-39dcdf3eae4e})");
 }
@@ -6377,6 +6557,11 @@ impl ::core::cmp::PartialEq for OpticalImageStabilizationControl {
     }
 }
 impl ::core::cmp::Eq for OpticalImageStabilizationControl {}
+impl ::core::fmt::Debug for OpticalImageStabilizationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OpticalImageStabilizationControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OpticalImageStabilizationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.OpticalImageStabilizationControl;{bfad9c1d-00bc-423b-8eb2-a0178ca94247})");
 }
@@ -6502,6 +6687,11 @@ impl ::core::cmp::PartialEq for PanelBasedOptimizationControl {
     }
 }
 impl ::core::cmp::Eq for PanelBasedOptimizationControl {}
+impl ::core::fmt::Debug for PanelBasedOptimizationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PanelBasedOptimizationControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PanelBasedOptimizationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.PanelBasedOptimizationControl;{33323223-6247-5419-a5a4-3d808645d917})");
 }
@@ -6606,6 +6796,11 @@ impl ::core::cmp::PartialEq for PhotoConfirmationControl {
     }
 }
 impl ::core::cmp::Eq for PhotoConfirmationControl {}
+impl ::core::fmt::Debug for PhotoConfirmationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoConfirmationControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoConfirmationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.PhotoConfirmationControl;{c8f3f363-ff5e-4582-a9a8-0550f85a4a76})");
 }
@@ -6677,6 +6872,11 @@ impl ::core::cmp::PartialEq for RedialRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RedialRequestedEventArgs {}
+impl ::core::fmt::Debug for RedialRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RedialRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RedialRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.RedialRequestedEventArgs;{7eb55209-76ab-4c31-b40e-4b58379d580c})");
 }
@@ -6789,6 +6989,11 @@ impl ::core::cmp::PartialEq for RedialRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for RedialRequestedEventHandler {}
+impl ::core::fmt::Debug for RedialRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RedialRequestedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for RedialRequestedEventHandler {
     type Vtable = RedialRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaf257d1_4ebd_4b84_9f47_6ec43d75d8b1);
@@ -6915,6 +7120,11 @@ impl ::core::cmp::PartialEq for RegionOfInterest {
     }
 }
 impl ::core::cmp::Eq for RegionOfInterest {}
+impl ::core::fmt::Debug for RegionOfInterest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RegionOfInterest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RegionOfInterest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.RegionOfInterest;{e5ecc834-ce66-4e05-a78f-cf391a5ec2d1})");
 }
@@ -7075,6 +7285,11 @@ impl ::core::cmp::PartialEq for RegionsOfInterestControl {
     }
 }
 impl ::core::cmp::Eq for RegionsOfInterestControl {}
+impl ::core::fmt::Debug for RegionsOfInterestControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RegionsOfInterestControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RegionsOfInterestControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.RegionsOfInterestControl;{c323f527-ab0b-4558-8b5b-df5693db0378})");
 }
@@ -7167,6 +7382,11 @@ impl ::core::cmp::PartialEq for SceneModeControl {
     }
 }
 impl ::core::cmp::Eq for SceneModeControl {}
+impl ::core::fmt::Debug for SceneModeControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneModeControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneModeControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.SceneModeControl;{d48e5af7-8d59-4854-8c62-12c70ba89b7c})");
 }
@@ -7355,6 +7575,11 @@ impl ::core::cmp::PartialEq for TorchControl {
     }
 }
 impl ::core::cmp::Eq for TorchControl {}
+impl ::core::fmt::Debug for TorchControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TorchControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TorchControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.TorchControl;{a6053665-8250-416c-919a-724296afa306})");
 }
@@ -7820,6 +8045,11 @@ impl ::core::cmp::PartialEq for VideoDeviceController {
     }
 }
 impl ::core::cmp::Eq for VideoDeviceController {}
+impl ::core::fmt::Debug for VideoDeviceController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoDeviceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.VideoDeviceController;{99555575-2e2e-40b8-b6c7-f82d10013210})");
 }
@@ -7924,6 +8154,11 @@ impl ::core::cmp::PartialEq for VideoDeviceControllerGetDevicePropertyResult {
     }
 }
 impl ::core::cmp::Eq for VideoDeviceControllerGetDevicePropertyResult {}
+impl ::core::fmt::Debug for VideoDeviceControllerGetDevicePropertyResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoDeviceControllerGetDevicePropertyResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoDeviceControllerGetDevicePropertyResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.VideoDeviceControllerGetDevicePropertyResult;{c5d88395-6ed5-4790-8b5d-0ef13935d0f8})");
 }
@@ -8097,6 +8332,11 @@ impl ::core::cmp::PartialEq for VideoTemporalDenoisingControl {
     }
 }
 impl ::core::cmp::Eq for VideoTemporalDenoisingControl {}
+impl ::core::fmt::Debug for VideoTemporalDenoisingControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VideoTemporalDenoisingControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VideoTemporalDenoisingControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.VideoTemporalDenoisingControl;{7ab34735-3e2a-4a32-baff-4358c4fbdd57})");
 }
@@ -8265,6 +8505,11 @@ impl ::core::cmp::PartialEq for WhiteBalanceControl {
     }
 }
 impl ::core::cmp::Eq for WhiteBalanceControl {}
+impl ::core::fmt::Debug for WhiteBalanceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WhiteBalanceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WhiteBalanceControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.WhiteBalanceControl;{781f047e-7162-49c8-a8f9-9481c565363e})");
 }
@@ -8398,6 +8643,11 @@ impl ::core::cmp::PartialEq for ZoomControl {
     }
 }
 impl ::core::cmp::Eq for ZoomControl {}
+impl ::core::fmt::Debug for ZoomControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ZoomControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ZoomControl;{3a1e0b12-32da-4c17-bfd7-8d0c73c8f5a5})");
 }
@@ -8497,6 +8747,11 @@ impl ::core::cmp::PartialEq for ZoomSettings {
     }
 }
 impl ::core::cmp::Eq for ZoomSettings {}
+impl ::core::fmt::Debug for ZoomSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ZoomSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ZoomSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.ZoomSettings;{6ad66b24-14b4-4bfd-b18f-88fe24463b52})");
 }

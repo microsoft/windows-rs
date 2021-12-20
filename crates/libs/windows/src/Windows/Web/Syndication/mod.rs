@@ -221,6 +221,11 @@ impl ::core::cmp::PartialEq for ISyndicationClient {
     }
 }
 impl ::core::cmp::Eq for ISyndicationClient {}
+impl ::core::fmt::Debug for ISyndicationClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISyndicationClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISyndicationClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e18a9b7-7249-4b45-b229-7df895a5a1f5}");
 }
@@ -736,6 +741,11 @@ impl ::core::cmp::PartialEq for ISyndicationNode {
     }
 }
 impl ::core::cmp::Eq for ISyndicationNode {}
+impl ::core::fmt::Debug for ISyndicationNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISyndicationNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISyndicationNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{753cef78-51f8-45c0-a9f5-f1719dec3fb2}");
 }
@@ -1047,6 +1057,11 @@ impl ::core::cmp::PartialEq for ISyndicationText {
     }
 }
 impl ::core::cmp::Eq for ISyndicationText {}
+impl ::core::fmt::Debug for ISyndicationText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISyndicationText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISyndicationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b9cc5e80-313a-4091-a2a6-243e0ee923f9}");
 }
@@ -1202,6 +1217,11 @@ impl ::core::cmp::PartialEq for SyndicationAttribute {
     }
 }
 impl ::core::cmp::Eq for SyndicationAttribute {}
+impl ::core::fmt::Debug for SyndicationAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationAttribute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationAttribute;{71e8f969-526e-4001-9a91-e84f83161ab1})");
 }
@@ -1429,6 +1449,11 @@ impl ::core::cmp::PartialEq for SyndicationCategory {
     }
 }
 impl ::core::cmp::Eq for SyndicationCategory {}
+impl ::core::fmt::Debug for SyndicationCategory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationCategory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationCategory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationCategory;{8715626f-0cba-4a7f-89ff-ecb5281423b6})");
 }
@@ -1622,6 +1647,11 @@ impl ::core::cmp::PartialEq for SyndicationClient {
     }
 }
 impl ::core::cmp::Eq for SyndicationClient {}
+impl ::core::fmt::Debug for SyndicationClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationClient;{9e18a9b7-7249-4b45-b229-7df895a5a1f5})");
 }
@@ -1889,6 +1919,11 @@ impl ::core::cmp::PartialEq for SyndicationContent {
     }
 }
 impl ::core::cmp::Eq for SyndicationContent {}
+impl ::core::fmt::Debug for SyndicationContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationContent;{4641fefe-0e55-40d0-b8d0-6a2ccba9fc7c})");
 }
@@ -2381,6 +2416,11 @@ impl ::core::cmp::PartialEq for SyndicationFeed {
     }
 }
 impl ::core::cmp::Eq for SyndicationFeed {}
+impl ::core::fmt::Debug for SyndicationFeed {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationFeed").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationFeed {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationFeed;{7ffe3cd2-5b66-4d62-8403-1bc10d910d6b})");
 }
@@ -2662,6 +2702,11 @@ impl ::core::cmp::PartialEq for SyndicationGenerator {
     }
 }
 impl ::core::cmp::Eq for SyndicationGenerator {}
+impl ::core::fmt::Debug for SyndicationGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationGenerator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationGenerator;{9768b379-fb2b-4f6d-b41c-088a5868825c})");
 }
@@ -3071,6 +3116,11 @@ impl ::core::cmp::PartialEq for SyndicationItem {
     }
 }
 impl ::core::cmp::Eq for SyndicationItem {}
+impl ::core::fmt::Debug for SyndicationItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationItem;{548db883-c384-45c1-8ae8-a378c4ec486c})");
 }
@@ -3363,6 +3413,11 @@ impl ::core::cmp::PartialEq for SyndicationLink {
     }
 }
 impl ::core::cmp::Eq for SyndicationLink {}
+impl ::core::fmt::Debug for SyndicationLink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationLink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationLink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationLink;{27553abd-a10e-41b5-86bd-9759086eb0c5})");
 }
@@ -3566,6 +3621,11 @@ impl ::core::cmp::PartialEq for SyndicationNode {
     }
 }
 impl ::core::cmp::Eq for SyndicationNode {}
+impl ::core::fmt::Debug for SyndicationNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationNode;{753cef78-51f8-45c0-a9f5-f1719dec3fb2})");
 }
@@ -3818,6 +3878,11 @@ impl ::core::cmp::PartialEq for SyndicationPerson {
     }
 }
 impl ::core::cmp::Eq for SyndicationPerson {}
+impl ::core::fmt::Debug for SyndicationPerson {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationPerson").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationPerson {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationPerson;{fa1ee5da-a7c6-4517-a096-0143faf29327})");
 }
@@ -4069,6 +4134,11 @@ impl ::core::cmp::PartialEq for SyndicationText {
     }
 }
 impl ::core::cmp::Eq for SyndicationText {}
+impl ::core::fmt::Debug for SyndicationText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SyndicationText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SyndicationText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Syndication.SyndicationText;{b9cc5e80-313a-4091-a2a6-243e0ee923f9})");
 }

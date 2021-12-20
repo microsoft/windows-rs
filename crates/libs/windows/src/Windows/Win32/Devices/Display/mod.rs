@@ -6916,6 +6916,11 @@ impl ::core::cmp::PartialEq for ICloneViewHelper {
     }
 }
 impl ::core::cmp::Eq for ICloneViewHelper {}
+impl ::core::fmt::Debug for ICloneViewHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICloneViewHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICloneViewHelper {
     type Vtable = ICloneViewHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6a3d4c4_5632_4d83_b0a1_fb88712b1eb7);
@@ -7758,6 +7763,11 @@ impl ::core::cmp::PartialEq for IViewHelper {
     }
 }
 impl ::core::cmp::Eq for IViewHelper {}
+impl ::core::fmt::Debug for IViewHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IViewHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IViewHelper {
     type Vtable = IViewHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85ccef5_aaaa_47f0_b5e3_61f7aecdc4c1);

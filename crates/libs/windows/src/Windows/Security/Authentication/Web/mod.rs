@@ -255,6 +255,11 @@ impl ::core::cmp::PartialEq for WebAuthenticationResult {
     }
 }
 impl ::core::cmp::Eq for WebAuthenticationResult {}
+impl ::core::fmt::Debug for WebAuthenticationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAuthenticationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.WebAuthenticationResult;{64002b4b-ede9-470a-a5cd-0323faf6e262})");
 }

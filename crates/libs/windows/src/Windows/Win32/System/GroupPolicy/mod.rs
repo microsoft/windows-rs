@@ -857,6 +857,11 @@ impl ::core::cmp::PartialEq for IGPEInformation {
     }
 }
 impl ::core::cmp::Eq for IGPEInformation {}
+impl ::core::fmt::Debug for IGPEInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPEInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPEInformation {
     type Vtable = IGPEInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fc0b735_a0e1_11d1_a7d3_0000f87571e3);
@@ -1032,6 +1037,11 @@ impl ::core::cmp::PartialEq for IGPM {
     }
 }
 impl ::core::cmp::Eq for IGPM {}
+impl ::core::fmt::Debug for IGPM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPM").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPM {
     type Vtable = IGPMVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5fae809_3bd6_4da9_a65e_17665b41d763);
@@ -1251,6 +1261,11 @@ impl ::core::cmp::PartialEq for IGPM2 {
     }
 }
 impl ::core::cmp::Eq for IGPM2 {}
+impl ::core::fmt::Debug for IGPM2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPM2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPM2 {
     type Vtable = IGPM2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00238f8a_3d86_41ac_8f5e_06a6638a634a);
@@ -1380,6 +1395,11 @@ impl ::core::cmp::PartialEq for IGPMAsyncCancel {
     }
 }
 impl ::core::cmp::Eq for IGPMAsyncCancel {}
+impl ::core::fmt::Debug for IGPMAsyncCancel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMAsyncCancel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMAsyncCancel {
     type Vtable = IGPMAsyncCancelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddc67754_be67_4541_8166_f48166868c9c);
@@ -1487,6 +1507,11 @@ impl ::core::cmp::PartialEq for IGPMAsyncProgress {
     }
 }
 impl ::core::cmp::Eq for IGPMAsyncProgress {}
+impl ::core::fmt::Debug for IGPMAsyncProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMAsyncProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMAsyncProgress {
     type Vtable = IGPMAsyncProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aac29f8_5948_4324_bf70_423818942dbc);
@@ -1646,6 +1671,11 @@ impl ::core::cmp::PartialEq for IGPMBackup {
     }
 }
 impl ::core::cmp::Eq for IGPMBackup {}
+impl ::core::fmt::Debug for IGPMBackup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMBackup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMBackup {
     type Vtable = IGPMBackupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8a16a35_3b0d_416b_8d02_4df6f95a7119);
@@ -1782,6 +1812,11 @@ impl ::core::cmp::PartialEq for IGPMBackupCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMBackupCollection {}
+impl ::core::fmt::Debug for IGPMBackupCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMBackupCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMBackupCollection {
     type Vtable = IGPMBackupCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc786fc0f_26d8_4bab_a745_39ca7e800cac);
@@ -1905,6 +1940,11 @@ impl ::core::cmp::PartialEq for IGPMBackupDir {
     }
 }
 impl ::core::cmp::Eq for IGPMBackupDir {}
+impl ::core::fmt::Debug for IGPMBackupDir {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMBackupDir").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMBackupDir {
     type Vtable = IGPMBackupDirVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1568bed_0a93_4acc_810f_afe7081019b9);
@@ -2034,6 +2074,11 @@ impl ::core::cmp::PartialEq for IGPMBackupDirEx {
     }
 }
 impl ::core::cmp::Eq for IGPMBackupDirEx {}
+impl ::core::fmt::Debug for IGPMBackupDirEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMBackupDirEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMBackupDirEx {
     type Vtable = IGPMBackupDirExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8dc55ed_3ba0_4864_aad4_d365189ee1d5);
@@ -2159,6 +2204,11 @@ impl ::core::cmp::PartialEq for IGPMCSECollection {
     }
 }
 impl ::core::cmp::Eq for IGPMCSECollection {}
+impl ::core::fmt::Debug for IGPMCSECollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMCSECollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMCSECollection {
     type Vtable = IGPMCSECollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e52a97d_0a4a_4a6f_85db_201622455da0);
@@ -2287,6 +2337,11 @@ impl ::core::cmp::PartialEq for IGPMClientSideExtension {
     }
 }
 impl ::core::cmp::Eq for IGPMClientSideExtension {}
+impl ::core::fmt::Debug for IGPMClientSideExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMClientSideExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMClientSideExtension {
     type Vtable = IGPMClientSideExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69da7488_b8db_415e_9266_901be4d49928);
@@ -2694,6 +2749,11 @@ impl ::core::cmp::PartialEq for IGPMConstants {
     }
 }
 impl ::core::cmp::Eq for IGPMConstants {}
+impl ::core::fmt::Debug for IGPMConstants {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMConstants").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMConstants {
     type Vtable = IGPMConstantsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ef73e6_d35c_4c8d_be63_7ea5d2aac5c4);
@@ -3250,6 +3310,11 @@ impl ::core::cmp::PartialEq for IGPMConstants2 {
     }
 }
 impl ::core::cmp::Eq for IGPMConstants2 {}
+impl ::core::fmt::Debug for IGPMConstants2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMConstants2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMConstants2 {
     type Vtable = IGPMConstants2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05ae21b0_ac09_4032_a26f_9e7da786dc19);
@@ -3481,6 +3546,11 @@ impl ::core::cmp::PartialEq for IGPMDomain {
     }
 }
 impl ::core::cmp::Eq for IGPMDomain {}
+impl ::core::fmt::Debug for IGPMDomain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMDomain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMDomain {
     type Vtable = IGPMDomainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b21cc14_5a00_4f44_a738_feec8a94c7e3);
@@ -3704,6 +3774,11 @@ impl ::core::cmp::PartialEq for IGPMDomain2 {
     }
 }
 impl ::core::cmp::Eq for IGPMDomain2 {}
+impl ::core::fmt::Debug for IGPMDomain2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMDomain2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMDomain2 {
     type Vtable = IGPMDomain2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ca6bb8b_f1eb_490a_938d_3c4e51c768e6);
@@ -3976,6 +4051,11 @@ impl ::core::cmp::PartialEq for IGPMDomain3 {
     }
 }
 impl ::core::cmp::Eq for IGPMDomain3 {}
+impl ::core::fmt::Debug for IGPMDomain3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMDomain3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMDomain3 {
     type Vtable = IGPMDomain3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0077fdfe_88c7_4acf_a11d_d10a7c310a03);
@@ -4254,6 +4334,11 @@ impl ::core::cmp::PartialEq for IGPMGPO {
     }
 }
 impl ::core::cmp::Eq for IGPMGPO {}
+impl ::core::fmt::Debug for IGPMGPO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMGPO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMGPO {
     type Vtable = IGPMGPOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58cc4352_1ca3_48e5_9864_1da4d6e0d60f);
@@ -4572,6 +4657,11 @@ impl ::core::cmp::PartialEq for IGPMGPO2 {
     }
 }
 impl ::core::cmp::Eq for IGPMGPO2 {}
+impl ::core::fmt::Debug for IGPMGPO2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMGPO2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMGPO2 {
     type Vtable = IGPMGPO2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a66a210_b78b_4d99_88e2_c306a817c925);
@@ -4929,6 +5019,11 @@ impl ::core::cmp::PartialEq for IGPMGPO3 {
     }
 }
 impl ::core::cmp::Eq for IGPMGPO3 {}
+impl ::core::fmt::Debug for IGPMGPO3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMGPO3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMGPO3 {
     type Vtable = IGPMGPO3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7cf123a1_f94a_4112_bfae_6aa1db9cb248);
@@ -5097,6 +5192,11 @@ impl ::core::cmp::PartialEq for IGPMGPOCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMGPOCollection {}
+impl ::core::fmt::Debug for IGPMGPOCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMGPOCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMGPOCollection {
     type Vtable = IGPMGPOCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0f0d5cf_70ca_4c39_9e29_b642f8726c01);
@@ -5247,6 +5347,11 @@ impl ::core::cmp::PartialEq for IGPMGPOLink {
     }
 }
 impl ::core::cmp::Eq for IGPMGPOLink {}
+impl ::core::fmt::Debug for IGPMGPOLink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMGPOLink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMGPOLink {
     type Vtable = IGPMGPOLinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x434b99bd_5de7_478a_809c_c251721df70c);
@@ -5376,6 +5481,11 @@ impl ::core::cmp::PartialEq for IGPMGPOLinksCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMGPOLinksCollection {}
+impl ::core::fmt::Debug for IGPMGPOLinksCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMGPOLinksCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMGPOLinksCollection {
     type Vtable = IGPMGPOLinksCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x189d7b68_16bd_4d0d_a2ec_2e6aa2288c7f);
@@ -5504,6 +5614,11 @@ impl ::core::cmp::PartialEq for IGPMMapEntry {
     }
 }
 impl ::core::cmp::Eq for IGPMMapEntry {}
+impl ::core::fmt::Debug for IGPMMapEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMMapEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMMapEntry {
     type Vtable = IGPMMapEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e79ad06_2381_4444_be4c_ff693e6e6f2b);
@@ -5628,6 +5743,11 @@ impl ::core::cmp::PartialEq for IGPMMapEntryCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMMapEntryCollection {}
+impl ::core::fmt::Debug for IGPMMapEntryCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMMapEntryCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMMapEntryCollection {
     type Vtable = IGPMMapEntryCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb0bf49b_e53f_443f_b807_8be22bfb6d42);
@@ -5777,6 +5897,11 @@ impl ::core::cmp::PartialEq for IGPMMigrationTable {
     }
 }
 impl ::core::cmp::Eq for IGPMMigrationTable {}
+impl ::core::fmt::Debug for IGPMMigrationTable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMMigrationTable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMMigrationTable {
     type Vtable = IGPMMigrationTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x48f823b1_efaf_470b_b6ed_40d14ee1a4ec);
@@ -5917,6 +6042,11 @@ impl ::core::cmp::PartialEq for IGPMPermission {
     }
 }
 impl ::core::cmp::Eq for IGPMPermission {}
+impl ::core::fmt::Debug for IGPMPermission {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMPermission").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMPermission {
     type Vtable = IGPMPermissionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35ebca40_e1a1_4a02_8905_d79416fb464a);
@@ -6209,6 +6339,11 @@ impl ::core::cmp::PartialEq for IGPMRSOP {
     }
 }
 impl ::core::cmp::Eq for IGPMRSOP {}
+impl ::core::fmt::Debug for IGPMRSOP {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMRSOP").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMRSOP {
     type Vtable = IGPMRSOPVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49ed785a_3237_4ff2_b1f0_fdf5a8d5a1ee);
@@ -6388,6 +6523,11 @@ impl ::core::cmp::PartialEq for IGPMResult {
     }
 }
 impl ::core::cmp::Eq for IGPMResult {}
+impl ::core::fmt::Debug for IGPMResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMResult {
     type Vtable = IGPMResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86dff7e9_f76f_42ab_9570_cebc6be8a52d);
@@ -6543,6 +6683,11 @@ impl ::core::cmp::PartialEq for IGPMSOM {
     }
 }
 impl ::core::cmp::Eq for IGPMSOM {}
+impl ::core::fmt::Debug for IGPMSOM {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMSOM").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMSOM {
     type Vtable = IGPMSOMVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0a7f09e_05a1_4f0c_8158_9e5c33684f6b);
@@ -6673,6 +6818,11 @@ impl ::core::cmp::PartialEq for IGPMSOMCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMSOMCollection {}
+impl ::core::fmt::Debug for IGPMSOMCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMSOMCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMSOMCollection {
     type Vtable = IGPMSOMCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc1688e_00e4_4495_abba_bed200df0cab);
@@ -6784,6 +6934,11 @@ impl ::core::cmp::PartialEq for IGPMSearchCriteria {
     }
 }
 impl ::core::cmp::Eq for IGPMSearchCriteria {}
+impl ::core::fmt::Debug for IGPMSearchCriteria {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMSearchCriteria").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMSearchCriteria {
     type Vtable = IGPMSearchCriteriaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f11c42_829b_48d4_83f5_3615b67dfc22);
@@ -6917,6 +7072,11 @@ impl ::core::cmp::PartialEq for IGPMSecurityInfo {
     }
 }
 impl ::core::cmp::Eq for IGPMSecurityInfo {}
+impl ::core::fmt::Debug for IGPMSecurityInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMSecurityInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMSecurityInfo {
     type Vtable = IGPMSecurityInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6c31ed4_1c93_4d3e_ae84_eb6d61161b60);
@@ -7056,6 +7216,11 @@ impl ::core::cmp::PartialEq for IGPMSitesContainer {
     }
 }
 impl ::core::cmp::Eq for IGPMSitesContainer {}
+impl ::core::fmt::Debug for IGPMSitesContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMSitesContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMSitesContainer {
     type Vtable = IGPMSitesContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4725a899_2782_4d27_a6bb_d499246ffd72);
@@ -7278,6 +7443,11 @@ impl ::core::cmp::PartialEq for IGPMStarterGPO {
     }
 }
 impl ::core::cmp::Eq for IGPMStarterGPO {}
+impl ::core::fmt::Debug for IGPMStarterGPO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMStarterGPO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMStarterGPO {
     type Vtable = IGPMStarterGPOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfc3f61b_8880_4490_9337_d29c7ba8c2f0);
@@ -7474,6 +7644,11 @@ impl ::core::cmp::PartialEq for IGPMStarterGPOBackup {
     }
 }
 impl ::core::cmp::Eq for IGPMStarterGPOBackup {}
+impl ::core::fmt::Debug for IGPMStarterGPOBackup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMStarterGPOBackup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMStarterGPOBackup {
     type Vtable = IGPMStarterGPOBackupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51d98eda_a87e_43dd_b80a_0b66ef1938d6);
@@ -7611,6 +7786,11 @@ impl ::core::cmp::PartialEq for IGPMStarterGPOBackupCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMStarterGPOBackupCollection {}
+impl ::core::fmt::Debug for IGPMStarterGPOBackupCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMStarterGPOBackupCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMStarterGPOBackupCollection {
     type Vtable = IGPMStarterGPOBackupCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc998031d_add0_4bb5_8dea_298505d8423b);
@@ -7734,6 +7914,11 @@ impl ::core::cmp::PartialEq for IGPMStarterGPOCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMStarterGPOCollection {}
+impl ::core::fmt::Debug for IGPMStarterGPOCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMStarterGPOCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMStarterGPOCollection {
     type Vtable = IGPMStarterGPOCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e522729_2219_44ad_933a_64dfd650c423);
@@ -7872,6 +8057,11 @@ impl ::core::cmp::PartialEq for IGPMStatusMessage {
     }
 }
 impl ::core::cmp::Eq for IGPMStatusMessage {}
+impl ::core::fmt::Debug for IGPMStatusMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMStatusMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMStatusMessage {
     type Vtable = IGPMStatusMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8496c22f_f3de_4a1f_8f58_603caaa93d7b);
@@ -8000,6 +8190,11 @@ impl ::core::cmp::PartialEq for IGPMStatusMsgCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMStatusMsgCollection {}
+impl ::core::fmt::Debug for IGPMStatusMsgCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMStatusMsgCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMStatusMsgCollection {
     type Vtable = IGPMStatusMsgCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b6e1af0_1a92_40f3_a59d_f36ac1f728b7);
@@ -8135,6 +8330,11 @@ impl ::core::cmp::PartialEq for IGPMTrustee {
     }
 }
 impl ::core::cmp::Eq for IGPMTrustee {}
+impl ::core::fmt::Debug for IGPMTrustee {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMTrustee").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMTrustee {
     type Vtable = IGPMTrusteeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b466da8_c1a4_4b2a_999a_befcdd56cefb);
@@ -8288,6 +8488,11 @@ impl ::core::cmp::PartialEq for IGPMWMIFilter {
     }
 }
 impl ::core::cmp::Eq for IGPMWMIFilter {}
+impl ::core::fmt::Debug for IGPMWMIFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMWMIFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMWMIFilter {
     type Vtable = IGPMWMIFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef2ff9b4_3c27_459a_b979_038305cec75d);
@@ -8420,6 +8625,11 @@ impl ::core::cmp::PartialEq for IGPMWMIFilterCollection {
     }
 }
 impl ::core::cmp::Eq for IGPMWMIFilterCollection {}
+impl ::core::fmt::Debug for IGPMWMIFilterCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGPMWMIFilterCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGPMWMIFilterCollection {
     type Vtable = IGPMWMIFilterCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5782d582_1a36_4661_8a94_c3c32551945b);
@@ -8565,6 +8775,11 @@ impl ::core::cmp::PartialEq for IGroupPolicyObject {
     }
 }
 impl ::core::cmp::Eq for IGroupPolicyObject {}
+impl ::core::fmt::Debug for IGroupPolicyObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGroupPolicyObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGroupPolicyObject {
     type Vtable = IGroupPolicyObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea502723_a23d_11d1_a7d3_0000f87571e3);
@@ -8820,6 +9035,11 @@ impl ::core::cmp::PartialEq for IRSOPInformation {
     }
 }
 impl ::core::cmp::Eq for IRSOPInformation {}
+impl ::core::fmt::Debug for IRSOPInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRSOPInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRSOPInformation {
     type Vtable = IRSOPInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a5a81b5_d9c7_49ef_9d11_ddf50968c48d);

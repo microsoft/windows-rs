@@ -55,6 +55,11 @@ impl ::core::cmp::PartialEq for FrameNavigationOptions {
     }
 }
 impl ::core::cmp::Eq for FrameNavigationOptions {}
+impl ::core::fmt::Debug for FrameNavigationOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameNavigationOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameNavigationOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.FrameNavigationOptions;{b539ad2a-9fb7-520a-8f41-57a50c59cf92})");
 }
@@ -376,6 +381,11 @@ impl ::core::cmp::PartialEq for LoadCompletedEventHandler {
     }
 }
 impl ::core::cmp::Eq for LoadCompletedEventHandler {}
+impl ::core::fmt::Debug for LoadCompletedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoadCompletedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for LoadCompletedEventHandler {
     type Vtable = LoadCompletedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaebaf785_43fc_4e2c_95c3_97ae84eabc8e);
@@ -446,6 +456,11 @@ impl ::core::cmp::PartialEq for NavigatedEventHandler {
     }
 }
 impl ::core::cmp::Eq for NavigatedEventHandler {}
+impl ::core::fmt::Debug for NavigatedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigatedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for NavigatedEventHandler {
     type Vtable = NavigatedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bd1cf54_23cf_4cce_b2f5_4ce78d96896e);
@@ -519,6 +534,11 @@ impl ::core::cmp::PartialEq for NavigatingCancelEventArgs {
     }
 }
 impl ::core::cmp::Eq for NavigatingCancelEventArgs {}
+impl ::core::fmt::Debug for NavigatingCancelEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigatingCancelEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigatingCancelEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigatingCancelEventArgs;{fd1d67ae-eafb-4079-be80-6dc92a03aedf})");
 }
@@ -631,6 +651,11 @@ impl ::core::cmp::PartialEq for NavigatingCancelEventHandler {
     }
 }
 impl ::core::cmp::Eq for NavigatingCancelEventHandler {}
+impl ::core::fmt::Debug for NavigatingCancelEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigatingCancelEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for NavigatingCancelEventHandler {
     type Vtable = NavigatingCancelEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d6a78f_a302_4489_9898_24ea49182910);
@@ -748,6 +773,11 @@ impl ::core::cmp::PartialEq for NavigationEventArgs {
     }
 }
 impl ::core::cmp::Eq for NavigationEventArgs {}
+impl ::core::fmt::Debug for NavigationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigationEventArgs;{b6aa9834-6691-44d1-bdf7-58820c27b0d0})");
 }
@@ -846,6 +876,11 @@ impl ::core::cmp::PartialEq for NavigationFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for NavigationFailedEventArgs {}
+impl ::core::fmt::Debug for NavigationFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.NavigationFailedEventArgs;{11c1dff7-36c2-4102-b2ef-0217a97289b3})");
 }
@@ -958,6 +993,11 @@ impl ::core::cmp::PartialEq for NavigationFailedEventHandler {
     }
 }
 impl ::core::cmp::Eq for NavigationFailedEventHandler {}
+impl ::core::fmt::Debug for NavigationFailedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationFailedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for NavigationFailedEventHandler {
     type Vtable = NavigationFailedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dab4671_12b2_43c7_b892_9be2dcd3e88d);
@@ -1063,6 +1103,11 @@ impl ::core::cmp::PartialEq for NavigationStoppedEventHandler {
     }
 }
 impl ::core::cmp::Eq for NavigationStoppedEventHandler {}
+impl ::core::fmt::Debug for NavigationStoppedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationStoppedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for NavigationStoppedEventHandler {
     type Vtable = NavigationStoppedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0117ddb_12fa_4d8d_8b26_b383d09c2b3c);
@@ -1140,6 +1185,11 @@ impl ::core::cmp::PartialEq for PageStackEntry {
     }
 }
 impl ::core::cmp::Eq for PageStackEntry {}
+impl ::core::fmt::Debug for PageStackEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PageStackEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PageStackEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Navigation.PageStackEntry;{ef8814a6-9388-4aca-8572-405194069080})");
 }

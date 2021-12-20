@@ -164,6 +164,11 @@ impl ::core::cmp::PartialEq for BarcodeScanner {
     }
 }
 impl ::core::cmp::Eq for BarcodeScanner {}
+impl ::core::fmt::Debug for BarcodeScanner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScanner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScanner;{bea33e06-b264-4f03-a9c1-45b20f01134f})");
 }
@@ -306,6 +311,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerCapabilities {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerCapabilities {}
+impl ::core::fmt::Debug for BarcodeScannerCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerCapabilities;{c60691e4-f2c8-4420-a307-b12ef6622857})");
 }
@@ -382,6 +392,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerDataReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerDataReceivedEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerDataReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerDataReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerDataReceivedEventArgs;{4234a7e2-ed97-467d-ad2b-01e44313a929})");
 }
@@ -474,6 +489,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerErrorOccurredEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerErrorOccurredEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerErrorOccurredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerErrorOccurredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerErrorOccurredEventArgs;{2cd2602f-cf3a-4002-a75a-c5ec468f0a20})");
 }
@@ -551,6 +571,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerImagePreviewReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerImagePreviewReceivedEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerImagePreviewReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerImagePreviewReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerImagePreviewReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerImagePreviewReceivedEventArgs;{f3b7de85-6e8b-434e-9f58-06ef26bc4baf})");
 }
@@ -658,6 +683,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerReport {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerReport {}
+impl ::core::fmt::Debug for BarcodeScannerReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerReport;{5ce4d8b0-a489-4b96-86c4-f0bf8a37753d})");
 }
@@ -778,6 +808,11 @@ impl ::core::cmp::PartialEq for BarcodeScannerStatusUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BarcodeScannerStatusUpdatedEventArgs {}
+impl ::core::fmt::Debug for BarcodeScannerStatusUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeScannerStatusUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeScannerStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeScannerStatusUpdatedEventArgs;{355d8586-9c43-462b-a91a-816dc97f452c})");
 }
@@ -1617,6 +1652,11 @@ impl ::core::cmp::PartialEq for BarcodeSymbologyAttributes {
     }
 }
 impl ::core::cmp::Eq for BarcodeSymbologyAttributes {}
+impl ::core::fmt::Debug for BarcodeSymbologyAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BarcodeSymbologyAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BarcodeSymbologyAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.BarcodeSymbologyAttributes;{66413a78-ab7a-4ada-8ece-936014b2ead7})");
 }
@@ -1847,6 +1887,11 @@ impl ::core::cmp::PartialEq for CashDrawer {
     }
 }
 impl ::core::cmp::Eq for CashDrawer {}
+impl ::core::fmt::Debug for CashDrawer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawer;{9f88f5c8-de54-4aee-a890-920bcbfe30fc})");
 }
@@ -1989,6 +2034,11 @@ impl ::core::cmp::PartialEq for CashDrawerCapabilities {
     }
 }
 impl ::core::cmp::Eq for CashDrawerCapabilities {}
+impl ::core::fmt::Debug for CashDrawerCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCapabilities;{0bc6de0b-e8e7-4b1f-b1d1-3e501ad08247})");
 }
@@ -2139,6 +2189,11 @@ impl ::core::cmp::PartialEq for CashDrawerCloseAlarm {
     }
 }
 impl ::core::cmp::Eq for CashDrawerCloseAlarm {}
+impl ::core::fmt::Debug for CashDrawerCloseAlarm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerCloseAlarm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerCloseAlarm {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerCloseAlarm;{6bf88cc7-6f63-430e-ab3b-95d75ffbe87f})");
 }
@@ -2215,6 +2270,11 @@ impl ::core::cmp::PartialEq for CashDrawerClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CashDrawerClosedEventArgs {}
+impl ::core::fmt::Debug for CashDrawerClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerClosedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
 }
@@ -2335,6 +2395,11 @@ impl ::core::cmp::PartialEq for CashDrawerEventSource {
     }
 }
 impl ::core::cmp::Eq for CashDrawerEventSource {}
+impl ::core::fmt::Debug for CashDrawerEventSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerEventSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerEventSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerEventSource;{e006e46c-f2f9-442f-8dd6-06c10a4227ba})");
 }
@@ -2411,6 +2476,11 @@ impl ::core::cmp::PartialEq for CashDrawerOpenedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CashDrawerOpenedEventArgs {}
+impl ::core::fmt::Debug for CashDrawerOpenedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerOpenedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerOpenedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerOpenedEventArgs;{69cb3bc1-147f-421c-9c23-090123bb786c})");
 }
@@ -2517,6 +2587,11 @@ impl ::core::cmp::PartialEq for CashDrawerStatus {
     }
 }
 impl ::core::cmp::Eq for CashDrawerStatus {}
+impl ::core::fmt::Debug for CashDrawerStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatus;{6bbd78bf-dca1-4e06-99eb-5af6a5aec108})");
 }
@@ -2629,6 +2704,11 @@ impl ::core::cmp::PartialEq for CashDrawerStatusUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CashDrawerStatusUpdatedEventArgs {}
+impl ::core::fmt::Debug for CashDrawerStatusUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CashDrawerStatusUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CashDrawerStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.CashDrawerStatusUpdatedEventArgs;{30aae98a-0d70-459c-9553-87e124c52488})");
 }
@@ -2972,6 +3052,11 @@ impl ::core::cmp::PartialEq for ClaimedBarcodeScanner {
     }
 }
 impl ::core::cmp::Eq for ClaimedBarcodeScanner {}
+impl ::core::fmt::Debug for ClaimedBarcodeScanner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedBarcodeScanner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScanner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScanner;{4a63b49c-8fa4-4332-bb26-945d11d81e0f})");
 }
@@ -3065,6 +3150,11 @@ impl ::core::cmp::PartialEq for ClaimedBarcodeScannerClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ClaimedBarcodeScannerClosedEventArgs {}
+impl ::core::fmt::Debug for ClaimedBarcodeScannerClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedBarcodeScannerClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedBarcodeScannerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedBarcodeScannerClosedEventArgs;{cf7d5489-a22c-4c65-a901-88d77d833954})");
 }
@@ -3255,6 +3345,11 @@ impl ::core::cmp::PartialEq for ClaimedCashDrawer {
     }
 }
 impl ::core::cmp::Eq for ClaimedCashDrawer {}
+impl ::core::fmt::Debug for ClaimedCashDrawer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedCashDrawer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawer;{ca3f99af-abb8-42c1-8a84-5c66512f5a75})");
 }
@@ -3348,6 +3443,11 @@ impl ::core::cmp::PartialEq for ClaimedCashDrawerClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ClaimedCashDrawerClosedEventArgs {}
+impl ::core::fmt::Debug for ClaimedCashDrawerClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedCashDrawerClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedCashDrawerClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedCashDrawerClosedEventArgs;{cc573f33-3f34-4c5c-baae-deadf16cd7fa})");
 }
@@ -3561,6 +3661,11 @@ impl ::core::cmp::PartialEq for ClaimedJournalPrinter {
     }
 }
 impl ::core::cmp::Eq for ClaimedJournalPrinter {}
+impl ::core::fmt::Debug for ClaimedJournalPrinter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedJournalPrinter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedJournalPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedJournalPrinter;{67ea0630-517d-487f-9fdf-d2e0a0a264a5})");
 }
@@ -3931,6 +4036,11 @@ impl ::core::cmp::PartialEq for ClaimedLineDisplay {
     }
 }
 impl ::core::cmp::Eq for ClaimedLineDisplay {}
+impl ::core::fmt::Debug for ClaimedLineDisplay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedLineDisplay").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplay;{120ac970-9a75-4acf-aae7-09972bcf8794})");
 }
@@ -4024,6 +4134,11 @@ impl ::core::cmp::PartialEq for ClaimedLineDisplayClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ClaimedLineDisplayClosedEventArgs {}
+impl ::core::fmt::Debug for ClaimedLineDisplayClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedLineDisplayClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedLineDisplayClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedLineDisplayClosedEventArgs;{f915f364-d3d5-4f10-b511-90939edfacd8})");
 }
@@ -4359,6 +4474,11 @@ impl ::core::cmp::PartialEq for ClaimedMagneticStripeReader {
     }
 }
 impl ::core::cmp::Eq for ClaimedMagneticStripeReader {}
+impl ::core::fmt::Debug for ClaimedMagneticStripeReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedMagneticStripeReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReader;{475ca8f3-9417-48bc-b9d7-4163a7844c02})");
 }
@@ -4452,6 +4572,11 @@ impl ::core::cmp::PartialEq for ClaimedMagneticStripeReaderClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ClaimedMagneticStripeReaderClosedEventArgs {}
+impl ::core::fmt::Debug for ClaimedMagneticStripeReaderClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedMagneticStripeReaderClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedMagneticStripeReaderClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedMagneticStripeReaderClosedEventArgs;{14ada93a-adcd-4c80-acda-c3eaed2647e1})");
 }
@@ -4688,6 +4813,11 @@ impl ::core::cmp::PartialEq for ClaimedPosPrinter {
     }
 }
 impl ::core::cmp::Eq for ClaimedPosPrinter {}
+impl ::core::fmt::Debug for ClaimedPosPrinter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedPosPrinter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinter;{6d64ce0c-e03e-4b14-a38e-c28c34b86353})");
 }
@@ -4781,6 +4911,11 @@ impl ::core::cmp::PartialEq for ClaimedPosPrinterClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ClaimedPosPrinterClosedEventArgs {}
+impl ::core::fmt::Debug for ClaimedPosPrinterClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedPosPrinterClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedPosPrinterClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedPosPrinterClosedEventArgs;{e2b7a27b-4d40-471d-92ed-63375b18c788})");
 }
@@ -5036,6 +5171,11 @@ impl ::core::cmp::PartialEq for ClaimedReceiptPrinter {
     }
 }
 impl ::core::cmp::Eq for ClaimedReceiptPrinter {}
+impl ::core::fmt::Debug for ClaimedReceiptPrinter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedReceiptPrinter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedReceiptPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedReceiptPrinter;{9ad27a74-dd61-4ee2-9837-5b5d72d538b9})");
 }
@@ -5362,6 +5502,11 @@ impl ::core::cmp::PartialEq for ClaimedSlipPrinter {
     }
 }
 impl ::core::cmp::Eq for ClaimedSlipPrinter {}
+impl ::core::fmt::Debug for ClaimedSlipPrinter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ClaimedSlipPrinter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ClaimedSlipPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ClaimedSlipPrinter;{bd5deff2-af90-4e8a-b77b-e3ae9ca63a7f})");
 }
@@ -6044,6 +6189,11 @@ impl ::core::cmp::PartialEq for ICashDrawerEventSourceEventArgs {
     }
 }
 impl ::core::cmp::Eq for ICashDrawerEventSourceEventArgs {}
+impl ::core::fmt::Debug for ICashDrawerEventSourceEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICashDrawerEventSourceEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICashDrawerEventSourceEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69cb3bc1-147f-421c-9c23-090123bb786c}");
 }
@@ -6971,6 +7121,11 @@ impl ::core::cmp::PartialEq for ICommonClaimedPosPrinterStation {
     }
 }
 impl ::core::cmp::Eq for ICommonClaimedPosPrinterStation {}
+impl ::core::fmt::Debug for ICommonClaimedPosPrinterStation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICommonClaimedPosPrinterStation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICommonClaimedPosPrinterStation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7eb66a8-fe8a-4cfb-8b42-e35b280cb27c}");
 }
@@ -7168,6 +7323,11 @@ impl ::core::cmp::PartialEq for ICommonPosPrintStationCapabilities {
     }
 }
 impl ::core::cmp::Eq for ICommonPosPrintStationCapabilities {}
+impl ::core::fmt::Debug for ICommonPosPrintStationCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICommonPosPrintStationCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICommonPosPrintStationCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{de5b52ca-e02e-40e9-9e5e-1b488e6aacfc}");
 }
@@ -7456,6 +7616,11 @@ impl ::core::cmp::PartialEq for ICommonReceiptSlipCapabilities {
     }
 }
 impl ::core::cmp::Eq for ICommonReceiptSlipCapabilities {}
+impl ::core::fmt::Debug for ICommonReceiptSlipCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICommonReceiptSlipCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICommonReceiptSlipCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{09286b8b-9873-4d05-bfbe-4727a6038f69}");
 }
@@ -8451,6 +8616,11 @@ impl ::core::cmp::PartialEq for IPosPrinterJob {
     }
 }
 impl ::core::cmp::Eq for IPosPrinterJob {}
+impl ::core::fmt::Debug for IPosPrinterJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPosPrinterJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPosPrinterJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9a94005c-0615-4591-a58f-30f87edfe2e4}");
 }
@@ -8796,6 +8966,11 @@ impl ::core::cmp::PartialEq for IReceiptOrSlipJob {
     }
 }
 impl ::core::cmp::Eq for IReceiptOrSlipJob {}
+impl ::core::fmt::Debug for IReceiptOrSlipJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReceiptOrSlipJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IReceiptOrSlipJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{532199be-c8c3-4dc2-89e9-5c4a37b34ddc}");
 }
@@ -9077,6 +9252,11 @@ impl ::core::cmp::PartialEq for JournalPrintJob {
     }
 }
 impl ::core::cmp::Eq for JournalPrintJob {}
+impl ::core::fmt::Debug for JournalPrintJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JournalPrintJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JournalPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrintJob;{9a94005c-0615-4591-a58f-30f87edfe2e4})");
 }
@@ -9320,6 +9500,11 @@ impl ::core::cmp::PartialEq for JournalPrinterCapabilities {
     }
 }
 impl ::core::cmp::Eq for JournalPrinterCapabilities {}
+impl ::core::fmt::Debug for JournalPrinterCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JournalPrinterCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JournalPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.JournalPrinterCapabilities;{3b5ccc43-e047-4463-bb58-17b5ba1d8056})");
 }
@@ -9537,6 +9722,11 @@ impl ::core::cmp::PartialEq for LineDisplay {
     }
 }
 impl ::core::cmp::Eq for LineDisplay {}
+impl ::core::fmt::Debug for LineDisplay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplay").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplay;{24f5df4e-3c99-44e2-b73f-e51be3637a8c})");
 }
@@ -9726,6 +9916,11 @@ impl ::core::cmp::PartialEq for LineDisplayAttributes {
     }
 }
 impl ::core::cmp::Eq for LineDisplayAttributes {}
+impl ::core::fmt::Debug for LineDisplayAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayAttributes;{c17de99c-229a-4c14-a6f1-b4e4b1fead92})");
 }
@@ -9938,6 +10133,11 @@ impl ::core::cmp::PartialEq for LineDisplayCapabilities {
     }
 }
 impl ::core::cmp::Eq for LineDisplayCapabilities {}
+impl ::core::fmt::Debug for LineDisplayCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCapabilities;{5a15b5d1-8dc5-4b9c-9172-303e47b70c55})");
 }
@@ -10079,6 +10279,11 @@ impl ::core::cmp::PartialEq for LineDisplayCursor {
     }
 }
 impl ::core::cmp::Eq for LineDisplayCursor {}
+impl ::core::fmt::Debug for LineDisplayCursor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayCursor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursor;{ecdffc45-754a-4e3b-ab2b-151181085605})");
 }
@@ -10201,6 +10406,11 @@ impl ::core::cmp::PartialEq for LineDisplayCursorAttributes {
     }
 }
 impl ::core::cmp::Eq for LineDisplayCursorAttributes {}
+impl ::core::fmt::Debug for LineDisplayCursorAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayCursorAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCursorAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCursorAttributes;{4e2d54fe-4ffd-4190-aae1-ce285f20c896})");
 }
@@ -10333,6 +10543,11 @@ impl ::core::cmp::PartialEq for LineDisplayCustomGlyphs {
     }
 }
 impl ::core::cmp::Eq for LineDisplayCustomGlyphs {}
+impl ::core::fmt::Debug for LineDisplayCustomGlyphs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayCustomGlyphs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayCustomGlyphs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayCustomGlyphs;{2257f63c-f263-44f1-a1a0-e750a6a0ec54})");
 }
@@ -10530,6 +10745,11 @@ impl ::core::cmp::PartialEq for LineDisplayMarquee {
     }
 }
 impl ::core::cmp::Eq for LineDisplayMarquee {}
+impl ::core::fmt::Debug for LineDisplayMarquee {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayMarquee").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayMarquee {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayMarquee;{a3d33e3e-f46a-4b7a-bc21-53eb3b57f8b4})");
 }
@@ -10727,6 +10947,11 @@ impl ::core::cmp::PartialEq for LineDisplayStatisticsCategorySelector {
     }
 }
 impl ::core::cmp::Eq for LineDisplayStatisticsCategorySelector {}
+impl ::core::fmt::Debug for LineDisplayStatisticsCategorySelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayStatisticsCategorySelector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayStatisticsCategorySelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatisticsCategorySelector;{b521c46b-9274-4d24-94f3-b6017b832444})");
 }
@@ -10803,6 +11028,11 @@ impl ::core::cmp::PartialEq for LineDisplayStatusUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LineDisplayStatusUpdatedEventArgs {}
+impl ::core::fmt::Debug for LineDisplayStatusUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayStatusUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStatusUpdatedEventArgs;{ddd57c1a-86fb-4eba-93d1-6f5eda52b752})");
 }
@@ -10888,6 +11118,11 @@ impl ::core::cmp::PartialEq for LineDisplayStoredBitmap {
     }
 }
 impl ::core::cmp::Eq for LineDisplayStoredBitmap {}
+impl ::core::fmt::Debug for LineDisplayStoredBitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayStoredBitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayStoredBitmap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayStoredBitmap;{f621515b-d81e-43ba-bf1b-bcfa3c785ba0})");
 }
@@ -11222,6 +11457,11 @@ impl ::core::cmp::PartialEq for LineDisplayWindow {
     }
 }
 impl ::core::cmp::Eq for LineDisplayWindow {}
+impl ::core::fmt::Debug for LineDisplayWindow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineDisplayWindow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineDisplayWindow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.LineDisplayWindow;{d21feef4-2364-4be5-bee1-851680af4964})");
 }
@@ -11444,6 +11684,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReader {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReader {}
+impl ::core::fmt::Debug for MagneticStripeReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReader;{1a92b015-47c3-468a-9333-0c6517574883})");
 }
@@ -11690,6 +11935,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderAamvaCardDataReceivedEventAr
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderAamvaCardDataReceivedEventArgs {}
+impl ::core::fmt::Debug for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderAamvaCardDataReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderAamvaCardDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderAamvaCardDataReceivedEventArgs;{0a4bbd51-c316-4910-87f3-7a62ba862d31})");
 }
@@ -11897,6 +12147,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderBankCardDataReceivedEventArg
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderBankCardDataReceivedEventArgs {}
+impl ::core::fmt::Debug for MagneticStripeReaderBankCardDataReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderBankCardDataReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderBankCardDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderBankCardDataReceivedEventArgs;{2e958823-a31a-4763-882c-23725e39b08e})");
 }
@@ -12053,6 +12308,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderCapabilities {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderCapabilities {}
+impl ::core::fmt::Debug for MagneticStripeReaderCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderCapabilities;{7128809c-c440-44a2-a467-469175d02896})");
 }
@@ -12242,6 +12502,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderErrorOccurredEventArgs {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderErrorOccurredEventArgs {}
+impl ::core::fmt::Debug for MagneticStripeReaderErrorOccurredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderErrorOccurredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderErrorOccurredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderErrorOccurredEventArgs;{1fedf95d-2c84-41ad-b778-f2356a789ab1})");
 }
@@ -12418,6 +12683,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderReport {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderReport {}
+impl ::core::fmt::Debug for MagneticStripeReaderReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderReport;{6a5b6047-99b0-4188-bef1-eddf79f78fe6})");
 }
@@ -12536,6 +12806,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderStatusUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderStatusUpdatedEventArgs {}
+impl ::core::fmt::Debug for MagneticStripeReaderStatusUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderStatusUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderStatusUpdatedEventArgs;{09cc6bb0-3262-401d-9e8a-e80d6358906b})");
 }
@@ -12631,6 +12906,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderTrackData {
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderTrackData {}
+impl ::core::fmt::Debug for MagneticStripeReaderTrackData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderTrackData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderTrackData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderTrackData;{104cf671-4a9d-446e-abc5-20402307ba36})");
 }
@@ -12780,6 +13060,11 @@ impl ::core::cmp::PartialEq for MagneticStripeReaderVendorSpecificCardDataReceiv
     }
 }
 impl ::core::cmp::Eq for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {}
+impl ::core::fmt::Debug for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.MagneticStripeReaderVendorSpecificCardDataReceivedEventArgs;{af0a5514-59cc-4a60-99e8-99a53dace5aa})");
 }
@@ -13030,6 +13315,11 @@ impl ::core::cmp::PartialEq for PosPrinter {
     }
 }
 impl ::core::cmp::Eq for PosPrinter {}
+impl ::core::fmt::Debug for PosPrinter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinter;{2a03c10e-9a19-4a01-994f-12dfad6adcbf})");
 }
@@ -13272,6 +13562,11 @@ impl ::core::cmp::PartialEq for PosPrinterCapabilities {
     }
 }
 impl ::core::cmp::Eq for PosPrinterCapabilities {}
+impl ::core::fmt::Debug for PosPrinterCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterCapabilities;{cde95721-4380-4985-adc5-39db30cd93bc})");
 }
@@ -13519,6 +13814,11 @@ impl ::core::cmp::PartialEq for PosPrinterFontProperty {
     }
 }
 impl ::core::cmp::Eq for PosPrinterFontProperty {}
+impl ::core::fmt::Debug for PosPrinterFontProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterFontProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterFontProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterFontProperty;{a7f4e93a-f8ac-5f04-84d2-29b16d8a633c})");
 }
@@ -13937,6 +14237,11 @@ impl ::core::cmp::PartialEq for PosPrinterPrintOptions {
     }
 }
 impl ::core::cmp::Eq for PosPrinterPrintOptions {}
+impl ::core::fmt::Debug for PosPrinterPrintOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterPrintOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterPrintOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterPrintOptions;{0a2e16fd-1d02-5a58-9d59-bfcde76fde86})");
 }
@@ -14038,6 +14343,11 @@ impl ::core::cmp::PartialEq for PosPrinterReleaseDeviceRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PosPrinterReleaseDeviceRequestedEventArgs {}
+impl ::core::fmt::Debug for PosPrinterReleaseDeviceRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterReleaseDeviceRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterReleaseDeviceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterReleaseDeviceRequestedEventArgs;{2bcba359-1cef-40b2-9ecb-f927f856ae3c})");
 }
@@ -14191,6 +14501,11 @@ impl ::core::cmp::PartialEq for PosPrinterStatus {
     }
 }
 impl ::core::cmp::Eq for PosPrinterStatus {}
+impl ::core::fmt::Debug for PosPrinterStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatus;{d1f0c730-da40-4328-bf76-5156fa33b747})");
 }
@@ -14303,6 +14618,11 @@ impl ::core::cmp::PartialEq for PosPrinterStatusUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PosPrinterStatusUpdatedEventArgs {}
+impl ::core::fmt::Debug for PosPrinterStatusUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PosPrinterStatusUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PosPrinterStatusUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.PosPrinterStatusUpdatedEventArgs;{2edb87df-13a6-428d-ba81-b0e7c3e5a3cd})");
 }
@@ -14514,6 +14834,11 @@ impl ::core::cmp::PartialEq for ReceiptPrintJob {
     }
 }
 impl ::core::cmp::Eq for ReceiptPrintJob {}
+impl ::core::fmt::Debug for ReceiptPrintJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReceiptPrintJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ReceiptPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrintJob;{aa96066e-acad-4b79-9d0f-c0cfc08dc77b})");
 }
@@ -14877,6 +15202,11 @@ impl ::core::cmp::PartialEq for ReceiptPrinterCapabilities {
     }
 }
 impl ::core::cmp::Eq for ReceiptPrinterCapabilities {}
+impl ::core::fmt::Debug for ReceiptPrinterCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReceiptPrinterCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ReceiptPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.ReceiptPrinterCapabilities;{b8f0b58f-51a8-43fc-9bd5-8de272a6415b})");
 }
@@ -15149,6 +15479,11 @@ impl ::core::cmp::PartialEq for SlipPrintJob {
     }
 }
 impl ::core::cmp::Eq for SlipPrintJob {}
+impl ::core::fmt::Debug for SlipPrintJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SlipPrintJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SlipPrintJob {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrintJob;{532199be-c8c3-4dc2-89e9-5c4a37b34ddc})");
 }
@@ -15504,6 +15839,11 @@ impl ::core::cmp::PartialEq for SlipPrinterCapabilities {
     }
 }
 impl ::core::cmp::Eq for SlipPrinterCapabilities {}
+impl ::core::fmt::Debug for SlipPrinterCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SlipPrinterCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SlipPrinterCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.SlipPrinterCapabilities;{99b16399-488c-4157-8ac2-9f57f708d3db})");
 }
@@ -15660,6 +16000,11 @@ impl ::core::cmp::PartialEq for UnifiedPosErrorData {
     }
 }
 impl ::core::cmp::Eq for UnifiedPosErrorData {}
+impl ::core::fmt::Debug for UnifiedPosErrorData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnifiedPosErrorData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnifiedPosErrorData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.PointOfService.UnifiedPosErrorData;{2b998c3a-555c-4889-8ed8-c599bb3a712a})");
 }

@@ -149,6 +149,11 @@ impl ::core::cmp::PartialEq for Radio {
     }
 }
 impl ::core::cmp::Eq for Radio {}
+impl ::core::fmt::Debug for Radio {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Radio").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Radio {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Radios.Radio;{252118df-b33e-416a-875f-1cf38ae2d83e})");
 }

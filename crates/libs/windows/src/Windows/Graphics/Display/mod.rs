@@ -109,6 +109,11 @@ impl ::core::cmp::PartialEq for AdvancedColorInfo {
     }
 }
 impl ::core::cmp::Eq for AdvancedColorInfo {}
+impl ::core::fmt::Debug for AdvancedColorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvancedColorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdvancedColorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.AdvancedColorInfo;{8797dcfb-b229-4081-ae9a-2cc85e34ad6a})");
 }
@@ -335,6 +340,11 @@ impl ::core::cmp::PartialEq for BrightnessOverride {
     }
 }
 impl ::core::cmp::Eq for BrightnessOverride {}
+impl ::core::fmt::Debug for BrightnessOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrightnessOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BrightnessOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverride;{96c9621a-c143-4392-bedd-4a7e9574c8fd})");
 }
@@ -445,6 +455,11 @@ impl ::core::cmp::PartialEq for BrightnessOverrideSettings {
     }
 }
 impl ::core::cmp::Eq for BrightnessOverrideSettings {}
+impl ::core::fmt::Debug for BrightnessOverrideSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrightnessOverrideSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BrightnessOverrideSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.BrightnessOverrideSettings;{d112ab2a-7604-4dba-bcf8-4b6f49502cb0})");
 }
@@ -533,6 +548,11 @@ impl ::core::cmp::PartialEq for ColorOverrideSettings {
     }
 }
 impl ::core::cmp::Eq for ColorOverrideSettings {}
+impl ::core::fmt::Debug for ColorOverrideSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorOverrideSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorOverrideSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.ColorOverrideSettings;{fbefa134-4a81-4c4d-a5b6-7d1b5c4bd00b})");
 }
@@ -852,6 +872,11 @@ impl ::core::cmp::PartialEq for DisplayEnhancementOverride {
     }
 }
 impl ::core::cmp::Eq for DisplayEnhancementOverride {}
+impl ::core::fmt::Debug for DisplayEnhancementOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayEnhancementOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverride;{429594cf-d97a-4b02-a428-5c4292f7f522})");
 }
@@ -945,6 +970,11 @@ impl ::core::cmp::PartialEq for DisplayEnhancementOverrideCapabilities {
     }
 }
 impl ::core::cmp::Eq for DisplayEnhancementOverrideCapabilities {}
+impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayEnhancementOverrideCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilities;{457060de-ee5a-47b7-9918-1e51e812ccc8})");
 }
@@ -1021,6 +1051,11 @@ impl ::core::cmp::PartialEq for DisplayEnhancementOverrideCapabilitiesChangedEve
     }
 }
 impl ::core::cmp::Eq for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {}
+impl ::core::fmt::Debug for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayEnhancementOverrideCapabilitiesChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayEnhancementOverrideCapabilitiesChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayEnhancementOverrideCapabilitiesChangedEventArgs;{db61e664-15fa-49da-8b77-07dbd2af585d})");
 }
@@ -1306,6 +1341,11 @@ impl ::core::cmp::PartialEq for DisplayInformation {
     }
 }
 impl ::core::cmp::Eq for DisplayInformation {}
+impl ::core::fmt::Debug for DisplayInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayInformation;{bed112ae-adc3-4dc9-ae65-851f4d7d4799})");
 }
@@ -1605,6 +1645,12 @@ impl ::core::cmp::PartialEq for DisplayPropertiesEventHandler {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for DisplayPropertiesEventHandler {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for DisplayPropertiesEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPropertiesEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for DisplayPropertiesEventHandler {
     type Vtable = DisplayPropertiesEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbdd8b01_f1a1_46d1_9ee3_543bcc995980);
@@ -1651,6 +1697,11 @@ impl ::core::cmp::PartialEq for DisplayServices {
     }
 }
 impl ::core::cmp::Eq for DisplayServices {}
+impl ::core::fmt::Debug for DisplayServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayServices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Display.DisplayServices;{1b54f32b-890d-5747-bd26-fdbdeb0c8a71})");
 }

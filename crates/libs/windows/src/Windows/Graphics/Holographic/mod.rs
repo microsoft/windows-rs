@@ -191,6 +191,11 @@ impl ::core::cmp::PartialEq for HolographicCamera {
     }
 }
 impl ::core::cmp::Eq for HolographicCamera {}
+impl ::core::fmt::Debug for HolographicCamera {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicCamera").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicCamera {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCamera;{e4e98445-9bed-4980-9ba0-e87680d1cb74})");
 }
@@ -346,6 +351,11 @@ impl ::core::cmp::PartialEq for HolographicCameraPose {
     }
 }
 impl ::core::cmp::Eq for HolographicCameraPose {}
+impl ::core::fmt::Debug for HolographicCameraPose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicCameraPose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicCameraPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraPose;{0d7d7e30-12de-45bd-912b-c7f6561599d1})");
 }
@@ -495,6 +505,11 @@ impl ::core::cmp::PartialEq for HolographicCameraRenderingParameters {
     }
 }
 impl ::core::cmp::Eq for HolographicCameraRenderingParameters {}
+impl ::core::fmt::Debug for HolographicCameraRenderingParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicCameraRenderingParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicCameraRenderingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraRenderingParameters;{8eac2ed1-5bf4-4e16-8236-ae0800c11d0d})");
 }
@@ -581,6 +596,11 @@ impl ::core::cmp::PartialEq for HolographicCameraViewportParameters {
     }
 }
 impl ::core::cmp::Eq for HolographicCameraViewportParameters {}
+impl ::core::fmt::Debug for HolographicCameraViewportParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicCameraViewportParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicCameraViewportParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicCameraViewportParameters;{80cdf3f7-842a-41e1-93ed-5692ab1fbb10})");
 }
@@ -760,6 +780,11 @@ impl ::core::cmp::PartialEq for HolographicDisplay {
     }
 }
 impl ::core::cmp::Eq for HolographicDisplay {}
+impl ::core::fmt::Debug for HolographicDisplay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicDisplay").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicDisplay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicDisplay;{9acea414-1d9f-4090-a388-90c06f6eae9c})");
 }
@@ -913,6 +938,11 @@ impl ::core::cmp::PartialEq for HolographicFrame {
     }
 }
 impl ::core::cmp::Eq for HolographicFrame {}
+impl ::core::fmt::Debug for HolographicFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrame;{c6988eb6-a8b9-3054-a6eb-d624b6536375})");
 }
@@ -1035,6 +1065,11 @@ impl ::core::cmp::PartialEq for HolographicFramePrediction {
     }
 }
 impl ::core::cmp::Eq for HolographicFramePrediction {}
+impl ::core::fmt::Debug for HolographicFramePrediction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFramePrediction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicFramePrediction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePrediction;{520f4de1-5c0a-4e79-a81e-6abe02bb2739})");
 }
@@ -1189,6 +1224,12 @@ impl ::core::cmp::PartialEq for HolographicFramePresentationMonitor {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for HolographicFramePresentationMonitor {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for HolographicFramePresentationMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFramePresentationMonitor").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationMonitor;{ca87256c-6fae-428e-bb83-25dfee51136b})");
@@ -1347,6 +1388,12 @@ impl ::core::cmp::PartialEq for HolographicFramePresentationReport {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for HolographicFramePresentationReport {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for HolographicFramePresentationReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFramePresentationReport").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for HolographicFramePresentationReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFramePresentationReport;{80baf614-f2f4-4c8a-8de3-065c78f6d5de})");
 }
@@ -1470,6 +1517,11 @@ impl ::core::cmp::PartialEq for HolographicFrameRenderingReport {
     }
 }
 impl ::core::cmp::Eq for HolographicFrameRenderingReport {}
+impl ::core::fmt::Debug for HolographicFrameRenderingReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFrameRenderingReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicFrameRenderingReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameRenderingReport;{05f32de4-e384-51b3-b934-f0d3a0f78606})");
 }
@@ -1553,6 +1605,11 @@ impl ::core::cmp::PartialEq for HolographicFrameScanoutMonitor {
     }
 }
 impl ::core::cmp::Eq for HolographicFrameScanoutMonitor {}
+impl ::core::fmt::Debug for HolographicFrameScanoutMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFrameScanoutMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutMonitor;{7e83efa9-843c-5401-8095-9bc1b8b08638})");
 }
@@ -1690,6 +1747,11 @@ impl ::core::cmp::PartialEq for HolographicFrameScanoutReport {
     }
 }
 impl ::core::cmp::Eq for HolographicFrameScanoutReport {}
+impl ::core::fmt::Debug for HolographicFrameScanoutReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicFrameScanoutReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicFrameScanoutReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicFrameScanoutReport;{0ebbe606-03a0-5ca0-b46e-bba068d7233f})");
 }
@@ -1803,6 +1865,11 @@ impl ::core::cmp::PartialEq for HolographicQuadLayer {
     }
 }
 impl ::core::cmp::Eq for HolographicQuadLayer {}
+impl ::core::fmt::Debug for HolographicQuadLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicQuadLayer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicQuadLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayer;{903460c9-c9d9-5d5c-41ac-a2d5ab0fd331})");
 }
@@ -1952,6 +2019,11 @@ impl ::core::cmp::PartialEq for HolographicQuadLayerUpdateParameters {
     }
 }
 impl ::core::cmp::Eq for HolographicQuadLayerUpdateParameters {}
+impl ::core::fmt::Debug for HolographicQuadLayerUpdateParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicQuadLayerUpdateParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicQuadLayerUpdateParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicQuadLayerUpdateParameters;{2b0ea3b0-798d-5bca-55c2-2c0c762ebb08})");
 }
@@ -2214,6 +2286,11 @@ impl ::core::cmp::PartialEq for HolographicSpace {
     }
 }
 impl ::core::cmp::Eq for HolographicSpace {}
+impl ::core::fmt::Debug for HolographicSpace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicSpace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicSpace {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpace;{4380dba6-5e78-434f-807c-3433d1efe8b7})");
 }
@@ -2299,6 +2376,11 @@ impl ::core::cmp::PartialEq for HolographicSpaceCameraAddedEventArgs {
     }
 }
 impl ::core::cmp::Eq for HolographicSpaceCameraAddedEventArgs {}
+impl ::core::fmt::Debug for HolographicSpaceCameraAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicSpaceCameraAddedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraAddedEventArgs;{58f1da35-bbb3-3c8f-993d-6c80e7feb99f})");
 }
@@ -2375,6 +2457,11 @@ impl ::core::cmp::PartialEq for HolographicSpaceCameraRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for HolographicSpaceCameraRemovedEventArgs {}
+impl ::core::fmt::Debug for HolographicSpaceCameraRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicSpaceCameraRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicSpaceCameraRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicSpaceCameraRemovedEventArgs;{805444a8-f2ae-322e-8da9-836a0a95a4c1})");
 }
@@ -2629,6 +2716,11 @@ impl ::core::cmp::PartialEq for HolographicViewConfiguration {
     }
 }
 impl ::core::cmp::Eq for HolographicViewConfiguration {}
+impl ::core::fmt::Debug for HolographicViewConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HolographicViewConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HolographicViewConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Holographic.HolographicViewConfiguration;{5c1de6e6-67e9-5004-b02c-67a3a122b576})");
 }

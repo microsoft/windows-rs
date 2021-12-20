@@ -124,6 +124,11 @@ impl ::core::cmp::PartialEq for PreviewBuildsManager {
     }
 }
 impl ::core::cmp::Eq for PreviewBuildsManager {}
+impl ::core::fmt::Debug for PreviewBuildsManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PreviewBuildsManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PreviewBuildsManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsManager;{fa07dd61-7e4f-59f7-7c9f-def9051c5f62})");
 }
@@ -201,6 +206,11 @@ impl ::core::cmp::PartialEq for PreviewBuildsState {
     }
 }
 impl ::core::cmp::Eq for PreviewBuildsState {}
+impl ::core::fmt::Debug for PreviewBuildsState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PreviewBuildsState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PreviewBuildsState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Update.PreviewBuildsState;{a2f2903e-b223-5f63-7546-3e8eac070a2e})");
 }

@@ -193,6 +193,11 @@ impl ::core::cmp::PartialEq for HttpCacheDirectiveHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpCacheDirectiveHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpCacheDirectiveHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCacheDirectiveHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCacheDirectiveHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCacheDirectiveHeaderValueCollection;{9a586b89-d5d0-4fbe-bd9d-b5b3636811b4})");
 }
@@ -427,6 +432,11 @@ impl ::core::cmp::PartialEq for HttpChallengeHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpChallengeHeaderValue {}
+impl ::core::fmt::Debug for HttpChallengeHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpChallengeHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpChallengeHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValue;{393361af-0f7d-4820-9fdd-a2b956eeaeab})");
 }
@@ -639,6 +649,11 @@ impl ::core::cmp::PartialEq for HttpChallengeHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpChallengeHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpChallengeHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpChallengeHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpChallengeHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpChallengeHeaderValueCollection;{ca9e5f81-aee0-4353-a10b-e625babd64c2})");
 }
@@ -849,6 +864,11 @@ impl ::core::cmp::PartialEq for HttpConnectionOptionHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpConnectionOptionHeaderValue {}
+impl ::core::fmt::Debug for HttpConnectionOptionHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpConnectionOptionHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpConnectionOptionHeaderValue;{cb4af27a-4e90-45eb-8dcd-fd1408f4c44f})");
 }
@@ -1061,6 +1081,11 @@ impl ::core::cmp::PartialEq for HttpConnectionOptionHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpConnectionOptionHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpConnectionOptionHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpConnectionOptionHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpConnectionOptionHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpConnectionOptionHeaderValueCollection;{e4f56c1d-5142-4e00-8e0f-019509337629})");
 }
@@ -1271,6 +1296,11 @@ impl ::core::cmp::PartialEq for HttpContentCodingHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpContentCodingHeaderValue {}
+impl ::core::fmt::Debug for HttpContentCodingHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpContentCodingHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingHeaderValue;{bcf7f92a-9376-4d85-bccc-9f4f9acab434})");
 }
@@ -1483,6 +1513,11 @@ impl ::core::cmp::PartialEq for HttpContentCodingHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpContentCodingHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpContentCodingHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpContentCodingHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingHeaderValueCollection;{7d221721-a6db-436e-8e83-91596192819c})");
 }
@@ -1709,6 +1744,11 @@ impl ::core::cmp::PartialEq for HttpContentCodingWithQualityHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpContentCodingWithQualityHeaderValue {}
+impl ::core::fmt::Debug for HttpContentCodingWithQualityHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpContentCodingWithQualityHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValue;{94531cd5-8b13-4d73-8651-f76b38f88495})");
 }
@@ -1921,6 +1961,11 @@ impl ::core::cmp::PartialEq for HttpContentCodingWithQualityHeaderValueCollectio
     }
 }
 impl ::core::cmp::Eq for HttpContentCodingWithQualityHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpContentCodingWithQualityHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpContentCodingWithQualityHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpContentCodingWithQualityHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentCodingWithQualityHeaderValueCollection;{7c0d753e-e899-4378-b5c8-412d820711cc})");
 }
@@ -2199,6 +2244,11 @@ impl ::core::cmp::PartialEq for HttpContentDispositionHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpContentDispositionHeaderValue {}
+impl ::core::fmt::Debug for HttpContentDispositionHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpContentDispositionHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpContentDispositionHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentDispositionHeaderValue;{f2a2eedc-2629-4b49-9908-96a168e9365e})");
 }
@@ -2518,6 +2568,11 @@ impl ::core::cmp::PartialEq for HttpContentHeaderCollection {
     }
 }
 impl ::core::cmp::Eq for HttpContentHeaderCollection {}
+impl ::core::fmt::Debug for HttpContentHeaderCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpContentHeaderCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpContentHeaderCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentHeaderCollection;{40612a44-47ae-4b7e-9124-69628b64aa18})");
 }
@@ -2774,6 +2829,11 @@ impl ::core::cmp::PartialEq for HttpContentRangeHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpContentRangeHeaderValue {}
+impl ::core::fmt::Debug for HttpContentRangeHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpContentRangeHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpContentRangeHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpContentRangeHeaderValue;{04d967d3-a4f6-495c-9530-8579fcba8aa9})");
 }
@@ -2936,6 +2996,11 @@ impl ::core::cmp::PartialEq for HttpCookiePairHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpCookiePairHeaderValue {}
+impl ::core::fmt::Debug for HttpCookiePairHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCookiePairHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCookiePairHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCookiePairHeaderValue;{cbd46217-4b29-412b-bd90-b3d814ab8e1b})");
 }
@@ -3148,6 +3213,11 @@ impl ::core::cmp::PartialEq for HttpCookiePairHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpCookiePairHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpCookiePairHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCookiePairHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCookiePairHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCookiePairHeaderValueCollection;{f3f44350-581e-4ecc-9f59-e507d04f06e6})");
 }
@@ -3382,6 +3452,11 @@ impl ::core::cmp::PartialEq for HttpCredentialsHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpCredentialsHeaderValue {}
+impl ::core::fmt::Debug for HttpCredentialsHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpCredentialsHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpCredentialsHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpCredentialsHeaderValue;{c34cc3cb-542e-4177-a6c7-b674ce193fbf})");
 }
@@ -3522,6 +3597,11 @@ impl ::core::cmp::PartialEq for HttpDateOrDeltaHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpDateOrDeltaHeaderValue {}
+impl ::core::fmt::Debug for HttpDateOrDeltaHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpDateOrDeltaHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpDateOrDeltaHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpDateOrDeltaHeaderValue;{eafcaa6a-c4dc-49e2-a27d-043adf5867a3})");
 }
@@ -3693,6 +3773,11 @@ impl ::core::cmp::PartialEq for HttpExpectationHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpExpectationHeaderValue {}
+impl ::core::fmt::Debug for HttpExpectationHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpExpectationHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpExpectationHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpExpectationHeaderValue;{4ce585cd-3a99-43af-a2e6-ec232fea9658})");
 }
@@ -3905,6 +3990,11 @@ impl ::core::cmp::PartialEq for HttpExpectationHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpExpectationHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpExpectationHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpExpectationHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpExpectationHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpExpectationHeaderValueCollection;{e78521b3-a0e2-4ac4-9e66-79706cb9fd58})");
 }
@@ -4185,6 +4275,11 @@ impl ::core::cmp::PartialEq for HttpLanguageHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpLanguageHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpLanguageHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpLanguageHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpLanguageHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageHeaderValueCollection;{9ebd7ca3-8219-44f6-9902-8c56dfd3340c})");
 }
@@ -4411,6 +4506,11 @@ impl ::core::cmp::PartialEq for HttpLanguageRangeWithQualityHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpLanguageRangeWithQualityHeaderValue {}
+impl ::core::fmt::Debug for HttpLanguageRangeWithQualityHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpLanguageRangeWithQualityHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValue;{7256e102-0080-4db4-a083-7de7b2e5ba4c})");
 }
@@ -4623,6 +4723,11 @@ impl ::core::cmp::PartialEq for HttpLanguageRangeWithQualityHeaderValueCollectio
     }
 }
 impl ::core::cmp::Eq for HttpLanguageRangeWithQualityHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpLanguageRangeWithQualityHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpLanguageRangeWithQualityHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpLanguageRangeWithQualityHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpLanguageRangeWithQualityHeaderValueCollection;{885d5abd-4b4f-480a-89ce-8aedcee6e3a0})");
 }
@@ -4860,6 +4965,11 @@ impl ::core::cmp::PartialEq for HttpMediaTypeHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpMediaTypeHeaderValue {}
+impl ::core::fmt::Debug for HttpMediaTypeHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpMediaTypeHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpMediaTypeHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeHeaderValue;{16b28533-e728-4fcb-bdb0-08a431a14844})");
 }
@@ -5051,6 +5161,11 @@ impl ::core::cmp::PartialEq for HttpMediaTypeWithQualityHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpMediaTypeWithQualityHeaderValue {}
+impl ::core::fmt::Debug for HttpMediaTypeWithQualityHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpMediaTypeWithQualityHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValue;{188d5e32-76be-44a0-b1cd-2074bded2dde})");
 }
@@ -5263,6 +5378,11 @@ impl ::core::cmp::PartialEq for HttpMediaTypeWithQualityHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpMediaTypeWithQualityHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpMediaTypeWithQualityHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpMediaTypeWithQualityHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpMediaTypeWithQualityHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMediaTypeWithQualityHeaderValueCollection;{3c0c6b73-1342-4587-a056-18d02ff67165})");
 }
@@ -5543,6 +5663,11 @@ impl ::core::cmp::PartialEq for HttpMethodHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpMethodHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpMethodHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpMethodHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpMethodHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpMethodHeaderValueCollection;{43bc3ff4-6119-4adf-938c-34bfffcf92ed})");
 }
@@ -5773,6 +5898,11 @@ impl ::core::cmp::PartialEq for HttpNameValueHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpNameValueHeaderValue {}
+impl ::core::fmt::Debug for HttpNameValueHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpNameValueHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpNameValueHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpNameValueHeaderValue;{d8ba7463-5b9a-4d1b-93f9-aa5b44ecfddf})");
 }
@@ -5930,6 +6060,11 @@ impl ::core::cmp::PartialEq for HttpProductHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpProductHeaderValue {}
+impl ::core::fmt::Debug for HttpProductHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpProductHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpProductHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductHeaderValue;{f4feee03-ebd4-4160-b9ff-807c5183b6e6})");
 }
@@ -6087,6 +6222,11 @@ impl ::core::cmp::PartialEq for HttpProductInfoHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpProductInfoHeaderValue {}
+impl ::core::fmt::Debug for HttpProductInfoHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpProductInfoHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpProductInfoHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductInfoHeaderValue;{1b1a8732-4c35-486a-966f-646489198e4d})");
 }
@@ -6299,6 +6439,11 @@ impl ::core::cmp::PartialEq for HttpProductInfoHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpProductInfoHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpProductInfoHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpProductInfoHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpProductInfoHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpProductInfoHeaderValueCollection;{877df74a-d69b-44f8-ad4f-453af9c42ed0})");
 }
@@ -6750,6 +6895,11 @@ impl ::core::cmp::PartialEq for HttpRequestHeaderCollection {
     }
 }
 impl ::core::cmp::Eq for HttpRequestHeaderCollection {}
+impl ::core::fmt::Debug for HttpRequestHeaderCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpRequestHeaderCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpRequestHeaderCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpRequestHeaderCollection;{af40329b-b544-469b-86b9-ac3d466fea36})");
 }
@@ -7106,6 +7256,11 @@ impl ::core::cmp::PartialEq for HttpResponseHeaderCollection {
     }
 }
 impl ::core::cmp::Eq for HttpResponseHeaderCollection {}
+impl ::core::fmt::Debug for HttpResponseHeaderCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpResponseHeaderCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpResponseHeaderCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpResponseHeaderCollection;{7a990969-fa3f-41ed-aac6-bf957975c16b})");
 }
@@ -7325,6 +7480,11 @@ impl ::core::cmp::PartialEq for HttpTransferCodingHeaderValue {
     }
 }
 impl ::core::cmp::Eq for HttpTransferCodingHeaderValue {}
+impl ::core::fmt::Debug for HttpTransferCodingHeaderValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpTransferCodingHeaderValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpTransferCodingHeaderValue;{436f32f9-3ded-42bd-b38a-5496a2511ce6})");
 }
@@ -7537,6 +7697,11 @@ impl ::core::cmp::PartialEq for HttpTransferCodingHeaderValueCollection {
     }
 }
 impl ::core::cmp::Eq for HttpTransferCodingHeaderValueCollection {}
+impl ::core::fmt::Debug for HttpTransferCodingHeaderValueCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpTransferCodingHeaderValueCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpTransferCodingHeaderValueCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.Http.Headers.HttpTransferCodingHeaderValueCollection;{202c8c34-2c03-49b8-9665-73e27cb2fc79})");
 }

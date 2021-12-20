@@ -114,6 +114,11 @@ impl ::core::cmp::PartialEq for RequestingFocusOnKeyboardInputEventArgs {
     }
 }
 impl ::core::cmp::Eq for RequestingFocusOnKeyboardInputEventArgs {}
+impl ::core::fmt::Debug for RequestingFocusOnKeyboardInputEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RequestingFocusOnKeyboardInputEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RequestingFocusOnKeyboardInputEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.RequestingFocusOnKeyboardInputEventArgs;{a1195f27-b1a7-41a2-879d-6a68687e5985})");
 }
@@ -231,6 +236,11 @@ impl ::core::cmp::PartialEq for SearchSuggestion {
     }
 }
 impl ::core::cmp::Eq for SearchSuggestion {}
+impl ::core::fmt::Debug for SearchSuggestion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchSuggestion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SearchSuggestion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestion;{5b5554b0-1527-437b-95c5-8d18d2b8af55})");
 }
@@ -438,6 +448,11 @@ impl ::core::cmp::PartialEq for SearchSuggestionManager {
     }
 }
 impl ::core::cmp::Eq for SearchSuggestionManager {}
+impl ::core::fmt::Debug for SearchSuggestionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchSuggestionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SearchSuggestionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionManager;{3f0c50a1-cb9d-497b-b500-3c04ac959ad2})");
 }
@@ -536,6 +551,11 @@ impl ::core::cmp::PartialEq for SearchSuggestionsRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SearchSuggestionsRequestedEventArgs {}
+impl ::core::fmt::Debug for SearchSuggestionsRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SearchSuggestionsRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SearchSuggestionsRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Search.Core.SearchSuggestionsRequestedEventArgs;{6fd519e5-9e7e-4ab4-8be3-c76b1bd4344a})");
 }

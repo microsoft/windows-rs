@@ -51,6 +51,11 @@ impl ::core::cmp::PartialEq for EnhancedWaypoint {
     }
 }
 impl ::core::cmp::Eq for EnhancedWaypoint {}
+impl ::core::fmt::Debug for EnhancedWaypoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnhancedWaypoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnhancedWaypoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.EnhancedWaypoint;{ed268c74-5913-11e6-8b77-86f30ca893d3})");
 }
@@ -868,6 +873,11 @@ impl ::core::cmp::PartialEq for ManeuverWarning {
     }
 }
 impl ::core::cmp::Eq for ManeuverWarning {}
+impl ::core::fmt::Debug for ManeuverWarning {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ManeuverWarning").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ManeuverWarning {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.ManeuverWarning;{c1a36d8a-2630-4378-9e4a-6e44253dceba})");
 }
@@ -1167,6 +1177,11 @@ impl ::core::cmp::PartialEq for MapAddress {
     }
 }
 impl ::core::cmp::Eq for MapAddress {}
+impl ::core::fmt::Debug for MapAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapAddress;{cfa7a973-a3b4-4494-b3ff-cba94db69699})");
 }
@@ -1268,6 +1283,11 @@ impl ::core::cmp::PartialEq for MapLocation {
     }
 }
 impl ::core::cmp::Eq for MapLocation {}
+impl ::core::fmt::Debug for MapLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocation;{3c073f57-0da4-42e8-9ee2-a96fcf2371dc})");
 }
@@ -1435,6 +1455,11 @@ impl ::core::cmp::PartialEq for MapLocationFinderResult {
     }
 }
 impl ::core::cmp::Eq for MapLocationFinderResult {}
+impl ::core::fmt::Debug for MapLocationFinderResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLocationFinderResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapLocationFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapLocationFinderResult;{43f1f179-e8cc-45f6-bed2-54ccbf965d9a})");
 }
@@ -1688,6 +1713,11 @@ impl ::core::cmp::PartialEq for MapRoute {
     }
 }
 impl ::core::cmp::Eq for MapRoute {}
+impl ::core::fmt::Debug for MapRoute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRoute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRoute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRoute;{fb07b732-584d-4583-9c60-641fea274349})");
 }
@@ -1832,6 +1862,11 @@ impl ::core::cmp::PartialEq for MapRouteDrivingOptions {
     }
 }
 impl ::core::cmp::Eq for MapRouteDrivingOptions {}
+impl ::core::fmt::Debug for MapRouteDrivingOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteDrivingOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteDrivingOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteDrivingOptions;{6815364d-c6dc-4697-a452-b18f8f0b67a1})");
 }
@@ -2051,6 +2086,11 @@ impl ::core::cmp::PartialEq for MapRouteFinderResult {
     }
 }
 impl ::core::cmp::Eq for MapRouteFinderResult {}
+impl ::core::fmt::Debug for MapRouteFinderResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteFinderResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteFinderResult;{a868a31a-9422-46ac-8ca1-b1614d4bfbe2})");
 }
@@ -2221,6 +2261,11 @@ impl ::core::cmp::PartialEq for MapRouteLeg {
     }
 }
 impl ::core::cmp::Eq for MapRouteLeg {}
+impl ::core::fmt::Debug for MapRouteLeg {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteLeg").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteLeg {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteLeg;{96f8b2f6-5bba-4d17-9db6-1a263fec7471})");
 }
@@ -2371,6 +2416,11 @@ impl ::core::cmp::PartialEq for MapRouteManeuver {
     }
 }
 impl ::core::cmp::Eq for MapRouteManeuver {}
+impl ::core::fmt::Debug for MapRouteManeuver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteManeuver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteManeuver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.MapRouteManeuver;{ed5c17f0-a6ab-4d65-a086-fa8a7e340df2})");
 }
@@ -2778,6 +2828,11 @@ impl ::core::cmp::PartialEq for PlaceInfo {
     }
 }
 impl ::core::cmp::Eq for PlaceInfo {}
+impl ::core::fmt::Debug for PlaceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfo;{9a0810b6-31c8-4f6a-9f18-950b4c38951a})");
 }
@@ -2879,6 +2934,11 @@ impl ::core::cmp::PartialEq for PlaceInfoCreateOptions {
     }
 }
 impl ::core::cmp::Eq for PlaceInfoCreateOptions {}
+impl ::core::fmt::Debug for PlaceInfoCreateOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaceInfoCreateOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaceInfoCreateOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.PlaceInfoCreateOptions;{cd33c125-67f1-4bb3-9907-ecce939b0399})");
 }

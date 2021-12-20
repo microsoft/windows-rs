@@ -81,6 +81,11 @@ impl ::core::cmp::PartialEq for AppExtension {
     }
 }
 impl ::core::cmp::Eq for AppExtension {}
+impl ::core::fmt::Debug for AppExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExtension {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtension;{8450902c-15ed-4faf-93ea-2237bbf8cbd6})");
 }
@@ -254,6 +259,11 @@ impl ::core::cmp::PartialEq for AppExtensionCatalog {
     }
 }
 impl ::core::cmp::Eq for AppExtensionCatalog {}
+impl ::core::fmt::Debug for AppExtensionCatalog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExtensionCatalog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExtensionCatalog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionCatalog;{97872032-8426-4ad1-9084-92e88c2da200})");
 }
@@ -345,6 +355,11 @@ impl ::core::cmp::PartialEq for AppExtensionPackageInstalledEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppExtensionPackageInstalledEventArgs {}
+impl ::core::fmt::Debug for AppExtensionPackageInstalledEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExtensionPackageInstalledEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExtensionPackageInstalledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageInstalledEventArgs;{39e59234-3351-4a8d-9745-e7d3dd45bc48})");
 }
@@ -429,6 +444,11 @@ impl ::core::cmp::PartialEq for AppExtensionPackageStatusChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppExtensionPackageStatusChangedEventArgs {}
+impl ::core::fmt::Debug for AppExtensionPackageStatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExtensionPackageStatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExtensionPackageStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageStatusChangedEventArgs;{1ce17433-1153-44fd-87b1-8ae1050303df})");
 }
@@ -513,6 +533,11 @@ impl ::core::cmp::PartialEq for AppExtensionPackageUninstallingEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppExtensionPackageUninstallingEventArgs {}
+impl ::core::fmt::Debug for AppExtensionPackageUninstallingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExtensionPackageUninstallingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExtensionPackageUninstallingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUninstallingEventArgs;{60f160c5-171e-40ff-ae98-ab2c20dd4d75})");
 }
@@ -606,6 +631,11 @@ impl ::core::cmp::PartialEq for AppExtensionPackageUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppExtensionPackageUpdatedEventArgs {}
+impl ::core::fmt::Debug for AppExtensionPackageUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExtensionPackageUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExtensionPackageUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatedEventArgs;{3a83c43f-797e-44b5-ba24-a4c8b5a543d7})");
 }
@@ -690,6 +720,11 @@ impl ::core::cmp::PartialEq for AppExtensionPackageUpdatingEventArgs {
     }
 }
 impl ::core::cmp::Eq for AppExtensionPackageUpdatingEventArgs {}
+impl ::core::fmt::Debug for AppExtensionPackageUpdatingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppExtensionPackageUpdatingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppExtensionPackageUpdatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.AppExtensions.AppExtensionPackageUpdatingEventArgs;{7ed59329-1a65-4800-a700-b321009e306a})");
 }

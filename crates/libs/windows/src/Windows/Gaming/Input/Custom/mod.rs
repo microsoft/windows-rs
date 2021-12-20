@@ -151,6 +151,11 @@ impl ::core::cmp::PartialEq for GipFirmwareUpdateResult {
     }
 }
 impl ::core::cmp::Eq for GipFirmwareUpdateResult {}
+impl ::core::fmt::Debug for GipFirmwareUpdateResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GipFirmwareUpdateResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GipFirmwareUpdateResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipFirmwareUpdateResult;{6b794d32-8553-4292-8e03-e16651a2f8bc})");
 }
@@ -312,6 +317,11 @@ impl ::core::cmp::PartialEq for GipGameControllerProvider {
     }
 }
 impl ::core::cmp::Eq for GipGameControllerProvider {}
+impl ::core::fmt::Debug for GipGameControllerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GipGameControllerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GipGameControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.GipGameControllerProvider;{dbcf1e19-1af5-45a8-bf02-a0ee50c823fc})");
 }
@@ -507,6 +517,11 @@ impl ::core::cmp::PartialEq for HidGameControllerProvider {
     }
 }
 impl ::core::cmp::Eq for HidGameControllerProvider {}
+impl ::core::fmt::Debug for HidGameControllerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HidGameControllerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HidGameControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.HidGameControllerProvider;{95ce3af4-abf0-4b68-a081-3b7de73ff0e7})");
 }
@@ -655,6 +670,11 @@ impl ::core::cmp::PartialEq for ICustomGameControllerFactory {
     }
 }
 impl ::core::cmp::Eq for ICustomGameControllerFactory {}
+impl ::core::fmt::Debug for ICustomGameControllerFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICustomGameControllerFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICustomGameControllerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69a0ae5e-758e-4cbe-ace6-62155fe9126f}");
 }
@@ -779,6 +799,11 @@ impl ::core::cmp::PartialEq for IGameControllerInputSink {
     }
 }
 impl ::core::cmp::Eq for IGameControllerInputSink {}
+impl ::core::fmt::Debug for IGameControllerInputSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameControllerInputSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGameControllerInputSink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1ff6f922-c640-4c78-a820-9a715c558bcb}");
 }
@@ -894,6 +919,11 @@ impl ::core::cmp::PartialEq for IGameControllerProvider {
     }
 }
 impl ::core::cmp::Eq for IGameControllerProvider {}
+impl ::core::fmt::Debug for IGameControllerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameControllerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGameControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6d73982-2996-4559-b16c-3e57d46e58d6}");
 }
@@ -1034,6 +1064,11 @@ impl ::core::cmp::PartialEq for IGipGameControllerInputSink {
     }
 }
 impl ::core::cmp::Eq for IGipGameControllerInputSink {}
+impl ::core::fmt::Debug for IGipGameControllerInputSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGipGameControllerInputSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGipGameControllerInputSink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a2108abf-09f1-43bc-a140-80f899ec36fb}");
 }
@@ -1167,6 +1202,11 @@ impl ::core::cmp::PartialEq for IHidGameControllerInputSink {
     }
 }
 impl ::core::cmp::Eq for IHidGameControllerInputSink {}
+impl ::core::fmt::Debug for IHidGameControllerInputSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHidGameControllerInputSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IHidGameControllerInputSink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f754c322-182d-40e4-a126-fcee4ffa1e31}");
 }
@@ -1300,6 +1340,11 @@ impl ::core::cmp::PartialEq for IXusbGameControllerInputSink {
     }
 }
 impl ::core::cmp::Eq for IXusbGameControllerInputSink {}
+impl ::core::fmt::Debug for IXusbGameControllerInputSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXusbGameControllerInputSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXusbGameControllerInputSink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b2ac1d95-6ecb-42b3-8aab-025401ca4712}");
 }
@@ -1472,6 +1517,11 @@ impl ::core::cmp::PartialEq for XusbGameControllerProvider {
     }
 }
 impl ::core::cmp::Eq for XusbGameControllerProvider {}
+impl ::core::fmt::Debug for XusbGameControllerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XusbGameControllerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XusbGameControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Custom.XusbGameControllerProvider;{6e2971eb-0efb-48b4-808b-837643b2f216})");
 }

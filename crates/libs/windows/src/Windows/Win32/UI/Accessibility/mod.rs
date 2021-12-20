@@ -958,6 +958,11 @@ impl ::core::cmp::PartialEq for IAccIdentity {
     }
 }
 impl ::core::cmp::Eq for IAccIdentity {}
+impl ::core::fmt::Debug for IAccIdentity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccIdentity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccIdentity {
     type Vtable = IAccIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7852b78d_1cfd_41c1_a615_9c0c85960b5f);
@@ -1006,6 +1011,11 @@ impl ::core::cmp::PartialEq for IAccPropServer {
     }
 }
 impl ::core::cmp::Eq for IAccPropServer {}
+impl ::core::fmt::Debug for IAccPropServer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccPropServer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccPropServer {
     type Vtable = IAccPropServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76c0dbbb_15e0_4e7b_b61b_20eeea2001e0);
@@ -1128,6 +1138,11 @@ impl ::core::cmp::PartialEq for IAccPropServices {
     }
 }
 impl ::core::cmp::Eq for IAccPropServices {}
+impl ::core::fmt::Debug for IAccPropServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccPropServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccPropServices {
     type Vtable = IAccPropServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e26e776_04f0_495d_80e4_3330352e3169);
@@ -1368,6 +1383,11 @@ impl ::core::cmp::PartialEq for IAccessible {
     }
 }
 impl ::core::cmp::Eq for IAccessible {}
+impl ::core::fmt::Debug for IAccessible {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccessible").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccessible {
     type Vtable = IAccessibleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x618736e0_3c3d_11cf_810c_00aa00389b71);
@@ -1484,6 +1504,11 @@ impl ::core::cmp::PartialEq for IAccessibleEx {
     }
 }
 impl ::core::cmp::Eq for IAccessibleEx {}
+impl ::core::fmt::Debug for IAccessibleEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccessibleEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccessibleEx {
     type Vtable = IAccessibleExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8b80ada_2c44_48d0_89be_5ff23c9cd875);
@@ -1541,6 +1566,11 @@ impl ::core::cmp::PartialEq for IAccessibleHandler {
     }
 }
 impl ::core::cmp::Eq for IAccessibleHandler {}
+impl ::core::fmt::Debug for IAccessibleHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccessibleHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccessibleHandler {
     type Vtable = IAccessibleHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03022430_abc4_11d0_bde2_00aa001a1953);
@@ -1595,6 +1625,11 @@ impl ::core::cmp::PartialEq for IAccessibleHostingElementProviders {
     }
 }
 impl ::core::cmp::Eq for IAccessibleHostingElementProviders {}
+impl ::core::fmt::Debug for IAccessibleHostingElementProviders {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccessibleHostingElementProviders").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccessibleHostingElementProviders {
     type Vtable = IAccessibleHostingElementProvidersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33ac331b_943e_4020_b295_db37784974a3);
@@ -1665,6 +1700,11 @@ impl ::core::cmp::PartialEq for IAccessibleWindowlessSite {
     }
 }
 impl ::core::cmp::Eq for IAccessibleWindowlessSite {}
+impl ::core::fmt::Debug for IAccessibleWindowlessSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccessibleWindowlessSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccessibleWindowlessSite {
     type Vtable = IAccessibleWindowlessSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf3abd9c_76da_4389_9eb6_1427d25abab7);
@@ -1745,6 +1785,11 @@ impl ::core::cmp::PartialEq for IAnnotationProvider {
     }
 }
 impl ::core::cmp::Eq for IAnnotationProvider {}
+impl ::core::fmt::Debug for IAnnotationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAnnotationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAnnotationProvider {
     type Vtable = IAnnotationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf95c7e80_bd63_4601_9782_445ebff011fc);
@@ -1805,6 +1850,11 @@ impl ::core::cmp::PartialEq for ICustomNavigationProvider {
     }
 }
 impl ::core::cmp::Eq for ICustomNavigationProvider {}
+impl ::core::fmt::Debug for ICustomNavigationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICustomNavigationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICustomNavigationProvider {
     type Vtable = ICustomNavigationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2062a28a_8c07_4b94_8e12_7037c622aeb8);
@@ -1857,6 +1907,11 @@ impl ::core::cmp::PartialEq for IDockProvider {
     }
 }
 impl ::core::cmp::Eq for IDockProvider {}
+impl ::core::fmt::Debug for IDockProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDockProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDockProvider {
     type Vtable = IDockProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x159bc72c_4ad3_485e_9637_d7052edf0146);
@@ -1930,6 +1985,11 @@ impl ::core::cmp::PartialEq for IDragProvider {
     }
 }
 impl ::core::cmp::Eq for IDragProvider {}
+impl ::core::fmt::Debug for IDragProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDragProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDragProvider {
     type Vtable = IDragProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6aa7bbbb_7ff9_497d_904f_d20b897929d8);
@@ -1997,6 +2057,11 @@ impl ::core::cmp::PartialEq for IDropTargetProvider {
     }
 }
 impl ::core::cmp::Eq for IDropTargetProvider {}
+impl ::core::fmt::Debug for IDropTargetProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDropTargetProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDropTargetProvider {
     type Vtable = IDropTargetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae82bfd_358a_481c_85a0_d8b4d90a5d61);
@@ -2061,6 +2126,11 @@ impl ::core::cmp::PartialEq for IExpandCollapseProvider {
     }
 }
 impl ::core::cmp::Eq for IExpandCollapseProvider {}
+impl ::core::fmt::Debug for IExpandCollapseProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IExpandCollapseProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IExpandCollapseProvider {
     type Vtable = IExpandCollapseProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd847d3a5_cab0_4a98_8c32_ecb45c59ad24);
@@ -2136,6 +2206,11 @@ impl ::core::cmp::PartialEq for IGridItemProvider {
     }
 }
 impl ::core::cmp::Eq for IGridItemProvider {}
+impl ::core::fmt::Debug for IGridItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGridItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGridItemProvider {
     type Vtable = IGridItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd02541f1_fb81_4d64_ae32_f520f8a6dbd1);
@@ -2203,6 +2278,11 @@ impl ::core::cmp::PartialEq for IGridProvider {
     }
 }
 impl ::core::cmp::Eq for IGridProvider {}
+impl ::core::fmt::Debug for IGridProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGridProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGridProvider {
     type Vtable = IGridProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb17d6187_0907_464b_a168_0ef17a1572b1);
@@ -2259,6 +2339,11 @@ impl ::core::cmp::PartialEq for IInvokeProvider {
     }
 }
 impl ::core::cmp::Eq for IInvokeProvider {}
+impl ::core::fmt::Debug for IInvokeProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInvokeProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInvokeProvider {
     type Vtable = IInvokeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54fcb24b_e18e_47a2_b4d3_eccbe77599a2);
@@ -2308,6 +2393,11 @@ impl ::core::cmp::PartialEq for IItemContainerProvider {
     }
 }
 impl ::core::cmp::Eq for IItemContainerProvider {}
+impl ::core::fmt::Debug for IItemContainerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IItemContainerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IItemContainerProvider {
     type Vtable = IItemContainerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe747770b_39ce_4382_ab30_d8fb3f336f24);
@@ -2432,6 +2522,11 @@ impl ::core::cmp::PartialEq for ILegacyIAccessibleProvider {
     }
 }
 impl ::core::cmp::Eq for ILegacyIAccessibleProvider {}
+impl ::core::fmt::Debug for ILegacyIAccessibleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILegacyIAccessibleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILegacyIAccessibleProvider {
     type Vtable = ILegacyIAccessibleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe44c3566_915d_4070_99c6_047bff5a08f5);
@@ -2522,6 +2617,11 @@ impl ::core::cmp::PartialEq for IMultipleViewProvider {
     }
 }
 impl ::core::cmp::Eq for IMultipleViewProvider {}
+impl ::core::fmt::Debug for IMultipleViewProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMultipleViewProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMultipleViewProvider {
     type Vtable = IMultipleViewProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6278cab1_b556_4a1a_b4e0_418acc523201);
@@ -2580,6 +2680,11 @@ impl ::core::cmp::PartialEq for IObjectModelProvider {
     }
 }
 impl ::core::cmp::Eq for IObjectModelProvider {}
+impl ::core::fmt::Debug for IObjectModelProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectModelProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectModelProvider {
     type Vtable = IObjectModelProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ad86ebd_f5ef_483d_bb18_b1042a475d64);
@@ -2628,6 +2733,11 @@ impl ::core::cmp::PartialEq for IProxyProviderWinEventHandler {
     }
 }
 impl ::core::cmp::Eq for IProxyProviderWinEventHandler {}
+impl ::core::fmt::Debug for IProxyProviderWinEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProxyProviderWinEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProxyProviderWinEventHandler {
     type Vtable = IProxyProviderWinEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89592ad4_f4e0_43d5_a3b6_bad7e111b435);
@@ -2691,6 +2801,11 @@ impl ::core::cmp::PartialEq for IProxyProviderWinEventSink {
     }
 }
 impl ::core::cmp::Eq for IProxyProviderWinEventSink {}
+impl ::core::fmt::Debug for IProxyProviderWinEventSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProxyProviderWinEventSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProxyProviderWinEventSink {
     type Vtable = IProxyProviderWinEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fd82b78_a43e_46ac_9803_0a6969c7c183);
@@ -2778,6 +2893,11 @@ impl ::core::cmp::PartialEq for IRangeValueProvider {
     }
 }
 impl ::core::cmp::Eq for IRangeValueProvider {}
+impl ::core::fmt::Debug for IRangeValueProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRangeValueProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRangeValueProvider {
     type Vtable = IRangeValueProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36dc7aef_33e6_4691_afe1_2be7274b3d33);
@@ -2843,6 +2963,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderAdviseEvents {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderAdviseEvents {}
+impl ::core::fmt::Debug for IRawElementProviderAdviseEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderAdviseEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderAdviseEvents {
     type Vtable = IRawElementProviderAdviseEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa407b27b_0f6d_4427_9292_473c7bf93258);
@@ -2925,6 +3050,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderFragment {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderFragment {}
+impl ::core::fmt::Debug for IRawElementProviderFragment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderFragment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderFragment {
     type Vtable = IRawElementProviderFragmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7063da8_8359_439c_9297_bbc5299a7d87);
@@ -2990,6 +3120,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderFragmentRoot {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderFragmentRoot {}
+impl ::core::fmt::Debug for IRawElementProviderFragmentRoot {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderFragmentRoot").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderFragmentRoot {
     type Vtable = IRawElementProviderFragmentRootVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x620ce2a5_ab8f_40a9_86cb_de3c75599b58);
@@ -3045,6 +3180,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderHostingAccessibles {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderHostingAccessibles {}
+impl ::core::fmt::Debug for IRawElementProviderHostingAccessibles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderHostingAccessibles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderHostingAccessibles {
     type Vtable = IRawElementProviderHostingAccessiblesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24be0b07_d37d_487a_98cf_a13ed465e9b3);
@@ -3100,6 +3240,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderHwndOverride {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderHwndOverride {}
+impl ::core::fmt::Debug for IRawElementProviderHwndOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderHwndOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderHwndOverride {
     type Vtable = IRawElementProviderHwndOverrideVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1d5df27c_8947_4425_b8d9_79787bb460b8);
@@ -3170,6 +3315,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderSimple {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderSimple {}
+impl ::core::fmt::Debug for IRawElementProviderSimple {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderSimple").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple {
     type Vtable = IRawElementProviderSimpleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6dd68d1_86fd_4332_8666_9abedea2d24c);
@@ -3267,6 +3417,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderSimple2 {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderSimple2 {}
+impl ::core::fmt::Debug for IRawElementProviderSimple2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderSimple2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple2 {
     type Vtable = IRawElementProviderSimple2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0a839a9_8da1_4a82_806a_8e0d44e79f56);
@@ -3391,6 +3546,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderSimple3 {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderSimple3 {}
+impl ::core::fmt::Debug for IRawElementProviderSimple3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderSimple3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderSimple3 {
     type Vtable = IRawElementProviderSimple3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcf5d820_d7ec_4613_bdf6_42a84ce7daaf);
@@ -3457,6 +3617,11 @@ impl ::core::cmp::PartialEq for IRawElementProviderWindowlessSite {
     }
 }
 impl ::core::cmp::Eq for IRawElementProviderWindowlessSite {}
+impl ::core::fmt::Debug for IRawElementProviderWindowlessSite {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRawElementProviderWindowlessSite").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRawElementProviderWindowlessSite {
     type Vtable = IRawElementProviderWindowlessSiteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a2a93cc_bfad_42ac_9b2e_0991fb0d3ea0);
@@ -3515,6 +3680,11 @@ impl ::core::cmp::PartialEq for IRichEditUiaInformation {
     }
 }
 impl ::core::cmp::Eq for IRichEditUiaInformation {}
+impl ::core::fmt::Debug for IRichEditUiaInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRichEditUiaInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRichEditUiaInformation {
     type Vtable = IRichEditUiaInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3569,6 +3739,11 @@ impl ::core::cmp::PartialEq for IRicheditWindowlessAccessibility {
     }
 }
 impl ::core::cmp::Eq for IRicheditWindowlessAccessibility {}
+impl ::core::fmt::Debug for IRicheditWindowlessAccessibility {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRicheditWindowlessAccessibility").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRicheditWindowlessAccessibility {
     type Vtable = IRicheditWindowlessAccessibilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3616,6 +3791,11 @@ impl ::core::cmp::PartialEq for IScrollItemProvider {
     }
 }
 impl ::core::cmp::Eq for IScrollItemProvider {}
+impl ::core::fmt::Debug for IScrollItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IScrollItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IScrollItemProvider {
     type Vtable = IScrollItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2360c714_4bf1_4b26_ba65_9b21316127eb);
@@ -3699,6 +3879,11 @@ impl ::core::cmp::PartialEq for IScrollProvider {
     }
 }
 impl ::core::cmp::Eq for IScrollProvider {}
+impl ::core::fmt::Debug for IScrollProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IScrollProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IScrollProvider {
     type Vtable = IScrollProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb38b8077_1fc3_42a5_8cae_d40c2215055a);
@@ -3779,6 +3964,11 @@ impl ::core::cmp::PartialEq for ISelectionItemProvider {
     }
 }
 impl ::core::cmp::Eq for ISelectionItemProvider {}
+impl ::core::fmt::Debug for ISelectionItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISelectionItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISelectionItemProvider {
     type Vtable = ISelectionItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2acad808_b2d4_452d_a407_91ff1ad167b2);
@@ -3850,6 +4040,11 @@ impl ::core::cmp::PartialEq for ISelectionProvider {
     }
 }
 impl ::core::cmp::Eq for ISelectionProvider {}
+impl ::core::fmt::Debug for ISelectionProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISelectionProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISelectionProvider {
     type Vtable = ISelectionProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb8b03af_3bdf_48d4_bd36_1a65793be168);
@@ -3961,6 +4156,11 @@ impl ::core::cmp::PartialEq for ISelectionProvider2 {
     }
 }
 impl ::core::cmp::Eq for ISelectionProvider2 {}
+impl ::core::fmt::Debug for ISelectionProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISelectionProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISelectionProvider2 {
     type Vtable = ISelectionProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14f68475_ee1c_44f6_a869_d239381f0fe7);
@@ -4036,6 +4236,11 @@ impl ::core::cmp::PartialEq for ISpreadsheetItemProvider {
     }
 }
 impl ::core::cmp::Eq for ISpreadsheetItemProvider {}
+impl ::core::fmt::Debug for ISpreadsheetItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpreadsheetItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpreadsheetItemProvider {
     type Vtable = ISpreadsheetItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeaed4660_7b3d_4879_a2e6_365ce603f3d0);
@@ -4095,6 +4300,11 @@ impl ::core::cmp::PartialEq for ISpreadsheetProvider {
     }
 }
 impl ::core::cmp::Eq for ISpreadsheetProvider {}
+impl ::core::fmt::Debug for ISpreadsheetProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpreadsheetProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpreadsheetProvider {
     type Vtable = ISpreadsheetProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f6b5d35_5525_4f80_b758_85473832ffc7);
@@ -4183,6 +4393,11 @@ impl ::core::cmp::PartialEq for IStylesProvider {
     }
 }
 impl ::core::cmp::Eq for IStylesProvider {}
+impl ::core::fmt::Debug for IStylesProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStylesProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStylesProvider {
     type Vtable = IStylesProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19b6b649_f5d7_4a6d_bdcb_129252be588a);
@@ -4249,6 +4464,11 @@ impl ::core::cmp::PartialEq for ISynchronizedInputProvider {
     }
 }
 impl ::core::cmp::Eq for ISynchronizedInputProvider {}
+impl ::core::fmt::Debug for ISynchronizedInputProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISynchronizedInputProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISynchronizedInputProvider {
     type Vtable = ISynchronizedInputProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29db1a06_02ce_4cf7_9b42_565d4fab20ee);
@@ -4310,6 +4530,11 @@ impl ::core::cmp::PartialEq for ITableItemProvider {
     }
 }
 impl ::core::cmp::Eq for ITableItemProvider {}
+impl ::core::fmt::Debug for ITableItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITableItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITableItemProvider {
     type Vtable = ITableItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9734fa6_771f_4d78_9c90_2517999349cd);
@@ -4378,6 +4603,11 @@ impl ::core::cmp::PartialEq for ITableProvider {
     }
 }
 impl ::core::cmp::Eq for ITableProvider {}
+impl ::core::fmt::Debug for ITableProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITableProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITableProvider {
     type Vtable = ITableProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c860395_97b3_490a_b52a_858cc22af166);
@@ -4440,6 +4670,11 @@ impl ::core::cmp::PartialEq for ITextChildProvider {
     }
 }
 impl ::core::cmp::Eq for ITextChildProvider {}
+impl ::core::fmt::Debug for ITextChildProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextChildProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextChildProvider {
     type Vtable = ITextChildProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c2de2b9_c88f_4f88_a111_f1d336b7d1a9);
@@ -4551,6 +4786,11 @@ impl ::core::cmp::PartialEq for ITextEditProvider {
     }
 }
 impl ::core::cmp::Eq for ITextEditProvider {}
+impl ::core::fmt::Debug for ITextEditProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextEditProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextEditProvider {
     type Vtable = ITextEditProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea3605b4_3a05_400e_b5f9_4e91b40f6176);
@@ -4640,6 +4880,11 @@ impl ::core::cmp::PartialEq for ITextProvider {
     }
 }
 impl ::core::cmp::Eq for ITextProvider {}
+impl ::core::fmt::Debug for ITextProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextProvider {
     type Vtable = ITextProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3589c92c_63f3_4367_99bb_ada653b77cf2);
@@ -4757,6 +5002,11 @@ impl ::core::cmp::PartialEq for ITextProvider2 {
     }
 }
 impl ::core::cmp::Eq for ITextProvider2 {}
+impl ::core::fmt::Debug for ITextProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextProvider2 {
     type Vtable = ITextProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0dc5e6ed_3e16_4bf1_8f9a_a979878bc195);
@@ -4907,6 +5157,11 @@ impl ::core::cmp::PartialEq for ITextRangeProvider {
     }
 }
 impl ::core::cmp::Eq for ITextRangeProvider {}
+impl ::core::fmt::Debug for ITextRangeProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextRangeProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextRangeProvider {
     type Vtable = ITextRangeProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5347ad7b_c355_46f8_aff5_909033582f63);
@@ -5096,6 +5351,11 @@ impl ::core::cmp::PartialEq for ITextRangeProvider2 {
     }
 }
 impl ::core::cmp::Eq for ITextRangeProvider2 {}
+impl ::core::fmt::Debug for ITextRangeProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextRangeProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextRangeProvider2 {
     type Vtable = ITextRangeProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9bbce42c_1921_4f18_89ca_dba1910a0386);
@@ -5179,6 +5439,11 @@ impl ::core::cmp::PartialEq for IToggleProvider {
     }
 }
 impl ::core::cmp::Eq for IToggleProvider {}
+impl ::core::fmt::Debug for IToggleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IToggleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IToggleProvider {
     type Vtable = IToggleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56d00bd0_c4f4_433c_a836_1a52a57e0892);
@@ -5258,6 +5523,11 @@ impl ::core::cmp::PartialEq for ITransformProvider {
     }
 }
 impl ::core::cmp::Eq for ITransformProvider {}
+impl ::core::fmt::Debug for ITransformProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITransformProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITransformProvider {
     type Vtable = ITransformProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6829ddc4_4f91_4ffa_b86f_bd3e2987cb4c);
@@ -5393,6 +5663,11 @@ impl ::core::cmp::PartialEq for ITransformProvider2 {
     }
 }
 impl ::core::cmp::Eq for ITransformProvider2 {}
+impl ::core::fmt::Debug for ITransformProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITransformProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITransformProvider2 {
     type Vtable = ITransformProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4758742f_7ac2_460c_bc48_09fc09308a93);
@@ -5738,6 +6013,11 @@ impl ::core::cmp::PartialEq for IUIAutomation {
     }
 }
 impl ::core::cmp::Eq for IUIAutomation {}
+impl ::core::fmt::Debug for IUIAutomation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomation {
     type Vtable = IUIAutomationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30cbe57d_d9d0_452a_ab13_7ac5ac4825ee);
@@ -6192,6 +6472,11 @@ impl ::core::cmp::PartialEq for IUIAutomation2 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomation2 {}
+impl ::core::fmt::Debug for IUIAutomation2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomation2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomation2 {
     type Vtable = IUIAutomation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34723aff_0c9d_49d0_9896_7ab52df8cd8a);
@@ -6682,6 +6967,11 @@ impl ::core::cmp::PartialEq for IUIAutomation3 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomation3 {}
+impl ::core::fmt::Debug for IUIAutomation3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomation3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomation3 {
     type Vtable = IUIAutomation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73d768da_9b51_4b89_936e_c209290973e7);
@@ -7202,6 +7492,11 @@ impl ::core::cmp::PartialEq for IUIAutomation4 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomation4 {}
+impl ::core::fmt::Debug for IUIAutomation4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomation4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomation4 {
     type Vtable = IUIAutomation4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1189c02a_05f8_4319_8e21_e817e3db2860);
@@ -7752,6 +8047,11 @@ impl ::core::cmp::PartialEq for IUIAutomation5 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomation5 {}
+impl ::core::fmt::Debug for IUIAutomation5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomation5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomation5 {
     type Vtable = IUIAutomation5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25f700c8_d816_4057_a9dc_3cbdee77e256);
@@ -8363,6 +8663,11 @@ impl ::core::cmp::PartialEq for IUIAutomation6 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomation6 {}
+impl ::core::fmt::Debug for IUIAutomation6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomation6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomation6 {
     type Vtable = IUIAutomation6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaae072da_29e3_413d_87a7_192dbf81ed10);
@@ -8513,6 +8818,11 @@ impl ::core::cmp::PartialEq for IUIAutomationActiveTextPositionChangedEventHandl
     }
 }
 impl ::core::cmp::Eq for IUIAutomationActiveTextPositionChangedEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationActiveTextPositionChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationActiveTextPositionChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationActiveTextPositionChangedEventHandler {
     type Vtable = IUIAutomationActiveTextPositionChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf97933b0_8dae_4496_8997_5ba015fe0d82);
@@ -8591,6 +8901,11 @@ impl ::core::cmp::PartialEq for IUIAutomationAndCondition {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationAndCondition {}
+impl ::core::fmt::Debug for IUIAutomationAndCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationAndCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationAndCondition {
     type Vtable = IUIAutomationAndConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7d0af36_b912_45fe_9855_091ddc174aec);
@@ -8698,6 +9013,11 @@ impl ::core::cmp::PartialEq for IUIAutomationAnnotationPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationAnnotationPattern {}
+impl ::core::fmt::Debug for IUIAutomationAnnotationPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationAnnotationPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationAnnotationPattern {
     type Vtable = IUIAutomationAnnotationPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a175b21_339e_41b1_8e8b_623f6b681098);
@@ -8787,6 +9107,11 @@ impl ::core::cmp::PartialEq for IUIAutomationBoolCondition {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationBoolCondition {}
+impl ::core::fmt::Debug for IUIAutomationBoolCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationBoolCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationBoolCondition {
     type Vtable = IUIAutomationBoolConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b4e1f2e_75eb_4d0b_8952_5a69988e2307);
@@ -8876,6 +9201,11 @@ impl ::core::cmp::PartialEq for IUIAutomationCacheRequest {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationCacheRequest {}
+impl ::core::fmt::Debug for IUIAutomationCacheRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationCacheRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationCacheRequest {
     type Vtable = IUIAutomationCacheRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb32a92b5_bc25_4078_9c08_d7ee95c48e03);
@@ -8937,6 +9267,11 @@ impl ::core::cmp::PartialEq for IUIAutomationChangesEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationChangesEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationChangesEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationChangesEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationChangesEventHandler {
     type Vtable = IUIAutomationChangesEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x58edca55_2c3e_4980_b1b9_56c17f27a2a0);
@@ -8985,6 +9320,11 @@ impl ::core::cmp::PartialEq for IUIAutomationCondition {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationCondition {}
+impl ::core::fmt::Debug for IUIAutomationCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationCondition {
     type Vtable = IUIAutomationConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x352ffba8_0973_437c_a61f_f64cafd81df9);
@@ -9033,6 +9373,11 @@ impl ::core::cmp::PartialEq for IUIAutomationCustomNavigationPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationCustomNavigationPattern {}
+impl ::core::fmt::Debug for IUIAutomationCustomNavigationPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationCustomNavigationPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationCustomNavigationPattern {
     type Vtable = IUIAutomationCustomNavigationPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01ea217a_1766_47ed_a6cc_acf492854b1f);
@@ -9090,6 +9435,11 @@ impl ::core::cmp::PartialEq for IUIAutomationDockPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationDockPattern {}
+impl ::core::fmt::Debug for IUIAutomationDockPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationDockPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationDockPattern {
     type Vtable = IUIAutomationDockPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfde5ef97_1464_48f6_90bf_43d0948e86ec);
@@ -9186,6 +9536,11 @@ impl ::core::cmp::PartialEq for IUIAutomationDragPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationDragPattern {}
+impl ::core::fmt::Debug for IUIAutomationDragPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationDragPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationDragPattern {
     type Vtable = IUIAutomationDragPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dc7b570_1f54_4bad_bcda_d36a722fb7bd);
@@ -9271,6 +9626,11 @@ impl ::core::cmp::PartialEq for IUIAutomationDropTargetPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationDropTargetPattern {}
+impl ::core::fmt::Debug for IUIAutomationDropTargetPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationDropTargetPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationDropTargetPattern {
     type Vtable = IUIAutomationDropTargetPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69a095f7_eee4_430e_a46b_fb73b1ae39a5);
@@ -9788,6 +10148,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement {}
+impl ::core::fmt::Debug for IUIAutomationElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement {
     type Vtable = IUIAutomationElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd22108aa_8ac5_49a5_837b_37bbb3d7591e);
@@ -10485,6 +10850,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement2 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement2 {}
+impl ::core::fmt::Debug for IUIAutomationElement2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement2 {
     type Vtable = IUIAutomationElement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6749c683_f70d_4487_a698_5f79d55290d6);
@@ -11226,6 +11596,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement3 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement3 {}
+impl ::core::fmt::Debug for IUIAutomationElement3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement3 {
     type Vtable = IUIAutomationElement3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8471df34_aee0_4a01_a7de_7db9af12c296);
@@ -12044,6 +12419,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement4 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement4 {}
+impl ::core::fmt::Debug for IUIAutomationElement4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement4 {
     type Vtable = IUIAutomationElement4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b6e233c_52fb_4063_a4c9_77c075c2a06b);
@@ -12916,6 +13296,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement5 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement5 {}
+impl ::core::fmt::Debug for IUIAutomationElement5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement5 {
     type Vtable = IUIAutomationElement5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98141c1d_0d0e_4175_bbe2_6bff455842a7);
@@ -13826,6 +14211,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement6 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement6 {}
+impl ::core::fmt::Debug for IUIAutomationElement6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement6 {
     type Vtable = IUIAutomationElement6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4780d450_8bca_4977_afa5_a4a517f555e3);
@@ -14786,6 +15176,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement7 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement7 {}
+impl ::core::fmt::Debug for IUIAutomationElement7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement7 {
     type Vtable = IUIAutomationElement7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204e8572_cfc3_4c11_b0c8_7da7420750b7);
@@ -15782,6 +16177,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement8 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement8 {}
+impl ::core::fmt::Debug for IUIAutomationElement8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement8 {
     type Vtable = IUIAutomationElement8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c60217d_5411_4cde_bcc0_1ceda223830c);
@@ -16812,6 +17212,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElement9 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElement9 {}
+impl ::core::fmt::Debug for IUIAutomationElement9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElement9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElement9 {
     type Vtable = IUIAutomationElement9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39325fac_039d_440e_a3a3_5eb81a5cecc3);
@@ -17052,6 +17457,11 @@ impl ::core::cmp::PartialEq for IUIAutomationElementArray {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationElementArray {}
+impl ::core::fmt::Debug for IUIAutomationElementArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationElementArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationElementArray {
     type Vtable = IUIAutomationElementArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14314595_b4bc_4055_95f2_58f2e42c9855);
@@ -17105,6 +17515,11 @@ impl ::core::cmp::PartialEq for IUIAutomationEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationEventHandler {
     type Vtable = IUIAutomationEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x146c3c17_f12e_4e22_8c27_f894b9b79c69);
@@ -17176,6 +17591,11 @@ impl ::core::cmp::PartialEq for IUIAutomationEventHandlerGroup {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationEventHandlerGroup {}
+impl ::core::fmt::Debug for IUIAutomationEventHandlerGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationEventHandlerGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationEventHandlerGroup {
     type Vtable = IUIAutomationEventHandlerGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9ee12f2_c13b_4408_997c_639914377f4e);
@@ -17248,6 +17668,11 @@ impl ::core::cmp::PartialEq for IUIAutomationExpandCollapsePattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationExpandCollapsePattern {}
+impl ::core::fmt::Debug for IUIAutomationExpandCollapsePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationExpandCollapsePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationExpandCollapsePattern {
     type Vtable = IUIAutomationExpandCollapsePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x619be086_1f4e_4ee4_bafa_210128738730);
@@ -17303,6 +17728,11 @@ impl ::core::cmp::PartialEq for IUIAutomationFocusChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationFocusChangedEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationFocusChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationFocusChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationFocusChangedEventHandler {
     type Vtable = IUIAutomationFocusChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc270f6b5_5c69_4290_9745_7a7f97169468);
@@ -17396,6 +17826,11 @@ impl ::core::cmp::PartialEq for IUIAutomationGridItemPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationGridItemPattern {}
+impl ::core::fmt::Debug for IUIAutomationGridItemPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationGridItemPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationGridItemPattern {
     type Vtable = IUIAutomationGridItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78f8ef57_66c3_4e09_bd7c_e79b2004894d);
@@ -17478,6 +17913,11 @@ impl ::core::cmp::PartialEq for IUIAutomationGridPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationGridPattern {}
+impl ::core::fmt::Debug for IUIAutomationGridPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationGridPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationGridPattern {
     type Vtable = IUIAutomationGridPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x414c3cdc_856b_4f5b_8538_3131c6302550);
@@ -17534,6 +17974,11 @@ impl ::core::cmp::PartialEq for IUIAutomationInvokePattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationInvokePattern {}
+impl ::core::fmt::Debug for IUIAutomationInvokePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationInvokePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationInvokePattern {
     type Vtable = IUIAutomationInvokePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb377fbe_8ea6_46d5_9c73_6499642d3059);
@@ -17583,6 +18028,11 @@ impl ::core::cmp::PartialEq for IUIAutomationItemContainerPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationItemContainerPattern {}
+impl ::core::fmt::Debug for IUIAutomationItemContainerPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationItemContainerPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationItemContainerPattern {
     type Vtable = IUIAutomationItemContainerPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc690fdb2_27a8_423c_812d_429773c9084e);
@@ -17762,6 +18212,11 @@ impl ::core::cmp::PartialEq for IUIAutomationLegacyIAccessiblePattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationLegacyIAccessiblePattern {}
+impl ::core::fmt::Debug for IUIAutomationLegacyIAccessiblePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationLegacyIAccessiblePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationLegacyIAccessiblePattern {
     type Vtable = IUIAutomationLegacyIAccessiblePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x828055ad_355b_4435_86d5_3b51c14a9b1b);
@@ -17878,6 +18333,11 @@ impl ::core::cmp::PartialEq for IUIAutomationMultipleViewPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationMultipleViewPattern {}
+impl ::core::fmt::Debug for IUIAutomationMultipleViewPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationMultipleViewPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationMultipleViewPattern {
     type Vtable = IUIAutomationMultipleViewPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d253c91_1dc5_4bb5_b18f_ade16fa495e8);
@@ -17959,6 +18419,11 @@ impl ::core::cmp::PartialEq for IUIAutomationNotCondition {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationNotCondition {}
+impl ::core::fmt::Debug for IUIAutomationNotCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationNotCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationNotCondition {
     type Vtable = IUIAutomationNotConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf528b657_847b_498c_8896_d52b565407a1);
@@ -18007,6 +18472,11 @@ impl ::core::cmp::PartialEq for IUIAutomationNotificationEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationNotificationEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationNotificationEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationNotificationEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationNotificationEventHandler {
     type Vtable = IUIAutomationNotificationEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7cb2637_e6c2_4d0c_85de_4948c02175c7);
@@ -18061,6 +18531,11 @@ impl ::core::cmp::PartialEq for IUIAutomationObjectModelPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationObjectModelPattern {}
+impl ::core::fmt::Debug for IUIAutomationObjectModelPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationObjectModelPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationObjectModelPattern {
     type Vtable = IUIAutomationObjectModelPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71c284b3_c14d_4d14_981e_19751b0d756d);
@@ -18139,6 +18614,11 @@ impl ::core::cmp::PartialEq for IUIAutomationOrCondition {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationOrCondition {}
+impl ::core::fmt::Debug for IUIAutomationOrCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationOrCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationOrCondition {
     type Vtable = IUIAutomationOrConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8753f032_3db1_47b5_a1fc_6e34a266c712);
@@ -18199,6 +18679,11 @@ impl ::core::cmp::PartialEq for IUIAutomationPatternHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationPatternHandler {}
+impl ::core::fmt::Debug for IUIAutomationPatternHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationPatternHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationPatternHandler {
     type Vtable = IUIAutomationPatternHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd97022f3_a947_465e_8b2a_ac4315fa54e8);
@@ -18257,6 +18742,11 @@ impl ::core::cmp::PartialEq for IUIAutomationPatternInstance {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationPatternInstance {}
+impl ::core::fmt::Debug for IUIAutomationPatternInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationPatternInstance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationPatternInstance {
     type Vtable = IUIAutomationPatternInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03a7fe4_9431_409f_bed8_ae7c2299bc8d);
@@ -18312,6 +18802,11 @@ impl ::core::cmp::PartialEq for IUIAutomationPropertyChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationPropertyChangedEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationPropertyChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationPropertyChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationPropertyChangedEventHandler {
     type Vtable = IUIAutomationPropertyChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x40cd37d4_c756_4b0c_8c6f_bddfeeb13b50);
@@ -18397,6 +18892,11 @@ impl ::core::cmp::PartialEq for IUIAutomationPropertyCondition {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationPropertyCondition {}
+impl ::core::fmt::Debug for IUIAutomationPropertyCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationPropertyCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationPropertyCondition {
     type Vtable = IUIAutomationPropertyConditionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99ebf2cb_5578_4267_9ad4_afd6ea77e94b);
@@ -18460,6 +18960,11 @@ impl ::core::cmp::PartialEq for IUIAutomationProxyFactory {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationProxyFactory {}
+impl ::core::fmt::Debug for IUIAutomationProxyFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationProxyFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationProxyFactory {
     type Vtable = IUIAutomationProxyFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b94ecd_849d_42b6_b94d_d6db23fdf5a4);
@@ -18582,6 +19087,11 @@ impl ::core::cmp::PartialEq for IUIAutomationProxyFactoryEntry {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationProxyFactoryEntry {}
+impl ::core::fmt::Debug for IUIAutomationProxyFactoryEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationProxyFactoryEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationProxyFactoryEntry {
     type Vtable = IUIAutomationProxyFactoryEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd50e472e_b64b_490c_bca1_d30696f9f289);
@@ -18696,6 +19206,11 @@ impl ::core::cmp::PartialEq for IUIAutomationProxyFactoryMapping {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationProxyFactoryMapping {}
+impl ::core::fmt::Debug for IUIAutomationProxyFactoryMapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationProxyFactoryMapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationProxyFactoryMapping {
     type Vtable = IUIAutomationProxyFactoryMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e31e18_872d_4873_93d1_1e541ec133fd);
@@ -18821,6 +19336,11 @@ impl ::core::cmp::PartialEq for IUIAutomationRangeValuePattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationRangeValuePattern {}
+impl ::core::fmt::Debug for IUIAutomationRangeValuePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationRangeValuePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationRangeValuePattern {
     type Vtable = IUIAutomationRangeValuePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59213f4f_7346_49e5_b120_80555987a148);
@@ -18900,6 +19420,11 @@ impl ::core::cmp::PartialEq for IUIAutomationRegistrar {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationRegistrar {}
+impl ::core::fmt::Debug for IUIAutomationRegistrar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationRegistrar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationRegistrar {
     type Vtable = IUIAutomationRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8609c4ec_4a1a_4d88_a357_5a66e060e1cf);
@@ -18957,6 +19482,11 @@ impl ::core::cmp::PartialEq for IUIAutomationScrollItemPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationScrollItemPattern {}
+impl ::core::fmt::Debug for IUIAutomationScrollItemPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationScrollItemPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationScrollItemPattern {
     type Vtable = IUIAutomationScrollItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb488300f_d015_4f19_9c29_bb595e3645ef);
@@ -19072,6 +19602,11 @@ impl ::core::cmp::PartialEq for IUIAutomationScrollPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationScrollPattern {}
+impl ::core::fmt::Debug for IUIAutomationScrollPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationScrollPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationScrollPattern {
     type Vtable = IUIAutomationScrollPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88f4d42a_e881_459d_a77c_73bbbb7e02dc);
@@ -19171,6 +19706,11 @@ impl ::core::cmp::PartialEq for IUIAutomationSelectionItemPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationSelectionItemPattern {}
+impl ::core::fmt::Debug for IUIAutomationSelectionItemPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationSelectionItemPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationSelectionItemPattern {
     type Vtable = IUIAutomationSelectionItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8efa66a_0fda_421a_9194_38021f3578ea);
@@ -19261,6 +19801,11 @@ impl ::core::cmp::PartialEq for IUIAutomationSelectionPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationSelectionPattern {}
+impl ::core::fmt::Debug for IUIAutomationSelectionPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationSelectionPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationSelectionPattern {
     type Vtable = IUIAutomationSelectionPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ed5202e_b2ac_47a6_b638_4b0bf140d78e);
@@ -19412,6 +19957,11 @@ impl ::core::cmp::PartialEq for IUIAutomationSelectionPattern2 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationSelectionPattern2 {}
+impl ::core::fmt::Debug for IUIAutomationSelectionPattern2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationSelectionPattern2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationSelectionPattern2 {
     type Vtable = IUIAutomationSelectionPattern2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0532bfae_c011_4e32_a343_6d642d798555);
@@ -19511,6 +20061,11 @@ impl ::core::cmp::PartialEq for IUIAutomationSpreadsheetItemPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationSpreadsheetItemPattern {}
+impl ::core::fmt::Debug for IUIAutomationSpreadsheetItemPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationSpreadsheetItemPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationSpreadsheetItemPattern {
     type Vtable = IUIAutomationSpreadsheetItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d4fb86c_8d34_40e1_8e83_62c15204e335);
@@ -19574,6 +20129,11 @@ impl ::core::cmp::PartialEq for IUIAutomationSpreadsheetPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationSpreadsheetPattern {}
+impl ::core::fmt::Debug for IUIAutomationSpreadsheetPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationSpreadsheetPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationSpreadsheetPattern {
     type Vtable = IUIAutomationSpreadsheetPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7517a7c8_faae_4de9_9f08_29b91e8595c1);
@@ -19628,6 +20188,11 @@ impl ::core::cmp::PartialEq for IUIAutomationStructureChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationStructureChangedEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationStructureChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationStructureChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationStructureChangedEventHandler {
     type Vtable = IUIAutomationStructureChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe81d1b4e_11c5_42f8_9754_e7036c79f054);
@@ -19765,6 +20330,11 @@ impl ::core::cmp::PartialEq for IUIAutomationStylesPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationStylesPattern {}
+impl ::core::fmt::Debug for IUIAutomationStylesPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationStylesPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationStylesPattern {
     type Vtable = IUIAutomationStylesPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85b5f0a2_bd79_484a_ad2b_388c9838d5fb);
@@ -19846,6 +20416,11 @@ impl ::core::cmp::PartialEq for IUIAutomationSynchronizedInputPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationSynchronizedInputPattern {}
+impl ::core::fmt::Debug for IUIAutomationSynchronizedInputPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationSynchronizedInputPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationSynchronizedInputPattern {
     type Vtable = IUIAutomationSynchronizedInputPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2233be0b_afb7_448b_9fda_3b378aa5eae1);
@@ -19915,6 +20490,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTableItemPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTableItemPattern {}
+impl ::core::fmt::Debug for IUIAutomationTableItemPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTableItemPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTableItemPattern {
     type Vtable = IUIAutomationTableItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b964eb3_ef2e_4464_9c79_61d61737a27e);
@@ -19996,6 +20576,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTablePattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTablePattern {}
+impl ::core::fmt::Debug for IUIAutomationTablePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTablePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTablePattern {
     type Vtable = IUIAutomationTablePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x620e691c_ea96_4710_a850_754b24ce2417);
@@ -20059,6 +20644,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextChildPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextChildPattern {}
+impl ::core::fmt::Debug for IUIAutomationTextChildPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextChildPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextChildPattern {
     type Vtable = IUIAutomationTextChildPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6552b038_ae05_40c8_abfd_aa08352aab86);
@@ -20169,6 +20759,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextEditPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextEditPattern {}
+impl ::core::fmt::Debug for IUIAutomationTextEditPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextEditPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextEditPattern {
     type Vtable = IUIAutomationTextEditPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17e21576_996c_4870_99d9_bff323380c06);
@@ -20230,6 +20825,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextEditTextChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextEditTextChangedEventHandler {}
+impl ::core::fmt::Debug for IUIAutomationTextEditTextChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextEditTextChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextEditTextChangedEventHandler {
     type Vtable = IUIAutomationTextEditTextChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92faa680_e704_4156_931a_e32d5bb38f3f);
@@ -20310,6 +20910,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextPattern {}
+impl ::core::fmt::Debug for IUIAutomationTextPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextPattern {
     type Vtable = IUIAutomationTextPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x32eba289_3583_42c9_9c59_3b6d9a1e9b6a);
@@ -20425,6 +21030,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextPattern2 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextPattern2 {}
+impl ::core::fmt::Debug for IUIAutomationTextPattern2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextPattern2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextPattern2 {
     type Vtable = IUIAutomationTextPattern2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x506a921a_fcc9_409f_b23b_37eb74106872);
@@ -20573,6 +21183,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextRange {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextRange {}
+impl ::core::fmt::Debug for IUIAutomationTextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextRange {
     type Vtable = IUIAutomationTextRangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa543cc6a_f4ae_494b_8239_c814481187a8);
@@ -20760,6 +21375,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextRange2 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextRange2 {}
+impl ::core::fmt::Debug for IUIAutomationTextRange2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextRange2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextRange2 {
     type Vtable = IUIAutomationTextRange2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb9b40e0_5e04_46bd_9be0_4b601b9afad4);
@@ -20984,6 +21604,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextRange3 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextRange3 {}
+impl ::core::fmt::Debug for IUIAutomationTextRange3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextRange3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextRange3 {
     type Vtable = IUIAutomationTextRange3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6a315d69_5512_4c2e_85f0_53fce6dd4bc2);
@@ -21071,6 +21696,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTextRangeArray {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTextRangeArray {}
+impl ::core::fmt::Debug for IUIAutomationTextRangeArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTextRangeArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTextRangeArray {
     type Vtable = IUIAutomationTextRangeArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce4ae76a_e717_4c98_81ea_47371d028eb6);
@@ -21134,6 +21764,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTogglePattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTogglePattern {}
+impl ::core::fmt::Debug for IUIAutomationTogglePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTogglePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTogglePattern {
     type Vtable = IUIAutomationTogglePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94cf8058_9b8d_4ab9_8bfd_4cd0a33c8c70);
@@ -21232,6 +21867,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTransformPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTransformPattern {}
+impl ::core::fmt::Debug for IUIAutomationTransformPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTransformPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTransformPattern {
     type Vtable = IUIAutomationTransformPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b55844_a55d_4ef0_926d_569c16ff89bb);
@@ -21412,6 +22052,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTransformPattern2 {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTransformPattern2 {}
+impl ::core::fmt::Debug for IUIAutomationTransformPattern2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTransformPattern2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTransformPattern2 {
     type Vtable = IUIAutomationTransformPattern2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d74d017_6ecb_4381_b38b_3c17a48ff1c2);
@@ -21551,6 +22196,11 @@ impl ::core::cmp::PartialEq for IUIAutomationTreeWalker {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationTreeWalker {}
+impl ::core::fmt::Debug for IUIAutomationTreeWalker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationTreeWalker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationTreeWalker {
     type Vtable = IUIAutomationTreeWalkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4042c624_389c_4afc_a630_9df854a541fc);
@@ -21640,6 +22290,11 @@ impl ::core::cmp::PartialEq for IUIAutomationValuePattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationValuePattern {}
+impl ::core::fmt::Debug for IUIAutomationValuePattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationValuePattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationValuePattern {
     type Vtable = IUIAutomationValuePatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa94cd8b1_0844_4cd6_9d2d_640537ab39e9);
@@ -21701,6 +22356,11 @@ impl ::core::cmp::PartialEq for IUIAutomationVirtualizedItemPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationVirtualizedItemPattern {}
+impl ::core::fmt::Debug for IUIAutomationVirtualizedItemPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationVirtualizedItemPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationVirtualizedItemPattern {
     type Vtable = IUIAutomationVirtualizedItemPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba3d7a6_04cf_4f11_8793_a8d1cde9969f);
@@ -21826,6 +22486,11 @@ impl ::core::cmp::PartialEq for IUIAutomationWindowPattern {
     }
 }
 impl ::core::cmp::Eq for IUIAutomationWindowPattern {}
+impl ::core::fmt::Debug for IUIAutomationWindowPattern {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIAutomationWindowPattern").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIAutomationWindowPattern {
     type Vtable = IUIAutomationWindowPatternVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0faef453_9208_43ef_bbb2_3b485177864f);
@@ -21914,6 +22579,11 @@ impl ::core::cmp::PartialEq for IValueProvider {
     }
 }
 impl ::core::cmp::Eq for IValueProvider {}
+impl ::core::fmt::Debug for IValueProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IValueProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IValueProvider {
     type Vtable = IValueProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7935180_6fb3_4201_b174_7df73adbf64a);
@@ -21971,6 +22641,11 @@ impl ::core::cmp::PartialEq for IVirtualizedItemProvider {
     }
 }
 impl ::core::cmp::Eq for IVirtualizedItemProvider {}
+impl ::core::fmt::Debug for IVirtualizedItemProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVirtualizedItemProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVirtualizedItemProvider {
     type Vtable = IVirtualizedItemProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb98b665_2d35_4fac_ad35_f3c60d0c0b8b);
@@ -22062,6 +22737,11 @@ impl ::core::cmp::PartialEq for IWindowProvider {
     }
 }
 impl ::core::cmp::Eq for IWindowProvider {}
+impl ::core::fmt::Debug for IWindowProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowProvider {
     type Vtable = IWindowProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x987df77b_db06_4d77_8f8a_86a9c3bb90b9);

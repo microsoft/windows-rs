@@ -45,6 +45,11 @@ impl ::core::cmp::PartialEq for AppBroadcastingMonitor {
     }
 }
 impl ::core::cmp::Eq for AppBroadcastingMonitor {}
+impl ::core::fmt::Debug for AppBroadcastingMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastingMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingMonitor;{00f95a68-8907-48a0-b8ef-24d208137542})");
 }
@@ -129,6 +134,11 @@ impl ::core::cmp::PartialEq for AppBroadcastingStatus {
     }
 }
 impl ::core::cmp::Eq for AppBroadcastingStatus {}
+impl ::core::fmt::Debug for AppBroadcastingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastingStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingStatus;{1225e4df-03a1-42f8-8b80-c9228cd9cf2e})");
 }
@@ -261,6 +271,11 @@ impl ::core::cmp::PartialEq for AppBroadcastingStatusDetails {
     }
 }
 impl ::core::cmp::Eq for AppBroadcastingStatusDetails {}
+impl ::core::fmt::Debug for AppBroadcastingStatusDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastingStatusDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingStatusDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingStatusDetails;{069dada4-b573-4e3c-8e19-1bafacd09713})");
 }
@@ -362,6 +377,11 @@ impl ::core::cmp::PartialEq for AppBroadcastingUI {
     }
 }
 impl ::core::cmp::Eq for AppBroadcastingUI {}
+impl ::core::fmt::Debug for AppBroadcastingUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastingUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastingUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.AppBroadcasting.AppBroadcastingUI;{e56f9f8f-ee99-4dca-a3c3-70af3db44f5f})");
 }

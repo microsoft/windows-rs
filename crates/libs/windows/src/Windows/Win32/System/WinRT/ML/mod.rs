@@ -41,6 +41,11 @@ impl ::core::cmp::PartialEq for ILearningModelDeviceFactoryNative {
     }
 }
 impl ::core::cmp::Eq for ILearningModelDeviceFactoryNative {}
+impl ::core::fmt::Debug for ILearningModelDeviceFactoryNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelDeviceFactoryNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelDeviceFactoryNative {
     type Vtable = ILearningModelDeviceFactoryNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e9b31a1_662e_4ae0_af67_f63bb337e634);
@@ -96,6 +101,11 @@ impl ::core::cmp::PartialEq for ILearningModelOperatorProviderNative {
     }
 }
 impl ::core::cmp::Eq for ILearningModelOperatorProviderNative {}
+impl ::core::fmt::Debug for ILearningModelOperatorProviderNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelOperatorProviderNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelOperatorProviderNative {
     type Vtable = ILearningModelOperatorProviderNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1adaa23a_eb67_41f3_aad8_5d984e9bacd4);
@@ -149,6 +159,11 @@ impl ::core::cmp::PartialEq for ILearningModelSessionOptionsNative {
     }
 }
 impl ::core::cmp::Eq for ILearningModelSessionOptionsNative {}
+impl ::core::fmt::Debug for ILearningModelSessionOptionsNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelSessionOptionsNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILearningModelSessionOptionsNative {
     type Vtable = ILearningModelSessionOptionsNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc71e953f_37b4_4564_8658_d8396866db0d);
@@ -202,6 +217,11 @@ impl ::core::cmp::PartialEq for ITensorNative {
     }
 }
 impl ::core::cmp::Eq for ITensorNative {}
+impl ::core::fmt::Debug for ITensorNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITensorNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorNative {
     type Vtable = ITensorNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52f547ef_5b03_49b5_82d6_565f1ee0dd49);
@@ -257,6 +277,11 @@ impl ::core::cmp::PartialEq for ITensorStaticsNative {
     }
 }
 impl ::core::cmp::Eq for ITensorStaticsNative {}
+impl ::core::fmt::Debug for ITensorStaticsNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITensorStaticsNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITensorStaticsNative {
     type Vtable = ITensorStaticsNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39d055a4_66f6_4ebc_95d9_7a29ebe7690a);

@@ -165,6 +165,11 @@ impl ::core::cmp::PartialEq for SceneLightingEffect {
     }
 }
 impl ::core::cmp::Eq for SceneLightingEffect {}
+impl ::core::fmt::Debug for SceneLightingEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneLightingEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneLightingEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Effects.SceneLightingEffect;{91bb5e52-95d1-4f8b-9a5a-6408b24b8c6a})");
 }

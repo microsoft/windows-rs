@@ -343,6 +343,11 @@ impl ::core::cmp::PartialEq for ICallFrame {
     }
 }
 impl ::core::cmp::Eq for ICallFrame {}
+impl ::core::fmt::Debug for ICallFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICallFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICallFrame {
     type Vtable = ICallFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b0_894e_11d2_b8b6_00c04fb9618a);
@@ -422,6 +427,11 @@ impl ::core::cmp::PartialEq for ICallFrameEvents {
     }
 }
 impl ::core::cmp::Eq for ICallFrameEvents {}
+impl ::core::fmt::Debug for ICallFrameEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICallFrameEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICallFrameEvents {
     type Vtable = ICallFrameEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd5e0843_fc91_11d0_97d7_00c04fb9618a);
@@ -470,6 +480,11 @@ impl ::core::cmp::PartialEq for ICallFrameWalker {
     }
 }
 impl ::core::cmp::Eq for ICallFrameWalker {}
+impl ::core::fmt::Debug for ICallFrameWalker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICallFrameWalker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICallFrameWalker {
     type Vtable = ICallFrameWalkerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08b23919_392d_11d2_b8a4_00c04fb9618a);
@@ -538,6 +553,11 @@ impl ::core::cmp::PartialEq for ICallIndirect {
     }
 }
 impl ::core::cmp::Eq for ICallIndirect {}
+impl ::core::fmt::Debug for ICallIndirect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICallIndirect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICallIndirect {
     type Vtable = ICallIndirectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd573b4b1_894e_11d2_b8b6_00c04fb9618a);
@@ -639,6 +659,11 @@ impl ::core::cmp::PartialEq for ICallInterceptor {
     }
 }
 impl ::core::cmp::Eq for ICallInterceptor {}
+impl ::core::fmt::Debug for ICallInterceptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICallInterceptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICallInterceptor {
     type Vtable = ICallInterceptorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60c7ca75_896d_11d2_b8b6_00c04fb9618a);
@@ -704,6 +729,11 @@ impl ::core::cmp::PartialEq for ICallUnmarshal {
     }
 }
 impl ::core::cmp::Eq for ICallUnmarshal {}
+impl ::core::fmt::Debug for ICallUnmarshal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICallUnmarshal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICallUnmarshal {
     type Vtable = ICallUnmarshalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5333b003_2e42_11d2_b89d_00c04fb9618a);
@@ -764,6 +794,11 @@ impl ::core::cmp::PartialEq for IInterfaceRelated {
     }
 }
 impl ::core::cmp::Eq for IInterfaceRelated {}
+impl ::core::fmt::Debug for IInterfaceRelated {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInterfaceRelated").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInterfaceRelated {
     type Vtable = IInterfaceRelatedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1fb5a79_7706_11d1_adba_00c04fc2adc0);

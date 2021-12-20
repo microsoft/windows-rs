@@ -48,6 +48,11 @@ impl ::core::cmp::PartialEq for IDesktopWindowXamlSourceNative {
     }
 }
 impl ::core::cmp::Eq for IDesktopWindowXamlSourceNative {}
+impl ::core::fmt::Debug for IDesktopWindowXamlSourceNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDesktopWindowXamlSourceNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceNative {
     type Vtable = IDesktopWindowXamlSourceNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cbcf1bf_2f76_4e9c_96ab_e84b37972554);
@@ -135,6 +140,11 @@ impl ::core::cmp::PartialEq for IDesktopWindowXamlSourceNative2 {
     }
 }
 impl ::core::cmp::Eq for IDesktopWindowXamlSourceNative2 {}
+impl ::core::fmt::Debug for IDesktopWindowXamlSourceNative2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDesktopWindowXamlSourceNative2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDesktopWindowXamlSourceNative2 {
     type Vtable = IDesktopWindowXamlSourceNative2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3dcd8c7_3057_4692_99c3_7b7720afda31);
@@ -192,6 +202,11 @@ impl ::core::cmp::PartialEq for IFindReferenceTargetsCallback {
     }
 }
 impl ::core::cmp::Eq for IFindReferenceTargetsCallback {}
+impl ::core::fmt::Debug for IFindReferenceTargetsCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFindReferenceTargetsCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFindReferenceTargetsCallback {
     type Vtable = IFindReferenceTargetsCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04b3486c_4687_4229_8d14_505ab584dd88);
@@ -264,6 +279,11 @@ impl ::core::cmp::PartialEq for IReferenceTracker {
     }
 }
 impl ::core::cmp::Eq for IReferenceTracker {}
+impl ::core::fmt::Debug for IReferenceTracker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceTracker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceTracker {
     type Vtable = IReferenceTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d3b13a_180e_4789_a8be_7712882893e6);
@@ -317,6 +337,11 @@ impl ::core::cmp::PartialEq for IReferenceTrackerExtension {
     }
 }
 impl ::core::cmp::Eq for IReferenceTrackerExtension {}
+impl ::core::fmt::Debug for IReferenceTrackerExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceTrackerExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceTrackerExtension {
     type Vtable = IReferenceTrackerExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e897caa_59d5_4613_8f8c_f7ebd1f399b0);
@@ -385,6 +410,11 @@ impl ::core::cmp::PartialEq for IReferenceTrackerHost {
     }
 }
 impl ::core::cmp::Eq for IReferenceTrackerHost {}
+impl ::core::fmt::Debug for IReferenceTrackerHost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceTrackerHost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceTrackerHost {
     type Vtable = IReferenceTrackerHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29a71c6a_3c42_4416_a39d_e2825a07a773);
@@ -454,6 +484,11 @@ impl ::core::cmp::PartialEq for IReferenceTrackerManager {
     }
 }
 impl ::core::cmp::Eq for IReferenceTrackerManager {}
+impl ::core::fmt::Debug for IReferenceTrackerManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceTrackerManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceTrackerManager {
     type Vtable = IReferenceTrackerManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cf184b4_7ccb_4dda_8455_7e6ce99a3298);
@@ -521,6 +556,11 @@ impl ::core::cmp::PartialEq for IReferenceTrackerTarget {
     }
 }
 impl ::core::cmp::Eq for IReferenceTrackerTarget {}
+impl ::core::fmt::Debug for IReferenceTrackerTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceTrackerTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IReferenceTrackerTarget {
     type Vtable = IReferenceTrackerTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64bd43f8_bfee_4ec4_b7eb_2935158dae21);
@@ -576,6 +616,11 @@ impl ::core::cmp::PartialEq for ISurfaceImageSourceManagerNative {
     }
 }
 impl ::core::cmp::Eq for ISurfaceImageSourceManagerNative {}
+impl ::core::fmt::Debug for ISurfaceImageSourceManagerNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISurfaceImageSourceManagerNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISurfaceImageSourceManagerNative {
     type Vtable = ISurfaceImageSourceManagerNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c8798b7_1d88_4a0f_b59b_b93f600de8c8);
@@ -633,6 +678,11 @@ impl ::core::cmp::PartialEq for ISurfaceImageSourceNative {
     }
 }
 impl ::core::cmp::Eq for ISurfaceImageSourceNative {}
+impl ::core::fmt::Debug for ISurfaceImageSourceNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISurfaceImageSourceNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISurfaceImageSourceNative {
     type Vtable = ISurfaceImageSourceNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e9edc1_d307_4525_9886_0fafaa44163c);
@@ -706,6 +756,11 @@ impl ::core::cmp::PartialEq for ISurfaceImageSourceNativeWithD2D {
     }
 }
 impl ::core::cmp::Eq for ISurfaceImageSourceNativeWithD2D {}
+impl ::core::fmt::Debug for ISurfaceImageSourceNativeWithD2D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISurfaceImageSourceNativeWithD2D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISurfaceImageSourceNativeWithD2D {
     type Vtable = ISurfaceImageSourceNativeWithD2DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54298223_41e1_4a41_9c08_02e8256864a1);
@@ -764,6 +819,11 @@ impl ::core::cmp::PartialEq for ISwapChainBackgroundPanelNative {
     }
 }
 impl ::core::cmp::Eq for ISwapChainBackgroundPanelNative {}
+impl ::core::fmt::Debug for ISwapChainBackgroundPanelNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISwapChainBackgroundPanelNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISwapChainBackgroundPanelNative {
     type Vtable = ISwapChainBackgroundPanelNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43bebd4e_add5_4035_8f85_5608d08e9dc9);
@@ -818,6 +878,11 @@ impl ::core::cmp::PartialEq for ISwapChainPanelNative {
     }
 }
 impl ::core::cmp::Eq for ISwapChainPanelNative {}
+impl ::core::fmt::Debug for ISwapChainPanelNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISwapChainPanelNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISwapChainPanelNative {
     type Vtable = ISwapChainPanelNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf92f19d2_3ade_45a6_a20c_f6f1ea90554b);
@@ -897,6 +962,11 @@ impl ::core::cmp::PartialEq for ISwapChainPanelNative2 {
     }
 }
 impl ::core::cmp::Eq for ISwapChainPanelNative2 {}
+impl ::core::fmt::Debug for ISwapChainPanelNative2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISwapChainPanelNative2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISwapChainPanelNative2 {
     type Vtable = ISwapChainPanelNative2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5a2f60c_37b2_44a2_937b_8d8eb9726821);
@@ -965,6 +1035,11 @@ impl ::core::cmp::PartialEq for ITrackerOwner {
     }
 }
 impl ::core::cmp::Eq for ITrackerOwner {}
+impl ::core::fmt::Debug for ITrackerOwner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITrackerOwner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITrackerOwner {
     type Vtable = ITrackerOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb24c20b_9816_4ac7_8cff_36f67a118f4e);
@@ -1079,6 +1154,11 @@ impl ::core::cmp::PartialEq for IVirtualSurfaceImageSourceNative {
     }
 }
 impl ::core::cmp::Eq for IVirtualSurfaceImageSourceNative {}
+impl ::core::fmt::Debug for IVirtualSurfaceImageSourceNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVirtualSurfaceImageSourceNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVirtualSurfaceImageSourceNative {
     type Vtable = IVirtualSurfaceImageSourceNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9550983_360b_4f53_b391_afd695078691);
@@ -1144,6 +1224,11 @@ impl ::core::cmp::PartialEq for IVirtualSurfaceUpdatesCallbackNative {
     }
 }
 impl ::core::cmp::Eq for IVirtualSurfaceUpdatesCallbackNative {}
+impl ::core::fmt::Debug for IVirtualSurfaceUpdatesCallbackNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVirtualSurfaceUpdatesCallbackNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVirtualSurfaceUpdatesCallbackNative {
     type Vtable = IVirtualSurfaceUpdatesCallbackNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbf2e947_8e6c_4254_9eee_7738f71386c9);

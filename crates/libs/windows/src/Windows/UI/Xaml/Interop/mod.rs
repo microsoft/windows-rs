@@ -59,6 +59,11 @@ impl ::core::cmp::PartialEq for BindableVectorChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for BindableVectorChangedEventHandler {}
+impl ::core::fmt::Debug for BindableVectorChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindableVectorChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for BindableVectorChangedEventHandler {
     type Vtable = BindableVectorChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624cd4e1_d007_43b1_9c03_af4d3e6258c4);
@@ -133,6 +138,11 @@ impl ::core::cmp::PartialEq for IBindableIterable {
     }
 }
 impl ::core::cmp::Eq for IBindableIterable {}
+impl ::core::fmt::Debug for IBindableIterable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBindableIterable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBindableIterable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{036d2c08-df29-41af-8aa2-d774be62ba6f}");
 }
@@ -231,6 +241,11 @@ impl ::core::cmp::PartialEq for IBindableIterator {
     }
 }
 impl ::core::cmp::Eq for IBindableIterator {}
+impl ::core::fmt::Debug for IBindableIterator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBindableIterator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBindableIterator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6a1d6c07-076d-49f2-8314-f52c9c9a8331}");
 }
@@ -436,6 +451,11 @@ impl ::core::cmp::PartialEq for IBindableObservableVector {
     }
 }
 impl ::core::cmp::Eq for IBindableObservableVector {}
+impl ::core::fmt::Debug for IBindableObservableVector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBindableObservableVector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBindableObservableVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe1eb536-7e7f-4f90-ac9a-474984aae512}");
 }
@@ -605,6 +625,11 @@ impl ::core::cmp::PartialEq for IBindableVector {
     }
 }
 impl ::core::cmp::Eq for IBindableVector {}
+impl ::core::fmt::Debug for IBindableVector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBindableVector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBindableVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{393de7de-6fd0-4c0d-bb71-47244a113e93}");
 }
@@ -742,6 +767,11 @@ impl ::core::cmp::PartialEq for IBindableVectorView {
     }
 }
 impl ::core::cmp::Eq for IBindableVectorView {}
+impl ::core::fmt::Debug for IBindableVectorView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBindableVectorView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBindableVectorView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{346dd6e7-976e-4bc3-815d-ece243bc0f33}");
 }
@@ -833,6 +863,11 @@ impl ::core::cmp::PartialEq for INotifyCollectionChanged {
     }
 }
 impl ::core::cmp::Eq for INotifyCollectionChanged {}
+impl ::core::fmt::Debug for INotifyCollectionChanged {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INotifyCollectionChanged").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INotifyCollectionChanged {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28b167d5-1a31-465b-9b25-d5c3ae686c40}");
 }
@@ -998,6 +1033,11 @@ impl ::core::cmp::PartialEq for NotifyCollectionChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for NotifyCollectionChangedEventArgs {}
+impl ::core::fmt::Debug for NotifyCollectionChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotifyCollectionChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NotifyCollectionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Interop.NotifyCollectionChangedEventArgs;{4cf68d33-e3f2-4964-b85e-945b4f7e2f21})");
 }
@@ -1110,6 +1150,11 @@ impl ::core::cmp::PartialEq for NotifyCollectionChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for NotifyCollectionChangedEventHandler {}
+impl ::core::fmt::Debug for NotifyCollectionChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NotifyCollectionChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for NotifyCollectionChangedEventHandler {
     type Vtable = NotifyCollectionChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca10b37c_f382_4591_8557_5e24965279b0);

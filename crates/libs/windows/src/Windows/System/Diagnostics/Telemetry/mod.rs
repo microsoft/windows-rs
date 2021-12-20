@@ -107,6 +107,11 @@ impl ::core::cmp::PartialEq for PlatformTelemetryRegistrationResult {
     }
 }
 impl ::core::cmp::Eq for PlatformTelemetryRegistrationResult {}
+impl ::core::fmt::Debug for PlatformTelemetryRegistrationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformTelemetryRegistrationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationResult;{4d8518ab-2292-49bd-a15a-3d71d2145112})");
 }
@@ -208,6 +213,11 @@ impl ::core::cmp::PartialEq for PlatformTelemetryRegistrationSettings {
     }
 }
 impl ::core::cmp::Eq for PlatformTelemetryRegistrationSettings {}
+impl ::core::fmt::Debug for PlatformTelemetryRegistrationSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformTelemetryRegistrationSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformTelemetryRegistrationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.Telemetry.PlatformTelemetryRegistrationSettings;{819a8582-ca19-415e-bb79-9c224bfa3a73})");
 }

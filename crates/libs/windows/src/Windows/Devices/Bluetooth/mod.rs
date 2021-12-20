@@ -148,6 +148,11 @@ impl ::core::cmp::PartialEq for BluetoothAdapter {
     }
 }
 impl ::core::cmp::Eq for BluetoothAdapter {}
+impl ::core::fmt::Debug for BluetoothAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothAdapter;{7974f04c-5f7a-4a34-9225-a855f84b1a8b})");
 }
@@ -334,6 +339,11 @@ impl ::core::cmp::PartialEq for BluetoothClassOfDevice {
     }
 }
 impl ::core::cmp::Eq for BluetoothClassOfDevice {}
+impl ::core::fmt::Debug for BluetoothClassOfDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothClassOfDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothClassOfDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothClassOfDevice;{d640227e-d7d7-4661-9454-65039ca17a2b})");
 }
@@ -708,6 +718,11 @@ impl ::core::cmp::PartialEq for BluetoothDevice {
     }
 }
 impl ::core::cmp::Eq for BluetoothDevice {}
+impl ::core::fmt::Debug for BluetoothDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDevice;{2335b156-90d2-4a04-aef5-0e20b9e6b707})");
 }
@@ -838,6 +853,11 @@ impl ::core::cmp::PartialEq for BluetoothDeviceId {
     }
 }
 impl ::core::cmp::Eq for BluetoothDeviceId {}
+impl ::core::fmt::Debug for BluetoothDeviceId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothDeviceId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothDeviceId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothDeviceId;{c17949af-57c1-4642-bcce-e6c06b20ae76})");
 }
@@ -990,6 +1010,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAppearance {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAppearance {}
+impl ::core::fmt::Debug for BluetoothLEAppearance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAppearance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAppearance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEAppearance;{5d2079f2-66a8-4258-985e-02b4d9509f18})");
 }
@@ -1456,6 +1481,11 @@ impl ::core::cmp::PartialEq for BluetoothLEConnectionParameters {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEConnectionParameters {}
+impl ::core::fmt::Debug for BluetoothLEConnectionParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEConnectionParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionParameters;{33cb0771-8da9-508f-a366-1ca388c929ab})");
 }
@@ -1540,6 +1570,11 @@ impl ::core::cmp::PartialEq for BluetoothLEConnectionPhy {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEConnectionPhy {}
+impl ::core::fmt::Debug for BluetoothLEConnectionPhy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEConnectionPhy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionPhy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhy;{781e5e48-621e-5a7e-8be6-1b9561ff63c9})");
 }
@@ -1632,6 +1667,11 @@ impl ::core::cmp::PartialEq for BluetoothLEConnectionPhyInfo {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEConnectionPhyInfo {}
+impl ::core::fmt::Debug for BluetoothLEConnectionPhyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEConnectionPhyInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEConnectionPhyInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEConnectionPhyInfo;{9a100bdd-602e-5c27-a1ae-b230015a6394})");
 }
@@ -2033,6 +2073,11 @@ impl ::core::cmp::PartialEq for BluetoothLEDevice {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEDevice {}
+impl ::core::fmt::Debug for BluetoothLEDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEDevice;{b5ee2f7b-4ad8-4642-ac48-80a0b500e887})");
 }
@@ -2185,6 +2230,11 @@ impl ::core::cmp::PartialEq for BluetoothLEPreferredConnectionParameters {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEPreferredConnectionParameters {}
+impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEPreferredConnectionParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParameters;{f2f44344-7372-5f7b-9b34-29c944f5a715})");
 }
@@ -2267,6 +2317,11 @@ impl ::core::cmp::PartialEq for BluetoothLEPreferredConnectionParametersRequest 
     }
 }
 impl ::core::cmp::Eq for BluetoothLEPreferredConnectionParametersRequest {}
+impl ::core::fmt::Debug for BluetoothLEPreferredConnectionParametersRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEPreferredConnectionParametersRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEPreferredConnectionParametersRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothLEPreferredConnectionParametersRequest;{8a375276-a528-5266-b661-cce6a5ff9739})");
 }
@@ -2647,6 +2702,11 @@ impl ::core::cmp::PartialEq for BluetoothSignalStrengthFilter {
     }
 }
 impl ::core::cmp::Eq for BluetoothSignalStrengthFilter {}
+impl ::core::fmt::Debug for BluetoothSignalStrengthFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothSignalStrengthFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothSignalStrengthFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.BluetoothSignalStrengthFilter;{df7b7391-6bb5-4cfe-90b1-5d7324edcf7f})");
 }

@@ -1205,6 +1205,11 @@ impl ::core::cmp::PartialEq for IAppxBlockMapBlock {
     }
 }
 impl ::core::cmp::Eq for IAppxBlockMapBlock {}
+impl ::core::fmt::Debug for IAppxBlockMapBlock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBlockMapBlock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBlockMapBlock {
     type Vtable = IAppxBlockMapBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cf3930_3244_4fe0_a8c8_e0bcb270b889);
@@ -1271,6 +1276,11 @@ impl ::core::cmp::PartialEq for IAppxBlockMapBlocksEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxBlockMapBlocksEnumerator {}
+impl ::core::fmt::Debug for IAppxBlockMapBlocksEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBlockMapBlocksEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBlockMapBlocksEnumerator {
     type Vtable = IAppxBlockMapBlocksEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b429b5b_36ef_479e_b9eb_0c1482b49e16);
@@ -1350,6 +1360,11 @@ impl ::core::cmp::PartialEq for IAppxBlockMapFile {
     }
 }
 impl ::core::cmp::Eq for IAppxBlockMapFile {}
+impl ::core::fmt::Debug for IAppxBlockMapFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBlockMapFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBlockMapFile {
     type Vtable = IAppxBlockMapFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x277672ac_4f63_42c1_8abc_beae3600eb59);
@@ -1421,6 +1436,11 @@ impl ::core::cmp::PartialEq for IAppxBlockMapFilesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxBlockMapFilesEnumerator {}
+impl ::core::fmt::Debug for IAppxBlockMapFilesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBlockMapFilesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBlockMapFilesEnumerator {
     type Vtable = IAppxBlockMapFilesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02b856a2_4262_4070_bacb_1a8cbbc42305);
@@ -1496,6 +1516,11 @@ impl ::core::cmp::PartialEq for IAppxBlockMapReader {
     }
 }
 impl ::core::cmp::Eq for IAppxBlockMapReader {}
+impl ::core::fmt::Debug for IAppxBlockMapReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBlockMapReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBlockMapReader {
     type Vtable = IAppxBlockMapReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5efec991_bca3_42d1_9ec2_e92d609ec22a);
@@ -1568,6 +1593,11 @@ impl ::core::cmp::PartialEq for IAppxBundleFactory {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleFactory {}
+impl ::core::fmt::Debug for IAppxBundleFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleFactory {
     type Vtable = IAppxBundleFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbba65864_965f_4a5f_855f_f074bdbf3a7b);
@@ -1637,6 +1667,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfo {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestOptionalBundleInfo {}
+impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestOptionalBundleInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestOptionalBundleInfo {
     type Vtable = IAppxBundleManifestOptionalBundleInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x515bf2e8_bcb0_4d69_8c48_e383147b6e12);
@@ -1705,6 +1740,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestOptionalBundleInfoEnumerator 
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestOptionalBundleInfoEnumerator {}
+impl ::core::fmt::Debug for IAppxBundleManifestOptionalBundleInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestOptionalBundleInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestOptionalBundleInfoEnumerator {
     type Vtable = IAppxBundleManifestOptionalBundleInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a178793_f97e_46ac_aaca_dd5ba4c177c8);
@@ -1788,6 +1828,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo {}
+impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestPackageInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo {
     type Vtable = IAppxBundleManifestPackageInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54cd06c1_268f_40bb_8ed2_757a9ebaec8d);
@@ -1860,6 +1905,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo2 {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo2 {}
+impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestPackageInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo2 {
     type Vtable = IAppxBundleManifestPackageInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44c2acbc_b2cf_4ccb_bbdb_9c6da8c3bc9e);
@@ -1918,6 +1968,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo3 {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo3 {}
+impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestPackageInfo3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo3 {
     type Vtable = IAppxBundleManifestPackageInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba74b98_bb74_4296_80d0_5f4256a99675);
@@ -1967,6 +2022,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfo4 {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestPackageInfo4 {}
+impl ::core::fmt::Debug for IAppxBundleManifestPackageInfo4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestPackageInfo4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfo4 {
     type Vtable = IAppxBundleManifestPackageInfo4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5da6f13d_a8a7_4532_857c_1393d659371d);
@@ -2033,6 +2093,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestPackageInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestPackageInfoEnumerator {}
+impl ::core::fmt::Debug for IAppxBundleManifestPackageInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestPackageInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestPackageInfoEnumerator {
     type Vtable = IAppxBundleManifestPackageInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b856ee_49a6_4e19_b2b0_6a2406d63a32);
@@ -2101,6 +2166,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestReader {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestReader {}
+impl ::core::fmt::Debug for IAppxBundleManifestReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestReader {
     type Vtable = IAppxBundleManifestReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf0ebbc1_cc99_4106_91eb_e67462e04fb0);
@@ -2157,6 +2227,11 @@ impl ::core::cmp::PartialEq for IAppxBundleManifestReader2 {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleManifestReader2 {}
+impl ::core::fmt::Debug for IAppxBundleManifestReader2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleManifestReader2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleManifestReader2 {
     type Vtable = IAppxBundleManifestReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5517df70_033f_4af2_8213_87d766805c02);
@@ -2226,6 +2301,11 @@ impl ::core::cmp::PartialEq for IAppxBundleReader {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleReader {}
+impl ::core::fmt::Debug for IAppxBundleReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleReader {
     type Vtable = IAppxBundleReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd75b8c0_ba76_43b0_ae0f_68656a1dc5c8);
@@ -2288,6 +2368,11 @@ impl ::core::cmp::PartialEq for IAppxBundleWriter {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleWriter {}
+impl ::core::fmt::Debug for IAppxBundleWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleWriter {
     type Vtable = IAppxBundleWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec446fe8_bfec_4c64_ab4f_49f038f0c6d2);
@@ -2343,6 +2428,11 @@ impl ::core::cmp::PartialEq for IAppxBundleWriter2 {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleWriter2 {}
+impl ::core::fmt::Debug for IAppxBundleWriter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleWriter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleWriter2 {
     type Vtable = IAppxBundleWriter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d8fe971_01cc_49a0_b685_233851279962);
@@ -2402,6 +2492,11 @@ impl ::core::cmp::PartialEq for IAppxBundleWriter3 {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleWriter3 {}
+impl ::core::fmt::Debug for IAppxBundleWriter3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleWriter3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleWriter3 {
     type Vtable = IAppxBundleWriter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad711152_f969_4193_82d5_9ddf2786d21a);
@@ -2468,6 +2563,11 @@ impl ::core::cmp::PartialEq for IAppxBundleWriter4 {
     }
 }
 impl ::core::cmp::Eq for IAppxBundleWriter4 {}
+impl ::core::fmt::Debug for IAppxBundleWriter4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxBundleWriter4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxBundleWriter4 {
     type Vtable = IAppxBundleWriter4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9cd9d523_5009_4c01_9882_dc029fbd47a3);
@@ -2532,6 +2632,11 @@ impl ::core::cmp::PartialEq for IAppxContentGroup {
     }
 }
 impl ::core::cmp::Eq for IAppxContentGroup {}
+impl ::core::fmt::Debug for IAppxContentGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxContentGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxContentGroup {
     type Vtable = IAppxContentGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x328f6468_c04f_4e3c_b6fa_6b8d27f3003a);
@@ -2600,6 +2705,11 @@ impl ::core::cmp::PartialEq for IAppxContentGroupFilesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxContentGroupFilesEnumerator {}
+impl ::core::fmt::Debug for IAppxContentGroupFilesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxContentGroupFilesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxContentGroupFilesEnumerator {
     type Vtable = IAppxContentGroupFilesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a09a2fd_7440_44eb_8c84_848205a6a1cc);
@@ -2663,6 +2773,11 @@ impl ::core::cmp::PartialEq for IAppxContentGroupMapReader {
     }
 }
 impl ::core::cmp::Eq for IAppxContentGroupMapReader {}
+impl ::core::fmt::Debug for IAppxContentGroupMapReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxContentGroupMapReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxContentGroupMapReader {
     type Vtable = IAppxContentGroupMapReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x418726d8_dd99_4f5d_9886_157add20de01);
@@ -2726,6 +2841,11 @@ impl ::core::cmp::PartialEq for IAppxContentGroupMapWriter {
     }
 }
 impl ::core::cmp::Eq for IAppxContentGroupMapWriter {}
+impl ::core::fmt::Debug for IAppxContentGroupMapWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxContentGroupMapWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxContentGroupMapWriter {
     type Vtable = IAppxContentGroupMapWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07ab776_a9de_4798_8c14_3db31e687c78);
@@ -2795,6 +2915,11 @@ impl ::core::cmp::PartialEq for IAppxContentGroupsEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxContentGroupsEnumerator {}
+impl ::core::fmt::Debug for IAppxContentGroupsEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxContentGroupsEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxContentGroupsEnumerator {
     type Vtable = IAppxContentGroupsEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3264e477_16d1_4d63_823e_7d2984696634);
@@ -2856,6 +2981,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptedBundleWriter {}
+impl ::core::fmt::Debug for IAppxEncryptedBundleWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptedBundleWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter {
     type Vtable = IAppxEncryptedBundleWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80b0902f_7bf0_4117_b8c6_4279ef81ee77);
@@ -2911,6 +3041,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter2 {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptedBundleWriter2 {}
+impl ::core::fmt::Debug for IAppxEncryptedBundleWriter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptedBundleWriter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter2 {
     type Vtable = IAppxEncryptedBundleWriter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe644be82_f0fa_42b8_a956_8d1cb48ee379);
@@ -2970,6 +3105,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptedBundleWriter3 {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptedBundleWriter3 {}
+impl ::core::fmt::Debug for IAppxEncryptedBundleWriter3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptedBundleWriter3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptedBundleWriter3 {
     type Vtable = IAppxEncryptedBundleWriter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d34deb3_5cae_4dd3_977c_504932a51d31);
@@ -3030,6 +3170,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptedPackageWriter {}
+impl ::core::fmt::Debug for IAppxEncryptedPackageWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptedPackageWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptedPackageWriter {
     type Vtable = IAppxEncryptedPackageWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf43d0b0b_1379_40e2_9b29_682ea2bf42af);
@@ -3085,6 +3230,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptedPackageWriter2 {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptedPackageWriter2 {}
+impl ::core::fmt::Debug for IAppxEncryptedPackageWriter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptedPackageWriter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptedPackageWriter2 {
     type Vtable = IAppxEncryptedPackageWriter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e475447_3a25_40b5_8ad2_f953ae50c92d);
@@ -3178,6 +3328,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptionFactory {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptionFactory {}
+impl ::core::fmt::Debug for IAppxEncryptionFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptionFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory {
     type Vtable = IAppxEncryptionFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80e8e04d_8c88_44ae_a011_7cadf6fb2e72);
@@ -3247,6 +3402,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptionFactory2 {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptionFactory2 {}
+impl ::core::fmt::Debug for IAppxEncryptionFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptionFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory2 {
     type Vtable = IAppxEncryptionFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b11eee_c4ba_4ab2_a55d_d015fe8ff64f);
@@ -3318,6 +3478,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptionFactory3 {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptionFactory3 {}
+impl ::core::fmt::Debug for IAppxEncryptionFactory3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptionFactory3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory3 {
     type Vtable = IAppxEncryptionFactory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09edca37_cd64_47d6_b7e8_1cb11d4f7e05);
@@ -3378,6 +3543,11 @@ impl ::core::cmp::PartialEq for IAppxEncryptionFactory4 {
     }
 }
 impl ::core::cmp::Eq for IAppxEncryptionFactory4 {}
+impl ::core::fmt::Debug for IAppxEncryptionFactory4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxEncryptionFactory4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxEncryptionFactory4 {
     type Vtable = IAppxEncryptionFactory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa879611f_12fd_41fe_85d5_06ae779bbaf5);
@@ -3457,6 +3627,11 @@ impl ::core::cmp::PartialEq for IAppxFactory {
     }
 }
 impl ::core::cmp::Eq for IAppxFactory {}
+impl ::core::fmt::Debug for IAppxFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxFactory {
     type Vtable = IAppxFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbeb94909_e451_438b_b5a7_d79e767b75d8);
@@ -3532,6 +3707,11 @@ impl ::core::cmp::PartialEq for IAppxFactory2 {
     }
 }
 impl ::core::cmp::Eq for IAppxFactory2 {}
+impl ::core::fmt::Debug for IAppxFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxFactory2 {
     type Vtable = IAppxFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1346df2_c282_4e22_b918_743a929a8d55);
@@ -3613,6 +3793,11 @@ impl ::core::cmp::PartialEq for IAppxFile {
     }
 }
 impl ::core::cmp::Eq for IAppxFile {}
+impl ::core::fmt::Debug for IAppxFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxFile {
     type Vtable = IAppxFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91df827b_94fd_468f_827b_57f41b2f6f2e);
@@ -3685,6 +3870,11 @@ impl ::core::cmp::PartialEq for IAppxFilesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxFilesEnumerator {}
+impl ::core::fmt::Debug for IAppxFilesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxFilesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxFilesEnumerator {
     type Vtable = IAppxFilesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf007eeaf_9831_411c_9847_917cdc62d1fe);
@@ -3749,6 +3939,11 @@ impl ::core::cmp::PartialEq for IAppxManifestApplication {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestApplication {}
+impl ::core::fmt::Debug for IAppxManifestApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestApplication {
     type Vtable = IAppxManifestApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5da89bf4_3773_46be_b650_7e744863b7e8);
@@ -3817,6 +4012,11 @@ impl ::core::cmp::PartialEq for IAppxManifestApplicationsEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestApplicationsEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestApplicationsEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestApplicationsEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestApplicationsEnumerator {
     type Vtable = IAppxManifestApplicationsEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb8a55a_f04b_4d0d_808d_686185d4847a);
@@ -3887,6 +4087,11 @@ impl ::core::cmp::PartialEq for IAppxManifestCapabilitiesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestCapabilitiesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestCapabilitiesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestCapabilitiesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestCapabilitiesEnumerator {
     type Vtable = IAppxManifestCapabilitiesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d22258_f470_42c1_b291_8361c5437e41);
@@ -3958,6 +4163,11 @@ impl ::core::cmp::PartialEq for IAppxManifestDeviceCapabilitiesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestDeviceCapabilitiesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestDeviceCapabilitiesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestDeviceCapabilitiesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestDeviceCapabilitiesEnumerator {
     type Vtable = IAppxManifestDeviceCapabilitiesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30204541_427b_4a1c_bacf_655bf463a540);
@@ -4028,6 +4238,11 @@ impl ::core::cmp::PartialEq for IAppxManifestDriverConstraint {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestDriverConstraint {}
+impl ::core::fmt::Debug for IAppxManifestDriverConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestDriverConstraint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestDriverConstraint {
     type Vtable = IAppxManifestDriverConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc031bee4_bbcc_48ea_a237_c34045c80a07);
@@ -4097,6 +4312,11 @@ impl ::core::cmp::PartialEq for IAppxManifestDriverConstraintsEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestDriverConstraintsEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestDriverConstraintsEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestDriverConstraintsEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestDriverConstraintsEnumerator {
     type Vtable = IAppxManifestDriverConstraintsEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd402b2d1_f600_49e0_95e6_975d8da13d89);
@@ -4166,6 +4386,11 @@ impl ::core::cmp::PartialEq for IAppxManifestDriverDependenciesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestDriverDependenciesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestDriverDependenciesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestDriverDependenciesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestDriverDependenciesEnumerator {
     type Vtable = IAppxManifestDriverDependenciesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe039db2_467f_4755_8404_8f5eb6865b33);
@@ -4223,6 +4448,11 @@ impl ::core::cmp::PartialEq for IAppxManifestDriverDependency {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestDriverDependency {}
+impl ::core::fmt::Debug for IAppxManifestDriverDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestDriverDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestDriverDependency {
     type Vtable = IAppxManifestDriverDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1210cb94_5a92_4602_be24_79f318af4af9);
@@ -4283,6 +4513,11 @@ impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependenciesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependenciesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependenciesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestHostRuntimeDependenciesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependenciesEnumerator {
     type Vtable = IAppxManifestHostRuntimeDependenciesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6427a646_7f49_433e_b1a6_0da309f6885a);
@@ -4352,6 +4587,11 @@ impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependency {}
+impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestHostRuntimeDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependency {
     type Vtable = IAppxManifestHostRuntimeDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3455d234_8414_410d_95c7_7b35255b8391);
@@ -4410,6 +4650,11 @@ impl ::core::cmp::PartialEq for IAppxManifestHostRuntimeDependency2 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestHostRuntimeDependency2 {}
+impl ::core::fmt::Debug for IAppxManifestHostRuntimeDependency2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestHostRuntimeDependency2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestHostRuntimeDependency2 {
     type Vtable = IAppxManifestHostRuntimeDependency2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc26f23a8_ee10_4ad6_b898_2b4d7aebfe6a);
@@ -4476,6 +4721,11 @@ impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependenciesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestMainPackageDependenciesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestMainPackageDependenciesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestMainPackageDependenciesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestMainPackageDependenciesEnumerator {
     type Vtable = IAppxManifestMainPackageDependenciesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa99c4f00_51d2_4f0f_ba46_7ed5255ebdff);
@@ -4546,6 +4796,11 @@ impl ::core::cmp::PartialEq for IAppxManifestMainPackageDependency {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestMainPackageDependency {}
+impl ::core::fmt::Debug for IAppxManifestMainPackageDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestMainPackageDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestMainPackageDependency {
     type Vtable = IAppxManifestMainPackageDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05d0611c_bc29_46d5_97e2_84b9c79bd8ae);
@@ -4616,6 +4871,11 @@ impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependenciesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestOSPackageDependenciesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestOSPackageDependenciesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestOSPackageDependenciesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestOSPackageDependenciesEnumerator {
     type Vtable = IAppxManifestOSPackageDependenciesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb84e2fc3_f8ec_4bc1_8ae2_156346f5ffea);
@@ -4679,6 +4939,11 @@ impl ::core::cmp::PartialEq for IAppxManifestOSPackageDependency {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestOSPackageDependency {}
+impl ::core::fmt::Debug for IAppxManifestOSPackageDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestOSPackageDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestOSPackageDependency {
     type Vtable = IAppxManifestOSPackageDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x154995ee_54a6_4f14_ac97_d8cf0519644b);
@@ -4741,6 +5006,11 @@ impl ::core::cmp::PartialEq for IAppxManifestOptionalPackageInfo {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestOptionalPackageInfo {}
+impl ::core::fmt::Debug for IAppxManifestOptionalPackageInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestOptionalPackageInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestOptionalPackageInfo {
     type Vtable = IAppxManifestOptionalPackageInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2634847d_5b5d_4fe5_a243_002ff95edc7e);
@@ -4809,6 +5079,11 @@ impl ::core::cmp::PartialEq for IAppxManifestPackageDependenciesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestPackageDependenciesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestPackageDependenciesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestPackageDependenciesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependenciesEnumerator {
     type Vtable = IAppxManifestPackageDependenciesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb43bbcf9_65a6_42dd_bac0_8c6741e7f5a4);
@@ -4878,6 +5153,11 @@ impl ::core::cmp::PartialEq for IAppxManifestPackageDependency {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestPackageDependency {}
+impl ::core::fmt::Debug for IAppxManifestPackageDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestPackageDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency {
     type Vtable = IAppxManifestPackageDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe4946b59_733e_43f0_a724_3bde4c1285a0);
@@ -4972,6 +5252,11 @@ impl ::core::cmp::PartialEq for IAppxManifestPackageDependency2 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestPackageDependency2 {}
+impl ::core::fmt::Debug for IAppxManifestPackageDependency2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestPackageDependency2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency2 {
     type Vtable = IAppxManifestPackageDependency2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdda0b713_f3ff_49d3_898a_2786780c5d98);
@@ -5031,6 +5316,11 @@ impl ::core::cmp::PartialEq for IAppxManifestPackageDependency3 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestPackageDependency3 {}
+impl ::core::fmt::Debug for IAppxManifestPackageDependency3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestPackageDependency3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestPackageDependency3 {
     type Vtable = IAppxManifestPackageDependency3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ac56374_6198_4d6b_92e4_749d5ab8a895);
@@ -5126,6 +5416,11 @@ impl ::core::cmp::PartialEq for IAppxManifestPackageId {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestPackageId {}
+impl ::core::fmt::Debug for IAppxManifestPackageId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestPackageId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestPackageId {
     type Vtable = IAppxManifestPackageIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x283ce2d7_7153_4a91_9649_7a0f7240945f);
@@ -5258,6 +5553,11 @@ impl ::core::cmp::PartialEq for IAppxManifestPackageId2 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestPackageId2 {}
+impl ::core::fmt::Debug for IAppxManifestPackageId2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestPackageId2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestPackageId2 {
     type Vtable = IAppxManifestPackageId2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2256999d_d617_42f1_880e_0ba4542319d5);
@@ -5332,6 +5632,11 @@ impl ::core::cmp::PartialEq for IAppxManifestProperties {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestProperties {}
+impl ::core::fmt::Debug for IAppxManifestProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestProperties {
     type Vtable = IAppxManifestPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03faf64d_f26f_4b2c_aaf7_8fe7789b8bca);
@@ -5399,6 +5704,11 @@ impl ::core::cmp::PartialEq for IAppxManifestQualifiedResource {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestQualifiedResource {}
+impl ::core::fmt::Debug for IAppxManifestQualifiedResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestQualifiedResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestQualifiedResource {
     type Vtable = IAppxManifestQualifiedResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b53a497_3c5c_48d1_9ea3_bb7eac8cd7d4);
@@ -5467,6 +5777,11 @@ impl ::core::cmp::PartialEq for IAppxManifestQualifiedResourcesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestQualifiedResourcesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestQualifiedResourcesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestQualifiedResourcesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestQualifiedResourcesEnumerator {
     type Vtable = IAppxManifestQualifiedResourcesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ef6adfe_3762_4a8f_9373_2fc5d444c8d2);
@@ -5566,6 +5881,11 @@ impl ::core::cmp::PartialEq for IAppxManifestReader {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestReader {}
+impl ::core::fmt::Debug for IAppxManifestReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestReader {
     type Vtable = IAppxManifestReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e1bd148_55a0_4480_a3d1_15544710637c);
@@ -5696,6 +6016,11 @@ impl ::core::cmp::PartialEq for IAppxManifestReader2 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestReader2 {}
+impl ::core::fmt::Debug for IAppxManifestReader2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestReader2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestReader2 {
     type Vtable = IAppxManifestReader2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd06f67bc_b31d_4eba_a8af_638e73e77b4d);
@@ -5857,6 +6182,11 @@ impl ::core::cmp::PartialEq for IAppxManifestReader3 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestReader3 {}
+impl ::core::fmt::Debug for IAppxManifestReader3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestReader3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestReader3 {
     type Vtable = IAppxManifestReader3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc43825ab_69b7_400a_9709_cc37f5a72d24);
@@ -6045,6 +6375,11 @@ impl ::core::cmp::PartialEq for IAppxManifestReader4 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestReader4 {}
+impl ::core::fmt::Debug for IAppxManifestReader4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestReader4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestReader4 {
     type Vtable = IAppxManifestReader4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4579bb7c_741d_4161_b5a1_47bd3b78ad9b);
@@ -6112,6 +6447,11 @@ impl ::core::cmp::PartialEq for IAppxManifestReader5 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestReader5 {}
+impl ::core::fmt::Debug for IAppxManifestReader5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestReader5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestReader5 {
     type Vtable = IAppxManifestReader5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d7ae132_a690_4c00_b75a_6aae1feaac80);
@@ -6161,6 +6501,11 @@ impl ::core::cmp::PartialEq for IAppxManifestReader6 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestReader6 {}
+impl ::core::fmt::Debug for IAppxManifestReader6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestReader6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestReader6 {
     type Vtable = IAppxManifestReader6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34deaca4_d3c0_4e3e_b312_e42625e3807e);
@@ -6225,6 +6570,11 @@ impl ::core::cmp::PartialEq for IAppxManifestReader7 {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestReader7 {}
+impl ::core::fmt::Debug for IAppxManifestReader7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestReader7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestReader7 {
     type Vtable = IAppxManifestReader7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efe6f27_0ce0_4988_b32d_738eb63db3b7);
@@ -6293,6 +6643,11 @@ impl ::core::cmp::PartialEq for IAppxManifestResourcesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestResourcesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestResourcesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestResourcesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestResourcesEnumerator {
     type Vtable = IAppxManifestResourcesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde4dfbbd_881a_48bb_858c_d6f2baeae6ed);
@@ -6363,6 +6718,11 @@ impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamiliesEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestTargetDeviceFamiliesEnumerator {}
+impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamiliesEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestTargetDeviceFamiliesEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestTargetDeviceFamiliesEnumerator {
     type Vtable = IAppxManifestTargetDeviceFamiliesEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36537f36_27a4_4788_88c0_733819575017);
@@ -6431,6 +6791,11 @@ impl ::core::cmp::PartialEq for IAppxManifestTargetDeviceFamily {
     }
 }
 impl ::core::cmp::Eq for IAppxManifestTargetDeviceFamily {}
+impl ::core::fmt::Debug for IAppxManifestTargetDeviceFamily {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxManifestTargetDeviceFamily").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxManifestTargetDeviceFamily {
     type Vtable = IAppxManifestTargetDeviceFamilyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9091b09b_c8d5_4f31_8687_a338259faefb);
@@ -6512,6 +6877,11 @@ impl ::core::cmp::PartialEq for IAppxPackageEditor {
     }
 }
 impl ::core::cmp::Eq for IAppxPackageEditor {}
+impl ::core::fmt::Debug for IAppxPackageEditor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxPackageEditor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxPackageEditor {
     type Vtable = IAppxPackageEditorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2adb6dc_5e71_4416_86b6_86e5f5291a6b);
@@ -6597,6 +6967,11 @@ impl ::core::cmp::PartialEq for IAppxPackageReader {
     }
 }
 impl ::core::cmp::Eq for IAppxPackageReader {}
+impl ::core::fmt::Debug for IAppxPackageReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxPackageReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxPackageReader {
     type Vtable = IAppxPackageReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5c49650_99bc_481c_9a34_3d53a4106708);
@@ -6660,6 +7035,11 @@ impl ::core::cmp::PartialEq for IAppxPackageWriter {
     }
 }
 impl ::core::cmp::Eq for IAppxPackageWriter {}
+impl ::core::fmt::Debug for IAppxPackageWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxPackageWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxPackageWriter {
     type Vtable = IAppxPackageWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9099e33b_246f_41e4_881a_008eb613f858);
@@ -6716,6 +7096,11 @@ impl ::core::cmp::PartialEq for IAppxPackageWriter2 {
     }
 }
 impl ::core::cmp::Eq for IAppxPackageWriter2 {}
+impl ::core::fmt::Debug for IAppxPackageWriter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxPackageWriter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxPackageWriter2 {
     type Vtable = IAppxPackageWriter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cf5c4fd_e54c_4ea5_ba4e_f8c4b105a8c8);
@@ -6770,6 +7155,11 @@ impl ::core::cmp::PartialEq for IAppxPackageWriter3 {
     }
 }
 impl ::core::cmp::Eq for IAppxPackageWriter3 {}
+impl ::core::fmt::Debug for IAppxPackageWriter3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxPackageWriter3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxPackageWriter3 {
     type Vtable = IAppxPackageWriter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa83aacd3_41c0_4501_b8a3_74164f50b2fd);
@@ -6829,6 +7219,11 @@ impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSink {
     }
 }
 impl ::core::cmp::Eq for IAppxPackagingDiagnosticEventSink {}
+impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxPackagingDiagnosticEventSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxPackagingDiagnosticEventSink {
     type Vtable = IAppxPackagingDiagnosticEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17239d47_6adb_45d2_80f6_f9cbc3bf059d);
@@ -6884,6 +7279,11 @@ impl ::core::cmp::PartialEq for IAppxPackagingDiagnosticEventSinkManager {
     }
 }
 impl ::core::cmp::Eq for IAppxPackagingDiagnosticEventSinkManager {}
+impl ::core::fmt::Debug for IAppxPackagingDiagnosticEventSinkManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxPackagingDiagnosticEventSinkManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxPackagingDiagnosticEventSinkManager {
     type Vtable = IAppxPackagingDiagnosticEventSinkManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x369648fa_a7eb_4909_a15d_6954a078f18a);
@@ -6937,6 +7337,11 @@ impl ::core::cmp::PartialEq for IAppxSourceContentGroupMapReader {
     }
 }
 impl ::core::cmp::Eq for IAppxSourceContentGroupMapReader {}
+impl ::core::fmt::Debug for IAppxSourceContentGroupMapReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppxSourceContentGroupMapReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppxSourceContentGroupMapReader {
     type Vtable = IAppxSourceContentGroupMapReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf329791d_540b_4a9f_bc75_3282b7d73193);

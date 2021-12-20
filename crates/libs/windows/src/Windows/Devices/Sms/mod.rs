@@ -115,6 +115,12 @@ impl ::core::cmp::PartialEq for DeleteSmsMessageOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::cmp::Eq for DeleteSmsMessageOperation {}
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::fmt::Debug for DeleteSmsMessageOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeleteSmsMessageOperation").field(&self.0).finish()
+    }
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for DeleteSmsMessageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.DeleteSmsMessageOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
 }
@@ -339,6 +345,12 @@ impl ::core::cmp::PartialEq for DeleteSmsMessagesOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::cmp::Eq for DeleteSmsMessagesOperation {}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::fmt::Debug for DeleteSmsMessagesOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeleteSmsMessagesOperation").field(&self.0).finish()
+    }
+}
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for DeleteSmsMessagesOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.DeleteSmsMessagesOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
@@ -568,6 +580,12 @@ impl ::core::cmp::PartialEq for GetSmsDeviceOperation {
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::cmp::Eq for GetSmsDeviceOperation {}
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::fmt::Debug for GetSmsDeviceOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetSmsDeviceOperation").field(&self.0).finish()
+    }
+}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for GetSmsDeviceOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.GetSmsDeviceOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};rc(Windows.Devices.Sms.SmsDevice;{091791ed-872b-4eec-9c72-ab11627b34ec})))");
 }
@@ -795,6 +813,12 @@ impl ::core::cmp::PartialEq for GetSmsMessageOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::cmp::Eq for GetSmsMessageOperation {}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::fmt::Debug for GetSmsMessageOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetSmsMessageOperation").field(&self.0).finish()
+    }
+}
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for GetSmsMessageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.GetSmsMessageOperation;pinterface({9fc2b0bb-e446-44e2-aa61-9cab8f636af2};{ed3c5e28-6984-4b07-811d-8d5906ed3cea}))");
@@ -1038,6 +1062,12 @@ impl ::core::cmp::PartialEq for GetSmsMessagesOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::cmp::Eq for GetSmsMessagesOperation {}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::fmt::Debug for GetSmsMessagesOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GetSmsMessagesOperation").field(&self.0).finish()
+    }
+}
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for GetSmsMessagesOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.GetSmsMessagesOperation;pinterface({b5d036d7-e297-498f-ba60-0289e76e23dd};pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};{ed3c5e28-6984-4b07-811d-8d5906ed3cea});i4))");
@@ -1366,6 +1396,12 @@ impl ::core::cmp::PartialEq for ISmsBinaryMessage {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for ISmsBinaryMessage {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ISmsBinaryMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISmsBinaryMessage").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ISmsBinaryMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5bf4e813-3b53-4c6e-b61a-d86a63755650}");
 }
@@ -1574,6 +1610,12 @@ impl ::core::cmp::PartialEq for ISmsDevice {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for ISmsDevice {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ISmsDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISmsDevice").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ISmsDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{091791ed-872b-4eec-9c72-ab11627b34ec}");
@@ -1914,6 +1956,11 @@ impl ::core::cmp::PartialEq for ISmsMessage {
     }
 }
 impl ::core::cmp::Eq for ISmsMessage {}
+impl ::core::fmt::Debug for ISmsMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISmsMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISmsMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ed3c5e28-6984-4b07-811d-8d5906ed3cea}");
 }
@@ -2029,6 +2076,11 @@ impl ::core::cmp::PartialEq for ISmsMessageBase {
     }
 }
 impl ::core::cmp::Eq for ISmsMessageBase {}
+impl ::core::fmt::Debug for ISmsMessageBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISmsMessageBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISmsMessageBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2cf0fe30-fe50-4fc6-aa88-4ccfe27a29ea}");
 }
@@ -2460,6 +2512,12 @@ impl ::core::cmp::PartialEq for ISmsTextMessage {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for ISmsTextMessage {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ISmsTextMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISmsTextMessage").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ISmsTextMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{d61c904c-a495-487f-9a6f-971548c5bc9f}");
 }
@@ -2694,6 +2752,12 @@ impl ::core::cmp::PartialEq for SendSmsMessageOperation {
 }
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 impl ::core::cmp::Eq for SendSmsMessageOperation {}
+#[cfg(all(feature = "Foundation", feature = "deprecated"))]
+impl ::core::fmt::Debug for SendSmsMessageOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SendSmsMessageOperation").field(&self.0).finish()
+    }
+}
 #[cfg(all(feature = "Foundation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for SendSmsMessageOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SendSmsMessageOperation;{5a648006-843a-4da9-865b-9d26e5dfad7b})");
@@ -3050,6 +3114,11 @@ impl ::core::cmp::PartialEq for SmsAppMessage {
     }
 }
 impl ::core::cmp::Eq for SmsAppMessage {}
+impl ::core::fmt::Debug for SmsAppMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsAppMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsAppMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsAppMessage;{e8bb8494-d3a0-4a0a-86d7-291033a8cf54})");
 }
@@ -3198,6 +3267,12 @@ impl ::core::cmp::PartialEq for SmsBinaryMessage {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsBinaryMessage {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsBinaryMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsBinaryMessage").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsBinaryMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsBinaryMessage;{5bf4e813-3b53-4c6e-b61a-d86a63755650})");
@@ -3452,6 +3527,11 @@ impl ::core::cmp::PartialEq for SmsBroadcastMessage {
     }
 }
 impl ::core::cmp::Eq for SmsBroadcastMessage {}
+impl ::core::fmt::Debug for SmsBroadcastMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsBroadcastMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsBroadcastMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsBroadcastMessage;{75aebbf1-e4b7-4874-a09c-2956e592f957})");
 }
@@ -3758,6 +3838,12 @@ impl ::core::cmp::PartialEq for SmsDevice {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsDevice {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDevice").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsDevice;{091791ed-872b-4eec-9c72-ab11627b34ec})");
 }
@@ -3978,6 +4064,11 @@ impl ::core::cmp::PartialEq for SmsDevice2 {
     }
 }
 impl ::core::cmp::Eq for SmsDevice2 {}
+impl ::core::fmt::Debug for SmsDevice2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDevice2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsDevice2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsDevice2;{bd8a5c13-e522-46cb-b8d5-9ead30fb6c47})");
 }
@@ -4094,6 +4185,12 @@ impl ::core::cmp::PartialEq for SmsDeviceMessageStore {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsDeviceMessageStore {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsDeviceMessageStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDeviceMessageStore").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsDeviceMessageStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsDeviceMessageStore;{9889f253-f188-4427-8d54-ce0c2423c5c1})");
@@ -4262,6 +4359,12 @@ impl ::core::cmp::PartialEq for SmsDeviceStatusChangedEventHandler {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsDeviceStatusChangedEventHandler {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsDeviceStatusChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsDeviceStatusChangedEventHandler").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsDeviceStatusChangedEventHandler {
     type Vtable = SmsDeviceStatusChangedEventHandlerVtbl;
@@ -4546,6 +4649,11 @@ impl ::core::cmp::PartialEq for SmsFilterRule {
     }
 }
 impl ::core::cmp::Eq for SmsFilterRule {}
+impl ::core::fmt::Debug for SmsFilterRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsFilterRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsFilterRule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsFilterRule;{40e32fae-b049-4fbc-afe9-e2a610eff55c})");
 }
@@ -4643,6 +4751,11 @@ impl ::core::cmp::PartialEq for SmsFilterRules {
     }
 }
 impl ::core::cmp::Eq for SmsFilterRules {}
+impl ::core::fmt::Debug for SmsFilterRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsFilterRules").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsFilterRules {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsFilterRules;{4e47eafb-79cd-4881-9894-55a4135b23fa})");
 }
@@ -4853,6 +4966,12 @@ impl ::core::cmp::PartialEq for SmsMessageReceivedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsMessageReceivedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsMessageReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageReceivedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageReceivedEventArgs;{08e80a98-b8e5-41c1-a3d8-d3abfae22675})");
 }
@@ -4982,6 +5101,12 @@ impl ::core::cmp::PartialEq for SmsMessageReceivedEventHandler {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsMessageReceivedEventHandler {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsMessageReceivedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageReceivedEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for SmsMessageReceivedEventHandler {
     type Vtable = SmsMessageReceivedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b7ad409_ec2d_47ce_a253_732beeebcacd);
@@ -5082,6 +5207,11 @@ impl ::core::cmp::PartialEq for SmsMessageReceivedTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for SmsMessageReceivedTriggerDetails {}
+impl ::core::fmt::Debug for SmsMessageReceivedTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageReceivedTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageReceivedTriggerDetails;{2bcfcbd4-2657-4128-ad5f-e3877132bdb1})");
 }
@@ -5198,6 +5328,11 @@ impl ::core::cmp::PartialEq for SmsMessageRegistration {
     }
 }
 impl ::core::cmp::Eq for SmsMessageRegistration {}
+impl ::core::fmt::Debug for SmsMessageRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsMessageRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsMessageRegistration;{1720503e-f34f-446b-83b3-0ff19923b409})");
 }
@@ -5387,6 +5522,12 @@ impl ::core::cmp::PartialEq for SmsReceivedEventDetails {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsReceivedEventDetails {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsReceivedEventDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsReceivedEventDetails").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsReceivedEventDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsReceivedEventDetails;{5bb50f15-e46d-4c82-847d-5a0304c1d53d})");
 }
@@ -5524,6 +5665,11 @@ impl ::core::cmp::PartialEq for SmsSendMessageResult {
     }
 }
 impl ::core::cmp::Eq for SmsSendMessageResult {}
+impl ::core::fmt::Debug for SmsSendMessageResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsSendMessageResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsSendMessageResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsSendMessageResult;{db139af2-78c9-4feb-9622-452328088d62})");
 }
@@ -5690,6 +5836,11 @@ impl ::core::cmp::PartialEq for SmsStatusMessage {
     }
 }
 impl ::core::cmp::Eq for SmsStatusMessage {}
+impl ::core::fmt::Debug for SmsStatusMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsStatusMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsStatusMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsStatusMessage;{e6d28342-b70b-4677-9379-c9783fdff8f4})");
 }
@@ -5935,6 +6086,12 @@ impl ::core::cmp::PartialEq for SmsTextMessage {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SmsTextMessage {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SmsTextMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsTextMessage").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SmsTextMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsTextMessage;{d61c904c-a495-487f-9a6f-971548c5bc9f})");
@@ -6226,6 +6383,11 @@ impl ::core::cmp::PartialEq for SmsTextMessage2 {
     }
 }
 impl ::core::cmp::Eq for SmsTextMessage2 {}
+impl ::core::fmt::Debug for SmsTextMessage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsTextMessage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsTextMessage2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsTextMessage2;{22a0d893-4555-4755-b5a1-e7fd84955f8d})");
 }
@@ -6390,6 +6552,11 @@ impl ::core::cmp::PartialEq for SmsVoicemailMessage {
     }
 }
 impl ::core::cmp::Eq for SmsVoicemailMessage {}
+impl ::core::fmt::Debug for SmsVoicemailMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsVoicemailMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsVoicemailMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsVoicemailMessage;{271aa0a6-95b1-44ff-bcb8-b8fdd7e08bc3})");
 }
@@ -6579,6 +6746,11 @@ impl ::core::cmp::PartialEq for SmsWapMessage {
     }
 }
 impl ::core::cmp::Eq for SmsWapMessage {}
+impl ::core::fmt::Debug for SmsWapMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsWapMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsWapMessage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Sms.SmsWapMessage;{cd937743-7a55-4d3b-9021-f22e022d09c5})");
 }

@@ -61,6 +61,11 @@ impl ::core::cmp::PartialEq for ICoreFrameworkInputViewInterop {
     }
 }
 impl ::core::cmp::Eq for ICoreFrameworkInputViewInterop {}
+impl ::core::fmt::Debug for ICoreFrameworkInputViewInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreFrameworkInputViewInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICoreFrameworkInputViewInterop {
     type Vtable = ICoreFrameworkInputViewInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e3da342_b11c_484b_9c1c_be0d61c2f6c5);

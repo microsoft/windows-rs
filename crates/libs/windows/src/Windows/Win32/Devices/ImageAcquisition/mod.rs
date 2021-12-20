@@ -393,6 +393,11 @@ impl ::core::cmp::PartialEq for IEnumWIA_DEV_CAPS {
     }
 }
 impl ::core::cmp::Eq for IEnumWIA_DEV_CAPS {}
+impl ::core::fmt::Debug for IEnumWIA_DEV_CAPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWIA_DEV_CAPS").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWIA_DEV_CAPS {
     type Vtable = IEnumWIA_DEV_CAPSVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcc4287_aca6_11d2_a093_00c04f72dc3c);
@@ -468,6 +473,11 @@ impl ::core::cmp::PartialEq for IEnumWIA_DEV_INFO {
     }
 }
 impl ::core::cmp::Eq for IEnumWIA_DEV_INFO {}
+impl ::core::fmt::Debug for IEnumWIA_DEV_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWIA_DEV_INFO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWIA_DEV_INFO {
     type Vtable = IEnumWIA_DEV_INFOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e38b83c_8cf1_11d1_bf92_0060081ed811);
@@ -542,6 +552,11 @@ impl ::core::cmp::PartialEq for IEnumWIA_FORMAT_INFO {
     }
 }
 impl ::core::cmp::Eq for IEnumWIA_FORMAT_INFO {}
+impl ::core::fmt::Debug for IEnumWIA_FORMAT_INFO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWIA_FORMAT_INFO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWIA_FORMAT_INFO {
     type Vtable = IEnumWIA_FORMAT_INFOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81befc5b_656d_44f1_b24c_d41d51b4dc81);
@@ -616,6 +631,11 @@ impl ::core::cmp::PartialEq for IEnumWiaItem {
     }
 }
 impl ::core::cmp::Eq for IEnumWiaItem {}
+impl ::core::fmt::Debug for IEnumWiaItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWiaItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWiaItem {
     type Vtable = IEnumWiaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e8383fc_3391_11d2_9a33_00c04fa36145);
@@ -690,6 +710,11 @@ impl ::core::cmp::PartialEq for IEnumWiaItem2 {
     }
 }
 impl ::core::cmp::Eq for IEnumWiaItem2 {}
+impl ::core::fmt::Debug for IEnumWiaItem2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWiaItem2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWiaItem2 {
     type Vtable = IEnumWiaItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59970af4_cd0d_44d9_ab24_52295630e582);
@@ -778,6 +803,11 @@ impl ::core::cmp::PartialEq for IWiaAppErrorHandler {
     }
 }
 impl ::core::cmp::Eq for IWiaAppErrorHandler {}
+impl ::core::fmt::Debug for IWiaAppErrorHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaAppErrorHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaAppErrorHandler {
     type Vtable = IWiaAppErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c16186c_d0a6_400c_80f4_d26986a0e734);
@@ -832,6 +862,11 @@ impl ::core::cmp::PartialEq for IWiaDataCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaDataCallback {}
+impl ::core::fmt::Debug for IWiaDataCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDataCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDataCallback {
     type Vtable = IWiaDataCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa558a866_a5b0_11d2_a08f_00c04f72dc3c);
@@ -904,6 +939,11 @@ impl ::core::cmp::PartialEq for IWiaDataTransfer {
     }
 }
 impl ::core::cmp::Eq for IWiaDataTransfer {}
+impl ::core::fmt::Debug for IWiaDataTransfer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDataTransfer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDataTransfer {
     type Vtable = IWiaDataTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6cef998_a5b0_11d2_a08f_00c04f72dc3c);
@@ -1005,6 +1045,11 @@ impl ::core::cmp::PartialEq for IWiaDevMgr {
     }
 }
 impl ::core::cmp::Eq for IWiaDevMgr {}
+impl ::core::fmt::Debug for IWiaDevMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDevMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDevMgr {
     type Vtable = IWiaDevMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5eb2502a_8cf1_11d1_bf92_0060081ed811);
@@ -1111,6 +1156,11 @@ impl ::core::cmp::PartialEq for IWiaDevMgr2 {
     }
 }
 impl ::core::cmp::Eq for IWiaDevMgr2 {}
+impl ::core::fmt::Debug for IWiaDevMgr2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDevMgr2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDevMgr2 {
     type Vtable = IWiaDevMgr2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79c07cf1_cbdd_41ee_8ec3_f00080cada7a);
@@ -1240,6 +1290,11 @@ impl ::core::cmp::PartialEq for IWiaDrvItem {
     }
 }
 impl ::core::cmp::Eq for IWiaDrvItem {}
+impl ::core::fmt::Debug for IWiaDrvItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaDrvItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaDrvItem {
     type Vtable = IWiaDrvItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f02b5c5_b00c_11d2_a094_00c04f72dc3c);
@@ -1316,6 +1371,11 @@ impl ::core::cmp::PartialEq for IWiaErrorHandler {
     }
 }
 impl ::core::cmp::Eq for IWiaErrorHandler {}
+impl ::core::fmt::Debug for IWiaErrorHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaErrorHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaErrorHandler {
     type Vtable = IWiaErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e4a51b1_bc1f_443d_a835_72e890759ef3);
@@ -1372,6 +1432,11 @@ impl ::core::cmp::PartialEq for IWiaEventCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaEventCallback {}
+impl ::core::fmt::Debug for IWiaEventCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaEventCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaEventCallback {
     type Vtable = IWiaEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae6287b0_0084_11d2_973b_00a0c9068f2e);
@@ -1438,6 +1503,11 @@ impl ::core::cmp::PartialEq for IWiaImageFilter {
     }
 }
 impl ::core::cmp::Eq for IWiaImageFilter {}
+impl ::core::fmt::Debug for IWiaImageFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaImageFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaImageFilter {
     type Vtable = IWiaImageFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8a79ffa_450b_41f1_8f87_849ccd94ebf6);
@@ -1566,6 +1636,11 @@ impl ::core::cmp::PartialEq for IWiaItem {
     }
 }
 impl ::core::cmp::Eq for IWiaItem {}
+impl ::core::fmt::Debug for IWiaItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItem {
     type Vtable = IWiaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4db1ad10_3391_11d2_9a33_00c04fa36145);
@@ -1713,6 +1788,11 @@ impl ::core::cmp::PartialEq for IWiaItem2 {
     }
 }
 impl ::core::cmp::Eq for IWiaItem2 {}
+impl ::core::fmt::Debug for IWiaItem2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaItem2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItem2 {
     type Vtable = IWiaItem2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cba0075_1287_407d_9b77_cf0e030435cc);
@@ -1795,6 +1875,11 @@ impl ::core::cmp::PartialEq for IWiaItemExtras {
     }
 }
 impl ::core::cmp::Eq for IWiaItemExtras {}
+impl ::core::fmt::Debug for IWiaItemExtras {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaItemExtras").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaItemExtras {
     type Vtable = IWiaItemExtrasVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6291ef2c_36ef_4532_876a_8e132593778d);
@@ -1859,6 +1944,11 @@ impl ::core::cmp::PartialEq for IWiaLog {
     }
 }
 impl ::core::cmp::Eq for IWiaLog {}
+impl ::core::fmt::Debug for IWiaLog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaLog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaLog {
     type Vtable = IWiaLogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa00c10b6_82a1_452f_8b6c_86062aad6890);
@@ -1932,6 +2022,11 @@ impl ::core::cmp::PartialEq for IWiaLogEx {
     }
 }
 impl ::core::cmp::Eq for IWiaLogEx {}
+impl ::core::fmt::Debug for IWiaLogEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaLogEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaLogEx {
     type Vtable = IWiaLogExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf1f22ac_7a40_4787_b421_aeb47a1fbd0b);
@@ -2070,6 +2165,11 @@ impl ::core::cmp::PartialEq for IWiaMiniDrv {
     }
 }
 impl ::core::cmp::Eq for IWiaMiniDrv {}
+impl ::core::fmt::Debug for IWiaMiniDrv {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaMiniDrv").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrv {
     type Vtable = IWiaMiniDrvVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8cdee14_3c6c_11d2_9a35_00c04fa36145);
@@ -2147,6 +2247,11 @@ impl ::core::cmp::PartialEq for IWiaMiniDrvCallBack {
     }
 }
 impl ::core::cmp::Eq for IWiaMiniDrvCallBack {}
+impl ::core::fmt::Debug for IWiaMiniDrvCallBack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaMiniDrvCallBack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrvCallBack {
     type Vtable = IWiaMiniDrvCallBackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a57d5a_3de8_11d2_9a36_00c04fa36145);
@@ -2206,6 +2311,11 @@ impl ::core::cmp::PartialEq for IWiaMiniDrvTransferCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaMiniDrvTransferCallback {}
+impl ::core::fmt::Debug for IWiaMiniDrvTransferCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaMiniDrvTransferCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaMiniDrvTransferCallback {
     type Vtable = IWiaMiniDrvTransferCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9d2ee89_2ce5_4ff0_8adb_c961d1d774ca);
@@ -2260,6 +2370,11 @@ impl ::core::cmp::PartialEq for IWiaNotifyDevMgr {
     }
 }
 impl ::core::cmp::Eq for IWiaNotifyDevMgr {}
+impl ::core::fmt::Debug for IWiaNotifyDevMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaNotifyDevMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaNotifyDevMgr {
     type Vtable = IWiaNotifyDevMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70681ea0_e7bf_4291_9fb1_4e8813a3f78e);
@@ -2319,6 +2434,11 @@ impl ::core::cmp::PartialEq for IWiaPreview {
     }
 }
 impl ::core::cmp::Eq for IWiaPreview {}
+impl ::core::fmt::Debug for IWiaPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaPreview {
     type Vtable = IWiaPreviewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95c2b4fd_33f2_4d86_ad40_9431f0df08f7);
@@ -2448,6 +2568,11 @@ impl ::core::cmp::PartialEq for IWiaPropertyStorage {
     }
 }
 impl ::core::cmp::Eq for IWiaPropertyStorage {}
+impl ::core::fmt::Debug for IWiaPropertyStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaPropertyStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaPropertyStorage {
     type Vtable = IWiaPropertyStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98b5e8a0_29cc_491a_aac0_e6db4fdcceb6);
@@ -2527,6 +2652,11 @@ impl ::core::cmp::PartialEq for IWiaSegmentationFilter {
     }
 }
 impl ::core::cmp::Eq for IWiaSegmentationFilter {}
+impl ::core::fmt::Debug for IWiaSegmentationFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaSegmentationFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaSegmentationFilter {
     type Vtable = IWiaSegmentationFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec46a697_ac04_4447_8f65_ff63d5154b21);
@@ -2594,6 +2724,11 @@ impl ::core::cmp::PartialEq for IWiaTransfer {
     }
 }
 impl ::core::cmp::Eq for IWiaTransfer {}
+impl ::core::fmt::Debug for IWiaTransfer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaTransfer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaTransfer {
     type Vtable = IWiaTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39d6942_2f4e_4d04_92fe_4ef4d3a1de5a);
@@ -2656,6 +2791,11 @@ impl ::core::cmp::PartialEq for IWiaTransferCallback {
     }
 }
 impl ::core::cmp::Eq for IWiaTransferCallback {}
+impl ::core::fmt::Debug for IWiaTransferCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaTransferCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaTransferCallback {
     type Vtable = IWiaTransferCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27d4eaaf_28a6_4ca5_9aab_e678168b9527);
@@ -2721,6 +2861,11 @@ impl ::core::cmp::PartialEq for IWiaUIExtension {
     }
 }
 impl ::core::cmp::Eq for IWiaUIExtension {}
+impl ::core::fmt::Debug for IWiaUIExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaUIExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaUIExtension {
     type Vtable = IWiaUIExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda319113_50ee_4c80_b460_57d005d44a2c);
@@ -2784,6 +2929,11 @@ impl ::core::cmp::PartialEq for IWiaUIExtension2 {
     }
 }
 impl ::core::cmp::Eq for IWiaUIExtension2 {}
+impl ::core::fmt::Debug for IWiaUIExtension2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaUIExtension2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaUIExtension2 {
     type Vtable = IWiaUIExtension2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305600d7_5088_46d7_9a15_b77b09cdba7a);
@@ -2900,6 +3050,11 @@ impl ::core::cmp::PartialEq for IWiaVideo {
     }
 }
 impl ::core::cmp::Eq for IWiaVideo {}
+impl ::core::fmt::Debug for IWiaVideo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWiaVideo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWiaVideo {
     type Vtable = IWiaVideoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd52920aa_db88_41f0_946c_e00dc0a19cfa);

@@ -228,6 +228,11 @@ impl ::core::cmp::PartialEq for CredentialPickerOptions {
     }
 }
 impl ::core::cmp::Eq for CredentialPickerOptions {}
+impl ::core::fmt::Debug for CredentialPickerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialPickerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CredentialPickerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerOptions;{965a0b4c-95fa-467f-992b-0b22e5859bf6})");
 }
@@ -351,6 +356,11 @@ impl ::core::cmp::PartialEq for CredentialPickerResults {
     }
 }
 impl ::core::cmp::Eq for CredentialPickerResults {}
+impl ::core::fmt::Debug for CredentialPickerResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CredentialPickerResults").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CredentialPickerResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.UI.CredentialPickerResults;{1948f99a-cc30-410c-9c38-cc0884c5b3d7})");
 }

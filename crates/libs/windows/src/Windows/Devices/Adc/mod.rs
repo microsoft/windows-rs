@@ -47,6 +47,11 @@ impl ::core::cmp::PartialEq for AdcChannel {
     }
 }
 impl ::core::cmp::Eq for AdcChannel {}
+impl ::core::fmt::Debug for AdcChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdcChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdcChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcChannel;{040bf414-2588-4a56-abef-73a260acc60a})");
 }
@@ -261,6 +266,11 @@ impl ::core::cmp::PartialEq for AdcController {
     }
 }
 impl ::core::cmp::Eq for AdcController {}
+impl ::core::fmt::Debug for AdcController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdcController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdcController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Adc.AdcController;{2a76e4b0-a896-4219-86b6-ea8cdce98f56})");
 }

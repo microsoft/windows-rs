@@ -167,6 +167,11 @@ impl ::core::cmp::PartialEq for ArcadeStick {
     }
 }
 impl ::core::cmp::Eq for ArcadeStick {}
+impl ::core::fmt::Debug for ArcadeStick {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ArcadeStick").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ArcadeStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.ArcadeStick;{b14a539d-befb-4c81-8051-15ecf3b13036})");
 }
@@ -509,6 +514,11 @@ impl ::core::cmp::PartialEq for FlightStick {
     }
 }
 impl ::core::cmp::Eq for FlightStick {}
+impl ::core::fmt::Debug for FlightStick {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FlightStick").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FlightStick {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.FlightStick;{b4a2c01c-b83b-4459-a1a9-97b03c33da7c})");
 }
@@ -1030,6 +1040,11 @@ impl ::core::cmp::PartialEq for Gamepad {
     }
 }
 impl ::core::cmp::Eq for Gamepad {}
+impl ::core::fmt::Debug for Gamepad {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Gamepad").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Gamepad {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Gamepad;{bc7bb43c-0a69-3903-9e9d-a50f86a45de5})");
 }
@@ -1299,6 +1314,11 @@ impl ::core::cmp::PartialEq for Headset {
     }
 }
 impl ::core::cmp::Eq for Headset {}
+impl ::core::fmt::Debug for Headset {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Headset").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Headset {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.Headset;{3fd156ef-6925-3fa8-9181-029c5223ae3b})");
 }
@@ -1611,6 +1631,11 @@ impl ::core::cmp::PartialEq for IGameController {
     }
 }
 impl ::core::cmp::Eq for IGameController {}
+impl ::core::fmt::Debug for IGameController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1baf6522-5f64-42c5-8267-b9fe2215bfbd}");
 }
@@ -1709,6 +1734,11 @@ impl ::core::cmp::PartialEq for IGameControllerBatteryInfo {
     }
 }
 impl ::core::cmp::Eq for IGameControllerBatteryInfo {}
+impl ::core::fmt::Debug for IGameControllerBatteryInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameControllerBatteryInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGameControllerBatteryInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{dcecc681-3963-4da6-955d-553f3b6f6161}");
 }
@@ -2297,6 +2327,11 @@ impl ::core::cmp::PartialEq for RacingWheel {
     }
 }
 impl ::core::cmp::Eq for RacingWheel {}
+impl ::core::fmt::Debug for RacingWheel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RacingWheel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RacingWheel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RacingWheel;{f546656f-e106-4c82-a90f-554012904b85})");
 }
@@ -2729,6 +2764,11 @@ impl ::core::cmp::PartialEq for RawGameController {
     }
 }
 impl ::core::cmp::Eq for RawGameController {}
+impl ::core::fmt::Debug for RawGameController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RawGameController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RawGameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.RawGameController;{7cad6d91-a7e1-4f71-9a78-33e9c5dfea62})");
 }
@@ -3035,6 +3075,11 @@ impl ::core::cmp::PartialEq for UINavigationController {
     }
 }
 impl ::core::cmp::Eq for UINavigationController {}
+impl ::core::fmt::Debug for UINavigationController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UINavigationController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UINavigationController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Input.UINavigationController;{e5aeefdd-f50e-4a55-8cdc-d33229548175})");
 }

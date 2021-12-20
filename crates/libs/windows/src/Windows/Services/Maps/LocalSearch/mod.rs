@@ -338,6 +338,11 @@ impl ::core::cmp::PartialEq for LocalLocation {
     }
 }
 impl ::core::cmp::Eq for LocalLocation {}
+impl ::core::fmt::Debug for LocalLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocalLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocation;{bb0fe9ab-4502-4f2c-94a9-0d60de0e2163})");
 }
@@ -443,6 +448,11 @@ impl ::core::cmp::PartialEq for LocalLocationFinderResult {
     }
 }
 impl ::core::cmp::Eq for LocalLocationFinderResult {}
+impl ::core::fmt::Debug for LocalLocationFinderResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalLocationFinderResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocalLocationFinderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationFinderResult;{d09b6cc6-f338-4191-9fd8-5440b9a68f52})");
 }
@@ -577,6 +587,11 @@ impl ::core::cmp::PartialEq for LocalLocationHoursOfOperationItem {
     }
 }
 impl ::core::cmp::Eq for LocalLocationHoursOfOperationItem {}
+impl ::core::fmt::Debug for LocalLocationHoursOfOperationItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalLocationHoursOfOperationItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocalLocationHoursOfOperationItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationHoursOfOperationItem;{23548c72-a1c7-43f1-a4f0-1091c39ec640})");
 }
@@ -671,6 +686,11 @@ impl ::core::cmp::PartialEq for LocalLocationRatingInfo {
     }
 }
 impl ::core::cmp::Eq for LocalLocationRatingInfo {}
+impl ::core::fmt::Debug for LocalLocationRatingInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalLocationRatingInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocalLocationRatingInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.LocalSearch.LocalLocationRatingInfo;{cb1dab56-3354-4311-8bc0-a2d4d5eb806e})");
 }

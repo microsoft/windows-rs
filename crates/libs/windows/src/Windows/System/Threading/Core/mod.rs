@@ -137,6 +137,11 @@ impl ::core::cmp::PartialEq for PreallocatedWorkItem {
     }
 }
 impl ::core::cmp::Eq for PreallocatedWorkItem {}
+impl ::core::fmt::Debug for PreallocatedWorkItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PreallocatedWorkItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PreallocatedWorkItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.PreallocatedWorkItem;{b6daa9fc-bc5b-401a-a8b2-6e754d14daa6})");
 }
@@ -249,6 +254,11 @@ impl ::core::cmp::PartialEq for SignalHandler {
     }
 }
 impl ::core::cmp::Eq for SignalHandler {}
+impl ::core::fmt::Debug for SignalHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignalHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for SignalHandler {
     type Vtable = SignalHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923c402e_4721_440e_9dda_55b6f2e07710);
@@ -320,6 +330,11 @@ impl ::core::cmp::PartialEq for SignalNotifier {
     }
 }
 impl ::core::cmp::Eq for SignalNotifier {}
+impl ::core::fmt::Debug for SignalNotifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SignalNotifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SignalNotifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Threading.Core.SignalNotifier;{14285e06-63a7-4713-b6d9-62f64b56fb8b})");
 }

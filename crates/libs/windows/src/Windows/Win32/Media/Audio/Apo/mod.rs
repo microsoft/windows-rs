@@ -925,6 +925,11 @@ impl ::core::cmp::PartialEq for IApoAcousticEchoCancellation {
     }
 }
 impl ::core::cmp::Eq for IApoAcousticEchoCancellation {}
+impl ::core::fmt::Debug for IApoAcousticEchoCancellation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IApoAcousticEchoCancellation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IApoAcousticEchoCancellation {
     type Vtable = IApoAcousticEchoCancellationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25385759_3236_4101_a943_25693dfb5d2d);
@@ -981,6 +986,11 @@ impl ::core::cmp::PartialEq for IApoAuxiliaryInputConfiguration {
     }
 }
 impl ::core::cmp::Eq for IApoAuxiliaryInputConfiguration {}
+impl ::core::fmt::Debug for IApoAuxiliaryInputConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IApoAuxiliaryInputConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IApoAuxiliaryInputConfiguration {
     type Vtable = IApoAuxiliaryInputConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ceb0aab_fa19_48ed_a857_87771ae1b768);
@@ -1035,6 +1045,11 @@ impl ::core::cmp::PartialEq for IApoAuxiliaryInputRT {
     }
 }
 impl ::core::cmp::Eq for IApoAuxiliaryInputRT {}
+impl ::core::fmt::Debug for IApoAuxiliaryInputRT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IApoAuxiliaryInputRT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IApoAuxiliaryInputRT {
     type Vtable = IApoAuxiliaryInputRTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf851809c_c177_49a0_b1b2_b66f017943ab);
@@ -1082,6 +1097,11 @@ impl ::core::cmp::PartialEq for IAudioDeviceModulesClient {
     }
 }
 impl ::core::cmp::Eq for IAudioDeviceModulesClient {}
+impl ::core::fmt::Debug for IAudioDeviceModulesClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioDeviceModulesClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioDeviceModulesClient {
     type Vtable = IAudioDeviceModulesClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98f37dac_d0b6_49f5_896a_aa4d169a4c48);
@@ -1145,6 +1165,11 @@ impl ::core::cmp::PartialEq for IAudioMediaType {
     }
 }
 impl ::core::cmp::Eq for IAudioMediaType {}
+impl ::core::fmt::Debug for IAudioMediaType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioMediaType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioMediaType {
     type Vtable = IAudioMediaTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e997f73_b71f_4798_873b_ed7dfcf15b4d);
@@ -1230,6 +1255,11 @@ impl ::core::cmp::PartialEq for IAudioProcessingObject {
     }
 }
 impl ::core::cmp::Eq for IAudioProcessingObject {}
+impl ::core::fmt::Debug for IAudioProcessingObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioProcessingObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioProcessingObject {
     type Vtable = IAudioProcessingObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd7f2b29_24d0_4b5c_b177_592c39f9ca10);
@@ -1292,6 +1322,11 @@ impl ::core::cmp::PartialEq for IAudioProcessingObjectConfiguration {
     }
 }
 impl ::core::cmp::Eq for IAudioProcessingObjectConfiguration {}
+impl ::core::fmt::Debug for IAudioProcessingObjectConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioProcessingObjectConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectConfiguration {
     type Vtable = IAudioProcessingObjectConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e5ed805_aba6_49c3_8f9a_2b8c889c4fa8);
@@ -1346,6 +1381,11 @@ impl ::core::cmp::PartialEq for IAudioProcessingObjectLoggingService {
     }
 }
 impl ::core::cmp::Eq for IAudioProcessingObjectLoggingService {}
+impl ::core::fmt::Debug for IAudioProcessingObjectLoggingService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioProcessingObjectLoggingService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectLoggingService {
     type Vtable = IAudioProcessingObjectLoggingServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x698f0107_1745_4708_95a5_d84478a62a65);
@@ -1404,6 +1444,11 @@ impl ::core::cmp::PartialEq for IAudioProcessingObjectNotifications {
     }
 }
 impl ::core::cmp::Eq for IAudioProcessingObjectNotifications {}
+impl ::core::fmt::Debug for IAudioProcessingObjectNotifications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioProcessingObjectNotifications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectNotifications {
     type Vtable = IAudioProcessingObjectNotificationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56b0c76f_02fd_4b21_a52e_9f8219fc86e4);
@@ -1466,6 +1511,11 @@ impl ::core::cmp::PartialEq for IAudioProcessingObjectRT {
     }
 }
 impl ::core::cmp::Eq for IAudioProcessingObjectRT {}
+impl ::core::fmt::Debug for IAudioProcessingObjectRT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioProcessingObjectRT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectRT {
     type Vtable = IAudioProcessingObjectRTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e1d6a6d_ddbc_4e95_a4c7_ad64ba37846c);
@@ -1521,6 +1571,11 @@ impl ::core::cmp::PartialEq for IAudioProcessingObjectRTQueueService {
     }
 }
 impl ::core::cmp::Eq for IAudioProcessingObjectRTQueueService {}
+impl ::core::fmt::Debug for IAudioProcessingObjectRTQueueService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioProcessingObjectRTQueueService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectRTQueueService {
     type Vtable = IAudioProcessingObjectRTQueueServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacd65e2f_955b_4b57_b9bf_ac297bb752c9);
@@ -1574,6 +1629,11 @@ impl ::core::cmp::PartialEq for IAudioProcessingObjectVBR {
     }
 }
 impl ::core::cmp::Eq for IAudioProcessingObjectVBR {}
+impl ::core::fmt::Debug for IAudioProcessingObjectVBR {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioProcessingObjectVBR").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioProcessingObjectVBR {
     type Vtable = IAudioProcessingObjectVBRVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ba1db8f_78ad_49cd_9591_f79d80a17c81);
@@ -1622,6 +1682,11 @@ impl ::core::cmp::PartialEq for IAudioSystemEffects {
     }
 }
 impl ::core::cmp::Eq for IAudioSystemEffects {}
+impl ::core::fmt::Debug for IAudioSystemEffects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSystemEffects").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSystemEffects {
     type Vtable = IAudioSystemEffectsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5fa00f27_add6_499a_8a9d_6b98521fa75b);
@@ -1690,6 +1755,11 @@ impl ::core::cmp::PartialEq for IAudioSystemEffects2 {
     }
 }
 impl ::core::cmp::Eq for IAudioSystemEffects2 {}
+impl ::core::fmt::Debug for IAudioSystemEffects2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSystemEffects2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSystemEffects2 {
     type Vtable = IAudioSystemEffects2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbafe99d2_7436_44ce_9e0e_4d89afbfff56);
@@ -1793,6 +1863,11 @@ impl ::core::cmp::PartialEq for IAudioSystemEffects3 {
     }
 }
 impl ::core::cmp::Eq for IAudioSystemEffects3 {}
+impl ::core::fmt::Debug for IAudioSystemEffects3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSystemEffects3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSystemEffects3 {
     type Vtable = IAudioSystemEffects3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc58b31cd_fc6a_4255_bc1f_ad29bb0a4a17);
@@ -1861,6 +1936,11 @@ impl ::core::cmp::PartialEq for IAudioSystemEffectsCustomFormats {
     }
 }
 impl ::core::cmp::Eq for IAudioSystemEffectsCustomFormats {}
+impl ::core::fmt::Debug for IAudioSystemEffectsCustomFormats {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSystemEffectsCustomFormats").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSystemEffectsCustomFormats {
     type Vtable = IAudioSystemEffectsCustomFormatsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1176e34_bb7f_4f05_bebd_1b18a534e097);

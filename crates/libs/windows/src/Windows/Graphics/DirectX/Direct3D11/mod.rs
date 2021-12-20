@@ -244,6 +244,11 @@ impl ::core::cmp::PartialEq for IDirect3DDevice {
     }
 }
 impl ::core::cmp::Eq for IDirect3DDevice {}
+impl ::core::fmt::Debug for IDirect3DDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDirect3DDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a37624ab-8d5f-4650-9d3e-9eae3d9bc670}");
 }
@@ -358,6 +363,11 @@ impl ::core::cmp::PartialEq for IDirect3DSurface {
     }
 }
 impl ::core::cmp::Eq for IDirect3DSurface {}
+impl ::core::fmt::Debug for IDirect3DSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDirect3DSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0bf4a146-13c1-4694-bee3-7abf15eaf586}");
 }

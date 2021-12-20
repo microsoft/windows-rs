@@ -71,6 +71,11 @@ impl ::core::cmp::PartialEq for CustomDevice {
     }
 }
 impl ::core::cmp::Eq for CustomDevice {}
+impl ::core::fmt::Debug for CustomDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.CustomDevice;{dd30251f-c48b-43bd-bcb1-dec88f15143e})");
 }
@@ -331,6 +336,11 @@ impl ::core::cmp::PartialEq for IIOControlCode {
     }
 }
 impl ::core::cmp::Eq for IIOControlCode {}
+impl ::core::fmt::Debug for IIOControlCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIOControlCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IIOControlCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0e9559e7-60c8-4375-a761-7f8808066c60}");
 }
@@ -527,6 +537,11 @@ impl ::core::cmp::PartialEq for IOControlCode {
     }
 }
 impl ::core::cmp::Eq for IOControlCode {}
+impl ::core::fmt::Debug for IOControlCode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOControlCode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IOControlCode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Custom.IOControlCode;{0e9559e7-60c8-4375-a761-7f8808066c60})");
 }

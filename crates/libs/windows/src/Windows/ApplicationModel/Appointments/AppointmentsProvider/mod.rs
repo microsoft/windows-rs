@@ -51,6 +51,11 @@ impl ::core::cmp::PartialEq for AddAppointmentOperation {
     }
 }
 impl ::core::cmp::Eq for AddAppointmentOperation {}
+impl ::core::fmt::Debug for AddAppointmentOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddAppointmentOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.AddAppointmentOperation;{ec4a9af3-620d-4c69-add7-9794e918081f})");
 }
@@ -329,6 +334,11 @@ impl ::core::cmp::PartialEq for RemoveAppointmentOperation {
     }
 }
 impl ::core::cmp::Eq for RemoveAppointmentOperation {}
+impl ::core::fmt::Debug for RemoveAppointmentOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RemoveAppointmentOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RemoveAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.RemoveAppointmentOperation;{08b66aba-fe33-46cd-a50c-a8ffb3260537})");
 }
@@ -450,6 +460,11 @@ impl ::core::cmp::PartialEq for ReplaceAppointmentOperation {
     }
 }
 impl ::core::cmp::Eq for ReplaceAppointmentOperation {}
+impl ::core::fmt::Debug for ReplaceAppointmentOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReplaceAppointmentOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ReplaceAppointmentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Appointments.AppointmentsProvider.ReplaceAppointmentOperation;{f4903d9b-9e61-4de2-a732-2687c07d1de8})");
 }

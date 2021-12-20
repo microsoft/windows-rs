@@ -82,6 +82,11 @@ impl ::core::cmp::PartialEq for IAdaptiveCard {
     }
 }
 impl ::core::cmp::Eq for IAdaptiveCard {}
+impl ::core::fmt::Debug for IAdaptiveCard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAdaptiveCard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAdaptiveCard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d0568c-a274-41cd-82a8-989d40b9b05e}");
 }
@@ -164,6 +169,11 @@ impl ::core::cmp::PartialEq for IAdaptiveCardBuilderStatics {
     }
 }
 impl ::core::cmp::Eq for IAdaptiveCardBuilderStatics {}
+impl ::core::fmt::Debug for IAdaptiveCardBuilderStatics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAdaptiveCardBuilderStatics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAdaptiveCardBuilderStatics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{766d8f08-d3fe-4347-a0bc-b9ea9a6dc28e}");
 }
@@ -413,6 +423,11 @@ impl ::core::cmp::PartialEq for SecurityAppManager {
     }
 }
 impl ::core::cmp::Eq for SecurityAppManager {}
+impl ::core::fmt::Debug for SecurityAppManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecurityAppManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SecurityAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.SecurityAppManager;{96ac500c-aed4-561d-bde8-953520343a2d})");
 }
@@ -604,6 +619,11 @@ impl ::core::cmp::PartialEq for ShareWindowCommandEventArgs {
     }
 }
 impl ::core::cmp::Eq for ShareWindowCommandEventArgs {}
+impl ::core::fmt::Debug for ShareWindowCommandEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareWindowCommandEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareWindowCommandEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandEventArgs;{4578dc09-a523-5756-a995-e4feb991fff0})");
 }
@@ -729,6 +749,11 @@ impl ::core::cmp::PartialEq for ShareWindowCommandSource {
     }
 }
 impl ::core::cmp::Eq for ShareWindowCommandSource {}
+impl ::core::fmt::Debug for ShareWindowCommandSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareWindowCommandSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareWindowCommandSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.ShareWindowCommandSource;{cb3b7ae3-6b9c-561e-bccc-61e68e0abfef})");
 }
@@ -888,6 +913,11 @@ impl ::core::cmp::PartialEq for TaskbarManager {
     }
 }
 impl ::core::cmp::Eq for TaskbarManager {}
+impl ::core::fmt::Debug for TaskbarManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TaskbarManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TaskbarManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Shell.TaskbarManager;{87490a19-1ad9-49f4-b2e8-86738dc5ac40})");
 }

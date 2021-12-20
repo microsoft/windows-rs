@@ -3046,6 +3046,11 @@ impl ::core::cmp::PartialEq for IEnumNetCfgBindingInterface {
     }
 }
 impl ::core::cmp::Eq for IEnumNetCfgBindingInterface {}
+impl ::core::fmt::Debug for IEnumNetCfgBindingInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetCfgBindingInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetCfgBindingInterface {
     type Vtable = IEnumNetCfgBindingInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae90_306e_11d1_aacf_00805fc1270e);
@@ -3114,6 +3119,11 @@ impl ::core::cmp::PartialEq for IEnumNetCfgBindingPath {
     }
 }
 impl ::core::cmp::Eq for IEnumNetCfgBindingPath {}
+impl ::core::fmt::Debug for IEnumNetCfgBindingPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetCfgBindingPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetCfgBindingPath {
     type Vtable = IEnumNetCfgBindingPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae91_306e_11d1_aacf_00805fc1270e);
@@ -3182,6 +3192,11 @@ impl ::core::cmp::PartialEq for IEnumNetCfgComponent {
     }
 }
 impl ::core::cmp::Eq for IEnumNetCfgComponent {}
+impl ::core::fmt::Debug for IEnumNetCfgComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetCfgComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetCfgComponent {
     type Vtable = IEnumNetCfgComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae92_306e_11d1_aacf_00805fc1270e);
@@ -3268,6 +3283,11 @@ impl ::core::cmp::PartialEq for INetCfg {
     }
 }
 impl ::core::cmp::Eq for INetCfg {}
+impl ::core::fmt::Debug for INetCfg {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfg").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfg {
     type Vtable = INetCfgVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae93_306e_11d1_aacf_00805fc1270e);
@@ -3339,6 +3359,11 @@ impl ::core::cmp::PartialEq for INetCfgBindingInterface {
     }
 }
 impl ::core::cmp::Eq for INetCfgBindingInterface {}
+impl ::core::fmt::Debug for INetCfgBindingInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgBindingInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgBindingInterface {
     type Vtable = INetCfgBindingInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae94_306e_11d1_aacf_00805fc1270e);
@@ -3428,6 +3453,11 @@ impl ::core::cmp::PartialEq for INetCfgBindingPath {
     }
 }
 impl ::core::cmp::Eq for INetCfgBindingPath {}
+impl ::core::fmt::Debug for INetCfgBindingPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgBindingPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgBindingPath {
     type Vtable = INetCfgBindingPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae96_306e_11d1_aacf_00805fc1270e);
@@ -3496,6 +3526,11 @@ impl ::core::cmp::PartialEq for INetCfgClass {
     }
 }
 impl ::core::cmp::Eq for INetCfgClass {}
+impl ::core::fmt::Debug for INetCfgClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgClass {
     type Vtable = INetCfgClassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae97_306e_11d1_aacf_00805fc1270e);
@@ -3563,6 +3598,11 @@ impl ::core::cmp::PartialEq for INetCfgClassSetup {
     }
 }
 impl ::core::cmp::Eq for INetCfgClassSetup {}
+impl ::core::fmt::Debug for INetCfgClassSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgClassSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgClassSetup {
     type Vtable = INetCfgClassSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9d_306e_11d1_aacf_00805fc1270e);
@@ -3657,6 +3697,11 @@ impl ::core::cmp::PartialEq for INetCfgClassSetup2 {
     }
 }
 impl ::core::cmp::Eq for INetCfgClassSetup2 {}
+impl ::core::fmt::Debug for INetCfgClassSetup2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgClassSetup2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgClassSetup2 {
     type Vtable = INetCfgClassSetup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8aea0_306e_11d1_aacf_00805fc1270e);
@@ -3777,6 +3822,11 @@ impl ::core::cmp::PartialEq for INetCfgComponent {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponent {}
+impl ::core::fmt::Debug for INetCfgComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponent {
     type Vtable = INetCfgComponentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae99_306e_11d1_aacf_00805fc1270e);
@@ -3878,6 +3928,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentBindings {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentBindings {}
+impl ::core::fmt::Debug for INetCfgComponentBindings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentBindings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentBindings {
     type Vtable = INetCfgComponentBindingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9e_306e_11d1_aacf_00805fc1270e);
@@ -3951,6 +4006,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentControl {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentControl {}
+impl ::core::fmt::Debug for INetCfgComponentControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentControl {
     type Vtable = INetCfgComponentControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238df_bea1_11d0_9298_00c04fc99dcf);
@@ -4011,6 +4071,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentNotifyBinding {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentNotifyBinding {}
+impl ::core::fmt::Debug for INetCfgComponentNotifyBinding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentNotifyBinding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentNotifyBinding {
     type Vtable = INetCfgComponentNotifyBindingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e1_bea1_11d0_9298_00c04fc99dcf);
@@ -4077,6 +4142,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentNotifyGlobal {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentNotifyGlobal {}
+impl ::core::fmt::Debug for INetCfgComponentNotifyGlobal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentNotifyGlobal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentNotifyGlobal {
     type Vtable = INetCfgComponentNotifyGlobalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e2_bea1_11d0_9298_00c04fc99dcf);
@@ -4154,6 +4224,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentPropertyUi {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentPropertyUi {}
+impl ::core::fmt::Debug for INetCfgComponentPropertyUi {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentPropertyUi").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentPropertyUi {
     type Vtable = INetCfgComponentPropertyUiVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e0_bea1_11d0_9298_00c04fc99dcf);
@@ -4226,6 +4301,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentSetup {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentSetup {}
+impl ::core::fmt::Debug for INetCfgComponentSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentSetup {
     type Vtable = INetCfgComponentSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e3_bea1_11d0_9298_00c04fc99dcf);
@@ -4288,6 +4368,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentSysPrep {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentSysPrep {}
+impl ::core::fmt::Debug for INetCfgComponentSysPrep {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentSysPrep").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentSysPrep {
     type Vtable = INetCfgComponentSysPrepVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9a_306e_11d1_aacf_00805fc1270e);
@@ -4351,6 +4436,11 @@ impl ::core::cmp::PartialEq for INetCfgComponentUpperEdge {
     }
 }
 impl ::core::cmp::Eq for INetCfgComponentUpperEdge {}
+impl ::core::fmt::Debug for INetCfgComponentUpperEdge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgComponentUpperEdge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgComponentUpperEdge {
     type Vtable = INetCfgComponentUpperEdgeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x932238e4_bea1_11d0_9298_00c04fc99dcf);
@@ -4417,6 +4507,11 @@ impl ::core::cmp::PartialEq for INetCfgLock {
     }
 }
 impl ::core::cmp::Eq for INetCfgLock {}
+impl ::core::fmt::Debug for INetCfgLock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgLock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgLock {
     type Vtable = INetCfgLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae9f_306e_11d1_aacf_00805fc1270e);
@@ -4474,6 +4569,11 @@ impl ::core::cmp::PartialEq for INetCfgPnpReconfigCallback {
     }
 }
 impl ::core::cmp::Eq for INetCfgPnpReconfigCallback {}
+impl ::core::fmt::Debug for INetCfgPnpReconfigCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgPnpReconfigCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgPnpReconfigCallback {
     type Vtable = INetCfgPnpReconfigCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d84bd35_e227_11d2_b700_00a0c98a6a85);
@@ -4543,6 +4643,11 @@ impl ::core::cmp::PartialEq for INetCfgSysPrep {
     }
 }
 impl ::core::cmp::Eq for INetCfgSysPrep {}
+impl ::core::fmt::Debug for INetCfgSysPrep {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetCfgSysPrep").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetCfgSysPrep {
     type Vtable = INetCfgSysPrepVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e8ae98_306e_11d1_aacf_00805fc1270e);
@@ -4603,6 +4708,11 @@ impl ::core::cmp::PartialEq for INetLanConnectionUiInfo {
     }
 }
 impl ::core::cmp::Eq for INetLanConnectionUiInfo {}
+impl ::core::fmt::Debug for INetLanConnectionUiInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetLanConnectionUiInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetLanConnectionUiInfo {
     type Vtable = INetLanConnectionUiInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a6_1cd3_11d1_b1c5_00805fc1270e);
@@ -4652,6 +4762,11 @@ impl ::core::cmp::PartialEq for INetRasConnectionIpUiInfo {
     }
 }
 impl ::core::cmp::Eq for INetRasConnectionIpUiInfo {}
+impl ::core::fmt::Debug for INetRasConnectionIpUiInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetRasConnectionIpUiInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetRasConnectionIpUiInfo {
     type Vtable = INetRasConnectionIpUiInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfaedcf58_31fe_11d1_aad2_00805fc1270e);
@@ -4716,6 +4831,11 @@ impl ::core::cmp::PartialEq for IProvisioningDomain {
     }
 }
 impl ::core::cmp::Eq for IProvisioningDomain {}
+impl ::core::fmt::Debug for IProvisioningDomain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvisioningDomain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvisioningDomain {
     type Vtable = IProvisioningDomainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd50_24dd_11d8_89fb_00904b2ea9c6);
@@ -4773,6 +4893,11 @@ impl ::core::cmp::PartialEq for IProvisioningProfileWireless {
     }
 }
 impl ::core::cmp::Eq for IProvisioningProfileWireless {}
+impl ::core::fmt::Debug for IProvisioningProfileWireless {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvisioningProfileWireless").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvisioningProfileWireless {
     type Vtable = IProvisioningProfileWirelessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96fbd51_24dd_11d8_89fb_00904b2ea9c6);

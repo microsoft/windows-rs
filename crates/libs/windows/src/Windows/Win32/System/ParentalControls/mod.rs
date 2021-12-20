@@ -81,6 +81,11 @@ impl ::core::cmp::PartialEq for IWPCGamesSettings {
     }
 }
 impl ::core::cmp::Eq for IWPCGamesSettings {}
+impl ::core::fmt::Debug for IWPCGamesSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWPCGamesSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWPCGamesSettings {
     type Vtable = IWPCGamesSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e87780_e158_489e_b452_bbb850790715);
@@ -150,6 +155,11 @@ impl ::core::cmp::PartialEq for IWPCProviderConfig {
     }
 }
 impl ::core::cmp::Eq for IWPCProviderConfig {}
+impl ::core::fmt::Debug for IWPCProviderConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWPCProviderConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWPCProviderConfig {
     type Vtable = IWPCProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbef54196_2d02_4a26_b6e5_d65af295d0f1);
@@ -211,6 +221,11 @@ impl ::core::cmp::PartialEq for IWPCProviderState {
     }
 }
 impl ::core::cmp::Eq for IWPCProviderState {}
+impl ::core::fmt::Debug for IWPCProviderState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWPCProviderState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWPCProviderState {
     type Vtable = IWPCProviderStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50b6a267_c4bd_450b_adb5_759073837c9e);
@@ -265,6 +280,11 @@ impl ::core::cmp::PartialEq for IWPCProviderSupport {
     }
 }
 impl ::core::cmp::Eq for IWPCProviderSupport {}
+impl ::core::fmt::Debug for IWPCProviderSupport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWPCProviderSupport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWPCProviderSupport {
     type Vtable = IWPCProviderSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41eba572_23ed_4779_bec1_8df96206c44c);
@@ -325,6 +345,11 @@ impl ::core::cmp::PartialEq for IWPCSettings {
     }
 }
 impl ::core::cmp::Eq for IWPCSettings {}
+impl ::core::fmt::Debug for IWPCSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWPCSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWPCSettings {
     type Vtable = IWPCSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fdf6ca1_0189_47e4_b670_1a8a4636e340);
@@ -425,6 +450,11 @@ impl ::core::cmp::PartialEq for IWPCWebSettings {
     }
 }
 impl ::core::cmp::Eq for IWPCWebSettings {}
+impl ::core::fmt::Debug for IWPCWebSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWPCWebSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWPCWebSettings {
     type Vtable = IWPCWebSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xffccbdb8_0992_4c30_b0f1_1cbb09c240aa);
@@ -528,6 +558,11 @@ impl ::core::cmp::PartialEq for IWindowsParentalControls {
     }
 }
 impl ::core::cmp::Eq for IWindowsParentalControls {}
+impl ::core::fmt::Debug for IWindowsParentalControls {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsParentalControls").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsParentalControls {
     type Vtable = IWindowsParentalControlsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28b4d88b_e072_49e6_804d_26edbe21a7b9);
@@ -606,6 +641,11 @@ impl ::core::cmp::PartialEq for IWindowsParentalControlsCore {
     }
 }
 impl ::core::cmp::Eq for IWindowsParentalControlsCore {}
+impl ::core::fmt::Debug for IWindowsParentalControlsCore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsParentalControlsCore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsParentalControlsCore {
     type Vtable = IWindowsParentalControlsCoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ff40a0f_3f3b_4d7c_a41b_4f39d7b44d05);

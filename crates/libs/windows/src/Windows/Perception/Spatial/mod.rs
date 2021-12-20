@@ -752,6 +752,11 @@ impl ::core::cmp::PartialEq for SpatialAnchor {
     }
 }
 impl ::core::cmp::Eq for SpatialAnchor {}
+impl ::core::fmt::Debug for SpatialAnchor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchor;{0529e5ce-1d34-3702-bcec-eabff578a869})");
 }
@@ -877,6 +882,11 @@ impl ::core::cmp::PartialEq for SpatialAnchorExportSufficiency {
     }
 }
 impl ::core::cmp::Eq for SpatialAnchorExportSufficiency {}
+impl ::core::fmt::Debug for SpatialAnchorExportSufficiency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchorExportSufficiency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorExportSufficiency {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorExportSufficiency;{77c25b2b-3409-4088-b91b-fdfd05d1648f})");
 }
@@ -983,6 +993,11 @@ impl ::core::cmp::PartialEq for SpatialAnchorExporter {
     }
 }
 impl ::core::cmp::Eq for SpatialAnchorExporter {}
+impl ::core::fmt::Debug for SpatialAnchorExporter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchorExporter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorExporter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorExporter;{9a2a4338-24fb-4269-89c5-88304aeef20f})");
 }
@@ -1080,6 +1095,11 @@ impl ::core::cmp::PartialEq for SpatialAnchorRawCoordinateSystemAdjustedEventArg
     }
 }
 impl ::core::cmp::Eq for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {}
+impl ::core::fmt::Debug for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchorRawCoordinateSystemAdjustedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorRawCoordinateSystemAdjustedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorRawCoordinateSystemAdjustedEventArgs;{a1e81eb8-56c7-3117-a2e4-81e0fcf28e00})");
 }
@@ -1175,6 +1195,11 @@ impl ::core::cmp::PartialEq for SpatialAnchorStore {
     }
 }
 impl ::core::cmp::Eq for SpatialAnchorStore {}
+impl ::core::fmt::Debug for SpatialAnchorStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialAnchorStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialAnchorStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialAnchorStore;{b0bc3636-486a-3cb0-9e6f-1245165c4db6})");
 }
@@ -1513,6 +1538,11 @@ impl ::core::cmp::PartialEq for SpatialBoundingVolume {
     }
 }
 impl ::core::cmp::Eq for SpatialBoundingVolume {}
+impl ::core::fmt::Debug for SpatialBoundingVolume {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialBoundingVolume").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialBoundingVolume {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialBoundingVolume;{fb2065da-68c3-33df-b7af-4c787207999c})");
 }
@@ -1590,6 +1620,11 @@ impl ::core::cmp::PartialEq for SpatialCoordinateSystem {
     }
 }
 impl ::core::cmp::Eq for SpatialCoordinateSystem {}
+impl ::core::fmt::Debug for SpatialCoordinateSystem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialCoordinateSystem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialCoordinateSystem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialCoordinateSystem;{69ebca4b-60a3-3586-a653-59a7bd676d07})");
 }
@@ -1703,6 +1738,11 @@ impl ::core::cmp::PartialEq for SpatialEntity {
     }
 }
 impl ::core::cmp::Eq for SpatialEntity {}
+impl ::core::fmt::Debug for SpatialEntity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialEntity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntity;{166de955-e1eb-454c-ba08-e6c0668ddc65})");
 }
@@ -1779,6 +1819,11 @@ impl ::core::cmp::PartialEq for SpatialEntityAddedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialEntityAddedEventArgs {}
+impl ::core::fmt::Debug for SpatialEntityAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityAddedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityAddedEventArgs;{a397f49b-156a-4707-ac2c-d31d570ed399})");
 }
@@ -1855,6 +1900,11 @@ impl ::core::cmp::PartialEq for SpatialEntityRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialEntityRemovedEventArgs {}
+impl ::core::fmt::Debug for SpatialEntityRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityRemovedEventArgs;{91741800-536d-4e9f-abf6-415b5444d651})");
 }
@@ -1969,6 +2019,11 @@ impl ::core::cmp::PartialEq for SpatialEntityStore {
     }
 }
 impl ::core::cmp::Eq for SpatialEntityStore {}
+impl ::core::fmt::Debug for SpatialEntityStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityStore;{329788ba-e513-4f06-889d-1be30ecf43e6})");
 }
@@ -2045,6 +2100,11 @@ impl ::core::cmp::PartialEq for SpatialEntityUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialEntityUpdatedEventArgs {}
+impl ::core::fmt::Debug for SpatialEntityUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityUpdatedEventArgs;{e5671766-627b-43cb-a49f-b3be6d47deed})");
 }
@@ -2191,6 +2251,11 @@ impl ::core::cmp::PartialEq for SpatialEntityWatcher {
     }
 }
 impl ::core::cmp::Eq for SpatialEntityWatcher {}
+impl ::core::fmt::Debug for SpatialEntityWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialEntityWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialEntityWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialEntityWatcher;{b3b85fa0-6d5e-4bbc-805d-5fe5b9ba1959})");
 }
@@ -2404,6 +2469,11 @@ impl ::core::cmp::PartialEq for SpatialLocation {
     }
 }
 impl ::core::cmp::Eq for SpatialLocation {}
+impl ::core::fmt::Debug for SpatialLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocation;{1d81d29d-24a1-37d5-8fa1-39b4f9ad67e2})");
 }
@@ -2600,6 +2670,11 @@ impl ::core::cmp::PartialEq for SpatialLocator {
     }
 }
 impl ::core::cmp::Eq for SpatialLocator {}
+impl ::core::fmt::Debug for SpatialLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialLocator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocator;{f6478925-9e0c-3bb6-997e-b64ecca24cf4})");
 }
@@ -2720,6 +2795,11 @@ impl ::core::cmp::PartialEq for SpatialLocatorAttachedFrameOfReference {
     }
 }
 impl ::core::cmp::Eq for SpatialLocatorAttachedFrameOfReference {}
+impl ::core::fmt::Debug for SpatialLocatorAttachedFrameOfReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLocatorAttachedFrameOfReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialLocatorAttachedFrameOfReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocatorAttachedFrameOfReference;{e1774ef6-1f4f-499c-9625-ef5e6ed7a048})");
 }
@@ -2801,6 +2881,11 @@ impl ::core::cmp::PartialEq for SpatialLocatorPositionalTrackingDeactivatingEven
     }
 }
 impl ::core::cmp::Eq for SpatialLocatorPositionalTrackingDeactivatingEventArgs {}
+impl ::core::fmt::Debug for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialLocatorPositionalTrackingDeactivatingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialLocatorPositionalTrackingDeactivatingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialLocatorPositionalTrackingDeactivatingEventArgs;{b8a84063-e3f4-368b-9061-9ea9d1d6cc16})");
 }
@@ -3091,6 +3176,11 @@ impl ::core::cmp::PartialEq for SpatialStageFrameOfReference {
     }
 }
 impl ::core::cmp::Eq for SpatialStageFrameOfReference {}
+impl ::core::fmt::Debug for SpatialStageFrameOfReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialStageFrameOfReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialStageFrameOfReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStageFrameOfReference;{7a8a3464-ad0d-4590-ab86-33062b674926})");
 }
@@ -3167,6 +3257,11 @@ impl ::core::cmp::PartialEq for SpatialStationaryFrameOfReference {
     }
 }
 impl ::core::cmp::Eq for SpatialStationaryFrameOfReference {}
+impl ::core::fmt::Debug for SpatialStationaryFrameOfReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialStationaryFrameOfReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialStationaryFrameOfReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.SpatialStationaryFrameOfReference;{09dbccb9-bcf8-3e7f-be7e-7edccbb178a8})");
 }

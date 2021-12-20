@@ -102,6 +102,11 @@ impl ::core::cmp::PartialEq for AudioRoutingManager {
     }
 }
 impl ::core::cmp::Eq for AudioRoutingManager {}
+impl ::core::fmt::Debug for AudioRoutingManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AudioRoutingManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AudioRoutingManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Media.Devices.AudioRoutingManager;{79340d20-71cc-4526-9f29-fc8d2486418b})");
 }

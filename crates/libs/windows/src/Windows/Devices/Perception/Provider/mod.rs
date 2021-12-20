@@ -380,6 +380,12 @@ impl ::core::cmp::PartialEq for IPerceptionFrameProvider {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IPerceptionFrameProvider {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IPerceptionFrameProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPerceptionFrameProvider").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IPerceptionFrameProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{794f7ab9-b37d-3b33-a10d-30626419ce65}");
 }
@@ -561,6 +567,12 @@ impl ::core::cmp::PartialEq for IPerceptionFrameProviderManager {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IPerceptionFrameProviderManager {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IPerceptionFrameProviderManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPerceptionFrameProviderManager").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IPerceptionFrameProviderManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a959ce07-ead3-33df-8ec1-b924abe019c4}");
@@ -784,6 +796,12 @@ impl ::core::cmp::PartialEq for PerceptionControlGroup {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionControlGroup {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionControlGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionControlGroup").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionControlGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionControlGroup;{172c4882-2fd9-4c4e-ba34-fdf20a73dde5})");
 }
@@ -911,6 +929,12 @@ impl ::core::cmp::PartialEq for PerceptionCorrelation {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionCorrelation {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionCorrelation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionCorrelation").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionCorrelation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionCorrelation;{b4131a82-dff5-4047-8a19-3b4d805f7176})");
 }
@@ -1020,6 +1044,12 @@ impl ::core::cmp::PartialEq for PerceptionCorrelationGroup {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionCorrelationGroup {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionCorrelationGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionCorrelationGroup").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionCorrelationGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionCorrelationGroup;{752a0906-36a7-47bb-9b79-56cc6b746770})");
 }
@@ -1128,6 +1158,12 @@ impl ::core::cmp::PartialEq for PerceptionFaceAuthenticationGroup {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFaceAuthenticationGroup {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionFaceAuthenticationGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionFaceAuthenticationGroup").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFaceAuthenticationGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionFaceAuthenticationGroup;{e8019814-4a91-41b0-83a6-881a1775353e})");
@@ -1247,6 +1283,12 @@ impl ::core::cmp::PartialEq for PerceptionFrame {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrame {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionFrame").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionFrame;{7cfe7825-54bb-4d9d-bec5-8ef66151d2ac})");
@@ -1415,6 +1457,12 @@ impl ::core::cmp::PartialEq for PerceptionFrameProviderInfo {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrameProviderInfo {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionFrameProviderInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionFrameProviderInfo").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrameProviderInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionFrameProviderInfo;{cca959e8-797e-4e83-9b87-036a74142fc4})");
@@ -1610,6 +1658,12 @@ impl ::core::cmp::PartialEq for PerceptionPropertyChangeRequest {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionPropertyChangeRequest {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionPropertyChangeRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionPropertyChangeRequest").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionPropertyChangeRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionPropertyChangeRequest;{3c5aeb51-350b-4df8-9414-59e09815510b})");
 }
@@ -1753,6 +1807,12 @@ impl ::core::cmp::PartialEq for PerceptionStartFaceAuthenticationHandler {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionStartFaceAuthenticationHandler {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionStartFaceAuthenticationHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionStartFaceAuthenticationHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionStartFaceAuthenticationHandler {
     type Vtable = PerceptionStartFaceAuthenticationHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74816d2a_2090_4670_8c48_ef39e7ff7c26);
@@ -1840,6 +1900,12 @@ impl ::core::cmp::PartialEq for PerceptionStopFaceAuthenticationHandler {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionStopFaceAuthenticationHandler {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionStopFaceAuthenticationHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionStopFaceAuthenticationHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::Interface for PerceptionStopFaceAuthenticationHandler {
     type Vtable = PerceptionStopFaceAuthenticationHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387ee6aa_89cd_481e_aade_dd92f70b2ad7);
@@ -1917,6 +1983,12 @@ impl ::core::cmp::PartialEq for PerceptionVideoFrameAllocator {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionVideoFrameAllocator {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionVideoFrameAllocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionVideoFrameAllocator").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionVideoFrameAllocator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.Provider.PerceptionVideoFrameAllocator;{4c38a7da-fdd8-4ed4-a039-2a6f9b235038})");

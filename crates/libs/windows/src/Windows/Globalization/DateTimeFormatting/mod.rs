@@ -259,6 +259,11 @@ impl ::core::cmp::PartialEq for DateTimeFormatter {
     }
 }
 impl ::core::cmp::Eq for DateTimeFormatter {}
+impl ::core::fmt::Debug for DateTimeFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DateTimeFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DateTimeFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.DateTimeFormatting.DateTimeFormatter;{95eeca10-73e0-4e4b-a183-3d6ad0ba35ec})");
 }

@@ -9186,6 +9186,11 @@ impl ::core::cmp::PartialEq for IGetClusterDataInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterDataInfo {}
+impl ::core::fmt::Debug for IGetClusterDataInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterDataInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterDataInfo {
     type Vtable = IGetClusterDataInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede51_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9241,6 +9246,11 @@ impl ::core::cmp::PartialEq for IGetClusterGroupInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterGroupInfo {}
+impl ::core::fmt::Debug for IGetClusterGroupInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterGroupInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterGroupInfo {
     type Vtable = IGetClusterGroupInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede54_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9288,6 +9298,11 @@ impl ::core::cmp::PartialEq for IGetClusterNetInterfaceInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterNetInterfaceInfo {}
+impl ::core::fmt::Debug for IGetClusterNetInterfaceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterNetInterfaceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterNetInterfaceInfo {
     type Vtable = IGetClusterNetInterfaceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede57_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9335,6 +9350,11 @@ impl ::core::cmp::PartialEq for IGetClusterNetworkInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterNetworkInfo {}
+impl ::core::fmt::Debug for IGetClusterNetworkInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterNetworkInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterNetworkInfo {
     type Vtable = IGetClusterNetworkInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede56_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9382,6 +9402,11 @@ impl ::core::cmp::PartialEq for IGetClusterNodeInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterNodeInfo {}
+impl ::core::fmt::Debug for IGetClusterNodeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterNodeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterNodeInfo {
     type Vtable = IGetClusterNodeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede53_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9434,6 +9459,11 @@ impl ::core::cmp::PartialEq for IGetClusterObjectInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterObjectInfo {}
+impl ::core::fmt::Debug for IGetClusterObjectInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterObjectInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterObjectInfo {
     type Vtable = IGetClusterObjectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede52_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9498,6 +9528,11 @@ impl ::core::cmp::PartialEq for IGetClusterResourceInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterResourceInfo {}
+impl ::core::fmt::Debug for IGetClusterResourceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterResourceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterResourceInfo {
     type Vtable = IGetClusterResourceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede55_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9569,6 +9604,11 @@ impl ::core::cmp::PartialEq for IGetClusterUIInfo {
     }
 }
 impl ::core::cmp::Eq for IGetClusterUIInfo {}
+impl ::core::fmt::Debug for IGetClusterUIInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetClusterUIInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetClusterUIInfo {
     type Vtable = IGetClusterUIInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede50_fc6b_11cf_b5f5_00a0c90ab505);
@@ -9686,6 +9726,11 @@ impl ::core::cmp::PartialEq for ISClusApplication {
     }
 }
 impl ::core::cmp::Eq for ISClusApplication {}
+impl ::core::fmt::Debug for ISClusApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusApplication {
     type Vtable = ISClusApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e6_2631_11d1_89f1_00a0c90d061e);
@@ -9822,6 +9867,11 @@ impl ::core::cmp::PartialEq for ISClusCryptoKeys {
     }
 }
 impl ::core::cmp::Eq for ISClusCryptoKeys {}
+impl ::core::fmt::Debug for ISClusCryptoKeys {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusCryptoKeys").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusCryptoKeys {
     type Vtable = ISClusCryptoKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072c_2631_11d1_89f1_00a0c90d061e);
@@ -9952,6 +10002,11 @@ impl ::core::cmp::PartialEq for ISClusDisk {
     }
 }
 impl ::core::cmp::Eq for ISClusDisk {}
+impl ::core::fmt::Debug for ISClusDisk {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusDisk").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusDisk {
     type Vtable = ISClusDiskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60724_2631_11d1_89f1_00a0c90d061e);
@@ -10073,6 +10128,11 @@ impl ::core::cmp::PartialEq for ISClusDisks {
     }
 }
 impl ::core::cmp::Eq for ISClusDisks {}
+impl ::core::fmt::Debug for ISClusDisks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusDisks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusDisks {
     type Vtable = ISClusDisksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60726_2631_11d1_89f1_00a0c90d061e);
@@ -10219,6 +10279,11 @@ impl ::core::cmp::PartialEq for ISClusNetInterface {
     }
 }
 impl ::core::cmp::Eq for ISClusNetInterface {}
+impl ::core::fmt::Debug for ISClusNetInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetInterface {
     type Vtable = ISClusNetInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ee_2631_11d1_89f1_00a0c90d061e);
@@ -10349,6 +10414,11 @@ impl ::core::cmp::PartialEq for ISClusNetInterfaces {
     }
 }
 impl ::core::cmp::Eq for ISClusNetInterfaces {}
+impl ::core::fmt::Debug for ISClusNetInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetInterfaces {
     type Vtable = ISClusNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f0_2631_11d1_89f1_00a0c90d061e);
@@ -10512,6 +10582,11 @@ impl ::core::cmp::PartialEq for ISClusNetwork {
     }
 }
 impl ::core::cmp::Eq for ISClusNetwork {}
+impl ::core::fmt::Debug for ISClusNetwork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetwork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetwork {
     type Vtable = ISClusNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f2_2631_11d1_89f1_00a0c90d061e);
@@ -10647,6 +10722,11 @@ impl ::core::cmp::PartialEq for ISClusNetworkNetInterfaces {
     }
 }
 impl ::core::cmp::Eq for ISClusNetworkNetInterfaces {}
+impl ::core::fmt::Debug for ISClusNetworkNetInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetworkNetInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetworkNetInterfaces {
     type Vtable = ISClusNetworkNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f6_2631_11d1_89f1_00a0c90d061e);
@@ -10773,6 +10853,11 @@ impl ::core::cmp::PartialEq for ISClusNetworks {
     }
 }
 impl ::core::cmp::Eq for ISClusNetworks {}
+impl ::core::fmt::Debug for ISClusNetworks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNetworks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNetworks {
     type Vtable = ISClusNetworksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f4_2631_11d1_89f1_00a0c90d061e);
@@ -10948,6 +11033,11 @@ impl ::core::cmp::PartialEq for ISClusNode {
     }
 }
 impl ::core::cmp::Eq for ISClusNode {}
+impl ::core::fmt::Debug for ISClusNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNode {
     type Vtable = ISClusNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606f8_2631_11d1_89f1_00a0c90d061e);
@@ -11085,6 +11175,11 @@ impl ::core::cmp::PartialEq for ISClusNodeNetInterfaces {
     }
 }
 impl ::core::cmp::Eq for ISClusNodeNetInterfaces {}
+impl ::core::fmt::Debug for ISClusNodeNetInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNodeNetInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNodeNetInterfaces {
     type Vtable = ISClusNodeNetInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fc_2631_11d1_89f1_00a0c90d061e);
@@ -11211,6 +11306,11 @@ impl ::core::cmp::PartialEq for ISClusNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusNodes {}
+impl ::core::fmt::Debug for ISClusNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusNodes {
     type Vtable = ISClusNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fa_2631_11d1_89f1_00a0c90d061e);
@@ -11355,6 +11455,11 @@ impl ::core::cmp::PartialEq for ISClusPartition {
     }
 }
 impl ::core::cmp::Eq for ISClusPartition {}
+impl ::core::fmt::Debug for ISClusPartition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPartition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPartition {
     type Vtable = ISClusPartitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60720_2631_11d1_89f1_00a0c90d061e);
@@ -11550,6 +11655,11 @@ impl ::core::cmp::PartialEq for ISClusPartitionEx {
     }
 }
 impl ::core::cmp::Eq for ISClusPartitionEx {}
+impl ::core::fmt::Debug for ISClusPartitionEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPartitionEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPartitionEx {
     type Vtable = ISClusPartitionExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8802d4fe_b32e_4ad1_9dbd_64f18e1166ce);
@@ -11683,6 +11793,11 @@ impl ::core::cmp::PartialEq for ISClusPartitions {
     }
 }
 impl ::core::cmp::Eq for ISClusPartitions {}
+impl ::core::fmt::Debug for ISClusPartitions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPartitions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPartitions {
     type Vtable = ISClusPartitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60722_2631_11d1_89f1_00a0c90d061e);
@@ -11849,6 +11964,11 @@ impl ::core::cmp::PartialEq for ISClusProperties {
     }
 }
 impl ::core::cmp::Eq for ISClusProperties {}
+impl ::core::fmt::Debug for ISClusProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusProperties {
     type Vtable = ISClusPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60700_2631_11d1_89f1_00a0c90d061e);
@@ -12047,6 +12167,11 @@ impl ::core::cmp::PartialEq for ISClusProperty {
     }
 }
 impl ::core::cmp::Eq for ISClusProperty {}
+impl ::core::fmt::Debug for ISClusProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusProperty {
     type Vtable = ISClusPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606fe_2631_11d1_89f1_00a0c90d061e);
@@ -12214,6 +12339,11 @@ impl ::core::cmp::PartialEq for ISClusPropertyValue {
     }
 }
 impl ::core::cmp::Eq for ISClusPropertyValue {}
+impl ::core::fmt::Debug for ISClusPropertyValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPropertyValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPropertyValue {
     type Vtable = ISClusPropertyValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071a_2631_11d1_89f1_00a0c90d061e);
@@ -12353,6 +12483,11 @@ impl ::core::cmp::PartialEq for ISClusPropertyValueData {
     }
 }
 impl ::core::cmp::Eq for ISClusPropertyValueData {}
+impl ::core::fmt::Debug for ISClusPropertyValueData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPropertyValueData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPropertyValueData {
     type Vtable = ISClusPropertyValueDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071e_2631_11d1_89f1_00a0c90d061e);
@@ -12489,6 +12624,11 @@ impl ::core::cmp::PartialEq for ISClusPropertyValues {
     }
 }
 impl ::core::cmp::Eq for ISClusPropertyValues {}
+impl ::core::fmt::Debug for ISClusPropertyValues {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusPropertyValues").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusPropertyValues {
     type Vtable = ISClusPropertyValuesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6071c_2631_11d1_89f1_00a0c90d061e);
@@ -12603,6 +12743,11 @@ impl ::core::cmp::PartialEq for ISClusRefObject {
     }
 }
 impl ::core::cmp::Eq for ISClusRefObject {}
+impl ::core::fmt::Debug for ISClusRefObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusRefObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusRefObject {
     type Vtable = ISClusRefObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60702_2631_11d1_89f1_00a0c90d061e);
@@ -12735,6 +12880,11 @@ impl ::core::cmp::PartialEq for ISClusRegistryKeys {
     }
 }
 impl ::core::cmp::Eq for ISClusRegistryKeys {}
+impl ::core::fmt::Debug for ISClusRegistryKeys {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusRegistryKeys").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusRegistryKeys {
     type Vtable = ISClusRegistryKeysVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072a_2631_11d1_89f1_00a0c90d061e);
@@ -12885,6 +13035,11 @@ impl ::core::cmp::PartialEq for ISClusResDependencies {
     }
 }
 impl ::core::cmp::Eq for ISClusResDependencies {}
+impl ::core::fmt::Debug for ISClusResDependencies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResDependencies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResDependencies {
     type Vtable = ISClusResDependenciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60704_2631_11d1_89f1_00a0c90d061e);
@@ -13038,6 +13193,11 @@ impl ::core::cmp::PartialEq for ISClusResDependents {
     }
 }
 impl ::core::cmp::Eq for ISClusResDependents {}
+impl ::core::fmt::Debug for ISClusResDependents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResDependents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResDependents {
     type Vtable = ISClusResDependentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6072e_2631_11d1_89f1_00a0c90d061e);
@@ -13234,6 +13394,11 @@ impl ::core::cmp::PartialEq for ISClusResGroup {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroup {}
+impl ::core::fmt::Debug for ISClusResGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroup {
     type Vtable = ISClusResGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60706_2631_11d1_89f1_00a0c90d061e);
@@ -13399,6 +13564,11 @@ impl ::core::cmp::PartialEq for ISClusResGroupPreferredOwnerNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroupPreferredOwnerNodes {}
+impl ::core::fmt::Debug for ISClusResGroupPreferredOwnerNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroupPreferredOwnerNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroupPreferredOwnerNodes {
     type Vtable = ISClusResGroupPreferredOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e8_2631_11d1_89f1_00a0c90d061e);
@@ -13543,6 +13713,11 @@ impl ::core::cmp::PartialEq for ISClusResGroupResources {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroupResources {}
+impl ::core::fmt::Debug for ISClusResGroupResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroupResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroupResources {
     type Vtable = ISClusResGroupResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ea_2631_11d1_89f1_00a0c90d061e);
@@ -13684,6 +13859,11 @@ impl ::core::cmp::PartialEq for ISClusResGroups {
     }
 }
 impl ::core::cmp::Eq for ISClusResGroups {}
+impl ::core::fmt::Debug for ISClusResGroups {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResGroups").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResGroups {
     type Vtable = ISClusResGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60708_2631_11d1_89f1_00a0c90d061e);
@@ -13829,6 +14009,11 @@ impl ::core::cmp::PartialEq for ISClusResPossibleOwnerNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusResPossibleOwnerNodes {}
+impl ::core::fmt::Debug for ISClusResPossibleOwnerNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResPossibleOwnerNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResPossibleOwnerNodes {
     type Vtable = ISClusResPossibleOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070e_2631_11d1_89f1_00a0c90d061e);
@@ -13990,6 +14175,11 @@ impl ::core::cmp::PartialEq for ISClusResType {
     }
 }
 impl ::core::cmp::Eq for ISClusResType {}
+impl ::core::fmt::Debug for ISClusResType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResType {
     type Vtable = ISClusResTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60710_2631_11d1_89f1_00a0c90d061e);
@@ -14122,6 +14312,11 @@ impl ::core::cmp::PartialEq for ISClusResTypePossibleOwnerNodes {
     }
 }
 impl ::core::cmp::Eq for ISClusResTypePossibleOwnerNodes {}
+impl ::core::fmt::Debug for ISClusResTypePossibleOwnerNodes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResTypePossibleOwnerNodes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResTypePossibleOwnerNodes {
     type Vtable = ISClusResTypePossibleOwnerNodesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60718_2631_11d1_89f1_00a0c90d061e);
@@ -14259,6 +14454,11 @@ impl ::core::cmp::PartialEq for ISClusResTypeResources {
     }
 }
 impl ::core::cmp::Eq for ISClusResTypeResources {}
+impl ::core::fmt::Debug for ISClusResTypeResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResTypeResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResTypeResources {
     type Vtable = ISClusResTypeResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60714_2631_11d1_89f1_00a0c90d061e);
@@ -14400,6 +14600,11 @@ impl ::core::cmp::PartialEq for ISClusResTypes {
     }
 }
 impl ::core::cmp::Eq for ISClusResTypes {}
+impl ::core::fmt::Debug for ISClusResTypes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResTypes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResTypes {
     type Vtable = ISClusResTypesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60712_2631_11d1_89f1_00a0c90d061e);
@@ -14671,6 +14876,11 @@ impl ::core::cmp::PartialEq for ISClusResource {
     }
 }
 impl ::core::cmp::Eq for ISClusResource {}
+impl ::core::fmt::Debug for ISClusResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResource {
     type Vtable = ISClusResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070a_2631_11d1_89f1_00a0c90d061e);
@@ -14844,6 +15054,11 @@ impl ::core::cmp::PartialEq for ISClusResources {
     }
 }
 impl ::core::cmp::Eq for ISClusResources {}
+impl ::core::fmt::Debug for ISClusResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusResources {
     type Vtable = ISClusResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e6070c_2631_11d1_89f1_00a0c90d061e);
@@ -14978,6 +15193,11 @@ impl ::core::cmp::PartialEq for ISClusScsiAddress {
     }
 }
 impl ::core::cmp::Eq for ISClusScsiAddress {}
+impl ::core::fmt::Debug for ISClusScsiAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusScsiAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusScsiAddress {
     type Vtable = ISClusScsiAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60728_2631_11d1_89f1_00a0c90d061e);
@@ -15141,6 +15361,11 @@ impl ::core::cmp::PartialEq for ISClusVersion {
     }
 }
 impl ::core::cmp::Eq for ISClusVersion {}
+impl ::core::fmt::Debug for ISClusVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusVersion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusVersion {
     type Vtable = ISClusVersionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e60716_2631_11d1_89f1_00a0c90d061e);
@@ -15361,6 +15586,11 @@ impl ::core::cmp::PartialEq for ISCluster {
     }
 }
 impl ::core::cmp::Eq for ISCluster {}
+impl ::core::fmt::Debug for ISCluster {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCluster").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCluster {
     type Vtable = ISClusterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e4_2631_11d1_89f1_00a0c90d061e);
@@ -15514,6 +15744,11 @@ impl ::core::cmp::PartialEq for ISClusterNames {
     }
 }
 impl ::core::cmp::Eq for ISClusterNames {}
+impl ::core::fmt::Debug for ISClusterNames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISClusterNames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISClusterNames {
     type Vtable = ISClusterNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606ec_2631_11d1_89f1_00a0c90d061e);
@@ -15642,6 +15877,11 @@ impl ::core::cmp::PartialEq for ISDomainNames {
     }
 }
 impl ::core::cmp::Eq for ISDomainNames {}
+impl ::core::fmt::Debug for ISDomainNames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISDomainNames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISDomainNames {
     type Vtable = ISDomainNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2e606e2_2631_11d1_89f1_00a0c90d061e);
@@ -15707,6 +15947,11 @@ impl ::core::cmp::PartialEq for IWCContextMenuCallback {
     }
 }
 impl ::core::cmp::Eq for IWCContextMenuCallback {}
+impl ::core::fmt::Debug for IWCContextMenuCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCContextMenuCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCContextMenuCallback {
     type Vtable = IWCContextMenuCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede64_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15760,6 +16005,11 @@ impl ::core::cmp::PartialEq for IWCPropertySheetCallback {
     }
 }
 impl ::core::cmp::Eq for IWCPropertySheetCallback {}
+impl ::core::fmt::Debug for IWCPropertySheetCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCPropertySheetCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCPropertySheetCallback {
     type Vtable = IWCPropertySheetCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede60_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15812,6 +16062,11 @@ impl ::core::cmp::PartialEq for IWCWizard97Callback {
     }
 }
 impl ::core::cmp::Eq for IWCWizard97Callback {}
+impl ::core::fmt::Debug for IWCWizard97Callback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCWizard97Callback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCWizard97Callback {
     type Vtable = IWCWizard97CallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede67_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15871,6 +16126,11 @@ impl ::core::cmp::PartialEq for IWCWizardCallback {
     }
 }
 impl ::core::cmp::Eq for IWCWizardCallback {}
+impl ::core::fmt::Debug for IWCWizardCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWCWizardCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWCWizardCallback {
     type Vtable = IWCWizardCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede62_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15925,6 +16185,11 @@ impl ::core::cmp::PartialEq for IWEExtendContextMenu {
     }
 }
 impl ::core::cmp::Eq for IWEExtendContextMenu {}
+impl ::core::fmt::Debug for IWEExtendContextMenu {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendContextMenu").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendContextMenu {
     type Vtable = IWEExtendContextMenuVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede65_fc6b_11cf_b5f5_00a0c90ab505);
@@ -15972,6 +16237,11 @@ impl ::core::cmp::PartialEq for IWEExtendPropertySheet {
     }
 }
 impl ::core::cmp::Eq for IWEExtendPropertySheet {}
+impl ::core::fmt::Debug for IWEExtendPropertySheet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendPropertySheet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendPropertySheet {
     type Vtable = IWEExtendPropertySheetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede61_fc6b_11cf_b5f5_00a0c90ab505);
@@ -16019,6 +16289,11 @@ impl ::core::cmp::PartialEq for IWEExtendWizard {
     }
 }
 impl ::core::cmp::Eq for IWEExtendWizard {}
+impl ::core::fmt::Debug for IWEExtendWizard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendWizard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendWizard {
     type Vtable = IWEExtendWizardVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede63_fc6b_11cf_b5f5_00a0c90ab505);
@@ -16066,6 +16341,11 @@ impl ::core::cmp::PartialEq for IWEExtendWizard97 {
     }
 }
 impl ::core::cmp::Eq for IWEExtendWizard97 {}
+impl ::core::fmt::Debug for IWEExtendWizard97 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEExtendWizard97").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEExtendWizard97 {
     type Vtable = IWEExtendWizard97Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede68_fc6b_11cf_b5f5_00a0c90ab505);
@@ -16113,6 +16393,11 @@ impl ::core::cmp::PartialEq for IWEInvokeCommand {
     }
 }
 impl ::core::cmp::Eq for IWEInvokeCommand {}
+impl ::core::fmt::Debug for IWEInvokeCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWEInvokeCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWEInvokeCommand {
     type Vtable = IWEInvokeCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97dede66_fc6b_11cf_b5f5_00a0c90ab505);

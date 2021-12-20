@@ -80,6 +80,11 @@ impl ::core::cmp::PartialEq for PalmRejectionDelayZonePreview {
     }
 }
 impl ::core::cmp::Eq for PalmRejectionDelayZonePreview {}
+impl ::core::fmt::Debug for PalmRejectionDelayZonePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PalmRejectionDelayZonePreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PalmRejectionDelayZonePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Preview.PalmRejectionDelayZonePreview;{62b496cb-539d-5343-a65f-41f5300ec70c})");
 }

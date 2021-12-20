@@ -888,6 +888,11 @@ impl ::core::cmp::PartialEq for ISdo {
     }
 }
 impl ::core::cmp::Eq for ISdo {}
+impl ::core::fmt::Debug for ISdo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISdo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISdo {
     type Vtable = ISdoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53de_96db_11d1_bf3f_000000000000);
@@ -1038,6 +1043,11 @@ impl ::core::cmp::PartialEq for ISdoCollection {
     }
 }
 impl ::core::cmp::Eq for ISdoCollection {}
+impl ::core::fmt::Debug for ISdoCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISdoCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISdoCollection {
     type Vtable = ISdoCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56bc53e2_96db_11d1_bf3f_000000000000);
@@ -1179,6 +1189,11 @@ impl ::core::cmp::PartialEq for ISdoDictionaryOld {
     }
 }
 impl ::core::cmp::Eq for ISdoDictionaryOld {}
+impl ::core::fmt::Debug for ISdoDictionaryOld {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISdoDictionaryOld").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISdoDictionaryOld {
     type Vtable = ISdoDictionaryOldVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd432e5f4_53d8_11d2_9a3a_00c04fb998ac);
@@ -1338,6 +1353,11 @@ impl ::core::cmp::PartialEq for ISdoMachine {
     }
 }
 impl ::core::cmp::Eq for ISdoMachine {}
+impl ::core::fmt::Debug for ISdoMachine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISdoMachine").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISdoMachine {
     type Vtable = ISdoMachineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e75_49a2_11d2_8eca_00c04fc2f519);
@@ -1544,6 +1564,11 @@ impl ::core::cmp::PartialEq for ISdoMachine2 {
     }
 }
 impl ::core::cmp::Eq for ISdoMachine2 {}
+impl ::core::fmt::Debug for ISdoMachine2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISdoMachine2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISdoMachine2 {
     type Vtable = ISdoMachine2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x518e5ffe_d8ce_4f7e_a5db_b40a35419d3b);
@@ -1683,6 +1708,11 @@ impl ::core::cmp::PartialEq for ISdoServiceControl {
     }
 }
 impl ::core::cmp::Eq for ISdoServiceControl {}
+impl ::core::fmt::Debug for ISdoServiceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISdoServiceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISdoServiceControl {
     type Vtable = ISdoServiceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x479f6e74_49a2_11d2_8eca_00c04fc2f519);
@@ -1856,6 +1886,11 @@ impl ::core::cmp::PartialEq for ITemplateSdo {
     }
 }
 impl ::core::cmp::Eq for ITemplateSdo {}
+impl ::core::fmt::Debug for ITemplateSdo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITemplateSdo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITemplateSdo {
     type Vtable = ITemplateSdoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aa85302_d2e2_4e20_8b1f_a571e437d6c9);

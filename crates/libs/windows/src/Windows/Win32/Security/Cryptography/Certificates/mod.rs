@@ -2895,6 +2895,11 @@ impl ::core::cmp::PartialEq for IAlternativeName {
     }
 }
 impl ::core::cmp::Eq for IAlternativeName {}
+impl ::core::fmt::Debug for IAlternativeName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAlternativeName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAlternativeName {
     type Vtable = IAlternativeNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab313_217d_11da_b2a4_000e7bbb2b09);
@@ -3035,6 +3040,11 @@ impl ::core::cmp::PartialEq for IAlternativeNames {
     }
 }
 impl ::core::cmp::Eq for IAlternativeNames {}
+impl ::core::fmt::Debug for IAlternativeNames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAlternativeNames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAlternativeNames {
     type Vtable = IAlternativeNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab314_217d_11da_b2a4_000e7bbb2b09);
@@ -3160,6 +3170,11 @@ impl ::core::cmp::PartialEq for IBinaryConverter {
     }
 }
 impl ::core::cmp::Eq for IBinaryConverter {}
+impl ::core::fmt::Debug for IBinaryConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBinaryConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBinaryConverter {
     type Vtable = IBinaryConverterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab302_217d_11da_b2a4_000e7bbb2b09);
@@ -3317,6 +3332,11 @@ impl ::core::cmp::PartialEq for IBinaryConverter2 {
     }
 }
 impl ::core::cmp::Eq for IBinaryConverter2 {}
+impl ::core::fmt::Debug for IBinaryConverter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBinaryConverter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBinaryConverter2 {
     type Vtable = IBinaryConverter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d7928b4_4e17_428d_9a17_728df00d1b2b);
@@ -3720,6 +3740,11 @@ impl ::core::cmp::PartialEq for ICEnroll {
     }
 }
 impl ::core::cmp::Eq for ICEnroll {}
+impl ::core::fmt::Debug for ICEnroll {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICEnroll").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICEnroll {
     type Vtable = ICEnrollVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43f8f288_7a20_11d0_8f06_00c04fc295e1);
@@ -4261,6 +4286,11 @@ impl ::core::cmp::PartialEq for ICEnroll2 {
     }
 }
 impl ::core::cmp::Eq for ICEnroll2 {}
+impl ::core::fmt::Debug for ICEnroll2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICEnroll2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICEnroll2 {
     type Vtable = ICEnroll2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x704ca730_c90b_11d1_9bec_00c04fc295e1);
@@ -4907,6 +4937,11 @@ impl ::core::cmp::PartialEq for ICEnroll3 {
     }
 }
 impl ::core::cmp::Eq for ICEnroll3 {}
+impl ::core::fmt::Debug for ICEnroll3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICEnroll3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICEnroll3 {
     type Vtable = ICEnroll3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc28c2d95_b7de_11d2_a421_00c04f79fe8e);
@@ -5769,6 +5804,11 @@ impl ::core::cmp::PartialEq for ICEnroll4 {
     }
 }
 impl ::core::cmp::Eq for ICEnroll4 {}
+impl ::core::fmt::Debug for ICEnroll4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICEnroll4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICEnroll4 {
     type Vtable = ICEnroll4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1f1188a_2eb5_4a80_841b_7e729a356d90);
@@ -6119,6 +6159,11 @@ impl ::core::cmp::PartialEq for ICertAdmin {
     }
 }
 impl ::core::cmp::Eq for ICertAdmin {}
+impl ::core::fmt::Debug for ICertAdmin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertAdmin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertAdmin {
     type Vtable = ICertAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34df6950_7fb6_11d0_8817_00a0c903b83c);
@@ -6375,6 +6420,11 @@ impl ::core::cmp::PartialEq for ICertAdmin2 {
     }
 }
 impl ::core::cmp::Eq for ICertAdmin2 {}
+impl ::core::fmt::Debug for ICertAdmin2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertAdmin2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertAdmin2 {
     type Vtable = ICertAdmin2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7c3ac41_b8ce_4fb4_aa58_3d1dc0e36b39);
@@ -6539,6 +6589,11 @@ impl ::core::cmp::PartialEq for ICertConfig {
     }
 }
 impl ::core::cmp::Eq for ICertConfig {}
+impl ::core::fmt::Debug for ICertConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertConfig {
     type Vtable = ICertConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x372fce34_4324_11d0_8810_00a0c903b83c);
@@ -6693,6 +6748,11 @@ impl ::core::cmp::PartialEq for ICertConfig2 {
     }
 }
 impl ::core::cmp::Eq for ICertConfig2 {}
+impl ::core::fmt::Debug for ICertConfig2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertConfig2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertConfig2 {
     type Vtable = ICertConfig2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a18edde_7e78_4163_8ded_78e2c9cee924);
@@ -6838,6 +6898,11 @@ impl ::core::cmp::PartialEq for ICertEncodeAltName {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeAltName {}
+impl ::core::fmt::Debug for ICertEncodeAltName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeAltName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeAltName {
     type Vtable = ICertEncodeAltNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c9a8c70_1271_11d1_9bd4_00c04fb683fa);
@@ -7028,6 +7093,11 @@ impl ::core::cmp::PartialEq for ICertEncodeAltName2 {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeAltName2 {}
+impl ::core::fmt::Debug for ICertEncodeAltName2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeAltName2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeAltName2 {
     type Vtable = ICertEncodeAltName2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf67fe177_5ef1_4535_b4ce_29df15e2e0c3);
@@ -7170,6 +7240,11 @@ impl ::core::cmp::PartialEq for ICertEncodeBitString {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeBitString {}
+impl ::core::fmt::Debug for ICertEncodeBitString {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeBitString").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeBitString {
     type Vtable = ICertEncodeBitStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6db525be_1278_11d1_9bd4_00c04fb683fa);
@@ -7337,6 +7412,11 @@ impl ::core::cmp::PartialEq for ICertEncodeBitString2 {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeBitString2 {}
+impl ::core::fmt::Debug for ICertEncodeBitString2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeBitString2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeBitString2 {
     type Vtable = ICertEncodeBitString2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe070d6e7_23ef_4dd2_8242_ebd9c928cb30);
@@ -7496,6 +7576,11 @@ impl ::core::cmp::PartialEq for ICertEncodeCRLDistInfo {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeCRLDistInfo {}
+impl ::core::fmt::Debug for ICertEncodeCRLDistInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeCRLDistInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeCRLDistInfo {
     type Vtable = ICertEncodeCRLDistInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01958640_bbff_11d0_8825_00a0c903b83c);
@@ -7686,6 +7771,11 @@ impl ::core::cmp::PartialEq for ICertEncodeCRLDistInfo2 {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeCRLDistInfo2 {}
+impl ::core::fmt::Debug for ICertEncodeCRLDistInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeCRLDistInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeCRLDistInfo2 {
     type Vtable = ICertEncodeCRLDistInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4275d4b_3e30_446f_ad36_09d03120b078);
@@ -7833,6 +7923,11 @@ impl ::core::cmp::PartialEq for ICertEncodeDateArray {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeDateArray {}
+impl ::core::fmt::Debug for ICertEncodeDateArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeDateArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeDateArray {
     type Vtable = ICertEncodeDateArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f9469a0_a470_11d0_8821_00a0c903b83c);
@@ -8002,6 +8097,11 @@ impl ::core::cmp::PartialEq for ICertEncodeDateArray2 {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeDateArray2 {}
+impl ::core::fmt::Debug for ICertEncodeDateArray2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeDateArray2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeDateArray2 {
     type Vtable = ICertEncodeDateArray2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99a4edb5_2b8e_448d_bf95_bba8d7789dc8);
@@ -8144,6 +8244,11 @@ impl ::core::cmp::PartialEq for ICertEncodeLongArray {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeLongArray {}
+impl ::core::fmt::Debug for ICertEncodeLongArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeLongArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeLongArray {
     type Vtable = ICertEncodeLongArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e2f230_a0a2_11d0_8821_00a0c903b83c);
@@ -8313,6 +8418,11 @@ impl ::core::cmp::PartialEq for ICertEncodeLongArray2 {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeLongArray2 {}
+impl ::core::fmt::Debug for ICertEncodeLongArray2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeLongArray2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeLongArray2 {
     type Vtable = ICertEncodeLongArray2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4efde84a_bd9b_4fc2_a108_c347d478840f);
@@ -8462,6 +8572,11 @@ impl ::core::cmp::PartialEq for ICertEncodeStringArray {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeStringArray {}
+impl ::core::fmt::Debug for ICertEncodeStringArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeStringArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeStringArray {
     type Vtable = ICertEncodeStringArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a88820_7494_11d0_8816_00a0c903b83c);
@@ -8641,6 +8756,11 @@ impl ::core::cmp::PartialEq for ICertEncodeStringArray2 {
     }
 }
 impl ::core::cmp::Eq for ICertEncodeStringArray2 {}
+impl ::core::fmt::Debug for ICertEncodeStringArray2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertEncodeStringArray2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertEncodeStringArray2 {
     type Vtable = ICertEncodeStringArray2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c680d93_9b7d_4e95_9018_4ffe10ba5ada);
@@ -8773,6 +8893,11 @@ impl ::core::cmp::PartialEq for ICertExit {
     }
 }
 impl ::core::cmp::Eq for ICertExit {}
+impl ::core::fmt::Debug for ICertExit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertExit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertExit {
     type Vtable = ICertExitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe19ae1a0_7364_11d0_8816_00a0c903b83c);
@@ -8920,6 +9045,11 @@ impl ::core::cmp::PartialEq for ICertExit2 {
     }
 }
 impl ::core::cmp::Eq for ICertExit2 {}
+impl ::core::fmt::Debug for ICertExit2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertExit2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertExit2 {
     type Vtable = ICertExit2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0abf484b_d049_464d_a7ed_552e7529b0ff);
@@ -9033,6 +9163,11 @@ impl ::core::cmp::PartialEq for ICertGetConfig {
     }
 }
 impl ::core::cmp::Eq for ICertGetConfig {}
+impl ::core::fmt::Debug for ICertGetConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertGetConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertGetConfig {
     type Vtable = ICertGetConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7ea09c0_ce17_11d0_8833_00a0c903b83c);
@@ -9152,6 +9287,11 @@ impl ::core::cmp::PartialEq for ICertManageModule {
     }
 }
 impl ::core::cmp::Eq for ICertManageModule {}
+impl ::core::fmt::Debug for ICertManageModule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertManageModule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertManageModule {
     type Vtable = ICertManageModuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d7ad42_bd3d_11d1_9a4d_00c04fc297eb);
@@ -9280,6 +9420,11 @@ impl ::core::cmp::PartialEq for ICertPolicy {
     }
 }
 impl ::core::cmp::Eq for ICertPolicy {}
+impl ::core::fmt::Debug for ICertPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPolicy {
     type Vtable = ICertPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38bb5a00_7636_11d0_b413_00a0c91bbf8c);
@@ -9434,6 +9579,11 @@ impl ::core::cmp::PartialEq for ICertPolicy2 {
     }
 }
 impl ::core::cmp::Eq for ICertPolicy2 {}
+impl ::core::fmt::Debug for ICertPolicy2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPolicy2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPolicy2 {
     type Vtable = ICertPolicy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3db4910e_8001_4bf1_aa1b_f43a808317a0);
@@ -9575,6 +9725,11 @@ impl ::core::cmp::PartialEq for ICertProperties {
     }
 }
 impl ::core::cmp::Eq for ICertProperties {}
+impl ::core::fmt::Debug for ICertProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertProperties {
     type Vtable = ICertPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32f_217d_11da_b2a4_000e7bbb2b09);
@@ -9719,6 +9874,11 @@ impl ::core::cmp::PartialEq for ICertProperty {
     }
 }
 impl ::core::cmp::Eq for ICertProperty {}
+impl ::core::fmt::Debug for ICertProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertProperty {
     type Vtable = ICertPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32e_217d_11da_b2a4_000e7bbb2b09);
@@ -9896,6 +10056,11 @@ impl ::core::cmp::PartialEq for ICertPropertyArchived {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyArchived {}
+impl ::core::fmt::Debug for ICertPropertyArchived {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyArchived").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyArchived {
     type Vtable = ICertPropertyArchivedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab337_217d_11da_b2a4_000e7bbb2b09);
@@ -10077,6 +10242,11 @@ impl ::core::cmp::PartialEq for ICertPropertyArchivedKeyHash {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyArchivedKeyHash {}
+impl ::core::fmt::Debug for ICertPropertyArchivedKeyHash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyArchivedKeyHash").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyArchivedKeyHash {
     type Vtable = ICertPropertyArchivedKeyHashVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33b_217d_11da_b2a4_000e7bbb2b09);
@@ -10260,6 +10430,11 @@ impl ::core::cmp::PartialEq for ICertPropertyAutoEnroll {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyAutoEnroll {}
+impl ::core::fmt::Debug for ICertPropertyAutoEnroll {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyAutoEnroll").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyAutoEnroll {
     type Vtable = ICertPropertyAutoEnrollVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab332_217d_11da_b2a4_000e7bbb2b09);
@@ -10450,6 +10625,11 @@ impl ::core::cmp::PartialEq for ICertPropertyBackedUp {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyBackedUp {}
+impl ::core::fmt::Debug for ICertPropertyBackedUp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyBackedUp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyBackedUp {
     type Vtable = ICertPropertyBackedUpVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab338_217d_11da_b2a4_000e7bbb2b09);
@@ -10633,6 +10813,11 @@ impl ::core::cmp::PartialEq for ICertPropertyDescription {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyDescription {}
+impl ::core::fmt::Debug for ICertPropertyDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyDescription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyDescription {
     type Vtable = ICertPropertyDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab331_217d_11da_b2a4_000e7bbb2b09);
@@ -10833,6 +11018,11 @@ impl ::core::cmp::PartialEq for ICertPropertyEnrollment {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyEnrollment {}
+impl ::core::fmt::Debug for ICertPropertyEnrollment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyEnrollment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyEnrollment {
     type Vtable = ICertPropertyEnrollmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab339_217d_11da_b2a4_000e7bbb2b09);
@@ -11059,6 +11249,11 @@ impl ::core::cmp::PartialEq for ICertPropertyEnrollmentPolicyServer {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyEnrollmentPolicyServer {}
+impl ::core::fmt::Debug for ICertPropertyEnrollmentPolicyServer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyEnrollmentPolicyServer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyEnrollmentPolicyServer {
     type Vtable = ICertPropertyEnrollmentPolicyServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab34a_217d_11da_b2a4_000e7bbb2b09);
@@ -11252,6 +11447,11 @@ impl ::core::cmp::PartialEq for ICertPropertyFriendlyName {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyFriendlyName {}
+impl ::core::fmt::Debug for ICertPropertyFriendlyName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyFriendlyName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyFriendlyName {
     type Vtable = ICertPropertyFriendlyNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab330_217d_11da_b2a4_000e7bbb2b09);
@@ -11433,6 +11633,11 @@ impl ::core::cmp::PartialEq for ICertPropertyKeyProvInfo {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyKeyProvInfo {}
+impl ::core::fmt::Debug for ICertPropertyKeyProvInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyKeyProvInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyKeyProvInfo {
     type Vtable = ICertPropertyKeyProvInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab336_217d_11da_b2a4_000e7bbb2b09);
@@ -11619,6 +11824,11 @@ impl ::core::cmp::PartialEq for ICertPropertyRenewal {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyRenewal {}
+impl ::core::fmt::Debug for ICertPropertyRenewal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyRenewal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyRenewal {
     type Vtable = ICertPropertyRenewalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33a_217d_11da_b2a4_000e7bbb2b09);
@@ -11808,6 +12018,11 @@ impl ::core::cmp::PartialEq for ICertPropertyRequestOriginator {
     }
 }
 impl ::core::cmp::Eq for ICertPropertyRequestOriginator {}
+impl ::core::fmt::Debug for ICertPropertyRequestOriginator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertyRequestOriginator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertyRequestOriginator {
     type Vtable = ICertPropertyRequestOriginatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab333_217d_11da_b2a4_000e7bbb2b09);
@@ -11992,6 +12207,11 @@ impl ::core::cmp::PartialEq for ICertPropertySHA1Hash {
     }
 }
 impl ::core::cmp::Eq for ICertPropertySHA1Hash {}
+impl ::core::fmt::Debug for ICertPropertySHA1Hash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertPropertySHA1Hash").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertPropertySHA1Hash {
     type Vtable = ICertPropertySHA1HashVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab334_217d_11da_b2a4_000e7bbb2b09);
@@ -12149,6 +12369,11 @@ impl ::core::cmp::PartialEq for ICertRequest {
     }
 }
 impl ::core::cmp::Eq for ICertRequest {}
+impl ::core::fmt::Debug for ICertRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertRequest {
     type Vtable = ICertRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014e4840_5523_11d0_8812_00a0c903b83c);
@@ -12358,6 +12583,11 @@ impl ::core::cmp::PartialEq for ICertRequest2 {
     }
 }
 impl ::core::cmp::Eq for ICertRequest2 {}
+impl ::core::fmt::Debug for ICertRequest2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertRequest2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertRequest2 {
     type Vtable = ICertRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4772988_4a85_4fa9_824e_b5cf5c16405a);
@@ -12621,6 +12851,11 @@ impl ::core::cmp::PartialEq for ICertRequest3 {
     }
 }
 impl ::core::cmp::Eq for ICertRequest3 {}
+impl ::core::fmt::Debug for ICertRequest3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertRequest3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertRequest3 {
     type Vtable = ICertRequest3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xafc8f92b_33a2_4861_bf36_2933b7cd67b3);
@@ -12723,6 +12958,11 @@ impl ::core::cmp::PartialEq for ICertRequestD {
     }
 }
 impl ::core::cmp::Eq for ICertRequestD {}
+impl ::core::fmt::Debug for ICertRequestD {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertRequestD").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertRequestD {
     type Vtable = ICertRequestDVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd99e6e70_fc88_11d0_b498_00a0c90312f3);
@@ -12833,6 +13073,11 @@ impl ::core::cmp::PartialEq for ICertRequestD2 {
     }
 }
 impl ::core::cmp::Eq for ICertRequestD2 {}
+impl ::core::fmt::Debug for ICertRequestD2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertRequestD2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertRequestD2 {
     type Vtable = ICertRequestD2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5422fd3a_d4b8_4cef_a12e_e87d4ca22e90);
@@ -13001,6 +13246,11 @@ impl ::core::cmp::PartialEq for ICertServerExit {
     }
 }
 impl ::core::cmp::Eq for ICertServerExit {}
+impl ::core::fmt::Debug for ICertServerExit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertServerExit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertServerExit {
     type Vtable = ICertServerExitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ba9eb90_732c_11d0_8816_00a0c903b83c);
@@ -13191,6 +13441,11 @@ impl ::core::cmp::PartialEq for ICertServerPolicy {
     }
 }
 impl ::core::cmp::Eq for ICertServerPolicy {}
+impl ::core::fmt::Debug for ICertServerPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertServerPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertServerPolicy {
     type Vtable = ICertServerPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa000922_ffbe_11cf_8800_00a0c903b83c);
@@ -13351,6 +13606,11 @@ impl ::core::cmp::PartialEq for ICertView {
     }
 }
 impl ::core::cmp::Eq for ICertView {}
+impl ::core::fmt::Debug for ICertView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertView {
     type Vtable = ICertViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3fac344_1e84_11d1_9bd6_00c04fb683fa);
@@ -13524,6 +13784,11 @@ impl ::core::cmp::PartialEq for ICertView2 {
     }
 }
 impl ::core::cmp::Eq for ICertView2 {}
+impl ::core::fmt::Debug for ICertView2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertView2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertView2 {
     type Vtable = ICertView2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd594b282_8851_4b61_9c66_3edadf848863);
@@ -13654,6 +13919,11 @@ impl ::core::cmp::PartialEq for ICertificateAttestationChallenge {
     }
 }
 impl ::core::cmp::Eq for ICertificateAttestationChallenge {}
+impl ::core::fmt::Debug for ICertificateAttestationChallenge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificateAttestationChallenge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificateAttestationChallenge {
     type Vtable = ICertificateAttestationChallengeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f175a7c_4a3a_40ae_9dba_592fd6bbf9b8);
@@ -13808,6 +14078,11 @@ impl ::core::cmp::PartialEq for ICertificateAttestationChallenge2 {
     }
 }
 impl ::core::cmp::Eq for ICertificateAttestationChallenge2 {}
+impl ::core::fmt::Debug for ICertificateAttestationChallenge2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificateAttestationChallenge2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificateAttestationChallenge2 {
     type Vtable = ICertificateAttestationChallenge2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4631334d_e266_47d6_bd79_be53cb2e2753);
@@ -13946,6 +14221,11 @@ impl ::core::cmp::PartialEq for ICertificatePolicies {
     }
 }
 impl ::core::cmp::Eq for ICertificatePolicies {}
+impl ::core::fmt::Debug for ICertificatePolicies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificatePolicies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificatePolicies {
     type Vtable = ICertificatePoliciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31f_217d_11da_b2a4_000e7bbb2b09);
@@ -14067,6 +14347,11 @@ impl ::core::cmp::PartialEq for ICertificatePolicy {
     }
 }
 impl ::core::cmp::Eq for ICertificatePolicy {}
+impl ::core::fmt::Debug for ICertificatePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificatePolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificatePolicy {
     type Vtable = ICertificatePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31e_217d_11da_b2a4_000e7bbb2b09);
@@ -14208,6 +14493,11 @@ impl ::core::cmp::PartialEq for ICertificationAuthorities {
     }
 }
 impl ::core::cmp::Eq for ICertificationAuthorities {}
+impl ::core::fmt::Debug for ICertificationAuthorities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificationAuthorities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificationAuthorities {
     type Vtable = ICertificationAuthoritiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b79005_2181_11da_b2a4_000e7bbb2b09);
@@ -14324,6 +14614,11 @@ impl ::core::cmp::PartialEq for ICertificationAuthority {
     }
 }
 impl ::core::cmp::Eq for ICertificationAuthority {}
+impl ::core::fmt::Debug for ICertificationAuthority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificationAuthority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificationAuthority {
     type Vtable = ICertificationAuthorityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x835d1f61_1e95_4bc8_b4d3_976c42b968f7);
@@ -14445,6 +14740,11 @@ impl ::core::cmp::PartialEq for ICryptAttribute {
     }
 }
 impl ::core::cmp::Eq for ICryptAttribute {}
+impl ::core::fmt::Debug for ICryptAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICryptAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICryptAttribute {
     type Vtable = ICryptAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32c_217d_11da_b2a4_000e7bbb2b09);
@@ -14586,6 +14886,11 @@ impl ::core::cmp::PartialEq for ICryptAttributes {
     }
 }
 impl ::core::cmp::Eq for ICryptAttributes {}
+impl ::core::fmt::Debug for ICryptAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICryptAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICryptAttributes {
     type Vtable = ICryptAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32d_217d_11da_b2a4_000e7bbb2b09);
@@ -14747,6 +15052,11 @@ impl ::core::cmp::PartialEq for ICspAlgorithm {
     }
 }
 impl ::core::cmp::Eq for ICspAlgorithm {}
+impl ::core::fmt::Debug for ICspAlgorithm {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICspAlgorithm").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICspAlgorithm {
     type Vtable = ICspAlgorithmVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab305_217d_11da_b2a4_000e7bbb2b09);
@@ -14898,6 +15208,11 @@ impl ::core::cmp::PartialEq for ICspAlgorithms {
     }
 }
 impl ::core::cmp::Eq for ICspAlgorithms {}
+impl ::core::fmt::Debug for ICspAlgorithms {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICspAlgorithms").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICspAlgorithms {
     type Vtable = ICspAlgorithmsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab306_217d_11da_b2a4_000e7bbb2b09);
@@ -15094,6 +15409,11 @@ impl ::core::cmp::PartialEq for ICspInformation {
     }
 }
 impl ::core::cmp::Eq for ICspInformation {}
+impl ::core::fmt::Debug for ICspInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICspInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICspInformation {
     type Vtable = ICspInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab307_217d_11da_b2a4_000e7bbb2b09);
@@ -15273,6 +15593,11 @@ impl ::core::cmp::PartialEq for ICspInformations {
     }
 }
 impl ::core::cmp::Eq for ICspInformations {}
+impl ::core::fmt::Debug for ICspInformations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICspInformations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICspInformations {
     type Vtable = ICspInformationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab308_217d_11da_b2a4_000e7bbb2b09);
@@ -15422,6 +15747,11 @@ impl ::core::cmp::PartialEq for ICspStatus {
     }
 }
 impl ::core::cmp::Eq for ICspStatus {}
+impl ::core::fmt::Debug for ICspStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICspStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICspStatus {
     type Vtable = ICspStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab309_217d_11da_b2a4_000e7bbb2b09);
@@ -15580,6 +15910,11 @@ impl ::core::cmp::PartialEq for ICspStatuses {
     }
 }
 impl ::core::cmp::Eq for ICspStatuses {}
+impl ::core::fmt::Debug for ICspStatuses {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICspStatuses").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICspStatuses {
     type Vtable = ICspStatusesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30a_217d_11da_b2a4_000e7bbb2b09);
@@ -15976,6 +16311,11 @@ impl ::core::cmp::PartialEq for IEnroll {
     }
 }
 impl ::core::cmp::Eq for IEnroll {}
+impl ::core::fmt::Debug for IEnroll {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnroll").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnroll {
     type Vtable = IEnrollVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xacaa7838_4585_11d1_ab57_00c04fc295e1);
@@ -16571,6 +16911,11 @@ impl ::core::cmp::PartialEq for IEnroll2 {
     }
 }
 impl ::core::cmp::Eq for IEnroll2 {}
+impl ::core::fmt::Debug for IEnroll2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnroll2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnroll2 {
     type Vtable = IEnroll2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc080e199_b7df_11d2_a421_00c04f79fe8e);
@@ -17360,6 +17705,11 @@ impl ::core::cmp::PartialEq for IEnroll4 {
     }
 }
 impl ::core::cmp::Eq for IEnroll4 {}
+impl ::core::fmt::Debug for IEnroll4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnroll4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnroll4 {
     type Vtable = IEnroll4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8053fe5_78f4_448f_a0db_41d61b73446b);
@@ -17677,6 +18027,11 @@ impl ::core::cmp::PartialEq for IEnumCERTVIEWATTRIBUTE {
     }
 }
 impl ::core::cmp::Eq for IEnumCERTVIEWATTRIBUTE {}
+impl ::core::fmt::Debug for IEnumCERTVIEWATTRIBUTE {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumCERTVIEWATTRIBUTE").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumCERTVIEWATTRIBUTE {
     type Vtable = IEnumCERTVIEWATTRIBUTEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe77db656_7653_11d1_9bde_00c04fb683fa);
@@ -17830,6 +18185,11 @@ impl ::core::cmp::PartialEq for IEnumCERTVIEWCOLUMN {
     }
 }
 impl ::core::cmp::Eq for IEnumCERTVIEWCOLUMN {}
+impl ::core::fmt::Debug for IEnumCERTVIEWCOLUMN {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumCERTVIEWCOLUMN").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumCERTVIEWCOLUMN {
     type Vtable = IEnumCERTVIEWCOLUMNVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c735be2_57a5_11d1_9bdb_00c04fb683fa);
@@ -17975,6 +18335,11 @@ impl ::core::cmp::PartialEq for IEnumCERTVIEWEXTENSION {
     }
 }
 impl ::core::cmp::Eq for IEnumCERTVIEWEXTENSION {}
+impl ::core::fmt::Debug for IEnumCERTVIEWEXTENSION {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumCERTVIEWEXTENSION").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumCERTVIEWEXTENSION {
     type Vtable = IEnumCERTVIEWEXTENSIONVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7dd1466_7653_11d1_9bde_00c04fb683fa);
@@ -18121,6 +18486,11 @@ impl ::core::cmp::PartialEq for IEnumCERTVIEWROW {
     }
 }
 impl ::core::cmp::Eq for IEnumCERTVIEWROW {}
+impl ::core::fmt::Debug for IEnumCERTVIEWROW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumCERTVIEWROW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumCERTVIEWROW {
     type Vtable = IEnumCERTVIEWROWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1157f4c_5af2_11d1_9bdc_00c04fb683fa);
@@ -18236,6 +18606,11 @@ impl ::core::cmp::PartialEq for INDESPolicy {
     }
 }
 impl ::core::cmp::Eq for INDESPolicy {}
+impl ::core::fmt::Debug for INDESPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INDESPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INDESPolicy {
     type Vtable = INDESPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13ca515d_431d_46cc_8c2e_1da269bbd625);
@@ -18391,6 +18766,11 @@ impl ::core::cmp::PartialEq for IOCSPAdmin {
     }
 }
 impl ::core::cmp::Eq for IOCSPAdmin {}
+impl ::core::fmt::Debug for IOCSPAdmin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOCSPAdmin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOCSPAdmin {
     type Vtable = IOCSPAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x322e830d_67db_4fe9_9577_4596d9f09294);
@@ -18638,6 +19018,11 @@ impl ::core::cmp::PartialEq for IOCSPCAConfiguration {
     }
 }
 impl ::core::cmp::Eq for IOCSPCAConfiguration {}
+impl ::core::fmt::Debug for IOCSPCAConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOCSPCAConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOCSPCAConfiguration {
     type Vtable = IOCSPCAConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec92b40_3d46_433f_87d1_b84d5c1e790d);
@@ -18813,6 +19198,11 @@ impl ::core::cmp::PartialEq for IOCSPCAConfigurationCollection {
     }
 }
 impl ::core::cmp::Eq for IOCSPCAConfigurationCollection {}
+impl ::core::fmt::Debug for IOCSPCAConfigurationCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOCSPCAConfigurationCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOCSPCAConfigurationCollection {
     type Vtable = IOCSPCAConfigurationCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2bebea0b_5ece_4f28_a91c_86b4bb20f0d3);
@@ -18946,6 +19336,11 @@ impl ::core::cmp::PartialEq for IOCSPProperty {
     }
 }
 impl ::core::cmp::Eq for IOCSPProperty {}
+impl ::core::fmt::Debug for IOCSPProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOCSPProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOCSPProperty {
     type Vtable = IOCSPPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66fb7839_5f04_4c25_ad18_9ff1a8376ee0);
@@ -19098,6 +19493,11 @@ impl ::core::cmp::PartialEq for IOCSPPropertyCollection {
     }
 }
 impl ::core::cmp::Eq for IOCSPPropertyCollection {}
+impl ::core::fmt::Debug for IOCSPPropertyCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOCSPPropertyCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOCSPPropertyCollection {
     type Vtable = IOCSPPropertyCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2597c18d_54e6_4b74_9fa9_a6bfda99cbbe);
@@ -19255,6 +19655,11 @@ impl ::core::cmp::PartialEq for IObjectId {
     }
 }
 impl ::core::cmp::Eq for IObjectId {}
+impl ::core::fmt::Debug for IObjectId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectId {
     type Vtable = IObjectIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab300_217d_11da_b2a4_000e7bbb2b09);
@@ -19401,6 +19806,11 @@ impl ::core::cmp::PartialEq for IObjectIds {
     }
 }
 impl ::core::cmp::Eq for IObjectIds {}
+impl ::core::fmt::Debug for IObjectIds {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectIds").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectIds {
     type Vtable = IObjectIdsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab301_217d_11da_b2a4_000e7bbb2b09);
@@ -19536,6 +19946,11 @@ impl ::core::cmp::PartialEq for IPolicyQualifier {
     }
 }
 impl ::core::cmp::Eq for IPolicyQualifier {}
+impl ::core::fmt::Debug for IPolicyQualifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPolicyQualifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPolicyQualifier {
     type Vtable = IPolicyQualifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31c_217d_11da_b2a4_000e7bbb2b09);
@@ -19672,6 +20087,11 @@ impl ::core::cmp::PartialEq for IPolicyQualifiers {
     }
 }
 impl ::core::cmp::Eq for IPolicyQualifiers {}
+impl ::core::fmt::Debug for IPolicyQualifiers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPolicyQualifiers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPolicyQualifiers {
     type Vtable = IPolicyQualifiersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31d_217d_11da_b2a4_000e7bbb2b09);
@@ -19850,6 +20270,11 @@ impl ::core::cmp::PartialEq for ISignerCertificate {
     }
 }
 impl ::core::cmp::Eq for ISignerCertificate {}
+impl ::core::fmt::Debug for ISignerCertificate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISignerCertificate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISignerCertificate {
     type Vtable = ISignerCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33d_217d_11da_b2a4_000e7bbb2b09);
@@ -19999,6 +20424,11 @@ impl ::core::cmp::PartialEq for ISignerCertificates {
     }
 }
 impl ::core::cmp::Eq for ISignerCertificates {}
+impl ::core::fmt::Debug for ISignerCertificates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISignerCertificates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISignerCertificates {
     type Vtable = ISignerCertificatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33e_217d_11da_b2a4_000e7bbb2b09);
@@ -20142,6 +20572,11 @@ impl ::core::cmp::PartialEq for ISmimeCapabilities {
     }
 }
 impl ::core::cmp::Eq for ISmimeCapabilities {}
+impl ::core::fmt::Debug for ISmimeCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISmimeCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISmimeCapabilities {
     type Vtable = ISmimeCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31a_217d_11da_b2a4_000e7bbb2b09);
@@ -20265,6 +20700,11 @@ impl ::core::cmp::PartialEq for ISmimeCapability {
     }
 }
 impl ::core::cmp::Eq for ISmimeCapability {}
+impl ::core::fmt::Debug for ISmimeCapability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISmimeCapability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISmimeCapability {
     type Vtable = ISmimeCapabilityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab319_217d_11da_b2a4_000e7bbb2b09);
@@ -20391,6 +20831,11 @@ impl ::core::cmp::PartialEq for IX500DistinguishedName {
     }
 }
 impl ::core::cmp::Eq for IX500DistinguishedName {}
+impl ::core::fmt::Debug for IX500DistinguishedName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX500DistinguishedName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX500DistinguishedName {
     type Vtable = IX500DistinguishedNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab303_217d_11da_b2a4_000e7bbb2b09);
@@ -20516,6 +20961,11 @@ impl ::core::cmp::PartialEq for IX509Attribute {
     }
 }
 impl ::core::cmp::Eq for IX509Attribute {}
+impl ::core::fmt::Debug for IX509Attribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509Attribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509Attribute {
     type Vtable = IX509AttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab322_217d_11da_b2a4_000e7bbb2b09);
@@ -20684,6 +21134,11 @@ impl ::core::cmp::PartialEq for IX509AttributeArchiveKey {
     }
 }
 impl ::core::cmp::Eq for IX509AttributeArchiveKey {}
+impl ::core::fmt::Debug for IX509AttributeArchiveKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509AttributeArchiveKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509AttributeArchiveKey {
     type Vtable = IX509AttributeArchiveKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab327_217d_11da_b2a4_000e7bbb2b09);
@@ -20850,6 +21305,11 @@ impl ::core::cmp::PartialEq for IX509AttributeArchiveKeyHash {
     }
 }
 impl ::core::cmp::Eq for IX509AttributeArchiveKeyHash {}
+impl ::core::fmt::Debug for IX509AttributeArchiveKeyHash {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509AttributeArchiveKeyHash").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509AttributeArchiveKeyHash {
     type Vtable = IX509AttributeArchiveKeyHashVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab328_217d_11da_b2a4_000e7bbb2b09);
@@ -21031,6 +21491,11 @@ impl ::core::cmp::PartialEq for IX509AttributeClientId {
     }
 }
 impl ::core::cmp::Eq for IX509AttributeClientId {}
+impl ::core::fmt::Debug for IX509AttributeClientId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509AttributeClientId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509AttributeClientId {
     type Vtable = IX509AttributeClientIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab325_217d_11da_b2a4_000e7bbb2b09);
@@ -21211,6 +21676,11 @@ impl ::core::cmp::PartialEq for IX509AttributeCspProvider {
     }
 }
 impl ::core::cmp::Eq for IX509AttributeCspProvider {}
+impl ::core::fmt::Debug for IX509AttributeCspProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509AttributeCspProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509AttributeCspProvider {
     type Vtable = IX509AttributeCspProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32b_217d_11da_b2a4_000e7bbb2b09);
@@ -21376,6 +21846,11 @@ impl ::core::cmp::PartialEq for IX509AttributeExtensions {
     }
 }
 impl ::core::cmp::Eq for IX509AttributeExtensions {}
+impl ::core::fmt::Debug for IX509AttributeExtensions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509AttributeExtensions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509AttributeExtensions {
     type Vtable = IX509AttributeExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab324_217d_11da_b2a4_000e7bbb2b09);
@@ -21538,6 +22013,11 @@ impl ::core::cmp::PartialEq for IX509AttributeOSVersion {
     }
 }
 impl ::core::cmp::Eq for IX509AttributeOSVersion {}
+impl ::core::fmt::Debug for IX509AttributeOSVersion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509AttributeOSVersion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509AttributeOSVersion {
     type Vtable = IX509AttributeOSVersionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab32a_217d_11da_b2a4_000e7bbb2b09);
@@ -21702,6 +22182,11 @@ impl ::core::cmp::PartialEq for IX509AttributeRenewalCertificate {
     }
 }
 impl ::core::cmp::Eq for IX509AttributeRenewalCertificate {}
+impl ::core::fmt::Debug for IX509AttributeRenewalCertificate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509AttributeRenewalCertificate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509AttributeRenewalCertificate {
     type Vtable = IX509AttributeRenewalCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab326_217d_11da_b2a4_000e7bbb2b09);
@@ -21841,6 +22326,11 @@ impl ::core::cmp::PartialEq for IX509Attributes {
     }
 }
 impl ::core::cmp::Eq for IX509Attributes {}
+impl ::core::fmt::Debug for IX509Attributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509Attributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509Attributes {
     type Vtable = IX509AttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab323_217d_11da_b2a4_000e7bbb2b09);
@@ -22066,6 +22556,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequest {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequest {}
+impl ::core::fmt::Debug for IX509CertificateRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequest {
     type Vtable = IX509CertificateRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab341_217d_11da_b2a4_000e7bbb2b09);
@@ -22547,6 +23042,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestCertificate {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestCertificate {}
+impl ::core::fmt::Debug for IX509CertificateRequestCertificate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestCertificate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestCertificate {
     type Vtable = IX509CertificateRequestCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab343_217d_11da_b2a4_000e7bbb2b09);
@@ -23117,6 +23617,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestCertificate2 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestCertificate2 {}
+impl ::core::fmt::Debug for IX509CertificateRequestCertificate2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestCertificate2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestCertificate2 {
     type Vtable = IX509CertificateRequestCertificate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35a_217d_11da_b2a4_000e7bbb2b09);
@@ -23614,6 +24119,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestCmc {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestCmc {}
+impl ::core::fmt::Debug for IX509CertificateRequestCmc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestCmc").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestCmc {
     type Vtable = IX509CertificateRequestCmcVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab345_217d_11da_b2a4_000e7bbb2b09);
@@ -24144,6 +24654,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestCmc2 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestCmc2 {}
+impl ::core::fmt::Debug for IX509CertificateRequestCmc2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestCmc2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestCmc2 {
     type Vtable = IX509CertificateRequestCmc2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35d_217d_11da_b2a4_000e7bbb2b09);
@@ -24602,6 +25117,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestPkcs10 {}
+impl ::core::fmt::Debug for IX509CertificateRequestPkcs10 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestPkcs10").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10 {
     type Vtable = IX509CertificateRequestPkcs10Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab342_217d_11da_b2a4_000e7bbb2b09);
@@ -25092,6 +25612,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V2 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestPkcs10V2 {}
+impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestPkcs10V2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10V2 {
     type Vtable = IX509CertificateRequestPkcs10V2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35b_217d_11da_b2a4_000e7bbb2b09);
@@ -25661,6 +26186,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V3 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestPkcs10V3 {}
+impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestPkcs10V3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10V3 {
     type Vtable = IX509CertificateRequestPkcs10V3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ea9942_3d66_4530_b76e_7c9170d3ec52);
@@ -26283,6 +26813,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs10V4 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestPkcs10V4 {}
+impl ::core::fmt::Debug for IX509CertificateRequestPkcs10V4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestPkcs10V4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs10V4 {
     type Vtable = IX509CertificateRequestPkcs10V4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab363_217d_11da_b2a4_000e7bbb2b09);
@@ -26653,6 +27188,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs7 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestPkcs7 {}
+impl ::core::fmt::Debug for IX509CertificateRequestPkcs7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestPkcs7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs7 {
     type Vtable = IX509CertificateRequestPkcs7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab344_217d_11da_b2a4_000e7bbb2b09);
@@ -27012,6 +27552,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRequestPkcs7V2 {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRequestPkcs7V2 {}
+impl ::core::fmt::Debug for IX509CertificateRequestPkcs7V2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRequestPkcs7V2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRequestPkcs7V2 {
     type Vtable = IX509CertificateRequestPkcs7V2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35c_217d_11da_b2a4_000e7bbb2b09);
@@ -27307,6 +27852,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRevocationList {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRevocationList {}
+impl ::core::fmt::Debug for IX509CertificateRevocationList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRevocationList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRevocationList {
     type Vtable = IX509CertificateRevocationListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab360_217d_11da_b2a4_000e7bbb2b09);
@@ -27482,6 +28032,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRevocationListEntries {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRevocationListEntries {}
+impl ::core::fmt::Debug for IX509CertificateRevocationListEntries {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRevocationListEntries").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRevocationListEntries {
     type Vtable = IX509CertificateRevocationListEntriesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35f_217d_11da_b2a4_000e7bbb2b09);
@@ -27627,6 +28182,11 @@ impl ::core::cmp::PartialEq for IX509CertificateRevocationListEntry {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateRevocationListEntry {}
+impl ::core::fmt::Debug for IX509CertificateRevocationListEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateRevocationListEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateRevocationListEntry {
     type Vtable = IX509CertificateRevocationListEntryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab35e_217d_11da_b2a4_000e7bbb2b09);
@@ -27743,6 +28303,11 @@ impl ::core::cmp::PartialEq for IX509CertificateTemplate {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateTemplate {}
+impl ::core::fmt::Debug for IX509CertificateTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateTemplate {
     type Vtable = IX509CertificateTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54244a13_555a_4e22_896d_1b0e52f76406);
@@ -27871,6 +28436,11 @@ impl ::core::cmp::PartialEq for IX509CertificateTemplateWritable {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateTemplateWritable {}
+impl ::core::fmt::Debug for IX509CertificateTemplateWritable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateTemplateWritable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateTemplateWritable {
     type Vtable = IX509CertificateTemplateWritableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf49466a7_395a_4e9e_b6e7_32b331600dc0);
@@ -28018,6 +28588,11 @@ impl ::core::cmp::PartialEq for IX509CertificateTemplates {
     }
 }
 impl ::core::cmp::Eq for IX509CertificateTemplates {}
+impl ::core::fmt::Debug for IX509CertificateTemplates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509CertificateTemplates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509CertificateTemplates {
     type Vtable = IX509CertificateTemplatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b79003_2181_11da_b2a4_000e7bbb2b09);
@@ -28183,6 +28758,11 @@ impl ::core::cmp::PartialEq for IX509EndorsementKey {
     }
 }
 impl ::core::cmp::Eq for IX509EndorsementKey {}
+impl ::core::fmt::Debug for IX509EndorsementKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509EndorsementKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509EndorsementKey {
     type Vtable = IX509EndorsementKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb11cd855_f4c4_4fc6_b710_4422237f09e9);
@@ -28417,6 +28997,11 @@ impl ::core::cmp::PartialEq for IX509Enrollment {
     }
 }
 impl ::core::cmp::Eq for IX509Enrollment {}
+impl ::core::fmt::Debug for IX509Enrollment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509Enrollment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509Enrollment {
     type Vtable = IX509EnrollmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab346_217d_11da_b2a4_000e7bbb2b09);
@@ -28714,6 +29299,11 @@ impl ::core::cmp::PartialEq for IX509Enrollment2 {
     }
 }
 impl ::core::cmp::Eq for IX509Enrollment2 {}
+impl ::core::fmt::Debug for IX509Enrollment2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509Enrollment2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509Enrollment2 {
     type Vtable = IX509Enrollment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab350_217d_11da_b2a4_000e7bbb2b09);
@@ -28876,6 +29466,11 @@ impl ::core::cmp::PartialEq for IX509EnrollmentHelper {
     }
 }
 impl ::core::cmp::Eq for IX509EnrollmentHelper {}
+impl ::core::fmt::Debug for IX509EnrollmentHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509EnrollmentHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509EnrollmentHelper {
     type Vtable = IX509EnrollmentHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab351_217d_11da_b2a4_000e7bbb2b09);
@@ -29107,6 +29702,11 @@ impl ::core::cmp::PartialEq for IX509EnrollmentPolicyServer {
     }
 }
 impl ::core::cmp::Eq for IX509EnrollmentPolicyServer {}
+impl ::core::fmt::Debug for IX509EnrollmentPolicyServer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509EnrollmentPolicyServer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509EnrollmentPolicyServer {
     type Vtable = IX509EnrollmentPolicyServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b79026_2181_11da_b2a4_000e7bbb2b09);
@@ -29299,6 +29899,11 @@ impl ::core::cmp::PartialEq for IX509EnrollmentStatus {
     }
 }
 impl ::core::cmp::Eq for IX509EnrollmentStatus {}
+impl ::core::fmt::Debug for IX509EnrollmentStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509EnrollmentStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509EnrollmentStatus {
     type Vtable = IX509EnrollmentStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab304_217d_11da_b2a4_000e7bbb2b09);
@@ -29422,6 +30027,11 @@ impl ::core::cmp::PartialEq for IX509EnrollmentWebClassFactory {
     }
 }
 impl ::core::cmp::Eq for IX509EnrollmentWebClassFactory {}
+impl ::core::fmt::Debug for IX509EnrollmentWebClassFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509EnrollmentWebClassFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509EnrollmentWebClassFactory {
     type Vtable = IX509EnrollmentWebClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab349_217d_11da_b2a4_000e7bbb2b09);
@@ -29550,6 +30160,11 @@ impl ::core::cmp::PartialEq for IX509Extension {
     }
 }
 impl ::core::cmp::Eq for IX509Extension {}
+impl ::core::fmt::Debug for IX509Extension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509Extension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509Extension {
     type Vtable = IX509ExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30d_217d_11da_b2a4_000e7bbb2b09);
@@ -29717,6 +30332,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionAlternativeNames {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionAlternativeNames {}
+impl ::core::fmt::Debug for IX509ExtensionAlternativeNames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionAlternativeNames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionAlternativeNames {
     type Vtable = IX509ExtensionAlternativeNamesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab315_217d_11da_b2a4_000e7bbb2b09);
@@ -29890,6 +30510,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionAuthorityKeyIdentifier {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionAuthorityKeyIdentifier {}
+impl ::core::fmt::Debug for IX509ExtensionAuthorityKeyIdentifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionAuthorityKeyIdentifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionAuthorityKeyIdentifier {
     type Vtable = IX509ExtensionAuthorityKeyIdentifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab318_217d_11da_b2a4_000e7bbb2b09);
@@ -30068,6 +30693,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionBasicConstraints {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionBasicConstraints {}
+impl ::core::fmt::Debug for IX509ExtensionBasicConstraints {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionBasicConstraints").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionBasicConstraints {
     type Vtable = IX509ExtensionBasicConstraintsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab316_217d_11da_b2a4_000e7bbb2b09);
@@ -30240,6 +30870,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionCertificatePolicies {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionCertificatePolicies {}
+impl ::core::fmt::Debug for IX509ExtensionCertificatePolicies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionCertificatePolicies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionCertificatePolicies {
     type Vtable = IX509ExtensionCertificatePoliciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab320_217d_11da_b2a4_000e7bbb2b09);
@@ -30411,6 +31046,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionEnhancedKeyUsage {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionEnhancedKeyUsage {}
+impl ::core::fmt::Debug for IX509ExtensionEnhancedKeyUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionEnhancedKeyUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionEnhancedKeyUsage {
     type Vtable = IX509ExtensionEnhancedKeyUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab310_217d_11da_b2a4_000e7bbb2b09);
@@ -30582,6 +31222,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionKeyUsage {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionKeyUsage {}
+impl ::core::fmt::Debug for IX509ExtensionKeyUsage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionKeyUsage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionKeyUsage {
     type Vtable = IX509ExtensionKeyUsageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30f_217d_11da_b2a4_000e7bbb2b09);
@@ -30753,6 +31398,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionMSApplicationPolicies {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionMSApplicationPolicies {}
+impl ::core::fmt::Debug for IX509ExtensionMSApplicationPolicies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionMSApplicationPolicies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionMSApplicationPolicies {
     type Vtable = IX509ExtensionMSApplicationPoliciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab321_217d_11da_b2a4_000e7bbb2b09);
@@ -30924,6 +31574,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionSmimeCapabilities {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionSmimeCapabilities {}
+impl ::core::fmt::Debug for IX509ExtensionSmimeCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionSmimeCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionSmimeCapabilities {
     type Vtable = IX509ExtensionSmimeCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab31b_217d_11da_b2a4_000e7bbb2b09);
@@ -31097,6 +31752,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionSubjectKeyIdentifier {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionSubjectKeyIdentifier {}
+impl ::core::fmt::Debug for IX509ExtensionSubjectKeyIdentifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionSubjectKeyIdentifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionSubjectKeyIdentifier {
     type Vtable = IX509ExtensionSubjectKeyIdentifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab317_217d_11da_b2a4_000e7bbb2b09);
@@ -31280,6 +31940,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionTemplate {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionTemplate {}
+impl ::core::fmt::Debug for IX509ExtensionTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionTemplate {
     type Vtable = IX509ExtensionTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab312_217d_11da_b2a4_000e7bbb2b09);
@@ -31455,6 +32120,11 @@ impl ::core::cmp::PartialEq for IX509ExtensionTemplateName {
     }
 }
 impl ::core::cmp::Eq for IX509ExtensionTemplateName {}
+impl ::core::fmt::Debug for IX509ExtensionTemplateName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509ExtensionTemplateName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509ExtensionTemplateName {
     type Vtable = IX509ExtensionTemplateNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab311_217d_11da_b2a4_000e7bbb2b09);
@@ -31605,6 +32275,11 @@ impl ::core::cmp::PartialEq for IX509Extensions {
     }
 }
 impl ::core::cmp::Eq for IX509Extensions {}
+impl ::core::fmt::Debug for IX509Extensions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509Extensions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509Extensions {
     type Vtable = IX509ExtensionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30e_217d_11da_b2a4_000e7bbb2b09);
@@ -31720,6 +32395,11 @@ impl ::core::cmp::PartialEq for IX509MachineEnrollmentFactory {
     }
 }
 impl ::core::cmp::Eq for IX509MachineEnrollmentFactory {}
+impl ::core::fmt::Debug for IX509MachineEnrollmentFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509MachineEnrollmentFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509MachineEnrollmentFactory {
     type Vtable = IX509MachineEnrollmentFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab352_217d_11da_b2a4_000e7bbb2b09);
@@ -31840,6 +32520,11 @@ impl ::core::cmp::PartialEq for IX509NameValuePair {
     }
 }
 impl ::core::cmp::Eq for IX509NameValuePair {}
+impl ::core::fmt::Debug for IX509NameValuePair {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509NameValuePair").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509NameValuePair {
     type Vtable = IX509NameValuePairVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33f_217d_11da_b2a4_000e7bbb2b09);
@@ -31974,6 +32659,11 @@ impl ::core::cmp::PartialEq for IX509NameValuePairs {
     }
 }
 impl ::core::cmp::Eq for IX509NameValuePairs {}
+impl ::core::fmt::Debug for IX509NameValuePairs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509NameValuePairs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509NameValuePairs {
     type Vtable = IX509NameValuePairsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab340_217d_11da_b2a4_000e7bbb2b09);
@@ -32112,6 +32802,11 @@ impl ::core::cmp::PartialEq for IX509PolicyServerListManager {
     }
 }
 impl ::core::cmp::Eq for IX509PolicyServerListManager {}
+impl ::core::fmt::Debug for IX509PolicyServerListManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509PolicyServerListManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509PolicyServerListManager {
     type Vtable = IX509PolicyServerListManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x884e204b_217d_11da_b2a4_000e7bbb2b09);
@@ -32290,6 +32985,11 @@ impl ::core::cmp::PartialEq for IX509PolicyServerUrl {
     }
 }
 impl ::core::cmp::Eq for IX509PolicyServerUrl {}
+impl ::core::fmt::Debug for IX509PolicyServerUrl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509PolicyServerUrl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509PolicyServerUrl {
     type Vtable = IX509PolicyServerUrlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x884e204a_217d_11da_b2a4_000e7bbb2b09);
@@ -32692,6 +33392,11 @@ impl ::core::cmp::PartialEq for IX509PrivateKey {
     }
 }
 impl ::core::cmp::Eq for IX509PrivateKey {}
+impl ::core::fmt::Debug for IX509PrivateKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509PrivateKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509PrivateKey {
     type Vtable = IX509PrivateKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30c_217d_11da_b2a4_000e7bbb2b09);
@@ -33226,6 +33931,11 @@ impl ::core::cmp::PartialEq for IX509PrivateKey2 {
     }
 }
 impl ::core::cmp::Eq for IX509PrivateKey2 {}
+impl ::core::fmt::Debug for IX509PrivateKey2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509PrivateKey2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509PrivateKey2 {
     type Vtable = IX509PrivateKey2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab362_217d_11da_b2a4_000e7bbb2b09);
@@ -33461,6 +34171,11 @@ impl ::core::cmp::PartialEq for IX509PublicKey {
     }
 }
 impl ::core::cmp::Eq for IX509PublicKey {}
+impl ::core::fmt::Debug for IX509PublicKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509PublicKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509PublicKey {
     type Vtable = IX509PublicKeyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab30b_217d_11da_b2a4_000e7bbb2b09);
@@ -33686,6 +34401,11 @@ impl ::core::cmp::PartialEq for IX509SCEPEnrollment {
     }
 }
 impl ::core::cmp::Eq for IX509SCEPEnrollment {}
+impl ::core::fmt::Debug for IX509SCEPEnrollment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509SCEPEnrollment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509SCEPEnrollment {
     type Vtable = IX509SCEPEnrollmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab361_217d_11da_b2a4_000e7bbb2b09);
@@ -33986,6 +34706,11 @@ impl ::core::cmp::PartialEq for IX509SCEPEnrollment2 {
     }
 }
 impl ::core::cmp::Eq for IX509SCEPEnrollment2 {}
+impl ::core::fmt::Debug for IX509SCEPEnrollment2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509SCEPEnrollment2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509SCEPEnrollment2 {
     type Vtable = IX509SCEPEnrollment2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab364_217d_11da_b2a4_000e7bbb2b09);
@@ -34162,6 +34887,11 @@ impl ::core::cmp::PartialEq for IX509SCEPEnrollmentHelper {
     }
 }
 impl ::core::cmp::Eq for IX509SCEPEnrollmentHelper {}
+impl ::core::fmt::Debug for IX509SCEPEnrollmentHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509SCEPEnrollmentHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509SCEPEnrollmentHelper {
     type Vtable = IX509SCEPEnrollmentHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab365_217d_11da_b2a4_000e7bbb2b09);
@@ -34333,6 +35063,11 @@ impl ::core::cmp::PartialEq for IX509SignatureInformation {
     }
 }
 impl ::core::cmp::Eq for IX509SignatureInformation {}
+impl ::core::fmt::Debug for IX509SignatureInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IX509SignatureInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IX509SignatureInformation {
     type Vtable = IX509SignatureInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x728ab33c_217d_11da_b2a4_000e7bbb2b09);

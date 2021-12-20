@@ -232,6 +232,11 @@ impl ::core::cmp::PartialEq for PhoneNumberFormatter {
     }
 }
 impl ::core::cmp::Eq for PhoneNumberFormatter {}
+impl ::core::fmt::Debug for PhoneNumberFormatter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberFormatter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberFormatter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberFormatter;{1556b49e-bad4-4b4a-900d-4407adb7c981})");
 }
@@ -404,6 +409,11 @@ impl ::core::cmp::PartialEq for PhoneNumberInfo {
     }
 }
 impl ::core::cmp::Eq for PhoneNumberInfo {}
+impl ::core::fmt::Debug for PhoneNumberInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneNumberInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneNumberInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.PhoneNumberFormatting.PhoneNumberInfo;{1c7ce4dd-c8b4-4ea3-9aef-b342e2c5b417})");
 }

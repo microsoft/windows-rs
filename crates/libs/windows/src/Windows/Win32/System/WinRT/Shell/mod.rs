@@ -59,6 +59,11 @@ impl ::core::cmp::PartialEq for IDDEInitializer {
     }
 }
 impl ::core::cmp::Eq for IDDEInitializer {}
+impl ::core::fmt::Debug for IDDEInitializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDDEInitializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDDEInitializer {
     type Vtable = IDDEInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30dc931f_33fc_4ffd_a168_942258cf3ca4);

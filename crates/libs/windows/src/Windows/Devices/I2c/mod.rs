@@ -101,6 +101,11 @@ impl ::core::cmp::PartialEq for I2cConnectionSettings {
     }
 }
 impl ::core::cmp::Eq for I2cConnectionSettings {}
+impl ::core::fmt::Debug for I2cConnectionSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("I2cConnectionSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for I2cConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cConnectionSettings;{f2db1307-ab6f-4639-a767-54536dc3460f})");
 }
@@ -198,6 +203,11 @@ impl ::core::cmp::PartialEq for I2cController {
     }
 }
 impl ::core::cmp::Eq for I2cController {}
+impl ::core::fmt::Debug for I2cController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("I2cController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for I2cController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cController;{c48ab1b2-87a0-4166-8e3e-b4b8f97cd729})");
 }
@@ -354,6 +364,11 @@ impl ::core::cmp::PartialEq for I2cDevice {
     }
 }
 impl ::core::cmp::Eq for I2cDevice {}
+impl ::core::fmt::Debug for I2cDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("I2cDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for I2cDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.I2cDevice;{8636c136-b9c5-4f70-9449-cc46dc6f57eb})");
 }
@@ -724,6 +739,11 @@ impl ::core::cmp::PartialEq for II2cDeviceStatics {
     }
 }
 impl ::core::cmp::Eq for II2cDeviceStatics {}
+impl ::core::fmt::Debug for II2cDeviceStatics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("II2cDeviceStatics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for II2cDeviceStatics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{91a33be3-7334-4512-96bc-fbae9459f5f6}");
 }

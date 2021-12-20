@@ -253,6 +253,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderBaseReportOperation {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderBaseReportOperation {}
+impl ::core::fmt::Debug for IWebAccountProviderBaseReportOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderBaseReportOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderBaseReportOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bba4acbb-993b-4d57-bbe4-1421e3668b4c}");
 }
@@ -376,6 +381,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderOperation {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderOperation {}
+impl ::core::fmt::Debug for IWebAccountProviderOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6d5d2426-10b1-419a-a44e-f9c5161574e6}");
 }
@@ -543,6 +553,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderSilentReportOperation {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderSilentReportOperation {}
+impl ::core::fmt::Debug for IWebAccountProviderSilentReportOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderSilentReportOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderSilentReportOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e0b545f8-3b0f-44da-924c-7b18baaa62a9}");
 }
@@ -627,6 +642,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderTokenObjects {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderTokenObjects {}
+impl ::core::fmt::Debug for IWebAccountProviderTokenObjects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderTokenObjects").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{408f284b-1328-42db-89a4-0bce7a717d8e}");
 }
@@ -740,6 +760,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderTokenObjects2 {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderTokenObjects2 {}
+impl ::core::fmt::Debug for IWebAccountProviderTokenObjects2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderTokenObjects2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenObjects2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1020b893-5ca5-4fff-95fb-b820273fc395}");
 }
@@ -877,6 +902,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderTokenOperation {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderTokenOperation {}
+impl ::core::fmt::Debug for IWebAccountProviderTokenOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderTokenOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderTokenOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{95c613be-2034-4c38-9434-d26c14b2b4b2}");
 }
@@ -995,6 +1025,11 @@ impl ::core::cmp::PartialEq for IWebAccountProviderUIReportOperation {
     }
 }
 impl ::core::cmp::Eq for IWebAccountProviderUIReportOperation {}
+impl ::core::fmt::Debug for IWebAccountProviderUIReportOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccountProviderUIReportOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccountProviderUIReportOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{28ff92d3-8f80-42fb-944f-b2107bbd42e6}");
 }
@@ -1202,6 +1237,11 @@ impl ::core::cmp::PartialEq for WebAccountClientView {
     }
 }
 impl ::core::cmp::Eq for WebAccountClientView {}
+impl ::core::fmt::Debug for WebAccountClientView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountClientView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountClientView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountClientView;{e7bd66ba-0bc7-4c66-bfd4-65d3082cbca8})");
 }
@@ -1545,6 +1585,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderAddAccountOperation {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderAddAccountOperation {}
+impl ::core::fmt::Debug for WebAccountProviderAddAccountOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderAddAccountOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderAddAccountOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderAddAccountOperation;{73ebdccf-4378-4c79-9335-a5d7ab81594e})");
 }
@@ -1663,6 +1708,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderDeleteAccountOperation {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderDeleteAccountOperation {}
+impl ::core::fmt::Debug for WebAccountProviderDeleteAccountOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderDeleteAccountOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderDeleteAccountOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderDeleteAccountOperation;{0abb48b8-9e01-49c9-a355-7d48caf7d6ca})");
 }
@@ -1837,6 +1887,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderGetTokenSilentOperation {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderGetTokenSilentOperation {}
+impl ::core::fmt::Debug for WebAccountProviderGetTokenSilentOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderGetTokenSilentOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderGetTokenSilentOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderGetTokenSilentOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
 }
@@ -2015,6 +2070,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderManageAccountOperation {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderManageAccountOperation {}
+impl ::core::fmt::Debug for WebAccountProviderManageAccountOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderManageAccountOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderManageAccountOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderManageAccountOperation;{ed20dc5c-d21b-463e-a9b7-c1fd0edae978})");
 }
@@ -2199,6 +2259,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderRequestTokenOperation {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderRequestTokenOperation {}
+impl ::core::fmt::Debug for WebAccountProviderRequestTokenOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderRequestTokenOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderRequestTokenOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRequestTokenOperation;{95c613be-2034-4c38-9434-d26c14b2b4b2})");
 }
@@ -2416,6 +2481,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderRetrieveCookiesOperation {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderRetrieveCookiesOperation {}
+impl ::core::fmt::Debug for WebAccountProviderRetrieveCookiesOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderRetrieveCookiesOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderRetrieveCookiesOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderRetrieveCookiesOperation;{5a040441-0fa3-4ab1-a01c-20b110358594})");
 }
@@ -2573,6 +2643,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderSignOutAccountOperation {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderSignOutAccountOperation {}
+impl ::core::fmt::Debug for WebAccountProviderSignOutAccountOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderSignOutAccountOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderSignOutAccountOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderSignOutAccountOperation;{b890e21d-0c55-47bc-8c72-04a6fc7cac07})");
 }
@@ -2702,6 +2777,11 @@ impl ::core::cmp::PartialEq for WebAccountProviderTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for WebAccountProviderTriggerDetails {}
+impl ::core::fmt::Debug for WebAccountProviderTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProviderTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebAccountProviderTriggerDetails;{408f284b-1328-42db-89a4-0bce7a717d8e})");
 }
@@ -2958,6 +3038,11 @@ impl ::core::cmp::PartialEq for WebProviderTokenRequest {
     }
 }
 impl ::core::cmp::Eq for WebProviderTokenRequest {}
+impl ::core::fmt::Debug for WebProviderTokenRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebProviderTokenRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebProviderTokenRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenRequest;{1e18778b-8805-454b-9f11-468d2af1095a})");
 }
@@ -3048,6 +3133,11 @@ impl ::core::cmp::PartialEq for WebProviderTokenResponse {
     }
 }
 impl ::core::cmp::Eq for WebProviderTokenResponse {}
+impl ::core::fmt::Debug for WebProviderTokenResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebProviderTokenResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebProviderTokenResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Provider.WebProviderTokenResponse;{ef213793-ef55-4186-b7ce-8cb2e7f9849e})");
 }

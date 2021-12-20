@@ -72,6 +72,11 @@ impl ::core::cmp::PartialEq for AsyncIAssociatedIdentityProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIAssociatedIdentityProvider {}
+impl ::core::fmt::Debug for AsyncIAssociatedIdentityProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIAssociatedIdentityProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIAssociatedIdentityProvider {
     type Vtable = AsyncIAssociatedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2834d6ed_297e_4e72_8a51_961e86f05152);
@@ -174,6 +179,11 @@ impl ::core::cmp::PartialEq for AsyncIConnectedIdentityProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIConnectedIdentityProvider {}
+impl ::core::fmt::Debug for AsyncIConnectedIdentityProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIConnectedIdentityProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIConnectedIdentityProvider {
     type Vtable = AsyncIConnectedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ce55141_bce9_4e15_824d_43d79f512f93);
@@ -243,6 +253,11 @@ impl ::core::cmp::PartialEq for AsyncIIdentityAdvise {
     }
 }
 impl ::core::cmp::Eq for AsyncIIdentityAdvise {}
+impl ::core::fmt::Debug for AsyncIIdentityAdvise {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIIdentityAdvise").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIIdentityAdvise {
     type Vtable = AsyncIIdentityAdviseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ab4c8da_d038_4830_8dd9_3253c55a127f);
@@ -311,6 +326,11 @@ impl ::core::cmp::PartialEq for AsyncIIdentityAuthentication {
     }
 }
 impl ::core::cmp::Eq for AsyncIIdentityAuthentication {}
+impl ::core::fmt::Debug for AsyncIIdentityAuthentication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIIdentityAuthentication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIIdentityAuthentication {
     type Vtable = AsyncIIdentityAuthenticationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9a2f918_feca_4e9c_9633_61cbf13ed34d);
@@ -442,6 +462,11 @@ impl ::core::cmp::PartialEq for AsyncIIdentityProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIIdentityProvider {}
+impl ::core::fmt::Debug for AsyncIIdentityProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIIdentityProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIIdentityProvider {
     type Vtable = AsyncIIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6fc9901_c433_4646_8f48_4e4687aae2a0);
@@ -568,6 +593,11 @@ impl ::core::cmp::PartialEq for AsyncIIdentityStore {
     }
 }
 impl ::core::cmp::Eq for AsyncIIdentityStore {}
+impl ::core::fmt::Debug for AsyncIIdentityStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIIdentityStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIIdentityStore {
     type Vtable = AsyncIIdentityStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeefa1616_48de_4872_aa64_6e6206535a51);
@@ -649,6 +679,11 @@ impl ::core::cmp::PartialEq for AsyncIIdentityStoreEx {
     }
 }
 impl ::core::cmp::Eq for AsyncIIdentityStoreEx {}
+impl ::core::fmt::Debug for AsyncIIdentityStoreEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIIdentityStoreEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIIdentityStoreEx {
     type Vtable = AsyncIIdentityStoreExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfca3af9a_8a07_4eae_8632_ec3de658a36a);
@@ -720,6 +755,11 @@ impl ::core::cmp::PartialEq for IAssociatedIdentityProvider {
     }
 }
 impl ::core::cmp::Eq for IAssociatedIdentityProvider {}
+impl ::core::fmt::Debug for IAssociatedIdentityProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAssociatedIdentityProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAssociatedIdentityProvider {
     type Vtable = IAssociatedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2af066b3_4cbb_4cba_a798_204b6af68cc0);
@@ -797,6 +837,11 @@ impl ::core::cmp::PartialEq for IConnectedIdentityProvider {
     }
 }
 impl ::core::cmp::Eq for IConnectedIdentityProvider {}
+impl ::core::fmt::Debug for IConnectedIdentityProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConnectedIdentityProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConnectedIdentityProvider {
     type Vtable = IConnectedIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7417b54_e08c_429b_96c8_678d1369ecb1);
@@ -878,6 +923,11 @@ impl ::core::cmp::PartialEq for IIdentityAdvise {
     }
 }
 impl ::core::cmp::Eq for IIdentityAdvise {}
+impl ::core::fmt::Debug for IIdentityAdvise {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIdentityAdvise").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIdentityAdvise {
     type Vtable = IIdentityAdviseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e982fed_d14b_440c_b8d6_bb386453d386);
@@ -936,6 +986,11 @@ impl ::core::cmp::PartialEq for IIdentityAuthentication {
     }
 }
 impl ::core::cmp::Eq for IIdentityAuthentication {}
+impl ::core::fmt::Debug for IIdentityAuthentication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIdentityAuthentication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIdentityAuthentication {
     type Vtable = IIdentityAuthenticationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7ef254_979f_43b5_b74e_06e4eb7df0f9);
@@ -1028,6 +1083,11 @@ impl ::core::cmp::PartialEq for IIdentityProvider {
     }
 }
 impl ::core::cmp::Eq for IIdentityProvider {}
+impl ::core::fmt::Debug for IIdentityProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIdentityProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIdentityProvider {
     type Vtable = IIdentityProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d1b9e0c_e8ba_4f55_a81b_bce934b948f5);
@@ -1118,6 +1178,11 @@ impl ::core::cmp::PartialEq for IIdentityStore {
     }
 }
 impl ::core::cmp::Eq for IIdentityStore {}
+impl ::core::fmt::Debug for IIdentityStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIdentityStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIdentityStore {
     type Vtable = IIdentityStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf586fa5_6f35_44f1_b209_b38e169772eb);
@@ -1184,6 +1249,11 @@ impl ::core::cmp::PartialEq for IIdentityStoreEx {
     }
 }
 impl ::core::cmp::Eq for IIdentityStoreEx {}
+impl ::core::fmt::Debug for IIdentityStoreEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIdentityStoreEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIdentityStoreEx {
     type Vtable = IIdentityStoreExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9f9eb98_8f7f_4e38_9577_6980114ce32b);

@@ -67,6 +67,11 @@ impl ::core::cmp::PartialEq for AsyncActionCompletedHandler {
     }
 }
 impl ::core::cmp::Eq for AsyncActionCompletedHandler {}
+impl ::core::fmt::Debug for AsyncActionCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncActionCompletedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncActionCompletedHandler {
     type Vtable = AsyncActionCompletedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4ed5c81_76c9_40bd_8be6_b1d90fb20ae7);
@@ -142,6 +147,11 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq f
     }
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncActionProgressHandler<TProgress> {}
+impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncActionProgressHandler<TProgress> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncActionProgressHandler<TProgress,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncActionProgressHandler<TProgress> {
     type Vtable = AsyncActionProgressHandlerVtbl<TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -225,6 +235,11 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq f
     }
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncActionWithProgressCompletedHandler<TProgress> {}
+impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncActionWithProgressCompletedHandler<TProgress> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncActionWithProgressCompletedHandler<TProgress,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncActionWithProgressCompletedHandler<TProgress> {
     type Vtable = AsyncActionWithProgressCompletedHandlerVtbl<TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -308,6 +323,11 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for
     }
 }
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationCompletedHandler<TResult> {}
+impl<TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationCompletedHandler<TResult> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncOperationCompletedHandler<TResult,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationCompletedHandler<TResult> {
     type Vtable = AsyncOperationCompletedHandlerVtbl<TResult>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -393,6 +413,11 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationProgressHandler<TResult, TProgress> {}
+impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationProgressHandler<TResult, TProgress> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncOperationProgressHandler<TResult,TProgress,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationProgressHandler<TResult, TProgress> {
     type Vtable = AsyncOperationProgressHandlerVtbl<TResult, TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -480,6 +505,11 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {}
+impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncOperationWithProgressCompletedHandler<TResult,TProgress,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for AsyncOperationWithProgressCompletedHandler<TResult, TProgress> {
     type Vtable = AsyncOperationWithProgressCompletedHandlerVtbl<TResult, TProgress>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -609,6 +639,11 @@ impl ::core::cmp::PartialEq for Deferral {
     }
 }
 impl ::core::cmp::Eq for Deferral {}
+impl ::core::fmt::Debug for Deferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Deferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Deferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Deferral;{d6269732-3b7f-46a7-b40b-4fdca2a2c693})");
 }
@@ -743,6 +778,11 @@ impl ::core::cmp::PartialEq for DeferralCompletedHandler {
     }
 }
 impl ::core::cmp::Eq for DeferralCompletedHandler {}
+impl ::core::fmt::Debug for DeferralCompletedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeferralCompletedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DeferralCompletedHandler {
     type Vtable = DeferralCompletedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed32a372_f3c8_4faa_9cfb_470148da3888);
@@ -818,6 +858,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for Event
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for EventHandler<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for EventHandler<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EventHandler<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for EventHandler<T> {
     type Vtable = EventHandlerVtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -1035,6 +1080,11 @@ impl ::core::cmp::PartialEq for IAsyncAction {
     }
 }
 impl ::core::cmp::Eq for IAsyncAction {}
+impl ::core::fmt::Debug for IAsyncAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAsyncAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAsyncAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5a648006-843a-4da9-865b-9d26e5dfad7b}");
 }
@@ -1231,6 +1281,11 @@ impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq f
     }
 }
 impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncActionWithProgress<TProgress> {}
+impl<TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncActionWithProgress<TProgress> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAsyncActionWithProgress<TProgress,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncActionWithProgress<TProgress> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{1f6db258-e803-48a1-9546-eb7353398884}").push_slice(b";").push_other(<TProgress as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -1377,6 +1432,11 @@ impl ::core::cmp::PartialEq for IAsyncInfo {
     }
 }
 impl ::core::cmp::Eq for IAsyncInfo {}
+impl ::core::fmt::Debug for IAsyncInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAsyncInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAsyncInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{00000036-0000-0000-c000-000000000046}");
 }
@@ -1534,6 +1594,11 @@ impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for
     }
 }
 impl<TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncOperation<TResult> {}
+impl<TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncOperation<TResult> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAsyncOperation<TResult,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncOperation<TResult> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9fc2b0bb-e446-44e2-aa61-9cab8f636af2}").push_slice(b";").push_other(<TResult as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -1737,6 +1802,11 @@ impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core
     }
 }
 impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IAsyncOperationWithProgress<TResult, TProgress> {}
+impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IAsyncOperationWithProgress<TResult, TProgress> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAsyncOperationWithProgress<TResult,TProgress,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TResult: ::windows::core::RuntimeType + 'static, TProgress: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IAsyncOperationWithProgress<TResult, TProgress> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{b5d036d7-e297-498f-ba60-0289e76e23dd}").push_slice(b";").push_other(<TResult as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<TProgress as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -1856,6 +1926,11 @@ impl ::core::cmp::PartialEq for IClosable {
     }
 }
 impl ::core::cmp::Eq for IClosable {}
+impl ::core::fmt::Debug for IClosable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IClosable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IClosable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30d5a829-7fa4-4026-83bb-d75bae4ea99e}");
 }
@@ -1974,6 +2049,11 @@ impl ::core::cmp::PartialEq for IGetActivationFactory {
     }
 }
 impl ::core::cmp::Eq for IGetActivationFactory {}
+impl ::core::fmt::Debug for IGetActivationFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetActivationFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGetActivationFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4edb8ee2-96dd-49a7-94f7-4607ddab8e3c}");
 }
@@ -2103,6 +2183,11 @@ impl ::core::cmp::PartialEq for IMemoryBuffer {
     }
 }
 impl ::core::cmp::Eq for IMemoryBuffer {}
+impl ::core::fmt::Debug for IMemoryBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMemoryBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMemoryBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fbc4dd2a-245b-11e4-af98-689423260cf8}");
 }
@@ -2243,6 +2328,11 @@ impl ::core::cmp::PartialEq for IMemoryBufferReference {
     }
 }
 impl ::core::cmp::Eq for IMemoryBufferReference {}
+impl ::core::fmt::Debug for IMemoryBufferReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMemoryBufferReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMemoryBufferReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fbc4dd29-245b-11e4-af98-689423260cf8}");
 }
@@ -2574,6 +2664,11 @@ impl ::core::cmp::PartialEq for IPropertyValue {
     }
 }
 impl ::core::cmp::Eq for IPropertyValue {}
+impl ::core::fmt::Debug for IPropertyValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPropertyValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4bd682dd-7554-40e9-9a9b-82654ede7e62}");
 }
@@ -3029,6 +3124,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IRefe
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReference<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReference<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReference<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReference<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17706-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -3393,6 +3493,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IRefe
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IReferenceArray<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IReferenceArray<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IReferenceArray<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IReferenceArray<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{61c17707-2d65-11e0-9ae8-d48564015472}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -3478,6 +3583,11 @@ impl ::core::cmp::PartialEq for IStringable {
     }
 }
 impl ::core::cmp::Eq for IStringable {}
+impl ::core::fmt::Debug for IStringable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStringable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStringable {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96369f54-8eb6-48f0-abce-c1b211e627c3}");
 }
@@ -3659,6 +3769,11 @@ impl ::core::cmp::PartialEq for IWwwFormUrlDecoderEntry {
     }
 }
 impl ::core::cmp::Eq for IWwwFormUrlDecoderEntry {}
+impl ::core::fmt::Debug for IWwwFormUrlDecoderEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWwwFormUrlDecoderEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{125e7431-f678-4e8e-b670-20a9b06c512d}");
 }
@@ -3755,6 +3870,11 @@ impl ::core::cmp::PartialEq for MemoryBuffer {
     }
 }
 impl ::core::cmp::Eq for MemoryBuffer {}
+impl ::core::fmt::Debug for MemoryBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MemoryBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MemoryBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.MemoryBuffer;{fbc4dd2a-245b-11e4-af98-689423260cf8})");
 }
@@ -4439,6 +4559,11 @@ impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::
     }
 }
 impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for TypedEventHandler<TSender, TResult> {}
+impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for TypedEventHandler<TSender, TResult> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TypedEventHandler<TSender,TResult,>").field(&self.0).finish()
+    }
+}
 unsafe impl<TSender: ::windows::core::RuntimeType + 'static, TResult: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for TypedEventHandler<TSender, TResult> {
     type Vtable = TypedEventHandlerVtbl<TSender, TResult>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -4673,6 +4798,11 @@ impl ::core::cmp::PartialEq for Uri {
     }
 }
 impl ::core::cmp::Eq for Uri {}
+impl ::core::fmt::Debug for Uri {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Uri").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Uri {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Uri;{9e365e57-48b2-4160-956f-c7385120bbfc})");
 }
@@ -4828,6 +4958,11 @@ impl ::core::cmp::PartialEq for WwwFormUrlDecoder {
     }
 }
 impl ::core::cmp::Eq for WwwFormUrlDecoder {}
+impl ::core::fmt::Debug for WwwFormUrlDecoder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwwFormUrlDecoder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.WwwFormUrlDecoder;{d45a0451-f225-4542-9296-0e1df5d254df})");
 }
@@ -4980,6 +5115,11 @@ impl ::core::cmp::PartialEq for WwwFormUrlDecoderEntry {
     }
 }
 impl ::core::cmp::Eq for WwwFormUrlDecoderEntry {}
+impl ::core::fmt::Debug for WwwFormUrlDecoderEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WwwFormUrlDecoderEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WwwFormUrlDecoderEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.WwwFormUrlDecoderEntry;{125e7431-f678-4e8e-b670-20a9b06c512d})");
 }

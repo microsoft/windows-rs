@@ -57,6 +57,11 @@ impl ::core::cmp::PartialEq for AppListEntry {
     }
 }
 impl ::core::cmp::Eq for AppListEntry {}
+impl ::core::fmt::Debug for AppListEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppListEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppListEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.AppListEntry;{ef00f07f-2108-490a-877a-8a9f17c25fad})");
 }
@@ -500,6 +505,11 @@ impl ::core::cmp::PartialEq for CoreApplicationView {
     }
 }
 impl ::core::cmp::Eq for CoreApplicationView {}
+impl ::core::fmt::Debug for CoreApplicationView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreApplicationView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreApplicationView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationView;{638bb2db-451d-4661-b099-414f34ffb9f1})");
 }
@@ -641,6 +651,11 @@ impl ::core::cmp::PartialEq for CoreApplicationViewTitleBar {
     }
 }
 impl ::core::cmp::Eq for CoreApplicationViewTitleBar {}
+impl ::core::fmt::Debug for CoreApplicationViewTitleBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreApplicationViewTitleBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreApplicationViewTitleBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.CoreApplicationViewTitleBar;{006d35e3-e1f1-431b-9508-29b96926ac53})");
 }
@@ -716,6 +731,11 @@ impl ::core::cmp::PartialEq for HostedViewClosingEventArgs {
     }
 }
 impl ::core::cmp::Eq for HostedViewClosingEventArgs {}
+impl ::core::fmt::Debug for HostedViewClosingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HostedViewClosingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HostedViewClosingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.HostedViewClosingEventArgs;{d238943c-b24e-4790-acb5-3e4243c4ff87})");
 }
@@ -1019,6 +1039,11 @@ impl ::core::cmp::PartialEq for ICoreApplicationUnhandledError {
     }
 }
 impl ::core::cmp::Eq for ICoreApplicationUnhandledError {}
+impl ::core::fmt::Debug for ICoreApplicationUnhandledError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICoreApplicationUnhandledError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICoreApplicationUnhandledError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f0e24ab0-dd09-42e1-b0bc-e0e131f78d7e}");
 }
@@ -1334,6 +1359,11 @@ impl ::core::cmp::PartialEq for IFrameworkView {
     }
 }
 impl ::core::cmp::Eq for IFrameworkView {}
+impl ::core::fmt::Debug for IFrameworkView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFrameworkView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFrameworkView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{faab5cd0-8924-45ac-ad0f-a08fae5d0324}");
 }
@@ -1421,6 +1451,11 @@ impl ::core::cmp::PartialEq for IFrameworkViewSource {
     }
 }
 impl ::core::cmp::Eq for IFrameworkViewSource {}
+impl ::core::fmt::Debug for IFrameworkViewSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFrameworkViewSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IFrameworkViewSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cd770614-65c4-426c-9494-34fc43554862}");
 }
@@ -1524,6 +1559,11 @@ impl ::core::cmp::PartialEq for UnhandledError {
     }
 }
 impl ::core::cmp::Eq for UnhandledError {}
+impl ::core::fmt::Debug for UnhandledError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnhandledError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnhandledError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledError;{9459b726-53b5-4686-9eaf-fa8162dc3980})");
 }
@@ -1600,6 +1640,11 @@ impl ::core::cmp::PartialEq for UnhandledErrorDetectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UnhandledErrorDetectedEventArgs {}
+impl ::core::fmt::Debug for UnhandledErrorDetectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnhandledErrorDetectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnhandledErrorDetectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Core.UnhandledErrorDetectedEventArgs;{679ab78b-b336-4822-ac40-0d750f0b7a2b})");
 }

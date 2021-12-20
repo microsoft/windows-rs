@@ -4209,6 +4209,11 @@ impl ::core::cmp::PartialEq for ID2D1AnalysisTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1AnalysisTransform {}
+impl ::core::fmt::Debug for ID2D1AnalysisTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1AnalysisTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1AnalysisTransform {
     type Vtable = ID2D1AnalysisTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0359dc30_95e6_4568_9055_27720d130e93);
@@ -4336,6 +4341,11 @@ impl ::core::cmp::PartialEq for ID2D1Bitmap {
     }
 }
 impl ::core::cmp::Eq for ID2D1Bitmap {}
+impl ::core::fmt::Debug for ID2D1Bitmap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Bitmap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Bitmap {
     type Vtable = ID2D1BitmapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2296057_ea42_4099_983b_539fb6505426);
@@ -4524,6 +4534,11 @@ impl ::core::cmp::PartialEq for ID2D1Bitmap1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Bitmap1 {}
+impl ::core::fmt::Debug for ID2D1Bitmap1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Bitmap1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Bitmap1 {
     type Vtable = ID2D1Bitmap1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa898a84c_3873_4588_b08b_ebbf978df041);
@@ -4685,6 +4700,11 @@ impl ::core::cmp::PartialEq for ID2D1BitmapBrush {
     }
 }
 impl ::core::cmp::Eq for ID2D1BitmapBrush {}
+impl ::core::fmt::Debug for ID2D1BitmapBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1BitmapBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1BitmapBrush {
     type Vtable = ID2D1BitmapBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906aa_12e2_11dc_9fed_001143a055f9);
@@ -4869,6 +4889,11 @@ impl ::core::cmp::PartialEq for ID2D1BitmapBrush1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1BitmapBrush1 {}
+impl ::core::fmt::Debug for ID2D1BitmapBrush1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1BitmapBrush1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1BitmapBrush1 {
     type Vtable = ID2D1BitmapBrush1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41343a53_e41a_49a2_91cd_21793bbb62e5);
@@ -5243,6 +5268,11 @@ impl ::core::cmp::PartialEq for ID2D1BitmapRenderTarget {
     }
 }
 impl ::core::cmp::Eq for ID2D1BitmapRenderTarget {}
+impl ::core::fmt::Debug for ID2D1BitmapRenderTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1BitmapRenderTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1BitmapRenderTarget {
     type Vtable = ID2D1BitmapRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90695_12e2_11dc_9fed_001143a055f9);
@@ -5439,6 +5469,11 @@ impl ::core::cmp::PartialEq for ID2D1BlendTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1BlendTransform {}
+impl ::core::fmt::Debug for ID2D1BlendTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1BlendTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1BlendTransform {
     type Vtable = ID2D1BlendTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ac0b32_ba44_450f_8806_7f4ca1ff2f1b);
@@ -5561,6 +5596,11 @@ impl ::core::cmp::PartialEq for ID2D1BorderTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1BorderTransform {}
+impl ::core::fmt::Debug for ID2D1BorderTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1BorderTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1BorderTransform {
     type Vtable = ID2D1BorderTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4998735c_3a19_473c_9781_656847e3a347);
@@ -5650,6 +5690,11 @@ impl ::core::cmp::PartialEq for ID2D1BoundsAdjustmentTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1BoundsAdjustmentTransform {}
+impl ::core::fmt::Debug for ID2D1BoundsAdjustmentTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1BoundsAdjustmentTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1BoundsAdjustmentTransform {
     type Vtable = ID2D1BoundsAdjustmentTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90f732e2_5092_4606_a819_8651970baccd);
@@ -5744,6 +5789,11 @@ impl ::core::cmp::PartialEq for ID2D1Brush {
     }
 }
 impl ::core::cmp::Eq for ID2D1Brush {}
+impl ::core::fmt::Debug for ID2D1Brush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Brush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Brush {
     type Vtable = ID2D1BrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a8_12e2_11dc_9fed_001143a055f9);
@@ -5834,6 +5884,11 @@ impl ::core::cmp::PartialEq for ID2D1ColorContext {
     }
 }
 impl ::core::cmp::Eq for ID2D1ColorContext {}
+impl ::core::fmt::Debug for ID2D1ColorContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ColorContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ColorContext {
     type Vtable = ID2D1ColorContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c4820bb_5771_4518_a581_2fe4dd0ec657);
@@ -5956,6 +6011,11 @@ impl ::core::cmp::PartialEq for ID2D1ColorContext1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1ColorContext1 {}
+impl ::core::fmt::Debug for ID2D1ColorContext1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ColorContext1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ColorContext1 {
     type Vtable = ID2D1ColorContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ab42875_c57f_4be9_bd85_9cd78d6f55ee);
@@ -6064,6 +6124,11 @@ impl ::core::cmp::PartialEq for ID2D1CommandList {
     }
 }
 impl ::core::cmp::Eq for ID2D1CommandList {}
+impl ::core::fmt::Debug for ID2D1CommandList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1CommandList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1CommandList {
     type Vtable = ID2D1CommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4f34a19_2383_4d76_94f6_ec343657c3dc);
@@ -6227,6 +6292,11 @@ impl ::core::cmp::PartialEq for ID2D1CommandSink {
     }
 }
 impl ::core::cmp::Eq for ID2D1CommandSink {}
+impl ::core::fmt::Debug for ID2D1CommandSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1CommandSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1CommandSink {
     type Vtable = ID2D1CommandSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d7898a_a061_40a7_bec7_e465bcba2c4f);
@@ -6449,6 +6519,11 @@ impl ::core::cmp::PartialEq for ID2D1CommandSink1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1CommandSink1 {}
+impl ::core::fmt::Debug for ID2D1CommandSink1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1CommandSink1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1CommandSink1 {
     type Vtable = ID2D1CommandSink1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9eb767fd_4269_4467_b8c2_eb30cb305743);
@@ -6705,6 +6780,11 @@ impl ::core::cmp::PartialEq for ID2D1CommandSink2 {
     }
 }
 impl ::core::cmp::Eq for ID2D1CommandSink2 {}
+impl ::core::fmt::Debug for ID2D1CommandSink2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1CommandSink2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1CommandSink2 {
     type Vtable = ID2D1CommandSink2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bab440e_417e_47df_a2e2_bc0be6a00916);
@@ -6989,6 +7069,11 @@ impl ::core::cmp::PartialEq for ID2D1CommandSink3 {
     }
 }
 impl ::core::cmp::Eq for ID2D1CommandSink3 {}
+impl ::core::fmt::Debug for ID2D1CommandSink3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1CommandSink3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1CommandSink3 {
     type Vtable = ID2D1CommandSink3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18079135_4cf3_4868_bc8e_06067e6d242d);
@@ -7298,6 +7383,11 @@ impl ::core::cmp::PartialEq for ID2D1CommandSink4 {
     }
 }
 impl ::core::cmp::Eq for ID2D1CommandSink4 {}
+impl ::core::fmt::Debug for ID2D1CommandSink4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1CommandSink4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1CommandSink4 {
     type Vtable = ID2D1CommandSink4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc78a6519_40d6_4218_b2de_beeeb744bb3e);
@@ -7633,6 +7723,11 @@ impl ::core::cmp::PartialEq for ID2D1CommandSink5 {
     }
 }
 impl ::core::cmp::Eq for ID2D1CommandSink5 {}
+impl ::core::fmt::Debug for ID2D1CommandSink5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1CommandSink5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1CommandSink5 {
     type Vtable = ID2D1CommandSink5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7047dd26_b1e7_44a7_959a_8349e2144fa8);
@@ -7776,6 +7871,11 @@ impl ::core::cmp::PartialEq for ID2D1ComputeInfo {
     }
 }
 impl ::core::cmp::Eq for ID2D1ComputeInfo {}
+impl ::core::fmt::Debug for ID2D1ComputeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ComputeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ComputeInfo {
     type Vtable = ID2D1ComputeInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5598b14b_9fd7_48b7_9bdb_8f0964eb38bc);
@@ -7900,6 +8000,11 @@ impl ::core::cmp::PartialEq for ID2D1ComputeTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1ComputeTransform {}
+impl ::core::fmt::Debug for ID2D1ComputeTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ComputeTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ComputeTransform {
     type Vtable = ID2D1ComputeTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d85573c_01e3_4f7d_bfd9_0d60608bf3c3);
@@ -7990,6 +8095,11 @@ impl ::core::cmp::PartialEq for ID2D1ConcreteTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1ConcreteTransform {}
+impl ::core::fmt::Debug for ID2D1ConcreteTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ConcreteTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ConcreteTransform {
     type Vtable = ID2D1ConcreteTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a799d8a_69f7_4e4c_9fed_437ccc6684cc);
@@ -8351,6 +8461,11 @@ impl ::core::cmp::PartialEq for ID2D1DCRenderTarget {
     }
 }
 impl ::core::cmp::Eq for ID2D1DCRenderTarget {}
+impl ::core::fmt::Debug for ID2D1DCRenderTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DCRenderTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DCRenderTarget {
     type Vtable = ID2D1DCRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c51bc64_de61_46fd_9899_63a5d8f03950);
@@ -8534,6 +8649,11 @@ impl ::core::cmp::PartialEq for ID2D1Device {
     }
 }
 impl ::core::cmp::Eq for ID2D1Device {}
+impl ::core::fmt::Debug for ID2D1Device {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Device").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Device {
     type Vtable = ID2D1DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47dd575d_ac05_4cdd_8049_9b02cd16f44c);
@@ -8668,6 +8788,11 @@ impl ::core::cmp::PartialEq for ID2D1Device1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Device1 {}
+impl ::core::fmt::Debug for ID2D1Device1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Device1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Device1 {
     type Vtable = ID2D1Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd21768e1_23a4_4823_a14b_7c3eba85d658);
@@ -8840,6 +8965,11 @@ impl ::core::cmp::PartialEq for ID2D1Device2 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Device2 {}
+impl ::core::fmt::Debug for ID2D1Device2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Device2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Device2 {
     type Vtable = ID2D1Device2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa44472e1_8dfb_4e60_8492_6e2861c9ca8b);
@@ -9041,6 +9171,11 @@ impl ::core::cmp::PartialEq for ID2D1Device3 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Device3 {}
+impl ::core::fmt::Debug for ID2D1Device3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Device3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Device3 {
     type Vtable = ID2D1Device3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x852f2087_802c_4037_ab60_ff2e7ee6fc01);
@@ -9276,6 +9411,11 @@ impl ::core::cmp::PartialEq for ID2D1Device4 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Device4 {}
+impl ::core::fmt::Debug for ID2D1Device4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Device4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Device4 {
     type Vtable = ID2D1Device4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7bdb159_5683_4a46_bc9c_72dc720b858b);
@@ -9539,6 +9679,11 @@ impl ::core::cmp::PartialEq for ID2D1Device5 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Device5 {}
+impl ::core::fmt::Debug for ID2D1Device5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Device5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Device5 {
     type Vtable = ID2D1Device5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd55ba0a4_6405_4694_aef5_08ee1a4358b4);
@@ -9828,6 +9973,11 @@ impl ::core::cmp::PartialEq for ID2D1Device6 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Device6 {}
+impl ::core::fmt::Debug for ID2D1Device6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Device6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Device6 {
     type Vtable = ID2D1Device6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bfef914_2d75_4bad_be87_e18ddb077b6d);
@@ -10379,6 +10529,11 @@ impl ::core::cmp::PartialEq for ID2D1DeviceContext {
     }
 }
 impl ::core::cmp::Eq for ID2D1DeviceContext {}
+impl ::core::fmt::Debug for ID2D1DeviceContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DeviceContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext {
     type Vtable = ID2D1DeviceContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8f7fe7a_191c_466d_ad95_975678bda998);
@@ -11090,6 +11245,11 @@ impl ::core::cmp::PartialEq for ID2D1DeviceContext1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1DeviceContext1 {}
+impl ::core::fmt::Debug for ID2D1DeviceContext1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DeviceContext1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext1 {
     type Vtable = ID2D1DeviceContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd37f57e4_6908_459f_a199_e72f24f79987);
@@ -11882,6 +12042,11 @@ impl ::core::cmp::PartialEq for ID2D1DeviceContext2 {
     }
 }
 impl ::core::cmp::Eq for ID2D1DeviceContext2 {}
+impl ::core::fmt::Debug for ID2D1DeviceContext2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DeviceContext2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext2 {
     type Vtable = ID2D1DeviceContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x394ea6a3_0c34_4321_950b_6ca20f0be6c7);
@@ -12720,6 +12885,11 @@ impl ::core::cmp::PartialEq for ID2D1DeviceContext3 {
     }
 }
 impl ::core::cmp::Eq for ID2D1DeviceContext3 {}
+impl ::core::fmt::Debug for ID2D1DeviceContext3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DeviceContext3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext3 {
     type Vtable = ID2D1DeviceContext3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x235a7496_8351_414c_bcd4_6672ab2d8e00);
@@ -13615,6 +13785,11 @@ impl ::core::cmp::PartialEq for ID2D1DeviceContext4 {
     }
 }
 impl ::core::cmp::Eq for ID2D1DeviceContext4 {}
+impl ::core::fmt::Debug for ID2D1DeviceContext4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DeviceContext4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext4 {
     type Vtable = ID2D1DeviceContext4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c427831_3d90_4476_b647_c4fae349e4db);
@@ -14565,6 +14740,11 @@ impl ::core::cmp::PartialEq for ID2D1DeviceContext5 {
     }
 }
 impl ::core::cmp::Eq for ID2D1DeviceContext5 {}
+impl ::core::fmt::Debug for ID2D1DeviceContext5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DeviceContext5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext5 {
     type Vtable = ID2D1DeviceContext5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7836d248_68cc_4df6_b9e8_de991bf62eb7);
@@ -15547,6 +15727,11 @@ impl ::core::cmp::PartialEq for ID2D1DeviceContext6 {
     }
 }
 impl ::core::cmp::Eq for ID2D1DeviceContext6 {}
+impl ::core::fmt::Debug for ID2D1DeviceContext6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DeviceContext6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DeviceContext6 {
     type Vtable = ID2D1DeviceContext6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x985f7e37_4ed0_4a19_98a3_15b0edfde306);
@@ -15841,6 +16026,11 @@ impl ::core::cmp::PartialEq for ID2D1DrawInfo {
     }
 }
 impl ::core::cmp::Eq for ID2D1DrawInfo {}
+impl ::core::fmt::Debug for ID2D1DrawInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DrawInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DrawInfo {
     type Vtable = ID2D1DrawInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x693ce632_7f2f_45de_93fe_18d88b37aa21);
@@ -15962,6 +16152,11 @@ impl ::core::cmp::PartialEq for ID2D1DrawTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1DrawTransform {}
+impl ::core::fmt::Debug for ID2D1DrawTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DrawTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DrawTransform {
     type Vtable = ID2D1DrawTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x36bfdcb6_9739_435d_a30d_a653beff6a6f);
@@ -16061,6 +16256,11 @@ impl ::core::cmp::PartialEq for ID2D1DrawingStateBlock {
     }
 }
 impl ::core::cmp::Eq for ID2D1DrawingStateBlock {}
+impl ::core::fmt::Debug for ID2D1DrawingStateBlock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DrawingStateBlock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DrawingStateBlock {
     type Vtable = ID2D1DrawingStateBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28506e39_ebf6_46a1_bb47_fd85565ab957);
@@ -16191,6 +16391,11 @@ impl ::core::cmp::PartialEq for ID2D1DrawingStateBlock1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1DrawingStateBlock1 {}
+impl ::core::fmt::Debug for ID2D1DrawingStateBlock1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1DrawingStateBlock1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1DrawingStateBlock1 {
     type Vtable = ID2D1DrawingStateBlock1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x689f1f85_c72e_4e33_8f19_85754efd5ace);
@@ -16341,6 +16546,11 @@ impl ::core::cmp::PartialEq for ID2D1Effect {
     }
 }
 impl ::core::cmp::Eq for ID2D1Effect {}
+impl ::core::fmt::Debug for ID2D1Effect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Effect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Effect {
     type Vtable = ID2D1EffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28211a43_7d89_476f_8181_2d6159b220ad);
@@ -16515,6 +16725,11 @@ impl ::core::cmp::PartialEq for ID2D1EffectContext {
     }
 }
 impl ::core::cmp::Eq for ID2D1EffectContext {}
+impl ::core::fmt::Debug for ID2D1EffectContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1EffectContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1EffectContext {
     type Vtable = ID2D1EffectContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d9f916b_27dc_4ad7_b4f1_64945340f563);
@@ -16722,6 +16937,11 @@ impl ::core::cmp::PartialEq for ID2D1EffectContext1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1EffectContext1 {}
+impl ::core::fmt::Debug for ID2D1EffectContext1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1EffectContext1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1EffectContext1 {
     type Vtable = ID2D1EffectContext1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ab595a_fc81_4546_bacd_e8ef4d8abe7a);
@@ -16962,6 +17182,11 @@ impl ::core::cmp::PartialEq for ID2D1EffectContext2 {
     }
 }
 impl ::core::cmp::Eq for ID2D1EffectContext2 {}
+impl ::core::fmt::Debug for ID2D1EffectContext2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1EffectContext2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1EffectContext2 {
     type Vtable = ID2D1EffectContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x577ad2a0_9fc7_4dda_8b18_dab810140052);
@@ -17055,6 +17280,11 @@ impl ::core::cmp::PartialEq for ID2D1EffectImpl {
     }
 }
 impl ::core::cmp::Eq for ID2D1EffectImpl {}
+impl ::core::fmt::Debug for ID2D1EffectImpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1EffectImpl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1EffectImpl {
     type Vtable = ID2D1EffectImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa248fd3f_3e6c_4e63_9f03_7f68ecc91db9);
@@ -17226,6 +17456,11 @@ impl ::core::cmp::PartialEq for ID2D1EllipseGeometry {
     }
 }
 impl ::core::cmp::Eq for ID2D1EllipseGeometry {}
+impl ::core::fmt::Debug for ID2D1EllipseGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1EllipseGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1EllipseGeometry {
     type Vtable = ID2D1EllipseGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a4_12e2_11dc_9fed_001143a055f9);
@@ -17380,6 +17615,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory {}
+impl ::core::fmt::Debug for ID2D1Factory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory {
     type Vtable = ID2D1FactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06152247_6f50_465a_9245_118bfd3b6007);
@@ -17600,6 +17840,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory1 {}
+impl ::core::fmt::Debug for ID2D1Factory1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory1 {
     type Vtable = ID2D1Factory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb12d362_daee_4b9a_aa1d_14ba401cfa1f);
@@ -17861,6 +18106,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory2 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory2 {}
+impl ::core::fmt::Debug for ID2D1Factory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory2 {
     type Vtable = ID2D1Factory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94f81a73_9212_4376_9c58_b16a3a0d3992);
@@ -18150,6 +18400,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory3 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory3 {}
+impl ::core::fmt::Debug for ID2D1Factory3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory3 {
     type Vtable = ID2D1Factory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0869759f_4f00_413f_b03e_2bda45404d0f);
@@ -18467,6 +18722,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory4 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory4 {}
+impl ::core::fmt::Debug for ID2D1Factory4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory4 {
     type Vtable = ID2D1Factory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbd4ec2d2_0662_4bee_ba8e_6f29f032e096);
@@ -18812,6 +19072,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory5 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory5 {}
+impl ::core::fmt::Debug for ID2D1Factory5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory5 {
     type Vtable = ID2D1Factory5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4349994_838e_4b0f_8cab_44997d9eeacc);
@@ -19185,6 +19450,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory6 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory6 {}
+impl ::core::fmt::Debug for ID2D1Factory6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory6 {
     type Vtable = ID2D1Factory6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9976f46_f642_44c1_97ca_da32ea2a2635);
@@ -19586,6 +19856,11 @@ impl ::core::cmp::PartialEq for ID2D1Factory7 {
     }
 }
 impl ::core::cmp::Eq for ID2D1Factory7 {}
+impl ::core::fmt::Debug for ID2D1Factory7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Factory7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Factory7 {
     type Vtable = ID2D1Factory7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbdc2bdd3_b96c_4de6_bdf7_99d4745454de);
@@ -19695,6 +19970,11 @@ impl ::core::cmp::PartialEq for ID2D1GdiInteropRenderTarget {
     }
 }
 impl ::core::cmp::Eq for ID2D1GdiInteropRenderTarget {}
+impl ::core::fmt::Debug for ID2D1GdiInteropRenderTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GdiInteropRenderTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GdiInteropRenderTarget {
     type Vtable = ID2D1GdiInteropRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0db51c3_6f77_4bae_b3d5_e47509b35838);
@@ -19780,6 +20060,11 @@ impl ::core::cmp::PartialEq for ID2D1GdiMetafile {
     }
 }
 impl ::core::cmp::Eq for ID2D1GdiMetafile {}
+impl ::core::fmt::Debug for ID2D1GdiMetafile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GdiMetafile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GdiMetafile {
     type Vtable = ID2D1GdiMetafileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f543dc3_cfc1_4211_864f_cfd91c6f3395);
@@ -19895,6 +20180,11 @@ impl ::core::cmp::PartialEq for ID2D1GdiMetafile1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1GdiMetafile1 {}
+impl ::core::fmt::Debug for ID2D1GdiMetafile1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GdiMetafile1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GdiMetafile1 {
     type Vtable = ID2D1GdiMetafile1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e69f9e8_dd3f_4bf9_95ba_c04f49d788df);
@@ -19953,6 +20243,11 @@ impl ::core::cmp::PartialEq for ID2D1GdiMetafileSink {
     }
 }
 impl ::core::cmp::Eq for ID2D1GdiMetafileSink {}
+impl ::core::fmt::Debug for ID2D1GdiMetafileSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GdiMetafileSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GdiMetafileSink {
     type Vtable = ID2D1GdiMetafileSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82237326_8111_4f7c_bcf4_b5c1175564fe);
@@ -20024,6 +20319,11 @@ impl ::core::cmp::PartialEq for ID2D1GdiMetafileSink1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1GdiMetafileSink1 {}
+impl ::core::fmt::Debug for ID2D1GdiMetafileSink1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GdiMetafileSink1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GdiMetafileSink1 {
     type Vtable = ID2D1GdiMetafileSink1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd0ecb6b_91e6_411e_8655_395e760f91b4);
@@ -20169,6 +20469,11 @@ impl ::core::cmp::PartialEq for ID2D1Geometry {
     }
 }
 impl ::core::cmp::Eq for ID2D1Geometry {}
+impl ::core::fmt::Debug for ID2D1Geometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Geometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Geometry {
     type Vtable = ID2D1GeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a1_12e2_11dc_9fed_001143a055f9);
@@ -20372,6 +20677,11 @@ impl ::core::cmp::PartialEq for ID2D1GeometryGroup {
     }
 }
 impl ::core::cmp::Eq for ID2D1GeometryGroup {}
+impl ::core::fmt::Debug for ID2D1GeometryGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GeometryGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GeometryGroup {
     type Vtable = ID2D1GeometryGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a6_12e2_11dc_9fed_001143a055f9);
@@ -20474,6 +20784,11 @@ impl ::core::cmp::PartialEq for ID2D1GeometryRealization {
     }
 }
 impl ::core::cmp::Eq for ID2D1GeometryRealization {}
+impl ::core::fmt::Debug for ID2D1GeometryRealization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GeometryRealization").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GeometryRealization {
     type Vtable = ID2D1GeometryRealizationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa16907d7_bc02_4801_99e8_8cf7f485f774);
@@ -20601,6 +20916,11 @@ impl ::core::cmp::PartialEq for ID2D1GeometrySink {
     }
 }
 impl ::core::cmp::Eq for ID2D1GeometrySink {}
+impl ::core::fmt::Debug for ID2D1GeometrySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GeometrySink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GeometrySink {
     type Vtable = ID2D1GeometrySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069f_12e2_11dc_9fed_001143a055f9);
@@ -20705,6 +21025,11 @@ impl ::core::cmp::PartialEq for ID2D1GradientMesh {
     }
 }
 impl ::core::cmp::Eq for ID2D1GradientMesh {}
+impl ::core::fmt::Debug for ID2D1GradientMesh {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GradientMesh").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GradientMesh {
     type Vtable = ID2D1GradientMeshVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf292e401_c050_4cde_83d7_04962d3b23c2);
@@ -20797,6 +21122,11 @@ impl ::core::cmp::PartialEq for ID2D1GradientStopCollection {
     }
 }
 impl ::core::cmp::Eq for ID2D1GradientStopCollection {}
+impl ::core::fmt::Debug for ID2D1GradientStopCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GradientStopCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GradientStopCollection {
     type Vtable = ID2D1GradientStopCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a7_12e2_11dc_9fed_001143a055f9);
@@ -20932,6 +21262,11 @@ impl ::core::cmp::PartialEq for ID2D1GradientStopCollection1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1GradientStopCollection1 {}
+impl ::core::fmt::Debug for ID2D1GradientStopCollection1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1GradientStopCollection1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1GradientStopCollection1 {
     type Vtable = ID2D1GradientStopCollection1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae1572f4_5dd0_4777_998b_9279472ae63b);
@@ -21310,6 +21645,11 @@ impl ::core::cmp::PartialEq for ID2D1HwndRenderTarget {
     }
 }
 impl ::core::cmp::Eq for ID2D1HwndRenderTarget {}
+impl ::core::fmt::Debug for ID2D1HwndRenderTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1HwndRenderTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1HwndRenderTarget {
     type Vtable = ID2D1HwndRenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90698_12e2_11dc_9fed_001143a055f9);
@@ -21473,6 +21813,11 @@ impl ::core::cmp::PartialEq for ID2D1Image {
     }
 }
 impl ::core::cmp::Eq for ID2D1Image {}
+impl ::core::fmt::Debug for ID2D1Image {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Image").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Image {
     type Vtable = ID2D1ImageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65019f75_8da2_497c_b32c_dfa34e48ede6);
@@ -21620,6 +21965,11 @@ impl ::core::cmp::PartialEq for ID2D1ImageBrush {
     }
 }
 impl ::core::cmp::Eq for ID2D1ImageBrush {}
+impl ::core::fmt::Debug for ID2D1ImageBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ImageBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ImageBrush {
     type Vtable = ID2D1ImageBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe9e984d_3f95_407c_b5db_cb94d4e8f87c);
@@ -21740,6 +22090,11 @@ impl ::core::cmp::PartialEq for ID2D1ImageSource {
     }
 }
 impl ::core::cmp::Eq for ID2D1ImageSource {}
+impl ::core::fmt::Debug for ID2D1ImageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ImageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ImageSource {
     type Vtable = ID2D1ImageSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9b664e5_74a1_4378_9ac2_eefc37a3f4d8);
@@ -21880,6 +22235,11 @@ impl ::core::cmp::PartialEq for ID2D1ImageSourceFromWic {
     }
 }
 impl ::core::cmp::Eq for ID2D1ImageSourceFromWic {}
+impl ::core::fmt::Debug for ID2D1ImageSourceFromWic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ImageSourceFromWic").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ImageSourceFromWic {
     type Vtable = ID2D1ImageSourceFromWicVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77395441_1c8f_4555_8683_f50dab0fe792);
@@ -22006,6 +22366,11 @@ impl ::core::cmp::PartialEq for ID2D1Ink {
     }
 }
 impl ::core::cmp::Eq for ID2D1Ink {}
+impl ::core::fmt::Debug for ID2D1Ink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Ink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Ink {
     type Vtable = ID2D1InkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb499923b_7029_478f_a8b3_432c7c5f5312);
@@ -22108,6 +22473,11 @@ impl ::core::cmp::PartialEq for ID2D1InkStyle {
     }
 }
 impl ::core::cmp::Eq for ID2D1InkStyle {}
+impl ::core::fmt::Debug for ID2D1InkStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1InkStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1InkStyle {
     type Vtable = ID2D1InkStyleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbae8b344_23fc_4071_8cb5_d05d6f073848);
@@ -22193,6 +22563,11 @@ impl ::core::cmp::PartialEq for ID2D1Layer {
     }
 }
 impl ::core::cmp::Eq for ID2D1Layer {}
+impl ::core::fmt::Debug for ID2D1Layer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Layer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Layer {
     type Vtable = ID2D1LayerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069b_12e2_11dc_9fed_001143a055f9);
@@ -22333,6 +22708,11 @@ impl ::core::cmp::PartialEq for ID2D1LinearGradientBrush {
     }
 }
 impl ::core::cmp::Eq for ID2D1LinearGradientBrush {}
+impl ::core::fmt::Debug for ID2D1LinearGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1LinearGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1LinearGradientBrush {
     type Vtable = ID2D1LinearGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906ab_12e2_11dc_9fed_001143a055f9);
@@ -22420,6 +22800,11 @@ impl ::core::cmp::PartialEq for ID2D1LookupTable3D {
     }
 }
 impl ::core::cmp::Eq for ID2D1LookupTable3D {}
+impl ::core::fmt::Debug for ID2D1LookupTable3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1LookupTable3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1LookupTable3D {
     type Vtable = ID2D1LookupTable3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53dd9855_a3b0_4d5b_82e1_26e25c5e5797);
@@ -22492,6 +22877,11 @@ impl ::core::cmp::PartialEq for ID2D1Mesh {
     }
 }
 impl ::core::cmp::Eq for ID2D1Mesh {}
+impl ::core::fmt::Debug for ID2D1Mesh {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Mesh").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Mesh {
     type Vtable = ID2D1MeshVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906c2_12e2_11dc_9fed_001143a055f9);
@@ -22554,6 +22944,11 @@ impl ::core::cmp::PartialEq for ID2D1Multithread {
     }
 }
 impl ::core::cmp::Eq for ID2D1Multithread {}
+impl ::core::fmt::Debug for ID2D1Multithread {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Multithread").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Multithread {
     type Vtable = ID2D1MultithreadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31e6e7bc_e0ff_4d46_8c64_a0a8c41c15d3);
@@ -22641,6 +23036,11 @@ impl ::core::cmp::PartialEq for ID2D1OffsetTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1OffsetTransform {}
+impl ::core::fmt::Debug for ID2D1OffsetTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1OffsetTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1OffsetTransform {
     type Vtable = ID2D1OffsetTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fe6adea_7643_4f53_bd14_a0ce63f24042);
@@ -22828,6 +23228,11 @@ impl ::core::cmp::PartialEq for ID2D1PathGeometry {
     }
 }
 impl ::core::cmp::Eq for ID2D1PathGeometry {}
+impl ::core::fmt::Debug for ID2D1PathGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1PathGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1PathGeometry {
     type Vtable = ID2D1PathGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a5_12e2_11dc_9fed_001143a055f9);
@@ -23067,6 +23472,11 @@ impl ::core::cmp::PartialEq for ID2D1PathGeometry1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1PathGeometry1 {}
+impl ::core::fmt::Debug for ID2D1PathGeometry1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1PathGeometry1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1PathGeometry1 {
     type Vtable = ID2D1PathGeometry1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62baa2d2_ab54_41b7_b872_787e0106a421);
@@ -23156,6 +23566,11 @@ impl ::core::cmp::PartialEq for ID2D1PrintControl {
     }
 }
 impl ::core::cmp::Eq for ID2D1PrintControl {}
+impl ::core::fmt::Debug for ID2D1PrintControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1PrintControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1PrintControl {
     type Vtable = ID2D1PrintControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c1d867d_c290_41c8_ae7e_34a98702e9a5);
@@ -23255,6 +23670,11 @@ impl ::core::cmp::PartialEq for ID2D1Properties {
     }
 }
 impl ::core::cmp::Eq for ID2D1Properties {}
+impl ::core::fmt::Debug for ID2D1Properties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Properties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Properties {
     type Vtable = ID2D1PropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x483473d7_cd46_4f9d_9d3a_3112aa80159d);
@@ -23423,6 +23843,11 @@ impl ::core::cmp::PartialEq for ID2D1RadialGradientBrush {
     }
 }
 impl ::core::cmp::Eq for ID2D1RadialGradientBrush {}
+impl ::core::fmt::Debug for ID2D1RadialGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1RadialGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1RadialGradientBrush {
     type Vtable = ID2D1RadialGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906ac_12e2_11dc_9fed_001143a055f9);
@@ -23611,6 +24036,11 @@ impl ::core::cmp::PartialEq for ID2D1RectangleGeometry {
     }
 }
 impl ::core::cmp::Eq for ID2D1RectangleGeometry {}
+impl ::core::fmt::Debug for ID2D1RectangleGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1RectangleGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1RectangleGeometry {
     type Vtable = ID2D1RectangleGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a2_12e2_11dc_9fed_001143a055f9);
@@ -23704,6 +24134,11 @@ impl ::core::cmp::PartialEq for ID2D1RenderInfo {
     }
 }
 impl ::core::cmp::Eq for ID2D1RenderInfo {}
+impl ::core::fmt::Debug for ID2D1RenderInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1RenderInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1RenderInfo {
     type Vtable = ID2D1RenderInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x519ae1bd_d19a_420d_b849_364f594776b7);
@@ -24041,6 +24476,11 @@ impl ::core::cmp::PartialEq for ID2D1RenderTarget {
     }
 }
 impl ::core::cmp::Eq for ID2D1RenderTarget {}
+impl ::core::fmt::Debug for ID2D1RenderTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1RenderTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1RenderTarget {
     type Vtable = ID2D1RenderTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90694_12e2_11dc_9fed_001143a055f9);
@@ -24179,6 +24619,11 @@ impl ::core::cmp::PartialEq for ID2D1Resource {
     }
 }
 impl ::core::cmp::Eq for ID2D1Resource {}
+impl ::core::fmt::Debug for ID2D1Resource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Resource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Resource {
     type Vtable = ID2D1ResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd90691_12e2_11dc_9fed_001143a055f9);
@@ -24226,6 +24671,11 @@ impl ::core::cmp::PartialEq for ID2D1ResourceTexture {
     }
 }
 impl ::core::cmp::Eq for ID2D1ResourceTexture {}
+impl ::core::fmt::Debug for ID2D1ResourceTexture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1ResourceTexture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1ResourceTexture {
     type Vtable = ID2D1ResourceTextureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x688d15c3_02b0_438d_b13a_d1b44c32c39a);
@@ -24395,6 +24845,11 @@ impl ::core::cmp::PartialEq for ID2D1RoundedRectangleGeometry {
     }
 }
 impl ::core::cmp::Eq for ID2D1RoundedRectangleGeometry {}
+impl ::core::fmt::Debug for ID2D1RoundedRectangleGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1RoundedRectangleGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1RoundedRectangleGeometry {
     type Vtable = ID2D1RoundedRectangleGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a3_12e2_11dc_9fed_001143a055f9);
@@ -24545,6 +25000,11 @@ impl ::core::cmp::PartialEq for ID2D1SolidColorBrush {
     }
 }
 impl ::core::cmp::Eq for ID2D1SolidColorBrush {}
+impl ::core::fmt::Debug for ID2D1SolidColorBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SolidColorBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SolidColorBrush {
     type Vtable = ID2D1SolidColorBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906a9_12e2_11dc_9fed_001143a055f9);
@@ -24672,6 +25132,11 @@ impl ::core::cmp::PartialEq for ID2D1SourceTransform {
     }
 }
 impl ::core::cmp::Eq for ID2D1SourceTransform {}
+impl ::core::fmt::Debug for ID2D1SourceTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SourceTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SourceTransform {
     type Vtable = ID2D1SourceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb1800dd_0c34_4cf9_be90_31cc0a5653e1);
@@ -24776,6 +25241,11 @@ impl ::core::cmp::PartialEq for ID2D1SpriteBatch {
     }
 }
 impl ::core::cmp::Eq for ID2D1SpriteBatch {}
+impl ::core::fmt::Debug for ID2D1SpriteBatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SpriteBatch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SpriteBatch {
     type Vtable = ID2D1SpriteBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4dc583bf_3a10_438a_8722_e9765224f1f1);
@@ -24892,6 +25362,11 @@ impl ::core::cmp::PartialEq for ID2D1StrokeStyle {
     }
 }
 impl ::core::cmp::Eq for ID2D1StrokeStyle {}
+impl ::core::fmt::Debug for ID2D1StrokeStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1StrokeStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1StrokeStyle {
     type Vtable = ID2D1StrokeStyleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069d_12e2_11dc_9fed_001143a055f9);
@@ -25033,6 +25508,11 @@ impl ::core::cmp::PartialEq for ID2D1StrokeStyle1 {
     }
 }
 impl ::core::cmp::Eq for ID2D1StrokeStyle1 {}
+impl ::core::fmt::Debug for ID2D1StrokeStyle1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1StrokeStyle1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1StrokeStyle1 {
     type Vtable = ID2D1StrokeStyle1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10a72a66_e91c_43f4_993f_ddf4b82b0b4a);
@@ -25124,6 +25604,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgAttribute {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgAttribute {}
+impl ::core::fmt::Debug for ID2D1SvgAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgAttribute {
     type Vtable = ID2D1SvgAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9cdb0dd_f8c9_4e70_b7c2_301c80292c5e);
@@ -25257,6 +25742,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgDocument {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgDocument {}
+impl ::core::fmt::Debug for ID2D1SvgDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgDocument {
     type Vtable = ID2D1SvgDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86b88e4d_afa4_4d7b_88e4_68a51c4a0aec);
@@ -25488,6 +25978,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgElement {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgElement {}
+impl ::core::fmt::Debug for ID2D1SvgElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgElement {
     type Vtable = ID2D1SvgElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac7b67a6_183e_49c1_a823_0ebe40b0db29);
@@ -25627,6 +26122,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgGlyphStyle {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgGlyphStyle {}
+impl ::core::fmt::Debug for ID2D1SvgGlyphStyle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgGlyphStyle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgGlyphStyle {
     type Vtable = ID2D1SvgGlyphStyleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf671749_d241_4db8_8e41_dcc2e5c1a438);
@@ -25765,6 +26265,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgPaint {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgPaint {}
+impl ::core::fmt::Debug for ID2D1SvgPaint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgPaint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgPaint {
     type Vtable = ID2D1SvgPaintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd59bab0a_68a2_455b_a5dc_9eb2854e2490);
@@ -25917,6 +26422,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgPathData {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgPathData {}
+impl ::core::fmt::Debug for ID2D1SvgPathData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgPathData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgPathData {
     type Vtable = ID2D1SvgPathDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc095e4f4_bb98_43d6_9745_4d1b84ec9888);
@@ -26048,6 +26558,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgPointCollection {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgPointCollection {}
+impl ::core::fmt::Debug for ID2D1SvgPointCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgPointCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgPointCollection {
     type Vtable = ID2D1SvgPointCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9dbe4c0d_3572_4dd9_9825_5530813bb712);
@@ -26181,6 +26696,11 @@ impl ::core::cmp::PartialEq for ID2D1SvgStrokeDashArray {
     }
 }
 impl ::core::cmp::Eq for ID2D1SvgStrokeDashArray {}
+impl ::core::fmt::Debug for ID2D1SvgStrokeDashArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SvgStrokeDashArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SvgStrokeDashArray {
     type Vtable = ID2D1SvgStrokeDashArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1c0ca52_92a3_4f00_b4ce_f35691efd9d9);
@@ -26246,6 +26766,11 @@ impl ::core::cmp::PartialEq for ID2D1TessellationSink {
     }
 }
 impl ::core::cmp::Eq for ID2D1TessellationSink {}
+impl ::core::fmt::Debug for ID2D1TessellationSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1TessellationSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1TessellationSink {
     type Vtable = ID2D1TessellationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906c1_12e2_11dc_9fed_001143a055f9);
@@ -26336,6 +26861,11 @@ impl ::core::cmp::PartialEq for ID2D1Transform {
     }
 }
 impl ::core::cmp::Eq for ID2D1Transform {}
+impl ::core::fmt::Debug for ID2D1Transform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1Transform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1Transform {
     type Vtable = ID2D1TransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef1a287d_342a_4f76_8fdb_da0d6ea9f92b);
@@ -26426,6 +26956,11 @@ impl ::core::cmp::PartialEq for ID2D1TransformGraph {
     }
 }
 impl ::core::cmp::Eq for ID2D1TransformGraph {}
+impl ::core::fmt::Debug for ID2D1TransformGraph {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1TransformGraph").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1TransformGraph {
     type Vtable = ID2D1TransformGraphVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13d29038_c3e6_4034_9081_13b53a417992);
@@ -26486,6 +27021,11 @@ impl ::core::cmp::PartialEq for ID2D1TransformNode {
     }
 }
 impl ::core::cmp::Eq for ID2D1TransformNode {}
+impl ::core::fmt::Debug for ID2D1TransformNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1TransformNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1TransformNode {
     type Vtable = ID2D1TransformNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2efe1e7_729f_4102_949f_505fa21bf666);
@@ -26654,6 +27194,11 @@ impl ::core::cmp::PartialEq for ID2D1TransformedGeometry {
     }
 }
 impl ::core::cmp::Eq for ID2D1TransformedGeometry {}
+impl ::core::fmt::Debug for ID2D1TransformedGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1TransformedGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1TransformedGeometry {
     type Vtable = ID2D1TransformedGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd906bb_12e2_11dc_9fed_001143a055f9);
@@ -26783,6 +27328,11 @@ impl ::core::cmp::PartialEq for ID2D1TransformedImageSource {
     }
 }
 impl ::core::cmp::Eq for ID2D1TransformedImageSource {}
+impl ::core::fmt::Debug for ID2D1TransformedImageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1TransformedImageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1TransformedImageSource {
     type Vtable = ID2D1TransformedImageSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f1f79e5_2796_416c_8f55_700f911445e5);
@@ -26841,6 +27391,11 @@ impl ::core::cmp::PartialEq for ID2D1VertexBuffer {
     }
 }
 impl ::core::cmp::Eq for ID2D1VertexBuffer {}
+impl ::core::fmt::Debug for ID2D1VertexBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1VertexBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1VertexBuffer {
     type Vtable = ID2D1VertexBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b8b1336_00a5_4668_92b7_ced5d8bf9b7b);

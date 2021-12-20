@@ -10062,6 +10062,11 @@ impl ::core::cmp::PartialEq for IDot11AdHocInterface {
     }
 }
 impl ::core::cmp::Eq for IDot11AdHocInterface {}
+impl ::core::fmt::Debug for IDot11AdHocInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDot11AdHocInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDot11AdHocInterface {
     type Vtable = IDot11AdHocInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2b_cf0d_42a0_acbe_e2de7007384d);
@@ -10123,6 +10128,11 @@ impl ::core::cmp::PartialEq for IDot11AdHocInterfaceNotificationSink {
     }
 }
 impl ::core::cmp::Eq for IDot11AdHocInterfaceNotificationSink {}
+impl ::core::fmt::Debug for IDot11AdHocInterfaceNotificationSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDot11AdHocInterfaceNotificationSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDot11AdHocInterfaceNotificationSink {
     type Vtable = IDot11AdHocInterfaceNotificationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2f_cf0d_42a0_acbe_e2de7007384d);
@@ -10192,6 +10202,11 @@ impl ::core::cmp::PartialEq for IDot11AdHocManager {
     }
 }
 impl ::core::cmp::Eq for IDot11AdHocManager {}
+impl ::core::fmt::Debug for IDot11AdHocManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDot11AdHocManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDot11AdHocManager {
     type Vtable = IDot11AdHocManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc26_cf0d_42a0_acbe_e2de7007384d);
@@ -10262,6 +10277,11 @@ impl ::core::cmp::PartialEq for IDot11AdHocManagerNotificationSink {
     }
 }
 impl ::core::cmp::Eq for IDot11AdHocManagerNotificationSink {}
+impl ::core::fmt::Debug for IDot11AdHocManagerNotificationSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDot11AdHocManagerNotificationSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDot11AdHocManagerNotificationSink {
     type Vtable = IDot11AdHocManagerNotificationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc27_cf0d_42a0_acbe_e2de7007384d);
@@ -10368,6 +10388,11 @@ impl ::core::cmp::PartialEq for IDot11AdHocNetwork {
     }
 }
 impl ::core::cmp::Eq for IDot11AdHocNetwork {}
+impl ::core::fmt::Debug for IDot11AdHocNetwork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDot11AdHocNetwork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDot11AdHocNetwork {
     type Vtable = IDot11AdHocNetworkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc29_cf0d_42a0_acbe_e2de7007384d);
@@ -10438,6 +10463,11 @@ impl ::core::cmp::PartialEq for IDot11AdHocNetworkNotificationSink {
     }
 }
 impl ::core::cmp::Eq for IDot11AdHocNetworkNotificationSink {}
+impl ::core::fmt::Debug for IDot11AdHocNetworkNotificationSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDot11AdHocNetworkNotificationSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDot11AdHocNetworkNotificationSink {
     type Vtable = IDot11AdHocNetworkNotificationSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2a_cf0d_42a0_acbe_e2de7007384d);
@@ -10495,6 +10525,11 @@ impl ::core::cmp::PartialEq for IDot11AdHocSecuritySettings {
     }
 }
 impl ::core::cmp::Eq for IDot11AdHocSecuritySettings {}
+impl ::core::fmt::Debug for IDot11AdHocSecuritySettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDot11AdHocSecuritySettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDot11AdHocSecuritySettings {
     type Vtable = IDot11AdHocSecuritySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2e_cf0d_42a0_acbe_e2de7007384d);
@@ -10561,6 +10596,11 @@ impl ::core::cmp::PartialEq for IEnumDot11AdHocInterfaces {
     }
 }
 impl ::core::cmp::Eq for IEnumDot11AdHocInterfaces {}
+impl ::core::fmt::Debug for IEnumDot11AdHocInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumDot11AdHocInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocInterfaces {
     type Vtable = IEnumDot11AdHocInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2c_cf0d_42a0_acbe_e2de7007384d);
@@ -10629,6 +10669,11 @@ impl ::core::cmp::PartialEq for IEnumDot11AdHocNetworks {
     }
 }
 impl ::core::cmp::Eq for IEnumDot11AdHocNetworks {}
+impl ::core::fmt::Debug for IEnumDot11AdHocNetworks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumDot11AdHocNetworks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocNetworks {
     type Vtable = IEnumDot11AdHocNetworksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc28_cf0d_42a0_acbe_e2de7007384d);
@@ -10697,6 +10742,11 @@ impl ::core::cmp::PartialEq for IEnumDot11AdHocSecuritySettings {
     }
 }
 impl ::core::cmp::Eq for IEnumDot11AdHocSecuritySettings {}
+impl ::core::fmt::Debug for IEnumDot11AdHocSecuritySettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumDot11AdHocSecuritySettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumDot11AdHocSecuritySettings {
     type Vtable = IEnumDot11AdHocSecuritySettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8f10cc2d_cf0d_42a0_acbe_e2de7007384d);

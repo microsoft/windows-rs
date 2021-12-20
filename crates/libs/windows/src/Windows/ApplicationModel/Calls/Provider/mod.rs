@@ -209,6 +209,11 @@ impl ::core::cmp::PartialEq for PhoneCallOrigin {
     }
 }
 impl ::core::cmp::Eq for PhoneCallOrigin {}
+impl ::core::fmt::Debug for PhoneCallOrigin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneCallOrigin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneCallOrigin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Calls.Provider.PhoneCallOrigin;{20613479-0ef9-4454-871c-afb66a14b6a5})");
 }

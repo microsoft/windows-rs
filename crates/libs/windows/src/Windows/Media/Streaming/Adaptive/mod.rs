@@ -319,6 +319,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSource {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSource {}
+impl ::core::fmt::Debug for AdaptiveMediaSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSource;{4c7332ef-d39f-4396-b4d9-043957a7c964})");
 }
@@ -482,6 +487,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceAdvancedSettings {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceAdvancedSettings {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceAdvancedSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceAdvancedSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceAdvancedSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceAdvancedSettings;{55db1680-1aeb-47dc-aa08-9a11610ba45a})");
 }
@@ -577,6 +587,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceCorrelatedTimes {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceCorrelatedTimes {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceCorrelatedTimes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceCorrelatedTimes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCorrelatedTimes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCorrelatedTimes;{05108787-e032-48e1-ab8d-002b0b3051df})");
 }
@@ -678,6 +693,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceCreationResult {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceCreationResult {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceCreationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceCreationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceCreationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceCreationResult;{4686b6b2-800f-4e31-9093-76d4782013e7})");
 }
@@ -889,6 +909,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDiagnosticAvailableEventArgs 
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDiagnosticAvailableEventArgs {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDiagnosticAvailableEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnosticAvailableEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnosticAvailableEventArgs;{3af64f06-6d9c-494a-b7a9-b3a5dee6ad68})");
 }
@@ -1012,6 +1037,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDiagnostics {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDiagnostics {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDiagnostics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDiagnostics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDiagnostics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDiagnostics;{9b24ee68-962e-448c-aebf-b29b56098e23})");
 }
@@ -1104,6 +1134,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadBitrateChangedEventAr
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadBitrateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadBitrateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadBitrateChangedEventArgs;{670c0a44-e04e-4eff-816a-17399f78f4ba})");
 }
@@ -1296,6 +1331,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadCompletedEventArgs {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadCompletedEventArgs;{19240dc3-5b37-4a1a-8970-d621cb6ca83b})");
 }
@@ -1458,6 +1498,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadFailedEventArgs {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadFailedEventArgs;{37739048-f4ab-40a4-b135-c6dfd8bd7ff1})");
 }
@@ -1531,6 +1576,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadRequestedDeferral {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadRequestedDeferral {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadRequestedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequestedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedDeferral;{05c68f64-fa20-4dbd-9821-4bf4c9bf77ab})");
 }
@@ -1684,6 +1734,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadRequestedEventArgs {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadRequestedEventArgs;{c83fdffd-44a9-47a2-bf96-03398b4bfaaf})");
 }
@@ -1853,6 +1908,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadResult {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadResult {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadResult;{f4afdc73-bcee-4a6a-9f0a-fec41e2339b0})");
 }
@@ -1956,6 +2016,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourceDownloadStatistics {
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourceDownloadStatistics {}
+impl ::core::fmt::Debug for AdaptiveMediaSourceDownloadStatistics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourceDownloadStatistics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourceDownloadStatistics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourceDownloadStatistics;{a306cefb-e96a-4dff-a9b8-1ae08c01ae98})");
 }
@@ -2048,6 +2113,11 @@ impl ::core::cmp::PartialEq for AdaptiveMediaSourcePlaybackBitrateChangedEventAr
     }
 }
 impl ::core::cmp::Eq for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {}
+impl ::core::fmt::Debug for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveMediaSourcePlaybackBitrateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveMediaSourcePlaybackBitrateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Streaming.Adaptive.AdaptiveMediaSourcePlaybackBitrateChangedEventArgs;{23a29f6d-7dda-4a51-87a9-6fa8c5b292be})");
 }

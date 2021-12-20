@@ -103,6 +103,11 @@ impl ::core::cmp::PartialEq for DevicePortalConnection {
     }
 }
 impl ::core::cmp::Eq for DevicePortalConnection {}
+impl ::core::fmt::Debug for DevicePortalConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePortalConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnection;{0f447f51-1198-4da1-8d54-bdef393e09b6})");
 }
@@ -179,6 +184,11 @@ impl ::core::cmp::PartialEq for DevicePortalConnectionClosedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DevicePortalConnectionClosedEventArgs {}
+impl ::core::fmt::Debug for DevicePortalConnectionClosedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePortalConnectionClosedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionClosedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionClosedEventArgs;{fcf70e38-7032-428c-9f50-945c15a9f0cb})");
 }
@@ -328,6 +338,11 @@ impl ::core::cmp::PartialEq for DevicePortalConnectionRequestReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DevicePortalConnectionRequestReceivedEventArgs {}
+impl ::core::fmt::Debug for DevicePortalConnectionRequestReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DevicePortalConnectionRequestReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DevicePortalConnectionRequestReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.DevicePortal.DevicePortalConnectionRequestReceivedEventArgs;{64dae045-6fda-4459-9ebd-ecce22e38559})");
 }

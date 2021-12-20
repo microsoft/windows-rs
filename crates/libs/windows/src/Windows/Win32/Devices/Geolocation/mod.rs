@@ -2650,6 +2650,11 @@ impl ::core::cmp::PartialEq for ICivicAddressReport {
     }
 }
 impl ::core::cmp::Eq for ICivicAddressReport {}
+impl ::core::fmt::Debug for ICivicAddressReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICivicAddressReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICivicAddressReport {
     type Vtable = ICivicAddressReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b19f70_4adf_445d_87f2_cad8fd711792);
@@ -2821,6 +2826,11 @@ impl ::core::cmp::PartialEq for ICivicAddressReportFactory {
     }
 }
 impl ::core::cmp::Eq for ICivicAddressReportFactory {}
+impl ::core::fmt::Debug for ICivicAddressReportFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICivicAddressReportFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICivicAddressReportFactory {
     type Vtable = ICivicAddressReportFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf773b93_c64f_4bee_beb2_67c0b8df66e0);
@@ -2894,6 +2904,11 @@ impl ::core::cmp::PartialEq for IDefaultLocation {
     }
 }
 impl ::core::cmp::Eq for IDefaultLocation {}
+impl ::core::fmt::Debug for IDefaultLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDefaultLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDefaultLocation {
     type Vtable = IDefaultLocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65af77e_969a_4a2e_8aca_33bb7cbb1235);
@@ -3035,6 +3050,11 @@ impl ::core::cmp::PartialEq for IDispCivicAddressReport {
     }
 }
 impl ::core::cmp::Eq for IDispCivicAddressReport {}
+impl ::core::fmt::Debug for IDispCivicAddressReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDispCivicAddressReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDispCivicAddressReport {
     type Vtable = IDispCivicAddressReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ff1a34_9e30_42c3_b44d_e22513b5767a);
@@ -3180,6 +3200,11 @@ impl ::core::cmp::PartialEq for IDispLatLongReport {
     }
 }
 impl ::core::cmp::Eq for IDispLatLongReport {}
+impl ::core::fmt::Debug for IDispLatLongReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDispLatLongReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDispLatLongReport {
     type Vtable = IDispLatLongReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ae32723_389b_4a11_9957_5bdd48fc9617);
@@ -3303,6 +3328,11 @@ impl ::core::cmp::PartialEq for ILatLongReport {
     }
 }
 impl ::core::cmp::Eq for ILatLongReport {}
+impl ::core::fmt::Debug for ILatLongReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILatLongReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILatLongReport {
     type Vtable = ILatLongReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fed806d_0ef8_4f07_80ac_36a0beae3134);
@@ -3466,6 +3496,11 @@ impl ::core::cmp::PartialEq for ILatLongReportFactory {
     }
 }
 impl ::core::cmp::Eq for ILatLongReportFactory {}
+impl ::core::fmt::Debug for ILatLongReportFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILatLongReportFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILatLongReportFactory {
     type Vtable = ILatLongReportFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f0804cb_b114_447d_83dd_390174ebb082);
@@ -3573,6 +3608,11 @@ impl ::core::cmp::PartialEq for ILocation {
     }
 }
 impl ::core::cmp::Eq for ILocation {}
+impl ::core::fmt::Debug for ILocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILocation {
     type Vtable = ILocationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab2ece69_56d9_4f28_b525_de1b0ee44237);
@@ -3640,6 +3680,11 @@ impl ::core::cmp::PartialEq for ILocationEvents {
     }
 }
 impl ::core::cmp::Eq for ILocationEvents {}
+impl ::core::fmt::Debug for ILocationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILocationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILocationEvents {
     type Vtable = ILocationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcae02bbf_798b_4508_a207_35a7906dc73d);
@@ -3697,6 +3742,11 @@ impl ::core::cmp::PartialEq for ILocationPower {
     }
 }
 impl ::core::cmp::Eq for ILocationPower {}
+impl ::core::fmt::Debug for ILocationPower {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILocationPower").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILocationPower {
     type Vtable = ILocationPowerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x193e7729_ab6b_4b12_8617_7596e1bb191c);
@@ -3763,6 +3813,11 @@ impl ::core::cmp::PartialEq for ILocationReport {
     }
 }
 impl ::core::cmp::Eq for ILocationReport {}
+impl ::core::fmt::Debug for ILocationReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILocationReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILocationReport {
     type Vtable = ILocationReportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8b7f7ee_75d0_4db9_b62d_7a0f369ca456);
@@ -3896,6 +3951,11 @@ impl ::core::cmp::PartialEq for ILocationReportFactory {
     }
 }
 impl ::core::cmp::Eq for ILocationReportFactory {}
+impl ::core::fmt::Debug for ILocationReportFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILocationReportFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILocationReportFactory {
     type Vtable = ILocationReportFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2daec322_90b2_47e4_bb08_0da841935a6b);
@@ -4084,6 +4144,11 @@ impl ::core::cmp::PartialEq for _ICivicAddressReportFactoryEvents {
     }
 }
 impl ::core::cmp::Eq for _ICivicAddressReportFactoryEvents {}
+impl ::core::fmt::Debug for _ICivicAddressReportFactoryEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ICivicAddressReportFactoryEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _ICivicAddressReportFactoryEvents {
     type Vtable = _ICivicAddressReportFactoryEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc96039ff_72ec_4617_89bd_84d88bedc722);
@@ -4185,6 +4250,11 @@ impl ::core::cmp::PartialEq for _ILatLongReportFactoryEvents {
     }
 }
 impl ::core::cmp::Eq for _ILatLongReportFactoryEvents {}
+impl ::core::fmt::Debug for _ILatLongReportFactoryEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_ILatLongReportFactoryEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _ILatLongReportFactoryEvents {
     type Vtable = _ILatLongReportFactoryEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16ee6cb7_ab3c_424b_849f_269be551fcbc);

@@ -204,6 +204,11 @@ impl ::core::cmp::PartialEq for ContentIndexer {
     }
 }
 impl ::core::cmp::Eq for ContentIndexer {}
+impl ::core::fmt::Debug for ContentIndexer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentIndexer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentIndexer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexer;{b1767f8d-f698-4982-b05f-3a6e8cab01a2})");
 }
@@ -325,6 +330,11 @@ impl ::core::cmp::PartialEq for ContentIndexerQuery {
     }
 }
 impl ::core::cmp::Eq for ContentIndexerQuery {}
+impl ::core::fmt::Debug for ContentIndexerQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentIndexerQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentIndexerQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ContentIndexerQuery;{70e3b0f8-4bfc-428a-8889-cc51da9a7b9d})");
 }
@@ -650,6 +660,11 @@ impl ::core::cmp::PartialEq for IIndexableContent {
     }
 }
 impl ::core::cmp::Eq for IIndexableContent {}
+impl ::core::fmt::Debug for IIndexableContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIndexableContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IIndexableContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4}");
 }
@@ -993,6 +1008,11 @@ impl ::core::cmp::PartialEq for IStorageFolderQueryOperations {
     }
 }
 impl ::core::cmp::Eq for IStorageFolderQueryOperations {}
+impl ::core::fmt::Debug for IStorageFolderQueryOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageFolderQueryOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageFolderQueryOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb43ccc9-446b-4a4f-be97-757771be5203}");
 }
@@ -1239,6 +1259,11 @@ impl ::core::cmp::PartialEq for IStorageQueryResultBase {
     }
 }
 impl ::core::cmp::Eq for IStorageQueryResultBase {}
+impl ::core::fmt::Debug for IStorageQueryResultBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageQueryResultBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageQueryResultBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c297d70d-7353-47ab-ba58-8c61425dc54b}");
 }
@@ -1365,6 +1390,11 @@ impl ::core::cmp::PartialEq for IndexableContent {
     }
 }
 impl ::core::cmp::Eq for IndexableContent {}
+impl ::core::fmt::Debug for IndexableContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IndexableContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IndexableContent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.IndexableContent;{ccf1a05f-d4b5-483a-b06e-e0db1ec420e4})");
 }
@@ -1685,6 +1715,11 @@ impl ::core::cmp::PartialEq for QueryOptions {
     }
 }
 impl ::core::cmp::Eq for QueryOptions {}
+impl ::core::fmt::Debug for QueryOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QueryOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QueryOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.QueryOptions;{1e5e46ee-0f45-4838-a8e9-d0479d446c30})");
 }
@@ -1890,6 +1925,12 @@ impl ::core::cmp::PartialEq for SortEntryVector {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for SortEntryVector {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for SortEntryVector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SortEntryVector").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for SortEntryVector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.SortEntryVector;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};struct(Windows.Storage.Search.SortEntry;string;b1)))");
@@ -2131,6 +2172,11 @@ impl ::core::cmp::PartialEq for StorageFileQueryResult {
     }
 }
 impl ::core::cmp::Eq for StorageFileQueryResult {}
+impl ::core::fmt::Debug for StorageFileQueryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageFileQueryResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageFileQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFileQueryResult;{52fda447-2baa-412c-b29f-d4b1778efa1e})");
 }
@@ -2306,6 +2352,11 @@ impl ::core::cmp::PartialEq for StorageFolderQueryResult {
     }
 }
 impl ::core::cmp::Eq for StorageFolderQueryResult {}
+impl ::core::fmt::Debug for StorageFolderQueryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageFolderQueryResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageFolderQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageFolderQueryResult;{6654c911-7d66-46fa-aecf-e4a4baa93ab8})");
 }
@@ -2481,6 +2532,11 @@ impl ::core::cmp::PartialEq for StorageItemQueryResult {
     }
 }
 impl ::core::cmp::Eq for StorageItemQueryResult {}
+impl ::core::fmt::Debug for StorageItemQueryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageItemQueryResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageItemQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageItemQueryResult;{e8948079-9d58-47b8-b2b2-41b07f4795f9})");
 }
@@ -2585,6 +2641,11 @@ impl ::core::cmp::PartialEq for StorageLibraryChangeTrackerTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryChangeTrackerTriggerDetails {}
+impl ::core::fmt::Debug for StorageLibraryChangeTrackerTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryChangeTrackerTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryChangeTrackerTriggerDetails;{1dc7a369-b7a3-4df2-9d61-eba85a0343d2})");
 }
@@ -2668,6 +2729,11 @@ impl ::core::cmp::PartialEq for StorageLibraryContentChangedTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryContentChangedTriggerDetails {}
+impl ::core::fmt::Debug for StorageLibraryContentChangedTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryContentChangedTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.StorageLibraryContentChangedTriggerDetails;{2a371977-abbf-4e1d-8aa5-6385d8884799})");
 }
@@ -2767,6 +2833,11 @@ impl ::core::cmp::PartialEq for ValueAndLanguage {
     }
 }
 impl ::core::cmp::Eq for ValueAndLanguage {}
+impl ::core::fmt::Debug for ValueAndLanguage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ValueAndLanguage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ValueAndLanguage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.Search.ValueAndLanguage;{b9914881-a1ee-4bc4-92a5-466968e30436})");
 }

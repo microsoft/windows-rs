@@ -133,6 +133,11 @@ impl ::core::cmp::PartialEq for UserNotificationListener {
     }
 }
 impl ::core::cmp::Eq for UserNotificationListener {}
+impl ::core::fmt::Debug for UserNotificationListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserNotificationListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserNotificationListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Notifications.Management.UserNotificationListener;{62553e41-8a06-4cef-8215-6033a5be4b03})");
 }

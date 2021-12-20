@@ -71,6 +71,11 @@ impl ::core::cmp::PartialEq for CoreIncrementalInkStroke {
     }
 }
 impl ::core::cmp::Eq for CoreIncrementalInkStroke {}
+impl ::core::fmt::Debug for CoreIncrementalInkStroke {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreIncrementalInkStroke").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreIncrementalInkStroke {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreIncrementalInkStroke;{fda015d3-9d66-4f7d-a57f-cc70b9cfaa76})");
 }
@@ -279,6 +284,11 @@ impl ::core::cmp::PartialEq for CoreInkIndependentInputSource {
     }
 }
 impl ::core::cmp::Eq for CoreInkIndependentInputSource {}
+impl ::core::fmt::Debug for CoreInkIndependentInputSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInkIndependentInputSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInkIndependentInputSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreInkIndependentInputSource;{39b38da9-7639-4499-a5b5-191d00e35b16})");
 }
@@ -377,6 +387,11 @@ impl ::core::cmp::PartialEq for CoreInkPresenterHost {
     }
 }
 impl ::core::cmp::Eq for CoreInkPresenterHost {}
+impl ::core::fmt::Debug for CoreInkPresenterHost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInkPresenterHost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInkPresenterHost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreInkPresenterHost;{396e89e6-7d55-4617-9e58-68c70c9169b9})");
 }
@@ -509,6 +524,11 @@ impl ::core::cmp::PartialEq for CoreWetStrokeUpdateEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreWetStrokeUpdateEventArgs {}
+impl ::core::fmt::Debug for CoreWetStrokeUpdateEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWetStrokeUpdateEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreWetStrokeUpdateEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateEventArgs;{fb07d14c-3380-457a-a987-991357896c1b})");
 }
@@ -672,6 +692,11 @@ impl ::core::cmp::PartialEq for CoreWetStrokeUpdateSource {
     }
 }
 impl ::core::cmp::Eq for CoreWetStrokeUpdateSource {}
+impl ::core::fmt::Debug for CoreWetStrokeUpdateSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreWetStrokeUpdateSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreWetStrokeUpdateSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.Core.CoreWetStrokeUpdateSource;{1f718e22-ee52-4e00-8209-4c3e5b21a3cc})");
 }

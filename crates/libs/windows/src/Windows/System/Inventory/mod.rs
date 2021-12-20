@@ -109,6 +109,11 @@ impl ::core::cmp::PartialEq for InstalledDesktopApp {
     }
 }
 impl ::core::cmp::Eq for InstalledDesktopApp {}
+impl ::core::fmt::Debug for InstalledDesktopApp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InstalledDesktopApp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InstalledDesktopApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Inventory.InstalledDesktopApp;{75eab8ed-c0bc-5364-4c28-166e0545167a})");
 }

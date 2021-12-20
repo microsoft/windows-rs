@@ -124,6 +124,11 @@ impl ::core::cmp::PartialEq for ContentLinkInfo {
     }
 }
 impl ::core::cmp::Eq for ContentLinkInfo {}
+impl ::core::fmt::Debug for ContentLinkInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentLinkInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentLinkInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.ContentLinkInfo;{1ed52525-1c5f-48cb-b335-78b50a2ee642})");
 }
@@ -419,6 +424,11 @@ impl ::core::cmp::PartialEq for FontWeights {
     }
 }
 impl ::core::cmp::Eq for FontWeights {}
+impl ::core::fmt::Debug for FontWeights {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontWeights").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FontWeights {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.FontWeights;{7880a444-01ab-4997-8517-df822a0c45f1})");
 }
@@ -1017,6 +1027,11 @@ impl ::core::cmp::PartialEq for ITextCharacterFormat {
     }
 }
 impl ::core::cmp::Eq for ITextCharacterFormat {}
+impl ::core::fmt::Debug for ITextCharacterFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextCharacterFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextCharacterFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5adef3db-05fb-442d-8065-642afea02ced}");
 }
@@ -1345,6 +1360,11 @@ impl ::core::cmp::PartialEq for ITextDocument {
     }
 }
 impl ::core::cmp::Eq for ITextDocument {}
+impl ::core::fmt::Debug for ITextDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4}");
 }
@@ -1819,6 +1839,11 @@ impl ::core::cmp::PartialEq for ITextParagraphFormat {
     }
 }
 impl ::core::cmp::Eq for ITextParagraphFormat {}
+impl ::core::fmt::Debug for ITextParagraphFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextParagraphFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextParagraphFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2cf8cfa6-4676-498a-93f5-bbdbfc0bd883}");
 }
@@ -2281,6 +2306,11 @@ impl ::core::cmp::PartialEq for ITextRange {
     }
 }
 impl ::core::cmp::Eq for ITextRange {}
+impl ::core::fmt::Debug for ITextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5b9e4e57-c072-42a0-8945-af503ee54768}");
 }
@@ -2849,6 +2879,11 @@ impl ::core::cmp::PartialEq for ITextSelection {
     }
 }
 impl ::core::cmp::Eq for ITextSelection {}
+impl ::core::fmt::Debug for ITextSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextSelection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITextSelection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a6d36724-f28f-430a-b2cf-c343671ec0e9}");
 }
@@ -3546,6 +3581,11 @@ impl ::core::cmp::PartialEq for RichEditTextDocument {
     }
 }
 impl ::core::cmp::Eq for RichEditTextDocument {}
+impl ::core::fmt::Debug for RichEditTextDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditTextDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichEditTextDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextDocument;{beee4ddb-90b2-408c-a2f6-0a0ac31e33e4})");
 }
@@ -3990,6 +4030,11 @@ impl ::core::cmp::PartialEq for RichEditTextRange {
     }
 }
 impl ::core::cmp::Eq for RichEditTextRange {}
+impl ::core::fmt::Debug for RichEditTextRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RichEditTextRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RichEditTextRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Text.RichEditTextRange;{5b9e4e57-c072-42a0-8945-af503ee54768})");
 }

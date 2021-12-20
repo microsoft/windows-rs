@@ -138,6 +138,11 @@ impl ::core::cmp::PartialEq for DualSimTile {
     }
 }
 impl ::core::cmp::Eq for DualSimTile {}
+impl ::core::fmt::Debug for DualSimTile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DualSimTile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DualSimTile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.StartScreen.DualSimTile;{143ab213-d05f-4041-a18c-3e3fcb75b41e})");
 }
@@ -311,6 +316,11 @@ impl ::core::cmp::PartialEq for IToastNotificationManagerStatics3 {
     }
 }
 impl ::core::cmp::Eq for IToastNotificationManagerStatics3 {}
+impl ::core::fmt::Debug for IToastNotificationManagerStatics3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IToastNotificationManagerStatics3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IToastNotificationManagerStatics3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2717f54b-50df-4455-8e6e-41e0fc8e13ce}");
 }

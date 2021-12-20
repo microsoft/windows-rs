@@ -33,6 +33,11 @@ impl ::core::cmp::PartialEq for ComponentLoadFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ComponentLoadFailedEventArgs {}
+impl ::core::fmt::Debug for ComponentLoadFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComponentLoadFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ComponentLoadFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ComponentLoadFailedEventArgs;{95972e93-7746-417e-8495-f031bbc5862c})");
 }
@@ -145,6 +150,11 @@ impl ::core::cmp::PartialEq for ComponentLoadFailedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ComponentLoadFailedEventHandler {}
+impl ::core::fmt::Debug for ComponentLoadFailedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ComponentLoadFailedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ComponentLoadFailedEventHandler {
     type Vtable = ComponentLoadFailedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95da643c_6db9_424b_86ca_091af432081c);
@@ -316,6 +326,11 @@ impl ::core::cmp::PartialEq for HdcpSession {
     }
 }
 impl ::core::cmp::Eq for HdcpSession {}
+impl ::core::fmt::Debug for HdcpSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HdcpSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HdcpSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.HdcpSession;{718845e9-64d7-426d-809b-1be461941a2a})");
 }
@@ -652,6 +667,11 @@ impl ::core::cmp::PartialEq for IMediaProtectionServiceRequest {
     }
 }
 impl ::core::cmp::Eq for IMediaProtectionServiceRequest {}
+impl ::core::fmt::Debug for IMediaProtectionServiceRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaProtectionServiceRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaProtectionServiceRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b1de0ea6-2094-478d-87a4-8b95200f85c6}");
 }
@@ -845,6 +865,11 @@ impl ::core::cmp::PartialEq for MediaProtectionManager {
     }
 }
 impl ::core::cmp::Eq for MediaProtectionManager {}
+impl ::core::fmt::Debug for MediaProtectionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaProtectionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaProtectionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionManager;{45694947-c741-434b-a79e-474c12d93d2f})");
 }
@@ -935,6 +960,11 @@ impl ::core::cmp::PartialEq for MediaProtectionPMPServer {
     }
 }
 impl ::core::cmp::Eq for MediaProtectionPMPServer {}
+impl ::core::fmt::Debug for MediaProtectionPMPServer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaProtectionPMPServer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaProtectionPMPServer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionPMPServer;{0c111226-7b26-4d31-95bb-9c1b08ef7fc0})");
 }
@@ -1008,6 +1038,11 @@ impl ::core::cmp::PartialEq for MediaProtectionServiceCompletion {
     }
 }
 impl ::core::cmp::Eq for MediaProtectionServiceCompletion {}
+impl ::core::fmt::Debug for MediaProtectionServiceCompletion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaProtectionServiceCompletion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaProtectionServiceCompletion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.MediaProtectionServiceCompletion;{8b5cca18-cfd5-44ee-a2ed-df76010c14b5})");
 }
@@ -1091,6 +1126,11 @@ impl ::core::cmp::PartialEq for ProtectionCapabilities {
     }
 }
 impl ::core::cmp::Eq for ProtectionCapabilities {}
+impl ::core::fmt::Debug for ProtectionCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProtectionCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProtectionCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ProtectionCapabilities;{c7ac5d7e-7480-4d29-a464-7bcd913dd8e4})");
 }
@@ -1237,6 +1277,11 @@ impl ::core::cmp::PartialEq for RebootNeededEventHandler {
     }
 }
 impl ::core::cmp::Eq for RebootNeededEventHandler {}
+impl ::core::fmt::Debug for RebootNeededEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RebootNeededEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for RebootNeededEventHandler {
     type Vtable = RebootNeededEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64e12a45_973b_4a3a_b260_91898a49a82c);
@@ -1308,6 +1353,11 @@ impl ::core::cmp::PartialEq for RevocationAndRenewalInformation {
     }
 }
 impl ::core::cmp::Eq for RevocationAndRenewalInformation {}
+impl ::core::fmt::Debug for RevocationAndRenewalInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevocationAndRenewalInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RevocationAndRenewalInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.RevocationAndRenewalInformation;{f3a1937b-2501-439e-a6e7-6fc95e175fcf})");
 }
@@ -1416,6 +1466,11 @@ impl ::core::cmp::PartialEq for RevocationAndRenewalItem {
     }
 }
 impl ::core::cmp::Eq for RevocationAndRenewalItem {}
+impl ::core::fmt::Debug for RevocationAndRenewalItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevocationAndRenewalItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RevocationAndRenewalItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.RevocationAndRenewalItem;{3099c20c-3cf0-49ea-902d-caf32d2dde2c})");
 }
@@ -1555,6 +1610,11 @@ impl ::core::cmp::PartialEq for ServiceRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ServiceRequestedEventArgs {}
+impl ::core::fmt::Debug for ServiceRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServiceRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ServiceRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Protection.ServiceRequestedEventArgs;{34283baf-abb4-4fc1-bd89-93f106573a49})");
 }
@@ -1667,6 +1727,11 @@ impl ::core::cmp::PartialEq for ServiceRequestedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ServiceRequestedEventHandler {}
+impl ::core::fmt::Debug for ServiceRequestedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ServiceRequestedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ServiceRequestedEventHandler {
     type Vtable = ServiceRequestedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2d690ba_cac9_48e1_95c0_d38495a84055);

@@ -390,6 +390,12 @@ impl ::core::cmp::PartialEq for ILearningModelVariableDescriptorPreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for ILearningModelVariableDescriptorPreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ILearningModelVariableDescriptorPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelVariableDescriptorPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ILearningModelVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b13df682-fc30-492b-8ea0-ed1f53c0b038}");
 }
@@ -576,6 +582,12 @@ impl ::core::cmp::PartialEq for ImageVariableDescriptorPreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for ImageVariableDescriptorPreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for ImageVariableDescriptorPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageVariableDescriptorPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for ImageVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.ImageVariableDescriptorPreview;{7ae1fa72-029e-4dc5-a2f8-5fb763154150})");
 }
@@ -759,6 +771,12 @@ impl ::core::cmp::PartialEq for InferencingOptionsPreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for InferencingOptionsPreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for InferencingOptionsPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InferencingOptionsPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for InferencingOptionsPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.InferencingOptionsPreview;{47bc8205-4d36-47a9-8f68-ffcb339dd0fc})");
 }
@@ -914,6 +932,12 @@ impl ::core::cmp::PartialEq for LearningModelBindingPreview {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for LearningModelBindingPreview {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for LearningModelBindingPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelBindingPreview").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for LearningModelBindingPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelBindingPreview;{93c901e8-6c78-4b4f-aec1-a6bb9e691624})");
@@ -1137,6 +1161,12 @@ impl ::core::cmp::PartialEq for LearningModelDescriptionPreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for LearningModelDescriptionPreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for LearningModelDescriptionPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelDescriptionPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for LearningModelDescriptionPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelDescriptionPreview;{f52c09c6-8611-40ad-8e59-de3fd7030a40})");
 }
@@ -1283,6 +1313,12 @@ impl ::core::cmp::PartialEq for LearningModelEvaluationResultPreview {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for LearningModelEvaluationResultPreview {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for LearningModelEvaluationResultPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelEvaluationResultPreview").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResultPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelEvaluationResultPreview;{df25ea9f-9863-4088-8498-87a1f4686f92})");
@@ -1476,6 +1512,12 @@ impl ::core::cmp::PartialEq for LearningModelPreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for LearningModelPreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for LearningModelPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for LearningModelPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelPreview;{049c266a-93b4-478c-aeb8-70157bf0ff94})");
 }
@@ -1593,6 +1635,12 @@ impl ::core::cmp::PartialEq for LearningModelVariableDescriptorPreview {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for LearningModelVariableDescriptorPreview {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for LearningModelVariableDescriptorPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelVariableDescriptorPreview").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for LearningModelVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.LearningModelVariableDescriptorPreview;{b13df682-fc30-492b-8ea0-ed1f53c0b038})");
@@ -1774,6 +1822,12 @@ impl ::core::cmp::PartialEq for MapVariableDescriptorPreview {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for MapVariableDescriptorPreview {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for MapVariableDescriptorPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapVariableDescriptorPreview").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for MapVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.MapVariableDescriptorPreview;{3cb38370-c02b-4236-b3e8-6bdca49c3129})");
 }
@@ -1926,6 +1980,12 @@ impl ::core::cmp::PartialEq for SequenceVariableDescriptorPreview {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SequenceVariableDescriptorPreview {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SequenceVariableDescriptorPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SequenceVariableDescriptorPreview").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SequenceVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.SequenceVariableDescriptorPreview;{9cd8f292-98b2-4530-a1b6-2ded5fecbc26})");
@@ -2088,6 +2148,12 @@ impl ::core::cmp::PartialEq for TensorVariableDescriptorPreview {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for TensorVariableDescriptorPreview {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for TensorVariableDescriptorPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorVariableDescriptorPreview").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for TensorVariableDescriptorPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.Preview.TensorVariableDescriptorPreview;{a80f501a-9aac-4233-9784-aceaf92510b5})");

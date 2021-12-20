@@ -512,6 +512,11 @@ impl ::core::cmp::PartialEq for IMFDeviceTransform {
     }
 }
 impl ::core::cmp::Eq for IMFDeviceTransform {}
+impl ::core::fmt::Debug for IMFDeviceTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFDeviceTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMFDeviceTransform {
     type Vtable = IMFDeviceTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd818fbd8_fc46_42f2_87ac_1ea2d1f9bf32);
@@ -600,6 +605,11 @@ impl ::core::cmp::PartialEq for IMFDeviceTransformCallback {
     }
 }
 impl ::core::cmp::Eq for IMFDeviceTransformCallback {}
+impl ::core::fmt::Debug for IMFDeviceTransformCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMFDeviceTransformCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMFDeviceTransformCallback {
     type Vtable = IMFDeviceTransformCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d5cb646_29ec_41fb_8179_8c4c6d750811);

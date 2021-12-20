@@ -14981,6 +14981,11 @@ impl ::core::cmp::PartialEq for IDDVideoPortContainer {
     }
 }
 impl ::core::cmp::Eq for IDDVideoPortContainer {}
+impl ::core::fmt::Debug for IDDVideoPortContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDDVideoPortContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDDVideoPortContainer {
     type Vtable = IDDVideoPortContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c142760_a733_11ce_a521_0020af0be560);
@@ -15118,6 +15123,11 @@ impl ::core::cmp::PartialEq for IDirectDraw {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw {}
+impl ::core::fmt::Debug for IDirectDraw {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw {
     type Vtable = IDirectDrawVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db80_a733_11ce_a521_0020af0be560);
@@ -15277,6 +15287,11 @@ impl ::core::cmp::PartialEq for IDirectDraw2 {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw2 {}
+impl ::core::fmt::Debug for IDirectDraw2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw2 {
     type Vtable = IDirectDraw2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3a6f3e0_2b43_11cf_a2de_00aa00b93356);
@@ -15456,6 +15471,11 @@ impl ::core::cmp::PartialEq for IDirectDraw4 {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw4 {}
+impl ::core::fmt::Debug for IDirectDraw4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw4 {
     type Vtable = IDirectDraw4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c59509a_39bd_11d1_8c4a_00c04fd930c5);
@@ -15650,6 +15670,11 @@ impl ::core::cmp::PartialEq for IDirectDraw7 {
     }
 }
 impl ::core::cmp::Eq for IDirectDraw7 {}
+impl ::core::fmt::Debug for IDirectDraw7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDraw7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDraw7 {
     type Vtable = IDirectDraw7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e65ec0_3b9c_11d2_b92f_00609797ea5b);
@@ -15759,6 +15784,11 @@ impl ::core::cmp::PartialEq for IDirectDrawClipper {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawClipper {}
+impl ::core::fmt::Debug for IDirectDrawClipper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawClipper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawClipper {
     type Vtable = IDirectDrawClipperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db85_a733_11ce_a521_0020af0be560);
@@ -15825,6 +15855,11 @@ impl ::core::cmp::PartialEq for IDirectDrawColorControl {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawColorControl {}
+impl ::core::fmt::Debug for IDirectDrawColorControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawColorControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawColorControl {
     type Vtable = IDirectDrawColorControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b9f0ee0_0d7e_11d0_9b06_00a0c903a3b8);
@@ -15882,6 +15917,11 @@ impl ::core::cmp::PartialEq for IDirectDrawGammaControl {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawGammaControl {}
+impl ::core::fmt::Debug for IDirectDrawGammaControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawGammaControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawGammaControl {
     type Vtable = IDirectDrawGammaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69c11c3e_b46b_11d1_ad7a_00c04fc29b4e);
@@ -15943,6 +15983,11 @@ impl ::core::cmp::PartialEq for IDirectDrawKernel {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawKernel {}
+impl ::core::fmt::Debug for IDirectDrawKernel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawKernel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawKernel {
     type Vtable = IDirectDrawKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8d56c120_6a08_11d0_9b06_00a0c903a3b8);
@@ -16012,6 +16057,11 @@ impl ::core::cmp::PartialEq for IDirectDrawPalette {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawPalette {}
+impl ::core::fmt::Debug for IDirectDrawPalette {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawPalette").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawPalette {
     type Vtable = IDirectDrawPaletteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db84_a733_11ce_a521_0020af0be560);
@@ -16208,6 +16258,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface {}
+impl ::core::fmt::Debug for IDirectDrawSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface {
     type Vtable = IDirectDrawSurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c14db81_a733_11ce_a521_0020af0be560);
@@ -16450,6 +16505,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface2 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface2 {}
+impl ::core::fmt::Debug for IDirectDrawSurface2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface2 {
     type Vtable = IDirectDrawSurface2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57805885_6eec_11cf_9441_a82303c10e27);
@@ -16699,6 +16759,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface3 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface3 {}
+impl ::core::fmt::Debug for IDirectDrawSurface3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface3 {
     type Vtable = IDirectDrawSurface3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda044e00_69b2_11d0_a1d5_00aa00b8dfbb);
@@ -16970,6 +17035,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface4 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface4 {}
+impl ::core::fmt::Debug for IDirectDrawSurface4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface4 {
     type Vtable = IDirectDrawSurface4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b2b8630_ad35_11d0_8ea6_00609797ea5b);
@@ -17263,6 +17333,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurface7 {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurface7 {}
+impl ::core::fmt::Debug for IDirectDrawSurface7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurface7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurface7 {
     type Vtable = IDirectDrawSurface7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06675a80_3b9b_11d2_b92f_00609797ea5b);
@@ -17373,6 +17448,11 @@ impl ::core::cmp::PartialEq for IDirectDrawSurfaceKernel {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawSurfaceKernel {}
+impl ::core::fmt::Debug for IDirectDrawSurfaceKernel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawSurfaceKernel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawSurfaceKernel {
     type Vtable = IDirectDrawSurfaceKernelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60755da0_6a40_11d0_9b06_00a0c903a3b8);
@@ -17480,6 +17560,11 @@ impl ::core::cmp::PartialEq for IDirectDrawVideoPort {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawVideoPort {}
+impl ::core::fmt::Debug for IDirectDrawVideoPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawVideoPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawVideoPort {
     type Vtable = IDirectDrawVideoPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb36d93e0_2b43_11cf_a2de_00aa00b93356);
@@ -17553,6 +17638,11 @@ impl ::core::cmp::PartialEq for IDirectDrawVideoPortNotify {
     }
 }
 impl ::core::cmp::Eq for IDirectDrawVideoPortNotify {}
+impl ::core::fmt::Debug for IDirectDrawVideoPortNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectDrawVideoPortNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectDrawVideoPortNotify {
     type Vtable = IDirectDrawVideoPortNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa655fb94_0589_4e57_b333_567a89468c88);

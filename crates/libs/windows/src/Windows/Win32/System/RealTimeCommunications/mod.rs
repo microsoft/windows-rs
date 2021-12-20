@@ -51,6 +51,11 @@ impl ::core::cmp::PartialEq for INetworkTransportSettings {
     }
 }
 impl ::core::cmp::Eq for INetworkTransportSettings {}
+impl ::core::fmt::Debug for INetworkTransportSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetworkTransportSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetworkTransportSettings {
     type Vtable = INetworkTransportSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e7abb2c_f2c1_4a61_bd35_deb7a08ab0f1);
@@ -110,6 +115,11 @@ impl ::core::cmp::PartialEq for INotificationTransportSync {
     }
 }
 impl ::core::cmp::Eq for INotificationTransportSync {}
+impl ::core::fmt::Debug for INotificationTransportSync {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INotificationTransportSync").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INotificationTransportSync {
     type Vtable = INotificationTransportSyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79eb1402_0ab8_49c0_9e14_a1ae4ba93058);
@@ -232,6 +242,11 @@ impl ::core::cmp::PartialEq for IRTCBuddy {
     }
 }
 impl ::core::cmp::Eq for IRTCBuddy {}
+impl ::core::fmt::Debug for IRTCBuddy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCBuddy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCBuddy {
     type Vtable = IRTCBuddyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcb136c8_7b90_4e0c_befe_56edf0ba6f1c);
@@ -429,6 +444,11 @@ impl ::core::cmp::PartialEq for IRTCBuddy2 {
     }
 }
 impl ::core::cmp::Eq for IRTCBuddy2 {}
+impl ::core::fmt::Debug for IRTCBuddy2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCBuddy2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCBuddy2 {
     type Vtable = IRTCBuddy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x102f9588_23e7_40e3_954d_cd7a1d5c0361);
@@ -553,6 +573,11 @@ impl ::core::cmp::PartialEq for IRTCBuddyEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCBuddyEvent {}
+impl ::core::fmt::Debug for IRTCBuddyEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCBuddyEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCBuddyEvent {
     type Vtable = IRTCBuddyEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf36d755d_17e6_404e_954f_0fc07574c78d);
@@ -696,6 +721,11 @@ impl ::core::cmp::PartialEq for IRTCBuddyEvent2 {
     }
 }
 impl ::core::cmp::Eq for IRTCBuddyEvent2 {}
+impl ::core::fmt::Debug for IRTCBuddyEvent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCBuddyEvent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCBuddyEvent2 {
     type Vtable = IRTCBuddyEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x484a7f1e_73f0_4990_bfc2_60bc3978a720);
@@ -801,6 +831,11 @@ impl ::core::cmp::PartialEq for IRTCBuddyGroup {
     }
 }
 impl ::core::cmp::Eq for IRTCBuddyGroup {}
+impl ::core::fmt::Debug for IRTCBuddyGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCBuddyGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCBuddyGroup {
     type Vtable = IRTCBuddyGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60361e68_9164_4389_a4c6_d0b3925bda5e);
@@ -927,6 +962,11 @@ impl ::core::cmp::PartialEq for IRTCBuddyGroupEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCBuddyGroupEvent {}
+impl ::core::fmt::Debug for IRTCBuddyGroupEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCBuddyGroupEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCBuddyGroupEvent {
     type Vtable = IRTCBuddyGroupEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a79e1d1_b736_4414_96f8_bbc7f08863e4);
@@ -1186,6 +1226,11 @@ impl ::core::cmp::PartialEq for IRTCClient {
     }
 }
 impl ::core::cmp::Eq for IRTCClient {}
+impl ::core::fmt::Debug for IRTCClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClient {
     type Vtable = IRTCClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x07829e45_9a34_408e_a011_bddf13487cd1);
@@ -1566,6 +1611,11 @@ impl ::core::cmp::PartialEq for IRTCClient2 {
     }
 }
 impl ::core::cmp::Eq for IRTCClient2 {}
+impl ::core::fmt::Debug for IRTCClient2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClient2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClient2 {
     type Vtable = IRTCClient2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c91d71d_1064_42da_bfa5_572beb8eea84);
@@ -1738,6 +1788,11 @@ impl ::core::cmp::PartialEq for IRTCClientEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCClientEvent {}
+impl ::core::fmt::Debug for IRTCClientEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClientEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClientEvent {
     type Vtable = IRTCClientEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b493b7a_3cba_4170_9c8b_76a9dacdd644);
@@ -1809,6 +1864,11 @@ impl ::core::cmp::PartialEq for IRTCClientPortManagement {
     }
 }
 impl ::core::cmp::Eq for IRTCClientPortManagement {}
+impl ::core::fmt::Debug for IRTCClientPortManagement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClientPortManagement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClientPortManagement {
     type Vtable = IRTCClientPortManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5df3f03_4bde_4417_aefe_71177bdaea66);
@@ -1951,6 +2011,11 @@ impl ::core::cmp::PartialEq for IRTCClientPresence {
     }
 }
 impl ::core::cmp::Eq for IRTCClientPresence {}
+impl ::core::fmt::Debug for IRTCClientPresence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClientPresence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClientPresence {
     type Vtable = IRTCClientPresenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11c3cbcc_0744_42d1_968a_51aa1bb274c6);
@@ -2213,6 +2278,11 @@ impl ::core::cmp::PartialEq for IRTCClientPresence2 {
     }
 }
 impl ::core::cmp::Eq for IRTCClientPresence2 {}
+impl ::core::fmt::Debug for IRTCClientPresence2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClientPresence2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClientPresence2 {
     type Vtable = IRTCClientPresence2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad1809e8_62f7_4783_909a_29c9d2cb1d34);
@@ -2346,6 +2416,11 @@ impl ::core::cmp::PartialEq for IRTCClientProvisioning {
     }
 }
 impl ::core::cmp::Eq for IRTCClientProvisioning {}
+impl ::core::fmt::Debug for IRTCClientProvisioning {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClientProvisioning").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClientProvisioning {
     type Vtable = IRTCClientProvisioningVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9f5cf06_65b9_4a80_a0e6_73cae3ef3822);
@@ -2460,6 +2535,11 @@ impl ::core::cmp::PartialEq for IRTCClientProvisioning2 {
     }
 }
 impl ::core::cmp::Eq for IRTCClientProvisioning2 {}
+impl ::core::fmt::Debug for IRTCClientProvisioning2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCClientProvisioning2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCClientProvisioning2 {
     type Vtable = IRTCClientProvisioning2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa70909b5_f40e_4587_bb75_e6bc0845023e);
@@ -2579,6 +2659,11 @@ impl ::core::cmp::PartialEq for IRTCCollection {
     }
 }
 impl ::core::cmp::Eq for IRTCCollection {}
+impl ::core::fmt::Debug for IRTCCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCCollection {
     type Vtable = IRTCCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec7c8096_b918_4044_94f1_e4fba0361d5c);
@@ -2684,6 +2769,11 @@ impl ::core::cmp::PartialEq for IRTCDispatchEventNotification {
     }
 }
 impl ::core::cmp::Eq for IRTCDispatchEventNotification {}
+impl ::core::fmt::Debug for IRTCDispatchEventNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCDispatchEventNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCDispatchEventNotification {
     type Vtable = IRTCDispatchEventNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176ddfbe_fec0_4d55_bc87_84cff1ef7f91);
@@ -2756,6 +2846,11 @@ impl ::core::cmp::PartialEq for IRTCEnumBuddies {
     }
 }
 impl ::core::cmp::Eq for IRTCEnumBuddies {}
+impl ::core::fmt::Debug for IRTCEnumBuddies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEnumBuddies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEnumBuddies {
     type Vtable = IRTCEnumBuddiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7296917_5569_4b3b_b3af_98d1144b2b87);
@@ -2824,6 +2919,11 @@ impl ::core::cmp::PartialEq for IRTCEnumGroups {
     }
 }
 impl ::core::cmp::Eq for IRTCEnumGroups {}
+impl ::core::fmt::Debug for IRTCEnumGroups {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEnumGroups").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEnumGroups {
     type Vtable = IRTCEnumGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x742378d6_a141_4415_8f27_35d99076cf5d);
@@ -2892,6 +2992,11 @@ impl ::core::cmp::PartialEq for IRTCEnumParticipants {
     }
 }
 impl ::core::cmp::Eq for IRTCEnumParticipants {}
+impl ::core::fmt::Debug for IRTCEnumParticipants {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEnumParticipants").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEnumParticipants {
     type Vtable = IRTCEnumParticipantsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcd56f29_4a4f_41b2_ba5c_f5bccc060bf6);
@@ -2960,6 +3065,11 @@ impl ::core::cmp::PartialEq for IRTCEnumPresenceDevices {
     }
 }
 impl ::core::cmp::Eq for IRTCEnumPresenceDevices {}
+impl ::core::fmt::Debug for IRTCEnumPresenceDevices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEnumPresenceDevices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEnumPresenceDevices {
     type Vtable = IRTCEnumPresenceDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x708c2ab7_8bf8_42f8_8c7d_635197ad5539);
@@ -3028,6 +3138,11 @@ impl ::core::cmp::PartialEq for IRTCEnumProfiles {
     }
 }
 impl ::core::cmp::Eq for IRTCEnumProfiles {}
+impl ::core::fmt::Debug for IRTCEnumProfiles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEnumProfiles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEnumProfiles {
     type Vtable = IRTCEnumProfilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29b7c41c_ed82_4bca_84ad_39d5101b58e3);
@@ -3096,6 +3211,11 @@ impl ::core::cmp::PartialEq for IRTCEnumUserSearchResults {
     }
 }
 impl ::core::cmp::Eq for IRTCEnumUserSearchResults {}
+impl ::core::fmt::Debug for IRTCEnumUserSearchResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEnumUserSearchResults").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEnumUserSearchResults {
     type Vtable = IRTCEnumUserSearchResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83d4d877_aa5d_4a5b_8d0e_002a8067e0e8);
@@ -3164,6 +3284,11 @@ impl ::core::cmp::PartialEq for IRTCEnumWatchers {
     }
 }
 impl ::core::cmp::Eq for IRTCEnumWatchers {}
+impl ::core::fmt::Debug for IRTCEnumWatchers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEnumWatchers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEnumWatchers {
     type Vtable = IRTCEnumWatchersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa87d55d7_db74_4ed1_9ca4_77a0e41b413e);
@@ -3220,6 +3345,11 @@ impl ::core::cmp::PartialEq for IRTCEventNotification {
     }
 }
 impl ::core::cmp::Eq for IRTCEventNotification {}
+impl ::core::fmt::Debug for IRTCEventNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCEventNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCEventNotification {
     type Vtable = IRTCEventNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13fa24c7_5748_4b21_91f5_7397609ce747);
@@ -3337,6 +3467,11 @@ impl ::core::cmp::PartialEq for IRTCInfoEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCInfoEvent {}
+impl ::core::fmt::Debug for IRTCInfoEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCInfoEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCInfoEvent {
     type Vtable = IRTCInfoEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e1d68ae_1912_4f49_b2c3_594fadfd425f);
@@ -3464,6 +3599,11 @@ impl ::core::cmp::PartialEq for IRTCIntensityEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCIntensityEvent {}
+impl ::core::fmt::Debug for IRTCIntensityEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCIntensityEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCIntensityEvent {
     type Vtable = IRTCIntensityEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c23bf51_390c_4992_a41d_41eec05b2a4b);
@@ -3584,6 +3724,11 @@ impl ::core::cmp::PartialEq for IRTCMediaEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCMediaEvent {}
+impl ::core::fmt::Debug for IRTCMediaEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCMediaEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCMediaEvent {
     type Vtable = IRTCMediaEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x099944fb_bcda_453e_8c41_e13da2adf7f3);
@@ -3721,6 +3866,11 @@ impl ::core::cmp::PartialEq for IRTCMediaRequestEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCMediaRequestEvent {}
+impl ::core::fmt::Debug for IRTCMediaRequestEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCMediaRequestEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCMediaRequestEvent {
     type Vtable = IRTCMediaRequestEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52572d15_148c_4d97_a36c_2da55c289d63);
@@ -3861,6 +4011,11 @@ impl ::core::cmp::PartialEq for IRTCMessagingEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCMessagingEvent {}
+impl ::core::fmt::Debug for IRTCMessagingEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCMessagingEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCMessagingEvent {
     type Vtable = IRTCMessagingEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3609541_1b29_4de5_a4ad_5aebaf319512);
@@ -3951,6 +4106,11 @@ impl ::core::cmp::PartialEq for IRTCParticipant {
     }
 }
 impl ::core::cmp::Eq for IRTCParticipant {}
+impl ::core::fmt::Debug for IRTCParticipant {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCParticipant").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCParticipant {
     type Vtable = IRTCParticipantVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae86add5_26b1_4414_af1d_b94cd938d739);
@@ -4066,6 +4226,11 @@ impl ::core::cmp::PartialEq for IRTCParticipantStateChangeEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCParticipantStateChangeEvent {}
+impl ::core::fmt::Debug for IRTCParticipantStateChangeEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCParticipantStateChangeEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCParticipantStateChangeEvent {
     type Vtable = IRTCParticipantStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09bcb597_f0fa_48f9_b420_468cea7fde04);
@@ -4139,6 +4304,11 @@ impl ::core::cmp::PartialEq for IRTCPortManager {
     }
 }
 impl ::core::cmp::Eq for IRTCPortManager {}
+impl ::core::fmt::Debug for IRTCPortManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCPortManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCPortManager {
     type Vtable = IRTCPortManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda77c14b_6208_43ca_8ddf_5b60a0a69fac);
@@ -4234,6 +4404,11 @@ impl ::core::cmp::PartialEq for IRTCPresenceContact {
     }
 }
 impl ::core::cmp::Eq for IRTCPresenceContact {}
+impl ::core::fmt::Debug for IRTCPresenceContact {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCPresenceContact").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCPresenceContact {
     type Vtable = IRTCPresenceContactVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b22f92c_cd90_42db_a733_212205c3e3df);
@@ -4357,6 +4532,11 @@ impl ::core::cmp::PartialEq for IRTCPresenceDataEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCPresenceDataEvent {}
+impl ::core::fmt::Debug for IRTCPresenceDataEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCPresenceDataEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCPresenceDataEvent {
     type Vtable = IRTCPresenceDataEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38f0e78c_8b87_4c04_a82d_aedd83c909bb);
@@ -4439,6 +4619,11 @@ impl ::core::cmp::PartialEq for IRTCPresenceDevice {
     }
 }
 impl ::core::cmp::Eq for IRTCPresenceDevice {}
+impl ::core::fmt::Debug for IRTCPresenceDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCPresenceDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCPresenceDevice {
     type Vtable = IRTCPresenceDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc6a90dd_ad9a_48da_9b0c_2515e38521ad);
@@ -4561,6 +4746,11 @@ impl ::core::cmp::PartialEq for IRTCPresencePropertyEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCPresencePropertyEvent {}
+impl ::core::fmt::Debug for IRTCPresencePropertyEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCPresencePropertyEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCPresencePropertyEvent {
     type Vtable = IRTCPresencePropertyEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf777f570_a820_49d5_86bd_e099493f1518);
@@ -4684,6 +4874,11 @@ impl ::core::cmp::PartialEq for IRTCPresenceStatusEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCPresenceStatusEvent {}
+impl ::core::fmt::Debug for IRTCPresenceStatusEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCPresenceStatusEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCPresenceStatusEvent {
     type Vtable = IRTCPresenceStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78673f32_4a0f_462c_89aa_ee7706707678);
@@ -4848,6 +5043,11 @@ impl ::core::cmp::PartialEq for IRTCProfile {
     }
 }
 impl ::core::cmp::Eq for IRTCProfile {}
+impl ::core::fmt::Debug for IRTCProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCProfile {
     type Vtable = IRTCProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd07eca9e_4062_4dd4_9e7d_722a49ba7303);
@@ -5072,6 +5272,11 @@ impl ::core::cmp::PartialEq for IRTCProfile2 {
     }
 }
 impl ::core::cmp::Eq for IRTCProfile2 {}
+impl ::core::fmt::Debug for IRTCProfile2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCProfile2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCProfile2 {
     type Vtable = IRTCProfile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4b81f84e_bdc7_4184_9154_3cb2dd7917fb);
@@ -5219,6 +5424,11 @@ impl ::core::cmp::PartialEq for IRTCProfileEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCProfileEvent {}
+impl ::core::fmt::Debug for IRTCProfileEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCProfileEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCProfileEvent {
     type Vtable = IRTCProfileEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6d5ab3b_770e_43e8_800a_79b062395fca);
@@ -5363,6 +5573,11 @@ impl ::core::cmp::PartialEq for IRTCProfileEvent2 {
     }
 }
 impl ::core::cmp::Eq for IRTCProfileEvent2 {}
+impl ::core::fmt::Debug for IRTCProfileEvent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCProfileEvent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCProfileEvent2 {
     type Vtable = IRTCProfileEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62e56edc_03fa_4121_94fb_23493fd0ae64);
@@ -5492,6 +5707,11 @@ impl ::core::cmp::PartialEq for IRTCReInviteEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCReInviteEvent {}
+impl ::core::fmt::Debug for IRTCReInviteEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCReInviteEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCReInviteEvent {
     type Vtable = IRTCReInviteEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11558d84_204c_43e7_99b0_2034e9417f7d);
@@ -5621,6 +5841,11 @@ impl ::core::cmp::PartialEq for IRTCRegistrationStateChangeEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCRegistrationStateChangeEvent {}
+impl ::core::fmt::Debug for IRTCRegistrationStateChangeEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCRegistrationStateChangeEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCRegistrationStateChangeEvent {
     type Vtable = IRTCRegistrationStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62d0991b_50ab_4f02_b948_ca94f26f8f95);
@@ -5748,6 +5973,11 @@ impl ::core::cmp::PartialEq for IRTCRoamingEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCRoamingEvent {}
+impl ::core::fmt::Debug for IRTCRoamingEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCRoamingEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCRoamingEvent {
     type Vtable = IRTCRoamingEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79960a6b_0cb1_4dc8_a805_7318e99902e8);
@@ -5904,6 +6134,11 @@ impl ::core::cmp::PartialEq for IRTCSession {
     }
 }
 impl ::core::cmp::Eq for IRTCSession {}
+impl ::core::fmt::Debug for IRTCSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSession {
     type Vtable = IRTCSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x387c8086_99be_42fb_9973_7c0fc0ca9fa8);
@@ -6122,6 +6357,11 @@ impl ::core::cmp::PartialEq for IRTCSession2 {
     }
 }
 impl ::core::cmp::Eq for IRTCSession2 {}
+impl ::core::fmt::Debug for IRTCSession2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSession2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSession2 {
     type Vtable = IRTCSession2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17d7cdfc_b007_484c_99d2_86a8a820991d);
@@ -6249,6 +6489,11 @@ impl ::core::cmp::PartialEq for IRTCSessionCallControl {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionCallControl {}
+impl ::core::fmt::Debug for IRTCSessionCallControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionCallControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionCallControl {
     type Vtable = IRTCSessionCallControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9a50d94_190b_4f82_9530_3b8ebf60758a);
@@ -6316,6 +6561,11 @@ impl ::core::cmp::PartialEq for IRTCSessionDescriptionManager {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionDescriptionManager {}
+impl ::core::fmt::Debug for IRTCSessionDescriptionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionDescriptionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionDescriptionManager {
     type Vtable = IRTCSessionDescriptionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xba7f518e_d336_4070_93a6_865395c843f9);
@@ -6432,6 +6682,11 @@ impl ::core::cmp::PartialEq for IRTCSessionOperationCompleteEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionOperationCompleteEvent {}
+impl ::core::fmt::Debug for IRTCSessionOperationCompleteEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionOperationCompleteEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent {
     type Vtable = IRTCSessionOperationCompleteEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6bff4c0_f7c8_4d3c_9a41_3550f78a95b0);
@@ -6589,6 +6844,11 @@ impl ::core::cmp::PartialEq for IRTCSessionOperationCompleteEvent2 {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionOperationCompleteEvent2 {}
+impl ::core::fmt::Debug for IRTCSessionOperationCompleteEvent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionOperationCompleteEvent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionOperationCompleteEvent2 {
     type Vtable = IRTCSessionOperationCompleteEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6fc2a9b_d5bc_4241_b436_1b8460c13832);
@@ -6656,6 +6916,11 @@ impl ::core::cmp::PartialEq for IRTCSessionPortManagement {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionPortManagement {}
+impl ::core::fmt::Debug for IRTCSessionPortManagement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionPortManagement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionPortManagement {
     type Vtable = IRTCSessionPortManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa072f1d6_0286_4e1f_85f2_17a2948456ec);
@@ -6766,6 +7031,11 @@ impl ::core::cmp::PartialEq for IRTCSessionReferStatusEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionReferStatusEvent {}
+impl ::core::fmt::Debug for IRTCSessionReferStatusEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionReferStatusEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionReferStatusEvent {
     type Vtable = IRTCSessionReferStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d8fc2cd_5d76_44ab_bb68_2a80353b34a2);
@@ -6907,6 +7177,11 @@ impl ::core::cmp::PartialEq for IRTCSessionReferredEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionReferredEvent {}
+impl ::core::fmt::Debug for IRTCSessionReferredEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionReferredEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionReferredEvent {
     type Vtable = IRTCSessionReferredEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x176a6828_4fcc_4f28_a862_04597a6cf1c4);
@@ -7039,6 +7314,11 @@ impl ::core::cmp::PartialEq for IRTCSessionStateChangeEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionStateChangeEvent {}
+impl ::core::fmt::Debug for IRTCSessionStateChangeEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionStateChangeEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent {
     type Vtable = IRTCSessionStateChangeEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bad703_5952_48b3_9321_7f4500521506);
@@ -7206,6 +7486,11 @@ impl ::core::cmp::PartialEq for IRTCSessionStateChangeEvent2 {
     }
 }
 impl ::core::cmp::Eq for IRTCSessionStateChangeEvent2 {}
+impl ::core::fmt::Debug for IRTCSessionStateChangeEvent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCSessionStateChangeEvent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCSessionStateChangeEvent2 {
     type Vtable = IRTCSessionStateChangeEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f933171_6f95_4880_80d9_2ec8d495d261);
@@ -7280,6 +7565,11 @@ impl ::core::cmp::PartialEq for IRTCUserSearch {
     }
 }
 impl ::core::cmp::Eq for IRTCUserSearch {}
+impl ::core::fmt::Debug for IRTCUserSearch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCUserSearch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCUserSearch {
     type Vtable = IRTCUserSearchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb619882b_860c_4db4_be1b_693b6505bbe5);
@@ -7366,6 +7656,11 @@ impl ::core::cmp::PartialEq for IRTCUserSearchQuery {
     }
 }
 impl ::core::cmp::Eq for IRTCUserSearchQuery {}
+impl ::core::fmt::Debug for IRTCUserSearchQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCUserSearchQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCUserSearchQuery {
     type Vtable = IRTCUserSearchQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x288300f5_d23a_4365_9a73_9985c98c2881);
@@ -7431,6 +7726,11 @@ impl ::core::cmp::PartialEq for IRTCUserSearchResult {
     }
 }
 impl ::core::cmp::Eq for IRTCUserSearchResult {}
+impl ::core::fmt::Debug for IRTCUserSearchResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCUserSearchResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCUserSearchResult {
     type Vtable = IRTCUserSearchResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x851278b2_9592_480f_8db5_2de86b26b54d);
@@ -7561,6 +7861,11 @@ impl ::core::cmp::PartialEq for IRTCUserSearchResultsEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCUserSearchResultsEvent {}
+impl ::core::fmt::Debug for IRTCUserSearchResultsEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCUserSearchResultsEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCUserSearchResultsEvent {
     type Vtable = IRTCUserSearchResultsEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8c8c3cd_7fac_4088_81c5_c24cbc0938e3);
@@ -7694,6 +7999,11 @@ impl ::core::cmp::PartialEq for IRTCWatcher {
     }
 }
 impl ::core::cmp::Eq for IRTCWatcher {}
+impl ::core::fmt::Debug for IRTCWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCWatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCWatcher {
     type Vtable = IRTCWatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc7cedad8_346b_4d1b_ac02_a2088df9be4f);
@@ -7858,6 +8168,11 @@ impl ::core::cmp::PartialEq for IRTCWatcher2 {
     }
 }
 impl ::core::cmp::Eq for IRTCWatcher2 {}
+impl ::core::fmt::Debug for IRTCWatcher2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCWatcher2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCWatcher2 {
     type Vtable = IRTCWatcher2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4d9967f_d011_4b1d_91e3_aba78f96393d);
@@ -7974,6 +8289,11 @@ impl ::core::cmp::PartialEq for IRTCWatcherEvent {
     }
 }
 impl ::core::cmp::Eq for IRTCWatcherEvent {}
+impl ::core::fmt::Debug for IRTCWatcherEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCWatcherEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCWatcherEvent {
     type Vtable = IRTCWatcherEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf30d7261_587a_424f_822c_312788f43548);
@@ -8111,6 +8431,11 @@ impl ::core::cmp::PartialEq for IRTCWatcherEvent2 {
     }
 }
 impl ::core::cmp::Eq for IRTCWatcherEvent2 {}
+impl ::core::fmt::Debug for IRTCWatcherEvent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRTCWatcherEvent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRTCWatcherEvent2 {
     type Vtable = IRTCWatcherEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe52891e8_188c_49af_b005_98ed13f83f9c);
@@ -8179,6 +8504,11 @@ impl ::core::cmp::PartialEq for ITransportSettingsInternal {
     }
 }
 impl ::core::cmp::Eq for ITransportSettingsInternal {}
+impl ::core::fmt::Debug for ITransportSettingsInternal {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITransportSettingsInternal").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITransportSettingsInternal {
     type Vtable = ITransportSettingsInternalVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5123e076_29e3_4bfd_84fe_0192d411e3e8);

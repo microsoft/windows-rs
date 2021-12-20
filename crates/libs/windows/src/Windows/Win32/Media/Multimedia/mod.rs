@@ -3485,6 +3485,11 @@ impl ::core::cmp::PartialEq for IAVIEditStream {
     }
 }
 impl ::core::cmp::Eq for IAVIEditStream {}
+impl ::core::fmt::Debug for IAVIEditStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIEditStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIEditStream {
     type Vtable = IAVIEditStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020024_0000_0000_c000_000000000046);
@@ -3567,6 +3572,11 @@ impl ::core::cmp::PartialEq for IAVIFile {
     }
 }
 impl ::core::cmp::Eq for IAVIFile {}
+impl ::core::fmt::Debug for IAVIFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIFile {
     type Vtable = IAVIFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020020_0000_0000_c000_000000000046);
@@ -3706,6 +3716,11 @@ impl ::core::cmp::PartialEq for IAVIPersistFile {
     }
 }
 impl ::core::cmp::Eq for IAVIPersistFile {}
+impl ::core::fmt::Debug for IAVIPersistFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIPersistFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIPersistFile {
     type Vtable = IAVIPersistFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020025_0000_0000_c000_000000000046);
@@ -3813,6 +3828,11 @@ impl ::core::cmp::PartialEq for IAVIStream {
     }
 }
 impl ::core::cmp::Eq for IAVIStream {}
+impl ::core::fmt::Debug for IAVIStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIStream {
     type Vtable = IAVIStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020021_0000_0000_c000_000000000046);
@@ -3882,6 +3902,11 @@ impl ::core::cmp::PartialEq for IAVIStreaming {
     }
 }
 impl ::core::cmp::Eq for IAVIStreaming {}
+impl ::core::fmt::Debug for IAVIStreaming {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAVIStreaming").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAVIStreaming {
     type Vtable = IAVIStreamingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020022_0000_0000_c000_000000000046);
@@ -5181,6 +5206,11 @@ impl ::core::cmp::PartialEq for IGetFrame {
     }
 }
 impl ::core::cmp::Eq for IGetFrame {}
+impl ::core::fmt::Debug for IGetFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGetFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGetFrame {
     type Vtable = IGetFrameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00020023_0000_0000_c000_000000000046);

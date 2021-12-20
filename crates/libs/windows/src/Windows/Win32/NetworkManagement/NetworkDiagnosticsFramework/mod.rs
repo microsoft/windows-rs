@@ -364,6 +364,11 @@ impl ::core::cmp::PartialEq for INetDiagExtensibleHelper {
     }
 }
 impl ::core::cmp::Eq for INetDiagExtensibleHelper {}
+impl ::core::fmt::Debug for INetDiagExtensibleHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetDiagExtensibleHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetDiagExtensibleHelper {
     type Vtable = INetDiagExtensibleHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35748_ebf5_11d8_bbe9_505054503030);
@@ -502,6 +507,11 @@ impl ::core::cmp::PartialEq for INetDiagHelper {
     }
 }
 impl ::core::cmp::Eq for INetDiagHelper {}
+impl ::core::fmt::Debug for INetDiagHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetDiagHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetDiagHelper {
     type Vtable = INetDiagHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35746_ebf5_11d8_bbe9_505054503030);
@@ -594,6 +604,11 @@ impl ::core::cmp::PartialEq for INetDiagHelperEx {
     }
 }
 impl ::core::cmp::Eq for INetDiagHelperEx {}
+impl ::core::fmt::Debug for INetDiagHelperEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetDiagHelperEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetDiagHelperEx {
     type Vtable = INetDiagHelperExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972dab4d_e4e3_4fc6_ae54_5f65ccde4a15);
@@ -650,6 +665,11 @@ impl ::core::cmp::PartialEq for INetDiagHelperInfo {
     }
 }
 impl ::core::cmp::Eq for INetDiagHelperInfo {}
+impl ::core::fmt::Debug for INetDiagHelperInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetDiagHelperInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetDiagHelperInfo {
     type Vtable = INetDiagHelperInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0b35747_ebf5_11d8_bbe9_505054503030);
@@ -704,6 +724,11 @@ impl ::core::cmp::PartialEq for INetDiagHelperUtilFactory {
     }
 }
 impl ::core::cmp::Eq for INetDiagHelperUtilFactory {}
+impl ::core::fmt::Debug for INetDiagHelperUtilFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetDiagHelperUtilFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetDiagHelperUtilFactory {
     type Vtable = INetDiagHelperUtilFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x104613fb_bc57_4178_95ba_88809698354a);

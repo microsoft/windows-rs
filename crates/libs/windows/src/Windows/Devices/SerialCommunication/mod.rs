@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for ErrorReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ErrorReceivedEventArgs {}
+impl ::core::fmt::Debug for ErrorReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ErrorReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ErrorReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.ErrorReceivedEventArgs;{fcc6bf59-1283-4d8a-bfdf-566b33ddb28f})");
 }
@@ -217,6 +222,11 @@ impl ::core::cmp::PartialEq for PinChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PinChangedEventArgs {}
+impl ::core::fmt::Debug for PinChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PinChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PinChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.PinChangedEventArgs;{a2bf1db0-fc9c-4607-93d0-fa5e8343ee22})");
 }
@@ -563,6 +573,11 @@ impl ::core::cmp::PartialEq for SerialDevice {
     }
 }
 impl ::core::cmp::Eq for SerialDevice {}
+impl ::core::fmt::Debug for SerialDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SerialDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SerialDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.SerialCommunication.SerialDevice;{e187ccc6-2210-414f-b65a-f5553a03372a})");
 }

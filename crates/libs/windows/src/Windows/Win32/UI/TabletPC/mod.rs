@@ -1934,6 +1934,11 @@ impl ::core::cmp::PartialEq for IDynamicRenderer {
     }
 }
 impl ::core::cmp::Eq for IDynamicRenderer {}
+impl ::core::fmt::Debug for IDynamicRenderer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDynamicRenderer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDynamicRenderer {
     type Vtable = IDynamicRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa079468e_7165_46f9_b7af_98ad01a93009);
@@ -2159,6 +2164,11 @@ impl ::core::cmp::PartialEq for IGestureRecognizer {
     }
 }
 impl ::core::cmp::Eq for IGestureRecognizer {}
+impl ::core::fmt::Debug for IGestureRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGestureRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGestureRecognizer {
     type Vtable = IGestureRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae9ef86b_7054_45e3_ae22_3174dc8811b7);
@@ -2224,6 +2234,11 @@ impl ::core::cmp::PartialEq for IHandwrittenTextInsertion {
     }
 }
 impl ::core::cmp::Eq for IHandwrittenTextInsertion {}
+impl ::core::fmt::Debug for IHandwrittenTextInsertion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHandwrittenTextInsertion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHandwrittenTextInsertion {
     type Vtable = IHandwrittenTextInsertionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56fdea97_ecd6_43e7_aa3a_816be7785860);
@@ -2321,6 +2336,11 @@ impl ::core::cmp::PartialEq for IInk {
     }
 }
 impl ::core::cmp::Eq for IInk {}
+impl ::core::fmt::Debug for IInk {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInk").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInk {
     type Vtable = IInkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03f8e511_43a1_11d3_8bb6_0080c7d6bad5);
@@ -2606,6 +2626,11 @@ impl ::core::cmp::PartialEq for IInkCollector {
     }
 }
 impl ::core::cmp::Eq for IInkCollector {}
+impl ::core::fmt::Debug for IInkCollector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkCollector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkCollector {
     type Vtable = IInkCollectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0f060b5_8b1f_4a7c_89ec_880692588a4f);
@@ -2787,6 +2812,11 @@ impl ::core::cmp::PartialEq for IInkCursor {
     }
 }
 impl ::core::cmp::Eq for IInkCursor {}
+impl ::core::fmt::Debug for IInkCursor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkCursor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkCursor {
     type Vtable = IInkCursorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad30c630_40c5_4350_8405_9c71012fc558);
@@ -2913,6 +2943,11 @@ impl ::core::cmp::PartialEq for IInkCursorButton {
     }
 }
 impl ::core::cmp::Eq for IInkCursorButton {}
+impl ::core::fmt::Debug for IInkCursorButton {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkCursorButton").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkCursorButton {
     type Vtable = IInkCursorButtonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85ef9417_1d59_49b2_a13c_702c85430894);
@@ -3035,6 +3070,11 @@ impl ::core::cmp::PartialEq for IInkCursorButtons {
     }
 }
 impl ::core::cmp::Eq for IInkCursorButtons {}
+impl ::core::fmt::Debug for IInkCursorButtons {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkCursorButtons").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkCursorButtons {
     type Vtable = IInkCursorButtonsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3671cc40_b624_4671_9fa0_db119d952d54);
@@ -3155,6 +3195,11 @@ impl ::core::cmp::PartialEq for IInkCursors {
     }
 }
 impl ::core::cmp::Eq for IInkCursors {}
+impl ::core::fmt::Debug for IInkCursors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkCursors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkCursors {
     type Vtable = IInkCursorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa248c1ac_c698_4e06_9e5c_d57f77c7e647);
@@ -3289,6 +3334,11 @@ impl ::core::cmp::PartialEq for IInkCustomStrokes {
     }
 }
 impl ::core::cmp::Eq for IInkCustomStrokes {}
+impl ::core::fmt::Debug for IInkCustomStrokes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkCustomStrokes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkCustomStrokes {
     type Vtable = IInkCustomStrokesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e23a88f_c30e_420f_9bdb_28902543f0c1);
@@ -3525,6 +3575,11 @@ impl ::core::cmp::PartialEq for IInkDisp {
     }
 }
 impl ::core::cmp::Eq for IInkDisp {}
+impl ::core::fmt::Debug for IInkDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkDisp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkDisp {
     type Vtable = IInkDispVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d398fa0_c4e2_4fcd_9973_975caaf47ea6);
@@ -3692,6 +3747,11 @@ impl ::core::cmp::PartialEq for IInkDivider {
     }
 }
 impl ::core::cmp::Eq for IInkDivider {}
+impl ::core::fmt::Debug for IInkDivider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkDivider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkDivider {
     type Vtable = IInkDividerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5de00405_f9a4_4651_b0c5_c317defd58b9);
@@ -3810,6 +3870,11 @@ impl ::core::cmp::PartialEq for IInkDivisionResult {
     }
 }
 impl ::core::cmp::Eq for IInkDivisionResult {}
+impl ::core::fmt::Debug for IInkDivisionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkDivisionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkDivisionResult {
     type Vtable = IInkDivisionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dbec0a7_74c7_4b38_81eb_aa8ef0c24900);
@@ -3934,6 +3999,11 @@ impl ::core::cmp::PartialEq for IInkDivisionUnit {
     }
 }
 impl ::core::cmp::Eq for IInkDivisionUnit {}
+impl ::core::fmt::Debug for IInkDivisionUnit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkDivisionUnit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkDivisionUnit {
     type Vtable = IInkDivisionUnitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85aee342_48b0_4244_9dd5_1ed435410fab);
@@ -4055,6 +4125,11 @@ impl ::core::cmp::PartialEq for IInkDivisionUnits {
     }
 }
 impl ::core::cmp::Eq for IInkDivisionUnits {}
+impl ::core::fmt::Debug for IInkDivisionUnits {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkDivisionUnits").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkDivisionUnits {
     type Vtable = IInkDivisionUnitsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bb5ddc2_31cc_4135_ab82_2c66c9f00c41);
@@ -4250,6 +4325,11 @@ impl ::core::cmp::PartialEq for IInkDrawingAttributes {
     }
 }
 impl ::core::cmp::Eq for IInkDrawingAttributes {}
+impl ::core::fmt::Debug for IInkDrawingAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkDrawingAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkDrawingAttributes {
     type Vtable = IInkDrawingAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf519b75_0a15_4623_adc9_c00d436a8092);
@@ -4750,6 +4830,11 @@ impl ::core::cmp::PartialEq for IInkEdit {
     }
 }
 impl ::core::cmp::Eq for IInkEdit {}
+impl ::core::fmt::Debug for IInkEdit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkEdit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkEdit {
     type Vtable = IInkEditVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf2127a19_fbfb_4aed_8464_3f36d78cfefb);
@@ -4998,6 +5083,11 @@ impl ::core::cmp::PartialEq for IInkExtendedProperties {
     }
 }
 impl ::core::cmp::Eq for IInkExtendedProperties {}
+impl ::core::fmt::Debug for IInkExtendedProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkExtendedProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkExtendedProperties {
     type Vtable = IInkExtendedPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89f2a8be_95a9_4530_8b8f_88e971e3e25f);
@@ -5127,6 +5217,11 @@ impl ::core::cmp::PartialEq for IInkExtendedProperty {
     }
 }
 impl ::core::cmp::Eq for IInkExtendedProperty {}
+impl ::core::fmt::Debug for IInkExtendedProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkExtendedProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkExtendedProperty {
     type Vtable = IInkExtendedPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb489209_b7c3_411d_90f6_1548cfff271e);
@@ -5248,6 +5343,11 @@ impl ::core::cmp::PartialEq for IInkGesture {
     }
 }
 impl ::core::cmp::Eq for IInkGesture {}
+impl ::core::fmt::Debug for IInkGesture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkGesture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkGesture {
     type Vtable = IInkGestureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bdc0a97_04e5_4e26_b813_18f052d41def);
@@ -5332,6 +5432,11 @@ impl ::core::cmp::PartialEq for IInkLineInfo {
     }
 }
 impl ::core::cmp::Eq for IInkLineInfo {}
+impl ::core::fmt::Debug for IInkLineInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkLineInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkLineInfo {
     type Vtable = IInkLineInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c1c5ad6_f22f_4de4_b453_a2cc482e7c33);
@@ -5680,6 +5785,11 @@ impl ::core::cmp::PartialEq for IInkOverlay {
     }
 }
 impl ::core::cmp::Eq for IInkOverlay {}
+impl ::core::fmt::Debug for IInkOverlay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkOverlay").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkOverlay {
     type Vtable = IInkOverlayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb82a463b_c1c5_45a3_997c_deab5651b67a);
@@ -6113,6 +6223,11 @@ impl ::core::cmp::PartialEq for IInkPicture {
     }
 }
 impl ::core::cmp::Eq for IInkPicture {}
+impl ::core::fmt::Debug for IInkPicture {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkPicture").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkPicture {
     type Vtable = IInkPictureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe85662e0_379a_40d7_9b5c_757d233f9923);
@@ -6361,6 +6476,11 @@ impl ::core::cmp::PartialEq for IInkRecognitionAlternate {
     }
 }
 impl ::core::cmp::Eq for IInkRecognitionAlternate {}
+impl ::core::fmt::Debug for IInkRecognitionAlternate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognitionAlternate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognitionAlternate {
     type Vtable = IInkRecognitionAlternateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e660ad_77e4_429b_adda_873780d1fc4a);
@@ -6504,6 +6624,11 @@ impl ::core::cmp::PartialEq for IInkRecognitionAlternates {
     }
 }
 impl ::core::cmp::Eq for IInkRecognitionAlternates {}
+impl ::core::fmt::Debug for IInkRecognitionAlternates {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognitionAlternates").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognitionAlternates {
     type Vtable = IInkRecognitionAlternatesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x286a167f_9f19_4c61_9d53_4f07be622b84);
@@ -6643,6 +6768,11 @@ impl ::core::cmp::PartialEq for IInkRecognitionResult {
     }
 }
 impl ::core::cmp::Eq for IInkRecognitionResult {}
+impl ::core::fmt::Debug for IInkRecognitionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognitionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognitionResult {
     type Vtable = IInkRecognitionResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc129a8_86cd_45ad_bde8_e0d32d61c16d);
@@ -6792,6 +6922,11 @@ impl ::core::cmp::PartialEq for IInkRecognizer {
     }
 }
 impl ::core::cmp::Eq for IInkRecognizer {}
+impl ::core::fmt::Debug for IInkRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognizer {
     type Vtable = IInkRecognizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x782bf7cf_034b_4396_8a32_3a1833cf6b56);
@@ -6917,6 +7052,11 @@ impl ::core::cmp::PartialEq for IInkRecognizer2 {
     }
 }
 impl ::core::cmp::Eq for IInkRecognizer2 {}
+impl ::core::fmt::Debug for IInkRecognizer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognizer2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognizer2 {
     type Vtable = IInkRecognizer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6110118a_3a75_4ad6_b2aa_04b2b72bbe65);
@@ -7138,6 +7278,11 @@ impl ::core::cmp::PartialEq for IInkRecognizerContext {
     }
 }
 impl ::core::cmp::Eq for IInkRecognizerContext {}
+impl ::core::fmt::Debug for IInkRecognizerContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognizerContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognizerContext {
     type Vtable = IInkRecognizerContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc68f52f9_32a3_4625_906c_44fc23b40958);
@@ -7283,6 +7428,11 @@ impl ::core::cmp::PartialEq for IInkRecognizerContext2 {
     }
 }
 impl ::core::cmp::Eq for IInkRecognizerContext2 {}
+impl ::core::fmt::Debug for IInkRecognizerContext2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognizerContext2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognizerContext2 {
     type Vtable = IInkRecognizerContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f0e32f_73d8_408e_8e9f_5fea592c363f);
@@ -7444,6 +7594,11 @@ impl ::core::cmp::PartialEq for IInkRecognizerGuide {
     }
 }
 impl ::core::cmp::Eq for IInkRecognizerGuide {}
+impl ::core::fmt::Debug for IInkRecognizerGuide {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognizerGuide").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognizerGuide {
     type Vtable = IInkRecognizerGuideVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd934be07_7b84_4208_9136_83c20994e905);
@@ -7579,6 +7734,11 @@ impl ::core::cmp::PartialEq for IInkRecognizers {
     }
 }
 impl ::core::cmp::Eq for IInkRecognizers {}
+impl ::core::fmt::Debug for IInkRecognizers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognizers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRecognizers {
     type Vtable = IInkRecognizersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ccc4f12_b0b7_4a8b_bf58_4aeca4e8cefd);
@@ -7739,6 +7899,11 @@ impl ::core::cmp::PartialEq for IInkRectangle {
     }
 }
 impl ::core::cmp::Eq for IInkRectangle {}
+impl ::core::fmt::Debug for IInkRectangle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRectangle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRectangle {
     type Vtable = IInkRectangleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9794ff82_6071_4717_8a8b_6ac7c64a686e);
@@ -7918,6 +8083,11 @@ impl ::core::cmp::PartialEq for IInkRenderer {
     }
 }
 impl ::core::cmp::Eq for IInkRenderer {}
+impl ::core::fmt::Debug for IInkRenderer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRenderer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkRenderer {
     type Vtable = IInkRendererVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6257a9c_b511_4f4c_a8b0_a7dbc9506b83);
@@ -8205,6 +8375,11 @@ impl ::core::cmp::PartialEq for IInkStrokeDisp {
     }
 }
 impl ::core::cmp::Eq for IInkStrokeDisp {}
+impl ::core::fmt::Debug for IInkStrokeDisp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkStrokeDisp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkStrokeDisp {
     type Vtable = IInkStrokeDispVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x43242fea_91d1_4a72_963e_fbb91829cfa2);
@@ -8441,6 +8616,11 @@ impl ::core::cmp::PartialEq for IInkStrokes {
     }
 }
 impl ::core::cmp::Eq for IInkStrokes {}
+impl ::core::fmt::Debug for IInkStrokes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkStrokes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkStrokes {
     type Vtable = IInkStrokesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1f4c9d8_590a_4963_b3ae_1935671bb6f3);
@@ -8596,6 +8776,11 @@ impl ::core::cmp::PartialEq for IInkTablet {
     }
 }
 impl ::core::cmp::Eq for IInkTablet {}
+impl ::core::fmt::Debug for IInkTablet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkTablet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkTablet {
     type Vtable = IInkTabletVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2de25eaa_6ef8_42d5_aee9_185bc81b912d);
@@ -8712,6 +8897,11 @@ impl ::core::cmp::PartialEq for IInkTablet2 {
     }
 }
 impl ::core::cmp::Eq for IInkTablet2 {}
+impl ::core::fmt::Debug for IInkTablet2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkTablet2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkTablet2 {
     type Vtable = IInkTablet2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90c91ad2_fa36_49d6_9516_ce8d570f6f85);
@@ -8824,6 +9014,11 @@ impl ::core::cmp::PartialEq for IInkTablet3 {
     }
 }
 impl ::core::cmp::Eq for IInkTablet3 {}
+impl ::core::fmt::Debug for IInkTablet3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkTablet3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkTablet3 {
     type Vtable = IInkTablet3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e313997_1327_41dd_8ca9_79f24be17250);
@@ -8953,6 +9148,11 @@ impl ::core::cmp::PartialEq for IInkTablets {
     }
 }
 impl ::core::cmp::Eq for IInkTablets {}
+impl ::core::fmt::Debug for IInkTablets {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkTablets").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkTablets {
     type Vtable = IInkTabletsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x112086d9_7779_4535_a699_862b43ac1863);
@@ -9157,6 +9357,11 @@ impl ::core::cmp::PartialEq for IInkTransform {
     }
 }
 impl ::core::cmp::Eq for IInkTransform {}
+impl ::core::fmt::Debug for IInkTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkTransform {
     type Vtable = IInkTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x615f1d43_8703_4565_88e2_8201d2ecd7b7);
@@ -9296,6 +9501,11 @@ impl ::core::cmp::PartialEq for IInkWordList {
     }
 }
 impl ::core::cmp::Eq for IInkWordList {}
+impl ::core::fmt::Debug for IInkWordList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkWordList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkWordList {
     type Vtable = IInkWordListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76ba3491_cb2f_406b_9961_0e0c4cdaaef2);
@@ -9407,6 +9617,11 @@ impl ::core::cmp::PartialEq for IInkWordList2 {
     }
 }
 impl ::core::cmp::Eq for IInkWordList2 {}
+impl ::core::fmt::Debug for IInkWordList2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkWordList2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInkWordList2 {
     type Vtable = IInkWordList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14542586_11bf_4f5f_b6e7_49d0744aab6e);
@@ -9482,6 +9697,11 @@ impl ::core::cmp::PartialEq for IInputPanelWindowHandle {
     }
 }
 impl ::core::cmp::Eq for IInputPanelWindowHandle {}
+impl ::core::fmt::Debug for IInputPanelWindowHandle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInputPanelWindowHandle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInputPanelWindowHandle {
     type Vtable = IInputPanelWindowHandleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4af81847_fdc4_4fc3_ad0b_422479c1b935);
@@ -9654,6 +9874,11 @@ impl ::core::cmp::PartialEq for IMathInputControl {
     }
 }
 impl ::core::cmp::Eq for IMathInputControl {}
+impl ::core::fmt::Debug for IMathInputControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMathInputControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMathInputControl {
     type Vtable = IMathInputControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba615aa_fac6_4738_ba5f_ff09e9fe473e);
@@ -9931,6 +10156,11 @@ impl ::core::cmp::PartialEq for IPenInputPanel {
     }
 }
 impl ::core::cmp::Eq for IPenInputPanel {}
+impl ::core::fmt::Debug for IPenInputPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPenInputPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPenInputPanel {
     type Vtable = IPenInputPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa7a4083_5747_4040_a182_0b0e9fd4fac7);
@@ -10157,6 +10387,11 @@ impl ::core::cmp::PartialEq for IRealTimeStylus {
     }
 }
 impl ::core::cmp::Eq for IRealTimeStylus {}
+impl ::core::fmt::Debug for IRealTimeStylus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRealTimeStylus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRealTimeStylus {
     type Vtable = IRealTimeStylusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8bb5d22_3144_4a7b_93cd_f34a16be513a);
@@ -10253,6 +10488,11 @@ impl ::core::cmp::PartialEq for IRealTimeStylus2 {
     }
 }
 impl ::core::cmp::Eq for IRealTimeStylus2 {}
+impl ::core::fmt::Debug for IRealTimeStylus2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRealTimeStylus2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRealTimeStylus2 {
     type Vtable = IRealTimeStylus2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5f2a6cd_3179_4a3e_b9c4_bb5865962be2);
@@ -10315,6 +10555,11 @@ impl ::core::cmp::PartialEq for IRealTimeStylus3 {
     }
 }
 impl ::core::cmp::Eq for IRealTimeStylus3 {}
+impl ::core::fmt::Debug for IRealTimeStylus3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRealTimeStylus3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRealTimeStylus3 {
     type Vtable = IRealTimeStylus3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd70230a3_6986_4051_b57a_1cf69f4d9db5);
@@ -10374,6 +10619,11 @@ impl ::core::cmp::PartialEq for IRealTimeStylusSynchronization {
     }
 }
 impl ::core::cmp::Eq for IRealTimeStylusSynchronization {}
+impl ::core::fmt::Debug for IRealTimeStylusSynchronization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRealTimeStylusSynchronization").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRealTimeStylusSynchronization {
     type Vtable = IRealTimeStylusSynchronizationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa87eab8_ab4a_4cea_b5cb_46d84c6a2509);
@@ -10469,6 +10719,11 @@ impl ::core::cmp::PartialEq for ISketchInk {
     }
 }
 impl ::core::cmp::Eq for ISketchInk {}
+impl ::core::fmt::Debug for ISketchInk {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISketchInk").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISketchInk {
     type Vtable = ISketchInkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb4563688_98eb_4646_b279_44da14d45748);
@@ -10550,6 +10805,11 @@ impl ::core::cmp::PartialEq for IStrokeBuilder {
     }
 }
 impl ::core::cmp::Eq for IStrokeBuilder {}
+impl ::core::fmt::Debug for IStrokeBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStrokeBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStrokeBuilder {
     type Vtable = IStrokeBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5fd4e2d_c44b_4092_9177_260905eb672b);
@@ -10699,6 +10959,11 @@ impl ::core::cmp::PartialEq for IStylusAsyncPlugin {
     }
 }
 impl ::core::cmp::Eq for IStylusAsyncPlugin {}
+impl ::core::fmt::Debug for IStylusAsyncPlugin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStylusAsyncPlugin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStylusAsyncPlugin {
     type Vtable = IStylusAsyncPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa7cca85a_31bc_4cd2_aadc_3289a3af11c8);
@@ -10844,6 +11109,11 @@ impl ::core::cmp::PartialEq for IStylusPlugin {
     }
 }
 impl ::core::cmp::Eq for IStylusPlugin {}
+impl ::core::fmt::Debug for IStylusPlugin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStylusPlugin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStylusPlugin {
     type Vtable = IStylusPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa81436d8_4757_4fd1_a185_133f97c6c545);
@@ -11009,6 +11279,11 @@ impl ::core::cmp::PartialEq for IStylusSyncPlugin {
     }
 }
 impl ::core::cmp::Eq for IStylusSyncPlugin {}
+impl ::core::fmt::Debug for IStylusSyncPlugin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStylusSyncPlugin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStylusSyncPlugin {
     type Vtable = IStylusSyncPluginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa157b174_482f_4d71_a3f6_3a41ddd11be9);
@@ -11200,6 +11475,11 @@ impl ::core::cmp::PartialEq for ITextInputPanel {
     }
 }
 impl ::core::cmp::Eq for ITextInputPanel {}
+impl ::core::fmt::Debug for ITextInputPanel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextInputPanel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextInputPanel {
     type Vtable = ITextInputPanelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b6a65a5_6af3_46c2_b6ea_56cd1f80df71);
@@ -11334,6 +11614,11 @@ impl ::core::cmp::PartialEq for ITextInputPanelEventSink {
     }
 }
 impl ::core::cmp::Eq for ITextInputPanelEventSink {}
+impl ::core::fmt::Debug for ITextInputPanelEventSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextInputPanelEventSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextInputPanelEventSink {
     type Vtable = ITextInputPanelEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27560408_8e64_4fe1_804e_421201584b31);
@@ -11405,6 +11690,11 @@ impl ::core::cmp::PartialEq for ITextInputPanelRunInfo {
     }
 }
 impl ::core::cmp::Eq for ITextInputPanelRunInfo {}
+impl ::core::fmt::Debug for ITextInputPanelRunInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITextInputPanelRunInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITextInputPanelRunInfo {
     type Vtable = ITextInputPanelRunInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f424568_1920_48cc_9811_a993cbf5adba);
@@ -11479,6 +11769,11 @@ impl ::core::cmp::PartialEq for ITipAutoCompleteClient {
     }
 }
 impl ::core::cmp::Eq for ITipAutoCompleteClient {}
+impl ::core::fmt::Debug for ITipAutoCompleteClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITipAutoCompleteClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITipAutoCompleteClient {
     type Vtable = ITipAutoCompleteClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e078e03_8265_4bbe_9487_d242edbef910);
@@ -11545,6 +11840,11 @@ impl ::core::cmp::PartialEq for ITipAutoCompleteProvider {
     }
 }
 impl ::core::cmp::Eq for ITipAutoCompleteProvider {}
+impl ::core::fmt::Debug for ITipAutoCompleteProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITipAutoCompleteProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITipAutoCompleteProvider {
     type Vtable = ITipAutoCompleteProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c6cf46d_8404_46b9_ad33_f5b6036d4007);
@@ -13353,6 +13653,11 @@ impl ::core::cmp::PartialEq for _IInkCollectorEvents {
     }
 }
 impl ::core::cmp::Eq for _IInkCollectorEvents {}
+impl ::core::fmt::Debug for _IInkCollectorEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IInkCollectorEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IInkCollectorEvents {
     type Vtable = _IInkCollectorEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11a583f2_712d_4fea_abcf_ab4af38ea06b);
@@ -13454,6 +13759,11 @@ impl ::core::cmp::PartialEq for _IInkEditEvents {
     }
 }
 impl ::core::cmp::Eq for _IInkEditEvents {}
+impl ::core::fmt::Debug for _IInkEditEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IInkEditEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IInkEditEvents {
     type Vtable = _IInkEditEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3b0b797_a72e_46db_a0d7_6c9eba8e9bbc);
@@ -13555,6 +13865,11 @@ impl ::core::cmp::PartialEq for _IInkEvents {
     }
 }
 impl ::core::cmp::Eq for _IInkEvents {}
+impl ::core::fmt::Debug for _IInkEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IInkEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IInkEvents {
     type Vtable = _IInkEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427b1865_ca3f_479a_83a9_0f420f2a0073);
@@ -13656,6 +13971,11 @@ impl ::core::cmp::PartialEq for _IInkOverlayEvents {
     }
 }
 impl ::core::cmp::Eq for _IInkOverlayEvents {}
+impl ::core::fmt::Debug for _IInkOverlayEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IInkOverlayEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IInkOverlayEvents {
     type Vtable = _IInkOverlayEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31179b69_e563_489e_b16f_712f1e8a0651);
@@ -13757,6 +14077,11 @@ impl ::core::cmp::PartialEq for _IInkPictureEvents {
     }
 }
 impl ::core::cmp::Eq for _IInkPictureEvents {}
+impl ::core::fmt::Debug for _IInkPictureEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IInkPictureEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IInkPictureEvents {
     type Vtable = _IInkPictureEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60ff4fee_22ff_4484_acc1_d308d9cd7ea3);
@@ -13858,6 +14183,11 @@ impl ::core::cmp::PartialEq for _IInkRecognitionEvents {
     }
 }
 impl ::core::cmp::Eq for _IInkRecognitionEvents {}
+impl ::core::fmt::Debug for _IInkRecognitionEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IInkRecognitionEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IInkRecognitionEvents {
     type Vtable = _IInkRecognitionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x17bce92f_2e21_47fd_9d33_3c6afbfd8c59);
@@ -13959,6 +14289,11 @@ impl ::core::cmp::PartialEq for _IInkStrokesEvents {
     }
 }
 impl ::core::cmp::Eq for _IInkStrokesEvents {}
+impl ::core::fmt::Debug for _IInkStrokesEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IInkStrokesEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IInkStrokesEvents {
     type Vtable = _IInkStrokesEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf33053ec_5d25_430a_928f_76a6491dde15);
@@ -14060,6 +14395,11 @@ impl ::core::cmp::PartialEq for _IMathInputControlEvents {
     }
 }
 impl ::core::cmp::Eq for _IMathInputControlEvents {}
+impl ::core::fmt::Debug for _IMathInputControlEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IMathInputControlEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IMathInputControlEvents {
     type Vtable = _IMathInputControlEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x683336b5_a47d_4358_96f9_875a472ae70a);
@@ -14161,6 +14501,11 @@ impl ::core::cmp::PartialEq for _IPenInputPanelEvents {
     }
 }
 impl ::core::cmp::Eq for _IPenInputPanelEvents {}
+impl ::core::fmt::Debug for _IPenInputPanelEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IPenInputPanelEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IPenInputPanelEvents {
     type Vtable = _IPenInputPanelEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7e489da_3719_439f_848f_e7acbd820f17);

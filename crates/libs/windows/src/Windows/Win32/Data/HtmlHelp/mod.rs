@@ -1129,6 +1129,11 @@ impl ::core::cmp::PartialEq for IITDatabase {
     }
 }
 impl ::core::cmp::Eq for IITDatabase {}
+impl ::core::fmt::Debug for IITDatabase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITDatabase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITDatabase {
     type Vtable = IITDatabaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a2_dedf_11d0_9a61_00c04fb68bf7);
@@ -1345,6 +1350,11 @@ impl ::core::cmp::PartialEq for IITPropList {
     }
 }
 impl ::core::cmp::Eq for IITPropList {}
+impl ::core::fmt::Debug for IITPropList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITPropList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITPropList {
     type Vtable = IITPropListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f403bb1_9997_11d0_a850_00aa006c7d01);
@@ -1556,6 +1566,11 @@ impl ::core::cmp::PartialEq for IITResultSet {
     }
 }
 impl ::core::cmp::Eq for IITResultSet {}
+impl ::core::fmt::Debug for IITResultSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITResultSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITResultSet {
     type Vtable = IITResultSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bb91d41_998b_11d0_a850_00aa006c7d01);
@@ -1697,6 +1712,11 @@ impl ::core::cmp::PartialEq for IITWordWheel {
     }
 }
 impl ::core::cmp::Eq for IITWordWheel {}
+impl ::core::fmt::Debug for IITWordWheel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IITWordWheel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IITWordWheel {
     type Vtable = IITWordWheelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a4_dedf_11d0_9a61_00c04fb68bf7);
@@ -1769,6 +1789,11 @@ impl ::core::cmp::PartialEq for IStemSink {
     }
 }
 impl ::core::cmp::Eq for IStemSink {}
+impl ::core::fmt::Debug for IStemSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStemSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStemSink {
     type Vtable = IStemSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfe77c330_7f42_11ce_be57_00aa0051fe20);
@@ -1841,6 +1866,11 @@ impl ::core::cmp::PartialEq for IStemmerConfig {
     }
 }
 impl ::core::cmp::Eq for IStemmerConfig {}
+impl ::core::fmt::Debug for IStemmerConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStemmerConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStemmerConfig {
     type Vtable = IStemmerConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a7_dedf_11d0_9a61_00c04fb68bf7);
@@ -1944,6 +1974,11 @@ impl ::core::cmp::PartialEq for IWordBreakerConfig {
     }
 }
 impl ::core::cmp::Eq for IWordBreakerConfig {}
+impl ::core::fmt::Debug for IWordBreakerConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWordBreakerConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWordBreakerConfig {
     type Vtable = IWordBreakerConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8fa0d5a6_dedf_11d0_9a61_00c04fb68bf7);

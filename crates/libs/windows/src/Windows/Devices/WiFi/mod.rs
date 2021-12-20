@@ -345,6 +345,11 @@ impl ::core::cmp::PartialEq for WiFiAdapter {
     }
 }
 impl ::core::cmp::Eq for WiFiAdapter {}
+impl ::core::fmt::Debug for WiFiAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAdapter;{a6c4e423-3d75-43a4-b9de-11e26b72d9b0})");
 }
@@ -504,6 +509,11 @@ impl ::core::cmp::PartialEq for WiFiAvailableNetwork {
     }
 }
 impl ::core::cmp::Eq for WiFiAvailableNetwork {}
+impl ::core::fmt::Debug for WiFiAvailableNetwork {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiAvailableNetwork").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiAvailableNetwork {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiAvailableNetwork;{26e96246-183e-4704-9826-71b4a2f0f668})");
 }
@@ -614,6 +624,11 @@ impl ::core::cmp::PartialEq for WiFiConnectionResult {
     }
 }
 impl ::core::cmp::Eq for WiFiConnectionResult {}
+impl ::core::fmt::Debug for WiFiConnectionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiConnectionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiConnectionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiConnectionResult;{143bdfd9-c37d-40be-a5c8-857bce85a931})");
 }
@@ -772,6 +787,11 @@ impl ::core::cmp::PartialEq for WiFiNetworkReport {
     }
 }
 impl ::core::cmp::Eq for WiFiNetworkReport {}
+impl ::core::fmt::Debug for WiFiNetworkReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiNetworkReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiNetworkReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiNetworkReport;{9524ded2-5911-445e-8194-be4f1a704895})");
 }
@@ -932,6 +952,11 @@ impl ::core::cmp::PartialEq for WiFiWpsConfigurationResult {
     }
 }
 impl ::core::cmp::Eq for WiFiWpsConfigurationResult {}
+impl ::core::fmt::Debug for WiFiWpsConfigurationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiWpsConfigurationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiWpsConfigurationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFi.WiFiWpsConfigurationResult;{67b49871-17ee-42d1-b14f-5a11f1226fb5})");
 }

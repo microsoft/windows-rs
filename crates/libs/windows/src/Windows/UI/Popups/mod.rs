@@ -169,6 +169,11 @@ impl ::core::cmp::PartialEq for IUICommand {
     }
 }
 impl ::core::cmp::Eq for IUICommand {}
+impl ::core::fmt::Debug for IUICommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUICommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IUICommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f}");
 }
@@ -330,6 +335,11 @@ impl ::core::cmp::PartialEq for MessageDialog {
     }
 }
 impl ::core::cmp::Eq for MessageDialog {}
+impl ::core::fmt::Debug for MessageDialog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MessageDialog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MessageDialog {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.MessageDialog;{33f59b01-5325-43ab-9ab3-bdae440e4121})");
 }
@@ -508,6 +518,11 @@ impl ::core::cmp::PartialEq for PopupMenu {
     }
 }
 impl ::core::cmp::Eq for PopupMenu {}
+impl ::core::fmt::Debug for PopupMenu {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PopupMenu").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PopupMenu {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.PopupMenu;{4e9bc6dc-880d-47fc-a0a1-72b639e62559})");
 }
@@ -646,6 +661,11 @@ impl ::core::cmp::PartialEq for UICommand {
     }
 }
 impl ::core::cmp::Eq for UICommand {}
+impl ::core::fmt::Debug for UICommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UICommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UICommand {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommand;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
 }
@@ -780,6 +800,11 @@ impl ::core::cmp::PartialEq for UICommandInvokedHandler {
     }
 }
 impl ::core::cmp::Eq for UICommandInvokedHandler {}
+impl ::core::fmt::Debug for UICommandInvokedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UICommandInvokedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for UICommandInvokedHandler {
     type Vtable = UICommandInvokedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdaf77a4f_c27a_4298_9ac6_2922c45e7da6);
@@ -852,6 +877,11 @@ impl ::core::cmp::PartialEq for UICommandSeparator {
     }
 }
 impl ::core::cmp::Eq for UICommandSeparator {}
+impl ::core::fmt::Debug for UICommandSeparator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UICommandSeparator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UICommandSeparator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Popups.UICommandSeparator;{4ff93a75-4145-47ff-ac7f-dff1c1fa5b0f})");
 }

@@ -2494,6 +2494,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter {}
+impl ::core::fmt::Debug for IDXGIAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter {
     type Vtable = IDXGIAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2411e7e1_12ac_4ccf_bd14_9798e8534dc0);
@@ -2628,6 +2633,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter1 {}
+impl ::core::fmt::Debug for IDXGIAdapter1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter1 {
     type Vtable = IDXGIAdapter1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29038f61_3839_4626_91fd_086879011a05);
@@ -2790,6 +2800,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter2 {}
+impl ::core::fmt::Debug for IDXGIAdapter2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter2 {
     type Vtable = IDXGIAdapter2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0aa1ae0a_fa0e_4b84_8644_e05ff8e5acb5);
@@ -3003,6 +3018,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter3 {}
+impl ::core::fmt::Debug for IDXGIAdapter3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter3 {
     type Vtable = IDXGIAdapter3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x645967a4_1392_4310_a798_8053ce3e93fd);
@@ -3250,6 +3270,11 @@ impl ::core::cmp::PartialEq for IDXGIAdapter4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIAdapter4 {}
+impl ::core::fmt::Debug for IDXGIAdapter4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIAdapter4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIAdapter4 {
     type Vtable = IDXGIAdapter4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3c8d99d1_4fbf_4181_a82c_af66bf7bd24e);
@@ -3323,6 +3348,11 @@ impl ::core::cmp::PartialEq for IDXGIDebug {
     }
 }
 impl ::core::cmp::Eq for IDXGIDebug {}
+impl ::core::fmt::Debug for IDXGIDebug {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDebug").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDebug {
     type Vtable = IDXGIDebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x119e7452_de9e_40fe_8806_88f90c12b441);
@@ -3403,6 +3433,11 @@ impl ::core::cmp::PartialEq for IDXGIDebug1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDebug1 {}
+impl ::core::fmt::Debug for IDXGIDebug1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDebug1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDebug1 {
     type Vtable = IDXGIDebug1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5a05f0c_16f2_4adf_9f4d_a8c4d58ac550);
@@ -3497,6 +3532,11 @@ impl ::core::cmp::PartialEq for IDXGIDecodeSwapChain {
     }
 }
 impl ::core::cmp::Eq for IDXGIDecodeSwapChain {}
+impl ::core::fmt::Debug for IDXGIDecodeSwapChain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDecodeSwapChain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDecodeSwapChain {
     type Vtable = IDXGIDecodeSwapChainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2633066b_4514_4c7a_8fd8_12ea98059d18);
@@ -3617,6 +3657,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice {}
+impl ::core::fmt::Debug for IDXGIDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice {
     type Vtable = IDXGIDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54ec77fa_1377_44e6_8c32_88fd5f44c84c);
@@ -3763,6 +3808,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice1 {}
+impl ::core::fmt::Debug for IDXGIDevice1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice1 {
     type Vtable = IDXGIDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77db970f_6276_48ba_ba28_070143b4392c);
@@ -3946,6 +3996,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice2 {}
+impl ::core::fmt::Debug for IDXGIDevice2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice2 {
     type Vtable = IDXGIDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05008617_fbfd_4051_a790_144884b4f6a9);
@@ -4158,6 +4213,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice3 {}
+impl ::core::fmt::Debug for IDXGIDevice3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice3 {
     type Vtable = IDXGIDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6007896c_3244_4afd_bf18_a6d3beda5023);
@@ -4400,6 +4460,11 @@ impl ::core::cmp::PartialEq for IDXGIDevice4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIDevice4 {}
+impl ::core::fmt::Debug for IDXGIDevice4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDevice4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDevice4 {
     type Vtable = IDXGIDevice4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95b4f95f_d8da_4ca4_9ee6_3b76d5968a10);
@@ -4509,6 +4574,11 @@ impl ::core::cmp::PartialEq for IDXGIDeviceSubObject {
     }
 }
 impl ::core::cmp::Eq for IDXGIDeviceSubObject {}
+impl ::core::fmt::Debug for IDXGIDeviceSubObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDeviceSubObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDeviceSubObject {
     type Vtable = IDXGIDeviceSubObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d3e0379_f9de_4d58_bb6c_18d62992f1a6);
@@ -4571,6 +4641,11 @@ impl ::core::cmp::PartialEq for IDXGIDisplayControl {
     }
 }
 impl ::core::cmp::Eq for IDXGIDisplayControl {}
+impl ::core::fmt::Debug for IDXGIDisplayControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIDisplayControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIDisplayControl {
     type Vtable = IDXGIDisplayControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea9dbf1a_c88e_4486_854a_98aa0138f30c);
@@ -4687,6 +4762,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory {}
+impl ::core::fmt::Debug for IDXGIFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory {
     type Vtable = IDXGIFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7b7166ec_21c7_44ae_b21a_c9ae321ae369);
@@ -4842,6 +4922,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory1 {}
+impl ::core::fmt::Debug for IDXGIFactory1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory1 {
     type Vtable = IDXGIFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x770aae78_f26f_4dba_a829_253c83d1b387);
@@ -5081,6 +5166,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory2 {}
+impl ::core::fmt::Debug for IDXGIFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory2 {
     type Vtable = IDXGIFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50c83a1c_e072_4c48_87b0_3630fa36a6d0);
@@ -5364,6 +5454,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory3 {}
+impl ::core::fmt::Debug for IDXGIFactory3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory3 {
     type Vtable = IDXGIFactory3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25483823_cd46_4c7d_86ca_47aa95b837bd);
@@ -5679,6 +5774,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory4 {}
+impl ::core::fmt::Debug for IDXGIFactory4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory4 {
     type Vtable = IDXGIFactory4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bc6ea02_ef36_464f_bf0c_21ca39e5168a);
@@ -6021,6 +6121,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory5 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory5 {}
+impl ::core::fmt::Debug for IDXGIFactory5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory5 {
     type Vtable = IDXGIFactory5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7632e1f5_ee65_4dca_87fd_84cd75f8838d);
@@ -6389,6 +6494,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory6 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory6 {}
+impl ::core::fmt::Debug for IDXGIFactory6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory6 {
     type Vtable = IDXGIFactory6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc1b6694f_ff09_44a9_b03c_77900a0a1d17);
@@ -6788,6 +6898,11 @@ impl ::core::cmp::PartialEq for IDXGIFactory7 {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactory7 {}
+impl ::core::fmt::Debug for IDXGIFactory7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactory7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactory7 {
     type Vtable = IDXGIFactory7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4966eed_76db_44da_84c1_ee9a7afb20a8);
@@ -6892,6 +7007,11 @@ impl ::core::cmp::PartialEq for IDXGIFactoryMedia {
     }
 }
 impl ::core::cmp::Eq for IDXGIFactoryMedia {}
+impl ::core::fmt::Debug for IDXGIFactoryMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIFactoryMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIFactoryMedia {
     type Vtable = IDXGIFactoryMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41e7d1f2_a591_4f7b_a2e5_fa9c843e1c12);
@@ -7101,6 +7221,11 @@ impl ::core::cmp::PartialEq for IDXGIInfoQueue {
     }
 }
 impl ::core::cmp::Eq for IDXGIInfoQueue {}
+impl ::core::fmt::Debug for IDXGIInfoQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIInfoQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIInfoQueue {
     type Vtable = IDXGIInfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd67441c7_672a_476f_9e82_cd55b44949ce);
@@ -7265,6 +7390,11 @@ impl ::core::cmp::PartialEq for IDXGIKeyedMutex {
     }
 }
 impl ::core::cmp::Eq for IDXGIKeyedMutex {}
+impl ::core::fmt::Debug for IDXGIKeyedMutex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIKeyedMutex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIKeyedMutex {
     type Vtable = IDXGIKeyedMutexVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d8e1289_d7b3_465f_8126_250e349af85d);
@@ -7336,6 +7466,11 @@ impl ::core::cmp::PartialEq for IDXGIObject {
     }
 }
 impl ::core::cmp::Eq for IDXGIObject {}
+impl ::core::fmt::Debug for IDXGIObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIObject {
     type Vtable = IDXGIObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaec22fb8_76f3_4639_9be0_28eb43a67a2e);
@@ -7483,6 +7618,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput {}
+impl ::core::fmt::Debug for IDXGIOutput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput {
     type Vtable = IDXGIOutputVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae02eedb_c735_4690_8d52_5a8dc20213aa);
@@ -7688,6 +7828,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput1 {}
+impl ::core::fmt::Debug for IDXGIOutput1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput1 {
     type Vtable = IDXGIOutput1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00cddea8_939b_4b83_a340_a685226666cc);
@@ -7924,6 +8069,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput2 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput2 {}
+impl ::core::fmt::Debug for IDXGIOutput2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput2 {
     type Vtable = IDXGIOutput2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x595e39d1_2724_4663_99b1_da969de28364);
@@ -8188,6 +8338,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput3 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput3 {}
+impl ::core::fmt::Debug for IDXGIOutput3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput3 {
     type Vtable = IDXGIOutput3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a6bb301_7e7e_41f4_a8e0_5b32f7f99b18);
@@ -8480,6 +8635,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput4 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput4 {}
+impl ::core::fmt::Debug for IDXGIOutput4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput4 {
     type Vtable = IDXGIOutput4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc7dca35_2196_414d_9f53_617884032a60);
@@ -8800,6 +8960,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput5 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput5 {}
+impl ::core::fmt::Debug for IDXGIOutput5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput5 {
     type Vtable = IDXGIOutput5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80a07424_ab52_42eb_833c_0c42fd282d98);
@@ -9153,6 +9318,11 @@ impl ::core::cmp::PartialEq for IDXGIOutput6 {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutput6 {}
+impl ::core::fmt::Debug for IDXGIOutput6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutput6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutput6 {
     type Vtable = IDXGIOutput6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x068346e8_aaec_4b84_add7_137f513f77a1);
@@ -9315,6 +9485,11 @@ impl ::core::cmp::PartialEq for IDXGIOutputDuplication {
     }
 }
 impl ::core::cmp::Eq for IDXGIOutputDuplication {}
+impl ::core::fmt::Debug for IDXGIOutputDuplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIOutputDuplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIOutputDuplication {
     type Vtable = IDXGIOutputDuplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x191cfac3_a341_470d_b26e_a864f428319c);
@@ -9461,6 +9636,11 @@ impl ::core::cmp::PartialEq for IDXGIResource {
     }
 }
 impl ::core::cmp::Eq for IDXGIResource {}
+impl ::core::fmt::Debug for IDXGIResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIResource {
     type Vtable = IDXGIResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x035f3ab4_482e_4e50_b41f_8a7f8bd8960b);
@@ -9631,6 +9811,11 @@ impl ::core::cmp::PartialEq for IDXGIResource1 {
     }
 }
 impl ::core::cmp::Eq for IDXGIResource1 {}
+impl ::core::fmt::Debug for IDXGIResource1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGIResource1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGIResource1 {
     type Vtable = IDXGIResource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30961379_4609_4a41_998e_54fe567ee0c1);
@@ -9767,6 +9952,11 @@ impl ::core::cmp::PartialEq for IDXGISurface {
     }
 }
 impl ::core::cmp::Eq for IDXGISurface {}
+impl ::core::fmt::Debug for IDXGISurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISurface {
     type Vtable = IDXGISurfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcafcb56c_6ac3_4889_bf47_9e23bbd260ec);
@@ -9930,6 +10120,11 @@ impl ::core::cmp::PartialEq for IDXGISurface1 {
     }
 }
 impl ::core::cmp::Eq for IDXGISurface1 {}
+impl ::core::fmt::Debug for IDXGISurface1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISurface1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISurface1 {
     type Vtable = IDXGISurface1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ae63092_6327_4c1b_80ae_bfe12ea32b86);
@@ -10121,6 +10316,11 @@ impl ::core::cmp::PartialEq for IDXGISurface2 {
     }
 }
 impl ::core::cmp::Eq for IDXGISurface2 {}
+impl ::core::fmt::Debug for IDXGISurface2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISurface2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISurface2 {
     type Vtable = IDXGISurface2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaba496dd_b617_4cb8_a866_bc44d7eb1fa2);
@@ -10294,6 +10494,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain {}
+impl ::core::fmt::Debug for IDXGISwapChain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain {
     type Vtable = IDXGISwapChainVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310d36a0_d2e7_4c0a_aa04_6a9d23b8886a);
@@ -10551,6 +10756,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain1 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain1 {}
+impl ::core::fmt::Debug for IDXGISwapChain1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain1 {
     type Vtable = IDXGISwapChain1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x790a45f7_0d42_4876_983a_0a55cfe6f4aa);
@@ -10877,6 +11087,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain2 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain2 {}
+impl ::core::fmt::Debug for IDXGISwapChain2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain2 {
     type Vtable = IDXGISwapChain2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8be2ac4_199f_4946_b331_79599fb98de7);
@@ -11251,6 +11466,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain3 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain3 {}
+impl ::core::fmt::Debug for IDXGISwapChain3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain3 {
     type Vtable = IDXGISwapChain3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d99bdb_f1f8_4ab0_b236_7da0170edab1);
@@ -11656,6 +11876,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChain4 {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChain4 {}
+impl ::core::fmt::Debug for IDXGISwapChain4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChain4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChain4 {
     type Vtable = IDXGISwapChain4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d585d5a_bd4a_489e_b1f4_3dbcb6452ffb);
@@ -11770,6 +11995,11 @@ impl ::core::cmp::PartialEq for IDXGISwapChainMedia {
     }
 }
 impl ::core::cmp::Eq for IDXGISwapChainMedia {}
+impl ::core::fmt::Debug for IDXGISwapChainMedia {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGISwapChainMedia").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGISwapChainMedia {
     type Vtable = IDXGISwapChainMediaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd95b90b_f05f_4f6a_bd65_25bfb264bd84);
@@ -11828,6 +12058,11 @@ impl ::core::cmp::PartialEq for IDXGraphicsAnalysis {
     }
 }
 impl ::core::cmp::Eq for IDXGraphicsAnalysis {}
+impl ::core::fmt::Debug for IDXGraphicsAnalysis {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXGraphicsAnalysis").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXGraphicsAnalysis {
     type Vtable = IDXGraphicsAnalysisVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9f251514_9d4d_4902_9d60_18988ab7d4b5);

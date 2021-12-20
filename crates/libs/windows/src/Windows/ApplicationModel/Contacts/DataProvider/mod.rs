@@ -80,6 +80,11 @@ impl ::core::cmp::PartialEq for ContactDataProviderConnection {
     }
 }
 impl ::core::cmp::Eq for ContactDataProviderConnection {}
+impl ::core::fmt::Debug for ContactDataProviderConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactDataProviderConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactDataProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderConnection;{1a398a52-8c9d-4d6f-a4e0-111e9a125a30})");
 }
@@ -156,6 +161,11 @@ impl ::core::cmp::PartialEq for ContactDataProviderTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for ContactDataProviderTriggerDetails {}
+impl ::core::fmt::Debug for ContactDataProviderTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactDataProviderTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactDataProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactDataProviderTriggerDetails;{527104be-3c62-43c8-9ae7-db531685cd99})");
 }
@@ -258,6 +268,11 @@ impl ::core::cmp::PartialEq for ContactListCreateOrUpdateContactRequest {
     }
 }
 impl ::core::cmp::Eq for ContactListCreateOrUpdateContactRequest {}
+impl ::core::fmt::Debug for ContactListCreateOrUpdateContactRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListCreateOrUpdateContactRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequest;{b4af411f-c849-47d0-b119-91cf605b2f2a})");
 }
@@ -343,6 +358,11 @@ impl ::core::cmp::PartialEq for ContactListCreateOrUpdateContactRequestEventArgs
     }
 }
 impl ::core::cmp::Eq for ContactListCreateOrUpdateContactRequestEventArgs {}
+impl ::core::fmt::Debug for ContactListCreateOrUpdateContactRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListCreateOrUpdateContactRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListCreateOrUpdateContactRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListCreateOrUpdateContactRequestEventArgs;{851c1690-1a51-4b0c-aeef-1240ac5bed75})");
 }
@@ -445,6 +465,11 @@ impl ::core::cmp::PartialEq for ContactListDeleteContactRequest {
     }
 }
 impl ::core::cmp::Eq for ContactListDeleteContactRequest {}
+impl ::core::fmt::Debug for ContactListDeleteContactRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListDeleteContactRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListDeleteContactRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequest;{5e114687-ce03-4de5-8557-9ccf552d472a})");
 }
@@ -530,6 +555,11 @@ impl ::core::cmp::PartialEq for ContactListDeleteContactRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactListDeleteContactRequestEventArgs {}
+impl ::core::fmt::Debug for ContactListDeleteContactRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListDeleteContactRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListDeleteContactRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListDeleteContactRequestEventArgs;{b22054a1-e8fa-4db5-9389-2d12ee7d15ee})");
 }
@@ -657,6 +687,11 @@ impl ::core::cmp::PartialEq for ContactListServerSearchReadBatchRequest {
     }
 }
 impl ::core::cmp::Eq for ContactListServerSearchReadBatchRequest {}
+impl ::core::fmt::Debug for ContactListServerSearchReadBatchRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListServerSearchReadBatchRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequest;{ba776a97-4030-4925-9fb4-143b295e653b})");
 }
@@ -742,6 +777,11 @@ impl ::core::cmp::PartialEq for ContactListServerSearchReadBatchRequestEventArgs
     }
 }
 impl ::core::cmp::Eq for ContactListServerSearchReadBatchRequestEventArgs {}
+impl ::core::fmt::Debug for ContactListServerSearchReadBatchRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListServerSearchReadBatchRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListServerSearchReadBatchRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListServerSearchReadBatchRequestEventArgs;{1a27e87b-69d7-4e4e-8042-861cba61471e})");
 }
@@ -836,6 +876,11 @@ impl ::core::cmp::PartialEq for ContactListSyncManagerSyncRequest {
     }
 }
 impl ::core::cmp::Eq for ContactListSyncManagerSyncRequest {}
+impl ::core::fmt::Debug for ContactListSyncManagerSyncRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListSyncManagerSyncRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequest;{3c0e57a4-c4e7-4970-9a8f-9a66a2bb6c1a})");
 }
@@ -921,6 +966,11 @@ impl ::core::cmp::PartialEq for ContactListSyncManagerSyncRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactListSyncManagerSyncRequestEventArgs {}
+impl ::core::fmt::Debug for ContactListSyncManagerSyncRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactListSyncManagerSyncRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactListSyncManagerSyncRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.DataProvider.ContactListSyncManagerSyncRequestEventArgs;{158e4dac-446d-4f10-afc2-02683ec533a6})");
 }

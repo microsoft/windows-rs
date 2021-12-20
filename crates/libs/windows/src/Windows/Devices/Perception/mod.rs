@@ -1674,6 +1674,12 @@ impl ::core::cmp::PartialEq for PerceptionColorFrame {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionColorFrame {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionColorFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionColorFrame").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionColorFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionColorFrame;{fe621549-2cbf-4f94-9861-f817ea317747})");
 }
@@ -1803,6 +1809,12 @@ impl ::core::cmp::PartialEq for PerceptionColorFrameArrivedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionColorFrameArrivedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionColorFrameArrivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionColorFrameArrivedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionColorFrameArrivedEventArgs;{8fad02d5-86f7-4d8d-b966-5a3761ba9f59})");
@@ -1943,6 +1955,12 @@ impl ::core::cmp::PartialEq for PerceptionColorFrameReader {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionColorFrameReader {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionColorFrameReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionColorFrameReader").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionColorFrameReader;{7650f56e-b9f5-461b-83ad-f222af2aaadc})");
@@ -2349,6 +2367,12 @@ impl ::core::cmp::PartialEq for PerceptionColorFrameSource {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionColorFrameSource {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionColorFrameSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionColorFrameSource").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionColorFrameSource;{dc6dba7c-0b58-468d-9ca1-6db04cc0477c})");
 }
@@ -2444,6 +2468,12 @@ impl ::core::cmp::PartialEq for PerceptionColorFrameSourceAddedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionColorFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionColorFrameSourceAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionColorFrameSourceAddedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionColorFrameSourceAddedEventArgs;{d16bf4e6-da24-442c-bbd5-55549b5b94f3})");
 }
@@ -2538,6 +2568,12 @@ impl ::core::cmp::PartialEq for PerceptionColorFrameSourceRemovedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionColorFrameSourceRemovedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionColorFrameSourceRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionColorFrameSourceRemovedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionColorFrameSourceRemovedEventArgs;{d277fa69-eb4c-42ef-ba4f-288f615c93c1})");
@@ -2706,6 +2742,12 @@ impl ::core::cmp::PartialEq for PerceptionColorFrameSourceWatcher {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionColorFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionColorFrameSourceWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionColorFrameSourceWatcher").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionColorFrameSourceWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionColorFrameSourceWatcher;{96bd1392-e667-40c4-89f9-1462dea6a9cc})");
 }
@@ -2821,6 +2863,12 @@ impl ::core::cmp::PartialEq for PerceptionControlSession {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionControlSession {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionControlSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionControlSession").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionControlSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionControlSession;{99998653-5a3d-417f-9239-f1889e548b48})");
@@ -2967,6 +3015,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthCorrelatedCameraIntrinsics {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthCorrelatedCameraIntrinsics {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthCorrelatedCameraIntrinsics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthCorrelatedCameraIntrinsics").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthCorrelatedCameraIntrinsics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthCorrelatedCameraIntrinsics;{6548ca01-86de-5be1-6582-807fcf4c95cf})");
 }
@@ -3086,6 +3140,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthCorrelatedCoordinateMapper {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthCorrelatedCoordinateMapper {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthCorrelatedCoordinateMapper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthCorrelatedCoordinateMapper").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthCorrelatedCoordinateMapper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthCorrelatedCoordinateMapper;{5b4d9d1d-b5f6-469c-b8c2-b97a45e6863b})");
 }
@@ -3186,6 +3246,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthFrame {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthFrame {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthFrame").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthFrame;{a37b81fc-9906-4ffd-9161-0024b360b657})");
@@ -3316,6 +3382,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthFrameArrivedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthFrameArrivedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthFrameArrivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthFrameArrivedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthFrameArrivedEventArgs;{443d25b2-b282-4637-9173-ac978435c985})");
@@ -3456,6 +3528,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthFrameReader {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthFrameReader {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthFrameReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthFrameReader").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthFrameReader;{b1a3c09f-299b-4612-a4f7-270f25a096ec})");
@@ -3862,6 +3940,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthFrameSource {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthFrameSource {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthFrameSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthFrameSource").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthFrameSource;{79d433d6-47fb-4df1-bfc9-f01d40bd9942})");
 }
@@ -3957,6 +4041,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthFrameSourceAddedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthFrameSourceAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthFrameSourceAddedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthFrameSourceAddedEventArgs;{93a48168-8bf8-45d2-a2f8-4ac0931cc7a6})");
 }
@@ -4051,6 +4141,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthFrameSourceRemovedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthFrameSourceRemovedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthFrameSourceRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthFrameSourceRemovedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthFrameSourceRemovedEventArgs;{a0c0cc4d-e96c-4d81-86dd-38b95e49c6df})");
@@ -4219,6 +4315,12 @@ impl ::core::cmp::PartialEq for PerceptionDepthFrameSourceWatcher {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionDepthFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionDepthFrameSourceWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionDepthFrameSourceWatcher").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionDepthFrameSourceWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionDepthFrameSourceWatcher;{780e96d1-8d02-4d2b-ada4-5ba624a0eb10})");
 }
@@ -4368,6 +4470,12 @@ impl ::core::cmp::PartialEq for PerceptionFrameSourcePropertiesChangedEventArgs 
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrameSourcePropertiesChangedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionFrameSourcePropertiesChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionFrameSourcePropertiesChangedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertiesChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionFrameSourcePropertiesChangedEventArgs;{6c68e068-bcf1-4ecc-b891-7625d1244b6b})");
 }
@@ -4471,6 +4579,12 @@ impl ::core::cmp::PartialEq for PerceptionFrameSourcePropertyChangeResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionFrameSourcePropertyChangeResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionFrameSourcePropertyChangeResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionFrameSourcePropertyChangeResult").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionFrameSourcePropertyChangeResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionFrameSourcePropertyChangeResult;{1e33390a-3c90-4d22-b898-f42bba6418ff})");
@@ -4620,6 +4734,12 @@ impl ::core::cmp::PartialEq for PerceptionInfraredFrame {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionInfraredFrame {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionInfraredFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionInfraredFrame").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionInfraredFrame;{b0886276-849e-4c7a-8ae6-b56064532153})");
 }
@@ -4749,6 +4869,12 @@ impl ::core::cmp::PartialEq for PerceptionInfraredFrameArrivedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionInfraredFrameArrivedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionInfraredFrameArrivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionInfraredFrameArrivedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameArrivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionInfraredFrameArrivedEventArgs;{9f77fac7-b4bd-4857-9d50-be8ef075daef})");
@@ -4889,6 +5015,12 @@ impl ::core::cmp::PartialEq for PerceptionInfraredFrameReader {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionInfraredFrameReader {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionInfraredFrameReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionInfraredFrameReader").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionInfraredFrameReader;{7960ce18-d39b-4fc8-a04a-929734c6756c})");
@@ -5295,6 +5427,12 @@ impl ::core::cmp::PartialEq for PerceptionInfraredFrameSource {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionInfraredFrameSource {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionInfraredFrameSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionInfraredFrameSource").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionInfraredFrameSource;{55b08742-1808-494e-9e30-9d2a7be8f700})");
 }
@@ -5390,6 +5528,12 @@ impl ::core::cmp::PartialEq for PerceptionInfraredFrameSourceAddedEventArgs {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionInfraredFrameSourceAddedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionInfraredFrameSourceAddedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionInfraredFrameSourceAddedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceAddedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionInfraredFrameSourceAddedEventArgs;{6d334120-95ce-4660-907a-d98035aa2b7c})");
 }
@@ -5484,6 +5628,12 @@ impl ::core::cmp::PartialEq for PerceptionInfraredFrameSourceRemovedEventArgs {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionInfraredFrameSourceRemovedEventArgs {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionInfraredFrameSourceRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionInfraredFrameSourceRemovedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionInfraredFrameSourceRemovedEventArgs;{ea1a8071-7a70-4a61-af94-07303853f695})");
@@ -5652,6 +5802,12 @@ impl ::core::cmp::PartialEq for PerceptionInfraredFrameSourceWatcher {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionInfraredFrameSourceWatcher {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionInfraredFrameSourceWatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionInfraredFrameSourceWatcher").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionInfraredFrameSourceWatcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionInfraredFrameSourceWatcher;{383cff99-d70c-444d-a8b0-720c2e66fe3b})");
 }
@@ -5791,6 +5947,12 @@ impl ::core::cmp::PartialEq for PerceptionVideoProfile {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for PerceptionVideoProfile {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for PerceptionVideoProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PerceptionVideoProfile").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for PerceptionVideoProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Perception.PerceptionVideoProfile;{75763ea3-011a-470e-8225-6f05ade25648})");

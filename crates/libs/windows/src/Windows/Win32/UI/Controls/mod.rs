@@ -4760,6 +4760,11 @@ impl ::core::cmp::PartialEq for IImageList {
     }
 }
 impl ::core::cmp::Eq for IImageList {}
+impl ::core::fmt::Debug for IImageList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImageList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImageList {
     type Vtable = IImageListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46eb5926_582e_4017_9fdf_e8998daa0950);
@@ -5057,6 +5062,11 @@ impl ::core::cmp::PartialEq for IImageList2 {
     }
 }
 impl ::core::cmp::Eq for IImageList2 {}
+impl ::core::fmt::Debug for IImageList2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImageList2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImageList2 {
     type Vtable = IImageList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x192b9d83_50fc_457b_90a0_2b82a8b5dae1);

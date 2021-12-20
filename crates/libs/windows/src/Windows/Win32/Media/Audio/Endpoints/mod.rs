@@ -97,6 +97,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointFormatControl {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointFormatControl {}
+impl ::core::fmt::Debug for IAudioEndpointFormatControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointFormatControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointFormatControl {
     type Vtable = IAudioEndpointFormatControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x784cfd40_9f89_456e_a1a6_873b006a664e);
@@ -150,6 +155,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointLastBufferControl {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointLastBufferControl {}
+impl ::core::fmt::Debug for IAudioEndpointLastBufferControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointLastBufferControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointLastBufferControl {
     type Vtable = IAudioEndpointLastBufferControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8520dd3_8f9d_4437_9861_62f584c33dd6);
@@ -211,6 +221,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointOffloadStreamMeter {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointOffloadStreamMeter {}
+impl ::core::fmt::Debug for IAudioEndpointOffloadStreamMeter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointOffloadStreamMeter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamMeter {
     type Vtable = IAudioEndpointOffloadStreamMeterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1546dce_9dd1_418b_9ab2_348ced161c86);
@@ -269,6 +284,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointOffloadStreamMute {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointOffloadStreamMute {}
+impl ::core::fmt::Debug for IAudioEndpointOffloadStreamMute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointOffloadStreamMute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamMute {
     type Vtable = IAudioEndpointOffloadStreamMuteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdfe21355_5ec2_40e0_8d6b_710ac3c00249);
@@ -333,6 +353,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointOffloadStreamVolume {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointOffloadStreamVolume {}
+impl ::core::fmt::Debug for IAudioEndpointOffloadStreamVolume {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointOffloadStreamVolume").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointOffloadStreamVolume {
     type Vtable = IAudioEndpointOffloadStreamVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64f1dd49_71ca_4281_8672_3a9eddd1d0b6);
@@ -465,6 +490,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointVolume {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointVolume {}
+impl ::core::fmt::Debug for IAudioEndpointVolume {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointVolume").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointVolume {
     type Vtable = IAudioEndpointVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cdf2c82_841e_4546_9722_0cf74078229a);
@@ -537,6 +567,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointVolumeCallback {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointVolumeCallback {}
+impl ::core::fmt::Debug for IAudioEndpointVolumeCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointVolumeCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointVolumeCallback {
     type Vtable = IAudioEndpointVolumeCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x657804fa_d6ad_4496_8a60_352752af4f89);
@@ -691,6 +726,11 @@ impl ::core::cmp::PartialEq for IAudioEndpointVolumeEx {
     }
 }
 impl ::core::cmp::Eq for IAudioEndpointVolumeEx {}
+impl ::core::fmt::Debug for IAudioEndpointVolumeEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEndpointVolumeEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEndpointVolumeEx {
     type Vtable = IAudioEndpointVolumeExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66e11784_f695_4f28_a505_a7080081a78f);
@@ -770,6 +810,11 @@ impl ::core::cmp::PartialEq for IAudioLfxControl {
     }
 }
 impl ::core::cmp::Eq for IAudioLfxControl {}
+impl ::core::fmt::Debug for IAudioLfxControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioLfxControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioLfxControl {
     type Vtable = IAudioLfxControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x076a6922_d802_4f83_baf6_409d9ca11bfe);
@@ -840,6 +885,11 @@ impl ::core::cmp::PartialEq for IAudioMeterInformation {
     }
 }
 impl ::core::cmp::Eq for IAudioMeterInformation {}
+impl ::core::fmt::Debug for IAudioMeterInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioMeterInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioMeterInformation {
     type Vtable = IAudioMeterInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc02216f6_8c67_4b5b_9d00_d008e73e0064);
@@ -917,6 +967,11 @@ impl ::core::cmp::PartialEq for IHardwareAudioEngineBase {
     }
 }
 impl ::core::cmp::Eq for IHardwareAudioEngineBase {}
+impl ::core::fmt::Debug for IHardwareAudioEngineBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHardwareAudioEngineBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHardwareAudioEngineBase {
     type Vtable = IHardwareAudioEngineBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeddce3e4_f3c1_453a_b461_223563cbd886);

@@ -305,6 +305,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticTraceInfo {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticTraceInfo {}
+impl ::core::fmt::Debug for PlatformDiagnosticTraceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceInfo;{f870ed97-d597-4bf7-88dc-cf5c7dc2a1d2})");
 }
@@ -422,6 +427,11 @@ impl ::core::cmp::PartialEq for PlatformDiagnosticTraceRuntimeInfo {
     }
 }
 impl ::core::cmp::Eq for PlatformDiagnosticTraceRuntimeInfo {}
+impl ::core::fmt::Debug for PlatformDiagnosticTraceRuntimeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlatformDiagnosticTraceRuntimeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlatformDiagnosticTraceRuntimeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.Diagnostics.TraceReporting.PlatformDiagnosticTraceRuntimeInfo;{3d4d5e2d-01d8-4768-8554-1eb1ca610986})");
 }

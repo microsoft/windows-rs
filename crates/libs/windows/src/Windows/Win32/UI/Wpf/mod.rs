@@ -57,6 +57,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffect {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffect {}
+impl ::core::fmt::Debug for IMILBitmapEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffect {
     type Vtable = IMILBitmapEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a6ff321_c944_4a1b_9944_9954af301258);
@@ -119,6 +124,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectConnections {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectConnections {}
+impl ::core::fmt::Debug for IMILBitmapEffectConnections {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectConnections").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectConnections {
     type Vtable = IMILBitmapEffectConnectionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b5d861_9b1a_4374_89b0_dec4874d6a81);
@@ -188,6 +198,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectConnectionsInfo {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectConnectionsInfo {}
+impl ::core::fmt::Debug for IMILBitmapEffectConnectionsInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectConnectionsInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectConnectionsInfo {
     type Vtable = IMILBitmapEffectConnectionsInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x476b538a_c765_4237_ba4a_d6a880ff0cfc);
@@ -289,6 +304,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectConnector {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectConnector {}
+impl ::core::fmt::Debug for IMILBitmapEffectConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectConnector {
     type Vtable = IMILBitmapEffectConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf59567b3_76c1_4d47_ba1e_79f955e350ef);
@@ -362,6 +382,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectConnectorInfo {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectConnectorInfo {}
+impl ::core::fmt::Debug for IMILBitmapEffectConnectorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectConnectorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectConnectorInfo {
     type Vtable = IMILBitmapEffectConnectorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf66d2e4b_b46b_42fc_859e_3da0ecdb3c43);
@@ -422,6 +447,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectEvents {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectEvents {}
+impl ::core::fmt::Debug for IMILBitmapEffectEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectEvents {
     type Vtable = IMILBitmapEffectEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e880dd8_f8ce_457b_8199_d60bb3d7ef98);
@@ -487,6 +517,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectFactory {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectFactory {}
+impl ::core::fmt::Debug for IMILBitmapEffectFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectFactory {
     type Vtable = IMILBitmapEffectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33a9df34_a403_4ec7_b07e_bc0682370845);
@@ -551,6 +586,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectGroup {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectGroup {}
+impl ::core::fmt::Debug for IMILBitmapEffectGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectGroup {
     type Vtable = IMILBitmapEffectGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2f952360_698a_4ac6_81a1_bcfdf08eb8e8);
@@ -615,6 +655,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectGroupImpl {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectGroupImpl {}
+impl ::core::fmt::Debug for IMILBitmapEffectGroupImpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectGroupImpl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectGroupImpl {
     type Vtable = IMILBitmapEffectGroupImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78fed518_1cfc_4807_8b85_6b6e51398f62);
@@ -699,6 +744,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectImpl {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectImpl {}
+impl ::core::fmt::Debug for IMILBitmapEffectImpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectImpl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectImpl {
     type Vtable = IMILBitmapEffectImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc2468f2_9936_47be_b4af_06b5df5dbcbb);
@@ -835,6 +885,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectInputConnector {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectInputConnector {}
+impl ::core::fmt::Debug for IMILBitmapEffectInputConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectInputConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectInputConnector {
     type Vtable = IMILBitmapEffectInputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b4ecaa_7a3c_45e7_8573_f4b81b60dd6c);
@@ -895,6 +950,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectInteriorInputConnector {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectInteriorInputConnector {}
+impl ::core::fmt::Debug for IMILBitmapEffectInteriorInputConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectInteriorInputConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorInputConnector {
     type Vtable = IMILBitmapEffectInteriorInputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20287e9e_86a2_4e15_953d_eb1438a5b842);
@@ -943,6 +1003,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectInteriorOutputConnector {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectInteriorOutputConnector {}
+impl ::core::fmt::Debug for IMILBitmapEffectInteriorOutputConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectInteriorOutputConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectInteriorOutputConnector {
     type Vtable = IMILBitmapEffectInteriorOutputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00bbb6dc_acc9_4bfc_b344_8bee383dfefa);
@@ -1066,6 +1131,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectOutputConnector {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectOutputConnector {}
+impl ::core::fmt::Debug for IMILBitmapEffectOutputConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectOutputConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectOutputConnector {
     type Vtable = IMILBitmapEffectOutputConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92957aad_841b_4866_82ec_8752468b07fd);
@@ -1129,6 +1199,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectOutputConnectorImpl {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectOutputConnectorImpl {}
+impl ::core::fmt::Debug for IMILBitmapEffectOutputConnectorImpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectOutputConnectorImpl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectOutputConnectorImpl {
     type Vtable = IMILBitmapEffectOutputConnectorImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21fae777_8b39_4bfa_9f2d_f3941ed36913);
@@ -1206,6 +1281,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectPrimitive {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectPrimitive {}
+impl ::core::fmt::Debug for IMILBitmapEffectPrimitive {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectPrimitive").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectPrimitive {
     type Vtable = IMILBitmapEffectPrimitiveVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67e31025_3091_4dfc_98d6_dd494551461d);
@@ -1271,6 +1351,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectPrimitiveImpl {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectPrimitiveImpl {}
+impl ::core::fmt::Debug for IMILBitmapEffectPrimitiveImpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectPrimitiveImpl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectPrimitiveImpl {
     type Vtable = IMILBitmapEffectPrimitiveImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce41e00b_efa6_44e7_b007_dd042e3ae126);
@@ -1354,6 +1439,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectRenderContext {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectRenderContext {}
+impl ::core::fmt::Debug for IMILBitmapEffectRenderContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectRenderContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectRenderContext {
     type Vtable = IMILBitmapEffectRenderContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a2ec7e_2d33_44b2_b334_1abb7846e390);
@@ -1430,6 +1520,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffectRenderContextImpl {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffectRenderContextImpl {}
+impl ::core::fmt::Debug for IMILBitmapEffectRenderContextImpl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffectRenderContextImpl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffectRenderContextImpl {
     type Vtable = IMILBitmapEffectRenderContextImplVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d25accb_797d_4fd2_b128_dffeff84fcc3);
@@ -1502,6 +1597,11 @@ impl ::core::cmp::PartialEq for IMILBitmapEffects {
     }
 }
 impl ::core::cmp::Eq for IMILBitmapEffects {}
+impl ::core::fmt::Debug for IMILBitmapEffects {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMILBitmapEffects").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMILBitmapEffects {
     type Vtable = IMILBitmapEffectsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51ac3dce_67c5_448b_9180_ad3eabddd5dd);

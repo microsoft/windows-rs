@@ -143,6 +143,11 @@ impl ::core::cmp::PartialEq for IGeometrySource2D {
     }
 }
 impl ::core::cmp::Eq for IGeometrySource2D {}
+impl ::core::fmt::Debug for IGeometrySource2D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGeometrySource2D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGeometrySource2D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{caff7902-670c-4181-a624-da977203b845}");
 }

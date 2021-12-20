@@ -59,6 +59,11 @@ impl ::core::cmp::PartialEq for IUPnPAddressFamilyControl {
     }
 }
 impl ::core::cmp::Eq for IUPnPAddressFamilyControl {}
+impl ::core::fmt::Debug for IUPnPAddressFamilyControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPAddressFamilyControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPAddressFamilyControl {
     type Vtable = IUPnPAddressFamilyControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe3bf6178_694e_459f_a5a6_191ea0ffa1c7);
@@ -112,6 +117,11 @@ impl ::core::cmp::PartialEq for IUPnPAsyncResult {
     }
 }
 impl ::core::cmp::Eq for IUPnPAsyncResult {}
+impl ::core::fmt::Debug for IUPnPAsyncResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPAsyncResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPAsyncResult {
     type Vtable = IUPnPAsyncResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d65fd08_d13e_4274_9c8b_dd8d028c8644);
@@ -236,6 +246,11 @@ impl ::core::cmp::PartialEq for IUPnPDescriptionDocument {
     }
 }
 impl ::core::cmp::Eq for IUPnPDescriptionDocument {}
+impl ::core::fmt::Debug for IUPnPDescriptionDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDescriptionDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDescriptionDocument {
     type Vtable = IUPnPDescriptionDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11d1c1b2_7daa_4c9e_9595_7f82ed206d1e);
@@ -305,6 +320,11 @@ impl ::core::cmp::PartialEq for IUPnPDescriptionDocumentCallback {
     }
 }
 impl ::core::cmp::Eq for IUPnPDescriptionDocumentCallback {}
+impl ::core::fmt::Debug for IUPnPDescriptionDocumentCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDescriptionDocumentCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDescriptionDocumentCallback {
     type Vtable = IUPnPDescriptionDocumentCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77394c69_5486_40d6_9bc3_4991983e02da);
@@ -502,6 +522,11 @@ impl ::core::cmp::PartialEq for IUPnPDevice {
     }
 }
 impl ::core::cmp::Eq for IUPnPDevice {}
+impl ::core::fmt::Debug for IUPnPDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDevice {
     type Vtable = IUPnPDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d44d0d1_98c9_4889_acd1_f9d674bf2221);
@@ -600,6 +625,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceControl {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceControl {}
+impl ::core::fmt::Debug for IUPnPDeviceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceControl {
     type Vtable = IUPnPDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810ba_73b2_11d4_bf42_00b0d0118b56);
@@ -657,6 +687,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceControlHttpHeaders {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceControlHttpHeaders {}
+impl ::core::fmt::Debug for IUPnPDeviceControlHttpHeaders {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceControlHttpHeaders").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceControlHttpHeaders {
     type Vtable = IUPnPDeviceControlHttpHeadersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810bb_73b2_11d4_bf42_00b0d0118b56);
@@ -712,6 +747,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceDocumentAccess {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceDocumentAccess {}
+impl ::core::fmt::Debug for IUPnPDeviceDocumentAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceDocumentAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceDocumentAccess {
     type Vtable = IUPnPDeviceDocumentAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7772804_3287_418e_9072_cf2b47238981);
@@ -767,6 +807,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceDocumentAccessEx {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceDocumentAccessEx {}
+impl ::core::fmt::Debug for IUPnPDeviceDocumentAccessEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceDocumentAccessEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceDocumentAccessEx {
     type Vtable = IUPnPDeviceDocumentAccessExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4bc4050_6178_4bd1_a4b8_6398321f3247);
@@ -888,6 +933,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceFinder {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceFinder {}
+impl ::core::fmt::Debug for IUPnPDeviceFinder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceFinder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceFinder {
     type Vtable = IUPnPDeviceFinderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadda3d55_6f72_4319_bff9_18600a539b10);
@@ -955,6 +1005,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceFinderAddCallbackWithInterface {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceFinderAddCallbackWithInterface {}
+impl ::core::fmt::Debug for IUPnPDeviceFinderAddCallbackWithInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceFinderAddCallbackWithInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceFinderAddCallbackWithInterface {
     type Vtable = IUPnPDeviceFinderAddCallbackWithInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x983dfc0b_1796_44df_8975_ca545b620ee5);
@@ -1016,6 +1071,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceFinderCallback {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceFinderCallback {}
+impl ::core::fmt::Debug for IUPnPDeviceFinderCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceFinderCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceFinderCallback {
     type Vtable = IUPnPDeviceFinderCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x415a984a_88b3_49f3_92af_0508bedf0d6c);
@@ -1076,6 +1136,11 @@ impl ::core::cmp::PartialEq for IUPnPDeviceProvider {
     }
 }
 impl ::core::cmp::Eq for IUPnPDeviceProvider {}
+impl ::core::fmt::Debug for IUPnPDeviceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDeviceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDeviceProvider {
     type Vtable = IUPnPDeviceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b8_73b2_11d4_bf42_00b0d0118b56);
@@ -1188,6 +1253,11 @@ impl ::core::cmp::PartialEq for IUPnPDevices {
     }
 }
 impl ::core::cmp::Eq for IUPnPDevices {}
+impl ::core::fmt::Debug for IUPnPDevices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPDevices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPDevices {
     type Vtable = IUPnPDevicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfdbc0c73_bda3_4c66_ac4f_f2d96fdad68c);
@@ -1256,6 +1326,11 @@ impl ::core::cmp::PartialEq for IUPnPEventSink {
     }
 }
 impl ::core::cmp::Eq for IUPnPEventSink {}
+impl ::core::fmt::Debug for IUPnPEventSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPEventSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPEventSink {
     type Vtable = IUPnPEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b4_73b2_11d4_bf42_00b0d0118b56);
@@ -1314,6 +1389,11 @@ impl ::core::cmp::PartialEq for IUPnPEventSource {
     }
 }
 impl ::core::cmp::Eq for IUPnPEventSource {}
+impl ::core::fmt::Debug for IUPnPEventSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPEventSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPEventSource {
     type Vtable = IUPnPEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b5_73b2_11d4_bf42_00b0d0118b56);
@@ -1368,6 +1448,11 @@ impl ::core::cmp::PartialEq for IUPnPHttpHeaderControl {
     }
 }
 impl ::core::cmp::Eq for IUPnPHttpHeaderControl {}
+impl ::core::fmt::Debug for IUPnPHttpHeaderControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPHttpHeaderControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPHttpHeaderControl {
     type Vtable = IUPnPHttpHeaderControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0405af4f_8b5c_447c_80f2_b75984a31f3c);
@@ -1450,6 +1535,11 @@ impl ::core::cmp::PartialEq for IUPnPRegistrar {
     }
 }
 impl ::core::cmp::Eq for IUPnPRegistrar {}
+impl ::core::fmt::Debug for IUPnPRegistrar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPRegistrar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPRegistrar {
     type Vtable = IUPnPRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b6_73b2_11d4_bf42_00b0d0118b56);
@@ -1527,6 +1617,11 @@ impl ::core::cmp::PartialEq for IUPnPRemoteEndpointInfo {
     }
 }
 impl ::core::cmp::Eq for IUPnPRemoteEndpointInfo {}
+impl ::core::fmt::Debug for IUPnPRemoteEndpointInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPRemoteEndpointInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPRemoteEndpointInfo {
     type Vtable = IUPnPRemoteEndpointInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc92eb863_0269_4aff_9c72_75321bba2952);
@@ -1590,6 +1685,11 @@ impl ::core::cmp::PartialEq for IUPnPReregistrar {
     }
 }
 impl ::core::cmp::Eq for IUPnPReregistrar {}
+impl ::core::fmt::Debug for IUPnPReregistrar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPReregistrar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPReregistrar {
     type Vtable = IUPnPReregistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x204810b7_73b2_11d4_bf42_00b0d0118b56);
@@ -1719,6 +1819,11 @@ impl ::core::cmp::PartialEq for IUPnPService {
     }
 }
 impl ::core::cmp::Eq for IUPnPService {}
+impl ::core::fmt::Debug for IUPnPService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPService {
     type Vtable = IUPnPServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa295019c_dc65_47dd_90dc_7fe918a1ab44);
@@ -1830,6 +1935,11 @@ impl ::core::cmp::PartialEq for IUPnPServiceAsync {
     }
 }
 impl ::core::cmp::Eq for IUPnPServiceAsync {}
+impl ::core::fmt::Debug for IUPnPServiceAsync {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPServiceAsync").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPServiceAsync {
     type Vtable = IUPnPServiceAsyncVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x098bdaf5_5ec1_49e7_a260_b3a11dd8680c);
@@ -1900,6 +2010,11 @@ impl ::core::cmp::PartialEq for IUPnPServiceCallback {
     }
 }
 impl ::core::cmp::Eq for IUPnPServiceCallback {}
+impl ::core::fmt::Debug for IUPnPServiceCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPServiceCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPServiceCallback {
     type Vtable = IUPnPServiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31fadca9_ab73_464b_b67d_5c1d0f83c8b8);
@@ -1962,6 +2077,11 @@ impl ::core::cmp::PartialEq for IUPnPServiceDocumentAccess {
     }
 }
 impl ::core::cmp::Eq for IUPnPServiceDocumentAccess {}
+impl ::core::fmt::Debug for IUPnPServiceDocumentAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPServiceDocumentAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPServiceDocumentAccess {
     type Vtable = IUPnPServiceDocumentAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21905529_0a5e_4589_825d_7e6d87ea6998);
@@ -2017,6 +2137,11 @@ impl ::core::cmp::PartialEq for IUPnPServiceEnumProperty {
     }
 }
 impl ::core::cmp::Eq for IUPnPServiceEnumProperty {}
+impl ::core::fmt::Debug for IUPnPServiceEnumProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPServiceEnumProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPServiceEnumProperty {
     type Vtable = IUPnPServiceEnumPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38873b37_91bb_49f4_b249_2e8efbb8a816);
@@ -2122,6 +2247,11 @@ impl ::core::cmp::PartialEq for IUPnPServices {
     }
 }
 impl ::core::cmp::Eq for IUPnPServices {}
+impl ::core::fmt::Debug for IUPnPServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPServices {
     type Vtable = IUPnPServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f8c8e9e_9a7a_4dc8_bc41_ff31fa374956);

@@ -200,6 +200,11 @@ impl ::core::cmp::PartialEq for AcrylicBrush {
     }
 }
 impl ::core::cmp::Eq for AcrylicBrush {}
+impl ::core::fmt::Debug for AcrylicBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AcrylicBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AcrylicBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.AcrylicBrush;{79bbcf4e-cd66-4f1b-a8b6-cd6d2977c18d})");
 }
@@ -538,6 +543,11 @@ impl ::core::cmp::PartialEq for ArcSegment {
     }
 }
 impl ::core::cmp::Eq for ArcSegment {}
+impl ::core::fmt::Debug for ArcSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ArcSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ArcSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.ArcSegment;{07940c5f-63fb-4469-91be-f1097c168052})");
 }
@@ -801,6 +811,11 @@ impl ::core::cmp::PartialEq for BezierSegment {
     }
 }
 impl ::core::cmp::Eq for BezierSegment {}
+impl ::core::fmt::Debug for BezierSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BezierSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BezierSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.BezierSegment;{af4bb9ee-8984-49b7-81df-3f35994b95eb})");
 }
@@ -916,6 +931,11 @@ impl ::core::cmp::PartialEq for BitmapCache {
     }
 }
 impl ::core::cmp::Eq for BitmapCache {}
+impl ::core::fmt::Debug for BitmapCache {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BitmapCache").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BitmapCache {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.BitmapCache;{79c2219e-44d2-4610-9735-9bec83809ecf})");
 }
@@ -1095,6 +1115,11 @@ impl ::core::cmp::PartialEq for Brush {
     }
 }
 impl ::core::cmp::Eq for Brush {}
+impl ::core::fmt::Debug for Brush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Brush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Brush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Brush;{8806a321-1e06-422c-a1cc-01696559e021})");
 }
@@ -1318,6 +1343,12 @@ impl ::core::cmp::PartialEq for BrushCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for BrushCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for BrushCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrushCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for BrushCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.BrushCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Brush;{8806a321-1e06-422c-a1cc-01696559e021})))");
 }
@@ -1498,6 +1529,11 @@ impl ::core::cmp::PartialEq for CacheMode {
     }
 }
 impl ::core::cmp::Eq for CacheMode {}
+impl ::core::fmt::Debug for CacheMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CacheMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CacheMode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.CacheMode;{98dc8b11-c6f9-4dab-b838-5fd5ec8c7350})");
 }
@@ -1811,6 +1847,11 @@ impl ::core::cmp::PartialEq for CompositeTransform {
     }
 }
 impl ::core::cmp::Eq for CompositeTransform {}
+impl ::core::fmt::Debug for CompositeTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositeTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositeTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.CompositeTransform;{c8a4385b-f24a-4701-a265-a78846f142b9})");
 }
@@ -1988,6 +2029,11 @@ impl ::core::cmp::PartialEq for CompositionTarget {
     }
 }
 impl ::core::cmp::Eq for CompositionTarget {}
+impl ::core::fmt::Debug for CompositionTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.CompositionTarget;{26cfbff0-713c-4bec-8803-e101f7b14ed3})");
 }
@@ -2164,6 +2210,12 @@ impl ::core::cmp::PartialEq for DoubleCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for DoubleCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for DoubleCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DoubleCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for DoubleCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.DoubleCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};f8))");
@@ -2421,6 +2473,11 @@ impl ::core::cmp::PartialEq for EllipseGeometry {
     }
 }
 impl ::core::cmp::Eq for EllipseGeometry {}
+impl ::core::fmt::Debug for EllipseGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EllipseGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EllipseGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.EllipseGeometry;{d4f61bba-4ea2-40d6-aa6c-8d38aa87651f})");
 }
@@ -2628,6 +2685,11 @@ impl ::core::cmp::PartialEq for FontFamily {
     }
 }
 impl ::core::cmp::Eq for FontFamily {}
+impl ::core::fmt::Debug for FontFamily {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FontFamily").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FontFamily {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.FontFamily;{92467e64-d66a-4cf4-9322-3d23b3c0c361})");
 }
@@ -2731,6 +2793,11 @@ impl ::core::cmp::PartialEq for GeneralTransform {
     }
 }
 impl ::core::cmp::Eq for GeneralTransform {}
+impl ::core::fmt::Debug for GeneralTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeneralTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeneralTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.GeneralTransform;{a06798b7-a2ec-415f-ade2-eade9333f2c7})");
 }
@@ -2867,6 +2934,11 @@ impl ::core::cmp::PartialEq for Geometry {
     }
 }
 impl ::core::cmp::Eq for Geometry {}
+impl ::core::fmt::Debug for Geometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Geometry;{fa123889-0acd-417b-b62d-5ca1bf4dfc0e})");
 }
@@ -3063,6 +3135,12 @@ impl ::core::cmp::PartialEq for GeometryCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for GeometryCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for GeometryCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeometryCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for GeometryCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.GeometryCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Geometry;{fa123889-0acd-417b-b62d-5ca1bf4dfc0e})))");
@@ -3266,6 +3344,11 @@ impl ::core::cmp::PartialEq for GeometryGroup {
     }
 }
 impl ::core::cmp::Eq for GeometryGroup {}
+impl ::core::fmt::Debug for GeometryGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeometryGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeometryGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.GeometryGroup;{55225a61-8677-4c8c-8e46-ee3dc355114b})");
 }
@@ -3461,6 +3544,11 @@ impl ::core::cmp::PartialEq for GradientBrush {
     }
 }
 impl ::core::cmp::Eq for GradientBrush {}
+impl ::core::fmt::Debug for GradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.GradientBrush;{2166e69f-935a-4191-8e3c-1c8dfdfcdc78})");
 }
@@ -3681,6 +3769,11 @@ impl ::core::cmp::PartialEq for GradientStop {
     }
 }
 impl ::core::cmp::Eq for GradientStop {}
+impl ::core::fmt::Debug for GradientStop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GradientStop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GradientStop {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.GradientStop;{665f44fe-2e59-4c4a-ab53-076a100ccd81})");
 }
@@ -3877,6 +3970,12 @@ impl ::core::cmp::PartialEq for GradientStopCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for GradientStopCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for GradientStopCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GradientStopCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for GradientStopCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.GradientStopCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.GradientStop;{665f44fe-2e59-4c4a-ab53-076a100ccd81})))");
@@ -6789,6 +6888,11 @@ impl ::core::cmp::PartialEq for ImageBrush {
     }
 }
 impl ::core::cmp::Eq for ImageBrush {}
+impl ::core::fmt::Debug for ImageBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.ImageBrush;{9fd11377-c12a-4493-bf7d-f3a8ad74b554})");
 }
@@ -6942,6 +7046,11 @@ impl ::core::cmp::PartialEq for ImageSource {
     }
 }
 impl ::core::cmp::Eq for ImageSource {}
+impl ::core::fmt::Debug for ImageSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.ImageSource;{737ef309-ea41-4d96-a71c-98e98efcab07})");
 }
@@ -7086,6 +7195,11 @@ impl ::core::cmp::PartialEq for LineGeometry {
     }
 }
 impl ::core::cmp::Eq for LineGeometry {}
+impl ::core::fmt::Debug for LineGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.LineGeometry;{30edd4a2-8fc5-40af-a7a2-c27fe7aa1363})");
 }
@@ -7228,6 +7342,11 @@ impl ::core::cmp::PartialEq for LineSegment {
     }
 }
 impl ::core::cmp::Eq for LineSegment {}
+impl ::core::fmt::Debug for LineSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.LineSegment;{ef6a2e25-3ff0-4420-a411-7182a4cecb15})");
 }
@@ -7405,6 +7524,11 @@ impl ::core::cmp::PartialEq for LinearGradientBrush {
     }
 }
 impl ::core::cmp::Eq for LinearGradientBrush {}
+impl ::core::fmt::Debug for LinearGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinearGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LinearGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.LinearGradientBrush;{8e96d16b-bb84-4c6f-9dbf-9d6c5c6d9c39})");
 }
@@ -7567,6 +7691,11 @@ impl ::core::cmp::PartialEq for LoadedImageSourceLoadCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for LoadedImageSourceLoadCompletedEventArgs {}
+impl ::core::fmt::Debug for LoadedImageSourceLoadCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoadedImageSourceLoadCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoadedImageSourceLoadCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.LoadedImageSourceLoadCompletedEventArgs;{1ac60b1e-7837-4489-b3e5-d0d5ad0a56c4})");
 }
@@ -7755,6 +7884,11 @@ impl ::core::cmp::PartialEq for LoadedImageSurface {
     }
 }
 impl ::core::cmp::Eq for LoadedImageSurface {}
+impl ::core::fmt::Debug for LoadedImageSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LoadedImageSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LoadedImageSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.LoadedImageSurface;{050c8313-6737-45ba-8531-33094febef55})");
 }
@@ -7950,6 +8084,11 @@ impl ::core::cmp::PartialEq for Matrix3DProjection {
     }
 }
 impl ::core::cmp::Eq for Matrix3DProjection {}
+impl ::core::fmt::Debug for Matrix3DProjection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Matrix3DProjection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Matrix3DProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Matrix3DProjection;{6f03e149-bfc9-4c01-b578-50338cec97fc})");
 }
@@ -8092,6 +8231,11 @@ impl ::core::cmp::PartialEq for MatrixHelper {
     }
 }
 impl ::core::cmp::Eq for MatrixHelper {}
+impl ::core::fmt::Debug for MatrixHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MatrixHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MatrixHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.MatrixHelper;{f3cf4882-06b5-48c8-9eb2-1763e9364038})");
 }
@@ -8192,6 +8336,11 @@ impl ::core::cmp::PartialEq for MatrixTransform {
     }
 }
 impl ::core::cmp::Eq for MatrixTransform {}
+impl ::core::fmt::Debug for MatrixTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MatrixTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MatrixTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.MatrixTransform;{edfdd551-5fed-45fc-ae62-92a4b6cf9707})");
 }
@@ -8406,6 +8555,11 @@ impl ::core::cmp::PartialEq for MediaTransportControlsThumbnailRequestedEventArg
     }
 }
 impl ::core::cmp::Eq for MediaTransportControlsThumbnailRequestedEventArgs {}
+impl ::core::fmt::Debug for MediaTransportControlsThumbnailRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaTransportControlsThumbnailRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaTransportControlsThumbnailRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.MediaTransportControlsThumbnailRequestedEventArgs;{e4a8b21c-e3c2-485c-ae69-f1537b76755a})");
 }
@@ -8498,6 +8652,11 @@ impl ::core::cmp::PartialEq for PartialMediaFailureDetectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PartialMediaFailureDetectedEventArgs {}
+impl ::core::fmt::Debug for PartialMediaFailureDetectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PartialMediaFailureDetectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PartialMediaFailureDetectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PartialMediaFailureDetectedEventArgs;{02b65a91-e5a1-442b-88d3-2dc127bfc59b})");
 }
@@ -8662,6 +8821,11 @@ impl ::core::cmp::PartialEq for PathFigure {
     }
 }
 impl ::core::cmp::Eq for PathFigure {}
+impl ::core::fmt::Debug for PathFigure {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PathFigure").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PathFigure {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PathFigure;{5d955c8c-5fa9-4dda-a3cc-10fcdcaa20d7})");
 }
@@ -8858,6 +9022,12 @@ impl ::core::cmp::PartialEq for PathFigureCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PathFigureCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PathFigureCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PathFigureCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PathFigureCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PathFigureCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.PathFigure;{5d955c8c-5fa9-4dda-a3cc-10fcdcaa20d7})))");
@@ -9061,6 +9231,11 @@ impl ::core::cmp::PartialEq for PathGeometry {
     }
 }
 impl ::core::cmp::Eq for PathGeometry {}
+impl ::core::fmt::Debug for PathGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PathGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PathGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PathGeometry;{081b9df8-bae6-4bcb-813c-bde0e46dc8b7})");
 }
@@ -9168,6 +9343,11 @@ impl ::core::cmp::PartialEq for PathSegment {
     }
 }
 impl ::core::cmp::Eq for PathSegment {}
+impl ::core::fmt::Debug for PathSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PathSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PathSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PathSegment;{fcfa71cf-9ce3-474f-8157-10b6435a616b})");
 }
@@ -9364,6 +9544,12 @@ impl ::core::cmp::PartialEq for PathSegmentCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PathSegmentCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PathSegmentCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PathSegmentCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PathSegmentCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PathSegmentCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.PathSegment;{fcfa71cf-9ce3-474f-8157-10b6435a616b})))");
@@ -9850,6 +10036,11 @@ impl ::core::cmp::PartialEq for PlaneProjection {
     }
 }
 impl ::core::cmp::Eq for PlaneProjection {}
+impl ::core::fmt::Debug for PlaneProjection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaneProjection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaneProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PlaneProjection;{e6f82bfa-6726-469a-b259-a5188347ca8f})");
 }
@@ -10067,6 +10258,12 @@ impl ::core::cmp::PartialEq for PointCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PointCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PointCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PointCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PointCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};struct(Windows.Foundation.Point;f4;f4)))");
 }
@@ -10249,6 +10446,11 @@ impl ::core::cmp::PartialEq for PolyBezierSegment {
     }
 }
 impl ::core::cmp::Eq for PolyBezierSegment {}
+impl ::core::fmt::Debug for PolyBezierSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PolyBezierSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PolyBezierSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PolyBezierSegment;{36805271-38c4-4bcf-96cd-028a6d38af25})");
 }
@@ -10391,6 +10593,11 @@ impl ::core::cmp::PartialEq for PolyLineSegment {
     }
 }
 impl ::core::cmp::Eq for PolyLineSegment {}
+impl ::core::fmt::Debug for PolyLineSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PolyLineSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PolyLineSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PolyLineSegment;{4b397f87-a2e6-479d-bdc8-6f4464646887})");
 }
@@ -10533,6 +10740,11 @@ impl ::core::cmp::PartialEq for PolyQuadraticBezierSegment {
     }
 }
 impl ::core::cmp::Eq for PolyQuadraticBezierSegment {}
+impl ::core::fmt::Debug for PolyQuadraticBezierSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PolyQuadraticBezierSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PolyQuadraticBezierSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.PolyQuadraticBezierSegment;{dd5ced7d-e6db-4c96-b6a1-3fce96e987a6})");
 }
@@ -10640,6 +10852,11 @@ impl ::core::cmp::PartialEq for Projection {
     }
 }
 impl ::core::cmp::Eq for Projection {}
+impl ::core::fmt::Debug for Projection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Projection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Projection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Projection;{b3443557-7f39-4d04-a89c-844338cac897})");
 }
@@ -10784,6 +11001,11 @@ impl ::core::cmp::PartialEq for QuadraticBezierSegment {
     }
 }
 impl ::core::cmp::Eq for QuadraticBezierSegment {}
+impl ::core::fmt::Debug for QuadraticBezierSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuadraticBezierSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuadraticBezierSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.QuadraticBezierSegment;{2c509a5b-bf18-455a-a078-914b5232d8af})");
 }
@@ -10899,6 +11121,11 @@ impl ::core::cmp::PartialEq for RateChangedRoutedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RateChangedRoutedEventArgs {}
+impl ::core::fmt::Debug for RateChangedRoutedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RateChangedRoutedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RateChangedRoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RateChangedRoutedEventArgs;{9016aa6f-3ca8-4c80-8e2f-8851a68f131f})");
 }
@@ -11031,6 +11258,11 @@ impl ::core::cmp::PartialEq for RateChangedRoutedEventHandler {
     }
 }
 impl ::core::cmp::Eq for RateChangedRoutedEventHandler {}
+impl ::core::fmt::Debug for RateChangedRoutedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RateChangedRoutedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for RateChangedRoutedEventHandler {
     type Vtable = RateChangedRoutedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08e9a257_ae05_489b_8839_28c6225d2349);
@@ -11091,6 +11323,11 @@ impl ::core::cmp::PartialEq for RectangleGeometry {
     }
 }
 impl ::core::cmp::Eq for RectangleGeometry {}
+impl ::core::fmt::Debug for RectangleGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RectangleGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RectangleGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RectangleGeometry;{a25a1f58-c575-4196-91cf-9fdfb10445c3})");
 }
@@ -11208,6 +11445,11 @@ impl ::core::cmp::PartialEq for RenderedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RenderedEventArgs {}
+impl ::core::fmt::Debug for RenderedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RenderedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RenderedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RenderedEventArgs;{e349817d-81c7-4938-828c-a7e2797b35a6})");
 }
@@ -11285,6 +11527,11 @@ impl ::core::cmp::PartialEq for RenderingEventArgs {
     }
 }
 impl ::core::cmp::Eq for RenderingEventArgs {}
+impl ::core::fmt::Debug for RenderingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RenderingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RenderingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RenderingEventArgs;{5bf7d30d-9748-4aed-8380-d7890eb776a0})");
 }
@@ -11365,6 +11612,11 @@ impl ::core::cmp::PartialEq for RevealBackgroundBrush {
     }
 }
 impl ::core::cmp::Eq for RevealBackgroundBrush {}
+impl ::core::fmt::Debug for RevealBackgroundBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevealBackgroundBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RevealBackgroundBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RevealBackgroundBrush;{261dcc0e-1991-4cdf-aee0-6350a3f90bb9})");
 }
@@ -11551,6 +11803,11 @@ impl ::core::cmp::PartialEq for RevealBorderBrush {
     }
 }
 impl ::core::cmp::Eq for RevealBorderBrush {}
+impl ::core::fmt::Debug for RevealBorderBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevealBorderBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RevealBorderBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RevealBorderBrush;{060ba115-c542-483c-8202-5f03331866c9})");
 }
@@ -11808,6 +12065,11 @@ impl ::core::cmp::PartialEq for RevealBrush {
     }
 }
 impl ::core::cmp::Eq for RevealBrush {}
+impl ::core::fmt::Debug for RevealBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RevealBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RevealBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RevealBrush;{2036a0ed-8271-4398-9019-25872093f13f})");
 }
@@ -12068,6 +12330,11 @@ impl ::core::cmp::PartialEq for RotateTransform {
     }
 }
 impl ::core::cmp::Eq for RotateTransform {}
+impl ::core::fmt::Debug for RotateTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RotateTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RotateTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.RotateTransform;{688ea9b9-1e4e-4596-86e3-428b27334faf})");
 }
@@ -12288,6 +12555,11 @@ impl ::core::cmp::PartialEq for ScaleTransform {
     }
 }
 impl ::core::cmp::Eq for ScaleTransform {}
+impl ::core::fmt::Debug for ScaleTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScaleTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScaleTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.ScaleTransform;{ed67f18d-936e-43ab-929a-e9cd0a511e52})");
 }
@@ -12415,6 +12687,11 @@ impl ::core::cmp::PartialEq for Shadow {
     }
 }
 impl ::core::cmp::Eq for Shadow {}
+impl ::core::fmt::Debug for Shadow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Shadow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Shadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Shadow;{6813a583-f3b4-5fcf-8694-2cd0aefc2fad})");
 }
@@ -12595,6 +12872,11 @@ impl ::core::cmp::PartialEq for SkewTransform {
     }
 }
 impl ::core::cmp::Eq for SkewTransform {}
+impl ::core::fmt::Debug for SkewTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SkewTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SkewTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.SkewTransform;{4e8a3b15-7a0f-4617-9e98-1e65bdc92115})");
 }
@@ -12767,6 +13049,11 @@ impl ::core::cmp::PartialEq for SolidColorBrush {
     }
 }
 impl ::core::cmp::Eq for SolidColorBrush {}
+impl ::core::fmt::Debug for SolidColorBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SolidColorBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SolidColorBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.SolidColorBrush;{9d850850-66f3-48df-9a8f-824bd5e070af})");
 }
@@ -13091,6 +13378,11 @@ impl ::core::cmp::PartialEq for ThemeShadow {
     }
 }
 impl ::core::cmp::Eq for ThemeShadow {}
+impl ::core::fmt::Debug for ThemeShadow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThemeShadow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThemeShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.ThemeShadow;{3eccad09-7985-5f39-8b62-6c10696dca6f})");
 }
@@ -13264,6 +13556,11 @@ impl ::core::cmp::PartialEq for TileBrush {
     }
 }
 impl ::core::cmp::Eq for TileBrush {}
+impl ::core::fmt::Debug for TileBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TileBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TileBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.TileBrush;{c201cf06-cd84-48a5-9607-664d7361cd61})");
 }
@@ -13472,6 +13769,11 @@ impl ::core::cmp::PartialEq for TimelineMarker {
     }
 }
 impl ::core::cmp::Eq for TimelineMarker {}
+impl ::core::fmt::Debug for TimelineMarker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimelineMarker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimelineMarker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.TimelineMarker;{a68ef02d-45ba-4e50-8cad-aaea3a227af5})");
 }
@@ -13669,6 +13971,12 @@ impl ::core::cmp::PartialEq for TimelineMarkerCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for TimelineMarkerCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for TimelineMarkerCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimelineMarkerCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TimelineMarkerCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.TimelineMarkerCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.TimelineMarker;{a68ef02d-45ba-4e50-8cad-aaea3a227af5})))");
 }
@@ -13837,6 +14145,11 @@ impl ::core::cmp::PartialEq for TimelineMarkerRoutedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TimelineMarkerRoutedEventArgs {}
+impl ::core::fmt::Debug for TimelineMarkerRoutedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimelineMarkerRoutedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimelineMarkerRoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.TimelineMarkerRoutedEventArgs;{7c3b3ef3-2c88-4d9c-99b6-46cdbd48d4c1})");
 }
@@ -13969,6 +14282,11 @@ impl ::core::cmp::PartialEq for TimelineMarkerRoutedEventHandler {
     }
 }
 impl ::core::cmp::Eq for TimelineMarkerRoutedEventHandler {}
+impl ::core::fmt::Debug for TimelineMarkerRoutedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimelineMarkerRoutedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for TimelineMarkerRoutedEventHandler {
     type Vtable = TimelineMarkerRoutedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72e2fa9c_6dea_4cbe_a159_06ce95fbeced);
@@ -13994,6 +14312,11 @@ impl ::core::cmp::PartialEq for Transform {
     }
 }
 impl ::core::cmp::Eq for Transform {}
+impl ::core::fmt::Debug for Transform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Transform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Transform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Transform;{4df74078-bfd6-4ed1-9682-d2fd8bf2fe6f})");
 }
@@ -14211,6 +14534,12 @@ impl ::core::cmp::PartialEq for TransformCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for TransformCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for TransformCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransformCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TransformCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.TransformCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Transform;{4df74078-bfd6-4ed1-9682-d2fd8bf2fe6f})))");
 }
@@ -14401,6 +14730,11 @@ impl ::core::cmp::PartialEq for TransformGroup {
     }
 }
 impl ::core::cmp::Eq for TransformGroup {}
+impl ::core::fmt::Debug for TransformGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransformGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TransformGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.TransformGroup;{63418ccc-8d2d-4737-b951-2afce1ddc4c4})");
 }
@@ -14581,6 +14915,11 @@ impl ::core::cmp::PartialEq for TranslateTransform {
     }
 }
 impl ::core::cmp::Eq for TranslateTransform {}
+impl ::core::fmt::Debug for TranslateTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TranslateTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TranslateTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.TranslateTransform;{c975905c-3c36-4229-817b-178f64c0e113})");
 }
@@ -14797,6 +15136,11 @@ impl ::core::cmp::PartialEq for VisualTreeHelper {
     }
 }
 impl ::core::cmp::Eq for VisualTreeHelper {}
+impl ::core::fmt::Debug for VisualTreeHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualTreeHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualTreeHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.VisualTreeHelper;{24b935e3-52c7-4141-8bac-a73d06130569})");
 }
@@ -14905,6 +15249,11 @@ impl ::core::cmp::PartialEq for XamlCompositionBrushBase {
     }
 }
 impl ::core::cmp::Eq for XamlCompositionBrushBase {}
+impl ::core::fmt::Debug for XamlCompositionBrushBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlCompositionBrushBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlCompositionBrushBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.XamlCompositionBrushBase;{03e432d9-b35c-4a79-811c-c5652004da0e})");
 }
@@ -15087,6 +15436,11 @@ impl ::core::cmp::PartialEq for XamlLight {
     }
 }
 impl ::core::cmp::Eq for XamlLight {}
+impl ::core::fmt::Debug for XamlLight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlLight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.XamlLight;{0cc3fc1f-b327-4a18-9648-7c84db26ce22})");
 }

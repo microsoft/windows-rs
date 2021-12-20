@@ -4266,6 +4266,11 @@ impl ::core::cmp::PartialEq for IDialBranding {
     }
 }
 impl ::core::cmp::Eq for IDialBranding {}
+impl ::core::fmt::Debug for IDialBranding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDialBranding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDialBranding {
     type Vtable = IDialBrandingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8aecafa9_4306_43cc_8c5a_765f2979cc16);
@@ -4350,6 +4355,11 @@ impl ::core::cmp::PartialEq for IDialEngine {
     }
 }
 impl ::core::cmp::Eq for IDialEngine {}
+impl ::core::fmt::Debug for IDialEngine {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDialEngine").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDialEngine {
     type Vtable = IDialEngineVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39fd782b_7905_40d5_9148_3c9b190423d5);
@@ -4411,6 +4421,11 @@ impl ::core::cmp::PartialEq for IDialEventSink {
     }
 }
 impl ::core::cmp::Eq for IDialEventSink {}
+impl ::core::fmt::Debug for IDialEventSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDialEventSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDialEventSink {
     type Vtable = IDialEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d86f4ff_6e2d_4488_b2e9_6934afd41bea);
@@ -7138,6 +7153,11 @@ impl ::core::cmp::PartialEq for IProofOfPossessionCookieInfoManager {
     }
 }
 impl ::core::cmp::Eq for IProofOfPossessionCookieInfoManager {}
+impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProofOfPossessionCookieInfoManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager {
     type Vtable = IProofOfPossessionCookieInfoManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcdaece56_4edf_43df_b113_88e4556fa1bb);
@@ -7192,6 +7212,11 @@ impl ::core::cmp::PartialEq for IProofOfPossessionCookieInfoManager2 {
     }
 }
 impl ::core::cmp::Eq for IProofOfPossessionCookieInfoManager2 {}
+impl ::core::fmt::Debug for IProofOfPossessionCookieInfoManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProofOfPossessionCookieInfoManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProofOfPossessionCookieInfoManager2 {
     type Vtable = IProofOfPossessionCookieInfoManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15e41407_b42f_4ae7_9966_34a087b2d713);

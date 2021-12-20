@@ -94,6 +94,11 @@ impl ::core::cmp::PartialEq for DisplayAdapter {
     }
 }
 impl ::core::cmp::Eq for DisplayAdapter {}
+impl ::core::fmt::Debug for DisplayAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayAdapter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayAdapter;{a56f5287-f000-5f2e-b5ac-3783a2b69af5})");
 }
@@ -263,6 +268,11 @@ impl ::core::cmp::PartialEq for DisplayDevice {
     }
 }
 impl ::core::cmp::Eq for DisplayDevice {}
+impl ::core::fmt::Debug for DisplayDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayDevice;{a4c9b62c-335f-5731-8cb4-c1ccd4731070})");
 }
@@ -362,6 +372,11 @@ impl ::core::cmp::PartialEq for DisplayFence {
     }
 }
 impl ::core::cmp::Eq for DisplayFence {}
+impl ::core::fmt::Debug for DisplayFence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayFence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayFence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayFence;{04dcf9ef-3406-5700-8fec-77eba4c5a74b})");
 }
@@ -592,6 +607,11 @@ impl ::core::cmp::PartialEq for DisplayManager {
     }
 }
 impl ::core::cmp::Eq for DisplayManager {}
+impl ::core::fmt::Debug for DisplayManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManager;{4ed9245b-15ec-56e2-9072-7fe5084a31a7})");
 }
@@ -708,6 +728,11 @@ impl ::core::cmp::PartialEq for DisplayManagerChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DisplayManagerChangedEventArgs {}
+impl ::core::fmt::Debug for DisplayManagerChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManagerChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerChangedEventArgs;{6abfa285-6cca-5731-bcdc-42e5d2f5c50f})");
 }
@@ -798,6 +823,11 @@ impl ::core::cmp::PartialEq for DisplayManagerDisabledEventArgs {
     }
 }
 impl ::core::cmp::Eq for DisplayManagerDisabledEventArgs {}
+impl ::core::fmt::Debug for DisplayManagerDisabledEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerDisabledEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManagerDisabledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerDisabledEventArgs;{8726dde4-6793-5973-a11f-5ffbc93fdb90})");
 }
@@ -888,6 +918,11 @@ impl ::core::cmp::PartialEq for DisplayManagerEnabledEventArgs {
     }
 }
 impl ::core::cmp::Eq for DisplayManagerEnabledEventArgs {}
+impl ::core::fmt::Debug for DisplayManagerEnabledEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerEnabledEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManagerEnabledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerEnabledEventArgs;{f0cf3f6f-42fa-59a2-b297-26e1713de848})");
 }
@@ -1012,6 +1047,11 @@ impl ::core::cmp::PartialEq for DisplayManagerPathsFailedOrInvalidatedEventArgs 
     }
 }
 impl ::core::cmp::Eq for DisplayManagerPathsFailedOrInvalidatedEventArgs {}
+impl ::core::fmt::Debug for DisplayManagerPathsFailedOrInvalidatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerPathsFailedOrInvalidatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManagerPathsFailedOrInvalidatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerPathsFailedOrInvalidatedEventArgs;{03a65659-1dec-5c15-b2a2-8fe9129869fe})");
 }
@@ -1140,6 +1180,11 @@ impl ::core::cmp::PartialEq for DisplayManagerResultWithState {
     }
 }
 impl ::core::cmp::Eq for DisplayManagerResultWithState {}
+impl ::core::fmt::Debug for DisplayManagerResultWithState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayManagerResultWithState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayManagerResultWithState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayManagerResultWithState;{8e656aa6-6614-54be-bfef-4994547f7be1})");
 }
@@ -1294,6 +1339,11 @@ impl ::core::cmp::PartialEq for DisplayModeInfo {
     }
 }
 impl ::core::cmp::Eq for DisplayModeInfo {}
+impl ::core::fmt::Debug for DisplayModeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayModeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayModeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayModeInfo;{48d513a0-f79b-5a74-a05e-da821f470868})");
 }
@@ -1584,6 +1634,11 @@ impl ::core::cmp::PartialEq for DisplayPath {
     }
 }
 impl ::core::cmp::Eq for DisplayPath {}
+impl ::core::fmt::Debug for DisplayPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPath;{b3dfd64a-7460-5cde-811b-d5ae9f3d9f84})");
 }
@@ -1896,6 +1951,11 @@ impl ::core::cmp::PartialEq for DisplayPrimaryDescription {
     }
 }
 impl ::core::cmp::Eq for DisplayPrimaryDescription {}
+impl ::core::fmt::Debug for DisplayPrimaryDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayPrimaryDescription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayPrimaryDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayPrimaryDescription;{872591d2-d533-50ff-a85e-06696194b77c})");
 }
@@ -1998,6 +2058,11 @@ impl ::core::cmp::PartialEq for DisplayScanout {
     }
 }
 impl ::core::cmp::Eq for DisplayScanout {}
+impl ::core::fmt::Debug for DisplayScanout {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayScanout").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayScanout {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayScanout;{e3051828-1ba5-50e7-8a39-bb1fd2f4f8b9})");
 }
@@ -2148,6 +2213,11 @@ impl ::core::cmp::PartialEq for DisplaySource {
     }
 }
 impl ::core::cmp::Eq for DisplaySource {}
+impl ::core::fmt::Debug for DisplaySource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplaySource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplaySource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySource;{ecd15fc1-eadc-51bc-971d-3bc628db2dd4})");
 }
@@ -2364,6 +2434,11 @@ impl ::core::cmp::PartialEq for DisplayState {
     }
 }
 impl ::core::cmp::Eq for DisplayState {}
+impl ::core::fmt::Debug for DisplayState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayState;{08129321-11b5-5cb2-99f8-e90b479a8a1d})");
 }
@@ -2517,6 +2592,11 @@ impl ::core::cmp::PartialEq for DisplayStateOperationResult {
     }
 }
 impl ::core::cmp::Eq for DisplayStateOperationResult {}
+impl ::core::fmt::Debug for DisplayStateOperationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayStateOperationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayStateOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayStateOperationResult;{fcadbfdf-dc27-5638-b7f2-ebdfa4f7ea93})");
 }
@@ -2623,6 +2703,11 @@ impl ::core::cmp::PartialEq for DisplaySurface {
     }
 }
 impl ::core::cmp::Eq for DisplaySurface {}
+impl ::core::fmt::Debug for DisplaySurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplaySurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplaySurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplaySurface;{594f6cc6-139a-56d6-a4b1-15fe2cb76adb})");
 }
@@ -2804,6 +2889,11 @@ impl ::core::cmp::PartialEq for DisplayTarget {
     }
 }
 impl ::core::cmp::Eq for DisplayTarget {}
+impl ::core::fmt::Debug for DisplayTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTarget;{aec57c6f-47b4-546b-987c-e73fa791fe3a})");
 }
@@ -2922,6 +3012,11 @@ impl ::core::cmp::PartialEq for DisplayTask {
     }
 }
 impl ::core::cmp::Eq for DisplayTask {}
+impl ::core::fmt::Debug for DisplayTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTask;{5e087448-135b-5bb0-bf63-637f84227c7a})");
 }
@@ -3012,6 +3107,11 @@ impl ::core::cmp::PartialEq for DisplayTaskPool {
     }
 }
 impl ::core::cmp::Eq for DisplayTaskPool {}
+impl ::core::fmt::Debug for DisplayTaskPool {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTaskPool").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayTaskPool {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskPool;{c676253d-237d-5548-aafa-3e517fefef1c})");
 }
@@ -3104,6 +3204,11 @@ impl ::core::cmp::PartialEq for DisplayTaskResult {
     }
 }
 impl ::core::cmp::Eq for DisplayTaskResult {}
+impl ::core::fmt::Debug for DisplayTaskResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayTaskResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayTaskResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayTaskResult;{6fbc7d67-f9b1-55e0-9d88-d3a5197a3f59})");
 }
@@ -3243,6 +3348,11 @@ impl ::core::cmp::PartialEq for DisplayView {
     }
 }
 impl ::core::cmp::Eq for DisplayView {}
+impl ::core::fmt::Debug for DisplayView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayView;{b0c98ca1-b759-5b59-b1ad-f0786aa9e53d})");
 }
@@ -3385,6 +3495,11 @@ impl ::core::cmp::PartialEq for DisplayWireFormat {
     }
 }
 impl ::core::cmp::Eq for DisplayWireFormat {}
+impl ::core::fmt::Debug for DisplayWireFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DisplayWireFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DisplayWireFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Display.Core.DisplayWireFormat;{1acc967d-872c-5a38-bbb9-1d4872b76255})");
 }

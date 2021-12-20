@@ -288,6 +288,11 @@ impl ::core::cmp::PartialEq for IDXCoreAdapter {
     }
 }
 impl ::core::cmp::Eq for IDXCoreAdapter {}
+impl ::core::fmt::Debug for IDXCoreAdapter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXCoreAdapter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXCoreAdapter {
     type Vtable = IDXCoreAdapterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0db4c7f_fe5a_42a2_bd62_f2a6cf6fc83e);
@@ -369,6 +374,11 @@ impl ::core::cmp::PartialEq for IDXCoreAdapterFactory {
     }
 }
 impl ::core::cmp::Eq for IDXCoreAdapterFactory {}
+impl ::core::fmt::Debug for IDXCoreAdapterFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXCoreAdapterFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXCoreAdapterFactory {
     type Vtable = IDXCoreAdapterFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78ee5945_c36e_4b13_a669_005dd11c0f06);
@@ -448,6 +458,11 @@ impl ::core::cmp::PartialEq for IDXCoreAdapterList {
     }
 }
 impl ::core::cmp::Eq for IDXCoreAdapterList {}
+impl ::core::fmt::Debug for IDXCoreAdapterList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDXCoreAdapterList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDXCoreAdapterList {
     type Vtable = IDXCoreAdapterListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x526c7776_40e9_459b_b711_f32ad76dfc28);

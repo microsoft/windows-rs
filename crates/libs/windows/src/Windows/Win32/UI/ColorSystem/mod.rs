@@ -2213,6 +2213,11 @@ impl ::core::cmp::PartialEq for IDeviceModelPlugIn {
     }
 }
 impl ::core::cmp::Eq for IDeviceModelPlugIn {}
+impl ::core::fmt::Debug for IDeviceModelPlugIn {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDeviceModelPlugIn").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDeviceModelPlugIn {
     type Vtable = IDeviceModelPlugInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cd63475_07c4_46fe_a903_d655316d11fd);
@@ -2282,6 +2287,11 @@ impl ::core::cmp::PartialEq for IGamutMapModelPlugIn {
     }
 }
 impl ::core::cmp::Eq for IGamutMapModelPlugIn {}
+impl ::core::fmt::Debug for IGamutMapModelPlugIn {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGamutMapModelPlugIn").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IGamutMapModelPlugIn {
     type Vtable = IGamutMapModelPlugInVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2dd80115_ad1e_41f6_a219_a4f4b583d1f9);

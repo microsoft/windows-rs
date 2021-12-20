@@ -267,6 +267,11 @@ impl ::core::cmp::PartialEq for AddPackageOptions {
     }
 }
 impl ::core::cmp::Eq for AddPackageOptions {}
+impl ::core::fmt::Debug for AddPackageOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddPackageOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddPackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AddPackageOptions;{05cee018-f68f-422b-95a4-66679ec77fc0})");
 }
@@ -370,6 +375,11 @@ impl ::core::cmp::PartialEq for AppInstallerManager {
     }
 }
 impl ::core::cmp::Eq for AppInstallerManager {}
+impl ::core::fmt::Debug for AppInstallerManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppInstallerManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppInstallerManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AppInstallerManager;{e7ee21c3-2103-53ee-9b18-68afeab0033d})");
 }
@@ -615,6 +625,11 @@ impl ::core::cmp::PartialEq for AutoUpdateSettingsOptions {
     }
 }
 impl ::core::cmp::Eq for AutoUpdateSettingsOptions {}
+impl ::core::fmt::Debug for AutoUpdateSettingsOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AutoUpdateSettingsOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AutoUpdateSettingsOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.AutoUpdateSettingsOptions;{67491d87-35e1-512a-8968-1ae88d1be6d3})");
 }
@@ -725,6 +740,11 @@ impl ::core::cmp::PartialEq for CreateSharedPackageContainerOptions {
     }
 }
 impl ::core::cmp::Eq for CreateSharedPackageContainerOptions {}
+impl ::core::fmt::Debug for CreateSharedPackageContainerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateSharedPackageContainerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerOptions;{c2ab6ece-f664-5c8e-a4b3-2a33276d3dde})");
 }
@@ -817,6 +837,11 @@ impl ::core::cmp::PartialEq for CreateSharedPackageContainerResult {
     }
 }
 impl ::core::cmp::Eq for CreateSharedPackageContainerResult {}
+impl ::core::fmt::Debug for CreateSharedPackageContainerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateSharedPackageContainerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CreateSharedPackageContainerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.CreateSharedPackageContainerResult;{ce8810bf-151c-5707-b936-497e564afc7a})");
 }
@@ -918,6 +943,11 @@ impl ::core::cmp::PartialEq for DeleteSharedPackageContainerOptions {
     }
 }
 impl ::core::cmp::Eq for DeleteSharedPackageContainerOptions {}
+impl ::core::fmt::Debug for DeleteSharedPackageContainerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeleteSharedPackageContainerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerOptions;{9d81865f-986e-5138-8b5d-384d8e66ed6c})");
 }
@@ -1002,6 +1032,11 @@ impl ::core::cmp::PartialEq for DeleteSharedPackageContainerResult {
     }
 }
 impl ::core::cmp::Eq for DeleteSharedPackageContainerResult {}
+impl ::core::fmt::Debug for DeleteSharedPackageContainerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeleteSharedPackageContainerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeleteSharedPackageContainerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeleteSharedPackageContainerResult;{35398884-5736-517b-85bc-e598c81ab284})");
 }
@@ -1212,6 +1247,11 @@ impl ::core::cmp::PartialEq for DeploymentResult {
     }
 }
 impl ::core::cmp::Eq for DeploymentResult {}
+impl ::core::fmt::Debug for DeploymentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeploymentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeploymentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.DeploymentResult;{2563b9ae-b77d-4c1f-8a7b-20e6ad515ef3})");
 }
@@ -1313,6 +1353,11 @@ impl ::core::cmp::PartialEq for FindSharedPackageContainerOptions {
     }
 }
 impl ::core::cmp::Eq for FindSharedPackageContainerOptions {}
+impl ::core::fmt::Debug for FindSharedPackageContainerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindSharedPackageContainerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FindSharedPackageContainerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.FindSharedPackageContainerOptions;{b40fc8fe-8384-54cc-817d-ae09d3b6a606})");
 }
@@ -2356,6 +2401,11 @@ impl ::core::cmp::PartialEq for PackageAllUserProvisioningOptions {
     }
 }
 impl ::core::cmp::Eq for PackageAllUserProvisioningOptions {}
+impl ::core::fmt::Debug for PackageAllUserProvisioningOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageAllUserProvisioningOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageAllUserProvisioningOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageAllUserProvisioningOptions;{da35aa22-1de0-5d3e-99ff-d24f3118bf5e})");
 }
@@ -3051,6 +3101,11 @@ impl ::core::cmp::PartialEq for PackageManager {
     }
 }
 impl ::core::cmp::Eq for PackageManager {}
+impl ::core::fmt::Debug for PackageManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManager;{9a7d4b65-5e8f-4fc7-a2e5-7f6925cb8b53})");
 }
@@ -3137,6 +3192,11 @@ impl ::core::cmp::PartialEq for PackageManagerDebugSettings {
     }
 }
 impl ::core::cmp::Eq for PackageManagerDebugSettings {}
+impl ::core::fmt::Debug for PackageManagerDebugSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageManagerDebugSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageManagerDebugSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageManagerDebugSettings;{1a611683-a988-4fcf-8f0f-ce175898e8eb})");
 }
@@ -3364,6 +3424,11 @@ impl ::core::cmp::PartialEq for PackageUserInformation {
     }
 }
 impl ::core::cmp::Eq for PackageUserInformation {}
+impl ::core::fmt::Debug for PackageUserInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageUserInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageUserInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageUserInformation;{f6383423-fa09-4cbc-9055-15ca275e2e7e})");
 }
@@ -3631,6 +3696,11 @@ impl ::core::cmp::PartialEq for PackageVolume {
     }
 }
 impl ::core::cmp::Eq for PackageVolume {}
+impl ::core::fmt::Debug for PackageVolume {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageVolume").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageVolume {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.PackageVolume;{cf2672c3-1a40-4450-9739-2ace2e898853})");
 }
@@ -3856,6 +3926,11 @@ impl ::core::cmp::PartialEq for RegisterPackageOptions {
     }
 }
 impl ::core::cmp::Eq for RegisterPackageOptions {}
+impl ::core::fmt::Debug for RegisterPackageOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RegisterPackageOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RegisterPackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.RegisterPackageOptions;{677112a7-50d4-496c-8415-0602b4c6d3bf})");
 }
@@ -4000,6 +4075,11 @@ impl ::core::cmp::PartialEq for SharedPackageContainer {
     }
 }
 impl ::core::cmp::Eq for SharedPackageContainer {}
+impl ::core::fmt::Debug for SharedPackageContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SharedPackageContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainer;{177f1aa9-151e-5ef7-b1d9-2fba0b4b0d17})");
 }
@@ -4170,6 +4250,11 @@ impl ::core::cmp::PartialEq for SharedPackageContainerManager {
     }
 }
 impl ::core::cmp::Eq for SharedPackageContainerManager {}
+impl ::core::fmt::Debug for SharedPackageContainerManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SharedPackageContainerManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerManager;{be353068-1ef7-5ac8-ab3f-0b9f612f0274})");
 }
@@ -4258,6 +4343,11 @@ impl ::core::cmp::PartialEq for SharedPackageContainerMember {
     }
 }
 impl ::core::cmp::Eq for SharedPackageContainerMember {}
+impl ::core::fmt::Debug for SharedPackageContainerMember {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SharedPackageContainerMember").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SharedPackageContainerMember {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.SharedPackageContainerMember;{fe0d0438-43c9-5426-b89c-f79bf85ddff4})");
 }
@@ -4525,6 +4615,11 @@ impl ::core::cmp::PartialEq for StagePackageOptions {
     }
 }
 impl ::core::cmp::Eq for StagePackageOptions {}
+impl ::core::fmt::Debug for StagePackageOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StagePackageOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StagePackageOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.StagePackageOptions;{0b110c9c-b95d-4c56-bd36-6d656800d06b})");
 }
@@ -4661,6 +4756,11 @@ impl ::core::cmp::PartialEq for UpdateSharedPackageContainerOptions {
     }
 }
 impl ::core::cmp::Eq for UpdateSharedPackageContainerOptions {}
+impl ::core::fmt::Debug for UpdateSharedPackageContainerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateSharedPackageContainerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UpdateSharedPackageContainerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerOptions;{80672e83-7194-59f9-b5b9-daa5375f130a})");
 }
@@ -4745,6 +4845,11 @@ impl ::core::cmp::PartialEq for UpdateSharedPackageContainerResult {
     }
 }
 impl ::core::cmp::Eq for UpdateSharedPackageContainerResult {}
+impl ::core::fmt::Debug for UpdateSharedPackageContainerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UpdateSharedPackageContainerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UpdateSharedPackageContainerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Deployment.UpdateSharedPackageContainerResult;{aa407df7-c72d-5458-aea3-4645b6a8ee99})");
 }

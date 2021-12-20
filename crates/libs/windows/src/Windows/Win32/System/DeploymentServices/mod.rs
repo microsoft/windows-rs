@@ -152,6 +152,11 @@ impl ::core::cmp::PartialEq for IWdsTransportCacheable {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportCacheable {}
+impl ::core::fmt::Debug for IWdsTransportCacheable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportCacheable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportCacheable {
     type Vtable = IWdsTransportCacheableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46ad894b_0bab_47dc_84b2_7b553f1d8f80);
@@ -320,6 +325,11 @@ impl ::core::cmp::PartialEq for IWdsTransportClient {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportClient {}
+impl ::core::fmt::Debug for IWdsTransportClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportClient {
     type Vtable = IWdsTransportClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5dbc93a_cabe_46ca_837f_3e44e93c6545);
@@ -453,6 +463,11 @@ impl ::core::cmp::PartialEq for IWdsTransportCollection {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportCollection {}
+impl ::core::fmt::Debug for IWdsTransportCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportCollection {
     type Vtable = IWdsTransportCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8ba4b1a_2ff4_43ab_996c_b2b10a91a6eb);
@@ -597,6 +612,11 @@ impl ::core::cmp::PartialEq for IWdsTransportConfigurationManager {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportConfigurationManager {}
+impl ::core::fmt::Debug for IWdsTransportConfigurationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportConfigurationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportConfigurationManager {
     type Vtable = IWdsTransportConfigurationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84cc4779_42dd_4792_891e_1321d6d74b44);
@@ -771,6 +791,11 @@ impl ::core::cmp::PartialEq for IWdsTransportConfigurationManager2 {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportConfigurationManager2 {}
+impl ::core::fmt::Debug for IWdsTransportConfigurationManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportConfigurationManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportConfigurationManager2 {
     type Vtable = IWdsTransportConfigurationManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0d85caf_a153_4f1d_a9dd_96f431c50717);
@@ -907,6 +932,11 @@ impl ::core::cmp::PartialEq for IWdsTransportContent {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportContent {}
+impl ::core::fmt::Debug for IWdsTransportContent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportContent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportContent {
     type Vtable = IWdsTransportContentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd405d711_0296_4ab4_a860_ac7d32e65798);
@@ -1038,6 +1068,11 @@ impl ::core::cmp::PartialEq for IWdsTransportContentProvider {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportContentProvider {}
+impl ::core::fmt::Debug for IWdsTransportContentProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportContentProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportContentProvider {
     type Vtable = IWdsTransportContentProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9489f24_f219_4acf_aad7_265c7c08a6ae);
@@ -1202,6 +1237,11 @@ impl ::core::cmp::PartialEq for IWdsTransportDiagnosticsPolicy {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportDiagnosticsPolicy {}
+impl ::core::fmt::Debug for IWdsTransportDiagnosticsPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportDiagnosticsPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportDiagnosticsPolicy {
     type Vtable = IWdsTransportDiagnosticsPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x13b33efc_7856_4f61_9a59_8de67b6b87b6);
@@ -1317,6 +1357,11 @@ impl ::core::cmp::PartialEq for IWdsTransportManager {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportManager {}
+impl ::core::fmt::Debug for IWdsTransportManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportManager {
     type Vtable = IWdsTransportManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b0d35f5_1b13_4afd_b878_6526dc340b5d);
@@ -1493,6 +1538,11 @@ impl ::core::cmp::PartialEq for IWdsTransportMulticastSessionPolicy {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportMulticastSessionPolicy {}
+impl ::core::fmt::Debug for IWdsTransportMulticastSessionPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportMulticastSessionPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportMulticastSessionPolicy {
     type Vtable = IWdsTransportMulticastSessionPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e5753cf_68ec_4504_a951_4a003266606b);
@@ -1713,6 +1763,11 @@ impl ::core::cmp::PartialEq for IWdsTransportNamespace {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportNamespace {}
+impl ::core::fmt::Debug for IWdsTransportNamespace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportNamespace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportNamespace {
     type Vtable = IWdsTransportNamespaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa561f57_fbef_4ed3_b056_127cb1b33b84);
@@ -1972,6 +2027,11 @@ impl ::core::cmp::PartialEq for IWdsTransportNamespaceAutoCast {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportNamespaceAutoCast {}
+impl ::core::fmt::Debug for IWdsTransportNamespaceAutoCast {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportNamespaceAutoCast").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceAutoCast {
     type Vtable = IWdsTransportNamespaceAutoCastVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xad931a72_c4bd_4c41_8fbc_59c9c748df9e);
@@ -2122,6 +2182,11 @@ impl ::core::cmp::PartialEq for IWdsTransportNamespaceManager {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportNamespaceManager {}
+impl ::core::fmt::Debug for IWdsTransportNamespaceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportNamespaceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceManager {
     type Vtable = IWdsTransportNamespaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e22d9f6_3777_4d98_83e1_f98696717ba3);
@@ -2360,6 +2425,11 @@ impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCast {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCast {}
+impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCast {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportNamespaceScheduledCast").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCast {
     type Vtable = IWdsTransportNamespaceScheduledCastVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3840cecf_d76c_416e_a4cc_31c741d2874b);
@@ -2662,6 +2732,11 @@ impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCastAutoStart {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCastAutoStart {}
+impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCastAutoStart {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportNamespaceScheduledCastAutoStart").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCastAutoStart {
     type Vtable = IWdsTransportNamespaceScheduledCastAutoStartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd606af3d_ea9c_4219_961e_7491d618d9b9);
@@ -2950,6 +3025,11 @@ impl ::core::cmp::PartialEq for IWdsTransportNamespaceScheduledCastManualStart {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportNamespaceScheduledCastManualStart {}
+impl ::core::fmt::Debug for IWdsTransportNamespaceScheduledCastManualStart {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportNamespaceScheduledCastManualStart").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportNamespaceScheduledCastManualStart {
     type Vtable = IWdsTransportNamespaceScheduledCastManualStartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x013e6e4c_e6a7_4fb5_b7ff_d9f5da805c31);
@@ -3108,6 +3188,11 @@ impl ::core::cmp::PartialEq for IWdsTransportServer {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportServer {}
+impl ::core::fmt::Debug for IWdsTransportServer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportServer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportServer {
     type Vtable = IWdsTransportServerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09ccd093_830d_4344_a30a_73ae8e8fca90);
@@ -3265,6 +3350,11 @@ impl ::core::cmp::PartialEq for IWdsTransportServer2 {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportServer2 {}
+impl ::core::fmt::Debug for IWdsTransportServer2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportServer2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportServer2 {
     type Vtable = IWdsTransportServer2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x256e999f_6df4_4538_81b9_857b9ab8fb47);
@@ -3468,6 +3558,11 @@ impl ::core::cmp::PartialEq for IWdsTransportServicePolicy {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportServicePolicy {}
+impl ::core::fmt::Debug for IWdsTransportServicePolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportServicePolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportServicePolicy {
     type Vtable = IWdsTransportServicePolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9468578_9f2b_48cc_b27a_a60799c2750c);
@@ -3731,6 +3826,11 @@ impl ::core::cmp::PartialEq for IWdsTransportServicePolicy2 {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportServicePolicy2 {}
+impl ::core::fmt::Debug for IWdsTransportServicePolicy2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportServicePolicy2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportServicePolicy2 {
     type Vtable = IWdsTransportServicePolicy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65c19e5c_aa7e_4b91_8944_91e0e5572797);
@@ -3899,6 +3999,11 @@ impl ::core::cmp::PartialEq for IWdsTransportSession {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportSession {}
+impl ::core::fmt::Debug for IWdsTransportSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportSession {
     type Vtable = IWdsTransportSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4efea88_65b1_4f30_a4b9_2793987796fb);
@@ -4035,6 +4140,11 @@ impl ::core::cmp::PartialEq for IWdsTransportSetupManager {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportSetupManager {}
+impl ::core::fmt::Debug for IWdsTransportSetupManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportSetupManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportSetupManager {
     type Vtable = IWdsTransportSetupManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7238425_efa8_40a4_aef9_c98d969c0b75);
@@ -4198,6 +4308,11 @@ impl ::core::cmp::PartialEq for IWdsTransportSetupManager2 {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportSetupManager2 {}
+impl ::core::fmt::Debug for IWdsTransportSetupManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportSetupManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportSetupManager2 {
     type Vtable = IWdsTransportSetupManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02be79da_7e9e_4366_8b6e_2aa9a91be47f);
@@ -4345,6 +4460,11 @@ impl ::core::cmp::PartialEq for IWdsTransportTftpClient {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportTftpClient {}
+impl ::core::fmt::Debug for IWdsTransportTftpClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportTftpClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportTftpClient {
     type Vtable = IWdsTransportTftpClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb022d3ae_884d_4d85_b146_53320e76ef62);
@@ -4460,6 +4580,11 @@ impl ::core::cmp::PartialEq for IWdsTransportTftpManager {
     }
 }
 impl ::core::cmp::Eq for IWdsTransportTftpManager {}
+impl ::core::fmt::Debug for IWdsTransportTftpManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWdsTransportTftpManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWdsTransportTftpManager {
     type Vtable = IWdsTransportTftpManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1327a7c8_ae8a_4fb3_8150_136227c37e9a);

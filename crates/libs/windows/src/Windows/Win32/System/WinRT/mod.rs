@@ -517,6 +517,11 @@ impl ::core::cmp::PartialEq for IAccountsSettingsPaneInterop {
     }
 }
 impl ::core::cmp::Eq for IAccountsSettingsPaneInterop {}
+impl ::core::fmt::Debug for IAccountsSettingsPaneInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccountsSettingsPaneInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccountsSettingsPaneInterop {
     type Vtable = IAccountsSettingsPaneInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3ee12ad_3865_4362_9746_b75a682df0e6);
@@ -598,6 +603,11 @@ impl ::core::cmp::PartialEq for IActivationFactory {
     }
 }
 impl ::core::cmp::Eq for IActivationFactory {}
+impl ::core::fmt::Debug for IActivationFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActivationFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActivationFactory {
     type Vtable = IActivationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000035_0000_0000_c000_000000000046);
@@ -653,6 +663,11 @@ impl ::core::cmp::PartialEq for IAgileReference {
     }
 }
 impl ::core::cmp::Eq for IAgileReference {}
+impl ::core::fmt::Debug for IAgileReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAgileReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAgileReference {
     type Vtable = IAgileReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc03f6a43_65a4_9818_987e_e0b810d2a6f2);
@@ -700,6 +715,11 @@ impl ::core::cmp::PartialEq for IApartmentShutdown {
     }
 }
 impl ::core::cmp::Eq for IApartmentShutdown {}
+impl ::core::fmt::Debug for IApartmentShutdown {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IApartmentShutdown").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IApartmentShutdown {
     type Vtable = IApartmentShutdownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2f05a09_27a2_42b5_bc0e_ac163ef49d9b);
@@ -748,6 +768,11 @@ impl ::core::cmp::PartialEq for IAppServiceConnectionExtendedExecution {
     }
 }
 impl ::core::cmp::Eq for IAppServiceConnectionExtendedExecution {}
+impl ::core::fmt::Debug for IAppServiceConnectionExtendedExecution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAppServiceConnectionExtendedExecution").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAppServiceConnectionExtendedExecution {
     type Vtable = IAppServiceConnectionExtendedExecutionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65219584_f9cb_4ae3_81f9_a28a6ca450d9);
@@ -796,6 +821,11 @@ impl ::core::cmp::PartialEq for IBufferByteAccess {
     }
 }
 impl ::core::cmp::Eq for IBufferByteAccess {}
+impl ::core::fmt::Debug for IBufferByteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBufferByteAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBufferByteAccess {
     type Vtable = IBufferByteAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905a0fef_bc53_11df_8c49_001e4fc686da);
@@ -860,6 +890,11 @@ impl ::core::cmp::PartialEq for ICastingController {
     }
 }
 impl ::core::cmp::Eq for ICastingController {}
+impl ::core::fmt::Debug for ICastingController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICastingController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICastingController {
     type Vtable = ICastingControllerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a56423_a664_4fbd_8b43_409a45e8d9a1);
@@ -921,6 +956,11 @@ impl ::core::cmp::PartialEq for ICastingEventHandler {
     }
 }
 impl ::core::cmp::Eq for ICastingEventHandler {}
+impl ::core::fmt::Debug for ICastingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICastingEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICastingEventHandler {
     type Vtable = ICastingEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc79a6cb7_bebd_47a6_a2ad_4d45ad79c7bc);
@@ -982,6 +1022,11 @@ impl ::core::cmp::PartialEq for ICastingSourceInfo {
     }
 }
 impl ::core::cmp::Eq for ICastingSourceInfo {}
+impl ::core::fmt::Debug for ICastingSourceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICastingSourceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICastingSourceInfo {
     type Vtable = ICastingSourceInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45101ab7_7c3a_4bce_9500_12c09024b298);
@@ -1066,6 +1111,11 @@ impl ::core::cmp::PartialEq for ICorrelationVectorInformation {
     }
 }
 impl ::core::cmp::Eq for ICorrelationVectorInformation {}
+impl ::core::fmt::Debug for ICorrelationVectorInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICorrelationVectorInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICorrelationVectorInformation {
     type Vtable = ICorrelationVectorInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83c78b3c_d88b_4950_aa6e_22b8d22aabd3);
@@ -1124,6 +1174,11 @@ impl ::core::cmp::PartialEq for ICorrelationVectorSource {
     }
 }
 impl ::core::cmp::Eq for ICorrelationVectorSource {}
+impl ::core::fmt::Debug for ICorrelationVectorSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICorrelationVectorSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICorrelationVectorSource {
     type Vtable = ICorrelationVectorSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x152b8a3b_b9b9_4685_b56e_974847bc7545);
@@ -1193,6 +1248,11 @@ impl ::core::cmp::PartialEq for IDragDropManagerInterop {
     }
 }
 impl ::core::cmp::Eq for IDragDropManagerInterop {}
+impl ::core::fmt::Debug for IDragDropManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDragDropManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDragDropManagerInterop {
     type Vtable = IDragDropManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad8cba7_4c01_4dac_9074_827894292d63);
@@ -1271,6 +1331,11 @@ impl ::core::cmp::PartialEq for IHolographicSpaceInterop {
     }
 }
 impl ::core::cmp::Eq for IHolographicSpaceInterop {}
+impl ::core::fmt::Debug for IHolographicSpaceInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IHolographicSpaceInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IHolographicSpaceInterop {
     type Vtable = IHolographicSpaceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
@@ -1349,6 +1414,11 @@ impl ::core::cmp::PartialEq for IInputPaneInterop {
     }
 }
 impl ::core::cmp::Eq for IInputPaneInterop {}
+impl ::core::fmt::Debug for IInputPaneInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInputPaneInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInputPaneInterop {
     type Vtable = IInputPaneInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75cf2c57_9195_4931_8332_f0b409e916af);
@@ -1406,6 +1476,11 @@ impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo {
     }
 }
 impl ::core::cmp::Eq for ILanguageExceptionErrorInfo {}
+impl ::core::fmt::Debug for ILanguageExceptionErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILanguageExceptionErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo {
     type Vtable = ILanguageExceptionErrorInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x04a2dbf3_df83_116c_0946_0812abf6e07d);
@@ -1488,6 +1563,11 @@ impl ::core::cmp::PartialEq for ILanguageExceptionErrorInfo2 {
     }
 }
 impl ::core::cmp::Eq for ILanguageExceptionErrorInfo2 {}
+impl ::core::fmt::Debug for ILanguageExceptionErrorInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILanguageExceptionErrorInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILanguageExceptionErrorInfo2 {
     type Vtable = ILanguageExceptionErrorInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5746e5c4_5b97_424c_b620_2822915734dd);
@@ -1543,6 +1623,11 @@ impl ::core::cmp::PartialEq for ILanguageExceptionStackBackTrace {
     }
 }
 impl ::core::cmp::Eq for ILanguageExceptionStackBackTrace {}
+impl ::core::fmt::Debug for ILanguageExceptionStackBackTrace {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILanguageExceptionStackBackTrace").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILanguageExceptionStackBackTrace {
     type Vtable = ILanguageExceptionStackBackTraceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcbe53fb5_f967_4258_8d34_42f5e25833de);
@@ -1591,6 +1676,11 @@ impl ::core::cmp::PartialEq for ILanguageExceptionTransform {
     }
 }
 impl ::core::cmp::Eq for ILanguageExceptionTransform {}
+impl ::core::fmt::Debug for ILanguageExceptionTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILanguageExceptionTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILanguageExceptionTransform {
     type Vtable = ILanguageExceptionTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeb5a271_a6cd_45ce_880a_696706badc65);
@@ -1638,6 +1728,11 @@ impl ::core::cmp::PartialEq for IMemoryBufferByteAccess {
     }
 }
 impl ::core::cmp::Eq for IMemoryBufferByteAccess {}
+impl ::core::fmt::Debug for IMemoryBufferByteAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMemoryBufferByteAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMemoryBufferByteAccess {
     type Vtable = IMemoryBufferByteAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b0d3235_4dba_4d44_865e_8f1d0e4fd04d);
@@ -1705,6 +1800,11 @@ impl ::core::cmp::PartialEq for IMessageDispatcher {
     }
 }
 impl ::core::cmp::Eq for IMessageDispatcher {}
+impl ::core::fmt::Debug for IMessageDispatcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMessageDispatcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMessageDispatcher {
     type Vtable = IMessageDispatcherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf5f84c8f_cfd0_4cd6_b66b_c5d26ff1689d);
@@ -1787,6 +1887,11 @@ impl ::core::cmp::PartialEq for IPlayToManagerInterop {
     }
 }
 impl ::core::cmp::Eq for IPlayToManagerInterop {}
+impl ::core::fmt::Debug for IPlayToManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPlayToManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPlayToManagerInterop {
     type Vtable = IPlayToManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24394699_1f2c_4eb3_8cd7_0ec1da42a540);
@@ -1852,6 +1957,11 @@ impl ::core::cmp::PartialEq for IRestrictedErrorInfo {
     }
 }
 impl ::core::cmp::Eq for IRestrictedErrorInfo {}
+impl ::core::fmt::Debug for IRestrictedErrorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRestrictedErrorInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::core::marker::Send for IRestrictedErrorInfo {}
 unsafe impl ::core::marker::Sync for IRestrictedErrorInfo {}
 unsafe impl ::windows::core::Interface for IRestrictedErrorInfo {
@@ -1890,6 +2000,11 @@ impl ::core::cmp::PartialEq for IRoMetaDataLocator {
     }
 }
 impl ::core::cmp::Eq for IRoMetaDataLocator {}
+impl ::core::fmt::Debug for IRoMetaDataLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRoMetaDataLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRoMetaDataLocator {
     type Vtable = IRoMetaDataLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1959,6 +2074,11 @@ impl ::core::cmp::PartialEq for IRoSimpleMetaDataBuilder {
     }
 }
 impl ::core::cmp::Eq for IRoSimpleMetaDataBuilder {}
+impl ::core::fmt::Debug for IRoSimpleMetaDataBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRoSimpleMetaDataBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRoSimpleMetaDataBuilder {
     type Vtable = IRoSimpleMetaDataBuilderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2025,6 +2145,11 @@ impl ::core::cmp::PartialEq for IShareWindowCommandEventArgsInterop {
     }
 }
 impl ::core::cmp::Eq for IShareWindowCommandEventArgsInterop {}
+impl ::core::fmt::Debug for IShareWindowCommandEventArgsInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IShareWindowCommandEventArgsInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IShareWindowCommandEventArgsInterop {
     type Vtable = IShareWindowCommandEventArgsInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6571a721_643d_43d4_aca4_6b6f5f30f1ad);
@@ -2080,6 +2205,11 @@ impl ::core::cmp::PartialEq for IShareWindowCommandSourceInterop {
     }
 }
 impl ::core::cmp::Eq for IShareWindowCommandSourceInterop {}
+impl ::core::fmt::Debug for IShareWindowCommandSourceInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IShareWindowCommandSourceInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IShareWindowCommandSourceInterop {
     type Vtable = IShareWindowCommandSourceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x461a191f_8424_43a6_a0fa_3451a22f56ab);
@@ -2155,6 +2285,11 @@ impl ::core::cmp::PartialEq for ISpatialInteractionManagerInterop {
     }
 }
 impl ::core::cmp::Eq for ISpatialInteractionManagerInterop {}
+impl ::core::fmt::Debug for ISpatialInteractionManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialInteractionManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialInteractionManagerInterop {
     type Vtable = ISpatialInteractionManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c4ee536_6a98_4b86_a170_587013d6fd4b);
@@ -2233,6 +2368,11 @@ impl ::core::cmp::PartialEq for ISystemMediaTransportControlsInterop {
     }
 }
 impl ::core::cmp::Eq for ISystemMediaTransportControlsInterop {}
+impl ::core::fmt::Debug for ISystemMediaTransportControlsInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISystemMediaTransportControlsInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISystemMediaTransportControlsInterop {
     type Vtable = ISystemMediaTransportControlsInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddb0472d_c911_4a1f_86d9_dc3d71a95f5a);
@@ -2311,6 +2451,11 @@ impl ::core::cmp::PartialEq for IUIViewSettingsInterop {
     }
 }
 impl ::core::cmp::Eq for IUIViewSettingsInterop {}
+impl ::core::fmt::Debug for IUIViewSettingsInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUIViewSettingsInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUIViewSettingsInterop {
     type Vtable = IUIViewSettingsInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3694dbf9_8f68_44be_8ff5_195c98ede8a6);
@@ -2389,6 +2534,11 @@ impl ::core::cmp::PartialEq for IUserActivityInterop {
     }
 }
 impl ::core::cmp::Eq for IUserActivityInterop {}
+impl ::core::fmt::Debug for IUserActivityInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUserActivityInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUserActivityInterop {
     type Vtable = IUserActivityInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ade314d_0e0a_40d9_824c_9a088a50059f);
@@ -2467,6 +2617,11 @@ impl ::core::cmp::PartialEq for IUserActivityRequestManagerInterop {
     }
 }
 impl ::core::cmp::Eq for IUserActivityRequestManagerInterop {}
+impl ::core::fmt::Debug for IUserActivityRequestManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUserActivityRequestManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUserActivityRequestManagerInterop {
     type Vtable = IUserActivityRequestManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd69f876_9699_4715_9095_e37ea30dfa1b);
@@ -2543,6 +2698,11 @@ impl ::core::cmp::PartialEq for IUserActivitySourceHostInterop {
     }
 }
 impl ::core::cmp::Eq for IUserActivitySourceHostInterop {}
+impl ::core::fmt::Debug for IUserActivitySourceHostInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUserActivitySourceHostInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUserActivitySourceHostInterop {
     type Vtable = IUserActivitySourceHostInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc15df8bc_8844_487a_b85b_7578e0f61419);
@@ -2620,6 +2780,11 @@ impl ::core::cmp::PartialEq for IUserConsentVerifierInterop {
     }
 }
 impl ::core::cmp::Eq for IUserConsentVerifierInterop {}
+impl ::core::fmt::Debug for IUserConsentVerifierInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUserConsentVerifierInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUserConsentVerifierInterop {
     type Vtable = IUserConsentVerifierInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39e050c3_4e74_441a_8dc0_b81104df949c);
@@ -2677,6 +2842,11 @@ impl ::core::cmp::PartialEq for IWeakReference {
     }
 }
 impl ::core::cmp::Eq for IWeakReference {}
+impl ::core::fmt::Debug for IWeakReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWeakReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWeakReference {
     type Vtable = IWeakReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000037_0000_0000_c000_000000000046);
@@ -2725,6 +2895,11 @@ impl ::core::cmp::PartialEq for IWeakReferenceSource {
     }
 }
 impl ::core::cmp::Eq for IWeakReferenceSource {}
+impl ::core::fmt::Debug for IWeakReferenceSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWeakReferenceSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWeakReferenceSource {
     type Vtable = IWeakReferenceSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000038_0000_0000_c000_000000000046);
@@ -2800,6 +2975,11 @@ impl ::core::cmp::PartialEq for IWebAuthenticationCoreManagerInterop {
     }
 }
 impl ::core::cmp::Eq for IWebAuthenticationCoreManagerInterop {}
+impl ::core::fmt::Debug for IWebAuthenticationCoreManagerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAuthenticationCoreManagerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWebAuthenticationCoreManagerInterop {
     type Vtable = IWebAuthenticationCoreManagerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b8e804_811e_4436_b69c_44cb67b72084);

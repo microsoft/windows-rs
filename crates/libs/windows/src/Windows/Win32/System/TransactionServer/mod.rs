@@ -105,6 +105,11 @@ impl ::core::cmp::PartialEq for ICatalog {
     }
 }
 impl ::core::cmp::Eq for ICatalog {}
+impl ::core::fmt::Debug for ICatalog {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICatalog").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICatalog {
     type Vtable = ICatalogVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22870_8a19_11d0_81b6_00a0c9231c29);
@@ -232,6 +237,11 @@ impl ::core::cmp::PartialEq for IComponentUtil {
     }
 }
 impl ::core::cmp::Eq for IComponentUtil {}
+impl ::core::fmt::Debug for IComponentUtil {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponentUtil").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IComponentUtil {
     type Vtable = IComponentUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22873_8a19_11d0_81b6_00a0c9231c29);
@@ -356,6 +366,11 @@ impl ::core::cmp::PartialEq for IPackageUtil {
     }
 }
 impl ::core::cmp::Eq for IPackageUtil {}
+impl ::core::fmt::Debug for IPackageUtil {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPackageUtil").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPackageUtil {
     type Vtable = IPackageUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22874_8a19_11d0_81b6_00a0c9231c29);
@@ -473,6 +488,11 @@ impl ::core::cmp::PartialEq for IRemoteComponentUtil {
     }
 }
 impl ::core::cmp::Eq for IRemoteComponentUtil {}
+impl ::core::fmt::Debug for IRemoteComponentUtil {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRemoteComponentUtil").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRemoteComponentUtil {
     type Vtable = IRemoteComponentUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22875_8a19_11d0_81b6_00a0c9231c29);
@@ -588,6 +608,11 @@ impl ::core::cmp::PartialEq for IRoleAssociationUtil {
     }
 }
 impl ::core::cmp::Eq for IRoleAssociationUtil {}
+impl ::core::fmt::Debug for IRoleAssociationUtil {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRoleAssociationUtil").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRoleAssociationUtil {
     type Vtable = IRoleAssociationUtilVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6eb22876_8a19_11d0_81b6_00a0c9231c29);

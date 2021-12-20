@@ -170,6 +170,11 @@ impl ::core::cmp::PartialEq for Binding {
     }
 }
 impl ::core::cmp::Eq for Binding {}
+impl ::core::fmt::Debug for Binding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Binding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Binding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.Binding;{3f7a0c6b-d00f-4730-8c1d-48e16c46f9ca})");
 }
@@ -290,6 +295,11 @@ impl ::core::cmp::PartialEq for BindingBase {
     }
 }
 impl ::core::cmp::Eq for BindingBase {}
+impl ::core::fmt::Debug for BindingBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BindingBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingBase;{1589a2ab-3d15-49bc-a447-8a5448e58870})");
 }
@@ -399,6 +409,11 @@ impl ::core::cmp::PartialEq for BindingExpression {
     }
 }
 impl ::core::cmp::Eq for BindingExpression {}
+impl ::core::fmt::Debug for BindingExpression {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingExpression").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BindingExpression {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingExpression;{516a19a5-c2fd-4a9e-9fd3-9aa42f995a3c})");
 }
@@ -486,6 +501,11 @@ impl ::core::cmp::PartialEq for BindingExpressionBase {
     }
 }
 impl ::core::cmp::Eq for BindingExpressionBase {}
+impl ::core::fmt::Debug for BindingExpressionBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingExpressionBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BindingExpressionBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingExpressionBase;{fded3154-e954-4f67-8fb6-6ed79b3a1cb3})");
 }
@@ -597,6 +617,11 @@ impl ::core::cmp::PartialEq for BindingOperations {
     }
 }
 impl ::core::cmp::Eq for BindingOperations {}
+impl ::core::fmt::Debug for BindingOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BindingOperations {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.BindingOperations;{6fffd738-9839-419c-a17a-4b3604e1524e})");
 }
@@ -752,6 +777,11 @@ impl ::core::cmp::PartialEq for CollectionViewSource {
     }
 }
 impl ::core::cmp::Eq for CollectionViewSource {}
+impl ::core::fmt::Debug for CollectionViewSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CollectionViewSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CollectionViewSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.CollectionViewSource;{a66a1146-d2fb-4ead-be9f-3578a466dcfe})");
 }
@@ -880,6 +910,11 @@ impl ::core::cmp::PartialEq for CurrentChangingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CurrentChangingEventArgs {}
+impl ::core::fmt::Debug for CurrentChangingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrentChangingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CurrentChangingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.CurrentChangingEventArgs;{f9891e29-51cc-47dd-a5b9-35dc4914af69})");
 }
@@ -992,6 +1027,11 @@ impl ::core::cmp::PartialEq for CurrentChangingEventHandler {
     }
 }
 impl ::core::cmp::Eq for CurrentChangingEventHandler {}
+impl ::core::fmt::Debug for CurrentChangingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrentChangingEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for CurrentChangingEventHandler {
     type Vtable = CurrentChangingEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf3888db8_139f_4dce_8dc9_f7f1444d1185);
@@ -1598,6 +1638,11 @@ impl ::core::cmp::PartialEq for ICollectionView {
     }
 }
 impl ::core::cmp::Eq for ICollectionView {}
+impl ::core::fmt::Debug for ICollectionView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICollectionView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICollectionView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8be8bfe4-dbef-44df-8126-a31a89121ddc}");
 }
@@ -1718,6 +1763,11 @@ impl ::core::cmp::PartialEq for ICollectionViewFactory {
     }
 }
 impl ::core::cmp::Eq for ICollectionViewFactory {}
+impl ::core::fmt::Debug for ICollectionViewFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICollectionViewFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICollectionViewFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{34d4aaf4-8e72-4950-9192-ecd07d399d0a}");
 }
@@ -1809,6 +1859,11 @@ impl ::core::cmp::PartialEq for ICollectionViewGroup {
     }
 }
 impl ::core::cmp::Eq for ICollectionViewGroup {}
+impl ::core::fmt::Debug for ICollectionViewGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICollectionViewGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICollectionViewGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7e01b9d8-d7b5-48b6-b31c-5bb5bdf5f09b}");
 }
@@ -2028,6 +2083,11 @@ impl ::core::cmp::PartialEq for ICustomProperty {
     }
 }
 impl ::core::cmp::Eq for ICustomProperty {}
+impl ::core::fmt::Debug for ICustomProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICustomProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICustomProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30da92c0-23e8-42a0-ae7c-734a0e5d2782}");
 }
@@ -2144,6 +2204,11 @@ impl ::core::cmp::PartialEq for ICustomPropertyProvider {
     }
 }
 impl ::core::cmp::Eq for ICustomPropertyProvider {}
+impl ::core::fmt::Debug for ICustomPropertyProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICustomPropertyProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICustomPropertyProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7c925755-3e48-42b4-8677-76372267033f}");
 }
@@ -2299,6 +2364,11 @@ impl ::core::cmp::PartialEq for IItemsRangeInfo {
     }
 }
 impl ::core::cmp::Eq for IItemsRangeInfo {}
+impl ::core::fmt::Debug for IItemsRangeInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IItemsRangeInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IItemsRangeInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f05f5665-71fd-45a2-be13-a081d294a68d}");
 }
@@ -2389,6 +2459,11 @@ impl ::core::cmp::PartialEq for INotifyPropertyChanged {
     }
 }
 impl ::core::cmp::Eq for INotifyPropertyChanged {}
+impl ::core::fmt::Debug for INotifyPropertyChanged {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INotifyPropertyChanged").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for INotifyPropertyChanged {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cf75d69c-f2f4-486b-b302-bb4c09baebfa}");
 }
@@ -2566,6 +2641,11 @@ impl ::core::cmp::PartialEq for ISelectionInfo {
     }
 }
 impl ::core::cmp::Eq for ISelectionInfo {}
+impl ::core::fmt::Debug for ISelectionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISelectionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISelectionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2e12ca86-e1ed-4245-be49-207e42aec524}");
 }
@@ -2661,6 +2741,11 @@ impl ::core::cmp::PartialEq for ISupportIncrementalLoading {
     }
 }
 impl ::core::cmp::Eq for ISupportIncrementalLoading {}
+impl ::core::fmt::Debug for ISupportIncrementalLoading {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISupportIncrementalLoading").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISupportIncrementalLoading {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7f5ee992-7694-4e6c-a51b-e34bf43de743}");
 }
@@ -2755,6 +2840,11 @@ impl ::core::cmp::PartialEq for IValueConverter {
     }
 }
 impl ::core::cmp::Eq for IValueConverter {}
+impl ::core::fmt::Debug for IValueConverter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IValueConverter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IValueConverter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e6f2fef0-0712-487f-b313-f300b8d79aa1}");
 }
@@ -2828,6 +2918,11 @@ impl ::core::cmp::PartialEq for ItemIndexRange {
     }
 }
 impl ::core::cmp::Eq for ItemIndexRange {}
+impl ::core::fmt::Debug for ItemIndexRange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ItemIndexRange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ItemIndexRange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.ItemIndexRange;{83b834be-0583-4a26-9b64-8bf4a2f65704})");
 }
@@ -2952,6 +3047,11 @@ impl ::core::cmp::PartialEq for PropertyChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PropertyChangedEventArgs {}
+impl ::core::fmt::Debug for PropertyChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.PropertyChangedEventArgs;{4f33a9a0-5cf4-47a4-b16f-d7faaf17457e})");
 }
@@ -3064,6 +3164,11 @@ impl ::core::cmp::PartialEq for PropertyChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for PropertyChangedEventHandler {}
+impl ::core::fmt::Debug for PropertyChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for PropertyChangedEventHandler {
     type Vtable = PropertyChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50f19c16_0a22_4d8e_a089_1ea9951657d2);
@@ -3115,6 +3220,11 @@ impl ::core::cmp::PartialEq for RelativeSource {
     }
 }
 impl ::core::cmp::Eq for RelativeSource {}
+impl ::core::fmt::Debug for RelativeSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RelativeSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RelativeSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Data.RelativeSource;{2397ce84-2822-483a-b499-d0f031e06c6b})");
 }

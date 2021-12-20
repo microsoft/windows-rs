@@ -14031,6 +14031,11 @@ impl ::core::cmp::PartialEq for ID3D12CommandAllocator {
     }
 }
 impl ::core::cmp::Eq for ID3D12CommandAllocator {}
+impl ::core::fmt::Debug for ID3D12CommandAllocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12CommandAllocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12CommandAllocator {
     type Vtable = ID3D12CommandAllocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6102dee4_af59_4b09_b999_b44d73f09b24);
@@ -14150,6 +14155,11 @@ impl ::core::cmp::PartialEq for ID3D12CommandList {
     }
 }
 impl ::core::cmp::Eq for ID3D12CommandList {}
+impl ::core::fmt::Debug for ID3D12CommandList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12CommandList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12CommandList {
     type Vtable = ID3D12CommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7116d91c_e7e4_47ce_b8c6_ec8168f437e5);
@@ -14334,6 +14344,11 @@ impl ::core::cmp::PartialEq for ID3D12CommandQueue {
     }
 }
 impl ::core::cmp::Eq for ID3D12CommandQueue {}
+impl ::core::fmt::Debug for ID3D12CommandQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12CommandQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12CommandQueue {
     type Vtable = ID3D12CommandQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec870a6_5d7e_4c22_8cfc_5baae07616ed);
@@ -14481,6 +14496,11 @@ impl ::core::cmp::PartialEq for ID3D12CommandSignature {
     }
 }
 impl ::core::cmp::Eq for ID3D12CommandSignature {}
+impl ::core::fmt::Debug for ID3D12CommandSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12CommandSignature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12CommandSignature {
     type Vtable = ID3D12CommandSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc36a797c_ec80_4f0a_8985_a7b2475082d1);
@@ -14538,6 +14558,11 @@ impl ::core::cmp::PartialEq for ID3D12Debug {
     }
 }
 impl ::core::cmp::Eq for ID3D12Debug {}
+impl ::core::fmt::Debug for ID3D12Debug {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Debug").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Debug {
     type Vtable = ID3D12DebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x344488b7_6846_474b_b989_f027448245e0);
@@ -14595,6 +14620,11 @@ impl ::core::cmp::PartialEq for ID3D12Debug1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Debug1 {}
+impl ::core::fmt::Debug for ID3D12Debug1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Debug1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Debug1 {
     type Vtable = ID3D12Debug1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaffaa4ca_63fe_4d8e_b8ad_159000af4304);
@@ -14651,6 +14681,11 @@ impl ::core::cmp::PartialEq for ID3D12Debug2 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Debug2 {}
+impl ::core::fmt::Debug for ID3D12Debug2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Debug2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Debug2 {
     type Vtable = ID3D12Debug2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a665c4_a3b2_4e5d_b692_a26ae14e3374);
@@ -14732,6 +14767,11 @@ impl ::core::cmp::PartialEq for ID3D12Debug3 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Debug3 {}
+impl ::core::fmt::Debug for ID3D12Debug3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Debug3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Debug3 {
     type Vtable = ID3D12Debug3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4e58f_f671_4ff1_a542_3686e3d153d1);
@@ -14847,6 +14887,11 @@ impl ::core::cmp::PartialEq for ID3D12Debug4 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Debug4 {}
+impl ::core::fmt::Debug for ID3D12Debug4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Debug4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Debug4 {
     type Vtable = ID3D12Debug4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x014b816e_9ec5_4a2f_a845_ffbe441ce13a);
@@ -14988,6 +15033,11 @@ impl ::core::cmp::PartialEq for ID3D12Debug5 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Debug5 {}
+impl ::core::fmt::Debug for ID3D12Debug5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Debug5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Debug5 {
     type Vtable = ID3D12Debug5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x548d6b12_09fa_40e0_9069_5dcd589a52c9);
@@ -15057,6 +15107,11 @@ impl ::core::cmp::PartialEq for ID3D12DebugCommandList {
     }
 }
 impl ::core::cmp::Eq for ID3D12DebugCommandList {}
+impl ::core::fmt::Debug for ID3D12DebugCommandList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DebugCommandList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandList {
     type Vtable = ID3D12DebugCommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053f);
@@ -15121,6 +15176,11 @@ impl ::core::cmp::PartialEq for ID3D12DebugCommandList1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12DebugCommandList1 {}
+impl ::core::fmt::Debug for ID3D12DebugCommandList1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DebugCommandList1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandList1 {
     type Vtable = ID3D12DebugCommandList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x102ca951_311b_4b01_b11f_ecb83e061b37);
@@ -15213,6 +15273,11 @@ impl ::core::cmp::PartialEq for ID3D12DebugCommandList2 {
     }
 }
 impl ::core::cmp::Eq for ID3D12DebugCommandList2 {}
+impl ::core::fmt::Debug for ID3D12DebugCommandList2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DebugCommandList2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandList2 {
     type Vtable = ID3D12DebugCommandList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaeb575cf_4e06_48be_ba3b_c450fc96652e);
@@ -15271,6 +15336,11 @@ impl ::core::cmp::PartialEq for ID3D12DebugCommandQueue {
     }
 }
 impl ::core::cmp::Eq for ID3D12DebugCommandQueue {}
+impl ::core::fmt::Debug for ID3D12DebugCommandQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DebugCommandQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DebugCommandQueue {
     type Vtable = ID3D12DebugCommandQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09e0bf36_54ac_484f_8847_4baeeab6053a);
@@ -15332,6 +15402,11 @@ impl ::core::cmp::PartialEq for ID3D12DebugDevice {
     }
 }
 impl ::core::cmp::Eq for ID3D12DebugDevice {}
+impl ::core::fmt::Debug for ID3D12DebugDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DebugDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice {
     type Vtable = ID3D12DebugDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3febd6dd_4973_4787_8194_e45f9e28923e);
@@ -15394,6 +15469,11 @@ impl ::core::cmp::PartialEq for ID3D12DebugDevice1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12DebugDevice1 {}
+impl ::core::fmt::Debug for ID3D12DebugDevice1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DebugDevice1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice1 {
     type Vtable = ID3D12DebugDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9b71770_d099_4a65_a698_3dee10020f88);
@@ -15484,6 +15564,11 @@ impl ::core::cmp::PartialEq for ID3D12DebugDevice2 {
     }
 }
 impl ::core::cmp::Eq for ID3D12DebugDevice2 {}
+impl ::core::fmt::Debug for ID3D12DebugDevice2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DebugDevice2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DebugDevice2 {
     type Vtable = ID3D12DebugDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60eccbc1_378d_4df1_894c_f8ac5ce4d7dd);
@@ -15635,6 +15720,11 @@ impl ::core::cmp::PartialEq for ID3D12DescriptorHeap {
     }
 }
 impl ::core::cmp::Eq for ID3D12DescriptorHeap {}
+impl ::core::fmt::Debug for ID3D12DescriptorHeap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DescriptorHeap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DescriptorHeap {
     type Vtable = ID3D12DescriptorHeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8efb471d_616c_4f49_90f7_127bb763fa51);
@@ -15907,6 +15997,11 @@ impl ::core::cmp::PartialEq for ID3D12Device {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device {}
+impl ::core::fmt::Debug for ID3D12Device {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device {
     type Vtable = ID3D12DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x189819f1_1db6_4b57_be54_1821339b85f7);
@@ -16261,6 +16356,11 @@ impl ::core::cmp::PartialEq for ID3D12Device1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device1 {}
+impl ::core::fmt::Debug for ID3D12Device1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device1 {
     type Vtable = ID3D12Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77acce80_638e_4e65_8895_c1f23386863e);
@@ -16644,6 +16744,11 @@ impl ::core::cmp::PartialEq for ID3D12Device2 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device2 {}
+impl ::core::fmt::Debug for ID3D12Device2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device2 {
     type Vtable = ID3D12Device2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30baa41e_b15b_475c_a0bb_1af5c5b64328);
@@ -17063,6 +17168,11 @@ impl ::core::cmp::PartialEq for ID3D12Device3 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device3 {}
+impl ::core::fmt::Debug for ID3D12Device3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device3 {
     type Vtable = ID3D12Device3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81dadc15_2bad_4392_93c5_101345c4aa98);
@@ -17537,6 +17647,11 @@ impl ::core::cmp::PartialEq for ID3D12Device4 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device4 {}
+impl ::core::fmt::Debug for ID3D12Device4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device4 {
     type Vtable = ID3D12Device4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe865df17_a9ee_46f9_a463_3098315aa2e5);
@@ -18078,6 +18193,11 @@ impl ::core::cmp::PartialEq for ID3D12Device5 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device5 {}
+impl ::core::fmt::Debug for ID3D12Device5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device5 {
     type Vtable = ID3D12Device5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8b4f173b_2fea_4b80_8f58_4307191ab95d);
@@ -18656,6 +18776,11 @@ impl ::core::cmp::PartialEq for ID3D12Device6 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device6 {}
+impl ::core::fmt::Debug for ID3D12Device6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device6 {
     type Vtable = ID3D12Device6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc70b221b_40e4_4a17_89af_025a0727a6dc);
@@ -19266,6 +19391,11 @@ impl ::core::cmp::PartialEq for ID3D12Device7 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device7 {}
+impl ::core::fmt::Debug for ID3D12Device7 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device7").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device7 {
     type Vtable = ID3D12Device7Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c014b53_68a1_4b9b_8bd1_dd6046b9358b);
@@ -19924,6 +20054,11 @@ impl ::core::cmp::PartialEq for ID3D12Device8 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device8 {}
+impl ::core::fmt::Debug for ID3D12Device8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device8 {
     type Vtable = ID3D12Device8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9218e6bb_f944_4f7e_a75c_b1b2c7b701f3);
@@ -20624,6 +20759,11 @@ impl ::core::cmp::PartialEq for ID3D12Device9 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Device9 {}
+impl ::core::fmt::Debug for ID3D12Device9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Device9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Device9 {
     type Vtable = ID3D12Device9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c80e962_f032_4f60_bc9e_ebc2cfa1d83c);
@@ -20814,6 +20954,11 @@ impl ::core::cmp::PartialEq for ID3D12DeviceChild {
     }
 }
 impl ::core::cmp::Eq for ID3D12DeviceChild {}
+impl ::core::fmt::Debug for ID3D12DeviceChild {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DeviceChild").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DeviceChild {
     type Vtable = ID3D12DeviceChildVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x905db94b_a00c_4140_9df5_2b64ca9ea357);
@@ -20879,6 +21024,11 @@ impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData {
     }
 }
 impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedData {}
+impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DeviceRemovedExtendedData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData {
     type Vtable = ID3D12DeviceRemovedExtendedDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98931d33_5ae8_4791_aa3c_1a73a2934e71);
@@ -20974,6 +21124,11 @@ impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedData1 {}
+impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DeviceRemovedExtendedData1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData1 {
     type Vtable = ID3D12DeviceRemovedExtendedData1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9727a022_cf1d_4dda_9eba_effa653fc506);
@@ -21103,6 +21258,11 @@ impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedData2 {
     }
 }
 impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedData2 {}
+impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedData2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DeviceRemovedExtendedData2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedData2 {
     type Vtable = ID3D12DeviceRemovedExtendedData2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67fc5816_e4ca_4915_bf18_42541272da54);
@@ -21173,6 +21333,11 @@ impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings {
     }
 }
 impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedDataSettings {}
+impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DeviceRemovedExtendedDataSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedDataSettings {
     type Vtable = ID3D12DeviceRemovedExtendedDataSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82bc481c_6b9b_4030_aedb_7ee3d1df1e63);
@@ -21259,6 +21424,11 @@ impl ::core::cmp::PartialEq for ID3D12DeviceRemovedExtendedDataSettings1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12DeviceRemovedExtendedDataSettings1 {}
+impl ::core::fmt::Debug for ID3D12DeviceRemovedExtendedDataSettings1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12DeviceRemovedExtendedDataSettings1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12DeviceRemovedExtendedDataSettings1 {
     type Vtable = ID3D12DeviceRemovedExtendedDataSettings1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbd5ae51_3317_4f0a_adf9_1d7cedcaae0b);
@@ -21404,6 +21574,11 @@ impl ::core::cmp::PartialEq for ID3D12Fence {
     }
 }
 impl ::core::cmp::Eq for ID3D12Fence {}
+impl ::core::fmt::Debug for ID3D12Fence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Fence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Fence {
     type Vtable = ID3D12FenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a753dcf_c4d8_4b91_adf6_be5a60d95a76);
@@ -21579,6 +21754,11 @@ impl ::core::cmp::PartialEq for ID3D12Fence1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Fence1 {}
+impl ::core::fmt::Debug for ID3D12Fence1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Fence1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Fence1 {
     type Vtable = ID3D12Fence1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x433685fe_e22b_4ca0_a8db_b5b4f4dd0e4a);
@@ -21623,6 +21803,11 @@ impl ::core::cmp::PartialEq for ID3D12FunctionParameterReflection {
     }
 }
 impl ::core::cmp::Eq for ID3D12FunctionParameterReflection {}
+impl ::core::fmt::Debug for ID3D12FunctionParameterReflection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12FunctionParameterReflection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12FunctionParameterReflection {
     type Vtable = ID3D12FunctionParameterReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec25f42d_7006_4f2b_b33e_02cc3375733f);
@@ -21682,6 +21867,11 @@ impl ::core::cmp::PartialEq for ID3D12FunctionReflection {
     }
 }
 impl ::core::cmp::Eq for ID3D12FunctionReflection {}
+impl ::core::fmt::Debug for ID3D12FunctionReflection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12FunctionReflection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12FunctionReflection {
     type Vtable = ID3D12FunctionReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1108795c_2772_4ba9_b2a8_d464dc7e2799);
@@ -22039,6 +22229,11 @@ impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList {
     }
 }
 impl ::core::cmp::Eq for ID3D12GraphicsCommandList {}
+impl ::core::fmt::Debug for ID3D12GraphicsCommandList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12GraphicsCommandList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList {
     type Vtable = ID3D12GraphicsCommandListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b160d0f_ac1b_4185_8ba8_b3ae42a5a455);
@@ -22502,6 +22697,11 @@ impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12GraphicsCommandList1 {}
+impl ::core::fmt::Debug for ID3D12GraphicsCommandList1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12GraphicsCommandList1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList1 {
     type Vtable = ID3D12GraphicsCommandList1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553103fb_1fe7_4557_bb38_946d7d0e7ca7);
@@ -22996,6 +23196,11 @@ impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList2 {
     }
 }
 impl ::core::cmp::Eq for ID3D12GraphicsCommandList2 {}
+impl ::core::fmt::Debug for ID3D12GraphicsCommandList2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12GraphicsCommandList2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList2 {
     type Vtable = ID3D12GraphicsCommandList2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38c3e585_ff17_412c_9150_4fc6f9d72a28);
@@ -23515,6 +23720,11 @@ impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList3 {
     }
 }
 impl ::core::cmp::Eq for ID3D12GraphicsCommandList3 {}
+impl ::core::fmt::Debug for ID3D12GraphicsCommandList3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12GraphicsCommandList3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList3 {
     type Vtable = ID3D12GraphicsCommandList3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fda83a7_b84c_4e38_9ac8_c7bd22016b3d);
@@ -24093,6 +24303,11 @@ impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList4 {
     }
 }
 impl ::core::cmp::Eq for ID3D12GraphicsCommandList4 {}
+impl ::core::fmt::Debug for ID3D12GraphicsCommandList4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12GraphicsCommandList4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList4 {
     type Vtable = ID3D12GraphicsCommandList4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8754318e_d3a9_4541_98cf_645b50dc4874);
@@ -24710,6 +24925,11 @@ impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList5 {
     }
 }
 impl ::core::cmp::Eq for ID3D12GraphicsCommandList5 {}
+impl ::core::fmt::Debug for ID3D12GraphicsCommandList5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12GraphicsCommandList5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList5 {
     type Vtable = ID3D12GraphicsCommandList5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55050859_4024_474c_87f5_6472eaee44ea);
@@ -25353,6 +25573,11 @@ impl ::core::cmp::PartialEq for ID3D12GraphicsCommandList6 {
     }
 }
 impl ::core::cmp::Eq for ID3D12GraphicsCommandList6 {}
+impl ::core::fmt::Debug for ID3D12GraphicsCommandList6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12GraphicsCommandList6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12GraphicsCommandList6 {
     type Vtable = ID3D12GraphicsCommandList6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3827890_e548_4cfa_96cf_5689a9370f80);
@@ -25580,6 +25805,11 @@ impl ::core::cmp::PartialEq for ID3D12Heap {
     }
 }
 impl ::core::cmp::Eq for ID3D12Heap {}
+impl ::core::fmt::Debug for ID3D12Heap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Heap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Heap {
     type Vtable = ID3D12HeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b3b2502_6e51_45b3_90ee_9884265e8df3);
@@ -25745,6 +25975,11 @@ impl ::core::cmp::PartialEq for ID3D12Heap1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Heap1 {}
+impl ::core::fmt::Debug for ID3D12Heap1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Heap1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Heap1 {
     type Vtable = ID3D12Heap1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x572f7389_2168_49e3_9693_d6df5871bf6d);
@@ -25950,6 +26185,11 @@ impl ::core::cmp::PartialEq for ID3D12InfoQueue {
     }
 }
 impl ::core::cmp::Eq for ID3D12InfoQueue {}
+impl ::core::fmt::Debug for ID3D12InfoQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12InfoQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12InfoQueue {
     type Vtable = ID3D12InfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0742a90b_c387_483f_b946_30a7e4e61458);
@@ -26221,6 +26461,11 @@ impl ::core::cmp::PartialEq for ID3D12InfoQueue1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12InfoQueue1 {}
+impl ::core::fmt::Debug for ID3D12InfoQueue1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12InfoQueue1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12InfoQueue1 {
     type Vtable = ID3D12InfoQueue1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2852dd88_b484_4c0c_b6b1_67168500e600);
@@ -26326,6 +26571,11 @@ impl ::core::cmp::PartialEq for ID3D12LibraryReflection {
     }
 }
 impl ::core::cmp::Eq for ID3D12LibraryReflection {}
+impl ::core::fmt::Debug for ID3D12LibraryReflection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12LibraryReflection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12LibraryReflection {
     type Vtable = ID3D12LibraryReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8e349d19_54db_4a56_9dc9_119d87bdb804);
@@ -26380,6 +26630,11 @@ impl ::core::cmp::PartialEq for ID3D12LifetimeOwner {
     }
 }
 impl ::core::cmp::Eq for ID3D12LifetimeOwner {}
+impl ::core::fmt::Debug for ID3D12LifetimeOwner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12LifetimeOwner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12LifetimeOwner {
     type Vtable = ID3D12LifetimeOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe667af9f_cd56_4f46_83ce_032e595d70a8);
@@ -26488,6 +26743,11 @@ impl ::core::cmp::PartialEq for ID3D12LifetimeTracker {
     }
 }
 impl ::core::cmp::Eq for ID3D12LifetimeTracker {}
+impl ::core::fmt::Debug for ID3D12LifetimeTracker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12LifetimeTracker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12LifetimeTracker {
     type Vtable = ID3D12LifetimeTrackerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3fd03d36_4eb1_424a_a582_494ecb8ba813);
@@ -26627,6 +26887,11 @@ impl ::core::cmp::PartialEq for ID3D12MetaCommand {
     }
 }
 impl ::core::cmp::Eq for ID3D12MetaCommand {}
+impl ::core::fmt::Debug for ID3D12MetaCommand {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12MetaCommand").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12MetaCommand {
     type Vtable = ID3D12MetaCommandVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdbb84c27_36ce_4fc9_b801_f048c46ac570);
@@ -26698,6 +26963,11 @@ impl ::core::cmp::PartialEq for ID3D12Object {
     }
 }
 impl ::core::cmp::Eq for ID3D12Object {}
+impl ::core::fmt::Debug for ID3D12Object {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Object").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Object {
     type Vtable = ID3D12ObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc4fec28f_7966_4e95_9f94_f431cb56c3b8);
@@ -26811,6 +27081,11 @@ impl ::core::cmp::PartialEq for ID3D12Pageable {
     }
 }
 impl ::core::cmp::Eq for ID3D12Pageable {}
+impl ::core::fmt::Debug for ID3D12Pageable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Pageable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Pageable {
     type Vtable = ID3D12PageableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63ee58fb_1268_4835_86da_f008ce62f0d6);
@@ -26950,6 +27225,11 @@ impl ::core::cmp::PartialEq for ID3D12PipelineLibrary {
     }
 }
 impl ::core::cmp::Eq for ID3D12PipelineLibrary {}
+impl ::core::fmt::Debug for ID3D12PipelineLibrary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12PipelineLibrary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12PipelineLibrary {
     type Vtable = ID3D12PipelineLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc64226a8_9201_46af_b4cc_53fb9ff7414f);
@@ -27123,6 +27403,11 @@ impl ::core::cmp::PartialEq for ID3D12PipelineLibrary1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12PipelineLibrary1 {}
+impl ::core::fmt::Debug for ID3D12PipelineLibrary1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12PipelineLibrary1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12PipelineLibrary1 {
     type Vtable = ID3D12PipelineLibrary1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80eabf42_2568_4e5e_bd82_c37f86961dc3);
@@ -27273,6 +27558,11 @@ impl ::core::cmp::PartialEq for ID3D12PipelineState {
     }
 }
 impl ::core::cmp::Eq for ID3D12PipelineState {}
+impl ::core::fmt::Debug for ID3D12PipelineState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12PipelineState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12PipelineState {
     type Vtable = ID3D12PipelineStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x765a30f3_f624_4c6f_a828_ace948622445);
@@ -27423,6 +27713,11 @@ impl ::core::cmp::PartialEq for ID3D12ProtectedResourceSession {
     }
 }
 impl ::core::cmp::Eq for ID3D12ProtectedResourceSession {}
+impl ::core::fmt::Debug for ID3D12ProtectedResourceSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ProtectedResourceSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ProtectedResourceSession {
     type Vtable = ID3D12ProtectedResourceSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6cd696f4_f289_40cc_8091_5a6c0a099c3d);
@@ -27600,6 +27895,11 @@ impl ::core::cmp::PartialEq for ID3D12ProtectedResourceSession1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12ProtectedResourceSession1 {}
+impl ::core::fmt::Debug for ID3D12ProtectedResourceSession1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ProtectedResourceSession1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ProtectedResourceSession1 {
     type Vtable = ID3D12ProtectedResourceSession1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6f12dd6_76fb_406e_8961_4296eefc0409);
@@ -27726,6 +28026,11 @@ impl ::core::cmp::PartialEq for ID3D12ProtectedSession {
     }
 }
 impl ::core::cmp::Eq for ID3D12ProtectedSession {}
+impl ::core::fmt::Debug for ID3D12ProtectedSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ProtectedSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ProtectedSession {
     type Vtable = ID3D12ProtectedSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1533d18_0ac1_4084_85b9_89a96116806b);
@@ -27862,6 +28167,11 @@ impl ::core::cmp::PartialEq for ID3D12QueryHeap {
     }
 }
 impl ::core::cmp::Eq for ID3D12QueryHeap {}
+impl ::core::fmt::Debug for ID3D12QueryHeap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12QueryHeap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12QueryHeap {
     type Vtable = ID3D12QueryHeapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0d9658ae_ed45_469e_a61d_970ec583cab4);
@@ -28027,6 +28337,11 @@ impl ::core::cmp::PartialEq for ID3D12Resource {
     }
 }
 impl ::core::cmp::Eq for ID3D12Resource {}
+impl ::core::fmt::Debug for ID3D12Resource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Resource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Resource {
     type Vtable = ID3D12ResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x696442be_a72e_4059_bc79_5b5c98040fad);
@@ -28224,6 +28539,11 @@ impl ::core::cmp::PartialEq for ID3D12Resource1 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Resource1 {}
+impl ::core::fmt::Debug for ID3D12Resource1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Resource1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Resource1 {
     type Vtable = ID3D12Resource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9d5e227a_4430_4161_88b3_3eca6bb16e19);
@@ -28449,6 +28769,11 @@ impl ::core::cmp::PartialEq for ID3D12Resource2 {
     }
 }
 impl ::core::cmp::Eq for ID3D12Resource2 {}
+impl ::core::fmt::Debug for ID3D12Resource2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Resource2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Resource2 {
     type Vtable = ID3D12Resource2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe36ec3b_ea85_4aeb_a45a_e9d76404a495);
@@ -28574,6 +28899,11 @@ impl ::core::cmp::PartialEq for ID3D12RootSignature {
     }
 }
 impl ::core::cmp::Eq for ID3D12RootSignature {}
+impl ::core::fmt::Debug for ID3D12RootSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12RootSignature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12RootSignature {
     type Vtable = ID3D12RootSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc54a6b66_72df_4ee8_8be5_a946a1429214);
@@ -28631,6 +28961,11 @@ impl ::core::cmp::PartialEq for ID3D12RootSignatureDeserializer {
     }
 }
 impl ::core::cmp::Eq for ID3D12RootSignatureDeserializer {}
+impl ::core::fmt::Debug for ID3D12RootSignatureDeserializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12RootSignatureDeserializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12RootSignatureDeserializer {
     type Vtable = ID3D12RootSignatureDeserializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x34ab647b_3cc8_46ac_841b_c0965645c046);
@@ -28679,6 +29014,11 @@ impl ::core::cmp::PartialEq for ID3D12SDKConfiguration {
     }
 }
 impl ::core::cmp::Eq for ID3D12SDKConfiguration {}
+impl ::core::fmt::Debug for ID3D12SDKConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12SDKConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12SDKConfiguration {
     type Vtable = ID3D12SDKConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe9eb5314_33aa_42b2_a718_d77f58b1f1c7);
@@ -28807,6 +29147,11 @@ impl ::core::cmp::PartialEq for ID3D12ShaderCacheSession {
     }
 }
 impl ::core::cmp::Eq for ID3D12ShaderCacheSession {}
+impl ::core::fmt::Debug for ID3D12ShaderCacheSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ShaderCacheSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ShaderCacheSession {
     type Vtable = ID3D12ShaderCacheSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28e2495d_0f64_4ae4_a6ec_129255dc49a8);
@@ -28958,6 +29303,11 @@ impl ::core::cmp::PartialEq for ID3D12ShaderReflection {
     }
 }
 impl ::core::cmp::Eq for ID3D12ShaderReflection {}
+impl ::core::fmt::Debug for ID3D12ShaderReflection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ShaderReflection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflection {
     type Vtable = ID3D12ShaderReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a58797d_a72c_478d_8ba2_efc6b0efe88e);
@@ -29029,6 +29379,11 @@ impl ::core::cmp::PartialEq for ID3D12ShaderReflectionConstantBuffer {
     }
 }
 impl ::core::cmp::Eq for ID3D12ShaderReflectionConstantBuffer {}
+impl ::core::fmt::Debug for ID3D12ShaderReflectionConstantBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ShaderReflectionConstantBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionConstantBuffer {
     type Vtable = ID3D12ShaderReflectionConstantBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc59598b4_48b3_4869_b9b1_b1618b14a8b7);
@@ -29106,6 +29461,11 @@ impl ::core::cmp::PartialEq for ID3D12ShaderReflectionType {
     }
 }
 impl ::core::cmp::Eq for ID3D12ShaderReflectionType {}
+impl ::core::fmt::Debug for ID3D12ShaderReflectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ShaderReflectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionType {
     type Vtable = ID3D12ShaderReflectionTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe913c351_783d_48ca_a1d1_4f306284ad56);
@@ -29162,6 +29522,11 @@ impl ::core::cmp::PartialEq for ID3D12ShaderReflectionVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D12ShaderReflectionVariable {}
+impl ::core::fmt::Debug for ID3D12ShaderReflectionVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12ShaderReflectionVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12ShaderReflectionVariable {
     type Vtable = ID3D12ShaderReflectionVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8337a8a6_a216_444a_b2f4_314733a73aea);
@@ -29228,6 +29593,11 @@ impl ::core::cmp::PartialEq for ID3D12SharingContract {
     }
 }
 impl ::core::cmp::Eq for ID3D12SharingContract {}
+impl ::core::fmt::Debug for ID3D12SharingContract {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12SharingContract").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12SharingContract {
     type Vtable = ID3D12SharingContractVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adf7d52_929c_4e61_addb_ffed30de66ef);
@@ -29361,6 +29731,11 @@ impl ::core::cmp::PartialEq for ID3D12StateObject {
     }
 }
 impl ::core::cmp::Eq for ID3D12StateObject {}
+impl ::core::fmt::Debug for ID3D12StateObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12StateObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12StateObject {
     type Vtable = ID3D12StateObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x47016943_fca8_4594_93ea_af258b55346d);
@@ -29432,6 +29807,11 @@ impl ::core::cmp::PartialEq for ID3D12StateObjectProperties {
     }
 }
 impl ::core::cmp::Eq for ID3D12StateObjectProperties {}
+impl ::core::fmt::Debug for ID3D12StateObjectProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12StateObjectProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12StateObjectProperties {
     type Vtable = ID3D12StateObjectPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde5fa827_9bf9_4f26_89ff_d7f56fde3860);
@@ -29506,6 +29886,11 @@ impl ::core::cmp::PartialEq for ID3D12SwapChainAssistant {
     }
 }
 impl ::core::cmp::Eq for ID3D12SwapChainAssistant {}
+impl ::core::fmt::Debug for ID3D12SwapChainAssistant {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12SwapChainAssistant").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12SwapChainAssistant {
     type Vtable = ID3D12SwapChainAssistantVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1df64b6_57fd_49cd_8807_c0eb88b45c8f);
@@ -29568,6 +29953,11 @@ impl ::core::cmp::PartialEq for ID3D12Tools {
     }
 }
 impl ::core::cmp::Eq for ID3D12Tools {}
+impl ::core::fmt::Debug for ID3D12Tools {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12Tools").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12Tools {
     type Vtable = ID3D12ToolsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7071e1f0_e84b_4b33_974f_12fa49de65c5);
@@ -29628,6 +30018,11 @@ impl ::core::cmp::PartialEq for ID3D12VersionedRootSignatureDeserializer {
     }
 }
 impl ::core::cmp::Eq for ID3D12VersionedRootSignatureDeserializer {}
+impl ::core::fmt::Debug for ID3D12VersionedRootSignatureDeserializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D12VersionedRootSignatureDeserializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D12VersionedRootSignatureDeserializer {
     type Vtable = ID3D12VersionedRootSignatureDeserializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f91ce67_090c_4bb7_b78e_ed8ff2e31da0);

@@ -90,6 +90,11 @@ impl ::core::cmp::PartialEq for IGraphicsEffect {
     }
 }
 impl ::core::cmp::Eq for IGraphicsEffect {}
+impl ::core::fmt::Debug for IGraphicsEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGraphicsEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGraphicsEffect {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb51c0ce-8fe6-4636-b202-861faa07d8f3}");
 }
@@ -164,6 +169,11 @@ impl ::core::cmp::PartialEq for IGraphicsEffectSource {
     }
 }
 impl ::core::cmp::Eq for IGraphicsEffectSource {}
+impl ::core::fmt::Debug for IGraphicsEffectSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGraphicsEffectSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGraphicsEffectSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2d8f9ddc-4339-4eb9-9216-f9deb75658a2}");
 }

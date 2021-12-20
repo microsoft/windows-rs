@@ -62,6 +62,11 @@ impl ::core::cmp::PartialEq for IAudioFrameNative {
     }
 }
 impl ::core::cmp::Eq for IAudioFrameNative {}
+impl ::core::fmt::Debug for IAudioFrameNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioFrameNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioFrameNative {
     type Vtable = IAudioFrameNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20be1e2e_930f_4746_9335_3c332f255093);
@@ -139,6 +144,11 @@ impl ::core::cmp::PartialEq for IAudioFrameNativeFactory {
     }
 }
 impl ::core::cmp::Eq for IAudioFrameNativeFactory {}
+impl ::core::fmt::Debug for IAudioFrameNativeFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioFrameNativeFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioFrameNativeFactory {
     type Vtable = IAudioFrameNativeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bd67cf8_bf7d_43e6_af8d_b170ee0c0110);
@@ -221,6 +231,11 @@ impl ::core::cmp::PartialEq for IVideoFrameNative {
     }
 }
 impl ::core::cmp::Eq for IVideoFrameNative {}
+impl ::core::fmt::Debug for IVideoFrameNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVideoFrameNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVideoFrameNative {
     type Vtable = IVideoFrameNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ba702b_314a_4620_aaf6_7a51aa58fa18);
@@ -299,6 +314,11 @@ impl ::core::cmp::PartialEq for IVideoFrameNativeFactory {
     }
 }
 impl ::core::cmp::Eq for IVideoFrameNativeFactory {}
+impl ::core::fmt::Debug for IVideoFrameNativeFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVideoFrameNativeFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVideoFrameNativeFactory {
     type Vtable = IVideoFrameNativeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x69e3693e_8e1e_4e63_ac4c_7fdc21d9731d);

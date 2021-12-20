@@ -42,6 +42,11 @@ impl ::core::cmp::PartialEq for CustomMapTileDataSource {
     }
 }
 impl ::core::cmp::Eq for CustomMapTileDataSource {}
+impl ::core::fmt::Debug for CustomMapTileDataSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomMapTileDataSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomMapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.CustomMapTileDataSource;{65da384a-2db1-4be1-b155-3d0c9ecf4799})");
 }
@@ -219,6 +224,11 @@ impl ::core::cmp::PartialEq for HttpMapTileDataSource {
     }
 }
 impl ::core::cmp::Eq for HttpMapTileDataSource {}
+impl ::core::fmt::Debug for HttpMapTileDataSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HttpMapTileDataSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HttpMapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.HttpMapTileDataSource;{9d03cb5c-fd79-4795-87be-7e54ca0b37d0})");
 }
@@ -3100,6 +3110,11 @@ impl ::core::cmp::PartialEq for LocalMapTileDataSource {
     }
 }
 impl ::core::cmp::Eq for LocalMapTileDataSource {}
+impl ::core::fmt::Debug for LocalMapTileDataSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocalMapTileDataSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocalMapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.LocalMapTileDataSource;{616257b5-9108-4f12-8bf4-bb3c8f6274e5})");
 }
@@ -3231,6 +3246,11 @@ impl ::core::cmp::PartialEq for MapActualCameraChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapActualCameraChangedEventArgs {}
+impl ::core::fmt::Debug for MapActualCameraChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapActualCameraChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapActualCameraChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapActualCameraChangedEventArgs;{daa080da-b7f4-422c-a618-bbaa7c1d814c})");
 }
@@ -3322,6 +3342,11 @@ impl ::core::cmp::PartialEq for MapActualCameraChangingEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapActualCameraChangingEventArgs {}
+impl ::core::fmt::Debug for MapActualCameraChangingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapActualCameraChangingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapActualCameraChangingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapActualCameraChangingEventArgs;{6b0dbed6-93f7-4682-8de5-a47a1cc7a945})");
 }
@@ -3529,6 +3554,11 @@ impl ::core::cmp::PartialEq for MapBillboard {
     }
 }
 impl ::core::cmp::Eq for MapBillboard {}
+impl ::core::fmt::Debug for MapBillboard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapBillboard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapBillboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapBillboard;{1694259d-0ae2-4f42-a02e-292ca835d39d})");
 }
@@ -3741,6 +3771,11 @@ impl ::core::cmp::PartialEq for MapCamera {
     }
 }
 impl ::core::cmp::Eq for MapCamera {}
+impl ::core::fmt::Debug for MapCamera {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapCamera").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapCamera {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapCamera;{53a6b623-c0f8-4d8b-ad1e-a59598ea840b})");
 }
@@ -3930,6 +3965,11 @@ impl ::core::cmp::PartialEq for MapContextRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapContextRequestedEventArgs {}
+impl ::core::fmt::Debug for MapContextRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapContextRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapContextRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapContextRequestedEventArgs;{fdd1b423-c961-4df2-bb57-82ee0f0bb591})");
 }
@@ -5358,6 +5398,11 @@ impl ::core::cmp::PartialEq for MapControl {
     }
 }
 impl ::core::cmp::Eq for MapControl {}
+impl ::core::fmt::Debug for MapControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControl;{42d0b851-5256-4747-9e6c-0d11e966141e})");
 }
@@ -5574,6 +5619,11 @@ impl ::core::cmp::PartialEq for MapControlBusinessLandmarkClickEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapControlBusinessLandmarkClickEventArgs {}
+impl ::core::fmt::Debug for MapControlBusinessLandmarkClickEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlBusinessLandmarkClickEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkClickEventArgs;{5e464922-4a1a-4797-beb7-5cf7754cb867})");
 }
@@ -5658,6 +5708,11 @@ impl ::core::cmp::PartialEq for MapControlBusinessLandmarkPointerEnteredEventArg
     }
 }
 impl ::core::cmp::Eq for MapControlBusinessLandmarkPointerEnteredEventArgs {}
+impl ::core::fmt::Debug for MapControlBusinessLandmarkPointerEnteredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlBusinessLandmarkPointerEnteredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkPointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerEnteredEventArgs;{5e4081a6-ea98-4f95-8caf-5b42696ff504})");
 }
@@ -5742,6 +5797,11 @@ impl ::core::cmp::PartialEq for MapControlBusinessLandmarkPointerExitedEventArgs
     }
 }
 impl ::core::cmp::Eq for MapControlBusinessLandmarkPointerExitedEventArgs {}
+impl ::core::fmt::Debug for MapControlBusinessLandmarkPointerExitedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlBusinessLandmarkPointerExitedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkPointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkPointerExitedEventArgs;{2bb52caf-f24a-46d0-b463-65f719731057})");
 }
@@ -5826,6 +5886,11 @@ impl ::core::cmp::PartialEq for MapControlBusinessLandmarkRightTappedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapControlBusinessLandmarkRightTappedEventArgs {}
+impl ::core::fmt::Debug for MapControlBusinessLandmarkRightTappedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlBusinessLandmarkRightTappedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlBusinessLandmarkRightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlBusinessLandmarkRightTappedEventArgs;{59ab8ae7-f184-4ab1-b0b0-35c8bf0654b2})");
 }
@@ -6038,6 +6103,11 @@ impl ::core::cmp::PartialEq for MapControlDataHelper {
     }
 }
 impl ::core::cmp::Eq for MapControlDataHelper {}
+impl ::core::fmt::Debug for MapControlDataHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlDataHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlDataHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlDataHelper;{8bb0f09c-14ab-486c-9de5-5a5def0205a2})");
 }
@@ -6159,6 +6229,11 @@ impl ::core::cmp::PartialEq for MapControlTransitFeatureClickEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapControlTransitFeatureClickEventArgs {}
+impl ::core::fmt::Debug for MapControlTransitFeatureClickEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlTransitFeatureClickEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeatureClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureClickEventArgs;{76179969-b765-4622-b08a-3072745a4541})");
 }
@@ -6260,6 +6335,11 @@ impl ::core::cmp::PartialEq for MapControlTransitFeaturePointerEnteredEventArgs 
     }
 }
 impl ::core::cmp::Eq for MapControlTransitFeaturePointerEnteredEventArgs {}
+impl ::core::fmt::Debug for MapControlTransitFeaturePointerEnteredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlTransitFeaturePointerEnteredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeaturePointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerEnteredEventArgs;{73911a4e-ec4f-479e-94a1-36e081d0d897})");
 }
@@ -6361,6 +6441,11 @@ impl ::core::cmp::PartialEq for MapControlTransitFeaturePointerExitedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapControlTransitFeaturePointerExitedEventArgs {}
+impl ::core::fmt::Debug for MapControlTransitFeaturePointerExitedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlTransitFeaturePointerExitedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeaturePointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeaturePointerExitedEventArgs;{6a11258d-448d-44e7-bc69-d13d497154e9})");
 }
@@ -6462,6 +6547,11 @@ impl ::core::cmp::PartialEq for MapControlTransitFeatureRightTappedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapControlTransitFeatureRightTappedEventArgs {}
+impl ::core::fmt::Debug for MapControlTransitFeatureRightTappedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapControlTransitFeatureRightTappedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapControlTransitFeatureRightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapControlTransitFeatureRightTappedEventArgs;{aea1cc49-a729-4eae-a59a-3ec9a125a028})");
 }
@@ -6542,6 +6632,11 @@ impl ::core::cmp::PartialEq for MapCustomExperience {
     }
 }
 impl ::core::cmp::Eq for MapCustomExperience {}
+impl ::core::fmt::Debug for MapCustomExperience {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapCustomExperience").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapCustomExperience {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapCustomExperience;{64592866-14a3-4e5f-8883-8e9c500eeede})");
 }
@@ -6637,6 +6732,11 @@ impl ::core::cmp::PartialEq for MapCustomExperienceChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapCustomExperienceChangedEventArgs {}
+impl ::core::fmt::Debug for MapCustomExperienceChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapCustomExperienceChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapCustomExperienceChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapCustomExperienceChangedEventArgs;{b9e6fb9b-8fc1-4042-ac34-a61b38bb7514})");
 }
@@ -6877,6 +6977,11 @@ impl ::core::cmp::PartialEq for MapElement {
     }
 }
 impl ::core::cmp::Eq for MapElement {}
+impl ::core::fmt::Debug for MapElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElement;{d61fc4df-b245-47f2-9ac2-43c058b1c903})");
 }
@@ -7094,6 +7199,11 @@ impl ::core::cmp::PartialEq for MapElement3D {
     }
 }
 impl ::core::cmp::Eq for MapElement3D {}
+impl ::core::fmt::Debug for MapElement3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElement3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElement3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElement3D;{827af8d5-3843-48e2-bd00-0f0644fbe6a5})");
 }
@@ -7236,6 +7346,11 @@ impl ::core::cmp::PartialEq for MapElementClickEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapElementClickEventArgs {}
+impl ::core::fmt::Debug for MapElementClickEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementClickEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementClickEventArgs;{40168a11-d080-4519-99a1-3149fb8999d0})");
 }
@@ -7370,6 +7485,11 @@ impl ::core::cmp::PartialEq for MapElementPointerEnteredEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapElementPointerEnteredEventArgs {}
+impl ::core::fmt::Debug for MapElementPointerEnteredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementPointerEnteredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementPointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementPointerEnteredEventArgs;{ab85dd4e-91d7-4b31-8f0a-d390c7d3a2ef})");
 }
@@ -7471,6 +7591,11 @@ impl ::core::cmp::PartialEq for MapElementPointerExitedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapElementPointerExitedEventArgs {}
+impl ::core::fmt::Debug for MapElementPointerExitedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementPointerExitedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementPointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementPointerExitedEventArgs;{c1a45af9-60c9-4679-9119-20abc75d931f})");
 }
@@ -7633,6 +7758,11 @@ impl ::core::cmp::PartialEq for MapElementsLayer {
     }
 }
 impl ::core::cmp::Eq for MapElementsLayer {}
+impl ::core::fmt::Debug for MapElementsLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementsLayer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementsLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayer;{de79689a-01ef-46f4-ac60-7c200b552610})");
 }
@@ -7775,6 +7905,11 @@ impl ::core::cmp::PartialEq for MapElementsLayerClickEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapElementsLayerClickEventArgs {}
+impl ::core::fmt::Debug for MapElementsLayerClickEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementsLayerClickEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerClickEventArgs;{2ca7cf66-af1b-4c05-8c85-f74ae3d4677f})");
 }
@@ -7877,6 +8012,11 @@ impl ::core::cmp::PartialEq for MapElementsLayerContextRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapElementsLayerContextRequestedEventArgs {}
+impl ::core::fmt::Debug for MapElementsLayerContextRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementsLayerContextRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerContextRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerContextRequestedEventArgs;{da45d0b3-7a0e-4758-808b-3a637627eb0d})");
 }
@@ -7978,6 +8118,11 @@ impl ::core::cmp::PartialEq for MapElementsLayerPointerEnteredEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapElementsLayerPointerEnteredEventArgs {}
+impl ::core::fmt::Debug for MapElementsLayerPointerEnteredEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementsLayerPointerEnteredEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerPointerEnteredEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerEnteredEventArgs;{757fc032-4694-4404-8c89-348b6b76c5e6})");
 }
@@ -8079,6 +8224,11 @@ impl ::core::cmp::PartialEq for MapElementsLayerPointerExitedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapElementsLayerPointerExitedEventArgs {}
+impl ::core::fmt::Debug for MapElementsLayerPointerExitedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapElementsLayerPointerExitedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapElementsLayerPointerExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapElementsLayerPointerExitedEventArgs;{92f3c6ad-03ed-4c39-af20-2a07ee1ccea6})");
 }
@@ -8263,6 +8413,11 @@ impl ::core::cmp::PartialEq for MapIcon {
     }
 }
 impl ::core::cmp::Eq for MapIcon {}
+impl ::core::fmt::Debug for MapIcon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapIcon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapIcon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapIcon;{d2096872-23d9-4a2b-8be0-69f3a85482ab})");
 }
@@ -8396,6 +8551,11 @@ impl ::core::cmp::PartialEq for MapInputEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapInputEventArgs {}
+impl ::core::fmt::Debug for MapInputEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapInputEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapInputEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapInputEventArgs;{9fc503a0-a8a2-4394-92e9-2247764f2f49})");
 }
@@ -8591,6 +8751,11 @@ impl ::core::cmp::PartialEq for MapItemsControl {
     }
 }
 impl ::core::cmp::Eq for MapItemsControl {}
+impl ::core::fmt::Debug for MapItemsControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapItemsControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapItemsControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapItemsControl;{94c2c4d3-b335-42c5-b660-e6a07ec3bddc})");
 }
@@ -8756,6 +8921,11 @@ impl ::core::cmp::PartialEq for MapLayer {
     }
 }
 impl ::core::cmp::Eq for MapLayer {}
+impl ::core::fmt::Debug for MapLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapLayer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapLayer;{6d0ff9c1-a14d-4f97-8f57-46715b57683a})");
 }
@@ -8912,6 +9082,11 @@ impl ::core::cmp::PartialEq for MapModel3D {
     }
 }
 impl ::core::cmp::Eq for MapModel3D {}
+impl ::core::fmt::Debug for MapModel3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapModel3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapModel3D {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapModel3D;{f8c541a1-ca27-4968-a2bf-9c20f06a0468})");
 }
@@ -9176,6 +9351,11 @@ impl ::core::cmp::PartialEq for MapPolygon {
     }
 }
 impl ::core::cmp::Eq for MapPolygon {}
+impl ::core::fmt::Debug for MapPolygon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapPolygon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapPolygon {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapPolygon;{abda2285-4926-4c3a-a5f9-19df7f69db3d})");
 }
@@ -9364,6 +9544,11 @@ impl ::core::cmp::PartialEq for MapPolyline {
     }
 }
 impl ::core::cmp::Eq for MapPolyline {}
+impl ::core::fmt::Debug for MapPolyline {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapPolyline").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapPolyline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapPolyline;{fbad24a2-24df-4a86-8ffa-0f8f4d9ec17d})");
 }
@@ -9530,6 +9715,11 @@ impl ::core::cmp::PartialEq for MapRightTappedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapRightTappedEventArgs {}
+impl ::core::fmt::Debug for MapRightTappedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRightTappedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRightTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapRightTappedEventArgs;{20943171-6fe8-40a6-ad0e-297379b575a7})");
 }
@@ -9646,6 +9836,11 @@ impl ::core::cmp::PartialEq for MapRouteView {
     }
 }
 impl ::core::cmp::Eq for MapRouteView {}
+impl ::core::fmt::Debug for MapRouteView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapRouteView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapRouteView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapRouteView;{740eaec5-bacc-41e1-a67e-dd6513832049})");
 }
@@ -9833,6 +10028,11 @@ impl ::core::cmp::PartialEq for MapScene {
     }
 }
 impl ::core::cmp::Eq for MapScene {}
+impl ::core::fmt::Debug for MapScene {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapScene").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapScene {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapScene;{8bba10a9-50e7-482c-9789-c688b178ac24})");
 }
@@ -10029,6 +10229,11 @@ impl ::core::cmp::PartialEq for MapStyleSheet {
     }
 }
 impl ::core::cmp::Eq for MapStyleSheet {}
+impl ::core::fmt::Debug for MapStyleSheet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapStyleSheet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapStyleSheet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapStyleSheet;{ae54b2bf-8991-42ed-8d58-20473deede1d})");
 }
@@ -10633,6 +10838,11 @@ impl ::core::cmp::PartialEq for MapTargetCameraChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapTargetCameraChangedEventArgs {}
+impl ::core::fmt::Debug for MapTargetCameraChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTargetCameraChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTargetCameraChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTargetCameraChangedEventArgs;{dbf00472-e953-4fa8-97d0-ea86359057cf})");
 }
@@ -10765,6 +10975,11 @@ impl ::core::cmp::PartialEq for MapTileBitmapRequest {
     }
 }
 impl ::core::cmp::Eq for MapTileBitmapRequest {}
+impl ::core::fmt::Debug for MapTileBitmapRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileBitmapRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequest;{46733fbc-d89d-472b-b5f6-d7066b0584f4})");
 }
@@ -10845,6 +11060,11 @@ impl ::core::cmp::PartialEq for MapTileBitmapRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for MapTileBitmapRequestDeferral {}
+impl ::core::fmt::Debug for MapTileBitmapRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileBitmapRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestDeferral;{fe370542-a4ac-4efa-9665-0490b0cafdd2})");
 }
@@ -10960,6 +11180,11 @@ impl ::core::cmp::PartialEq for MapTileBitmapRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapTileBitmapRequestedEventArgs {}
+impl ::core::fmt::Debug for MapTileBitmapRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileBitmapRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileBitmapRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileBitmapRequestedEventArgs;{337f691d-9b02-4aa2-8b1e-cc4d91719bf3})");
 }
@@ -11040,6 +11265,11 @@ impl ::core::cmp::PartialEq for MapTileDataSource {
     }
 }
 impl ::core::cmp::Eq for MapTileDataSource {}
+impl ::core::fmt::Debug for MapTileDataSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileDataSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileDataSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileDataSource;{c03d9f5e-be1f-4c69-9969-79467a513c38})");
 }
@@ -11530,6 +11760,11 @@ impl ::core::cmp::PartialEq for MapTileSource {
     }
 }
 impl ::core::cmp::Eq for MapTileSource {}
+impl ::core::fmt::Debug for MapTileSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileSource;{88a76e4e-2fdf-4567-9255-1100519c8d62})");
 }
@@ -11648,6 +11883,11 @@ impl ::core::cmp::PartialEq for MapTileUriRequest {
     }
 }
 impl ::core::cmp::Eq for MapTileUriRequest {}
+impl ::core::fmt::Debug for MapTileUriRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileUriRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileUriRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileUriRequest;{17402335-3127-45b8-87a7-99f87d4e2745})");
 }
@@ -11728,6 +11968,11 @@ impl ::core::cmp::PartialEq for MapTileUriRequestDeferral {
     }
 }
 impl ::core::cmp::Eq for MapTileUriRequestDeferral {}
+impl ::core::fmt::Debug for MapTileUriRequestDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileUriRequestDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileUriRequestDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileUriRequestDeferral;{c117ade0-bf3e-4c51-8faa-4b593cf68eb2})");
 }
@@ -11843,6 +12088,11 @@ impl ::core::cmp::PartialEq for MapTileUriRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MapTileUriRequestedEventArgs {}
+impl ::core::fmt::Debug for MapTileUriRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapTileUriRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapTileUriRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.MapTileUriRequestedEventArgs;{d2147b43-1bbf-4b98-8dd3-b7834e407e0d})");
 }
@@ -12111,6 +12361,11 @@ impl ::core::cmp::PartialEq for StreetsideExperience {
     }
 }
 impl ::core::cmp::Eq for StreetsideExperience {}
+impl ::core::fmt::Debug for StreetsideExperience {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreetsideExperience").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreetsideExperience {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.StreetsideExperience;{a558aec9-e30c-46c8-8116-484691675558})");
 }
@@ -12249,6 +12504,11 @@ impl ::core::cmp::PartialEq for StreetsidePanorama {
     }
 }
 impl ::core::cmp::Eq for StreetsidePanorama {}
+impl ::core::fmt::Debug for StreetsidePanorama {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreetsidePanorama").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StreetsidePanorama {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Controls.Maps.StreetsidePanorama;{6fe00fd8-ad60-4664-b539-b1069f16c5af})");
 }

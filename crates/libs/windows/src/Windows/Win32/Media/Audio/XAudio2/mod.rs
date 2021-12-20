@@ -653,6 +653,11 @@ impl ::core::cmp::PartialEq for IXAPO {
     }
 }
 impl ::core::cmp::Eq for IXAPO {}
+impl ::core::fmt::Debug for IXAPO {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAPO").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAPO {
     type Vtable = IXAPOVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa410b984_9839_4819_a0be_2856ae6b3adb);
@@ -727,6 +732,11 @@ impl ::core::cmp::PartialEq for IXAPOHrtfParameters {
     }
 }
 impl ::core::cmp::Eq for IXAPOHrtfParameters {}
+impl ::core::fmt::Debug for IXAPOHrtfParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAPOHrtfParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAPOHrtfParameters {
     type Vtable = IXAPOHrtfParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15b3cd66_e9de_4464_b6e6_2bc3cf63d455);
@@ -786,6 +796,11 @@ impl ::core::cmp::PartialEq for IXAPOParameters {
     }
 }
 impl ::core::cmp::Eq for IXAPOParameters {}
+impl ::core::fmt::Debug for IXAPOParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAPOParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAPOParameters {
     type Vtable = IXAPOParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26d95c66_80f2_499a_ad54_5ae7f01c6d98);
@@ -879,6 +894,11 @@ impl ::core::cmp::PartialEq for IXAudio2 {
     }
 }
 impl ::core::cmp::Eq for IXAudio2 {}
+impl ::core::fmt::Debug for IXAudio2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2 {
     type Vtable = IXAudio2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b02e3cf_2e0b_4ec3_be45_1b2a3fe7210d);
@@ -932,6 +952,11 @@ impl ::core::cmp::PartialEq for IXAudio2EngineCallback {
     }
 }
 impl ::core::cmp::Eq for IXAudio2EngineCallback {}
+impl ::core::fmt::Debug for IXAudio2EngineCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2EngineCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2EngineCallback {
     type Vtable = IXAudio2EngineCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -983,6 +1008,11 @@ impl ::core::cmp::PartialEq for IXAudio2Extension {
     }
 }
 impl ::core::cmp::Eq for IXAudio2Extension {}
+impl ::core::fmt::Debug for IXAudio2Extension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2Extension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2Extension {
     type Vtable = IXAudio2ExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x84ac29bb_d619_44d2_b197_e4acf7df3ed6);
@@ -1115,6 +1145,11 @@ impl ::core::cmp::PartialEq for IXAudio2MasteringVoice {
     }
 }
 impl ::core::cmp::Eq for IXAudio2MasteringVoice {}
+impl ::core::fmt::Debug for IXAudio2MasteringVoice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2MasteringVoice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2MasteringVoice {
     type Vtable = IXAudio2MasteringVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1299,6 +1334,11 @@ impl ::core::cmp::PartialEq for IXAudio2SourceVoice {
     }
 }
 impl ::core::cmp::Eq for IXAudio2SourceVoice {}
+impl ::core::fmt::Debug for IXAudio2SourceVoice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2SourceVoice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2SourceVoice {
     type Vtable = IXAudio2SourceVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1452,6 +1492,11 @@ impl ::core::cmp::PartialEq for IXAudio2SubmixVoice {
     }
 }
 impl ::core::cmp::Eq for IXAudio2SubmixVoice {}
+impl ::core::fmt::Debug for IXAudio2SubmixVoice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2SubmixVoice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2SubmixVoice {
     type Vtable = IXAudio2SubmixVoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1575,6 +1620,11 @@ impl ::core::cmp::PartialEq for IXAudio2Voice {
     }
 }
 impl ::core::cmp::Eq for IXAudio2Voice {}
+impl ::core::fmt::Debug for IXAudio2Voice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2Voice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2Voice {
     type Vtable = IXAudio2VoiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1648,6 +1698,11 @@ impl ::core::cmp::PartialEq for IXAudio2VoiceCallback {
     }
 }
 impl ::core::cmp::Eq for IXAudio2VoiceCallback {}
+impl ::core::fmt::Debug for IXAudio2VoiceCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXAudio2VoiceCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXAudio2VoiceCallback {
     type Vtable = IXAudio2VoiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();

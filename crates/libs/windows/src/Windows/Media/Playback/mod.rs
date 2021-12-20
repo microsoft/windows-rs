@@ -147,6 +147,11 @@ impl ::core::cmp::PartialEq for CurrentMediaPlaybackItemChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CurrentMediaPlaybackItemChangedEventArgs {}
+impl ::core::fmt::Debug for CurrentMediaPlaybackItemChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CurrentMediaPlaybackItemChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CurrentMediaPlaybackItemChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.CurrentMediaPlaybackItemChangedEventArgs;{1743a892-5c43-4a15-967a-572d2d0f26c6})");
 }
@@ -581,6 +586,12 @@ impl ::core::cmp::PartialEq for IMediaEnginePlaybackSource {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for IMediaEnginePlaybackSource {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for IMediaEnginePlaybackSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaEnginePlaybackSource").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for IMediaEnginePlaybackSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5c1d0ba7-3856-48b9-8dc6-244bf107bf8c}");
@@ -1467,6 +1478,11 @@ impl ::core::cmp::PartialEq for IMediaPlaybackSource {
     }
 }
 impl ::core::cmp::Eq for IMediaPlaybackSource {}
+impl ::core::fmt::Debug for IMediaPlaybackSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMediaPlaybackSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IMediaPlaybackSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ef9dc2bc-9317-4696-b051-2bad643177b5}");
 }
@@ -2141,6 +2157,11 @@ impl ::core::cmp::PartialEq for MediaBreak {
     }
 }
 impl ::core::cmp::Eq for MediaBreak {}
+impl ::core::fmt::Debug for MediaBreak {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreak").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBreak {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreak;{714be270-0def-4ebc-a489-6b34930e1558})");
 }
@@ -2217,6 +2238,11 @@ impl ::core::cmp::PartialEq for MediaBreakEndedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaBreakEndedEventArgs {}
+impl ::core::fmt::Debug for MediaBreakEndedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakEndedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBreakEndedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakEndedEventArgs;{32b93276-1c5d-4fee-8732-236dc3a88580})");
 }
@@ -2404,6 +2430,11 @@ impl ::core::cmp::PartialEq for MediaBreakManager {
     }
 }
 impl ::core::cmp::Eq for MediaBreakManager {}
+impl ::core::fmt::Debug for MediaBreakManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBreakManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakManager;{a854ddb1-feb4-4d9b-9d97-0fdbe58e5e39})");
 }
@@ -2540,6 +2571,11 @@ impl ::core::cmp::PartialEq for MediaBreakSchedule {
     }
 }
 impl ::core::cmp::Eq for MediaBreakSchedule {}
+impl ::core::fmt::Debug for MediaBreakSchedule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakSchedule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBreakSchedule {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSchedule;{a19a5813-98b6-41d8-83da-f971d22b7bba})");
 }
@@ -2635,6 +2671,11 @@ impl ::core::cmp::PartialEq for MediaBreakSeekedOverEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaBreakSeekedOverEventArgs {}
+impl ::core::fmt::Debug for MediaBreakSeekedOverEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakSeekedOverEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBreakSeekedOverEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSeekedOverEventArgs;{e5aa6746-0606-4492-b9d3-c3c8fde0a4ea})");
 }
@@ -2711,6 +2752,11 @@ impl ::core::cmp::PartialEq for MediaBreakSkippedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaBreakSkippedEventArgs {}
+impl ::core::fmt::Debug for MediaBreakSkippedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakSkippedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBreakSkippedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakSkippedEventArgs;{6ee94c05-2f54-4a3e-a3ab-24c3b270b4a3})");
 }
@@ -2787,6 +2833,11 @@ impl ::core::cmp::PartialEq for MediaBreakStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaBreakStartedEventArgs {}
+impl ::core::fmt::Debug for MediaBreakStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaBreakStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaBreakStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaBreakStartedEventArgs;{a87efe71-dfd4-454a-956e-0a4a648395f8})");
 }
@@ -2938,6 +2989,11 @@ impl ::core::cmp::PartialEq for MediaItemDisplayProperties {
     }
 }
 impl ::core::cmp::Eq for MediaItemDisplayProperties {}
+impl ::core::fmt::Debug for MediaItemDisplayProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaItemDisplayProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaItemDisplayProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaItemDisplayProperties;{1e3c1b48-7097-4384-a217-c1291dfa8c16})");
 }
@@ -3086,6 +3142,12 @@ impl ::core::cmp::PartialEq for MediaPlaybackAudioTrackList {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for MediaPlaybackAudioTrackList {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for MediaPlaybackAudioTrackList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackAudioTrackList").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackAudioTrackList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackAudioTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.AudioTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
@@ -3512,6 +3574,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManager {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManager {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManager;{5acee5a6-5cb6-4a5a-8521-cc86b1c1ed37})");
 }
@@ -3610,6 +3677,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerAutoRepeatModeReceive
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerAutoRepeatModeReceivedEventArgs;{3d6f4f23-5230-4411-a0e9-bad94c2a045c})");
 }
@@ -3722,6 +3794,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerCommandBehavior {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerCommandBehavior {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerCommandBehavior {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerCommandBehavior").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerCommandBehavior {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerCommandBehavior;{786c1e78-ce78-4a10-afd6-843fcbb90c2e})");
 }
@@ -3812,6 +3889,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerFastForwardReceivedEv
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerFastForwardReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerFastForwardReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerFastForwardReceivedEventArgs;{30f064d9-b491-4d0a-bc21-3098bd1332e9})");
 }
@@ -3902,6 +3984,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerNextReceivedEventArgs
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerNextReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerNextReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerNextReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerNextReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerNextReceivedEventArgs;{e1504433-a2b0-45d4-b9de-5f42ac14a839})");
 }
@@ -3992,6 +4079,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPauseReceivedEventArg
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerPauseReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerPauseReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerPauseReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPauseReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPauseReceivedEventArgs;{5ceccd1c-c25c-4221-b16c-c3c98ce012d6})");
 }
@@ -4082,6 +4174,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPlayReceivedEventArgs
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerPlayReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerPlayReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerPlayReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPlayReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPlayReceivedEventArgs;{9af0004e-578b-4c56-a006-16159d888a48})");
 }
@@ -4181,6 +4278,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPositionReceivedEvent
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerPositionReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerPositionReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerPositionReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPositionReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPositionReceivedEventArgs;{5591a754-d627-4bdd-a90d-86a015b24902})");
 }
@@ -4271,6 +4373,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerPreviousReceivedEvent
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerPreviousReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerPreviousReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerPreviousReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerPreviousReceivedEventArgs;{525e3081-4632-4f76-99b1-d771623f6287})");
 }
@@ -4369,6 +4476,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerRateReceivedEventArgs
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerRateReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerRateReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerRateReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerRateReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRateReceivedEventArgs;{18ea3939-4a16-4169-8b05-3eb9f5ff78eb})");
 }
@@ -4459,6 +4571,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerRewindReceivedEventAr
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerRewindReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerRewindReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerRewindReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerRewindReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerRewindReceivedEventArgs;{9f085947-a3c0-425d-aaef-97ba7898b141})");
 }
@@ -4557,6 +4674,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackCommandManagerShuffleReceivedEventA
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackCommandManagerShuffleReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackCommandManagerShuffleReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackCommandManagerShuffleReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackCommandManagerShuffleReceivedEventArgs;{50a05cef-63ee-4a96-b7b5-fee08b9ff90c})");
 }
@@ -4839,6 +4961,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackItem {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackItem {}
+impl ::core::fmt::Debug for MediaPlaybackItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItem;{047097d2-e4af-48ab-b283-6929e674ece2})");
 }
@@ -4980,6 +5107,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackItemError {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackItemError {}
+impl ::core::fmt::Debug for MediaPlaybackItemError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItemError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemError;{69fbef2b-dcd6-4df9-a450-dbf4c6f1c2c2})");
 }
@@ -5101,6 +5233,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackItemFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackItemFailedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackItemFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItemFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemFailedEventArgs;{7703134a-e9a7-47c3-862c-c656d30683d4})");
 }
@@ -5177,6 +5314,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackItemOpenedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackItemOpenedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackItemOpenedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackItemOpenedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackItemOpenedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackItemOpenedEventArgs;{cbd9bd82-3037-4fbe-ae8f-39fc39edf4ef})");
 }
@@ -5430,6 +5572,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackList {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackList {}
+impl ::core::fmt::Debug for MediaPlaybackList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackList;{7f77ee9c-dc42-4e26-a98d-7850df8ec925})");
 }
@@ -5948,6 +6095,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackSession {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackSession {}
+impl ::core::fmt::Debug for MediaPlaybackSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSession;{c32b683d-0407-41ba-8946-8b345a5a5435})");
 }
@@ -6024,6 +6176,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackSessionBufferingStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackSessionBufferingStartedEventArgs {}
+impl ::core::fmt::Debug for MediaPlaybackSessionBufferingStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackSessionBufferingStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackSessionBufferingStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionBufferingStartedEventArgs;{cd6aafed-74e2-43b5-b115-76236c33791a})");
 }
@@ -6100,6 +6257,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackSessionOutputDegradationPolicyState
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackSessionOutputDegradationPolicyState {}
+impl ::core::fmt::Debug for MediaPlaybackSessionOutputDegradationPolicyState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackSessionOutputDegradationPolicyState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackSessionOutputDegradationPolicyState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSessionOutputDegradationPolicyState;{558e727d-f633-49f9-965a-abaa1db709be})");
 }
@@ -6275,6 +6437,11 @@ impl ::core::cmp::PartialEq for MediaPlaybackSphericalVideoProjection {
     }
 }
 impl ::core::cmp::Eq for MediaPlaybackSphericalVideoProjection {}
+impl ::core::fmt::Debug for MediaPlaybackSphericalVideoProjection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackSphericalVideoProjection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackSphericalVideoProjection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackSphericalVideoProjection;{d405b37c-6f0e-4661-b8ee-d487ba9752d5})");
 }
@@ -6457,6 +6624,12 @@ impl ::core::cmp::PartialEq for MediaPlaybackTimedMetadataTrackList {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for MediaPlaybackTimedMetadataTrackList {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for MediaPlaybackTimedMetadataTrackList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackTimedMetadataTrackList").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackTimedMetadataTrackList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackTimedMetadataTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.TimedMetadataTrack;{9e6aed9e-f67a-49a9-b330-cf03b0e9cf07})))");
@@ -6686,6 +6859,12 @@ impl ::core::cmp::PartialEq for MediaPlaybackVideoTrackList {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for MediaPlaybackVideoTrackList {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for MediaPlaybackVideoTrackList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlaybackVideoTrackList").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for MediaPlaybackVideoTrackList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlaybackVideoTrackList;pinterface({bbe1fa4c-b0e3-4583-baef-1f1b2e483e56};rc(Windows.Media.Core.VideoTrack;{03e1fafc-c931-491a-b46b-c10ee8c256b7})))");
@@ -7540,6 +7719,11 @@ impl ::core::cmp::PartialEq for MediaPlayer {
     }
 }
 impl ::core::cmp::Eq for MediaPlayer {}
+impl ::core::fmt::Debug for MediaPlayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayer;{381a83cb-6fff-499b-8d64-2885dfc1249e})");
 }
@@ -7718,6 +7902,11 @@ impl ::core::cmp::PartialEq for MediaPlayerDataReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaPlayerDataReceivedEventArgs {}
+impl ::core::fmt::Debug for MediaPlayerDataReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerDataReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlayerDataReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerDataReceivedEventArgs;{c75a9405-c801-412a-835b-83fc0e622a8e})");
 }
@@ -7846,6 +8035,11 @@ impl ::core::cmp::PartialEq for MediaPlayerFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaPlayerFailedEventArgs {}
+impl ::core::fmt::Debug for MediaPlayerFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlayerFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerFailedEventArgs;{2744e9b9-a7e3-4f16-bac4-7914ebc08301})");
 }
@@ -7922,6 +8116,11 @@ impl ::core::cmp::PartialEq for MediaPlayerRateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaPlayerRateChangedEventArgs {}
+impl ::core::fmt::Debug for MediaPlayerRateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerRateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlayerRateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerRateChangedEventArgs;{40600d58-3b61-4bb2-989f-fc65608b6cab})");
 }
@@ -8069,6 +8268,11 @@ impl ::core::cmp::PartialEq for MediaPlayerSurface {
     }
 }
 impl ::core::cmp::Eq for MediaPlayerSurface {}
+impl ::core::fmt::Debug for MediaPlayerSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaPlayerSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaPlayerSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.MediaPlayerSurface;{0ed653bc-b736-49c3-830b-764a3845313a})");
 }
@@ -8209,6 +8413,11 @@ impl ::core::cmp::PartialEq for PlaybackMediaMarker {
     }
 }
 impl ::core::cmp::Eq for PlaybackMediaMarker {}
+impl ::core::fmt::Debug for PlaybackMediaMarker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaybackMediaMarker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaybackMediaMarker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarker;{c4d22f5c-3c1c-4444-b6b9-778b0422d41a})");
 }
@@ -8285,6 +8494,11 @@ impl ::core::cmp::PartialEq for PlaybackMediaMarkerReachedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PlaybackMediaMarkerReachedEventArgs {}
+impl ::core::fmt::Debug for PlaybackMediaMarkerReachedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaybackMediaMarkerReachedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaybackMediaMarkerReachedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerReachedEventArgs;{578cd1b9-90e2-4e60-abc4-8740b01f6196})");
 }
@@ -8380,6 +8594,11 @@ impl ::core::cmp::PartialEq for PlaybackMediaMarkerSequence {
     }
 }
 impl ::core::cmp::Eq for PlaybackMediaMarkerSequence {}
+impl ::core::fmt::Debug for PlaybackMediaMarkerSequence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaybackMediaMarkerSequence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaybackMediaMarkerSequence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.PlaybackMediaMarkerSequence;{f2810cee-638b-46cf-8817-1d111fe9d8c4})");
 }
@@ -8581,6 +8800,11 @@ impl ::core::cmp::PartialEq for TimedMetadataPresentationModeChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for TimedMetadataPresentationModeChangedEventArgs {}
+impl ::core::fmt::Debug for TimedMetadataPresentationModeChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimedMetadataPresentationModeChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimedMetadataPresentationModeChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Playback.TimedMetadataPresentationModeChangedEventArgs;{d1636099-65df-45ae-8cef-dc0b53fdc2bb})");
 }

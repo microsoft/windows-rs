@@ -50,6 +50,11 @@ impl ::core::cmp::PartialEq for DialApp {
     }
 }
 impl ::core::cmp::Eq for DialApp {}
+impl ::core::fmt::Debug for DialApp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialApp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialApp;{555ffbd3-45b7-49f3-bbd7-302db6084646})");
 }
@@ -204,6 +209,11 @@ impl ::core::cmp::PartialEq for DialAppStateDetails {
     }
 }
 impl ::core::cmp::Eq for DialAppStateDetails {}
+impl ::core::fmt::Debug for DialAppStateDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialAppStateDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialAppStateDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialAppStateDetails;{ddc4a4a1-f5de-400d-bea4-8c8466bb2961})");
 }
@@ -368,6 +378,11 @@ impl ::core::cmp::PartialEq for DialDevice {
     }
 }
 impl ::core::cmp::Eq for DialDevice {}
+impl ::core::fmt::Debug for DialDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevice;{fff0edaf-759f-41d2-a20a-7f29ce0b3784})");
 }
@@ -582,6 +597,11 @@ impl ::core::cmp::PartialEq for DialDevicePicker {
     }
 }
 impl ::core::cmp::Eq for DialDevicePicker {}
+impl ::core::fmt::Debug for DialDevicePicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDevicePicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialDevicePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePicker;{ba7e520a-ff59-4f4b-bdac-d89f495ad6e1})");
 }
@@ -659,6 +679,11 @@ impl ::core::cmp::PartialEq for DialDevicePickerFilter {
     }
 }
 impl ::core::cmp::Eq for DialDevicePickerFilter {}
+impl ::core::fmt::Debug for DialDevicePickerFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDevicePickerFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialDevicePickerFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDevicePickerFilter;{c17c93ba-86c0-485d-b8d6-0f9a8f641590})");
 }
@@ -735,6 +760,11 @@ impl ::core::cmp::PartialEq for DialDeviceSelectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DialDeviceSelectedEventArgs {}
+impl ::core::fmt::Debug for DialDeviceSelectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDeviceSelectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialDeviceSelectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDeviceSelectedEventArgs;{480b92ad-ac76-47eb-9c06-a19304da0247})");
 }
@@ -811,6 +841,11 @@ impl ::core::cmp::PartialEq for DialDisconnectButtonClickedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DialDisconnectButtonClickedEventArgs {}
+impl ::core::fmt::Debug for DialDisconnectButtonClickedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialDisconnectButtonClickedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialDisconnectButtonClickedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialDisconnectButtonClickedEventArgs;{52765152-9c81-4e55-adc2-0ebe99cde3b6})");
 }
@@ -918,6 +953,11 @@ impl ::core::cmp::PartialEq for DialReceiverApp {
     }
 }
 impl ::core::cmp::Eq for DialReceiverApp {}
+impl ::core::fmt::Debug for DialReceiverApp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DialReceiverApp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DialReceiverApp {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.DialProtocol.DialReceiverApp;{fd3e7c57-5045-470e-b304-4dd9b13e7d11})");
 }

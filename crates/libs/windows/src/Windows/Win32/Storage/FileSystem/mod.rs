@@ -7462,6 +7462,11 @@ impl ::core::cmp::PartialEq for IDiskQuotaControl {
     }
 }
 impl ::core::cmp::Eq for IDiskQuotaControl {}
+impl ::core::fmt::Debug for IDiskQuotaControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDiskQuotaControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDiskQuotaControl {
     type Vtable = IDiskQuotaControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b572_ec89_11cf_9c00_00aa00a14f56);
@@ -7546,6 +7551,11 @@ impl ::core::cmp::PartialEq for IDiskQuotaEvents {
     }
 }
 impl ::core::cmp::Eq for IDiskQuotaEvents {}
+impl ::core::fmt::Debug for IDiskQuotaEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDiskQuotaEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDiskQuotaEvents {
     type Vtable = IDiskQuotaEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b579_ec89_11cf_9c00_00aa00a14f56);
@@ -7655,6 +7665,11 @@ impl ::core::cmp::PartialEq for IDiskQuotaUser {
     }
 }
 impl ::core::cmp::Eq for IDiskQuotaUser {}
+impl ::core::fmt::Debug for IDiskQuotaUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDiskQuotaUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDiskQuotaUser {
     type Vtable = IDiskQuotaUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b574_ec89_11cf_9c00_00aa00a14f56);
@@ -7739,6 +7754,11 @@ impl ::core::cmp::PartialEq for IDiskQuotaUserBatch {
     }
 }
 impl ::core::cmp::Eq for IDiskQuotaUserBatch {}
+impl ::core::fmt::Debug for IDiskQuotaUserBatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDiskQuotaUserBatch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDiskQuotaUserBatch {
     type Vtable = IDiskQuotaUserBatchVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b576_ec89_11cf_9c00_00aa00a14f56);
@@ -7807,6 +7827,11 @@ impl ::core::cmp::PartialEq for IEnumDiskQuotaUsers {
     }
 }
 impl ::core::cmp::Eq for IEnumDiskQuotaUsers {}
+impl ::core::fmt::Debug for IEnumDiskQuotaUsers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumDiskQuotaUsers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumDiskQuotaUsers {
     type Vtable = IEnumDiskQuotaUsersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7988b577_ec89_11cf_9c00_00aa00a14f56);

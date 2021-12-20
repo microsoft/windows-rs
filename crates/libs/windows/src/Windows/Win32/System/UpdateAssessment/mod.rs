@@ -41,6 +41,11 @@ impl ::core::cmp::PartialEq for IWaaSAssessor {
     }
 }
 impl ::core::cmp::Eq for IWaaSAssessor {}
+impl ::core::fmt::Debug for IWaaSAssessor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWaaSAssessor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWaaSAssessor {
     type Vtable = IWaaSAssessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2347bbef_1a3b_45a4_902d_3e09c269b45e);

@@ -576,6 +576,11 @@ impl ::core::cmp::PartialEq for MiracastReceiver {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiver {}
+impl ::core::fmt::Debug for MiracastReceiver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiver;{7a315258-e444-51b4-aff7-b88daa1229e0})");
 }
@@ -660,6 +665,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverApplySettingsResult {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverApplySettingsResult {}
+impl ::core::fmt::Debug for MiracastReceiverApplySettingsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverApplySettingsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverApplySettingsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverApplySettingsResult;{d0aa6272-09cd-58e1-a4f2-5d5143d312f9})");
 }
@@ -878,6 +888,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverConnection {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverConnection {}
+impl ::core::fmt::Debug for MiracastReceiverConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnection;{704b2f36-d2e5-551f-a854-f822b7917d28})");
 }
@@ -997,6 +1012,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverConnectionCreatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverConnectionCreatedEventArgs {}
+impl ::core::fmt::Debug for MiracastReceiverConnectionCreatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverConnectionCreatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverConnectionCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverConnectionCreatedEventArgs;{7d8dfa39-307a-5c0f-94bd-d0c69d169982})");
 }
@@ -1130,6 +1150,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverCursorImageChannel {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverCursorImageChannel {}
+impl ::core::fmt::Debug for MiracastReceiverCursorImageChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverCursorImageChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannel;{d9ac332d-723a-5a9d-b90a-81153efa2a0f})");
 }
@@ -1226,6 +1251,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverCursorImageChannelSettings {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverCursorImageChannelSettings {}
+impl ::core::fmt::Debug for MiracastReceiverCursorImageChannelSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverCursorImageChannelSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverCursorImageChannelSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverCursorImageChannelSettings;{ccdbedff-bd00-5b9c-8e4c-00cacf86b634})");
 }
@@ -1341,6 +1371,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverDisconnectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverDisconnectedEventArgs {}
+impl ::core::fmt::Debug for MiracastReceiverDisconnectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverDisconnectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverDisconnectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverDisconnectedEventArgs;{d9a15e5e-5fee-57e6-b4b0-04727db93229})");
 }
@@ -1466,6 +1501,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverGameControllerDevice {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverGameControllerDevice {}
+impl ::core::fmt::Debug for MiracastReceiverGameControllerDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverGameControllerDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverGameControllerDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverGameControllerDevice;{2d7171e8-bed4-5118-a058-e2477eb5888d})");
 }
@@ -1583,6 +1623,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverInputDevices {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverInputDevices {}
+impl ::core::fmt::Debug for MiracastReceiverInputDevices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverInputDevices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverInputDevices {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverInputDevices;{da35bb02-28aa-5ee8-96f5-a42901c66f00})");
 }
@@ -1695,6 +1740,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverKeyboardDevice {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverKeyboardDevice {}
+impl ::core::fmt::Debug for MiracastReceiverKeyboardDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverKeyboardDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverKeyboardDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverKeyboardDevice;{beb67272-06c0-54ff-ac96-217464ff2501})");
 }
@@ -1834,6 +1884,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverMediaSourceCreatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverMediaSourceCreatedEventArgs {}
+impl ::core::fmt::Debug for MiracastReceiverMediaSourceCreatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverMediaSourceCreatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverMediaSourceCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverMediaSourceCreatedEventArgs;{17cf519e-1246-531d-945a-6b158e39c3aa})");
 }
@@ -1996,6 +2051,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverSession {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverSession {}
+impl ::core::fmt::Debug for MiracastReceiverSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSession;{1d2bcdb4-ef8b-5209-bfc9-c32116504803})");
 }
@@ -2106,6 +2166,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverSessionStartResult {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverSessionStartResult {}
+impl ::core::fmt::Debug for MiracastReceiverSessionStartResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverSessionStartResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSessionStartResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSessionStartResult;{b7c573ee-40ca-51ff-95f2-c9de34f2e90e})");
 }
@@ -2274,6 +2339,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverSettings {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverSettings {}
+impl ::core::fmt::Debug for MiracastReceiverSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverSettings;{57cd2f24-c55a-5fbe-9464-eb05307705dd})");
 }
@@ -2383,6 +2453,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverStatus {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverStatus {}
+impl ::core::fmt::Debug for MiracastReceiverStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverStatus {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStatus;{c28a5591-23ab-519e-ad09-90bff6dcc87e})");
 }
@@ -2495,6 +2570,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverStreamControl {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverStreamControl {}
+impl ::core::fmt::Debug for MiracastReceiverStreamControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverStreamControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverStreamControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverStreamControl;{38ea2d8b-2769-5ad7-8a8a-254b9df7ba82})");
 }
@@ -2591,6 +2671,11 @@ impl ::core::cmp::PartialEq for MiracastReceiverVideoStreamSettings {
     }
 }
 impl ::core::cmp::Eq for MiracastReceiverVideoStreamSettings {}
+impl ::core::fmt::Debug for MiracastReceiverVideoStreamSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastReceiverVideoStreamSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastReceiverVideoStreamSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastReceiverVideoStreamSettings;{169b5e1b-149d-52d0-b126-6f89744e4f50})");
 }
@@ -2746,6 +2831,11 @@ impl ::core::cmp::PartialEq for MiracastTransmitter {
     }
 }
 impl ::core::cmp::Eq for MiracastTransmitter {}
+impl ::core::fmt::Debug for MiracastTransmitter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MiracastTransmitter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MiracastTransmitter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Miracast.MiracastTransmitter;{342d79fd-2e64-5508-8a30-833d1eac70d0})");
 }

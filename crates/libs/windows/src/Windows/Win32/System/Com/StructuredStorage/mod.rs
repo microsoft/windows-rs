@@ -995,6 +995,11 @@ impl ::core::cmp::PartialEq for IDirectWriterLock {
     }
 }
 impl ::core::cmp::Eq for IDirectWriterLock {}
+impl ::core::fmt::Debug for IDirectWriterLock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectWriterLock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectWriterLock {
     type Vtable = IDirectWriterLockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d92_6738_11cf_9608_00aa00680db4);
@@ -1063,6 +1068,11 @@ impl ::core::cmp::PartialEq for IEnumSTATPROPSETSTG {
     }
 }
 impl ::core::cmp::Eq for IEnumSTATPROPSETSTG {}
+impl ::core::fmt::Debug for IEnumSTATPROPSETSTG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumSTATPROPSETSTG").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumSTATPROPSETSTG {
     type Vtable = IEnumSTATPROPSETSTGVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013b_0000_0000_c000_000000000046);
@@ -1133,6 +1143,11 @@ impl ::core::cmp::PartialEq for IEnumSTATPROPSTG {
     }
 }
 impl ::core::cmp::Eq for IEnumSTATPROPSTG {}
+impl ::core::fmt::Debug for IEnumSTATPROPSTG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumSTATPROPSTG").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumSTATPROPSTG {
     type Vtable = IEnumSTATPROPSTGVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000139_0000_0000_c000_000000000046);
@@ -1203,6 +1218,11 @@ impl ::core::cmp::PartialEq for IEnumSTATSTG {
     }
 }
 impl ::core::cmp::Eq for IEnumSTATSTG {}
+impl ::core::fmt::Debug for IEnumSTATSTG {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumSTATSTG").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumSTATSTG {
     type Vtable = IEnumSTATSTGVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000d_0000_0000_c000_000000000046);
@@ -1274,6 +1294,11 @@ impl ::core::cmp::PartialEq for IFillLockBytes {
     }
 }
 impl ::core::cmp::Eq for IFillLockBytes {}
+impl ::core::fmt::Debug for IFillLockBytes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFillLockBytes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFillLockBytes {
     type Vtable = IFillLockBytesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99caf010_415e_11cf_8814_00aa00b569f5);
@@ -1348,6 +1373,11 @@ impl ::core::cmp::PartialEq for ILayoutStorage {
     }
 }
 impl ::core::cmp::Eq for ILayoutStorage {}
+impl ::core::fmt::Debug for ILayoutStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILayoutStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILayoutStorage {
     type Vtable = ILayoutStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e6d4d90_6738_11cf_9608_00aa00680db4);
@@ -1432,6 +1462,11 @@ impl ::core::cmp::PartialEq for ILockBytes {
     }
 }
 impl ::core::cmp::Eq for ILockBytes {}
+impl ::core::fmt::Debug for ILockBytes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILockBytes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ILockBytes {
     type Vtable = ILockBytesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000a_0000_0000_c000_000000000046);
@@ -1537,6 +1572,11 @@ impl ::core::cmp::PartialEq for IPersistStorage {
     }
 }
 impl ::core::cmp::Eq for IPersistStorage {}
+impl ::core::fmt::Debug for IPersistStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPersistStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPersistStorage {
     type Vtable = IPersistStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000010a_0000_0000_c000_000000000046);
@@ -1602,6 +1642,11 @@ impl ::core::cmp::PartialEq for IPropertyBag {
     }
 }
 impl ::core::cmp::Eq for IPropertyBag {}
+impl ::core::fmt::Debug for IPropertyBag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyBag").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyBag {
     type Vtable = IPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55272a00_42cb_11ce_8135_00aa004bb851);
@@ -1678,6 +1723,11 @@ impl ::core::cmp::PartialEq for IPropertyBag2 {
     }
 }
 impl ::core::cmp::Eq for IPropertyBag2 {}
+impl ::core::fmt::Debug for IPropertyBag2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyBag2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyBag2 {
     type Vtable = IPropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x22f55882_280b_11d0_a8a9_00a0c90c2004);
@@ -1753,6 +1803,11 @@ impl ::core::cmp::PartialEq for IPropertySetStorage {
     }
 }
 impl ::core::cmp::Eq for IPropertySetStorage {}
+impl ::core::fmt::Debug for IPropertySetStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertySetStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertySetStorage {
     type Vtable = IPropertySetStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000013a_0000_0000_c000_000000000046);
@@ -1861,6 +1916,11 @@ impl ::core::cmp::PartialEq for IPropertyStorage {
     }
 }
 impl ::core::cmp::Eq for IPropertyStorage {}
+impl ::core::fmt::Debug for IPropertyStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyStorage {
     type Vtable = IPropertyStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000138_0000_0000_c000_000000000046);
@@ -1932,6 +1992,11 @@ impl ::core::cmp::PartialEq for IRootStorage {
     }
 }
 impl ::core::cmp::Eq for IRootStorage {}
+impl ::core::fmt::Debug for IRootStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRootStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRootStorage {
     type Vtable = IRootStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000012_0000_0000_c000_000000000046);
@@ -2053,6 +2118,11 @@ impl ::core::cmp::PartialEq for IStorage {
     }
 }
 impl ::core::cmp::Eq for IStorage {}
+impl ::core::fmt::Debug for IStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStorage {
     type Vtable = IStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0000000b_0000_0000_c000_000000000046);

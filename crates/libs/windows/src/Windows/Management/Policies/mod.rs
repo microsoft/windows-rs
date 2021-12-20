@@ -201,6 +201,11 @@ impl ::core::cmp::PartialEq for NamedPolicyData {
     }
 }
 impl ::core::cmp::Eq for NamedPolicyData {}
+impl ::core::fmt::Debug for NamedPolicyData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NamedPolicyData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NamedPolicyData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Policies.NamedPolicyData;{38dcb198-95ac-4077-a643-8078cae26400})");
 }

@@ -249,6 +249,11 @@ impl ::core::cmp::PartialEq for SpatialSurfaceInfo {
     }
 }
 impl ::core::cmp::Eq for SpatialSurfaceInfo {}
+impl ::core::fmt::Debug for SpatialSurfaceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialSurfaceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialSurfaceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceInfo;{f8e9ebe7-39b7-3962-bb03-57f56e1fb0a1})");
 }
@@ -366,6 +371,11 @@ impl ::core::cmp::PartialEq for SpatialSurfaceMesh {
     }
 }
 impl ::core::cmp::Eq for SpatialSurfaceMesh {}
+impl ::core::fmt::Debug for SpatialSurfaceMesh {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialSurfaceMesh").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialSurfaceMesh {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMesh;{108f57d9-df0d-3950-a0fd-f972c77c27b4})");
 }
@@ -468,6 +478,11 @@ impl ::core::cmp::PartialEq for SpatialSurfaceMeshBuffer {
     }
 }
 impl ::core::cmp::Eq for SpatialSurfaceMeshBuffer {}
+impl ::core::fmt::Debug for SpatialSurfaceMeshBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialSurfaceMeshBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialSurfaceMeshBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshBuffer;{93cf59e0-871f-33f8-98b2-03d101458f6f})");
 }
@@ -630,6 +645,11 @@ impl ::core::cmp::PartialEq for SpatialSurfaceMeshOptions {
     }
 }
 impl ::core::cmp::Eq for SpatialSurfaceMeshOptions {}
+impl ::core::fmt::Debug for SpatialSurfaceMeshOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialSurfaceMeshOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialSurfaceMeshOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceMeshOptions;{d2759f89-3572-3d2d-a10d-5fee9394aa37})");
 }
@@ -765,6 +785,11 @@ impl ::core::cmp::PartialEq for SpatialSurfaceObserver {
     }
 }
 impl ::core::cmp::Eq for SpatialSurfaceObserver {}
+impl ::core::fmt::Debug for SpatialSurfaceObserver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialSurfaceObserver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialSurfaceObserver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Surfaces.SpatialSurfaceObserver;{10b69819-ddca-3483-ac3a-748fe8c86df5})");
 }

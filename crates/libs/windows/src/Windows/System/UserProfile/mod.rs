@@ -106,6 +106,11 @@ impl ::core::cmp::PartialEq for AdvertisingManagerForUser {
     }
 }
 impl ::core::cmp::Eq for AdvertisingManagerForUser {}
+impl ::core::fmt::Debug for AdvertisingManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdvertisingManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdvertisingManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AdvertisingManagerForUser;{928bf3d0-cf7c-4ab0-a7dc-6dc5bcd44252})");
 }
@@ -217,6 +222,11 @@ impl ::core::cmp::PartialEq for AssignedAccessSettings {
     }
 }
 impl ::core::cmp::Eq for AssignedAccessSettings {}
+impl ::core::fmt::Debug for AssignedAccessSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AssignedAccessSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AssignedAccessSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.AssignedAccessSettings;{1bc57f1c-e971-5757-b8e0-512f8b8c46d2})");
 }
@@ -320,6 +330,11 @@ impl ::core::cmp::PartialEq for DiagnosticsSettings {
     }
 }
 impl ::core::cmp::Eq for DiagnosticsSettings {}
+impl ::core::fmt::Debug for DiagnosticsSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiagnosticsSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DiagnosticsSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.DiagnosticsSettings;{e5e9eccd-2711-44e0-973c-491d78048d24})");
 }
@@ -442,6 +457,11 @@ impl ::core::cmp::PartialEq for FirstSignInSettings {
     }
 }
 impl ::core::cmp::Eq for FirstSignInSettings {}
+impl ::core::fmt::Debug for FirstSignInSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FirstSignInSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FirstSignInSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.FirstSignInSettings;{3e945153-3a5e-452e-a601-f5baad2a4870})");
 }
@@ -730,6 +750,11 @@ impl ::core::cmp::PartialEq for GlobalizationPreferencesForUser {
     }
 }
 impl ::core::cmp::Eq for GlobalizationPreferencesForUser {}
+impl ::core::fmt::Debug for GlobalizationPreferencesForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GlobalizationPreferencesForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GlobalizationPreferencesForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.GlobalizationPreferencesForUser;{150f0795-4f6e-40ba-a010-e27d81bda7f5})");
 }
@@ -1510,6 +1535,11 @@ impl ::core::cmp::PartialEq for UserProfilePersonalizationSettings {
     }
 }
 impl ::core::cmp::Eq for UserProfilePersonalizationSettings {}
+impl ::core::fmt::Debug for UserProfilePersonalizationSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserProfilePersonalizationSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserProfilePersonalizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.System.UserProfile.UserProfilePersonalizationSettings;{8ceddab4-7998-46d5-8dd3-184f1c5f9ab9})");
 }

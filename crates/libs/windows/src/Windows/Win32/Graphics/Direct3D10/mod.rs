@@ -6062,6 +6062,11 @@ impl ::core::cmp::PartialEq for ID3D10Asynchronous {
     }
 }
 impl ::core::cmp::Eq for ID3D10Asynchronous {}
+impl ::core::fmt::Debug for ID3D10Asynchronous {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Asynchronous").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Asynchronous {
     type Vtable = ID3D10AsynchronousVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0d_342c_4106_a19f_4f2704f689f0);
@@ -6158,6 +6163,11 @@ impl ::core::cmp::PartialEq for ID3D10BlendState {
     }
 }
 impl ::core::cmp::Eq for ID3D10BlendState {}
+impl ::core::fmt::Debug for ID3D10BlendState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10BlendState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10BlendState {
     type Vtable = ID3D10BlendStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedad8d19_8a35_4d6d_8566_2ea276cde161);
@@ -6277,6 +6287,11 @@ impl ::core::cmp::PartialEq for ID3D10BlendState1 {
     }
 }
 impl ::core::cmp::Eq for ID3D10BlendState1 {}
+impl ::core::fmt::Debug for ID3D10BlendState1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10BlendState1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10BlendState1 {
     type Vtable = ID3D10BlendState1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedad8d99_8a35_4d6d_8566_2ea276cde161);
@@ -6412,6 +6427,11 @@ impl ::core::cmp::PartialEq for ID3D10Buffer {
     }
 }
 impl ::core::cmp::Eq for ID3D10Buffer {}
+impl ::core::fmt::Debug for ID3D10Buffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Buffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Buffer {
     type Vtable = ID3D10BufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c02_342c_4106_a19f_4f2704f689f0);
@@ -6545,6 +6565,11 @@ impl ::core::cmp::PartialEq for ID3D10Counter {
     }
 }
 impl ::core::cmp::Eq for ID3D10Counter {}
+impl ::core::fmt::Debug for ID3D10Counter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Counter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Counter {
     type Vtable = ID3D10CounterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c11_342c_4106_a19f_4f2704f689f0);
@@ -6632,6 +6657,11 @@ impl ::core::cmp::PartialEq for ID3D10Debug {
     }
 }
 impl ::core::cmp::Eq for ID3D10Debug {}
+impl ::core::fmt::Debug for ID3D10Debug {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Debug").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Debug {
     type Vtable = ID3D10DebugVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e01_342c_4106_a19f_4f2704f689f0);
@@ -6729,6 +6759,11 @@ impl ::core::cmp::PartialEq for ID3D10DepthStencilState {
     }
 }
 impl ::core::cmp::Eq for ID3D10DepthStencilState {}
+impl ::core::fmt::Debug for ID3D10DepthStencilState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10DepthStencilState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10DepthStencilState {
     type Vtable = ID3D10DepthStencilStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b4b1cc8_a4ad_41f8_8322_ca86fc3ec675);
@@ -6847,6 +6882,11 @@ impl ::core::cmp::PartialEq for ID3D10DepthStencilView {
     }
 }
 impl ::core::cmp::Eq for ID3D10DepthStencilView {}
+impl ::core::fmt::Debug for ID3D10DepthStencilView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10DepthStencilView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10DepthStencilView {
     type Vtable = ID3D10DepthStencilViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c09_342c_4106_a19f_4f2704f689f0);
@@ -7326,6 +7366,11 @@ impl ::core::cmp::PartialEq for ID3D10Device {
     }
 }
 impl ::core::cmp::Eq for ID3D10Device {}
+impl ::core::fmt::Debug for ID3D10Device {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Device").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Device {
     type Vtable = ID3D10DeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0f_342c_4106_a19f_4f2704f689f0);
@@ -7953,6 +7998,11 @@ impl ::core::cmp::PartialEq for ID3D10Device1 {
     }
 }
 impl ::core::cmp::Eq for ID3D10Device1 {}
+impl ::core::fmt::Debug for ID3D10Device1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Device1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Device1 {
     type Vtable = ID3D10Device1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c8f_342c_4106_a19f_4f2704f689f0);
@@ -8140,6 +8190,11 @@ impl ::core::cmp::PartialEq for ID3D10DeviceChild {
     }
 }
 impl ::core::cmp::Eq for ID3D10DeviceChild {}
+impl ::core::fmt::Debug for ID3D10DeviceChild {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10DeviceChild").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10DeviceChild {
     type Vtable = ID3D10DeviceChildVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c00_342c_4106_a19f_4f2704f689f0);
@@ -8253,6 +8308,11 @@ impl ::core::cmp::PartialEq for ID3D10Effect {
     }
 }
 impl ::core::cmp::Eq for ID3D10Effect {}
+impl ::core::fmt::Debug for ID3D10Effect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Effect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Effect {
     type Vtable = ID3D10EffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51b0ca8b_ec0b_4519_870d_8ee1cb5017c7);
@@ -8437,6 +8497,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectBlendVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectBlendVariable {}
+impl ::core::fmt::Debug for ID3D10EffectBlendVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectBlendVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectBlendVariable {
     type Vtable = ID3D10EffectBlendVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fcd2294_df6d_4eae_86b3_0e9160cfb07b);
@@ -8638,6 +8703,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectConstantBuffer {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectConstantBuffer {}
+impl ::core::fmt::Debug for ID3D10EffectConstantBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectConstantBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectConstantBuffer {
     type Vtable = ID3D10EffectConstantBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56648f4d_cc8b_4444_a5ad_b5a3d76e91b3);
@@ -8833,6 +8903,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectDepthStencilVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectDepthStencilVariable {}
+impl ::core::fmt::Debug for ID3D10EffectDepthStencilVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectDepthStencilVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectDepthStencilVariable {
     type Vtable = ID3D10EffectDepthStencilVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf482368_330a_46a5_9a5c_01c71af24c8d);
@@ -9033,6 +9108,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectDepthStencilViewVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectDepthStencilViewVariable {}
+impl ::core::fmt::Debug for ID3D10EffectDepthStencilViewVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectDepthStencilViewVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectDepthStencilViewVariable {
     type Vtable = ID3D10EffectDepthStencilViewVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e02c918_cc79_4985_b622_2d92ad701623);
@@ -9249,6 +9329,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectMatrixVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectMatrixVariable {}
+impl ::core::fmt::Debug for ID3D10EffectMatrixVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectMatrixVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectMatrixVariable {
     type Vtable = ID3D10EffectMatrixVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50666c24_b82f_4eed_a172_5b6e7e8522e0);
@@ -9351,6 +9436,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectPass {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectPass {}
+impl ::core::fmt::Debug for ID3D10EffectPass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectPass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectPass {
     type Vtable = ID3D10EffectPassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cfbeb89_1a06_46e0_b282_e3f9bfa36a54);
@@ -9411,6 +9501,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectPool {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectPool {}
+impl ::core::fmt::Debug for ID3D10EffectPool {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectPool").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectPool {
     type Vtable = ID3D10EffectPoolVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9537ab04_3250_412e_8213_fcd2f8677933);
@@ -9571,6 +9666,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectRasterizerVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectRasterizerVariable {}
+impl ::core::fmt::Debug for ID3D10EffectRasterizerVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectRasterizerVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectRasterizerVariable {
     type Vtable = ID3D10EffectRasterizerVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21af9f0e_4d94_4ea9_9785_2cb76b8c0b34);
@@ -9771,6 +9871,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectRenderTargetViewVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectRenderTargetViewVariable {}
+impl ::core::fmt::Debug for ID3D10EffectRenderTargetViewVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectRenderTargetViewVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectRenderTargetViewVariable {
     type Vtable = ID3D10EffectRenderTargetViewVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28ca0cc3_c2c9_40bb_b57f_67b737122b17);
@@ -9965,6 +10070,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectSamplerVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectSamplerVariable {}
+impl ::core::fmt::Debug for ID3D10EffectSamplerVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectSamplerVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectSamplerVariable {
     type Vtable = ID3D10EffectSamplerVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6530d5c7_07e9_4271_a418_e7ce4bd1e480);
@@ -10202,6 +10312,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectScalarVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectScalarVariable {}
+impl ::core::fmt::Debug for ID3D10EffectScalarVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectScalarVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectScalarVariable {
     type Vtable = ID3D10EffectScalarVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e48f7b_d2c8_49e8_a86c_022dee53431f);
@@ -10415,6 +10530,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectShaderResourceVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectShaderResourceVariable {}
+impl ::core::fmt::Debug for ID3D10EffectShaderResourceVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectShaderResourceVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectShaderResourceVariable {
     type Vtable = ID3D10EffectShaderResourceVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0a7157b_d872_4b1d_8073_efc2acd4b1fc);
@@ -10632,6 +10752,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectShaderVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectShaderVariable {}
+impl ::core::fmt::Debug for ID3D10EffectShaderVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectShaderVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectShaderVariable {
     type Vtable = ID3D10EffectShaderVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x80849279_c799_4797_8c33_0407a07d9e06);
@@ -10832,6 +10957,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectStringVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectStringVariable {}
+impl ::core::fmt::Debug for ID3D10EffectStringVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectStringVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectStringVariable {
     type Vtable = ID3D10EffectStringVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71417501_8df9_4e0a_a78a_255f9756baff);
@@ -10923,6 +11053,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectTechnique {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectTechnique {}
+impl ::core::fmt::Debug for ID3D10EffectTechnique {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectTechnique").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectTechnique {
     type Vtable = ID3D10EffectTechniqueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdb122ce8_d1c9_4292_b237_24ed3de8b175);
@@ -10992,6 +11127,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectType {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectType {}
+impl ::core::fmt::Debug for ID3D10EffectType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectType {
     type Vtable = ID3D10EffectTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e9e1ddc_cd9d_4772_a837_00180b9b88fd);
@@ -11135,6 +11275,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectVariable {}
+impl ::core::fmt::Debug for ID3D10EffectVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectVariable {
     type Vtable = ID3D10EffectVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae897105_00e6_45bf_bb8e_281dd6db8e1b);
@@ -11367,6 +11512,11 @@ impl ::core::cmp::PartialEq for ID3D10EffectVectorVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10EffectVectorVariable {}
+impl ::core::fmt::Debug for ID3D10EffectVectorVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10EffectVectorVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10EffectVectorVariable {
     type Vtable = ID3D10EffectVectorVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x62b98c44_1f82_4c67_bcd0_72cf8f217e81);
@@ -11493,6 +11643,11 @@ impl ::core::cmp::PartialEq for ID3D10GeometryShader {
     }
 }
 impl ::core::cmp::Eq for ID3D10GeometryShader {}
+impl ::core::fmt::Debug for ID3D10GeometryShader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10GeometryShader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10GeometryShader {
     type Vtable = ID3D10GeometryShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6316be88_54cd_4040_ab44_20461bc81f68);
@@ -11694,6 +11849,11 @@ impl ::core::cmp::PartialEq for ID3D10InfoQueue {
     }
 }
 impl ::core::cmp::Eq for ID3D10InfoQueue {}
+impl ::core::fmt::Debug for ID3D10InfoQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10InfoQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10InfoQueue {
     type Vtable = ID3D10InfoQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b940b17_2642_4d1f_ab1f_b99bad0c395f);
@@ -11822,6 +11982,11 @@ impl ::core::cmp::PartialEq for ID3D10InputLayout {
     }
 }
 impl ::core::cmp::Eq for ID3D10InputLayout {}
+impl ::core::fmt::Debug for ID3D10InputLayout {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10InputLayout").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10InputLayout {
     type Vtable = ID3D10InputLayoutVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0b_342c_4106_a19f_4f2704f689f0);
@@ -11891,6 +12056,11 @@ impl ::core::cmp::PartialEq for ID3D10Multithread {
     }
 }
 impl ::core::cmp::Eq for ID3D10Multithread {}
+impl ::core::fmt::Debug for ID3D10Multithread {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Multithread").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Multithread {
     type Vtable = ID3D10MultithreadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e00_342c_4106_a19f_4f2704f689f0);
@@ -11980,6 +12150,11 @@ impl ::core::cmp::PartialEq for ID3D10PixelShader {
     }
 }
 impl ::core::cmp::Eq for ID3D10PixelShader {}
+impl ::core::fmt::Debug for ID3D10PixelShader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10PixelShader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10PixelShader {
     type Vtable = ID3D10PixelShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4968b601_9d00_4cde_8346_8e7f675819b6);
@@ -12127,6 +12302,11 @@ impl ::core::cmp::PartialEq for ID3D10Predicate {
     }
 }
 impl ::core::cmp::Eq for ID3D10Predicate {}
+impl ::core::fmt::Debug for ID3D10Predicate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Predicate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Predicate {
     type Vtable = ID3D10PredicateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c10_342c_4106_a19f_4f2704f689f0);
@@ -12259,6 +12439,11 @@ impl ::core::cmp::PartialEq for ID3D10Query {
     }
 }
 impl ::core::cmp::Eq for ID3D10Query {}
+impl ::core::fmt::Debug for ID3D10Query {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Query").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Query {
     type Vtable = ID3D10QueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0e_342c_4106_a19f_4f2704f689f0);
@@ -12356,6 +12541,11 @@ impl ::core::cmp::PartialEq for ID3D10RasterizerState {
     }
 }
 impl ::core::cmp::Eq for ID3D10RasterizerState {}
+impl ::core::fmt::Debug for ID3D10RasterizerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10RasterizerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10RasterizerState {
     type Vtable = ID3D10RasterizerStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2a07292_89af_4345_be2e_c53d9fbb6e9f);
@@ -12474,6 +12664,11 @@ impl ::core::cmp::PartialEq for ID3D10RenderTargetView {
     }
 }
 impl ::core::cmp::Eq for ID3D10RenderTargetView {}
+impl ::core::fmt::Debug for ID3D10RenderTargetView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10RenderTargetView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10RenderTargetView {
     type Vtable = ID3D10RenderTargetViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c08_342c_4106_a19f_4f2704f689f0);
@@ -12576,6 +12771,11 @@ impl ::core::cmp::PartialEq for ID3D10Resource {
     }
 }
 impl ::core::cmp::Eq for ID3D10Resource {}
+impl ::core::fmt::Debug for ID3D10Resource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Resource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Resource {
     type Vtable = ID3D10ResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c01_342c_4106_a19f_4f2704f689f0);
@@ -12670,6 +12870,11 @@ impl ::core::cmp::PartialEq for ID3D10SamplerState {
     }
 }
 impl ::core::cmp::Eq for ID3D10SamplerState {}
+impl ::core::fmt::Debug for ID3D10SamplerState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10SamplerState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10SamplerState {
     type Vtable = ID3D10SamplerStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0c_342c_4106_a19f_4f2704f689f0);
@@ -12755,6 +12960,11 @@ impl ::core::cmp::PartialEq for ID3D10ShaderReflection {
     }
 }
 impl ::core::cmp::Eq for ID3D10ShaderReflection {}
+impl ::core::fmt::Debug for ID3D10ShaderReflection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10ShaderReflection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflection {
     type Vtable = ID3D10ShaderReflectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd40e20b6_f8f7_42ad_ab20_4baf8f15dfaa);
@@ -12895,6 +13105,11 @@ impl ::core::cmp::PartialEq for ID3D10ShaderReflection1 {
     }
 }
 impl ::core::cmp::Eq for ID3D10ShaderReflection1 {}
+impl ::core::fmt::Debug for ID3D10ShaderReflection1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10ShaderReflection1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflection1 {
     type Vtable = ID3D10ShaderReflection1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3457783_a846_47ce_9520_cea6f66e7447);
@@ -12962,6 +13177,11 @@ impl ::core::cmp::PartialEq for ID3D10ShaderReflectionConstantBuffer {
     }
 }
 impl ::core::cmp::Eq for ID3D10ShaderReflectionConstantBuffer {}
+impl ::core::fmt::Debug for ID3D10ShaderReflectionConstantBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10ShaderReflectionConstantBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionConstantBuffer {
     type Vtable = ID3D10ShaderReflectionConstantBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66c66a94_dddd_4b62_a66a_f0da33c2b4d0);
@@ -13010,6 +13230,11 @@ impl ::core::cmp::PartialEq for ID3D10ShaderReflectionType {
     }
 }
 impl ::core::cmp::Eq for ID3D10ShaderReflectionType {}
+impl ::core::fmt::Debug for ID3D10ShaderReflectionType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10ShaderReflectionType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionType {
     type Vtable = ID3D10ShaderReflectionTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc530ad7d_9b16_4395_a979_ba2ecff83add);
@@ -13051,6 +13276,11 @@ impl ::core::cmp::PartialEq for ID3D10ShaderReflectionVariable {
     }
 }
 impl ::core::cmp::Eq for ID3D10ShaderReflectionVariable {}
+impl ::core::fmt::Debug for ID3D10ShaderReflectionVariable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10ShaderReflectionVariable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10ShaderReflectionVariable {
     type Vtable = ID3D10ShaderReflectionVariableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bf63c95_2650_405d_99c1_3636bd1da0a1);
@@ -13159,6 +13389,11 @@ impl ::core::cmp::PartialEq for ID3D10ShaderResourceView {
     }
 }
 impl ::core::cmp::Eq for ID3D10ShaderResourceView {}
+impl ::core::fmt::Debug for ID3D10ShaderResourceView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10ShaderResourceView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10ShaderResourceView {
     type Vtable = ID3D10ShaderResourceViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c07_342c_4106_a19f_4f2704f689f0);
@@ -13303,6 +13538,11 @@ impl ::core::cmp::PartialEq for ID3D10ShaderResourceView1 {
     }
 }
 impl ::core::cmp::Eq for ID3D10ShaderResourceView1 {}
+impl ::core::fmt::Debug for ID3D10ShaderResourceView1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10ShaderResourceView1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10ShaderResourceView1 {
     type Vtable = ID3D10ShaderResourceView1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c87_342c_4106_a19f_4f2704f689f0);
@@ -13376,6 +13616,11 @@ impl ::core::cmp::PartialEq for ID3D10StateBlock {
     }
 }
 impl ::core::cmp::Eq for ID3D10StateBlock {}
+impl ::core::fmt::Debug for ID3D10StateBlock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10StateBlock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10StateBlock {
     type Vtable = ID3D10StateBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0803425a_57f5_4dd6_9465_a87570834a08);
@@ -13437,6 +13682,11 @@ impl ::core::cmp::PartialEq for ID3D10SwitchToRef {
     }
 }
 impl ::core::cmp::Eq for ID3D10SwitchToRef {}
+impl ::core::fmt::Debug for ID3D10SwitchToRef {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10SwitchToRef").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10SwitchToRef {
     type Vtable = ID3D10SwitchToRefVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4e02_342c_4106_a19f_4f2704f689f0);
@@ -13569,6 +13819,11 @@ impl ::core::cmp::PartialEq for ID3D10Texture1D {
     }
 }
 impl ::core::cmp::Eq for ID3D10Texture1D {}
+impl ::core::fmt::Debug for ID3D10Texture1D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Texture1D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Texture1D {
     type Vtable = ID3D10Texture1DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c03_342c_4106_a19f_4f2704f689f0);
@@ -13709,6 +13964,11 @@ impl ::core::cmp::PartialEq for ID3D10Texture2D {
     }
 }
 impl ::core::cmp::Eq for ID3D10Texture2D {}
+impl ::core::fmt::Debug for ID3D10Texture2D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Texture2D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Texture2D {
     type Vtable = ID3D10Texture2DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c04_342c_4106_a19f_4f2704f689f0);
@@ -13849,6 +14109,11 @@ impl ::core::cmp::PartialEq for ID3D10Texture3D {
     }
 }
 impl ::core::cmp::Eq for ID3D10Texture3D {}
+impl ::core::fmt::Debug for ID3D10Texture3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10Texture3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10Texture3D {
     type Vtable = ID3D10Texture3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c05_342c_4106_a19f_4f2704f689f0);
@@ -13943,6 +14208,11 @@ impl ::core::cmp::PartialEq for ID3D10VertexShader {
     }
 }
 impl ::core::cmp::Eq for ID3D10VertexShader {}
+impl ::core::fmt::Debug for ID3D10VertexShader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10VertexShader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10VertexShader {
     type Vtable = ID3D10VertexShaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e4c0a_342c_4106_a19f_4f2704f689f0);
@@ -14034,6 +14304,11 @@ impl ::core::cmp::PartialEq for ID3D10View {
     }
 }
 impl ::core::cmp::Eq for ID3D10View {}
+impl ::core::fmt::Debug for ID3D10View {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3D10View").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3D10View {
     type Vtable = ID3D10ViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc902b03f_60a7_49ba_9936_2a3ab37a7e33);

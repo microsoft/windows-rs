@@ -245,6 +245,11 @@ impl ::core::cmp::PartialEq for EmailDataProviderConnection {
     }
 }
 impl ::core::cmp::Eq for EmailDataProviderConnection {}
+impl ::core::fmt::Debug for EmailDataProviderConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailDataProviderConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailDataProviderConnection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailDataProviderConnection;{3b9c9dc7-37b2-4bf0-ae30-7b644a1c96e1})");
 }
@@ -321,6 +326,11 @@ impl ::core::cmp::PartialEq for EmailDataProviderTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for EmailDataProviderTriggerDetails {}
+impl ::core::fmt::Debug for EmailDataProviderTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailDataProviderTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailDataProviderTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailDataProviderTriggerDetails;{8f3e4e50-341e-45f3-bba0-84a005e1319a})");
 }
@@ -431,6 +441,11 @@ impl ::core::cmp::PartialEq for EmailMailboxCreateFolderRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxCreateFolderRequest {}
+impl ::core::fmt::Debug for EmailMailboxCreateFolderRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxCreateFolderRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequest;{184d3775-c921-4c39-a309-e16c9f22b04b})");
 }
@@ -516,6 +531,11 @@ impl ::core::cmp::PartialEq for EmailMailboxCreateFolderRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxCreateFolderRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxCreateFolderRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxCreateFolderRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxCreateFolderRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxCreateFolderRequestEventArgs;{03e4c02c-241c-4ea9-a68f-ff20bc5afc85})");
 }
@@ -618,6 +638,11 @@ impl ::core::cmp::PartialEq for EmailMailboxDeleteFolderRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxDeleteFolderRequest {}
+impl ::core::fmt::Debug for EmailMailboxDeleteFolderRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDeleteFolderRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequest;{9469e88a-a931-4779-923d-09a3ea292e29})");
 }
@@ -703,6 +728,11 @@ impl ::core::cmp::PartialEq for EmailMailboxDeleteFolderRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxDeleteFolderRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxDeleteFolderRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDeleteFolderRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDeleteFolderRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDeleteFolderRequestEventArgs;{b4d32d06-2332-4678-8378-28b579336846})");
 }
@@ -813,6 +843,11 @@ impl ::core::cmp::PartialEq for EmailMailboxDownloadAttachmentRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxDownloadAttachmentRequest {}
+impl ::core::fmt::Debug for EmailMailboxDownloadAttachmentRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDownloadAttachmentRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadAttachmentRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequest;{0b1dbbb4-750c-48e1-bce4-8d589684ffbc})");
 }
@@ -898,6 +933,11 @@ impl ::core::cmp::PartialEq for EmailMailboxDownloadAttachmentRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxDownloadAttachmentRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxDownloadAttachmentRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDownloadAttachmentRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadAttachmentRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadAttachmentRequestEventArgs;{ccddc46d-ffa8-4877-9f9d-fed7bcaf4104})");
 }
@@ -1000,6 +1040,11 @@ impl ::core::cmp::PartialEq for EmailMailboxDownloadMessageRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxDownloadMessageRequest {}
+impl ::core::fmt::Debug for EmailMailboxDownloadMessageRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDownloadMessageRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadMessageRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequest;{497b4187-5b4d-4b23-816c-f3842beb753e})");
 }
@@ -1085,6 +1130,11 @@ impl ::core::cmp::PartialEq for EmailMailboxDownloadMessageRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxDownloadMessageRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxDownloadMessageRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxDownloadMessageRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxDownloadMessageRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxDownloadMessageRequestEventArgs;{470409ad-d0a0-4a5b-bb2a-37621039c53e})");
 }
@@ -1187,6 +1237,11 @@ impl ::core::cmp::PartialEq for EmailMailboxEmptyFolderRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxEmptyFolderRequest {}
+impl ::core::fmt::Debug for EmailMailboxEmptyFolderRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxEmptyFolderRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequest;{fe4b03ab-f86d-46d9-b4ce-bc8a6d9e9268})");
 }
@@ -1272,6 +1327,11 @@ impl ::core::cmp::PartialEq for EmailMailboxEmptyFolderRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxEmptyFolderRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxEmptyFolderRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxEmptyFolderRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxEmptyFolderRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxEmptyFolderRequestEventArgs;{7183f484-985a-4ac0-b33f-ee0e2627a3c0})");
 }
@@ -1415,6 +1475,11 @@ impl ::core::cmp::PartialEq for EmailMailboxForwardMeetingRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxForwardMeetingRequest {}
+impl ::core::fmt::Debug for EmailMailboxForwardMeetingRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxForwardMeetingRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxForwardMeetingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequest;{616d6af1-70d4-4832-b869-b80542ae9be8})");
 }
@@ -1500,6 +1565,11 @@ impl ::core::cmp::PartialEq for EmailMailboxForwardMeetingRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxForwardMeetingRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxForwardMeetingRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxForwardMeetingRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxForwardMeetingRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxForwardMeetingRequestEventArgs;{2bd8f33a-2974-4759-a5a5-58f44d3c0275})");
 }
@@ -1602,6 +1672,11 @@ impl ::core::cmp::PartialEq for EmailMailboxGetAutoReplySettingsRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxGetAutoReplySettingsRequest {}
+impl ::core::fmt::Debug for EmailMailboxGetAutoReplySettingsRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxGetAutoReplySettingsRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxGetAutoReplySettingsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequest;{9b380789-1e88-4e01-84cc-1386ad9a2c2f})");
 }
@@ -1687,6 +1762,11 @@ impl ::core::cmp::PartialEq for EmailMailboxGetAutoReplySettingsRequestEventArgs
     }
 }
 impl ::core::cmp::Eq for EmailMailboxGetAutoReplySettingsRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxGetAutoReplySettingsRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxGetAutoReplySettingsRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxGetAutoReplySettingsRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxGetAutoReplySettingsRequestEventArgs;{d79f55c2-fd45-4004-8a91-9bacf38b7022})");
 }
@@ -1805,6 +1885,11 @@ impl ::core::cmp::PartialEq for EmailMailboxMoveFolderRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxMoveFolderRequest {}
+impl ::core::fmt::Debug for EmailMailboxMoveFolderRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxMoveFolderRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxMoveFolderRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequest;{10ba2856-4a95-4068-91cc-67cc7acf454f})");
 }
@@ -1890,6 +1975,11 @@ impl ::core::cmp::PartialEq for EmailMailboxMoveFolderRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxMoveFolderRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxMoveFolderRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxMoveFolderRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxMoveFolderRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxMoveFolderRequestEventArgs;{38623020-14ba-4c88-8698-7239e3c8aaa7})");
 }
@@ -2026,6 +2116,11 @@ impl ::core::cmp::PartialEq for EmailMailboxProposeNewTimeForMeetingRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxProposeNewTimeForMeetingRequest {}
+impl ::core::fmt::Debug for EmailMailboxProposeNewTimeForMeetingRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxProposeNewTimeForMeetingRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxProposeNewTimeForMeetingRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequest;{5aeff152-9799-4f9f-a399-ff07f3eef04e})");
 }
@@ -2111,6 +2206,11 @@ impl ::core::cmp::PartialEq for EmailMailboxProposeNewTimeForMeetingRequestEvent
     }
 }
 impl ::core::cmp::Eq for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxProposeNewTimeForMeetingRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxProposeNewTimeForMeetingRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxProposeNewTimeForMeetingRequestEventArgs;{fb480b98-33ad-4a67-8251-0f9c249b6a20})");
 }
@@ -2214,6 +2314,11 @@ impl ::core::cmp::PartialEq for EmailMailboxResolveRecipientsRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxResolveRecipientsRequest {}
+impl ::core::fmt::Debug for EmailMailboxResolveRecipientsRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxResolveRecipientsRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxResolveRecipientsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequest;{efa4cf70-7b39-4c9b-811e-41eaf43a332d})");
 }
@@ -2299,6 +2404,11 @@ impl ::core::cmp::PartialEq for EmailMailboxResolveRecipientsRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxResolveRecipientsRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxResolveRecipientsRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxResolveRecipientsRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxResolveRecipientsRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxResolveRecipientsRequestEventArgs;{260f9e02-b2cf-40f8-8c28-e3ed43b1e89a})");
 }
@@ -2434,6 +2544,11 @@ impl ::core::cmp::PartialEq for EmailMailboxServerSearchReadBatchRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxServerSearchReadBatchRequest {}
+impl ::core::fmt::Debug for EmailMailboxServerSearchReadBatchRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxServerSearchReadBatchRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxServerSearchReadBatchRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequest;{090eebdf-5a96-41d3-8ad8-34912f9aa60e})");
 }
@@ -2519,6 +2634,11 @@ impl ::core::cmp::PartialEq for EmailMailboxServerSearchReadBatchRequestEventArg
     }
 }
 impl ::core::cmp::Eq for EmailMailboxServerSearchReadBatchRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxServerSearchReadBatchRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxServerSearchReadBatchRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxServerSearchReadBatchRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxServerSearchReadBatchRequestEventArgs;{14101b4e-ed9e-45d1-ad7a-cc9b7f643ae2})");
 }
@@ -2621,6 +2741,11 @@ impl ::core::cmp::PartialEq for EmailMailboxSetAutoReplySettingsRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxSetAutoReplySettingsRequest {}
+impl ::core::fmt::Debug for EmailMailboxSetAutoReplySettingsRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSetAutoReplySettingsRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSetAutoReplySettingsRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequest;{75a422d0-a88e-4e54-8dc7-c243186b774e})");
 }
@@ -2706,6 +2831,11 @@ impl ::core::cmp::PartialEq for EmailMailboxSetAutoReplySettingsRequestEventArgs
     }
 }
 impl ::core::cmp::Eq for EmailMailboxSetAutoReplySettingsRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxSetAutoReplySettingsRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSetAutoReplySettingsRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSetAutoReplySettingsRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSetAutoReplySettingsRequestEventArgs;{09da11ad-d7ca-4087-ac86-53fa67f76246})");
 }
@@ -2800,6 +2930,11 @@ impl ::core::cmp::PartialEq for EmailMailboxSyncManagerSyncRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxSyncManagerSyncRequest {}
+impl ::core::fmt::Debug for EmailMailboxSyncManagerSyncRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSyncManagerSyncRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncManagerSyncRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequest;{4e10e8e4-7e67-405a-b673-dc60c91090fc})");
 }
@@ -2885,6 +3020,11 @@ impl ::core::cmp::PartialEq for EmailMailboxSyncManagerSyncRequestEventArgs {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxSyncManagerSyncRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxSyncManagerSyncRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxSyncManagerSyncRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxSyncManagerSyncRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxSyncManagerSyncRequestEventArgs;{439a031a-8fcc-4ae5-b9b5-d434e0a65aa8})");
 }
@@ -3019,6 +3159,11 @@ impl ::core::cmp::PartialEq for EmailMailboxUpdateMeetingResponseRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxUpdateMeetingResponseRequest {}
+impl ::core::fmt::Debug for EmailMailboxUpdateMeetingResponseRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxUpdateMeetingResponseRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxUpdateMeetingResponseRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequest;{5b99ac93-b2cf-4888-ba4f-306b6b66df30})");
 }
@@ -3104,6 +3249,11 @@ impl ::core::cmp::PartialEq for EmailMailboxUpdateMeetingResponseRequestEventArg
     }
 }
 impl ::core::cmp::Eq for EmailMailboxUpdateMeetingResponseRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxUpdateMeetingResponseRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxUpdateMeetingResponseRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxUpdateMeetingResponseRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxUpdateMeetingResponseRequestEventArgs;{6898d761-56c9-4f17-be31-66fda94ba159})");
 }
@@ -3207,6 +3357,11 @@ impl ::core::cmp::PartialEq for EmailMailboxValidateCertificatesRequest {
     }
 }
 impl ::core::cmp::Eq for EmailMailboxValidateCertificatesRequest {}
+impl ::core::fmt::Debug for EmailMailboxValidateCertificatesRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxValidateCertificatesRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxValidateCertificatesRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequest;{a94d3931-e11a-4f97-b81a-187a70a8f41a})");
 }
@@ -3292,6 +3447,11 @@ impl ::core::cmp::PartialEq for EmailMailboxValidateCertificatesRequestEventArgs
     }
 }
 impl ::core::cmp::Eq for EmailMailboxValidateCertificatesRequestEventArgs {}
+impl ::core::fmt::Debug for EmailMailboxValidateCertificatesRequestEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailMailboxValidateCertificatesRequestEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailMailboxValidateCertificatesRequestEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Email.DataProvider.EmailMailboxValidateCertificatesRequestEventArgs;{2583bf17-02ff-49fe-a73c-03f37566c691})");
 }

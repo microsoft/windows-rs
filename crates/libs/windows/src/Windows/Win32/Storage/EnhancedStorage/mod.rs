@@ -509,6 +509,11 @@ impl ::core::cmp::PartialEq for IEnhancedStorageACT {
     }
 }
 impl ::core::cmp::Eq for IEnhancedStorageACT {}
+impl ::core::fmt::Debug for IEnhancedStorageACT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnhancedStorageACT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT {
     type Vtable = IEnhancedStorageACTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6e7781f4_e0f2_4239_b976_a01abab52930);
@@ -625,6 +630,11 @@ impl ::core::cmp::PartialEq for IEnhancedStorageACT2 {
     }
 }
 impl ::core::cmp::Eq for IEnhancedStorageACT2 {}
+impl ::core::fmt::Debug for IEnhancedStorageACT2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnhancedStorageACT2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT2 {
     type Vtable = IEnhancedStorageACT2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4da57d2e_8eb3_41f6_a07e_98b52b88242b);
@@ -781,6 +791,11 @@ impl ::core::cmp::PartialEq for IEnhancedStorageACT3 {
     }
 }
 impl ::core::cmp::Eq for IEnhancedStorageACT3 {}
+impl ::core::fmt::Debug for IEnhancedStorageACT3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnhancedStorageACT3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnhancedStorageACT3 {
     type Vtable = IEnhancedStorageACT3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x022150a1_113d_11df_bb61_001aa01bbc58);
@@ -870,6 +885,11 @@ impl ::core::cmp::PartialEq for IEnhancedStorageSilo {
     }
 }
 impl ::core::cmp::Eq for IEnhancedStorageSilo {}
+impl ::core::fmt::Debug for IEnhancedStorageSilo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnhancedStorageSilo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnhancedStorageSilo {
     type Vtable = IEnhancedStorageSiloVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5aef78c6_2242_4703_bf49_44b29357a359);
@@ -940,6 +960,11 @@ impl ::core::cmp::PartialEq for IEnhancedStorageSiloAction {
     }
 }
 impl ::core::cmp::Eq for IEnhancedStorageSiloAction {}
+impl ::core::fmt::Debug for IEnhancedStorageSiloAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnhancedStorageSiloAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnhancedStorageSiloAction {
     type Vtable = IEnhancedStorageSiloActionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6f7f311_206f_4ff8_9c4b_27efee77a86f);
@@ -1002,6 +1027,11 @@ impl ::core::cmp::PartialEq for IEnumEnhancedStorageACT {
     }
 }
 impl ::core::cmp::Eq for IEnumEnhancedStorageACT {}
+impl ::core::fmt::Debug for IEnumEnhancedStorageACT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumEnhancedStorageACT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumEnhancedStorageACT {
     type Vtable = IEnumEnhancedStorageACTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b224bd_1335_4631_a7ff_cfd3a92646d7);

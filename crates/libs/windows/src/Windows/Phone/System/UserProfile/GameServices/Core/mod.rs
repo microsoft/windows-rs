@@ -141,6 +141,11 @@ impl ::core::cmp::PartialEq for GameServicePropertyCollection {
     }
 }
 impl ::core::cmp::Eq for GameServicePropertyCollection {}
+impl ::core::fmt::Debug for GameServicePropertyCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameServicePropertyCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameServicePropertyCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.System.UserProfile.GameServices.Core.GameServicePropertyCollection;{07e57fc8-debb-4609-9cc8-529d16bc2bd9})");
 }

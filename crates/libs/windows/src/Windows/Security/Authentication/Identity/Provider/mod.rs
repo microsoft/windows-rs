@@ -410,6 +410,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthentication {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthentication {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthentication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthentication").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthentication {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthentication;{020a16e5-6a25-40a3-8c00-50a023f619d1})");
 }
@@ -583,6 +589,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationResul
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationResult").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationResult;{9cbb5987-ef6d-4bc2-bf49-4617515a0f9a})");
@@ -772,6 +784,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationStage
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageChangedEventArgs;{d4a5ee56-7291-4073-bc1f-ccb8f5afdf96})");
 }
@@ -884,6 +902,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationStage
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationStageInfo {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationStageInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationStageInfo").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationStageInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorAuthenticationStageInfo;{56fec28b-e8aa-4c0f-8e4c-a559e73add88})");
@@ -1347,6 +1371,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorInfo {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorInfo {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorInfo").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorInfo;{1e2ba861-8533-4fce-839b-ecb72410ac14})");
 }
@@ -1527,6 +1557,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorRegistration {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorRegistration {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorRegistration").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistration;{9f4cbbb4-8cba-48b0-840d-dbb22a54c678})");
 }
@@ -1630,6 +1666,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorRegistrationResult 
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorRegistrationResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorRegistrationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorRegistrationResult").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorRegistrationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Identity.Provider.SecondaryAuthenticationFactorRegistrationResult;{a4fe35f0-ade3-4981-af6b-ec195921682a})");

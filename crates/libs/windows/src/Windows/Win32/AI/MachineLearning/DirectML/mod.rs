@@ -6683,6 +6683,11 @@ impl ::core::cmp::PartialEq for IDMLBindingTable {
     }
 }
 impl ::core::cmp::Eq for IDMLBindingTable {}
+impl ::core::fmt::Debug for IDMLBindingTable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLBindingTable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLBindingTable {
     type Vtable = IDMLBindingTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29c687dc_de74_4e3b_ab00_1168f2fc3cfc);
@@ -6809,6 +6814,11 @@ impl ::core::cmp::PartialEq for IDMLCommandRecorder {
     }
 }
 impl ::core::cmp::Eq for IDMLCommandRecorder {}
+impl ::core::fmt::Debug for IDMLCommandRecorder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLCommandRecorder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLCommandRecorder {
     type Vtable = IDMLCommandRecorderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6857a76_2e3e_4fdd_bff4_5d2ba10fb453);
@@ -6972,6 +6982,11 @@ impl ::core::cmp::PartialEq for IDMLCompiledOperator {
     }
 }
 impl ::core::cmp::Eq for IDMLCompiledOperator {}
+impl ::core::fmt::Debug for IDMLCompiledOperator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLCompiledOperator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLCompiledOperator {
     type Vtable = IDMLCompiledOperatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b15e56a_bf5c_4902_92d8_da3a650afea4);
@@ -7031,6 +7046,11 @@ impl ::core::cmp::PartialEq for IDMLDebugDevice {
     }
 }
 impl ::core::cmp::Eq for IDMLDebugDevice {}
+impl ::core::fmt::Debug for IDMLDebugDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLDebugDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLDebugDevice {
     type Vtable = IDMLDebugDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d6f3ac9_394a_4ac3_92a7_390cc57a8217);
@@ -7162,6 +7182,11 @@ impl ::core::cmp::PartialEq for IDMLDevice {
     }
 }
 impl ::core::cmp::Eq for IDMLDevice {}
+impl ::core::fmt::Debug for IDMLDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLDevice {
     type Vtable = IDMLDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dbd6437_96fd_423f_a98c_ae5e7c2a573f);
@@ -7331,6 +7356,11 @@ impl ::core::cmp::PartialEq for IDMLDevice1 {
     }
 }
 impl ::core::cmp::Eq for IDMLDevice1 {}
+impl ::core::fmt::Debug for IDMLDevice1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLDevice1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLDevice1 {
     type Vtable = IDMLDevice1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa0884f9a_d2be_4355_aa5d_5901281ad1d2);
@@ -7437,6 +7467,11 @@ impl ::core::cmp::PartialEq for IDMLDeviceChild {
     }
 }
 impl ::core::cmp::Eq for IDMLDeviceChild {}
+impl ::core::fmt::Debug for IDMLDeviceChild {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLDeviceChild").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLDeviceChild {
     type Vtable = IDMLDeviceChildVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27e83142_8165_49e3_974e_2fd66e4cb69d);
@@ -7578,6 +7613,11 @@ impl ::core::cmp::PartialEq for IDMLDispatchable {
     }
 }
 impl ::core::cmp::Eq for IDMLDispatchable {}
+impl ::core::fmt::Debug for IDMLDispatchable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLDispatchable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLDispatchable {
     type Vtable = IDMLDispatchableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcb821a8_1039_441e_9f1c_b1759c2f3cec);
@@ -7649,6 +7689,11 @@ impl ::core::cmp::PartialEq for IDMLObject {
     }
 }
 impl ::core::cmp::Eq for IDMLObject {}
+impl ::core::fmt::Debug for IDMLObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLObject {
     type Vtable = IDMLObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8263aac_9e0c_4a2d_9b8e_007521a3317c);
@@ -7763,6 +7808,11 @@ impl ::core::cmp::PartialEq for IDMLOperator {
     }
 }
 impl ::core::cmp::Eq for IDMLOperator {}
+impl ::core::fmt::Debug for IDMLOperator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLOperator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLOperator {
     type Vtable = IDMLOperatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26caae7a_3081_4633_9581_226fbe57695d);
@@ -7928,6 +7978,11 @@ impl ::core::cmp::PartialEq for IDMLOperatorInitializer {
     }
 }
 impl ::core::cmp::Eq for IDMLOperatorInitializer {}
+impl ::core::fmt::Debug for IDMLOperatorInitializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLOperatorInitializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLOperatorInitializer {
     type Vtable = IDMLOperatorInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x427c1113_435c_469c_8676_4d5dd072f813);
@@ -8045,6 +8100,11 @@ impl ::core::cmp::PartialEq for IDMLPageable {
     }
 }
 impl ::core::cmp::Eq for IDMLPageable {}
+impl ::core::fmt::Debug for IDMLPageable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDMLPageable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDMLPageable {
     type Vtable = IDMLPageableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb1ab0825_4542_4a4b_8617_6dde6e8f6201);

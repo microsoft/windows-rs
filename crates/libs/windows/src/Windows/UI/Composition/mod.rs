@@ -181,6 +181,11 @@ impl ::core::cmp::PartialEq for AmbientLight {
     }
 }
 impl ::core::cmp::Eq for AmbientLight {}
+impl ::core::fmt::Debug for AmbientLight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AmbientLight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AmbientLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AmbientLight;{a48130a1-b7c4-46f7-b9bf-daf43a44e6ee})");
 }
@@ -504,6 +509,11 @@ impl ::core::cmp::PartialEq for AnimationController {
     }
 }
 impl ::core::cmp::Eq for AnimationController {}
+impl ::core::fmt::Debug for AnimationController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationController;{c934efd2-0722-4f5f-a4e2-9510f3d43bf7})");
 }
@@ -937,6 +947,11 @@ impl ::core::cmp::PartialEq for AnimationPropertyInfo {
     }
 }
 impl ::core::cmp::Eq for AnimationPropertyInfo {}
+impl ::core::fmt::Debug for AnimationPropertyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationPropertyInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationPropertyInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.AnimationPropertyInfo;{f4716f05-ed77-4e3c-b328-5c3985b3738f})");
 }
@@ -1222,6 +1237,11 @@ impl ::core::cmp::PartialEq for BackEasingFunction {
     }
 }
 impl ::core::cmp::Eq for BackEasingFunction {}
+impl ::core::fmt::Debug for BackEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BackEasingFunction;{b8560da4-5e3c-545d-b263-7987a2bd27cb})");
 }
@@ -1688,6 +1708,11 @@ impl ::core::cmp::PartialEq for BooleanKeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for BooleanKeyFrameAnimation {}
+impl ::core::fmt::Debug for BooleanKeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BooleanKeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BooleanKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BooleanKeyFrameAnimation;{95e23a08-d1f4-4972-9770-3efe68d82e14})");
 }
@@ -2009,6 +2034,11 @@ impl ::core::cmp::PartialEq for BounceEasingFunction {
     }
 }
 impl ::core::cmp::Eq for BounceEasingFunction {}
+impl ::core::fmt::Debug for BounceEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BounceEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BounceEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceEasingFunction;{e7fdb44b-aad5-5174-9421-eef8b75a6a43})");
 }
@@ -2467,6 +2497,11 @@ impl ::core::cmp::PartialEq for BounceScalarNaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for BounceScalarNaturalMotionAnimation {}
+impl ::core::fmt::Debug for BounceScalarNaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BounceScalarNaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BounceScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceScalarNaturalMotionAnimation;{baa30dcc-a633-4618-9b06-7f7c72c87cff})");
 }
@@ -2989,6 +3024,11 @@ impl ::core::cmp::PartialEq for BounceVector2NaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for BounceVector2NaturalMotionAnimation {}
+impl ::core::fmt::Debug for BounceVector2NaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BounceVector2NaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BounceVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector2NaturalMotionAnimation;{da344196-2154-4b3c-88aa-47361204eccd})");
 }
@@ -3511,6 +3551,11 @@ impl ::core::cmp::PartialEq for BounceVector3NaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for BounceVector3NaturalMotionAnimation {}
+impl ::core::fmt::Debug for BounceVector3NaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BounceVector3NaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BounceVector3NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.BounceVector3NaturalMotionAnimation;{47dabc31-10d3-4518-86f1-09caf742d113})");
 }
@@ -3836,6 +3881,11 @@ impl ::core::cmp::PartialEq for CircleEasingFunction {
     }
 }
 impl ::core::cmp::Eq for CircleEasingFunction {}
+impl ::core::fmt::Debug for CircleEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CircleEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CircleEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CircleEasingFunction;{1e07222a-6f82-5a28-8748-2e92fc46ee2b})");
 }
@@ -4320,6 +4370,11 @@ impl ::core::cmp::PartialEq for ColorKeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for ColorKeyFrameAnimation {}
+impl ::core::fmt::Debug for ColorKeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorKeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ColorKeyFrameAnimation;{93adb5e9-8e05-4593-84a3-dca152781e56})");
 }
@@ -4710,6 +4765,11 @@ impl ::core::cmp::PartialEq for CompositionAnimation {
     }
 }
 impl ::core::cmp::Eq for CompositionAnimation {}
+impl ::core::fmt::Debug for CompositionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimation;{464c4c2c-1caa-4061-9b40-e13fde1503ca})");
 }
@@ -4999,6 +5059,11 @@ impl ::core::cmp::PartialEq for CompositionAnimationGroup {
     }
 }
 impl ::core::cmp::Eq for CompositionAnimationGroup {}
+impl ::core::fmt::Debug for CompositionAnimationGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionAnimationGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionAnimationGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionAnimationGroup;{5e7cc90c-cd14-4e07-8a55-c72527aabdac})");
 }
@@ -5298,6 +5363,11 @@ impl ::core::cmp::PartialEq for CompositionBackdropBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionBackdropBrush {}
+impl ::core::fmt::Debug for CompositionBackdropBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBackdropBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionBackdropBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBackdropBrush;{c5acae58-3898-499e-8d7f-224e91286a5d})");
 }
@@ -5587,6 +5657,11 @@ impl ::core::cmp::PartialEq for CompositionBatchCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CompositionBatchCompletedEventArgs {}
+impl ::core::fmt::Debug for CompositionBatchCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBatchCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionBatchCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBatchCompletedEventArgs;{0d00dad0-9464-450a-a562-2e2698b0a812})");
 }
@@ -5933,6 +6008,11 @@ impl ::core::cmp::PartialEq for CompositionBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionBrush {}
+impl ::core::fmt::Debug for CompositionBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionBrush;{ab0d7608-30c0-40e9-b568-b60a6bd1fb46})");
 }
@@ -6112,6 +6192,11 @@ impl ::core::cmp::PartialEq for CompositionCapabilities {
     }
 }
 impl ::core::cmp::Eq for CompositionCapabilities {}
+impl ::core::fmt::Debug for CompositionCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCapabilities;{8253353e-b517-48bc-b1e8-4b3561a2e181})");
 }
@@ -6380,6 +6465,11 @@ impl ::core::cmp::PartialEq for CompositionClip {
     }
 }
 impl ::core::cmp::Eq for CompositionClip {}
+impl ::core::fmt::Debug for CompositionClip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionClip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionClip;{1ccd2a52-cfc7-4ace-9983-146bb8eb6a3c})");
 }
@@ -6628,6 +6718,11 @@ impl ::core::cmp::PartialEq for CompositionColorBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionColorBrush {}
+impl ::core::fmt::Debug for CompositionColorBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionColorBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionColorBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorBrush;{2b264c5e-bf35-4831-8642-cf70c20fff2f})");
 }
@@ -6909,6 +7004,11 @@ impl ::core::cmp::PartialEq for CompositionColorGradientStop {
     }
 }
 impl ::core::cmp::Eq for CompositionColorGradientStop {}
+impl ::core::fmt::Debug for CompositionColorGradientStop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionColorGradientStop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStop {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStop;{6f00ca92-c801-4e41-9a8f-a53e20f57778})");
 }
@@ -7141,6 +7241,11 @@ impl ::core::cmp::PartialEq for CompositionColorGradientStopCollection {
     }
 }
 impl ::core::cmp::Eq for CompositionColorGradientStopCollection {}
+impl ::core::fmt::Debug for CompositionColorGradientStopCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionColorGradientStopCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionColorGradientStopCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionColorGradientStopCollection;{9f1d20ec-7b04-4b1d-90bc-9fa32c0cfd26})");
 }
@@ -7443,6 +7548,11 @@ impl ::core::cmp::PartialEq for CompositionCommitBatch {
     }
 }
 impl ::core::cmp::Eq for CompositionCommitBatch {}
+impl ::core::fmt::Debug for CompositionCommitBatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionCommitBatch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionCommitBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionCommitBatch;{0d00dad0-ca07-4400-8c8e-cb5db08559cc})");
 }
@@ -7808,6 +7918,11 @@ impl ::core::cmp::PartialEq for CompositionContainerShape {
     }
 }
 impl ::core::cmp::Eq for CompositionContainerShape {}
+impl ::core::fmt::Debug for CompositionContainerShape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionContainerShape").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionContainerShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionContainerShape;{4f5e859b-2e5b-44a8-982c-aa0f69c16059})");
 }
@@ -8129,6 +8244,11 @@ impl ::core::cmp::PartialEq for CompositionDrawingSurface {
     }
 }
 impl ::core::cmp::Eq for CompositionDrawingSurface {}
+impl ::core::fmt::Debug for CompositionDrawingSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionDrawingSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionDrawingSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionDrawingSurface;{a166c300-fad0-4d11-9e67-e433162ff49e})");
 }
@@ -8502,6 +8622,11 @@ impl ::core::cmp::PartialEq for CompositionEasingFunction {
     }
 }
 impl ::core::cmp::Eq for CompositionEasingFunction {}
+impl ::core::fmt::Debug for CompositionEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEasingFunction;{5145e356-bf79-4ea8-8cc2-6b5b472e6c9a})");
 }
@@ -8784,6 +8909,11 @@ impl ::core::cmp::PartialEq for CompositionEffectBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionEffectBrush {}
+impl ::core::fmt::Debug for CompositionEffectBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEffectBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionEffectBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectBrush;{bf7f795e-83cc-44bf-a447-3e3c071789ec})");
 }
@@ -9063,6 +9193,11 @@ impl ::core::cmp::PartialEq for CompositionEffectFactory {
     }
 }
 impl ::core::cmp::Eq for CompositionEffectFactory {}
+impl ::core::fmt::Debug for CompositionEffectFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEffectFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionEffectFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectFactory;{be5624af-ba7e-4510-9850-41c0b4ff74df})");
 }
@@ -9254,6 +9389,11 @@ impl ::core::cmp::PartialEq for CompositionEffectSourceParameter {
     }
 }
 impl ::core::cmp::Eq for CompositionEffectSourceParameter {}
+impl ::core::fmt::Debug for CompositionEffectSourceParameter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEffectSourceParameter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionEffectSourceParameter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEffectSourceParameter;{858ab13a-3292-4e4e-b3bb-2b6c6544a6ee})");
 }
@@ -9516,6 +9656,11 @@ impl ::core::cmp::PartialEq for CompositionEllipseGeometry {
     }
 }
 impl ::core::cmp::Eq for CompositionEllipseGeometry {}
+impl ::core::fmt::Debug for CompositionEllipseGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionEllipseGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionEllipseGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionEllipseGeometry;{4801f884-f6ad-4b93-afa9-897b64e57b1f})");
 }
@@ -9898,6 +10043,11 @@ impl ::core::cmp::PartialEq for CompositionGeometricClip {
     }
 }
 impl ::core::cmp::Eq for CompositionGeometricClip {}
+impl ::core::fmt::Debug for CompositionGeometricClip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGeometricClip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionGeometricClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometricClip;{c840b581-81c9-4444-a2c1-ccaece3a50e5})");
 }
@@ -10192,6 +10342,11 @@ impl ::core::cmp::PartialEq for CompositionGeometry {
     }
 }
 impl ::core::cmp::Eq for CompositionGeometry {}
+impl ::core::fmt::Debug for CompositionGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGeometry;{e985217c-6a17-4207-abd8-5fd3dd612a9d})");
 }
@@ -10609,6 +10764,11 @@ impl ::core::cmp::PartialEq for CompositionGradientBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionGradientBrush {}
+impl ::core::fmt::Debug for CompositionGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGradientBrush;{1d9709e0-ffc6-4c0e-a9ab-34144d4c9098})");
 }
@@ -10963,6 +11123,11 @@ impl ::core::cmp::PartialEq for CompositionGraphicsDevice {
     }
 }
 impl ::core::cmp::Eq for CompositionGraphicsDevice {}
+impl ::core::fmt::Debug for CompositionGraphicsDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionGraphicsDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionGraphicsDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionGraphicsDevice;{fb22c6e1-80a2-4667-9936-dbeaf6eefe95})");
 }
@@ -11227,6 +11392,11 @@ impl ::core::cmp::PartialEq for CompositionLight {
     }
 }
 impl ::core::cmp::Eq for CompositionLight {}
+impl ::core::fmt::Debug for CompositionLight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionLight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLight;{41a6d7c2-2e5d-4bc1-b09e-8f0a03e3d8d3})");
 }
@@ -11531,6 +11701,11 @@ impl ::core::cmp::PartialEq for CompositionLineGeometry {
     }
 }
 impl ::core::cmp::Eq for CompositionLineGeometry {}
+impl ::core::fmt::Debug for CompositionLineGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionLineGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionLineGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLineGeometry;{dd7615a4-0c9a-4b67-8dce-440a5bf9cdec})");
 }
@@ -11964,6 +12139,11 @@ impl ::core::cmp::PartialEq for CompositionLinearGradientBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionLinearGradientBrush {}
+impl ::core::fmt::Debug for CompositionLinearGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionLinearGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionLinearGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionLinearGradientBrush;{983bc519-a9db-413c-a2d8-2a9056fc525e})");
 }
@@ -12298,6 +12478,11 @@ impl ::core::cmp::PartialEq for CompositionMaskBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionMaskBrush {}
+impl ::core::fmt::Debug for CompositionMaskBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionMaskBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionMaskBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMaskBrush;{522cf09e-be6b-4f41-be49-f9226d471b4a})");
 }
@@ -12596,6 +12781,11 @@ impl ::core::cmp::PartialEq for CompositionMipmapSurface {
     }
 }
 impl ::core::cmp::Eq for CompositionMipmapSurface {}
+impl ::core::fmt::Debug for CompositionMipmapSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionMipmapSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionMipmapSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionMipmapSurface;{4863675c-cf4a-4b1c-9ece-c5ec0c2b2fe6})");
 }
@@ -13003,6 +13193,11 @@ impl ::core::cmp::PartialEq for CompositionNineGridBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionNineGridBrush {}
+impl ::core::fmt::Debug for CompositionNineGridBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionNineGridBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionNineGridBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionNineGridBrush;{f25154e4-bc8c-4be7-b80f-8685b83c0186})");
 }
@@ -13271,6 +13466,11 @@ impl ::core::cmp::PartialEq for CompositionObject {
     }
 }
 impl ::core::cmp::Eq for CompositionObject {}
+impl ::core::fmt::Debug for CompositionObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionObject;{bcb4ad45-7609-4550-934f-16002a68fded})");
 }
@@ -13400,6 +13600,11 @@ impl ::core::cmp::PartialEq for CompositionPath {
     }
 }
 impl ::core::cmp::Eq for CompositionPath {}
+impl ::core::fmt::Debug for CompositionPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPath;{66da1d5f-2e10-4f22-8a06-0a8151919e60})");
 }
@@ -13645,6 +13850,11 @@ impl ::core::cmp::PartialEq for CompositionPathGeometry {
     }
 }
 impl ::core::cmp::Eq for CompositionPathGeometry {}
+impl ::core::fmt::Debug for CompositionPathGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionPathGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionPathGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPathGeometry;{0b6a417e-2c77-4c23-af5e-6304c147bb61})");
 }
@@ -13968,6 +14178,11 @@ impl ::core::cmp::PartialEq for CompositionProjectedShadow {
     }
 }
 impl ::core::cmp::Eq for CompositionProjectedShadow {}
+impl ::core::fmt::Debug for CompositionProjectedShadow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionProjectedShadow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadow;{285b8e72-4328-523f-bcf2-5557c52c3b25})");
 }
@@ -14229,6 +14444,11 @@ impl ::core::cmp::PartialEq for CompositionProjectedShadowCaster {
     }
 }
 impl ::core::cmp::Eq for CompositionProjectedShadowCaster {}
+impl ::core::fmt::Debug for CompositionProjectedShadowCaster {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionProjectedShadowCaster").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCaster {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCaster;{b1d7d426-1e36-5a62-be56-a16112fdd148})");
 }
@@ -14523,6 +14743,11 @@ impl ::core::cmp::PartialEq for CompositionProjectedShadowCasterCollection {
     }
 }
 impl ::core::cmp::Eq for CompositionProjectedShadowCasterCollection {}
+impl ::core::fmt::Debug for CompositionProjectedShadowCasterCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionProjectedShadowCasterCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowCasterCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowCasterCollection;{d2525c0c-e07f-58a3-ac91-37f73ee91740})");
 }
@@ -14813,6 +15038,11 @@ impl ::core::cmp::PartialEq for CompositionProjectedShadowReceiver {
     }
 }
 impl ::core::cmp::Eq for CompositionProjectedShadowReceiver {}
+impl ::core::fmt::Debug for CompositionProjectedShadowReceiver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionProjectedShadowReceiver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiver;{1377985a-6a49-536a-9be4-a96a8e5298a9})");
 }
@@ -15080,6 +15310,11 @@ impl ::core::cmp::PartialEq for CompositionProjectedShadowReceiverUnorderedColle
     }
 }
 impl ::core::cmp::Eq for CompositionProjectedShadowReceiverUnorderedCollection {}
+impl ::core::fmt::Debug for CompositionProjectedShadowReceiverUnorderedCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionProjectedShadowReceiverUnorderedCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionProjectedShadowReceiverUnorderedCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionProjectedShadowReceiverUnorderedCollection;{02b3e3b7-27d2-599f-ac4b-ab787cdde6fd})");
 }
@@ -15486,6 +15721,11 @@ impl ::core::cmp::PartialEq for CompositionPropertySet {
     }
 }
 impl ::core::cmp::Eq for CompositionPropertySet {}
+impl ::core::fmt::Debug for CompositionPropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionPropertySet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionPropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionPropertySet;{c9d6d202-5f67-4453-9117-9eadd430d3c2})");
 }
@@ -15914,6 +16154,11 @@ impl ::core::cmp::PartialEq for CompositionRadialGradientBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionRadialGradientBrush {}
+impl ::core::fmt::Debug for CompositionRadialGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionRadialGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionRadialGradientBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRadialGradientBrush;{3d3b50c5-e3fa-4ce2-b9fc-3ee12561788f})");
 }
@@ -16258,6 +16503,11 @@ impl ::core::cmp::PartialEq for CompositionRectangleGeometry {
     }
 }
 impl ::core::cmp::Eq for CompositionRectangleGeometry {}
+impl ::core::fmt::Debug for CompositionRectangleGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionRectangleGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionRectangleGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRectangleGeometry;{0cd51428-5356-4246-aecf-7a0b76975400})");
 }
@@ -16597,6 +16847,11 @@ impl ::core::cmp::PartialEq for CompositionRoundedRectangleGeometry {
     }
 }
 impl ::core::cmp::Eq for CompositionRoundedRectangleGeometry {}
+impl ::core::fmt::Debug for CompositionRoundedRectangleGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionRoundedRectangleGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionRoundedRectangleGeometry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionRoundedRectangleGeometry;{8770c822-1d50-4b8b-b013-7c9a0e46935f})");
 }
@@ -16898,6 +17153,11 @@ impl ::core::cmp::PartialEq for CompositionScopedBatch {
     }
 }
 impl ::core::cmp::Eq for CompositionScopedBatch {}
+impl ::core::fmt::Debug for CompositionScopedBatch {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionScopedBatch").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionScopedBatch {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionScopedBatch;{0d00dad0-fb07-46fd-8c72-6280d1a3d1dd})");
 }
@@ -17133,6 +17393,11 @@ impl ::core::cmp::PartialEq for CompositionShadow {
     }
 }
 impl ::core::cmp::Eq for CompositionShadow {}
+impl ::core::fmt::Debug for CompositionShadow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionShadow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShadow;{329e52e2-4335-49cc-b14a-37782d10f0c4})");
 }
@@ -17454,6 +17719,11 @@ impl ::core::cmp::PartialEq for CompositionShape {
     }
 }
 impl ::core::cmp::Eq for CompositionShape {}
+impl ::core::fmt::Debug for CompositionShape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionShape").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})");
 }
@@ -17790,6 +18060,12 @@ impl ::core::cmp::PartialEq for CompositionShapeCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for CompositionShapeCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for CompositionShapeCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionShapeCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for CompositionShapeCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionShapeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.CompositionShape;{b47ce2f7-9a88-42c4-9e87-2e500ca8688c})))");
@@ -18352,6 +18628,11 @@ impl ::core::cmp::PartialEq for CompositionSpriteShape {
     }
 }
 impl ::core::cmp::Eq for CompositionSpriteShape {}
+impl ::core::fmt::Debug for CompositionSpriteShape {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionSpriteShape").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionSpriteShape {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSpriteShape;{401b61bb-0007-4363-b1f3-6bcc003fb83e})");
 }
@@ -18778,6 +19059,12 @@ impl ::core::cmp::PartialEq for CompositionStrokeDashArray {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for CompositionStrokeDashArray {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for CompositionStrokeDashArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionStrokeDashArray").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for CompositionStrokeDashArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionStrokeDashArray;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};f4))");
@@ -19316,6 +19603,11 @@ impl ::core::cmp::PartialEq for CompositionSurfaceBrush {
     }
 }
 impl ::core::cmp::Eq for CompositionSurfaceBrush {}
+impl ::core::fmt::Debug for CompositionSurfaceBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionSurfaceBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionSurfaceBrush {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionSurfaceBrush;{ad016d79-1e4c-4c0d-9c29-83338c87c162})");
 }
@@ -19584,6 +19876,11 @@ impl ::core::cmp::PartialEq for CompositionTarget {
     }
 }
 impl ::core::cmp::Eq for CompositionTarget {}
+impl ::core::fmt::Debug for CompositionTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionTarget {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTarget;{a1bea8ba-d726-4663-8129-6b5e7927ffa6})");
 }
@@ -19819,6 +20116,11 @@ impl ::core::cmp::PartialEq for CompositionTransform {
     }
 }
 impl ::core::cmp::Eq for CompositionTransform {}
+impl ::core::fmt::Debug for CompositionTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionTransform;{7cd54529-fbed-4112-abc5-185906dd927c})");
 }
@@ -20123,6 +20425,11 @@ impl ::core::cmp::PartialEq for CompositionViewBox {
     }
 }
 impl ::core::cmp::Eq for CompositionViewBox {}
+impl ::core::fmt::Debug for CompositionViewBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionViewBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionViewBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionViewBox;{b440bf07-068f-4537-84c6-4ecbe019e1f4})");
 }
@@ -20430,6 +20737,11 @@ impl ::core::cmp::PartialEq for CompositionVirtualDrawingSurface {
     }
 }
 impl ::core::cmp::Eq for CompositionVirtualDrawingSurface {}
+impl ::core::fmt::Debug for CompositionVirtualDrawingSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionVirtualDrawingSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionVirtualDrawingSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVirtualDrawingSurface;{a9c384db-8740-4f94-8b9d-b68521e7863d})");
 }
@@ -20750,6 +21062,11 @@ impl ::core::cmp::PartialEq for CompositionVisualSurface {
     }
 }
 impl ::core::cmp::Eq for CompositionVisualSurface {}
+impl ::core::fmt::Debug for CompositionVisualSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionVisualSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionVisualSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CompositionVisualSurface;{b224d803-4f6e-4a3f-8cae-3dc1cda74fc6})");
 }
@@ -21580,6 +21897,11 @@ impl ::core::cmp::PartialEq for Compositor {
     }
 }
 impl ::core::cmp::Eq for Compositor {}
+impl ::core::fmt::Debug for Compositor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Compositor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Compositor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Compositor;{b403ca50-7f8c-4e83-985f-cc45060036d8})");
 }
@@ -22082,6 +22404,11 @@ impl ::core::cmp::PartialEq for ContainerVisual {
     }
 }
 impl ::core::cmp::Eq for ContainerVisual {}
+impl ::core::fmt::Debug for ContainerVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContainerVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContainerVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ContainerVisual;{02f6bc74-ed20-4773-afe6-d49b4a93db32})");
 }
@@ -22355,6 +22682,11 @@ impl ::core::cmp::PartialEq for CubicBezierEasingFunction {
     }
 }
 impl ::core::cmp::Eq for CubicBezierEasingFunction {}
+impl ::core::fmt::Debug for CubicBezierEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CubicBezierEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CubicBezierEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.CubicBezierEasingFunction;{32350666-c1e8-44f9-96b8-c98acf0ae698})");
 }
@@ -22958,6 +23290,11 @@ impl ::core::cmp::PartialEq for DelegatedInkTrailVisual {
     }
 }
 impl ::core::cmp::Eq for DelegatedInkTrailVisual {}
+impl ::core::fmt::Debug for DelegatedInkTrailVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DelegatedInkTrailVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DelegatedInkTrailVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DelegatedInkTrailVisual;{856e60b1-e1ab-5b23-8e3d-d513f221c998})");
 }
@@ -23296,6 +23633,11 @@ impl ::core::cmp::PartialEq for DistantLight {
     }
 }
 impl ::core::cmp::Eq for DistantLight {}
+impl ::core::fmt::Debug for DistantLight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DistantLight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DistantLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DistantLight;{318cfafc-5ce3-4b55-ab5d-07a00353ac99})");
 }
@@ -23631,6 +23973,11 @@ impl ::core::cmp::PartialEq for DropShadow {
     }
 }
 impl ::core::cmp::Eq for DropShadow {}
+impl ::core::fmt::Debug for DropShadow {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DropShadow").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DropShadow {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.DropShadow;{cb977c07-a154-4851-85e7-a8924c84fad8})");
 }
@@ -23910,6 +24257,11 @@ impl ::core::cmp::PartialEq for ElasticEasingFunction {
     }
 }
 impl ::core::cmp::Eq for ElasticEasingFunction {}
+impl ::core::fmt::Debug for ElasticEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElasticEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ElasticEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ElasticEasingFunction;{66de6285-054e-5594-8475-c22cb51f1bd5})");
 }
@@ -24181,6 +24533,11 @@ impl ::core::cmp::PartialEq for ExponentialEasingFunction {
     }
 }
 impl ::core::cmp::Eq for ExponentialEasingFunction {}
+impl ::core::fmt::Debug for ExponentialEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExponentialEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExponentialEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExponentialEasingFunction;{6f7d1a51-98d2-5638-a34a-00486554c750})");
 }
@@ -24542,6 +24899,11 @@ impl ::core::cmp::PartialEq for ExpressionAnimation {
     }
 }
 impl ::core::cmp::Eq for ExpressionAnimation {}
+impl ::core::fmt::Debug for ExpressionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExpressionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExpressionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ExpressionAnimation;{6acc5431-7d3d-4bf3-abb6-f44bdc4888c1})");
 }
@@ -24847,6 +25209,11 @@ impl ::core::cmp::PartialEq for IAnimationObject {
     }
 }
 impl ::core::cmp::Eq for IAnimationObject {}
+impl ::core::fmt::Debug for IAnimationObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAnimationObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IAnimationObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e7141e0a-04b8-4fc5-a4dc-195392e57807}");
 }
@@ -25208,6 +25575,11 @@ impl ::core::cmp::PartialEq for ICompositionAnimationBase {
     }
 }
 impl ::core::cmp::Eq for ICompositionAnimationBase {}
+impl ::core::fmt::Debug for ICompositionAnimationBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICompositionAnimationBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICompositionAnimationBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1c2c2999-e818-48d3-a6dd-d78c82f8ace9}");
 }
@@ -26888,6 +27260,11 @@ impl ::core::cmp::PartialEq for ICompositionSupportsSystemBackdrop {
     }
 }
 impl ::core::cmp::Eq for ICompositionSupportsSystemBackdrop {}
+impl ::core::fmt::Debug for ICompositionSupportsSystemBackdrop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICompositionSupportsSystemBackdrop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICompositionSupportsSystemBackdrop {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{397dafe4-b6c2-5bb9-951d-f5707de8b7bc}");
 }
@@ -26962,6 +27339,11 @@ impl ::core::cmp::PartialEq for ICompositionSurface {
     }
 }
 impl ::core::cmp::Eq for ICompositionSurface {}
+impl ::core::fmt::Debug for ICompositionSurface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICompositionSurface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICompositionSurface {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1527540d-42c7-47a6-a408-668f79a90dfb}");
 }
@@ -27130,6 +27512,11 @@ impl ::core::cmp::PartialEq for ICompositionSurfaceFacade {
     }
 }
 impl ::core::cmp::Eq for ICompositionSurfaceFacade {}
+impl ::core::fmt::Debug for ICompositionSurfaceFacade {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICompositionSurfaceFacade").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICompositionSurfaceFacade {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e01622c8-2332-55c7-8868-a7312c5c229d}");
 }
@@ -28976,6 +29363,11 @@ impl ::core::cmp::PartialEq for IVisualElement {
     }
 }
 impl ::core::cmp::Eq for IVisualElement {}
+impl ::core::fmt::Debug for IVisualElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVisualElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{01e64612-1d82-42f4-8e3f-a722ded33fc7}");
 }
@@ -29057,6 +29449,11 @@ impl ::core::cmp::PartialEq for IVisualElement2 {
     }
 }
 impl ::core::cmp::Eq for IVisualElement2 {}
+impl ::core::fmt::Debug for IVisualElement2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualElement2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVisualElement2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{993ae8a0-6057-5e40-918c-e06e0b7e7c64}");
 }
@@ -29294,6 +29691,11 @@ impl ::core::cmp::PartialEq for ImplicitAnimationCollection {
     }
 }
 impl ::core::cmp::Eq for ImplicitAnimationCollection {}
+impl ::core::fmt::Debug for ImplicitAnimationCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImplicitAnimationCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImplicitAnimationCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ImplicitAnimationCollection;{0598a3ff-0a92-4c9d-a427-b25519250dbf})");
 }
@@ -29668,6 +30070,12 @@ impl ::core::cmp::PartialEq for InitialValueExpressionCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for InitialValueExpressionCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for InitialValueExpressionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InitialValueExpressionCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for InitialValueExpressionCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InitialValueExpressionCollection;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
@@ -30192,6 +30600,11 @@ impl ::core::cmp::PartialEq for InsetClip {
     }
 }
 impl ::core::cmp::Eq for InsetClip {}
+impl ::core::fmt::Debug for InsetClip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InsetClip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InsetClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.InsetClip;{1e73e647-84c7-477a-b474-5880e0442e15})");
 }
@@ -30653,6 +31066,11 @@ impl ::core::cmp::PartialEq for KeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for KeyFrameAnimation {}
+impl ::core::fmt::Debug for KeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.KeyFrameAnimation;{126e7f22-3ae9-4540-9a8a-deae8a4a4a84})");
 }
@@ -31265,6 +31683,11 @@ impl ::core::cmp::PartialEq for LayerVisual {
     }
 }
 impl ::core::cmp::Eq for LayerVisual {}
+impl ::core::fmt::Debug for LayerVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LayerVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LayerVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LayerVisual;{af843985-0444-4887-8e83-b40b253f822c})");
 }
@@ -31540,6 +31963,11 @@ impl ::core::cmp::PartialEq for LinearEasingFunction {
     }
 }
 impl ::core::cmp::Eq for LinearEasingFunction {}
+impl ::core::fmt::Debug for LinearEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinearEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LinearEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.LinearEasingFunction;{9400975a-c7a6-46b3-acf7-1a268a0a117d})");
 }
@@ -31929,6 +32357,11 @@ impl ::core::cmp::PartialEq for NaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for NaturalMotionAnimation {}
+impl ::core::fmt::Debug for NaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.NaturalMotionAnimation;{438de12d-769b-4821-a949-284a6547e873})");
 }
@@ -32422,6 +32855,11 @@ impl ::core::cmp::PartialEq for PathKeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for PathKeyFrameAnimation {}
+impl ::core::fmt::Debug for PathKeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PathKeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PathKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PathKeyFrameAnimation;{9d0d18c9-1576-4b3f-be60-1d5031f5e71b})");
 }
@@ -32867,6 +33305,11 @@ impl ::core::cmp::PartialEq for PointLight {
     }
 }
 impl ::core::cmp::Eq for PointLight {}
+impl ::core::fmt::Debug for PointLight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointLight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PointLight;{b18545b3-0c5a-4ab0-bedc-4f3546948272})");
 }
@@ -33138,6 +33581,11 @@ impl ::core::cmp::PartialEq for PowerEasingFunction {
     }
 }
 impl ::core::cmp::Eq for PowerEasingFunction {}
+impl ::core::fmt::Debug for PowerEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PowerEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.PowerEasingFunction;{c3ff53d6-138b-5815-891a-b7f615ccc563})");
 }
@@ -33611,6 +34059,11 @@ impl ::core::cmp::PartialEq for QuaternionKeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for QuaternionKeyFrameAnimation {}
+impl ::core::fmt::Debug for QuaternionKeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuaternionKeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuaternionKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.QuaternionKeyFrameAnimation;{404e5835-ecf6-4240-8520-671279cf36bc})");
 }
@@ -34121,6 +34574,11 @@ impl ::core::cmp::PartialEq for RectangleClip {
     }
 }
 impl ::core::cmp::Eq for RectangleClip {}
+impl ::core::fmt::Debug for RectangleClip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RectangleClip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RectangleClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RectangleClip;{b3e7549e-00b4-5b53-8be8-353f6c433101})");
 }
@@ -34698,6 +35156,11 @@ impl ::core::cmp::PartialEq for RedirectVisual {
     }
 }
 impl ::core::cmp::Eq for RedirectVisual {}
+impl ::core::fmt::Debug for RedirectVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RedirectVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RedirectVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RedirectVisual;{8cc6e340-8b75-5422-b06f-09ffe9f8617e})");
 }
@@ -34981,6 +35444,11 @@ impl ::core::cmp::PartialEq for RenderingDeviceReplacedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RenderingDeviceReplacedEventArgs {}
+impl ::core::fmt::Debug for RenderingDeviceReplacedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RenderingDeviceReplacedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RenderingDeviceReplacedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.RenderingDeviceReplacedEventArgs;{3a31ac7d-28bf-4e7a-8524-71679d480f38})");
 }
@@ -35432,6 +35900,11 @@ impl ::core::cmp::PartialEq for ScalarKeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for ScalarKeyFrameAnimation {}
+impl ::core::fmt::Debug for ScalarKeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScalarKeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScalarKeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarKeyFrameAnimation;{ae288fa9-252c-4b95-a725-bf85e38000a1})");
 }
@@ -35906,6 +36379,11 @@ impl ::core::cmp::PartialEq for ScalarNaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for ScalarNaturalMotionAnimation {}
+impl ::core::fmt::Debug for ScalarNaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScalarNaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ScalarNaturalMotionAnimation;{94a94581-bf92-495b-b5bd-d2c659430737})");
 }
@@ -36534,6 +37012,11 @@ impl ::core::cmp::PartialEq for ShapeVisual {
     }
 }
 impl ::core::cmp::Eq for ShapeVisual {}
+impl ::core::fmt::Debug for ShapeVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShapeVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShapeVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.ShapeVisual;{f2bd13c3-ba7e-4b0f-9126-ffb7536b8176})");
 }
@@ -36817,6 +37300,11 @@ impl ::core::cmp::PartialEq for SineEasingFunction {
     }
 }
 impl ::core::cmp::Eq for SineEasingFunction {}
+impl ::core::fmt::Debug for SineEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SineEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SineEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SineEasingFunction;{f1b518bf-9563-5474-bd13-44b2df4b1d58})");
 }
@@ -37313,6 +37801,11 @@ impl ::core::cmp::PartialEq for SpotLight {
     }
 }
 impl ::core::cmp::Eq for SpotLight {}
+impl ::core::fmt::Debug for SpotLight {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpotLight").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpotLight {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpotLight;{5a9fe273-44a1-4f95-a422-8fa5116bdb44})");
 }
@@ -37773,6 +38266,11 @@ impl ::core::cmp::PartialEq for SpringScalarNaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for SpringScalarNaturalMotionAnimation {}
+impl ::core::fmt::Debug for SpringScalarNaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpringScalarNaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpringScalarNaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringScalarNaturalMotionAnimation;{0572a95f-37f9-4fbe-b87b-5cd03a89501c})");
 }
@@ -38297,6 +38795,11 @@ impl ::core::cmp::PartialEq for SpringVector2NaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for SpringVector2NaturalMotionAnimation {}
+impl ::core::fmt::Debug for SpringVector2NaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpringVector2NaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpringVector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector2NaturalMotionAnimation;{23f494b5-ee73-4f0f-a423-402b946df4b3})");
 }
@@ -38821,6 +39324,11 @@ impl ::core::cmp::PartialEq for SpringVector3NaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for SpringVector3NaturalMotionAnimation {}
+impl ::core::fmt::Debug for SpringVector3NaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpringVector3NaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpringVector3NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpringVector3NaturalMotionAnimation;{6c8749df-d57b-4794-8e2d-cecb11e194e5})");
 }
@@ -39473,6 +39981,11 @@ impl ::core::cmp::PartialEq for SpriteVisual {
     }
 }
 impl ::core::cmp::Eq for SpriteVisual {}
+impl ::core::fmt::Debug for SpriteVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpriteVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpriteVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.SpriteVisual;{08e05581-1ad1-4f97-9757-402d76e4233b})");
 }
@@ -39813,6 +40326,11 @@ impl ::core::cmp::PartialEq for StepEasingFunction {
     }
 }
 impl ::core::cmp::Eq for StepEasingFunction {}
+impl ::core::fmt::Debug for StepEasingFunction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StepEasingFunction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StepEasingFunction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.StepEasingFunction;{d0caa74b-560c-4a0b-a5f6-206ca8c3ecd6})");
 }
@@ -40286,6 +40804,11 @@ impl ::core::cmp::PartialEq for Vector2KeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for Vector2KeyFrameAnimation {}
+impl ::core::fmt::Debug for Vector2KeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Vector2KeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Vector2KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2KeyFrameAnimation;{df414515-4e29-4f11-b55e-bf2a6eb36294})");
 }
@@ -40762,6 +41285,11 @@ impl ::core::cmp::PartialEq for Vector2NaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for Vector2NaturalMotionAnimation {}
+impl ::core::fmt::Debug for Vector2NaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Vector2NaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Vector2NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector2NaturalMotionAnimation;{0f3e0b7d-e512-479d-a00c-77c93a30a395})");
 }
@@ -41277,6 +41805,11 @@ impl ::core::cmp::PartialEq for Vector3KeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for Vector3KeyFrameAnimation {}
+impl ::core::fmt::Debug for Vector3KeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Vector3KeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Vector3KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3KeyFrameAnimation;{c8039daa-a281-43c2-a73d-b68e3c533c40})");
 }
@@ -41753,6 +42286,11 @@ impl ::core::cmp::PartialEq for Vector3NaturalMotionAnimation {
     }
 }
 impl ::core::cmp::Eq for Vector3NaturalMotionAnimation {}
+impl ::core::fmt::Debug for Vector3NaturalMotionAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Vector3NaturalMotionAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Vector3NaturalMotionAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector3NaturalMotionAnimation;{9c17042c-e2ca-45ad-969e-4e78b7b9ad41})");
 }
@@ -42268,6 +42806,11 @@ impl ::core::cmp::PartialEq for Vector4KeyFrameAnimation {
     }
 }
 impl ::core::cmp::Eq for Vector4KeyFrameAnimation {}
+impl ::core::fmt::Debug for Vector4KeyFrameAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Vector4KeyFrameAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Vector4KeyFrameAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Vector4KeyFrameAnimation;{2457945b-addd-4385-9606-b6a3d5e4e1b9})");
 }
@@ -42866,6 +43409,11 @@ impl ::core::cmp::PartialEq for Visual {
     }
 }
 impl ::core::cmp::Eq for Visual {}
+impl ::core::fmt::Debug for Visual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Visual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Visual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Visual;{117e202d-a859-4c89-873b-c2aa566788e3})");
 }
@@ -43148,6 +43696,11 @@ impl ::core::cmp::PartialEq for VisualCollection {
     }
 }
 impl ::core::cmp::Eq for VisualCollection {}
+impl ::core::fmt::Debug for VisualCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualCollection;{8b745505-fd3e-4a98-84a8-e949468c6bcb})");
 }
@@ -43457,6 +44010,11 @@ impl ::core::cmp::PartialEq for VisualUnorderedCollection {
     }
 }
 impl ::core::cmp::Eq for VisualUnorderedCollection {}
+impl ::core::fmt::Debug for VisualUnorderedCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualUnorderedCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualUnorderedCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.VisualUnorderedCollection;{338faa70-54c8-40a7-8029-c9ceeb0aa250})");
 }

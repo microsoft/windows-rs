@@ -149,6 +149,11 @@ impl ::core::cmp::PartialEq for CameraIntrinsics {
     }
 }
 impl ::core::cmp::Eq for CameraIntrinsics {}
+impl ::core::fmt::Debug for CameraIntrinsics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CameraIntrinsics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CameraIntrinsics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.CameraIntrinsics;{0aa6ed32-6589-49da-afde-594270ca0aac})");
 }
@@ -253,6 +258,11 @@ impl ::core::cmp::PartialEq for DepthCorrelatedCoordinateMapper {
     }
 }
 impl ::core::cmp::Eq for DepthCorrelatedCoordinateMapper {}
+impl ::core::fmt::Debug for DepthCorrelatedCoordinateMapper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DepthCorrelatedCoordinateMapper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DepthCorrelatedCoordinateMapper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.DepthCorrelatedCoordinateMapper;{f95d89fb-8af0-4cb0-926d-696866e5046a})");
 }
@@ -395,6 +405,11 @@ impl ::core::cmp::PartialEq for FrameControlCapabilities {
     }
 }
 impl ::core::cmp::Eq for FrameControlCapabilities {}
+impl ::core::fmt::Debug for FrameControlCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameControlCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameControlCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameControlCapabilities;{a8ffae60-4e9e-4377-a789-e24c4ae7e544})");
 }
@@ -523,6 +538,11 @@ impl ::core::cmp::PartialEq for FrameController {
     }
 }
 impl ::core::cmp::Eq for FrameController {}
+impl ::core::fmt::Debug for FrameController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameController;{c16459d9-baef-4052-9177-48aff2af7522})");
 }
@@ -626,6 +646,11 @@ impl ::core::cmp::PartialEq for FrameExposureCapabilities {
     }
 }
 impl ::core::cmp::Eq for FrameExposureCapabilities {}
+impl ::core::fmt::Debug for FrameExposureCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameExposureCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameExposureCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCapabilities;{bdbe9ce3-3985-4e72-97c2-0590d61307a1})");
 }
@@ -724,6 +749,11 @@ impl ::core::cmp::PartialEq for FrameExposureCompensationCapabilities {
     }
 }
 impl ::core::cmp::Eq for FrameExposureCompensationCapabilities {}
+impl ::core::fmt::Debug for FrameExposureCompensationCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameExposureCompensationCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationCapabilities;{b988a823-8065-41ee-b04f-722265954500})");
 }
@@ -805,6 +835,11 @@ impl ::core::cmp::PartialEq for FrameExposureCompensationControl {
     }
 }
 impl ::core::cmp::Eq for FrameExposureCompensationControl {}
+impl ::core::fmt::Debug for FrameExposureCompensationControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameExposureCompensationControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameExposureCompensationControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureCompensationControl;{e95896c9-f7f9-48ca-8591-a26531cb1578})");
 }
@@ -899,6 +934,11 @@ impl ::core::cmp::PartialEq for FrameExposureControl {
     }
 }
 impl ::core::cmp::Eq for FrameExposureControl {}
+impl ::core::fmt::Debug for FrameExposureControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameExposureControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameExposureControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameExposureControl;{b1605a61-ffaf-4752-b621-f5b6f117f432})");
 }
@@ -989,6 +1029,11 @@ impl ::core::cmp::PartialEq for FrameFlashCapabilities {
     }
 }
 impl ::core::cmp::Eq for FrameFlashCapabilities {}
+impl ::core::fmt::Debug for FrameFlashCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameFlashCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameFlashCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashCapabilities;{bb9341a2-5ebe-4f62-8223-0e2b05bfbbd0})");
 }
@@ -1107,6 +1152,11 @@ impl ::core::cmp::PartialEq for FrameFlashControl {
     }
 }
 impl ::core::cmp::Eq for FrameFlashControl {}
+impl ::core::fmt::Debug for FrameFlashControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameFlashControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameFlashControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFlashControl;{75d5f6c7-bd45-4fab-9375-45ac04b332c2})");
 }
@@ -1239,6 +1289,11 @@ impl ::core::cmp::PartialEq for FrameFocusCapabilities {
     }
 }
 impl ::core::cmp::Eq for FrameFocusCapabilities {}
+impl ::core::fmt::Debug for FrameFocusCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameFocusCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameFocusCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusCapabilities;{7b25cd58-01c0-4065-9c40-c1a721425c1a})");
 }
@@ -1320,6 +1375,11 @@ impl ::core::cmp::PartialEq for FrameFocusControl {
     }
 }
 impl ::core::cmp::Eq for FrameFocusControl {}
+impl ::core::fmt::Debug for FrameFocusControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameFocusControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameFocusControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameFocusControl;{272df1d0-d912-4214-a67b-e38a8d48d8c6})");
 }
@@ -1418,6 +1478,11 @@ impl ::core::cmp::PartialEq for FrameIsoSpeedCapabilities {
     }
 }
 impl ::core::cmp::Eq for FrameIsoSpeedCapabilities {}
+impl ::core::fmt::Debug for FrameIsoSpeedCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameIsoSpeedCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedCapabilities {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedCapabilities;{16bdff61-6df6-4ac9-b92a-9f6ecd1ad2fa})");
 }
@@ -1512,6 +1577,11 @@ impl ::core::cmp::PartialEq for FrameIsoSpeedControl {
     }
 }
 impl ::core::cmp::Eq for FrameIsoSpeedControl {}
+impl ::core::fmt::Debug for FrameIsoSpeedControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameIsoSpeedControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameIsoSpeedControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.FrameIsoSpeedControl;{1a03efed-786a-4c75-a557-7ab9a85f588c})");
 }
@@ -2079,6 +2149,11 @@ impl ::core::cmp::PartialEq for VariablePhotoSequenceController {
     }
 }
 impl ::core::cmp::Eq for VariablePhotoSequenceController {}
+impl ::core::fmt::Debug for VariablePhotoSequenceController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VariablePhotoSequenceController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VariablePhotoSequenceController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Devices.Core.VariablePhotoSequenceController;{7fbff880-ed8c-43fd-a7c3-b35809e4229a})");
 }

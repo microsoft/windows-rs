@@ -396,6 +396,11 @@ impl ::core::cmp::PartialEq for RfcommDeviceService {
     }
 }
 impl ::core::cmp::Eq for RfcommDeviceService {}
+impl ::core::fmt::Debug for RfcommDeviceService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommDeviceService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommDeviceService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceService;{ae81ff1f-c5a1-4c40-8c28-f3efd69062f3})");
 }
@@ -507,6 +512,11 @@ impl ::core::cmp::PartialEq for RfcommDeviceServicesResult {
     }
 }
 impl ::core::cmp::Eq for RfcommDeviceServicesResult {}
+impl ::core::fmt::Debug for RfcommDeviceServicesResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommDeviceServicesResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommDeviceServicesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommDeviceServicesResult;{3b48388c-7ccf-488e-9625-d259a5732d55})");
 }
@@ -660,6 +670,11 @@ impl ::core::cmp::PartialEq for RfcommServiceId {
     }
 }
 impl ::core::cmp::Eq for RfcommServiceId {}
+impl ::core::fmt::Debug for RfcommServiceId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommServiceId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommServiceId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceId;{22629204-7e02-4017-8136-da1b6a1b9bbf})");
 }
@@ -775,6 +790,11 @@ impl ::core::cmp::PartialEq for RfcommServiceProvider {
     }
 }
 impl ::core::cmp::Eq for RfcommServiceProvider {}
+impl ::core::fmt::Debug for RfcommServiceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommServiceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommServiceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.Rfcomm.RfcommServiceProvider;{eadbfdc4-b1f6-44ff-9f7c-e7a82ab86821})");
 }

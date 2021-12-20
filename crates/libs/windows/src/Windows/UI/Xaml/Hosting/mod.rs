@@ -23,6 +23,11 @@ impl ::core::cmp::PartialEq for DesignerAppExitedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DesignerAppExitedEventArgs {}
+impl ::core::fmt::Debug for DesignerAppExitedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesignerAppExitedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DesignerAppExitedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesignerAppExitedEventArgs;{f6aac86a-0cad-410c-8f62-dc2936151c74})");
 }
@@ -150,6 +155,11 @@ impl ::core::cmp::PartialEq for DesignerAppManager {
     }
 }
 impl ::core::cmp::Eq for DesignerAppManager {}
+impl ::core::fmt::Debug for DesignerAppManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesignerAppManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DesignerAppManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesignerAppManager;{a6272caa-d5c6-40cb-abd9-27ba43831bb7})");
 }
@@ -292,6 +302,11 @@ impl ::core::cmp::PartialEq for DesignerAppView {
     }
 }
 impl ::core::cmp::Eq for DesignerAppView {}
+impl ::core::fmt::Debug for DesignerAppView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesignerAppView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DesignerAppView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesignerAppView;{5c777cea-dd71-4a84-a56f-dacb4b14706f})");
 }
@@ -496,6 +511,11 @@ impl ::core::cmp::PartialEq for DesktopWindowXamlSource {
     }
 }
 impl ::core::cmp::Eq for DesktopWindowXamlSource {}
+impl ::core::fmt::Debug for DesktopWindowXamlSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesktopWindowXamlSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesktopWindowXamlSource;{d585bfe1-00ff-51be-ba1d-a1329956ea0a})");
 }
@@ -598,6 +618,11 @@ impl ::core::cmp::PartialEq for DesktopWindowXamlSourceGotFocusEventArgs {
     }
 }
 impl ::core::cmp::Eq for DesktopWindowXamlSourceGotFocusEventArgs {}
+impl ::core::fmt::Debug for DesktopWindowXamlSourceGotFocusEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesktopWindowXamlSourceGotFocusEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSourceGotFocusEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceGotFocusEventArgs;{39be4849-d9cc-5b70-8f05-1ad9a4aaa342})");
 }
@@ -674,6 +699,11 @@ impl ::core::cmp::PartialEq for DesktopWindowXamlSourceTakeFocusRequestedEventAr
     }
 }
 impl ::core::cmp::Eq for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {}
+impl ::core::fmt::Debug for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DesktopWindowXamlSourceTakeFocusRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DesktopWindowXamlSourceTakeFocusRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.DesktopWindowXamlSourceTakeFocusRequestedEventArgs;{fe61e4b9-a7af-52b3-bdb9-c3305c0b8df2})");
 }
@@ -821,6 +851,11 @@ impl ::core::cmp::PartialEq for ElementCompositionPreview {
     }
 }
 impl ::core::cmp::Eq for ElementCompositionPreview {}
+impl ::core::fmt::Debug for ElementCompositionPreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementCompositionPreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ElementCompositionPreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.ElementCompositionPreview;{b6f1a676-cfe6-46ac-acf6-c4687bb65e60})");
 }
@@ -1333,6 +1368,11 @@ impl ::core::cmp::PartialEq for IXamlUIPresenterHost {
     }
 }
 impl ::core::cmp::Eq for IXamlUIPresenterHost {}
+impl ::core::fmt::Debug for IXamlUIPresenterHost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlUIPresenterHost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlUIPresenterHost {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{aafb84cd-9f6d-4f80-ac2c-0e6cb9f31659}");
 }
@@ -1415,6 +1455,11 @@ impl ::core::cmp::PartialEq for IXamlUIPresenterHost2 {
     }
 }
 impl ::core::cmp::Eq for IXamlUIPresenterHost2 {}
+impl ::core::fmt::Debug for IXamlUIPresenterHost2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlUIPresenterHost2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlUIPresenterHost2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61595672-7ca4-4a21-b56a-88f4812388ca}");
 }
@@ -1497,6 +1542,11 @@ impl ::core::cmp::PartialEq for IXamlUIPresenterHost3 {
     }
 }
 impl ::core::cmp::Eq for IXamlUIPresenterHost3 {}
+impl ::core::fmt::Debug for IXamlUIPresenterHost3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlUIPresenterHost3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXamlUIPresenterHost3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b14292bf-7320-41bb-9f26-4d6fd34db45a}");
 }
@@ -1591,6 +1641,11 @@ impl ::core::cmp::PartialEq for WindowsXamlManager {
     }
 }
 impl ::core::cmp::Eq for WindowsXamlManager {}
+impl ::core::fmt::Debug for WindowsXamlManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowsXamlManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowsXamlManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.WindowsXamlManager;{56096c31-1aa0-5288-8818-6e74a2dcaff5})");
 }
@@ -1777,6 +1832,11 @@ impl ::core::cmp::PartialEq for XamlSourceFocusNavigationRequest {
     }
 }
 impl ::core::cmp::Eq for XamlSourceFocusNavigationRequest {}
+impl ::core::fmt::Debug for XamlSourceFocusNavigationRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlSourceFocusNavigationRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationRequest;{fbb93bb5-1496-5a80-ac00-e757359755e6})");
 }
@@ -1865,6 +1925,11 @@ impl ::core::cmp::PartialEq for XamlSourceFocusNavigationResult {
     }
 }
 impl ::core::cmp::Eq for XamlSourceFocusNavigationResult {}
+impl ::core::fmt::Debug for XamlSourceFocusNavigationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlSourceFocusNavigationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlSourceFocusNavigationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.XamlSourceFocusNavigationResult;{88d55a5f-9603-5d8f-9cc7-d1c4070d9801})");
 }
@@ -2032,6 +2097,11 @@ impl ::core::cmp::PartialEq for XamlUIPresenter {
     }
 }
 impl ::core::cmp::Eq for XamlUIPresenter {}
+impl ::core::fmt::Debug for XamlUIPresenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlUIPresenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlUIPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Hosting.XamlUIPresenter;{a714944a-1619-4fc6-b31b-89512ef022a2})");
 }

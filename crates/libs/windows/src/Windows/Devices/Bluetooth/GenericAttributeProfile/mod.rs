@@ -240,6 +240,11 @@ impl ::core::cmp::PartialEq for GattCharacteristic {
     }
 }
 impl ::core::cmp::Eq for GattCharacteristic {}
+impl ::core::fmt::Debug for GattCharacteristic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattCharacteristic").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristic;{59cb50c1-5934-4f68-a198-eb864fa44e6b})");
 }
@@ -960,6 +965,11 @@ impl ::core::cmp::PartialEq for GattCharacteristicsResult {
     }
 }
 impl ::core::cmp::Eq for GattCharacteristicsResult {}
+impl ::core::fmt::Debug for GattCharacteristicsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattCharacteristicsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristicsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattCharacteristicsResult;{1194945c-b257-4f3e-9db7-f68bc9a9aef2})");
 }
@@ -1095,6 +1105,11 @@ impl ::core::cmp::PartialEq for GattClientNotificationResult {
     }
 }
 impl ::core::cmp::Eq for GattClientNotificationResult {}
+impl ::core::fmt::Debug for GattClientNotificationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattClientNotificationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattClientNotificationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattClientNotificationResult;{506d5599-0112-419a-8e3b-ae21afabd2c2})");
 }
@@ -1276,6 +1291,11 @@ impl ::core::cmp::PartialEq for GattDescriptor {
     }
 }
 impl ::core::cmp::Eq for GattDescriptor {}
+impl ::core::fmt::Debug for GattDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptor;{92055f2b-8084-4344-b4c2-284de19a8506})");
 }
@@ -1424,6 +1444,11 @@ impl ::core::cmp::PartialEq for GattDescriptorsResult {
     }
 }
 impl ::core::cmp::Eq for GattDescriptorsResult {}
+impl ::core::fmt::Debug for GattDescriptorsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattDescriptorsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattDescriptorsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDescriptorsResult;{9bc091f3-95e7-4489-8d25-ff81955a57b9})");
 }
@@ -1768,6 +1793,11 @@ impl ::core::cmp::PartialEq for GattDeviceService {
     }
 }
 impl ::core::cmp::Eq for GattDeviceService {}
+impl ::core::fmt::Debug for GattDeviceService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattDeviceService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattDeviceService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceService;{ac7b7c05-b33c-47cf-990f-6b8f5577df71})");
 }
@@ -1888,6 +1918,11 @@ impl ::core::cmp::PartialEq for GattDeviceServicesResult {
     }
 }
 impl ::core::cmp::Eq for GattDeviceServicesResult {}
+impl ::core::fmt::Debug for GattDeviceServicesResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattDeviceServicesResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattDeviceServicesResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattDeviceServicesResult;{171dd3ee-016d-419d-838a-576cf475a3d8})");
 }
@@ -2104,6 +2139,11 @@ impl ::core::cmp::PartialEq for GattLocalCharacteristic {
     }
 }
 impl ::core::cmp::Eq for GattLocalCharacteristic {}
+impl ::core::fmt::Debug for GattLocalCharacteristic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattLocalCharacteristic").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristic;{aede376d-5412-4d74-92a8-8deb8526829c})");
 }
@@ -2255,6 +2295,11 @@ impl ::core::cmp::PartialEq for GattLocalCharacteristicParameters {
     }
 }
 impl ::core::cmp::Eq for GattLocalCharacteristicParameters {}
+impl ::core::fmt::Debug for GattLocalCharacteristicParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattLocalCharacteristicParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicParameters;{faf73db4-4cff-44c7-8445-040e6ead0063})");
 }
@@ -2339,6 +2384,11 @@ impl ::core::cmp::PartialEq for GattLocalCharacteristicResult {
     }
 }
 impl ::core::cmp::Eq for GattLocalCharacteristicResult {}
+impl ::core::fmt::Debug for GattLocalCharacteristicResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattLocalCharacteristicResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattLocalCharacteristicResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalCharacteristicResult;{7975de9b-0170-4397-9666-92f863f12ee6})");
 }
@@ -2470,6 +2520,11 @@ impl ::core::cmp::PartialEq for GattLocalDescriptor {
     }
 }
 impl ::core::cmp::Eq for GattLocalDescriptor {}
+impl ::core::fmt::Debug for GattLocalDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattLocalDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattLocalDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptor;{f48ebe06-789d-4a4b-8652-bd017b5d2fc6})");
 }
@@ -2586,6 +2641,11 @@ impl ::core::cmp::PartialEq for GattLocalDescriptorParameters {
     }
 }
 impl ::core::cmp::Eq for GattLocalDescriptorParameters {}
+impl ::core::fmt::Debug for GattLocalDescriptorParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattLocalDescriptorParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorParameters;{5fdede6a-f3c1-4b66-8c4b-e3d2293b40e9})");
 }
@@ -2670,6 +2730,11 @@ impl ::core::cmp::PartialEq for GattLocalDescriptorResult {
     }
 }
 impl ::core::cmp::Eq for GattLocalDescriptorResult {}
+impl ::core::fmt::Debug for GattLocalDescriptorResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattLocalDescriptorResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattLocalDescriptorResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalDescriptorResult;{375791be-321f-4366-bfc1-3bc6b82c79f8})");
 }
@@ -2764,6 +2829,11 @@ impl ::core::cmp::PartialEq for GattLocalService {
     }
 }
 impl ::core::cmp::Eq for GattLocalService {}
+impl ::core::fmt::Debug for GattLocalService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattLocalService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattLocalService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattLocalService;{f513e258-f7f7-4902-b803-57fcc7d6fe83})");
 }
@@ -2933,6 +3003,11 @@ impl ::core::cmp::PartialEq for GattPresentationFormat {
     }
 }
 impl ::core::cmp::Eq for GattPresentationFormat {}
+impl ::core::fmt::Debug for GattPresentationFormat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattPresentationFormat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattPresentationFormat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattPresentationFormat;{196d0021-faad-45dc-ae5b-2ac3184e84db})");
 }
@@ -3393,6 +3468,11 @@ impl ::core::cmp::PartialEq for GattReadClientCharacteristicConfigurationDescrip
     }
 }
 impl ::core::cmp::Eq for GattReadClientCharacteristicConfigurationDescriptorResult {}
+impl ::core::fmt::Debug for GattReadClientCharacteristicConfigurationDescriptorResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattReadClientCharacteristicConfigurationDescriptorResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattReadClientCharacteristicConfigurationDescriptorResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadClientCharacteristicConfigurationDescriptorResult;{63a66f09-1aea-4c4c-a50f-97bae474b348})");
 }
@@ -3511,6 +3591,11 @@ impl ::core::cmp::PartialEq for GattReadRequest {
     }
 }
 impl ::core::cmp::Eq for GattReadRequest {}
+impl ::core::fmt::Debug for GattReadRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattReadRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattReadRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequest;{f1dd6535-6acd-42a6-a4bb-d789dae0043e})");
 }
@@ -3605,6 +3690,11 @@ impl ::core::cmp::PartialEq for GattReadRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GattReadRequestedEventArgs {}
+impl ::core::fmt::Debug for GattReadRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattReadRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattReadRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadRequestedEventArgs;{93497243-f39c-484b-8ab6-996ba486cfa3})");
 }
@@ -3699,6 +3789,11 @@ impl ::core::cmp::PartialEq for GattReadResult {
     }
 }
 impl ::core::cmp::Eq for GattReadResult {}
+impl ::core::fmt::Debug for GattReadResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattReadResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattReadResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReadResult;{63a66f08-1aea-4c4c-a50f-97bae474b348})");
 }
@@ -3798,6 +3893,11 @@ impl ::core::cmp::PartialEq for GattReliableWriteTransaction {
     }
 }
 impl ::core::cmp::Eq for GattReliableWriteTransaction {}
+impl ::core::fmt::Debug for GattReliableWriteTransaction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattReliableWriteTransaction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattReliableWriteTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattReliableWriteTransaction;{63a66f07-1aea-4c4c-a50f-97bae474b348})");
 }
@@ -3916,6 +4016,11 @@ impl ::core::cmp::PartialEq for GattRequestStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GattRequestStateChangedEventArgs {}
+impl ::core::fmt::Debug for GattRequestStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattRequestStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattRequestStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattRequestStateChangedEventArgs;{e834d92c-27be-44b3-9d0d-4fc6e808dd3f})");
 }
@@ -4043,6 +4148,11 @@ impl ::core::cmp::PartialEq for GattServiceProvider {
     }
 }
 impl ::core::cmp::Eq for GattServiceProvider {}
+impl ::core::fmt::Debug for GattServiceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProvider;{7822b3cd-2889-4f86-a051-3f0aed1c2760})");
 }
@@ -4163,6 +4273,11 @@ impl ::core::cmp::PartialEq for GattServiceProviderAdvertisementStatusChangedEve
     }
 }
 impl ::core::cmp::Eq for GattServiceProviderAdvertisementStatusChangedEventArgs {}
+impl ::core::fmt::Debug for GattServiceProviderAdvertisementStatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderAdvertisementStatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisementStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisementStatusChangedEventArgs;{59a5aa65-fa21-4ffc-b155-04d928012686})");
 }
@@ -4279,6 +4394,11 @@ impl ::core::cmp::PartialEq for GattServiceProviderAdvertisingParameters {
     }
 }
 impl ::core::cmp::Eq for GattServiceProviderAdvertisingParameters {}
+impl ::core::fmt::Debug for GattServiceProviderAdvertisingParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderAdvertisingParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderAdvertisingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderAdvertisingParameters;{e2ce31ab-6315-4c22-9bd7-781dbc3d8d82})");
 }
@@ -4363,6 +4483,11 @@ impl ::core::cmp::PartialEq for GattServiceProviderResult {
     }
 }
 impl ::core::cmp::Eq for GattServiceProviderResult {}
+impl ::core::fmt::Debug for GattServiceProviderResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattServiceProviderResult;{764696d8-c53e-428c-8a48-67afe02c3ae6})");
 }
@@ -4696,6 +4821,11 @@ impl ::core::cmp::PartialEq for GattSession {
     }
 }
 impl ::core::cmp::Eq for GattSession {}
+impl ::core::fmt::Debug for GattSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSession;{d23b5143-e04e-4c24-999c-9c256f9856b1})");
 }
@@ -4839,6 +4969,11 @@ impl ::core::cmp::PartialEq for GattSessionStatusChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GattSessionStatusChangedEventArgs {}
+impl ::core::fmt::Debug for GattSessionStatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattSessionStatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattSessionStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSessionStatusChangedEventArgs;{7605b72e-837f-404c-ab34-3163f39ddf32})");
 }
@@ -4973,6 +5108,11 @@ impl ::core::cmp::PartialEq for GattSubscribedClient {
     }
 }
 impl ::core::cmp::Eq for GattSubscribedClient {}
+impl ::core::fmt::Debug for GattSubscribedClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattSubscribedClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattSubscribedClient {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattSubscribedClient;{736e9001-15a4-4ec2-9248-e3f20d463be9})");
 }
@@ -5059,6 +5199,11 @@ impl ::core::cmp::PartialEq for GattValueChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GattValueChangedEventArgs {}
+impl ::core::fmt::Debug for GattValueChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattValueChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattValueChangedEventArgs;{d21bdb54-06e3-4ed8-a263-acfac8ba7313})");
 }
@@ -5218,6 +5363,11 @@ impl ::core::cmp::PartialEq for GattWriteRequest {
     }
 }
 impl ::core::cmp::Eq for GattWriteRequest {}
+impl ::core::fmt::Debug for GattWriteRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattWriteRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattWriteRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequest;{aeb6a9ed-de2f-4fc2-a9a8-94ea7844f13d})");
 }
@@ -5312,6 +5462,11 @@ impl ::core::cmp::PartialEq for GattWriteRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GattWriteRequestedEventArgs {}
+impl ::core::fmt::Debug for GattWriteRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattWriteRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattWriteRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteRequestedEventArgs;{2dec8bbe-a73a-471a-94d5-037deadd0806})");
 }
@@ -5397,6 +5552,11 @@ impl ::core::cmp::PartialEq for GattWriteResult {
     }
 }
 impl ::core::cmp::Eq for GattWriteResult {}
+impl ::core::fmt::Debug for GattWriteResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattWriteResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattWriteResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Bluetooth.GenericAttributeProfile.GattWriteResult;{4991ddb1-cb2b-44f7-99fc-d29a2871dc9b})");
 }

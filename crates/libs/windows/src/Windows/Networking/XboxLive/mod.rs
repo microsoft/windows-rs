@@ -455,6 +455,11 @@ impl ::core::cmp::PartialEq for XboxLiveDeviceAddress {
     }
 }
 impl ::core::cmp::Eq for XboxLiveDeviceAddress {}
+impl ::core::fmt::Debug for XboxLiveDeviceAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveDeviceAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveDeviceAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveDeviceAddress;{f5bbd279-3c86-4b57-a31a-b9462408fd01})");
 }
@@ -632,6 +637,11 @@ impl ::core::cmp::PartialEq for XboxLiveEndpointPair {
     }
 }
 impl ::core::cmp::Eq for XboxLiveEndpointPair {}
+impl ::core::fmt::Debug for XboxLiveEndpointPair {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPair").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPair {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPair;{1e9a839b-813e-44e0-b87f-c87a093475e4})");
 }
@@ -765,6 +775,11 @@ impl ::core::cmp::PartialEq for XboxLiveEndpointPairCreationResult {
     }
 }
 impl ::core::cmp::Eq for XboxLiveEndpointPairCreationResult {}
+impl ::core::fmt::Debug for XboxLiveEndpointPairCreationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairCreationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairCreationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairCreationResult;{d9a8bb95-2aab-4d1e-9794-33ecc0dcf0fe})");
 }
@@ -927,6 +942,11 @@ impl ::core::cmp::PartialEq for XboxLiveEndpointPairStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for XboxLiveEndpointPairStateChangedEventArgs {}
+impl ::core::fmt::Debug for XboxLiveEndpointPairStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairStateChangedEventArgs;{592e3b55-de08-44e7-ac3b-b9b9a169583a})");
 }
@@ -1123,6 +1143,11 @@ impl ::core::cmp::PartialEq for XboxLiveEndpointPairTemplate {
     }
 }
 impl ::core::cmp::Eq for XboxLiveEndpointPairTemplate {}
+impl ::core::fmt::Debug for XboxLiveEndpointPairTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveEndpointPairTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveEndpointPairTemplate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveEndpointPairTemplate;{6b286ecf-3457-40ce-b9a1-c0cfe0213ea7})");
 }
@@ -1199,6 +1224,11 @@ impl ::core::cmp::PartialEq for XboxLiveInboundEndpointPairCreatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for XboxLiveInboundEndpointPairCreatedEventArgs {}
+impl ::core::fmt::Debug for XboxLiveInboundEndpointPairCreatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveInboundEndpointPairCreatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveInboundEndpointPairCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveInboundEndpointPairCreatedEventArgs;{dc183b62-22ba-48d2-80de-c23968bd198b})");
 }
@@ -1500,6 +1530,11 @@ impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMeasurement {
     }
 }
 impl ::core::cmp::Eq for XboxLiveQualityOfServiceMeasurement {}
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMeasurement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMeasurement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMeasurement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMeasurement;{4d682bce-a5d6-47e6-a236-cfde5fbdf2ed})");
 }
@@ -1683,6 +1718,11 @@ impl ::core::cmp::PartialEq for XboxLiveQualityOfServiceMetricResult {
     }
 }
 impl ::core::cmp::Eq for XboxLiveQualityOfServiceMetricResult {}
+impl ::core::fmt::Debug for XboxLiveQualityOfServiceMetricResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServiceMetricResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServiceMetricResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServiceMetricResult;{aeec53d1-3561-4782-b0cf-d3ae29d9fa87})");
 }
@@ -1776,6 +1816,11 @@ impl ::core::cmp::PartialEq for XboxLiveQualityOfServicePrivatePayloadResult {
     }
 }
 impl ::core::cmp::Eq for XboxLiveQualityOfServicePrivatePayloadResult {}
+impl ::core::fmt::Debug for XboxLiveQualityOfServicePrivatePayloadResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XboxLiveQualityOfServicePrivatePayloadResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XboxLiveQualityOfServicePrivatePayloadResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.XboxLive.XboxLiveQualityOfServicePrivatePayloadResult;{5a6302ae-6f38-41c0-9fcc-ea6cb978cafc})");
 }

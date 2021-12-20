@@ -160,6 +160,11 @@ impl ::core::cmp::PartialEq for IDynamicPortMapping {
     }
 }
 impl ::core::cmp::Eq for IDynamicPortMapping {}
+impl ::core::fmt::Debug for IDynamicPortMapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDynamicPortMapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDynamicPortMapping {
     type Vtable = IDynamicPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4fc80282_23b6_4378_9a27_cd8f17c9400c);
@@ -309,6 +314,11 @@ impl ::core::cmp::PartialEq for IDynamicPortMappingCollection {
     }
 }
 impl ::core::cmp::Eq for IDynamicPortMappingCollection {}
+impl ::core::fmt::Debug for IDynamicPortMappingCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDynamicPortMappingCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDynamicPortMappingCollection {
     type Vtable = IDynamicPortMappingCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb60de00f_156e_4e8d_9ec1_3a2342c10899);
@@ -389,6 +399,11 @@ impl ::core::cmp::PartialEq for IEnumNetConnection {
     }
 }
 impl ::core::cmp::Eq for IEnumNetConnection {}
+impl ::core::fmt::Debug for IEnumNetConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetConnection {
     type Vtable = IEnumNetConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a0_1cd3_11d1_b1c5_00805fc1270e);
@@ -458,6 +473,11 @@ impl ::core::cmp::PartialEq for IEnumNetSharingEveryConnection {
     }
 }
 impl ::core::cmp::Eq for IEnumNetSharingEveryConnection {}
+impl ::core::fmt::Debug for IEnumNetSharingEveryConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetSharingEveryConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetSharingEveryConnection {
     type Vtable = IEnumNetSharingEveryConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b8_1cd3_11d1_b1c5_00805fc1270e);
@@ -528,6 +548,11 @@ impl ::core::cmp::PartialEq for IEnumNetSharingPortMapping {
     }
 }
 impl ::core::cmp::Eq for IEnumNetSharingPortMapping {}
+impl ::core::fmt::Debug for IEnumNetSharingPortMapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetSharingPortMapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetSharingPortMapping {
     type Vtable = IEnumNetSharingPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b0_1cd3_11d1_b1c5_00805fc1270e);
@@ -598,6 +623,11 @@ impl ::core::cmp::PartialEq for IEnumNetSharingPrivateConnection {
     }
 }
 impl ::core::cmp::Eq for IEnumNetSharingPrivateConnection {}
+impl ::core::fmt::Debug for IEnumNetSharingPrivateConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetSharingPrivateConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetSharingPrivateConnection {
     type Vtable = IEnumNetSharingPrivateConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b5_1cd3_11d1_b1c5_00805fc1270e);
@@ -668,6 +698,11 @@ impl ::core::cmp::PartialEq for IEnumNetSharingPublicConnection {
     }
 }
 impl ::core::cmp::Eq for IEnumNetSharingPublicConnection {}
+impl ::core::fmt::Debug for IEnumNetSharingPublicConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumNetSharingPublicConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumNetSharingPublicConnection {
     type Vtable = IEnumNetSharingPublicConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b4_1cd3_11d1_b1c5_00805fc1270e);
@@ -774,6 +809,11 @@ impl ::core::cmp::PartialEq for INATEventManager {
     }
 }
 impl ::core::cmp::Eq for INATEventManager {}
+impl ::core::fmt::Debug for INATEventManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INATEventManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INATEventManager {
     type Vtable = INATEventManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x624bd588_9060_4109_b0b0_1adbbcac32df);
@@ -836,6 +876,11 @@ impl ::core::cmp::PartialEq for INATExternalIPAddressCallback {
     }
 }
 impl ::core::cmp::Eq for INATExternalIPAddressCallback {}
+impl ::core::fmt::Debug for INATExternalIPAddressCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INATExternalIPAddressCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INATExternalIPAddressCallback {
     type Vtable = INATExternalIPAddressCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c416740_a34e_446f_ba06_abd04c3149ae);
@@ -889,6 +934,11 @@ impl ::core::cmp::PartialEq for INATNumberOfEntriesCallback {
     }
 }
 impl ::core::cmp::Eq for INATNumberOfEntriesCallback {}
+impl ::core::fmt::Debug for INATNumberOfEntriesCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INATNumberOfEntriesCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INATNumberOfEntriesCallback {
     type Vtable = INATNumberOfEntriesCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc83a0a74_91ee_41b6_b67a_67e0f00bbd78);
@@ -1186,6 +1236,11 @@ impl ::core::cmp::PartialEq for INetConnection {
     }
 }
 impl ::core::cmp::Eq for INetConnection {}
+impl ::core::fmt::Debug for INetConnection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetConnection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetConnection {
     type Vtable = INetConnectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a1_1cd3_11d1_b1c5_00805fc1270e);
@@ -1257,6 +1312,11 @@ impl ::core::cmp::PartialEq for INetConnectionConnectUi {
     }
 }
 impl ::core::cmp::Eq for INetConnectionConnectUi {}
+impl ::core::fmt::Debug for INetConnectionConnectUi {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetConnectionConnectUi").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetConnectionConnectUi {
     type Vtable = INetConnectionConnectUiVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a3_1cd3_11d1_b1c5_00805fc1270e);
@@ -1314,6 +1374,11 @@ impl ::core::cmp::PartialEq for INetConnectionManager {
     }
 }
 impl ::core::cmp::Eq for INetConnectionManager {}
+impl ::core::fmt::Debug for INetConnectionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetConnectionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetConnectionManager {
     type Vtable = INetConnectionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956a2_1cd3_11d1_b1c5_00805fc1270e);
@@ -1436,6 +1501,11 @@ impl ::core::cmp::PartialEq for INetConnectionProps {
     }
 }
 impl ::core::cmp::Eq for INetConnectionProps {}
+impl ::core::fmt::Debug for INetConnectionProps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetConnectionProps").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetConnectionProps {
     type Vtable = INetConnectionPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4277c95_ce5b_463d_8167_5662d9bcaa72);
@@ -1606,6 +1676,11 @@ impl ::core::cmp::PartialEq for INetFwAuthorizedApplication {
     }
 }
 impl ::core::cmp::Eq for INetFwAuthorizedApplication {}
+impl ::core::fmt::Debug for INetFwAuthorizedApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwAuthorizedApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwAuthorizedApplication {
     type Vtable = INetFwAuthorizedApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5e64ffa_c2c5_444e_a301_fb5e00018050);
@@ -1750,6 +1825,11 @@ impl ::core::cmp::PartialEq for INetFwAuthorizedApplications {
     }
 }
 impl ::core::cmp::Eq for INetFwAuthorizedApplications {}
+impl ::core::fmt::Debug for INetFwAuthorizedApplications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwAuthorizedApplications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwAuthorizedApplications {
     type Vtable = INetFwAuthorizedApplicationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x644efd52_ccf9_486c_97a2_39f352570b30);
@@ -1948,6 +2028,11 @@ impl ::core::cmp::PartialEq for INetFwIcmpSettings {
     }
 }
 impl ::core::cmp::Eq for INetFwIcmpSettings {}
+impl ::core::fmt::Debug for INetFwIcmpSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwIcmpSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwIcmpSettings {
     type Vtable = INetFwIcmpSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6207b2e_7cdd_426a_951e_5e1cbc5afead);
@@ -2093,6 +2178,11 @@ impl ::core::cmp::PartialEq for INetFwMgr {
     }
 }
 impl ::core::cmp::Eq for INetFwMgr {}
+impl ::core::fmt::Debug for INetFwMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwMgr {
     type Vtable = INetFwMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7898af5_cac4_4632_a2ec_da06e5111af2);
@@ -2273,6 +2363,11 @@ impl ::core::cmp::PartialEq for INetFwOpenPort {
     }
 }
 impl ::core::cmp::Eq for INetFwOpenPort {}
+impl ::core::fmt::Debug for INetFwOpenPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwOpenPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwOpenPort {
     type Vtable = INetFwOpenPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe0483ba0_47ff_4d9c_a6d6_7741d0b195f7);
@@ -2416,6 +2511,11 @@ impl ::core::cmp::PartialEq for INetFwOpenPorts {
     }
 }
 impl ::core::cmp::Eq for INetFwOpenPorts {}
+impl ::core::fmt::Debug for INetFwOpenPorts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwOpenPorts").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwOpenPorts {
     type Vtable = INetFwOpenPortsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc0e9d7fa_e07e_430a_b19a_090ce82d92e2);
@@ -2532,6 +2632,11 @@ impl ::core::cmp::PartialEq for INetFwPolicy {
     }
 }
 impl ::core::cmp::Eq for INetFwPolicy {}
+impl ::core::fmt::Debug for INetFwPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwPolicy {
     type Vtable = INetFwPolicyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd46d2478_9ac9_4008_9dc7_5563ce5536cc);
@@ -2741,6 +2846,11 @@ impl ::core::cmp::PartialEq for INetFwPolicy2 {
     }
 }
 impl ::core::cmp::Eq for INetFwPolicy2 {}
+impl ::core::fmt::Debug for INetFwPolicy2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwPolicy2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwPolicy2 {
     type Vtable = INetFwPolicy2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98325047_c671_4174_8d81_defcd3f03186);
@@ -2897,6 +3007,11 @@ impl ::core::cmp::PartialEq for INetFwProduct {
     }
 }
 impl ::core::cmp::Eq for INetFwProduct {}
+impl ::core::fmt::Debug for INetFwProduct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwProduct").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwProduct {
     type Vtable = INetFwProductVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x71881699_18f4_458b_b892_3ffce5e07f75);
@@ -3028,6 +3143,11 @@ impl ::core::cmp::PartialEq for INetFwProducts {
     }
 }
 impl ::core::cmp::Eq for INetFwProducts {}
+impl ::core::fmt::Debug for INetFwProducts {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwProducts").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwProducts {
     type Vtable = INetFwProductsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39eb36e0_2097_40bd_8af2_63a13b525362);
@@ -3199,6 +3319,11 @@ impl ::core::cmp::PartialEq for INetFwProfile {
     }
 }
 impl ::core::cmp::Eq for INetFwProfile {}
+impl ::core::fmt::Debug for INetFwProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwProfile {
     type Vtable = INetFwProfileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x174a0dda_e9f9_449d_993b_21ab667ca456);
@@ -3352,6 +3477,11 @@ impl ::core::cmp::PartialEq for INetFwRemoteAdminSettings {
     }
 }
 impl ::core::cmp::Eq for INetFwRemoteAdminSettings {}
+impl ::core::fmt::Debug for INetFwRemoteAdminSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwRemoteAdminSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwRemoteAdminSettings {
     type Vtable = INetFwRemoteAdminSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4becddf_6f73_4a83_b832_9c66874cd20e);
@@ -3649,6 +3779,11 @@ impl ::core::cmp::PartialEq for INetFwRule {
     }
 }
 impl ::core::cmp::Eq for INetFwRule {}
+impl ::core::fmt::Debug for INetFwRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwRule {
     type Vtable = INetFwRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf230d27_baba_4e42_aced_f524f22cfce2);
@@ -4025,6 +4160,11 @@ impl ::core::cmp::PartialEq for INetFwRule2 {
     }
 }
 impl ::core::cmp::Eq for INetFwRule2 {}
+impl ::core::fmt::Debug for INetFwRule2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwRule2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwRule2 {
     type Vtable = INetFwRule2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c27c8da_189b_4dde_89f7_8b39a316782c);
@@ -4487,6 +4627,11 @@ impl ::core::cmp::PartialEq for INetFwRule3 {
     }
 }
 impl ::core::cmp::Eq for INetFwRule3 {}
+impl ::core::fmt::Debug for INetFwRule3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwRule3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwRule3 {
     type Vtable = INetFwRule3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb21563ff_d696_4222_ab46_4e89b73ab34a);
@@ -4697,6 +4842,11 @@ impl ::core::cmp::PartialEq for INetFwRules {
     }
 }
 impl ::core::cmp::Eq for INetFwRules {}
+impl ::core::fmt::Debug for INetFwRules {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwRules").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwRules {
     type Vtable = INetFwRulesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c4c6277_5027_441e_afae_ca1f542da009);
@@ -4864,6 +5014,11 @@ impl ::core::cmp::PartialEq for INetFwService {
     }
 }
 impl ::core::cmp::Eq for INetFwService {}
+impl ::core::fmt::Debug for INetFwService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwService {
     type Vtable = INetFwServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79fd57c8_908e_4a36_9888_d5b3f0a444cf);
@@ -4996,6 +5151,11 @@ impl ::core::cmp::PartialEq for INetFwServiceRestriction {
     }
 }
 impl ::core::cmp::Eq for INetFwServiceRestriction {}
+impl ::core::fmt::Debug for INetFwServiceRestriction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwServiceRestriction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwServiceRestriction {
     type Vtable = INetFwServiceRestrictionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8267bbe3_f890_491c_b7b6_2db1ef0e5d2b);
@@ -5117,6 +5277,11 @@ impl ::core::cmp::PartialEq for INetFwServices {
     }
 }
 impl ::core::cmp::Eq for INetFwServices {}
+impl ::core::fmt::Debug for INetFwServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetFwServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetFwServices {
     type Vtable = INetFwServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79649bb4_903e_421b_94c9_79848e79f6ee);
@@ -5267,6 +5432,11 @@ impl ::core::cmp::PartialEq for INetSharingConfiguration {
     }
 }
 impl ::core::cmp::Eq for INetSharingConfiguration {}
+impl ::core::fmt::Debug for INetSharingConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingConfiguration {
     type Vtable = INetSharingConfigurationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b6_1cd3_11d1_b1c5_00805fc1270e);
@@ -5389,6 +5559,11 @@ impl ::core::cmp::PartialEq for INetSharingEveryConnectionCollection {
     }
 }
 impl ::core::cmp::Eq for INetSharingEveryConnectionCollection {}
+impl ::core::fmt::Debug for INetSharingEveryConnectionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingEveryConnectionCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingEveryConnectionCollection {
     type Vtable = INetSharingEveryConnectionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33c4643c_7811_46fa_a89a_768597bd7223);
@@ -5522,6 +5697,11 @@ impl ::core::cmp::PartialEq for INetSharingManager {
     }
 }
 impl ::core::cmp::Eq for INetSharingManager {}
+impl ::core::fmt::Debug for INetSharingManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingManager {
     type Vtable = INetSharingManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b7_1cd3_11d1_b1c5_00805fc1270e);
@@ -5646,6 +5826,11 @@ impl ::core::cmp::PartialEq for INetSharingPortMapping {
     }
 }
 impl ::core::cmp::Eq for INetSharingPortMapping {}
+impl ::core::fmt::Debug for INetSharingPortMapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingPortMapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingPortMapping {
     type Vtable = INetSharingPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc08956b1_1cd3_11d1_b1c5_00805fc1270e);
@@ -5761,6 +5946,11 @@ impl ::core::cmp::PartialEq for INetSharingPortMappingCollection {
     }
 }
 impl ::core::cmp::Eq for INetSharingPortMappingCollection {}
+impl ::core::fmt::Debug for INetSharingPortMappingCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingPortMappingCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingPortMappingCollection {
     type Vtable = INetSharingPortMappingCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02e4a2de_da20_4e34_89c8_ac22275a010b);
@@ -5907,6 +6097,11 @@ impl ::core::cmp::PartialEq for INetSharingPortMappingProps {
     }
 }
 impl ::core::cmp::Eq for INetSharingPortMappingProps {}
+impl ::core::fmt::Debug for INetSharingPortMappingProps {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingPortMappingProps").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingPortMappingProps {
     type Vtable = INetSharingPortMappingPropsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24b7e9b5_e38f_4685_851b_00892cf5f940);
@@ -6029,6 +6224,11 @@ impl ::core::cmp::PartialEq for INetSharingPrivateConnectionCollection {
     }
 }
 impl ::core::cmp::Eq for INetSharingPrivateConnectionCollection {}
+impl ::core::fmt::Debug for INetSharingPrivateConnectionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingPrivateConnectionCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingPrivateConnectionCollection {
     type Vtable = INetSharingPrivateConnectionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38ae69e0_4409_402a_a2cb_e965c727f840);
@@ -6142,6 +6342,11 @@ impl ::core::cmp::PartialEq for INetSharingPublicConnectionCollection {
     }
 }
 impl ::core::cmp::Eq for INetSharingPublicConnectionCollection {}
+impl ::core::fmt::Debug for INetSharingPublicConnectionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("INetSharingPublicConnectionCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for INetSharingPublicConnectionCollection {
     type Vtable = INetSharingPublicConnectionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d7a6355_f372_4971_a149_bfc927be762a);
@@ -6302,6 +6507,11 @@ impl ::core::cmp::PartialEq for IStaticPortMapping {
     }
 }
 impl ::core::cmp::Eq for IStaticPortMapping {}
+impl ::core::fmt::Debug for IStaticPortMapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStaticPortMapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStaticPortMapping {
     type Vtable = IStaticPortMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f10711f_729b_41e5_93b8_f21d0f818df1);
@@ -6447,6 +6657,11 @@ impl ::core::cmp::PartialEq for IStaticPortMappingCollection {
     }
 }
 impl ::core::cmp::Eq for IStaticPortMappingCollection {}
+impl ::core::fmt::Debug for IStaticPortMappingCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStaticPortMappingCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStaticPortMappingCollection {
     type Vtable = IStaticPortMappingCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1f3e77_66d6_4664_82c7_36dbb641d0f1);
@@ -6571,6 +6786,11 @@ impl ::core::cmp::PartialEq for IUPnPNAT {
     }
 }
 impl ::core::cmp::Eq for IUPnPNAT {}
+impl ::core::fmt::Debug for IUPnPNAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUPnPNAT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUPnPNAT {
     type Vtable = IUPnPNATVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb171c812_cc76_485a_94d8_b6b3a2794e99);

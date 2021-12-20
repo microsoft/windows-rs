@@ -108,6 +108,11 @@ impl ::core::cmp::PartialEq for ISpiControllerProvider {
     }
 }
 impl ::core::cmp::Eq for ISpiControllerProvider {}
+impl ::core::fmt::Debug for ISpiControllerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpiControllerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISpiControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{c1686504-02ce-4226-a385-4f11fb04b41b}");
 }
@@ -250,6 +255,11 @@ impl ::core::cmp::PartialEq for ISpiDeviceProvider {
     }
 }
 impl ::core::cmp::Eq for ISpiDeviceProvider {}
+impl ::core::fmt::Debug for ISpiDeviceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpiDeviceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISpiDeviceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{0d1c3443-304b-405c-b4f7-f5ab1074461e}");
 }
@@ -338,6 +348,11 @@ impl ::core::cmp::PartialEq for ISpiProvider {
     }
 }
 impl ::core::cmp::Eq for ISpiProvider {}
+impl ::core::fmt::Debug for ISpiProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpiProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ISpiProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{96b461e2-77d4-48ce-aaa0-75715a8362cf}");
 }
@@ -450,6 +465,11 @@ impl ::core::cmp::PartialEq for ProviderSpiConnectionSettings {
     }
 }
 impl ::core::cmp::Eq for ProviderSpiConnectionSettings {}
+impl ::core::fmt::Debug for ProviderSpiConnectionSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderSpiConnectionSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderSpiConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Spi.Provider.ProviderSpiConnectionSettings;{f6034550-a542-4ec0-9601-a4dd68f8697b})");
 }

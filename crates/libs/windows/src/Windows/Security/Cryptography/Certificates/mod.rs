@@ -223,6 +223,11 @@ impl ::core::cmp::PartialEq for Certificate {
     }
 }
 impl ::core::cmp::Eq for Certificate {}
+impl ::core::fmt::Debug for Certificate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Certificate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Certificate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.Certificate;{333f740c-04d8-43b3-b278-8c5fcc9be5a0})");
 }
@@ -316,6 +321,11 @@ impl ::core::cmp::PartialEq for CertificateChain {
     }
 }
 impl ::core::cmp::Eq for CertificateChain {}
+impl ::core::fmt::Debug for CertificateChain {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateChain").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CertificateChain {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateChain;{20bf5385-3691-4501-a62c-fd97278b31ee})");
 }
@@ -539,6 +549,11 @@ impl ::core::cmp::PartialEq for CertificateExtension {
     }
 }
 impl ::core::cmp::Eq for CertificateExtension {}
+impl ::core::fmt::Debug for CertificateExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CertificateExtension {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateExtension;{84cf0656-a9e6-454d-8e45-2ea7c4bcd53b})");
 }
@@ -718,6 +733,11 @@ impl ::core::cmp::PartialEq for CertificateKeyUsages {
     }
 }
 impl ::core::cmp::Eq for CertificateKeyUsages {}
+impl ::core::fmt::Debug for CertificateKeyUsages {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateKeyUsages").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CertificateKeyUsages {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateKeyUsages;{6ac6206f-e1cf-486a-b485-a69c83e46fd1})");
 }
@@ -893,6 +913,11 @@ impl ::core::cmp::PartialEq for CertificateQuery {
     }
 }
 impl ::core::cmp::Eq for CertificateQuery {}
+impl ::core::fmt::Debug for CertificateQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CertificateQuery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateQuery;{5b082a31-a728-4916-b5ee-ffcb8acf2417})");
 }
@@ -1215,6 +1240,11 @@ impl ::core::cmp::PartialEq for CertificateRequestProperties {
     }
 }
 impl ::core::cmp::Eq for CertificateRequestProperties {}
+impl ::core::fmt::Debug for CertificateRequestProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateRequestProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CertificateRequestProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateRequestProperties;{487e84f6-94e2-4dce-8833-1a700a37a29a})");
 }
@@ -1301,6 +1331,11 @@ impl ::core::cmp::PartialEq for CertificateStore {
     }
 }
 impl ::core::cmp::Eq for CertificateStore {}
+impl ::core::fmt::Debug for CertificateStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CertificateStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CertificateStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CertificateStore;{b0bff720-344e-4331-af14-a7f7a7ebc93a})");
 }
@@ -1522,6 +1557,11 @@ impl ::core::cmp::PartialEq for ChainBuildingParameters {
     }
 }
 impl ::core::cmp::Eq for ChainBuildingParameters {}
+impl ::core::fmt::Debug for ChainBuildingParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChainBuildingParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChainBuildingParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainBuildingParameters;{422ba922-7c8d-47b7-b59b-b12703733ac3})");
 }
@@ -1625,6 +1665,11 @@ impl ::core::cmp::PartialEq for ChainValidationParameters {
     }
 }
 impl ::core::cmp::Eq for ChainValidationParameters {}
+impl ::core::fmt::Debug for ChainValidationParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChainValidationParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChainValidationParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.ChainValidationParameters;{c4743b4a-7eb0-4b56-a040-b9c8e655ddf3})");
 }
@@ -1798,6 +1843,11 @@ impl ::core::cmp::PartialEq for CmsAttachedSignature {
     }
 }
 impl ::core::cmp::Eq for CmsAttachedSignature {}
+impl ::core::fmt::Debug for CmsAttachedSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CmsAttachedSignature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CmsAttachedSignature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsAttachedSignature;{61899d9d-3757-4ecb-bddc-0ca357d7a936})");
 }
@@ -1919,6 +1969,11 @@ impl ::core::cmp::PartialEq for CmsDetachedSignature {
     }
 }
 impl ::core::cmp::Eq for CmsDetachedSignature {}
+impl ::core::fmt::Debug for CmsDetachedSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CmsDetachedSignature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CmsDetachedSignature {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsDetachedSignature;{0f1ef154-f65e-4536-8339-5944081db2ca})");
 }
@@ -2028,6 +2083,11 @@ impl ::core::cmp::PartialEq for CmsSignerInfo {
     }
 }
 impl ::core::cmp::Eq for CmsSignerInfo {}
+impl ::core::fmt::Debug for CmsSignerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CmsSignerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CmsSignerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsSignerInfo;{50d020db-1d2f-4c1a-b5c5-d0188ff91f47})");
 }
@@ -2122,6 +2182,11 @@ impl ::core::cmp::PartialEq for CmsTimestampInfo {
     }
 }
 impl ::core::cmp::Eq for CmsTimestampInfo {}
+impl ::core::fmt::Debug for CmsTimestampInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CmsTimestampInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CmsTimestampInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.CmsTimestampInfo;{2f5f00f2-2c18-4f88-8435-c534086076f5})");
 }
@@ -3626,6 +3691,11 @@ impl ::core::cmp::PartialEq for PfxImportParameters {
     }
 }
 impl ::core::cmp::Eq for PfxImportParameters {}
+impl ::core::fmt::Debug for PfxImportParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PfxImportParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PfxImportParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.PfxImportParameters;{680d3511-9a08-47c8-864a-2edd4d8eb46c})");
 }
@@ -3886,6 +3956,11 @@ impl ::core::cmp::PartialEq for SubjectAlternativeNameInfo {
     }
 }
 impl ::core::cmp::Eq for SubjectAlternativeNameInfo {}
+impl ::core::fmt::Debug for SubjectAlternativeNameInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SubjectAlternativeNameInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SubjectAlternativeNameInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.SubjectAlternativeNameInfo;{582859f1-569d-4c20-be7b-4e1c9a0bc52b})");
 }
@@ -3999,6 +4074,11 @@ impl ::core::cmp::PartialEq for UserCertificateEnrollmentManager {
     }
 }
 impl ::core::cmp::Eq for UserCertificateEnrollmentManager {}
+impl ::core::fmt::Debug for UserCertificateEnrollmentManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserCertificateEnrollmentManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserCertificateEnrollmentManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateEnrollmentManager;{96313718-22e1-4819-b20b-ab46a6eca06e})");
 }
@@ -4093,6 +4173,11 @@ impl ::core::cmp::PartialEq for UserCertificateStore {
     }
 }
 impl ::core::cmp::Eq for UserCertificateStore {}
+impl ::core::fmt::Debug for UserCertificateStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserCertificateStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserCertificateStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Cryptography.Certificates.UserCertificateStore;{c9fb1d83-789f-4b4e-9180-045a757aac6d})");
 }

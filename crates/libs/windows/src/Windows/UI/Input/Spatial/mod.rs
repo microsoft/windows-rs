@@ -1260,6 +1260,11 @@ impl ::core::cmp::PartialEq for SpatialGestureRecognizer {
     }
 }
 impl ::core::cmp::Eq for SpatialGestureRecognizer {}
+impl ::core::fmt::Debug for SpatialGestureRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialGestureRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialGestureRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialGestureRecognizer;{71605bcc-0c35-4673-adbd-cc04caa6ef45})");
 }
@@ -1378,6 +1383,11 @@ impl ::core::cmp::PartialEq for SpatialHoldCanceledEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialHoldCanceledEventArgs {}
+impl ::core::fmt::Debug for SpatialHoldCanceledEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialHoldCanceledEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialHoldCanceledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCanceledEventArgs;{5dfcb667-4caa-4093-8c35-b601a839f31b})");
 }
@@ -1454,6 +1464,11 @@ impl ::core::cmp::PartialEq for SpatialHoldCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialHoldCompletedEventArgs {}
+impl ::core::fmt::Debug for SpatialHoldCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialHoldCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialHoldCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldCompletedEventArgs;{3f64470b-4cfd-43da-8dc4-e64552173971})");
 }
@@ -1539,6 +1554,11 @@ impl ::core::cmp::PartialEq for SpatialHoldStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialHoldStartedEventArgs {}
+impl ::core::fmt::Debug for SpatialHoldStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialHoldStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialHoldStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialHoldStartedEventArgs;{8e343d79-acb6-4144-8615-2cfba8a3cb3f})");
 }
@@ -1615,6 +1635,11 @@ impl ::core::cmp::PartialEq for SpatialInteraction {
     }
 }
 impl ::core::cmp::Eq for SpatialInteraction {}
+impl ::core::fmt::Debug for SpatialInteraction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteraction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteraction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteraction;{fc967639-88e6-4646-9112-4344aaec9dfa})");
 }
@@ -1750,6 +1775,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionController {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionController {}
+impl ::core::fmt::Debug for SpatialInteractionController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionController;{5f0e5ba3-0954-4e97-86c5-e7f30b114dfd})");
 }
@@ -1874,6 +1904,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionControllerProperties {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionControllerProperties {}
+impl ::core::fmt::Debug for SpatialInteractionControllerProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionControllerProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionControllerProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionControllerProperties;{61056fb1-7ba9-4e35-b93f-9272cba9b28b})");
 }
@@ -1975,6 +2010,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionDetectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionDetectedEventArgs {}
+impl ::core::fmt::Debug for SpatialInteractionDetectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionDetectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionDetectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionDetectedEventArgs;{075878e4-5961-3b41-9dfb-cea5d89cc38a})");
 }
@@ -2166,6 +2206,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionManager {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionManager {}
+impl ::core::fmt::Debug for SpatialInteractionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionManager;{32a64ea8-a15a-3995-b8bd-80513cb5adef})");
 }
@@ -2354,6 +2399,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSource {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSource {}
+impl ::core::fmt::Debug for SpatialInteractionSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSource;{fb5433ba-b0b3-3148-9f3b-e9f5de568f5d})");
 }
@@ -2438,6 +2488,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSourceEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSourceEventArgs {}
+impl ::core::fmt::Debug for SpatialInteractionSourceEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceEventArgs;{23b786cf-ec23-3979-b27c-eb0e12feb7c7})");
 }
@@ -2627,6 +2682,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSourceLocation {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSourceLocation {}
+impl ::core::fmt::Debug for SpatialInteractionSourceLocation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceLocation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceLocation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceLocation;{ea4696c4-7e8b-30ca-bcc5-c77189cea30a})");
 }
@@ -2754,6 +2814,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSourceProperties {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSourceProperties {}
+impl ::core::fmt::Debug for SpatialInteractionSourceProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceProperties;{05604542-3ef7-3222-9f53-63c9cb7e3bc7})");
 }
@@ -2913,6 +2978,11 @@ impl ::core::cmp::PartialEq for SpatialInteractionSourceState {
     }
 }
 impl ::core::cmp::Eq for SpatialInteractionSourceState {}
+impl ::core::fmt::Debug for SpatialInteractionSourceState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialInteractionSourceState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialInteractionSourceState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialInteractionSourceState;{d5c475ef-4b63-37ec-98b9-9fc652b9d2f2})");
 }
@@ -2989,6 +3059,11 @@ impl ::core::cmp::PartialEq for SpatialManipulationCanceledEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialManipulationCanceledEventArgs {}
+impl ::core::fmt::Debug for SpatialManipulationCanceledEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialManipulationCanceledEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationCanceledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCanceledEventArgs;{2d40d1cb-e7da-4220-b0bf-819301674780})");
 }
@@ -3074,6 +3149,11 @@ impl ::core::cmp::PartialEq for SpatialManipulationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialManipulationCompletedEventArgs {}
+impl ::core::fmt::Debug for SpatialManipulationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialManipulationCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationCompletedEventArgs;{05086802-f301-4343-9250-2fbaa5f87a37})");
 }
@@ -3151,6 +3231,11 @@ impl ::core::cmp::PartialEq for SpatialManipulationDelta {
     }
 }
 impl ::core::cmp::Eq for SpatialManipulationDelta {}
+impl ::core::fmt::Debug for SpatialManipulationDelta {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialManipulationDelta").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationDelta {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationDelta;{a7ec967a-d123-3a81-a15b-992923dcbe91})");
 }
@@ -3236,6 +3321,11 @@ impl ::core::cmp::PartialEq for SpatialManipulationStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialManipulationStartedEventArgs {}
+impl ::core::fmt::Debug for SpatialManipulationStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialManipulationStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationStartedEventArgs;{a1d6bbce-42a5-377b-ada6-d28e3d384737})");
 }
@@ -3321,6 +3411,11 @@ impl ::core::cmp::PartialEq for SpatialManipulationUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialManipulationUpdatedEventArgs {}
+impl ::core::fmt::Debug for SpatialManipulationUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialManipulationUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialManipulationUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialManipulationUpdatedEventArgs;{5f230b9b-60c6-4dc6-bdc9-9f4a6f15fe49})");
 }
@@ -3397,6 +3492,11 @@ impl ::core::cmp::PartialEq for SpatialNavigationCanceledEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialNavigationCanceledEventArgs {}
+impl ::core::fmt::Debug for SpatialNavigationCanceledEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialNavigationCanceledEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationCanceledEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCanceledEventArgs;{ce503edc-e8a5-46f0-92d4-3c122b35112a})");
 }
@@ -3482,6 +3582,11 @@ impl ::core::cmp::PartialEq for SpatialNavigationCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialNavigationCompletedEventArgs {}
+impl ::core::fmt::Debug for SpatialNavigationCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialNavigationCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationCompletedEventArgs;{012e80b7-af3b-42c2-9e41-baaa0e721f3a})");
 }
@@ -3591,6 +3696,11 @@ impl ::core::cmp::PartialEq for SpatialNavigationStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialNavigationStartedEventArgs {}
+impl ::core::fmt::Debug for SpatialNavigationStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialNavigationStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationStartedEventArgs;{754a348a-fb64-4656-8ebd-9deecaafe475})");
 }
@@ -3676,6 +3786,11 @@ impl ::core::cmp::PartialEq for SpatialNavigationUpdatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialNavigationUpdatedEventArgs {}
+impl ::core::fmt::Debug for SpatialNavigationUpdatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialNavigationUpdatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialNavigationUpdatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialNavigationUpdatedEventArgs;{9b713fd7-839d-4a74-8732-45466fc044b5})");
 }
@@ -3788,6 +3903,11 @@ impl ::core::cmp::PartialEq for SpatialPointerInteractionSourcePose {
     }
 }
 impl ::core::cmp::Eq for SpatialPointerInteractionSourcePose {}
+impl ::core::fmt::Debug for SpatialPointerInteractionSourcePose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialPointerInteractionSourcePose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialPointerInteractionSourcePose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerInteractionSourcePose;{a7104307-2c2b-4d3a-92a7-80ced7c4a0d0})");
 }
@@ -3912,6 +4032,11 @@ impl ::core::cmp::PartialEq for SpatialPointerPose {
     }
 }
 impl ::core::cmp::Eq for SpatialPointerPose {}
+impl ::core::fmt::Debug for SpatialPointerPose {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialPointerPose").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialPointerPose {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialPointerPose;{6953a42e-c17e-357d-97a1-7269d0ed2d10})");
 }
@@ -3988,6 +4113,11 @@ impl ::core::cmp::PartialEq for SpatialRecognitionEndedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialRecognitionEndedEventArgs {}
+impl ::core::fmt::Debug for SpatialRecognitionEndedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialRecognitionEndedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialRecognitionEndedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionEndedEventArgs;{0e35f5cb-3f75-43f3-ac81-d1dc2df9b1fb})");
 }
@@ -4081,6 +4211,11 @@ impl ::core::cmp::PartialEq for SpatialRecognitionStartedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialRecognitionStartedEventArgs {}
+impl ::core::fmt::Debug for SpatialRecognitionStartedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialRecognitionStartedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialRecognitionStartedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialRecognitionStartedEventArgs;{24da128f-0008-4a6d-aa50-2a76f9cfb264})");
 }
@@ -4174,6 +4309,11 @@ impl ::core::cmp::PartialEq for SpatialTappedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SpatialTappedEventArgs {}
+impl ::core::fmt::Debug for SpatialTappedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialTappedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialTappedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Spatial.SpatialTappedEventArgs;{296d83de-f444-4aa1-b2bf-9dc88d567da6})");
 }

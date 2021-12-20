@@ -265,6 +265,11 @@ impl ::core::cmp::PartialEq for IWebAccount {
     }
 }
 impl ::core::cmp::Eq for IWebAccount {}
+impl ::core::fmt::Debug for IWebAccount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebAccount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebAccount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{69473eb2-8031-49be-80bb-96cb46d99aba}");
 }
@@ -485,6 +490,11 @@ impl ::core::cmp::PartialEq for KeyCredential {
     }
 }
 impl ::core::cmp::Eq for KeyCredential {}
+impl ::core::fmt::Debug for KeyCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredential").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyCredential {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredential;{9585ef8d-457b-4847-b11a-fa960bbdb138})");
 }
@@ -579,6 +589,11 @@ impl ::core::cmp::PartialEq for KeyCredentialAttestationResult {
     }
 }
 impl ::core::cmp::Eq for KeyCredentialAttestationResult {}
+impl ::core::fmt::Debug for KeyCredentialAttestationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialAttestationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyCredentialAttestationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialAttestationResult;{78aab3a1-a3c1-4103-b6cc-472c44171cbb})");
 }
@@ -784,6 +799,11 @@ impl ::core::cmp::PartialEq for KeyCredentialOperationResult {
     }
 }
 impl ::core::cmp::Eq for KeyCredentialOperationResult {}
+impl ::core::fmt::Debug for KeyCredentialOperationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialOperationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyCredentialOperationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialOperationResult;{f53786c1-5261-4cdd-976d-cc909ac71620})");
 }
@@ -868,6 +888,11 @@ impl ::core::cmp::PartialEq for KeyCredentialRetrievalResult {
     }
 }
 impl ::core::cmp::Eq for KeyCredentialRetrievalResult {}
+impl ::core::fmt::Debug for KeyCredentialRetrievalResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyCredentialRetrievalResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyCredentialRetrievalResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.KeyCredentialRetrievalResult;{58cd7703-8d87-4249-9b58-f6598cc9644e})");
 }
@@ -1046,6 +1071,11 @@ impl ::core::cmp::PartialEq for PasswordCredential {
     }
 }
 impl ::core::cmp::Eq for PasswordCredential {}
+impl ::core::fmt::Debug for PasswordCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PasswordCredential").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PasswordCredential {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredential;{6ab18989-c720-41a7-a6c1-feadb36329a0})");
 }
@@ -1207,6 +1237,12 @@ impl ::core::cmp::PartialEq for PasswordCredentialPropertyStore {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PasswordCredentialPropertyStore {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PasswordCredentialPropertyStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PasswordCredentialPropertyStore").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PasswordCredentialPropertyStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordCredentialPropertyStore;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
@@ -1460,6 +1496,11 @@ impl ::core::cmp::PartialEq for PasswordVault {
     }
 }
 impl ::core::cmp::Eq for PasswordVault {}
+impl ::core::fmt::Debug for PasswordVault {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PasswordVault").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PasswordVault {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.PasswordVault;{61fd2c0b-c8d4-48c1-a54f-bc5a64205af2})");
 }
@@ -1608,6 +1649,11 @@ impl ::core::cmp::PartialEq for WebAccount {
     }
 }
 impl ::core::cmp::Eq for WebAccount {}
+impl ::core::fmt::Debug for WebAccount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccount;{69473eb2-8031-49be-80bb-96cb46d99aba})");
 }
@@ -1804,6 +1850,11 @@ impl ::core::cmp::PartialEq for WebAccountProvider {
     }
 }
 impl ::core::cmp::Eq for WebAccountProvider {}
+impl ::core::fmt::Debug for WebAccountProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Credentials.WebAccountProvider;{29dcc8c3-7ab9-4a7c-a336-b942f9dbf7c7})");
 }

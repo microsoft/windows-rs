@@ -822,6 +822,11 @@ impl ::core::cmp::PartialEq for SceneBoundingBox {
     }
 }
 impl ::core::cmp::Eq for SceneBoundingBox {}
+impl ::core::fmt::Debug for SceneBoundingBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneBoundingBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneBoundingBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneBoundingBox;{5d8ffc70-c618-4083-8251-9962593114aa})");
 }
@@ -1085,6 +1090,11 @@ impl ::core::cmp::PartialEq for SceneComponent {
     }
 }
 impl ::core::cmp::Eq for SceneComponent {}
+impl ::core::fmt::Debug for SceneComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})");
 }
@@ -1441,6 +1451,12 @@ impl ::core::cmp::PartialEq for SceneComponentCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for SceneComponentCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for SceneComponentCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneComponentCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for SceneComponentCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneComponentCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneComponent;{ae20fc96-226c-44bd-95cb-dd5ed9ebe9a5})))");
@@ -1821,6 +1837,11 @@ impl ::core::cmp::PartialEq for SceneMaterial {
     }
 }
 impl ::core::cmp::Eq for SceneMaterial {}
+impl ::core::fmt::Debug for SceneMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterial;{8ca74b7c-30df-4e07-9490-37875af1a123})");
 }
@@ -2076,6 +2097,11 @@ impl ::core::cmp::PartialEq for SceneMaterialInput {
     }
 }
 impl ::core::cmp::Eq for SceneMaterialInput {}
+impl ::core::fmt::Debug for SceneMaterialInput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneMaterialInput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneMaterialInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMaterialInput;{422a1642-1ef1-485c-97e9-ae6f95ad812f})");
 }
@@ -2372,6 +2398,11 @@ impl ::core::cmp::PartialEq for SceneMesh {
     }
 }
 impl ::core::cmp::Eq for SceneMesh {}
+impl ::core::fmt::Debug for SceneMesh {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneMesh").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneMesh {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMesh;{ee9a1530-1155-4c0c-92bd-40020cf78347})");
 }
@@ -2693,6 +2724,11 @@ impl ::core::cmp::PartialEq for SceneMeshMaterialAttributeMap {
     }
 }
 impl ::core::cmp::Eq for SceneMeshMaterialAttributeMap {}
+impl ::core::fmt::Debug for SceneMeshMaterialAttributeMap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneMeshMaterialAttributeMap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneMeshMaterialAttributeMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshMaterialAttributeMap;{ce843171-3d43-4855-aa69-31ff988d049d})");
 }
@@ -3070,6 +3106,11 @@ impl ::core::cmp::PartialEq for SceneMeshRendererComponent {
     }
 }
 impl ::core::cmp::Eq for SceneMeshRendererComponent {}
+impl ::core::fmt::Debug for SceneMeshRendererComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneMeshRendererComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneMeshRendererComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMeshRendererComponent;{9929f7e3-6364-477e-98fe-74ed9fd4c2de})");
 }
@@ -3563,6 +3604,11 @@ impl ::core::cmp::PartialEq for SceneMetallicRoughnessMaterial {
     }
 }
 impl ::core::cmp::Eq for SceneMetallicRoughnessMaterial {}
+impl ::core::fmt::Debug for SceneMetallicRoughnessMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneMetallicRoughnessMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneMetallicRoughnessMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneMetallicRoughnessMaterial;{c1d91446-799c-429e-a4e4-5da645f18e61})");
 }
@@ -3944,6 +3990,11 @@ impl ::core::cmp::PartialEq for SceneModelTransform {
     }
 }
 impl ::core::cmp::Eq for SceneModelTransform {}
+impl ::core::fmt::Debug for SceneModelTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneModelTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneModelTransform {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneModelTransform;{c05576c2-32b1-4269-980d-b98537100ae4})");
 }
@@ -4253,6 +4304,11 @@ impl ::core::cmp::PartialEq for SceneNode {
     }
 }
 impl ::core::cmp::Eq for SceneNode {}
+impl ::core::fmt::Debug for SceneNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})");
 }
@@ -4610,6 +4666,12 @@ impl ::core::cmp::PartialEq for SceneNodeCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for SceneNodeCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for SceneNodeCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneNodeCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for SceneNodeCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneNodeCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Composition.Scenes.SceneNode;{acf2c247-f307-4581-9c41-af2e29c3b016})))");
 }
@@ -4957,6 +5019,11 @@ impl ::core::cmp::PartialEq for SceneObject {
     }
 }
 impl ::core::cmp::Eq for SceneObject {}
+impl ::core::fmt::Debug for SceneObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneObject;{1e94249b-0f1b-49eb-a819-877d8450005b})");
 }
@@ -5311,6 +5378,11 @@ impl ::core::cmp::PartialEq for ScenePbrMaterial {
     }
 }
 impl ::core::cmp::Eq for ScenePbrMaterial {}
+impl ::core::fmt::Debug for ScenePbrMaterial {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScenePbrMaterial").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScenePbrMaterial {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.ScenePbrMaterial;{aab6ebbe-d680-46df-8294-b6800a9f95e7})");
 }
@@ -5594,6 +5666,11 @@ impl ::core::cmp::PartialEq for SceneRendererComponent {
     }
 }
 impl ::core::cmp::Eq for SceneRendererComponent {}
+impl ::core::fmt::Debug for SceneRendererComponent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneRendererComponent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneRendererComponent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneRendererComponent;{f1acb857-cf4f-4025-9b25-a2d1944cf507})");
 }
@@ -5933,6 +6010,11 @@ impl ::core::cmp::PartialEq for SceneSurfaceMaterialInput {
     }
 }
 impl ::core::cmp::Eq for SceneSurfaceMaterialInput {}
+impl ::core::fmt::Debug for SceneSurfaceMaterialInput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneSurfaceMaterialInput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneSurfaceMaterialInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneSurfaceMaterialInput;{9937da5c-a9ca-4cfc-b3aa-088356518742})");
 }
@@ -6542,6 +6624,11 @@ impl ::core::cmp::PartialEq for SceneVisual {
     }
 }
 impl ::core::cmp::Eq for SceneVisual {}
+impl ::core::fmt::Debug for SceneVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SceneVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SceneVisual {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Scenes.SceneVisual;{8e672c1e-d734-47b1-be14-3d694ffa4301})");
 }

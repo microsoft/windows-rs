@@ -2461,6 +2461,11 @@ impl ::core::cmp::PartialEq for IActivateAudioInterfaceAsyncOperation {
     }
 }
 impl ::core::cmp::Eq for IActivateAudioInterfaceAsyncOperation {}
+impl ::core::fmt::Debug for IActivateAudioInterfaceAsyncOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActivateAudioInterfaceAsyncOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActivateAudioInterfaceAsyncOperation {
     type Vtable = IActivateAudioInterfaceAsyncOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72a22d78_cde4_431d_b8cc_843a71199b6d);
@@ -2513,6 +2518,11 @@ impl ::core::cmp::PartialEq for IActivateAudioInterfaceCompletionHandler {
     }
 }
 impl ::core::cmp::Eq for IActivateAudioInterfaceCompletionHandler {}
+impl ::core::fmt::Debug for IActivateAudioInterfaceCompletionHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActivateAudioInterfaceCompletionHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActivateAudioInterfaceCompletionHandler {
     type Vtable = IActivateAudioInterfaceCompletionHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x41d949ab_9862_444a_80f6_c261334da5eb);
@@ -2575,6 +2585,11 @@ impl ::core::cmp::PartialEq for IAudioAmbisonicsControl {
     }
 }
 impl ::core::cmp::Eq for IAudioAmbisonicsControl {}
+impl ::core::fmt::Debug for IAudioAmbisonicsControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioAmbisonicsControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioAmbisonicsControl {
     type Vtable = IAudioAmbisonicsControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28724c91_df35_4856_9f76_d6a26413f3df);
@@ -2639,6 +2654,11 @@ impl ::core::cmp::PartialEq for IAudioAutoGainControl {
     }
 }
 impl ::core::cmp::Eq for IAudioAutoGainControl {}
+impl ::core::fmt::Debug for IAudioAutoGainControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioAutoGainControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioAutoGainControl {
     type Vtable = IAudioAutoGainControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85401fd4_6de4_4b9d_9869_2d6753a82f3c);
@@ -2736,6 +2756,11 @@ impl ::core::cmp::PartialEq for IAudioBass {
     }
 }
 impl ::core::cmp::Eq for IAudioBass {}
+impl ::core::fmt::Debug for IAudioBass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioBass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioBass {
     type Vtable = IAudioBassVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2b1a1d9_4db3_425d_a2b2_bd335cb3e2e5);
@@ -2802,6 +2827,11 @@ impl ::core::cmp::PartialEq for IAudioCaptureClient {
     }
 }
 impl ::core::cmp::Eq for IAudioCaptureClient {}
+impl ::core::fmt::Debug for IAudioCaptureClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioCaptureClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioCaptureClient {
     type Vtable = IAudioCaptureClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc8adbd64_e71e_48a0_a4de_185c395cd317);
@@ -2861,6 +2891,11 @@ impl ::core::cmp::PartialEq for IAudioChannelConfig {
     }
 }
 impl ::core::cmp::Eq for IAudioChannelConfig {}
+impl ::core::fmt::Debug for IAudioChannelConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioChannelConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioChannelConfig {
     type Vtable = IAudioChannelConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb11c46f_ec28_493c_b88a_5db88062ce98);
@@ -2964,6 +2999,11 @@ impl ::core::cmp::PartialEq for IAudioClient {
     }
 }
 impl ::core::cmp::Eq for IAudioClient {}
+impl ::core::fmt::Debug for IAudioClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioClient {
     type Vtable = IAudioClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cb9ad4c_dbfa_4c32_b178_c2f568a703b2);
@@ -3114,6 +3154,11 @@ impl ::core::cmp::PartialEq for IAudioClient2 {
     }
 }
 impl ::core::cmp::Eq for IAudioClient2 {}
+impl ::core::fmt::Debug for IAudioClient2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioClient2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioClient2 {
     type Vtable = IAudioClient2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x726778cd_f60a_4eda_82de_e47610cd78aa);
@@ -3302,6 +3347,11 @@ impl ::core::cmp::PartialEq for IAudioClient3 {
     }
 }
 impl ::core::cmp::Eq for IAudioClient3 {}
+impl ::core::fmt::Debug for IAudioClient3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioClient3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioClient3 {
     type Vtable = IAudioClient3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7ed4ee07_8e67_4cd4_8c1a_2b7a5987ad42);
@@ -3375,6 +3425,11 @@ impl ::core::cmp::PartialEq for IAudioClientDuckingControl {
     }
 }
 impl ::core::cmp::Eq for IAudioClientDuckingControl {}
+impl ::core::fmt::Debug for IAudioClientDuckingControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioClientDuckingControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioClientDuckingControl {
     type Vtable = IAudioClientDuckingControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc789d381_a28c_4168_b28f_d3a837924dc3);
@@ -3432,6 +3487,11 @@ impl ::core::cmp::PartialEq for IAudioClock {
     }
 }
 impl ::core::cmp::Eq for IAudioClock {}
+impl ::core::fmt::Debug for IAudioClock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioClock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioClock {
     type Vtable = IAudioClockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd63314f_3fba_4a1b_812c_ef96358728e7);
@@ -3486,6 +3546,11 @@ impl ::core::cmp::PartialEq for IAudioClock2 {
     }
 }
 impl ::core::cmp::Eq for IAudioClock2 {}
+impl ::core::fmt::Debug for IAudioClock2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioClock2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioClock2 {
     type Vtable = IAudioClock2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6f49ff73_6727_49ac_a008_d98cf5e70048);
@@ -3533,6 +3598,11 @@ impl ::core::cmp::PartialEq for IAudioClockAdjustment {
     }
 }
 impl ::core::cmp::Eq for IAudioClockAdjustment {}
+impl ::core::fmt::Debug for IAudioClockAdjustment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioClockAdjustment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioClockAdjustment {
     type Vtable = IAudioClockAdjustmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf6e4c0a0_46d9_4fb8_be21_57a3ef2b626c);
@@ -3580,6 +3650,11 @@ impl ::core::cmp::PartialEq for IAudioEffectsChangedNotificationClient {
     }
 }
 impl ::core::cmp::Eq for IAudioEffectsChangedNotificationClient {}
+impl ::core::fmt::Debug for IAudioEffectsChangedNotificationClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEffectsChangedNotificationClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEffectsChangedNotificationClient {
     type Vtable = IAudioEffectsChangedNotificationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ded44f_3c5d_4b2b_bd1e_5dc1ee20bbf6);
@@ -3640,6 +3715,11 @@ impl ::core::cmp::PartialEq for IAudioEffectsManager {
     }
 }
 impl ::core::cmp::Eq for IAudioEffectsManager {}
+impl ::core::fmt::Debug for IAudioEffectsManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioEffectsManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioEffectsManager {
     type Vtable = IAudioEffectsManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4460b3ae_4b44_4527_8676_7548a8acd260);
@@ -3702,6 +3782,11 @@ impl ::core::cmp::PartialEq for IAudioFormatEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAudioFormatEnumerator {}
+impl ::core::fmt::Debug for IAudioFormatEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioFormatEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioFormatEnumerator {
     type Vtable = IAudioFormatEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcdaa858_895a_4a22_a5eb_67bda506096d);
@@ -3760,6 +3845,11 @@ impl ::core::cmp::PartialEq for IAudioInputSelector {
     }
 }
 impl ::core::cmp::Eq for IAudioInputSelector {}
+impl ::core::fmt::Debug for IAudioInputSelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioInputSelector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioInputSelector {
     type Vtable = IAudioInputSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f03dc02_5e6e_4653_8f72_a030c123d598);
@@ -3820,6 +3910,11 @@ impl ::core::cmp::PartialEq for IAudioLoudness {
     }
 }
 impl ::core::cmp::Eq for IAudioLoudness {}
+impl ::core::fmt::Debug for IAudioLoudness {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioLoudness").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioLoudness {
     type Vtable = IAudioLoudnessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7d8b1437_dd53_4350_9c1b_1ee2890bd938);
@@ -3917,6 +4012,11 @@ impl ::core::cmp::PartialEq for IAudioMidrange {
     }
 }
 impl ::core::cmp::Eq for IAudioMidrange {}
+impl ::core::fmt::Debug for IAudioMidrange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioMidrange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioMidrange {
     type Vtable = IAudioMidrangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e54b6d7_b44b_40d9_9a9e_e691d9ce6edf);
@@ -3981,6 +4081,11 @@ impl ::core::cmp::PartialEq for IAudioMute {
     }
 }
 impl ::core::cmp::Eq for IAudioMute {}
+impl ::core::fmt::Debug for IAudioMute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioMute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioMute {
     type Vtable = IAudioMuteVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf45aeea_b74a_4b6b_afad_2366b6aa012e);
@@ -4041,6 +4146,11 @@ impl ::core::cmp::PartialEq for IAudioOutputSelector {
     }
 }
 impl ::core::cmp::Eq for IAudioOutputSelector {}
+impl ::core::fmt::Debug for IAudioOutputSelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioOutputSelector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioOutputSelector {
     type Vtable = IAudioOutputSelectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb515f69_94a7_429e_8b9c_271b3f11a3ab);
@@ -4100,6 +4210,11 @@ impl ::core::cmp::PartialEq for IAudioPeakMeter {
     }
 }
 impl ::core::cmp::Eq for IAudioPeakMeter {}
+impl ::core::fmt::Debug for IAudioPeakMeter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioPeakMeter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioPeakMeter {
     type Vtable = IAudioPeakMeterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd79923c_0599_45e0_b8b6_c8df7db6e796);
@@ -4158,6 +4273,11 @@ impl ::core::cmp::PartialEq for IAudioRenderClient {
     }
 }
 impl ::core::cmp::Eq for IAudioRenderClient {}
+impl ::core::fmt::Debug for IAudioRenderClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioRenderClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioRenderClient {
     type Vtable = IAudioRenderClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf294acfc_3146_4483_a7bf_addca7c260e2);
@@ -4251,6 +4371,11 @@ impl ::core::cmp::PartialEq for IAudioSessionControl {
     }
 }
 impl ::core::cmp::Eq for IAudioSessionControl {}
+impl ::core::fmt::Debug for IAudioSessionControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSessionControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSessionControl {
     type Vtable = IAudioSessionControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4b1a599_7266_4319_a8ca_e70acb11e8cd);
@@ -4401,6 +4526,11 @@ impl ::core::cmp::PartialEq for IAudioSessionControl2 {
     }
 }
 impl ::core::cmp::Eq for IAudioSessionControl2 {}
+impl ::core::fmt::Debug for IAudioSessionControl2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSessionControl2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSessionControl2 {
     type Vtable = IAudioSessionControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfb7ff88_7239_4fc9_8fa2_07c950be9c6d);
@@ -4479,6 +4609,11 @@ impl ::core::cmp::PartialEq for IAudioSessionEnumerator {
     }
 }
 impl ::core::cmp::Eq for IAudioSessionEnumerator {}
+impl ::core::fmt::Debug for IAudioSessionEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSessionEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSessionEnumerator {
     type Vtable = IAudioSessionEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2f5bb11_0570_40ca_acdd_3aa01277dee8);
@@ -4559,6 +4694,11 @@ impl ::core::cmp::PartialEq for IAudioSessionEvents {
     }
 }
 impl ::core::cmp::Eq for IAudioSessionEvents {}
+impl ::core::fmt::Debug for IAudioSessionEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSessionEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSessionEvents {
     type Vtable = IAudioSessionEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24918acc_64b3_37c1_8ca9_74a66e9957a8);
@@ -4626,6 +4766,11 @@ impl ::core::cmp::PartialEq for IAudioSessionManager {
     }
 }
 impl ::core::cmp::Eq for IAudioSessionManager {}
+impl ::core::fmt::Debug for IAudioSessionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSessionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSessionManager {
     type Vtable = IAudioSessionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfa971f1_4d5e_40bb_935e_967039bfbee4);
@@ -4727,6 +4872,11 @@ impl ::core::cmp::PartialEq for IAudioSessionManager2 {
     }
 }
 impl ::core::cmp::Eq for IAudioSessionManager2 {}
+impl ::core::fmt::Debug for IAudioSessionManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSessionManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSessionManager2 {
     type Vtable = IAudioSessionManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77aa99a0_1bd6_484f_8bc7_2c654c9a9b6f);
@@ -4786,6 +4936,11 @@ impl ::core::cmp::PartialEq for IAudioSessionNotification {
     }
 }
 impl ::core::cmp::Eq for IAudioSessionNotification {}
+impl ::core::fmt::Debug for IAudioSessionNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSessionNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSessionNotification {
     type Vtable = IAudioSessionNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x641dd20b_4d41_49cc_aba3_174b9477bb08);
@@ -4842,6 +4997,11 @@ impl ::core::cmp::PartialEq for IAudioStateMonitor {
     }
 }
 impl ::core::cmp::Eq for IAudioStateMonitor {}
+impl ::core::fmt::Debug for IAudioStateMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioStateMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioStateMonitor {
     type Vtable = IAudioStateMonitorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63bd8738_e30d_4c77_bf5c_834e87c657e2);
@@ -4914,6 +5074,11 @@ impl ::core::cmp::PartialEq for IAudioStreamVolume {
     }
 }
 impl ::core::cmp::Eq for IAudioStreamVolume {}
+impl ::core::fmt::Debug for IAudioStreamVolume {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioStreamVolume").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioStreamVolume {
     type Vtable = IAudioStreamVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93014887_242d_4068_8a15_cf5e93b90fe3);
@@ -4971,6 +5136,11 @@ impl ::core::cmp::PartialEq for IAudioSystemEffectsPropertyChangeNotificationCli
     }
 }
 impl ::core::cmp::Eq for IAudioSystemEffectsPropertyChangeNotificationClient {}
+impl ::core::fmt::Debug for IAudioSystemEffectsPropertyChangeNotificationClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSystemEffectsPropertyChangeNotificationClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSystemEffectsPropertyChangeNotificationClient {
     type Vtable = IAudioSystemEffectsPropertyChangeNotificationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x20049d40_56d5_400e_a2ef_385599feed49);
@@ -5054,6 +5224,11 @@ impl ::core::cmp::PartialEq for IAudioSystemEffectsPropertyStore {
     }
 }
 impl ::core::cmp::Eq for IAudioSystemEffectsPropertyStore {}
+impl ::core::fmt::Debug for IAudioSystemEffectsPropertyStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioSystemEffectsPropertyStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioSystemEffectsPropertyStore {
     type Vtable = IAudioSystemEffectsPropertyStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x302ae7f9_d7e0_43e4_971b_1f8293613d2a);
@@ -5157,6 +5332,11 @@ impl ::core::cmp::PartialEq for IAudioTreble {
     }
 }
 impl ::core::cmp::Eq for IAudioTreble {}
+impl ::core::fmt::Debug for IAudioTreble {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioTreble").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioTreble {
     type Vtable = IAudioTrebleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a717812_694e_4907_b74b_bafa5cfdca7b);
@@ -5220,6 +5400,11 @@ impl ::core::cmp::PartialEq for IAudioVolumeDuckNotification {
     }
 }
 impl ::core::cmp::Eq for IAudioVolumeDuckNotification {}
+impl ::core::fmt::Debug for IAudioVolumeDuckNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioVolumeDuckNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioVolumeDuckNotification {
     type Vtable = IAudioVolumeDuckNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3b284d4_6d39_4359_b3cf_b56ddb3bb39c);
@@ -5317,6 +5502,11 @@ impl ::core::cmp::PartialEq for IAudioVolumeLevel {
     }
 }
 impl ::core::cmp::Eq for IAudioVolumeLevel {}
+impl ::core::fmt::Debug for IAudioVolumeLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAudioVolumeLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAudioVolumeLevel {
     type Vtable = IAudioVolumeLevelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fb7b48f_531d_44a2_bcb3_5ad5a134b3dc);
@@ -5392,6 +5582,11 @@ impl ::core::cmp::PartialEq for IChannelAudioVolume {
     }
 }
 impl ::core::cmp::Eq for IChannelAudioVolume {}
+impl ::core::fmt::Debug for IChannelAudioVolume {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IChannelAudioVolume").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IChannelAudioVolume {
     type Vtable = IChannelAudioVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1c158861_b533_4b30_b1cf_e853e51c59b8);
@@ -5485,6 +5680,11 @@ impl ::core::cmp::PartialEq for IConnector {
     }
 }
 impl ::core::cmp::Eq for IConnector {}
+impl ::core::fmt::Debug for IConnector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IConnector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IConnector {
     type Vtable = IConnectorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c2c4058_23f5_41de_877a_df3af236a09e);
@@ -5547,6 +5747,11 @@ impl ::core::cmp::PartialEq for IControlChangeNotify {
     }
 }
 impl ::core::cmp::Eq for IControlChangeNotify {}
+impl ::core::fmt::Debug for IControlChangeNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IControlChangeNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IControlChangeNotify {
     type Vtable = IControlChangeNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa09513ed_c709_4d21_bd7b_5f34c47f3947);
@@ -5601,6 +5806,11 @@ impl ::core::cmp::PartialEq for IControlInterface {
     }
 }
 impl ::core::cmp::Eq for IControlInterface {}
+impl ::core::fmt::Debug for IControlInterface {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IControlInterface").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IControlInterface {
     type Vtable = IControlInterfaceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45d37c3f_5140_444a_ae24_400789f3cbf3);
@@ -5668,6 +5878,11 @@ impl ::core::cmp::PartialEq for IDeviceSpecificProperty {
     }
 }
 impl ::core::cmp::Eq for IDeviceSpecificProperty {}
+impl ::core::fmt::Debug for IDeviceSpecificProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDeviceSpecificProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDeviceSpecificProperty {
     type Vtable = IDeviceSpecificPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b22bcbf_2586_4af0_8583_205d391b807c);
@@ -5756,6 +5971,11 @@ impl ::core::cmp::PartialEq for IDeviceTopology {
     }
 }
 impl ::core::cmp::Eq for IDeviceTopology {}
+impl ::core::fmt::Debug for IDeviceTopology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDeviceTopology").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDeviceTopology {
     type Vtable = IDeviceTopologyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a07407e_6497_4a18_9787_32f79bd0d98f);
@@ -5834,6 +6054,11 @@ impl ::core::cmp::PartialEq for IMMDevice {
     }
 }
 impl ::core::cmp::Eq for IMMDevice {}
+impl ::core::fmt::Debug for IMMDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMMDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMMDevice {
     type Vtable = IMMDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd666063f_1587_4e43_81f1_b948e807363f);
@@ -5893,6 +6118,11 @@ impl ::core::cmp::PartialEq for IMMDeviceActivator {
     }
 }
 impl ::core::cmp::Eq for IMMDeviceActivator {}
+impl ::core::fmt::Debug for IMMDeviceActivator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMMDeviceActivator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMMDeviceActivator {
     type Vtable = IMMDeviceActivatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b0d0ea4_d0a9_4b0e_935b_09516746fac0);
@@ -5952,6 +6182,11 @@ impl ::core::cmp::PartialEq for IMMDeviceCollection {
     }
 }
 impl ::core::cmp::Eq for IMMDeviceCollection {}
+impl ::core::fmt::Debug for IMMDeviceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMMDeviceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMMDeviceCollection {
     type Vtable = IMMDeviceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bd7a1be_7a1a_44db_8397_cc5392387b5e);
@@ -6025,6 +6260,11 @@ impl ::core::cmp::PartialEq for IMMDeviceEnumerator {
     }
 }
 impl ::core::cmp::Eq for IMMDeviceEnumerator {}
+impl ::core::fmt::Debug for IMMDeviceEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMMDeviceEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMMDeviceEnumerator {
     type Vtable = IMMDeviceEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa95664d2_9614_4f35_a746_de8db63617e6);
@@ -6083,6 +6323,11 @@ impl ::core::cmp::PartialEq for IMMEndpoint {
     }
 }
 impl ::core::cmp::Eq for IMMEndpoint {}
+impl ::core::fmt::Debug for IMMEndpoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMMEndpoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMMEndpoint {
     type Vtable = IMMEndpointVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1be09788_6894_4089_8586_9a2a6c265ac5);
@@ -6151,6 +6396,11 @@ impl ::core::cmp::PartialEq for IMMNotificationClient {
     }
 }
 impl ::core::cmp::Eq for IMMNotificationClient {}
+impl ::core::fmt::Debug for IMMNotificationClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMMNotificationClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMMNotificationClient {
     type Vtable = IMMNotificationClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7991eec9_7e89_4d85_8390_6c703cec60c0);
@@ -6221,6 +6471,11 @@ impl ::core::cmp::PartialEq for IMessageFilter {
     }
 }
 impl ::core::cmp::Eq for IMessageFilter {}
+impl ::core::fmt::Debug for IMessageFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMessageFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMessageFilter {
     type Vtable = IMessageFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00000016_0000_0000_c000_000000000046);
@@ -6336,6 +6591,11 @@ impl ::core::cmp::PartialEq for IPart {
     }
 }
 impl ::core::cmp::Eq for IPart {}
+impl ::core::fmt::Debug for IPart {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPart").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPart {
     type Vtable = IPartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae2de0e4_5bca_4f2d_aa46_5d13f8fdb3a9);
@@ -6408,6 +6668,11 @@ impl ::core::cmp::PartialEq for IPartsList {
     }
 }
 impl ::core::cmp::Eq for IPartsList {}
+impl ::core::fmt::Debug for IPartsList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPartsList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPartsList {
     type Vtable = IPartsListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6daa848c_5eb0_45cc_aea5_998a2cda1ffb);
@@ -6483,6 +6748,11 @@ impl ::core::cmp::PartialEq for IPerChannelDbLevel {
     }
 }
 impl ::core::cmp::Eq for IPerChannelDbLevel {}
+impl ::core::fmt::Debug for IPerChannelDbLevel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPerChannelDbLevel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPerChannelDbLevel {
     type Vtable = IPerChannelDbLevelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2f8e001_f205_4bc9_99bc_c13b1e048ccb);
@@ -6556,6 +6826,11 @@ impl ::core::cmp::PartialEq for ISimpleAudioVolume {
     }
 }
 impl ::core::cmp::Eq for ISimpleAudioVolume {}
+impl ::core::fmt::Debug for ISimpleAudioVolume {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimpleAudioVolume").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimpleAudioVolume {
     type Vtable = ISimpleAudioVolumeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87ce5498_68d6_44e5_9215_6da47ef883d8);
@@ -6648,6 +6923,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioClient {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioClient {}
+impl ::core::fmt::Debug for ISpatialAudioClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioClient {
     type Vtable = ISpatialAudioClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbf8e066_aaaa_49be_9a4d_fd2a858ea27f);
@@ -6776,6 +7056,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioClient2 {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioClient2 {}
+impl ::core::fmt::Debug for ISpatialAudioClient2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioClient2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioClient2 {
     type Vtable = ISpatialAudioClient2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcaabe452_a66a_4bee_a93e_e320463f6a53);
@@ -6861,6 +7146,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioMetadataClient {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioMetadataClient {}
+impl ::core::fmt::Debug for ISpatialAudioMetadataClient {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioMetadataClient").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataClient {
     type Vtable = ISpatialAudioMetadataClientVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x777d4a3b_f6ff_4a26_85dc_68d7cdeda1d4);
@@ -6926,6 +7216,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioMetadataCopier {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioMetadataCopier {}
+impl ::core::fmt::Debug for ISpatialAudioMetadataCopier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioMetadataCopier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataCopier {
     type Vtable = ISpatialAudioMetadataCopierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd224b233_e251_4fd0_9ca2_d5ecf9a68404);
@@ -7001,6 +7296,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioMetadataItems {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioMetadataItems {}
+impl ::core::fmt::Debug for ISpatialAudioMetadataItems {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioMetadataItems").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataItems {
     type Vtable = ISpatialAudioMetadataItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbcd7c78f_3098_4f22_b547_a2f25a381269);
@@ -7065,6 +7365,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioMetadataItemsBuffer {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioMetadataItemsBuffer {}
+impl ::core::fmt::Debug for ISpatialAudioMetadataItemsBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioMetadataItemsBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataItemsBuffer {
     type Vtable = ISpatialAudioMetadataItemsBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x42640a16_e1bd_42d9_9ff6_031ab71a2dba);
@@ -7131,6 +7436,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioMetadataReader {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioMetadataReader {}
+impl ::core::fmt::Debug for ISpatialAudioMetadataReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioMetadataReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataReader {
     type Vtable = ISpatialAudioMetadataReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb78e86a2_31d9_4c32_94d2_7df40fc7ebec);
@@ -7198,6 +7508,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioMetadataWriter {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioMetadataWriter {}
+impl ::core::fmt::Debug for ISpatialAudioMetadataWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioMetadataWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioMetadataWriter {
     type Vtable = ISpatialAudioMetadataWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b17ca01_2955_444d_a430_537dc589a844);
@@ -7296,6 +7611,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObject {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObject {}
+impl ::core::fmt::Debug for ISpatialAudioObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObject {
     type Vtable = ISpatialAudioObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdde28967_521b_46e5_8f00_bd6f2bc8ab1d);
@@ -7369,6 +7689,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectBase {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectBase {}
+impl ::core::fmt::Debug for ISpatialAudioObjectBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectBase {
     type Vtable = ISpatialAudioObjectBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcce0b8f2_8d4d_4efb_a8cf_3d6ecf1c30e0);
@@ -7484,6 +7809,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectForHrtf {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectForHrtf {}
+impl ::core::fmt::Debug for ISpatialAudioObjectForHrtf {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectForHrtf").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectForHrtf {
     type Vtable = ISpatialAudioObjectForHrtfVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7436ade_1978_4e14_aba0_555bd8eb83b4);
@@ -7585,6 +7915,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectForMetadataCommands {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectForMetadataCommands {}
+impl ::core::fmt::Debug for ISpatialAudioObjectForMetadataCommands {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectForMetadataCommands").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectForMetadataCommands {
     type Vtable = ISpatialAudioObjectForMetadataCommandsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0df2c94b_f5f9_472d_af6b_c46e0ac9cd05);
@@ -7682,6 +8017,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectForMetadataItems {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectForMetadataItems {}
+impl ::core::fmt::Debug for ISpatialAudioObjectForMetadataItems {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectForMetadataItems").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectForMetadataItems {
     type Vtable = ISpatialAudioObjectForMetadataItemsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xddea49ff_3bc0_4377_8aad_9fbcfd808566);
@@ -7790,6 +8130,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStream {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectRenderStream {}
+impl ::core::fmt::Debug for ISpatialAudioObjectRenderStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectRenderStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStream {
     type Vtable = ISpatialAudioObjectRenderStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbab5f473_b423_477b_85f5_b5a332a04153);
@@ -7875,6 +8220,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamBase {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamBase {}
+impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectRenderStreamBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamBase {
     type Vtable = ISpatialAudioObjectRenderStreamBaseVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfeaaf403_c1d8_450d_aa05_e0ccee7502a8);
@@ -7984,6 +8334,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamForHrtf {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamForHrtf {}
+impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamForHrtf {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectRenderStreamForHrtf").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamForHrtf {
     type Vtable = ISpatialAudioObjectRenderStreamForHrtfVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe08deef9_5363_406e_9fdc_080ee247bbe0);
@@ -8099,6 +8454,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamForMetadata {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamForMetadata {}
+impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamForMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectRenderStreamForMetadata").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamForMetadata {
     type Vtable = ISpatialAudioObjectRenderStreamForMetadataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbbc9c907_48d5_4a2e_a0c7_f7f0d67c1fb1);
@@ -8159,6 +8519,11 @@ impl ::core::cmp::PartialEq for ISpatialAudioObjectRenderStreamNotify {
     }
 }
 impl ::core::cmp::Eq for ISpatialAudioObjectRenderStreamNotify {}
+impl ::core::fmt::Debug for ISpatialAudioObjectRenderStreamNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISpatialAudioObjectRenderStreamNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISpatialAudioObjectRenderStreamNotify {
     type Vtable = ISpatialAudioObjectRenderStreamNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdddf83e6_68d7_4c70_883f_a1836afb4a50);
@@ -8206,6 +8571,11 @@ impl ::core::cmp::PartialEq for ISubunit {
     }
 }
 impl ::core::cmp::Eq for ISubunit {}
+impl ::core::fmt::Debug for ISubunit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISubunit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISubunit {
     type Vtable = ISubunitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82149a85_dba6_4487_86bb_ea8f7fefcc71);

@@ -100,6 +100,11 @@ impl ::core::cmp::PartialEq for AdaptiveTrigger {
     }
 }
 impl ::core::cmp::Eq for AdaptiveTrigger {}
+impl ::core::fmt::Debug for AdaptiveTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AdaptiveTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AdaptiveTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.AdaptiveTrigger;{a5f04119-0cd9-49f1-a23f-44e547ab9f1a})");
 }
@@ -399,6 +404,11 @@ impl ::core::cmp::PartialEq for Application {
     }
 }
 impl ::core::cmp::Eq for Application {}
+impl ::core::fmt::Debug for Application {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Application").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Application {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Application;{74b861a1-7487-46a9-9a6e-c78b512726c5})");
 }
@@ -544,6 +554,11 @@ impl ::core::cmp::PartialEq for ApplicationInitializationCallback {
     }
 }
 impl ::core::cmp::Eq for ApplicationInitializationCallback {}
+impl ::core::fmt::Debug for ApplicationInitializationCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationInitializationCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ApplicationInitializationCallback {
     type Vtable = ApplicationInitializationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb6351c55_c284_46e4_8310_fb0967fab76f);
@@ -569,6 +584,11 @@ impl ::core::cmp::PartialEq for ApplicationInitializationCallbackParams {
     }
 }
 impl ::core::cmp::Eq for ApplicationInitializationCallbackParams {}
+impl ::core::fmt::Debug for ApplicationInitializationCallbackParams {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationInitializationCallbackParams").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationInitializationCallbackParams {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ApplicationInitializationCallbackParams;{751b792e-5772-4488-8b87-f547faa64474})");
 }
@@ -782,6 +802,11 @@ impl ::core::cmp::PartialEq for BindingFailedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BindingFailedEventArgs {}
+impl ::core::fmt::Debug for BindingFailedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingFailedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BindingFailedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BindingFailedEventArgs;{32c1d013-4dbd-446d-bbb8-0de35048a449})");
 }
@@ -894,6 +919,11 @@ impl ::core::cmp::PartialEq for BindingFailedEventHandler {
     }
 }
 impl ::core::cmp::Eq for BindingFailedEventHandler {}
+impl ::core::fmt::Debug for BindingFailedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BindingFailedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for BindingFailedEventHandler {
     type Vtable = BindingFailedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x136b1782_54ba_420d_a1aa_82828721cde6);
@@ -1007,6 +1037,11 @@ impl ::core::cmp::PartialEq for BringIntoViewOptions {
     }
 }
 impl ::core::cmp::Eq for BringIntoViewOptions {}
+impl ::core::fmt::Debug for BringIntoViewOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BringIntoViewOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BringIntoViewOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BringIntoViewOptions;{19bdd1b5-c7cb-46d9-a4dd-a1bbe83ef2fb})");
 }
@@ -1171,6 +1206,11 @@ impl ::core::cmp::PartialEq for BringIntoViewRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BringIntoViewRequestedEventArgs {}
+impl ::core::fmt::Debug for BringIntoViewRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BringIntoViewRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BringIntoViewRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BringIntoViewRequestedEventArgs;{0e629ec4-2206-4c8b-94ae-bdb66a4ebfd1})");
 }
@@ -1286,6 +1326,11 @@ impl ::core::cmp::PartialEq for BrushTransition {
     }
 }
 impl ::core::cmp::Eq for BrushTransition {}
+impl ::core::fmt::Debug for BrushTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BrushTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BrushTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.BrushTransition;{1116972c-9dad-5429-a7dd-b2b7d061ab8e})");
 }
@@ -1837,6 +1882,11 @@ impl ::core::cmp::PartialEq for ColorPaletteResources {
     }
 }
 impl ::core::cmp::Eq for ColorPaletteResources {}
+impl ::core::fmt::Debug for ColorPaletteResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorPaletteResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorPaletteResources {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ColorPaletteResources;{258088c4-aef2-5d3f-833b-c36db6278ed9})");
 }
@@ -2071,6 +2121,11 @@ impl ::core::cmp::PartialEq for CornerRadiusHelper {
     }
 }
 impl ::core::cmp::Eq for CornerRadiusHelper {}
+impl ::core::fmt::Debug for CornerRadiusHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CornerRadiusHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CornerRadiusHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.CornerRadiusHelper;{fd7be182-1cdb-4288-b8c8-85ee79297bfc})");
 }
@@ -2193,6 +2248,11 @@ impl ::core::cmp::PartialEq for CreateDefaultValueCallback {
     }
 }
 impl ::core::cmp::Eq for CreateDefaultValueCallback {}
+impl ::core::fmt::Debug for CreateDefaultValueCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CreateDefaultValueCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for CreateDefaultValueCallback {
     type Vtable = CreateDefaultValueCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd6ecb12c_15b5_4ec8_b95c_cdd208f08153);
@@ -2240,6 +2300,11 @@ impl ::core::cmp::PartialEq for DataContextChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DataContextChangedEventArgs {}
+impl ::core::fmt::Debug for DataContextChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataContextChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataContextChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DataContextChangedEventArgs;{7da68e21-0b8f-4f9f-a143-f8e7780136a2})");
 }
@@ -2364,6 +2429,11 @@ impl ::core::cmp::PartialEq for DataTemplate {
     }
 }
 impl ::core::cmp::Eq for DataTemplate {}
+impl ::core::fmt::Debug for DataTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataTemplate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DataTemplate;{9910aec7-8ab5-4118-9bc6-09f45a35073d})");
 }
@@ -2526,6 +2596,11 @@ impl ::core::cmp::PartialEq for DataTemplateKey {
     }
 }
 impl ::core::cmp::Eq for DataTemplateKey {}
+impl ::core::fmt::Debug for DataTemplateKey {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DataTemplateKey").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DataTemplateKey {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DataTemplateKey;{873b6c28-cceb-4b61-86fa-b2cec39cc2fa})");
 }
@@ -2687,6 +2762,11 @@ impl ::core::cmp::PartialEq for DebugSettings {
     }
 }
 impl ::core::cmp::Eq for DebugSettings {}
+impl ::core::fmt::Debug for DebugSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DebugSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DebugSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DebugSettings;{3d451f98-c6a7-4d17-8398-d83a067183d8})");
 }
@@ -2811,6 +2891,11 @@ impl ::core::cmp::PartialEq for DependencyObject {
     }
 }
 impl ::core::cmp::Eq for DependencyObject {}
+impl ::core::fmt::Debug for DependencyObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DependencyObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DependencyObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyObject;{5c526665-f60e-4912-af59-5fe0680f089d})");
 }
@@ -3008,6 +3093,12 @@ impl ::core::cmp::PartialEq for DependencyObjectCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for DependencyObjectCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for DependencyObjectCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DependencyObjectCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for DependencyObjectCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyObjectCollection;pinterface({5917eb53-50b4-4a0d-b309-65862b3f1dbc};rc(Windows.UI.Xaml.DependencyObject;{5c526665-f60e-4912-af59-5fe0680f089d})))");
@@ -3244,6 +3335,11 @@ impl ::core::cmp::PartialEq for DependencyProperty {
     }
 }
 impl ::core::cmp::Eq for DependencyProperty {}
+impl ::core::fmt::Debug for DependencyProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DependencyProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DependencyProperty {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyProperty;{85b13970-9bc4-4e96-acf1-30c8fd3d55c8})");
 }
@@ -3356,6 +3452,11 @@ impl ::core::cmp::PartialEq for DependencyPropertyChangedCallback {
     }
 }
 impl ::core::cmp::Eq for DependencyPropertyChangedCallback {}
+impl ::core::fmt::Debug for DependencyPropertyChangedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DependencyPropertyChangedCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DependencyPropertyChangedCallback {
     type Vtable = DependencyPropertyChangedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x45883d16_27bf_4bc1_ac26_94c1601f3a49);
@@ -3406,6 +3507,11 @@ impl ::core::cmp::PartialEq for DependencyPropertyChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DependencyPropertyChangedEventArgs {}
+impl ::core::fmt::Debug for DependencyPropertyChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DependencyPropertyChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DependencyPropertyChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DependencyPropertyChangedEventArgs;{81212c2b-24d0-4957-abc3-224470a93a4e})");
 }
@@ -3518,6 +3624,11 @@ impl ::core::cmp::PartialEq for DependencyPropertyChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for DependencyPropertyChangedEventHandler {}
+impl ::core::fmt::Debug for DependencyPropertyChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DependencyPropertyChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DependencyPropertyChangedEventHandler {
     type Vtable = DependencyPropertyChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09223e5a_75be_4499_8180_1ddc005421c0);
@@ -3604,6 +3715,11 @@ impl ::core::cmp::PartialEq for DispatcherTimer {
     }
 }
 impl ::core::cmp::Eq for DispatcherTimer {}
+impl ::core::fmt::Debug for DispatcherTimer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DispatcherTimer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DispatcherTimer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DispatcherTimer;{d160ce46-cd22-4f5f-8c97-40e61da3e2dc})");
 }
@@ -3767,6 +3883,11 @@ impl ::core::cmp::PartialEq for DragEventArgs {
     }
 }
 impl ::core::cmp::Eq for DragEventArgs {}
+impl ::core::fmt::Debug for DragEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragEventArgs;{b440c7c3-02b4-4980-9342-25dae1c0f188})");
 }
@@ -3899,6 +4020,11 @@ impl ::core::cmp::PartialEq for DragEventHandler {
     }
 }
 impl ::core::cmp::Eq for DragEventHandler {}
+impl ::core::fmt::Debug for DragEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for DragEventHandler {
     type Vtable = DragEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ab1a205_1e73_4bcf_aabc_57b97e21961d);
@@ -3930,6 +4056,11 @@ impl ::core::cmp::PartialEq for DragOperationDeferral {
     }
 }
 impl ::core::cmp::Eq for DragOperationDeferral {}
+impl ::core::fmt::Debug for DragOperationDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragOperationDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragOperationDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragOperationDeferral;{ba73ecba-1b73-4086-b3d3-c223beea1633})");
 }
@@ -4060,6 +4191,11 @@ impl ::core::cmp::PartialEq for DragStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for DragStartingEventArgs {}
+impl ::core::fmt::Debug for DragStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragStartingEventArgs;{6800d3fa-90b8-46f9-8e30-5ac25f73f0f9})");
 }
@@ -4177,6 +4313,11 @@ impl ::core::cmp::PartialEq for DragUI {
     }
 }
 impl ::core::cmp::Eq for DragUI {}
+impl ::core::fmt::Debug for DragUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragUI;{2d9bd838-7c60-4842-9170-346fe10a226a})");
 }
@@ -4326,6 +4467,11 @@ impl ::core::cmp::PartialEq for DragUIOverride {
     }
 }
 impl ::core::cmp::Eq for DragUIOverride {}
+impl ::core::fmt::Debug for DragUIOverride {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragUIOverride").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragUIOverride {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DragUIOverride;{bd6c9dfa-c961-4861-b7a5-bf4fe4a8a6ef})");
 }
@@ -4403,6 +4549,11 @@ impl ::core::cmp::PartialEq for DropCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for DropCompletedEventArgs {}
+impl ::core::fmt::Debug for DropCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DropCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DropCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DropCompletedEventArgs;{6c4fc188-95bc-4261-9ec5-21cab677b734})");
 }
@@ -4607,6 +4758,11 @@ impl ::core::cmp::PartialEq for DurationHelper {
     }
 }
 impl ::core::cmp::Eq for DurationHelper {}
+impl ::core::fmt::Debug for DurationHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DurationHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DurationHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.DurationHelper;{25c1659f-4497-4135-940f-ee96f4d6e934})");
 }
@@ -4743,6 +4899,11 @@ impl ::core::cmp::PartialEq for EffectiveViewportChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for EffectiveViewportChangedEventArgs {}
+impl ::core::fmt::Debug for EffectiveViewportChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EffectiveViewportChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EffectiveViewportChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.EffectiveViewportChangedEventArgs;{55ee2e81-1c18-59ed-bd3d-c4ca8fa7d190})");
 }
@@ -4849,6 +5010,11 @@ impl ::core::cmp::PartialEq for ElementFactoryGetArgs {
     }
 }
 impl ::core::cmp::Eq for ElementFactoryGetArgs {}
+impl ::core::fmt::Debug for ElementFactoryGetArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementFactoryGetArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ElementFactoryGetArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ElementFactoryGetArgs;{fb508774-41a3-5829-9255-cf452d041df4})");
 }
@@ -4955,6 +5121,11 @@ impl ::core::cmp::PartialEq for ElementFactoryRecycleArgs {
     }
 }
 impl ::core::cmp::Eq for ElementFactoryRecycleArgs {}
+impl ::core::fmt::Debug for ElementFactoryRecycleArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementFactoryRecycleArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ElementFactoryRecycleArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ElementFactoryRecycleArgs;{86f16b14-37e8-5dd8-a90c-25d3710318b0})");
 }
@@ -5176,6 +5347,11 @@ impl ::core::cmp::PartialEq for ElementSoundPlayer {
     }
 }
 impl ::core::cmp::Eq for ElementSoundPlayer {}
+impl ::core::fmt::Debug for ElementSoundPlayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElementSoundPlayer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ElementSoundPlayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ElementSoundPlayer;{387773a5-f036-460c-9b81-f3d6ea43f6f2})");
 }
@@ -5399,6 +5575,12 @@ impl ::core::cmp::PartialEq for EnteredBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for EnteredBackgroundEventHandler {}
 #[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for EnteredBackgroundEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnteredBackgroundEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for EnteredBackgroundEventHandler {
     type Vtable = EnteredBackgroundEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93a956ae_1d7f_438b_b7b8_227d96b609c0);
@@ -5462,6 +5644,11 @@ impl ::core::cmp::PartialEq for EventTrigger {
     }
 }
 impl ::core::cmp::Eq for EventTrigger {}
+impl ::core::fmt::Debug for EventTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EventTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EventTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.EventTrigger;{def8f855-0b49-4087-b1a9-b8b38488f786})");
 }
@@ -5578,6 +5765,11 @@ impl ::core::cmp::PartialEq for ExceptionRoutedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ExceptionRoutedEventArgs {}
+impl ::core::fmt::Debug for ExceptionRoutedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExceptionRoutedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExceptionRoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ExceptionRoutedEventArgs;{dd9ff16a-4b62-4a6c-a49d-0671ef6136be})");
 }
@@ -5710,6 +5902,11 @@ impl ::core::cmp::PartialEq for ExceptionRoutedEventHandler {
     }
 }
 impl ::core::cmp::Eq for ExceptionRoutedEventHandler {}
+impl ::core::fmt::Debug for ExceptionRoutedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExceptionRoutedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ExceptionRoutedEventHandler {
     type Vtable = ExceptionRoutedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68e0e810_f6ea_42bc_855b_5d9b67e6a262);
@@ -6826,6 +7023,11 @@ impl ::core::cmp::PartialEq for FrameworkElement {
     }
 }
 impl ::core::cmp::Eq for FrameworkElement {}
+impl ::core::fmt::Debug for FrameworkElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameworkElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameworkElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkElement;{a391d09b-4a99-4b7c-9d8d-6fa5d01f6fbf})");
 }
@@ -6985,6 +7187,11 @@ impl ::core::cmp::PartialEq for FrameworkTemplate {
     }
 }
 impl ::core::cmp::Eq for FrameworkTemplate {}
+impl ::core::fmt::Debug for FrameworkTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameworkTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameworkTemplate {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkTemplate;{a1e254d8-a446-4a27-9a9d-a0f59e1258a5})");
 }
@@ -7110,6 +7317,11 @@ impl ::core::cmp::PartialEq for FrameworkView {
     }
 }
 impl ::core::cmp::Eq for FrameworkView {}
+impl ::core::fmt::Debug for FrameworkView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameworkView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameworkView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkView;{ddba664b-b603-47aa-942d-3833174f0d80})");
 }
@@ -7220,6 +7432,11 @@ impl ::core::cmp::PartialEq for FrameworkViewSource {
     }
 }
 impl ::core::cmp::Eq for FrameworkViewSource {}
+impl ::core::fmt::Debug for FrameworkViewSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FrameworkViewSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FrameworkViewSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.FrameworkViewSource;{e3b077da-35ad-4b09-b5b2-27420041ba9f})");
 }
@@ -7405,6 +7622,11 @@ impl ::core::cmp::PartialEq for GridLengthHelper {
     }
 }
 impl ::core::cmp::Eq for GridLengthHelper {}
+impl ::core::fmt::Debug for GridLengthHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GridLengthHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GridLengthHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.GridLengthHelper;{7a826ce1-07a0-4083-b6d1-b1d917b976ac})");
 }
@@ -8211,6 +8433,11 @@ impl ::core::cmp::PartialEq for IDataTemplateExtension {
     }
 }
 impl ::core::cmp::Eq for IDataTemplateExtension {}
+impl ::core::fmt::Debug for IDataTemplateExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDataTemplateExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IDataTemplateExtension {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{595e9547-cdff-4b92-b773-ab396878f353}");
 }
@@ -8935,6 +9162,11 @@ impl ::core::cmp::PartialEq for IElementFactory {
     }
 }
 impl ::core::cmp::Eq for IElementFactory {}
+impl ::core::fmt::Debug for IElementFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IElementFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IElementFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{17d2ad90-1370-55c8-80e1-78b49004a9e1}");
 }
@@ -11882,6 +12114,12 @@ impl ::core::cmp::PartialEq for LeavingBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for LeavingBackgroundEventHandler {}
 #[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for LeavingBackgroundEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LeavingBackgroundEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for LeavingBackgroundEventHandler {
     type Vtable = LeavingBackgroundEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaaad5dad_4fc6_4aa4_b7cf_877e36ada4f6);
@@ -11958,6 +12196,11 @@ impl ::core::cmp::PartialEq for MediaFailedRoutedEventArgs {
     }
 }
 impl ::core::cmp::Eq for MediaFailedRoutedEventArgs {}
+impl ::core::fmt::Debug for MediaFailedRoutedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaFailedRoutedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaFailedRoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.MediaFailedRoutedEventArgs;{46d1fa8d-5149-4153-ba3c-b03e64ee531e})");
 }
@@ -12112,6 +12355,11 @@ impl ::core::cmp::PartialEq for PointHelper {
     }
 }
 impl ::core::cmp::Eq for PointHelper {}
+impl ::core::fmt::Debug for PointHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.PointHelper;{727bdd92-64b0-49cf-a321-a9793e73e2e7})");
 }
@@ -12224,6 +12472,11 @@ impl ::core::cmp::PartialEq for PropertyChangedCallback {
     }
 }
 impl ::core::cmp::Eq for PropertyChangedCallback {}
+impl ::core::fmt::Debug for PropertyChangedCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyChangedCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for PropertyChangedCallback {
     type Vtable = PropertyChangedCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a9f8a25_d142_44a4_8231_fd676724f29b);
@@ -12318,6 +12571,11 @@ impl ::core::cmp::PartialEq for PropertyMetadata {
     }
 }
 impl ::core::cmp::Eq for PropertyMetadata {}
+impl ::core::fmt::Debug for PropertyMetadata {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyMetadata").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyMetadata {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.PropertyMetadata;{814ef30d-8d18-448a-8644-f2cb51e70380})");
 }
@@ -12406,6 +12664,11 @@ impl ::core::cmp::PartialEq for PropertyPath {
     }
 }
 impl ::core::cmp::Eq for PropertyPath {}
+impl ::core::fmt::Debug for PropertyPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.PropertyPath;{300e5d8a-1ff3-4d2c-95ec-27f81debacb8})");
 }
@@ -12611,6 +12874,11 @@ impl ::core::cmp::PartialEq for RectHelper {
     }
 }
 impl ::core::cmp::Eq for RectHelper {}
+impl ::core::fmt::Debug for RectHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RectHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RectHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.RectHelper;{a38781e2-4bfb-4ee2-afe5-89f31b37478d})");
 }
@@ -12790,6 +13058,11 @@ impl ::core::cmp::PartialEq for ResourceDictionary {
     }
 }
 impl ::core::cmp::Eq for ResourceDictionary {}
+impl ::core::fmt::Debug for ResourceDictionary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResourceDictionary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ResourceDictionary {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ResourceDictionary;{c1ea4f24-d6de-4191-8e3a-f48601f7489c})");
 }
@@ -12945,6 +13218,11 @@ impl ::core::cmp::PartialEq for RoutedEvent {
     }
 }
 impl ::core::cmp::Eq for RoutedEvent {}
+impl ::core::fmt::Debug for RoutedEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoutedEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RoutedEvent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.RoutedEvent;{a6b25818-43c1-4c70-865c-7bdd5a32e327})");
 }
@@ -13033,6 +13311,11 @@ impl ::core::cmp::PartialEq for RoutedEventArgs {
     }
 }
 impl ::core::cmp::Eq for RoutedEventArgs {}
+impl ::core::fmt::Debug for RoutedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoutedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RoutedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.RoutedEventArgs;{5c985ac6-d802-4b38-a223-bf070c43fedf})");
 }
@@ -13145,6 +13428,11 @@ impl ::core::cmp::PartialEq for RoutedEventHandler {
     }
 }
 impl ::core::cmp::Eq for RoutedEventHandler {}
+impl ::core::fmt::Debug for RoutedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RoutedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for RoutedEventHandler {
     type Vtable = RoutedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa856e674_b0b6_4bc3_bba8_1ba06e40d4b5);
@@ -13198,6 +13486,11 @@ impl ::core::cmp::PartialEq for ScalarTransition {
     }
 }
 impl ::core::cmp::Eq for ScalarTransition {}
+impl ::core::fmt::Debug for ScalarTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScalarTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScalarTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ScalarTransition;{4cb68238-e15d-524e-a73c-9d4dcfbea226})");
 }
@@ -13324,6 +13617,11 @@ impl ::core::cmp::PartialEq for Setter {
     }
 }
 impl ::core::cmp::Eq for Setter {}
+impl ::core::fmt::Debug for Setter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Setter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Setter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Setter;{a73ded29-b4ae-4a81-be85-e690ba0d3b6e})");
 }
@@ -13440,6 +13738,11 @@ impl ::core::cmp::PartialEq for SetterBase {
     }
 }
 impl ::core::cmp::Eq for SetterBase {}
+impl ::core::fmt::Debug for SetterBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetterBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetterBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SetterBase;{418be27c-2ac4-4f22-8097-dea3aeeb2fb3})");
 }
@@ -13639,6 +13942,11 @@ impl ::core::cmp::PartialEq for SetterBaseCollection {
     }
 }
 impl ::core::cmp::Eq for SetterBaseCollection {}
+impl ::core::fmt::Debug for SetterBaseCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetterBaseCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetterBaseCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SetterBaseCollection;{03c40ca8-909e-4117-811c-a4529496bdf1})");
 }
@@ -13793,6 +14101,11 @@ impl ::core::cmp::PartialEq for SizeChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for SizeChangedEventArgs {}
+impl ::core::fmt::Debug for SizeChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SizeChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SizeChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SizeChangedEventArgs;{d5312e60-5cc1-42a1-920c-1af46be2f986})");
 }
@@ -13925,6 +14238,11 @@ impl ::core::cmp::PartialEq for SizeChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for SizeChangedEventHandler {}
+impl ::core::fmt::Debug for SizeChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SizeChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for SizeChangedEventHandler {
     type Vtable = SizeChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1115b13c_25d2_480b_89dc_eb3dcbd6b7fa);
@@ -13988,6 +14306,11 @@ impl ::core::cmp::PartialEq for SizeHelper {
     }
 }
 impl ::core::cmp::Eq for SizeHelper {}
+impl ::core::fmt::Debug for SizeHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SizeHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SizeHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.SizeHelper;{e7225a94-5d03-4a03-ba94-967fc68fcefe})");
 }
@@ -14088,6 +14411,11 @@ impl ::core::cmp::PartialEq for StateTrigger {
     }
 }
 impl ::core::cmp::Eq for StateTrigger {}
+impl ::core::fmt::Debug for StateTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StateTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StateTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.StateTrigger;{67adef2e-d8d9-49f7-a1fd-2e35eedd23cd})");
 }
@@ -14201,6 +14529,11 @@ impl ::core::cmp::PartialEq for StateTriggerBase {
     }
 }
 impl ::core::cmp::Eq for StateTriggerBase {}
+impl ::core::fmt::Debug for StateTriggerBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StateTriggerBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StateTriggerBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.StateTriggerBase;{48b20698-af06-466c-8052-93666dde0e49})");
 }
@@ -14358,6 +14691,11 @@ impl ::core::cmp::PartialEq for Style {
     }
 }
 impl ::core::cmp::Eq for Style {}
+impl ::core::fmt::Debug for Style {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Style").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Style {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Style;{c4a9f225-9db7-4a7d-b6d1-f74edb9293c2})");
 }
@@ -14499,6 +14837,12 @@ impl ::core::cmp::PartialEq for SuspendingEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for SuspendingEventHandler {}
 #[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for SuspendingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for SuspendingEventHandler {
     type Vtable = SuspendingEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23429465_e36a_40e2_b139_a4704602a6e1);
@@ -14578,6 +14922,11 @@ impl ::core::cmp::PartialEq for TargetPropertyPath {
     }
 }
 impl ::core::cmp::Eq for TargetPropertyPath {}
+impl ::core::fmt::Debug for TargetPropertyPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TargetPropertyPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TargetPropertyPath {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TargetPropertyPath;{40740f8e-085f-4ced-be70-6f47acf15ad0})");
 }
@@ -14880,6 +15229,11 @@ impl ::core::cmp::PartialEq for ThicknessHelper {
     }
 }
 impl ::core::cmp::Eq for ThicknessHelper {}
+impl ::core::fmt::Debug for ThicknessHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ThicknessHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ThicknessHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.ThicknessHelper;{a86bae4b-1e8f-4eeb-9013-0b2838a97b34})");
 }
@@ -14947,6 +15301,11 @@ impl ::core::cmp::PartialEq for TriggerAction {
     }
 }
 impl ::core::cmp::Eq for TriggerAction {}
+impl ::core::fmt::Debug for TriggerAction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggerAction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TriggerAction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerAction;{a2c0df02-63d5-4b46-9b83-0868d3079621})");
 }
@@ -15144,6 +15503,12 @@ impl ::core::cmp::PartialEq for TriggerActionCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for TriggerActionCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for TriggerActionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggerActionCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TriggerActionCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerActionCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.TriggerAction;{a2c0df02-63d5-4b46-9b83-0868d3079621})))");
 }
@@ -15291,6 +15656,11 @@ impl ::core::cmp::PartialEq for TriggerBase {
     }
 }
 impl ::core::cmp::Eq for TriggerBase {}
+impl ::core::fmt::Debug for TriggerBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggerBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TriggerBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerBase;{e7ea222f-dee6-4393-a8b2-8923d641f395})");
 }
@@ -15480,6 +15850,12 @@ impl ::core::cmp::PartialEq for TriggerCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for TriggerCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for TriggerCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TriggerCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TriggerCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.TriggerCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.TriggerBase;{e7ea222f-dee6-4393-a8b2-8923d641f395})))");
@@ -17681,6 +18057,11 @@ impl ::core::cmp::PartialEq for UIElement {
     }
 }
 impl ::core::cmp::Eq for UIElement {}
+impl ::core::fmt::Debug for UIElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.UIElement;{676d0be9-b65c-41c6-ba40-58cf87f201c1})");
 }
@@ -17929,6 +18310,11 @@ impl ::core::cmp::PartialEq for UIElementWeakCollection {
     }
 }
 impl ::core::cmp::Eq for UIElementWeakCollection {}
+impl ::core::fmt::Debug for UIElementWeakCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIElementWeakCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIElementWeakCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.UIElementWeakCollection;{10341223-e66d-519e-acf8-556bd244eac3})");
 }
@@ -18094,6 +18480,11 @@ impl ::core::cmp::PartialEq for UnhandledExceptionEventArgs {
     }
 }
 impl ::core::cmp::Eq for UnhandledExceptionEventArgs {}
+impl ::core::fmt::Debug for UnhandledExceptionEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnhandledExceptionEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UnhandledExceptionEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.UnhandledExceptionEventArgs;{7230269c-054e-4cf3-86c5-be90eb6863d5})");
 }
@@ -18206,6 +18597,11 @@ impl ::core::cmp::PartialEq for UnhandledExceptionEventHandler {
     }
 }
 impl ::core::cmp::Eq for UnhandledExceptionEventHandler {}
+impl ::core::fmt::Debug for UnhandledExceptionEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnhandledExceptionEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for UnhandledExceptionEventHandler {
     type Vtable = UnhandledExceptionEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9274e6bd_49a1_4958_beee_d0e19587b6e3);
@@ -18272,6 +18668,11 @@ impl ::core::cmp::PartialEq for Vector3Transition {
     }
 }
 impl ::core::cmp::Eq for Vector3Transition {}
+impl ::core::fmt::Debug for Vector3Transition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Vector3Transition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Vector3Transition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Vector3Transition;{d2e209dc-c4a2-5101-9a68-fa0150505589})");
 }
@@ -18489,6 +18890,11 @@ impl ::core::cmp::PartialEq for VisualState {
     }
 }
 impl ::core::cmp::Eq for VisualState {}
+impl ::core::fmt::Debug for VisualState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualState {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualState;{6320affc-c31a-4450-afde-f6ea7bd1f586})");
 }
@@ -18625,6 +19031,11 @@ impl ::core::cmp::PartialEq for VisualStateChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VisualStateChangedEventArgs {}
+impl ::core::fmt::Debug for VisualStateChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualStateChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualStateChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualStateChangedEventArgs;{fe216ab1-f31f-4791-8989-c70e1d9b59ff})");
 }
@@ -18737,6 +19148,11 @@ impl ::core::cmp::PartialEq for VisualStateChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for VisualStateChangedEventHandler {}
+impl ::core::fmt::Debug for VisualStateChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualStateChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for VisualStateChangedEventHandler {
     type Vtable = VisualStateChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe6d5bbd5_e029_43a6_b36d_84a81042d774);
@@ -18834,6 +19250,11 @@ impl ::core::cmp::PartialEq for VisualStateGroup {
     }
 }
 impl ::core::cmp::Eq for VisualStateGroup {}
+impl ::core::fmt::Debug for VisualStateGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualStateGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualStateGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualStateGroup;{e4f9d9a4-e028-44de-9b15-4929ae0a26c2})");
 }
@@ -18985,6 +19406,11 @@ impl ::core::cmp::PartialEq for VisualStateManager {
     }
 }
 impl ::core::cmp::Eq for VisualStateManager {}
+impl ::core::fmt::Debug for VisualStateManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualStateManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualStateManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualStateManager;{6fda9f9a-6fab-4112-9258-1006a3c3476e})");
 }
@@ -19156,6 +19582,11 @@ impl ::core::cmp::PartialEq for VisualTransition {
     }
 }
 impl ::core::cmp::Eq for VisualTransition {}
+impl ::core::fmt::Debug for VisualTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.VisualTransition;{55c5905e-2bc7-400d-aaa4-1a2981491ee0})");
 }
@@ -19396,6 +19827,11 @@ impl ::core::cmp::PartialEq for Window {
     }
 }
 impl ::core::cmp::Eq for Window {}
+impl ::core::fmt::Debug for Window {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Window").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Window {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Window;{3276167d-c9f6-462d-9de2-ae4c1fd8c2e5})");
 }
@@ -19517,6 +19953,12 @@ impl ::core::cmp::PartialEq for WindowActivatedEventHandler {
 #[cfg(feature = "UI_Core")]
 impl ::core::cmp::Eq for WindowActivatedEventHandler {}
 #[cfg(feature = "UI_Core")]
+impl ::core::fmt::Debug for WindowActivatedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowActivatedEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "UI_Core")]
 unsafe impl ::windows::core::Interface for WindowActivatedEventHandler {
     type Vtable = WindowActivatedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18026348_8619_4c7b_b534_ced45d9de219);
@@ -19604,6 +20046,12 @@ impl ::core::cmp::PartialEq for WindowClosedEventHandler {
 #[cfg(feature = "UI_Core")]
 impl ::core::cmp::Eq for WindowClosedEventHandler {}
 #[cfg(feature = "UI_Core")]
+impl ::core::fmt::Debug for WindowClosedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowClosedEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "UI_Core")]
 unsafe impl ::windows::core::Interface for WindowClosedEventHandler {
     type Vtable = WindowClosedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0db89161_20d7_45df_9122_ba89576703ba);
@@ -19646,6 +20094,11 @@ impl ::core::cmp::PartialEq for WindowCreatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WindowCreatedEventArgs {}
+impl ::core::fmt::Debug for WindowCreatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowCreatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WindowCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.WindowCreatedEventArgs;{31b71470-feff-4654-af48-9b398ab5772b})");
 }
@@ -19767,6 +20220,12 @@ impl ::core::cmp::PartialEq for WindowSizeChangedEventHandler {
 #[cfg(feature = "UI_Core")]
 impl ::core::cmp::Eq for WindowSizeChangedEventHandler {}
 #[cfg(feature = "UI_Core")]
+impl ::core::fmt::Debug for WindowSizeChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowSizeChangedEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "UI_Core")]
 unsafe impl ::windows::core::Interface for WindowSizeChangedEventHandler {
     type Vtable = WindowSizeChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c21c742_2ced_4fd9_ba38_7118d40e966b);
@@ -19853,6 +20312,12 @@ impl ::core::cmp::PartialEq for WindowVisibilityChangedEventHandler {
 }
 #[cfg(feature = "UI_Core")]
 impl ::core::cmp::Eq for WindowVisibilityChangedEventHandler {}
+#[cfg(feature = "UI_Core")]
+impl ::core::fmt::Debug for WindowVisibilityChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WindowVisibilityChangedEventHandler").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "UI_Core")]
 unsafe impl ::windows::core::Interface for WindowVisibilityChangedEventHandler {
     type Vtable = WindowVisibilityChangedEventHandlerVtbl;
@@ -19944,6 +20409,11 @@ impl ::core::cmp::PartialEq for XamlRoot {
     }
 }
 impl ::core::cmp::Eq for XamlRoot {}
+impl ::core::fmt::Debug for XamlRoot {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlRoot").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlRoot {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.XamlRoot;{34b50756-1696-5b6d-8e9b-c71464ccad5a})");
 }
@@ -20011,6 +20481,11 @@ impl ::core::cmp::PartialEq for XamlRootChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for XamlRootChangedEventArgs {}
+impl ::core::fmt::Debug for XamlRootChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XamlRootChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XamlRootChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.XamlRootChangedEventArgs;{92d71c21-d23c-5a17-bcb8-001504b6bb19})");
 }

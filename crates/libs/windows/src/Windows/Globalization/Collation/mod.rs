@@ -31,6 +31,11 @@ impl ::core::cmp::PartialEq for CharacterGrouping {
     }
 }
 impl ::core::cmp::Eq for CharacterGrouping {}
+impl ::core::fmt::Debug for CharacterGrouping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CharacterGrouping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CharacterGrouping {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGrouping;{fae761bb-805d-4bb0-95bb-c1f7c3e8eb8e})");
 }
@@ -171,6 +176,11 @@ impl ::core::cmp::PartialEq for CharacterGroupings {
     }
 }
 impl ::core::cmp::Eq for CharacterGroupings {}
+impl ::core::fmt::Debug for CharacterGroupings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CharacterGroupings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CharacterGroupings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Globalization.Collation.CharacterGroupings;{b8d20a75-d4cf-4055-80e5-ce169c226496})");
 }

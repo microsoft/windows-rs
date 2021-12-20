@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for AddDeleteThemeTransition {
     }
 }
 impl ::core::cmp::Eq for AddDeleteThemeTransition {}
+impl ::core::fmt::Debug for AddDeleteThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AddDeleteThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AddDeleteThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.AddDeleteThemeTransition;{adec852e-4424-4dab-99c1-3a04e36a3c48})");
 }
@@ -162,6 +167,11 @@ impl ::core::cmp::PartialEq for BackEase {
     }
 }
 impl ::core::cmp::Eq for BackEase {}
+impl ::core::fmt::Debug for BackEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BackEase;{e47796e7-f805-4a8f-81c9-38e6472caa94})");
 }
@@ -282,6 +292,11 @@ impl ::core::cmp::PartialEq for BasicConnectedAnimationConfiguration {
     }
 }
 impl ::core::cmp::Eq for BasicConnectedAnimationConfiguration {}
+impl ::core::fmt::Debug for BasicConnectedAnimationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BasicConnectedAnimationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BasicConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BasicConnectedAnimationConfiguration;{e675f9b5-a4d6-5353-83e6-c89e7cf8d456})");
 }
@@ -402,6 +417,11 @@ impl ::core::cmp::PartialEq for BeginStoryboard {
     }
 }
 impl ::core::cmp::Eq for BeginStoryboard {}
+impl ::core::fmt::Debug for BeginStoryboard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BeginStoryboard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BeginStoryboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BeginStoryboard;{64189fcd-49ec-4e52-a6f6-55324c921053})");
 }
@@ -562,6 +582,11 @@ impl ::core::cmp::PartialEq for BounceEase {
     }
 }
 impl ::core::cmp::Eq for BounceEase {}
+impl ::core::fmt::Debug for BounceEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BounceEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BounceEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.BounceEase;{2bf1464e-fc71-47ed-85a1-3ba9577718b4})");
 }
@@ -677,6 +702,11 @@ impl ::core::cmp::PartialEq for CircleEase {
     }
 }
 impl ::core::cmp::Eq for CircleEase {}
+impl ::core::fmt::Debug for CircleEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CircleEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CircleEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CircleEase;{53a3bdb2-9177-4e6e-a043-5082d889ab1f})");
 }
@@ -937,6 +967,11 @@ impl ::core::cmp::PartialEq for ColorAnimation {
     }
 }
 impl ::core::cmp::Eq for ColorAnimation {}
+impl ::core::fmt::Debug for ColorAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorAnimation;{b8ae8a15-0f63-4694-9467-bdafac1253ea})");
 }
@@ -1086,6 +1121,11 @@ impl ::core::cmp::PartialEq for ColorAnimationUsingKeyFrames {
     }
 }
 impl ::core::cmp::Eq for ColorAnimationUsingKeyFrames {}
+impl ::core::fmt::Debug for ColorAnimationUsingKeyFrames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorAnimationUsingKeyFrames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorAnimationUsingKeyFrames;{f5c82640-13c3-42aa-9ae2-7e6b51c92f95})");
 }
@@ -1241,6 +1281,11 @@ impl ::core::cmp::PartialEq for ColorKeyFrame {
     }
 }
 impl ::core::cmp::Eq for ColorKeyFrame {}
+impl ::core::fmt::Debug for ColorKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorKeyFrame;{b51d82d9-0910-4589-a284-b0c9205858e9})");
 }
@@ -1437,6 +1482,12 @@ impl ::core::cmp::PartialEq for ColorKeyFrameCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for ColorKeyFrameCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for ColorKeyFrameCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ColorKeyFrameCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ColorKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ColorKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.ColorKeyFrame;{b51d82d9-0910-4589-a284-b0c9205858e9})))");
@@ -1636,6 +1687,11 @@ impl ::core::cmp::PartialEq for CommonNavigationTransitionInfo {
     }
 }
 impl ::core::cmp::Eq for CommonNavigationTransitionInfo {}
+impl ::core::fmt::Debug for CommonNavigationTransitionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommonNavigationTransitionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommonNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CommonNavigationTransitionInfo;{50345692-a555-4624-a361-0a91c1706473})");
 }
@@ -1813,6 +1869,11 @@ impl ::core::cmp::PartialEq for ConnectedAnimation {
     }
 }
 impl ::core::cmp::Eq for ConnectedAnimation {}
+impl ::core::fmt::Debug for ConnectedAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectedAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimation;{3518628c-f387-4c25-ac98-44e86c3cadf0})");
 }
@@ -1915,6 +1976,11 @@ impl ::core::cmp::PartialEq for ConnectedAnimationConfiguration {
     }
 }
 impl ::core::cmp::Eq for ConnectedAnimationConfiguration {}
+impl ::core::fmt::Debug for ConnectedAnimationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectedAnimationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimationConfiguration;{00218aae-cd8c-5651-92a0-c1db95c03998})");
 }
@@ -2041,6 +2107,11 @@ impl ::core::cmp::PartialEq for ConnectedAnimationService {
     }
 }
 impl ::core::cmp::Eq for ConnectedAnimationService {}
+impl ::core::fmt::Debug for ConnectedAnimationService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConnectedAnimationService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConnectedAnimationService {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ConnectedAnimationService;{1c6875c9-19bb-4d47-b9aa-66c802dcb9ff})");
 }
@@ -2161,6 +2232,11 @@ impl ::core::cmp::PartialEq for ContentThemeTransition {
     }
 }
 impl ::core::cmp::Eq for ContentThemeTransition {}
+impl ::core::fmt::Debug for ContentThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ContentThemeTransition;{f66fc5c3-5915-437d-8e3b-adf8e7f0ab57})");
 }
@@ -2357,6 +2433,11 @@ impl ::core::cmp::PartialEq for ContinuumNavigationTransitionInfo {
     }
 }
 impl ::core::cmp::Eq for ContinuumNavigationTransitionInfo {}
+impl ::core::fmt::Debug for ContinuumNavigationTransitionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContinuumNavigationTransitionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContinuumNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ContinuumNavigationTransitionInfo;{4be1dbad-8ba6-4004-8438-8a9017978543})");
 }
@@ -2472,6 +2553,11 @@ impl ::core::cmp::PartialEq for CubicEase {
     }
 }
 impl ::core::cmp::Eq for CubicEase {}
+impl ::core::fmt::Debug for CubicEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CubicEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CubicEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.CubicEase;{1b94fc76-dad7-4354-b1a2-7969fbf6a70d})");
 }
@@ -2592,6 +2678,11 @@ impl ::core::cmp::PartialEq for DirectConnectedAnimationConfiguration {
     }
 }
 impl ::core::cmp::Eq for DirectConnectedAnimationConfiguration {}
+impl ::core::fmt::Debug for DirectConnectedAnimationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DirectConnectedAnimationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DirectConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DirectConnectedAnimationConfiguration;{ee5d736f-5738-5d86-b770-151948cf365e})");
 }
@@ -2687,6 +2778,11 @@ impl ::core::cmp::PartialEq for DiscreteColorKeyFrame {
     }
 }
 impl ::core::cmp::Eq for DiscreteColorKeyFrame {}
+impl ::core::fmt::Debug for DiscreteColorKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiscreteColorKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DiscreteColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteColorKeyFrame;{230c08f4-e062-4cb1-8e2a-14093d73ed8c})");
 }
@@ -2802,6 +2898,11 @@ impl ::core::cmp::PartialEq for DiscreteDoubleKeyFrame {
     }
 }
 impl ::core::cmp::Eq for DiscreteDoubleKeyFrame {}
+impl ::core::fmt::Debug for DiscreteDoubleKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiscreteDoubleKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DiscreteDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteDoubleKeyFrame;{f5f51f3a-ad11-49ce-8e1c-08fdf1447446})");
 }
@@ -2917,6 +3018,11 @@ impl ::core::cmp::PartialEq for DiscreteObjectKeyFrame {
     }
 }
 impl ::core::cmp::Eq for DiscreteObjectKeyFrame {}
+impl ::core::fmt::Debug for DiscreteObjectKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiscreteObjectKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DiscreteObjectKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscreteObjectKeyFrame;{c7dcde89-f12d-4a9c-8199-e7a9ece3a473})");
 }
@@ -3032,6 +3138,11 @@ impl ::core::cmp::PartialEq for DiscretePointKeyFrame {
     }
 }
 impl ::core::cmp::Eq for DiscretePointKeyFrame {}
+impl ::core::fmt::Debug for DiscretePointKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DiscretePointKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DiscretePointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DiscretePointKeyFrame;{e0a9070d-4c42-4a90-983a-75f5a83a2fbe})");
 }
@@ -3258,6 +3369,11 @@ impl ::core::cmp::PartialEq for DoubleAnimation {
     }
 }
 impl ::core::cmp::Eq for DoubleAnimation {}
+impl ::core::fmt::Debug for DoubleAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DoubleAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DoubleAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleAnimation;{7e9f3d59-0f07-4bc9-977d-03763ff8154f})");
 }
@@ -3407,6 +3523,11 @@ impl ::core::cmp::PartialEq for DoubleAnimationUsingKeyFrames {
     }
 }
 impl ::core::cmp::Eq for DoubleAnimationUsingKeyFrames {}
+impl ::core::fmt::Debug for DoubleAnimationUsingKeyFrames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DoubleAnimationUsingKeyFrames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DoubleAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleAnimationUsingKeyFrames;{4fee628f-bfee-4f75-83c2-a93b39488473})");
 }
@@ -3562,6 +3683,11 @@ impl ::core::cmp::PartialEq for DoubleKeyFrame {
     }
 }
 impl ::core::cmp::Eq for DoubleKeyFrame {}
+impl ::core::fmt::Debug for DoubleKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DoubleKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleKeyFrame;{674456fd-e81e-4f4e-b4ad-0acfed9ecd68})");
 }
@@ -3759,6 +3885,12 @@ impl ::core::cmp::PartialEq for DoubleKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for DoubleKeyFrameCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for DoubleKeyFrameCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DoubleKeyFrameCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for DoubleKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DoubleKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.DoubleKeyFrame;{674456fd-e81e-4f4e-b4ad-0acfed9ecd68})))");
 }
@@ -3939,6 +4071,11 @@ impl ::core::cmp::PartialEq for DragItemThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for DragItemThemeAnimation {}
+impl ::core::fmt::Debug for DragItemThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragItemThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragItemThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DragItemThemeAnimation;{0c7d5db5-7ed6-4949-b4e6-a78c9f4f978d})");
 }
@@ -4121,6 +4258,11 @@ impl ::core::cmp::PartialEq for DragOverThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for DragOverThemeAnimation {}
+impl ::core::fmt::Debug for DragOverThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DragOverThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DragOverThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DragOverThemeAnimation;{72f762f7-7e51-4a6b-b937-dc4b4c1c5458})");
 }
@@ -4236,6 +4378,11 @@ impl ::core::cmp::PartialEq for DrillInNavigationTransitionInfo {
     }
 }
 impl ::core::cmp::Eq for DrillInNavigationTransitionInfo {}
+impl ::core::fmt::Debug for DrillInNavigationTransitionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DrillInNavigationTransitionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DrillInNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillInNavigationTransitionInfo;{3b86201a-45d3-463b-939e-c8595f439bcc})");
 }
@@ -4436,6 +4583,11 @@ impl ::core::cmp::PartialEq for DrillInThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for DrillInThemeAnimation {}
+impl ::core::fmt::Debug for DrillInThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DrillInThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DrillInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillInThemeAnimation;{b090b824-f1d2-41b8-87ba-78034126594c})");
 }
@@ -4636,6 +4788,11 @@ impl ::core::cmp::PartialEq for DrillOutThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for DrillOutThemeAnimation {}
+impl ::core::fmt::Debug for DrillOutThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DrillOutThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DrillOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DrillOutThemeAnimation;{d890ccdf-06d3-4f7e-8e4a-4fb76e256139})");
 }
@@ -4776,6 +4933,11 @@ impl ::core::cmp::PartialEq for DropTargetItemThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for DropTargetItemThemeAnimation {}
+impl ::core::fmt::Debug for DropTargetItemThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DropTargetItemThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DropTargetItemThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.DropTargetItemThemeAnimation;{1881c968-1824-462b-87e8-c357212b977b})");
 }
@@ -4916,6 +5078,11 @@ impl ::core::cmp::PartialEq for EasingColorKeyFrame {
     }
 }
 impl ::core::cmp::Eq for EasingColorKeyFrame {}
+impl ::core::fmt::Debug for EasingColorKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasingColorKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasingColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingColorKeyFrame;{c733d630-f4b9-4934-9bdd-27ac5ed1cfd8})");
 }
@@ -5056,6 +5223,11 @@ impl ::core::cmp::PartialEq for EasingDoubleKeyFrame {
     }
 }
 impl ::core::cmp::Eq for EasingDoubleKeyFrame {}
+impl ::core::fmt::Debug for EasingDoubleKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasingDoubleKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasingDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingDoubleKeyFrame;{965adb8d-9a54-4108-b4ff-b5a5212cb338})");
 }
@@ -5197,6 +5369,11 @@ impl ::core::cmp::PartialEq for EasingFunctionBase {
     }
 }
 impl ::core::cmp::Eq for EasingFunctionBase {}
+impl ::core::fmt::Debug for EasingFunctionBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasingFunctionBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasingFunctionBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingFunctionBase;{c108383f-2c02-4151-8ecd-68ddaa3f0d9b})");
 }
@@ -5351,6 +5528,11 @@ impl ::core::cmp::PartialEq for EasingPointKeyFrame {
     }
 }
 impl ::core::cmp::Eq for EasingPointKeyFrame {}
+impl ::core::fmt::Debug for EasingPointKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasingPointKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasingPointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EasingPointKeyFrame;{b3c91380-6868-4225-a70b-3981cc0b2947})");
 }
@@ -5493,6 +5675,11 @@ impl ::core::cmp::PartialEq for EdgeUIThemeTransition {
     }
 }
 impl ::core::cmp::Eq for EdgeUIThemeTransition {}
+impl ::core::fmt::Debug for EdgeUIThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EdgeUIThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EdgeUIThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EdgeUIThemeTransition;{5c86c19b-49d7-19ec-cf19-83a73c6de75e})");
 }
@@ -5653,6 +5840,11 @@ impl ::core::cmp::PartialEq for ElasticEase {
     }
 }
 impl ::core::cmp::Eq for ElasticEase {}
+impl ::core::fmt::Debug for ElasticEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ElasticEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ElasticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ElasticEase;{ef5ba58c-b0b6-4a6c-9ca8-fb4233f12459})");
 }
@@ -5791,6 +5983,11 @@ impl ::core::cmp::PartialEq for EntranceNavigationTransitionInfo {
     }
 }
 impl ::core::cmp::Eq for EntranceNavigationTransitionInfo {}
+impl ::core::fmt::Debug for EntranceNavigationTransitionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EntranceNavigationTransitionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EntranceNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EntranceNavigationTransitionInfo;{720a256b-1c8a-41ee-82ec-8a87c0cf47da})");
 }
@@ -5971,6 +6168,11 @@ impl ::core::cmp::PartialEq for EntranceThemeTransition {
     }
 }
 impl ::core::cmp::Eq for EntranceThemeTransition {}
+impl ::core::fmt::Debug for EntranceThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EntranceThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EntranceThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.EntranceThemeTransition;{07698c09-a8e3-419a-a01d-7410a0ae8ec8})");
 }
@@ -6111,6 +6313,11 @@ impl ::core::cmp::PartialEq for ExponentialEase {
     }
 }
 impl ::core::cmp::Eq for ExponentialEase {}
+impl ::core::fmt::Debug for ExponentialEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ExponentialEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ExponentialEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ExponentialEase;{7cb9e41d-f0bb-4bca-9da5-9ba3a11734c4})");
 }
@@ -6251,6 +6458,11 @@ impl ::core::cmp::PartialEq for FadeInThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for FadeInThemeAnimation {}
+impl ::core::fmt::Debug for FadeInThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FadeInThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FadeInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.FadeInThemeAnimation;{6d4bc8f5-a918-4477-8078-554c68812ab8})");
 }
@@ -6391,6 +6603,11 @@ impl ::core::cmp::PartialEq for FadeOutThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for FadeOutThemeAnimation {}
+impl ::core::fmt::Debug for FadeOutThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FadeOutThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FadeOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.FadeOutThemeAnimation;{89276ba9-ffd4-45b6-9b9a-ced48951e712})");
 }
@@ -6557,6 +6774,11 @@ impl ::core::cmp::PartialEq for GravityConnectedAnimationConfiguration {
     }
 }
 impl ::core::cmp::Eq for GravityConnectedAnimationConfiguration {}
+impl ::core::fmt::Debug for GravityConnectedAnimationConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GravityConnectedAnimationConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GravityConnectedAnimationConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.GravityConnectedAnimationConfiguration;{c751a4b7-0459-5142-b891-aeaac1d41822})");
 }
@@ -9816,6 +10038,11 @@ impl ::core::cmp::PartialEq for KeySpline {
     }
 }
 impl ::core::cmp::Eq for KeySpline {}
+impl ::core::fmt::Debug for KeySpline {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeySpline").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeySpline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.KeySpline;{77a163bb-d5ca-4a32-ba0b-7dff988e58a0})");
 }
@@ -9963,6 +10190,11 @@ impl ::core::cmp::PartialEq for KeyTimeHelper {
     }
 }
 impl ::core::cmp::Eq for KeyTimeHelper {}
+impl ::core::fmt::Debug for KeyTimeHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("KeyTimeHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for KeyTimeHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.KeyTimeHelper;{3643e480-4823-466a-abe5-5e79c8ed77ed})");
 }
@@ -10038,6 +10270,11 @@ impl ::core::cmp::PartialEq for LinearColorKeyFrame {
     }
 }
 impl ::core::cmp::Eq for LinearColorKeyFrame {}
+impl ::core::fmt::Debug for LinearColorKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinearColorKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LinearColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearColorKeyFrame;{66fdb6ef-ac81-4611-b1d2-61f545983f03})");
 }
@@ -10153,6 +10390,11 @@ impl ::core::cmp::PartialEq for LinearDoubleKeyFrame {
     }
 }
 impl ::core::cmp::Eq for LinearDoubleKeyFrame {}
+impl ::core::fmt::Debug for LinearDoubleKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinearDoubleKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LinearDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearDoubleKeyFrame;{8efdf265-9a7b-431d-8f0c-14c56b5ea4d9})");
 }
@@ -10268,6 +10510,11 @@ impl ::core::cmp::PartialEq for LinearPointKeyFrame {
     }
 }
 impl ::core::cmp::Eq for LinearPointKeyFrame {}
+impl ::core::fmt::Debug for LinearPointKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LinearPointKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LinearPointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.LinearPointKeyFrame;{e7c9b8ef-af24-49ee-84f1-a86600a4e319})");
 }
@@ -10408,6 +10655,11 @@ impl ::core::cmp::PartialEq for NavigationThemeTransition {
     }
 }
 impl ::core::cmp::Eq for NavigationThemeTransition {}
+impl ::core::fmt::Debug for NavigationThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.NavigationThemeTransition;{8833848c-4eb7-41f2-8799-9eef0a213b73})");
 }
@@ -10515,6 +10767,11 @@ impl ::core::cmp::PartialEq for NavigationTransitionInfo {
     }
 }
 impl ::core::cmp::Eq for NavigationTransitionInfo {}
+impl ::core::fmt::Debug for NavigationTransitionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigationTransitionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.NavigationTransitionInfo;{a9b05091-ae4a-4372-8625-21b7a8b98ca4})");
 }
@@ -10644,6 +10901,11 @@ impl ::core::cmp::PartialEq for ObjectAnimationUsingKeyFrames {
     }
 }
 impl ::core::cmp::Eq for ObjectAnimationUsingKeyFrames {}
+impl ::core::fmt::Debug for ObjectAnimationUsingKeyFrames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ObjectAnimationUsingKeyFrames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ObjectAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectAnimationUsingKeyFrames;{334a2d92-b74a-4c64-b9a6-58bcfa314f22})");
 }
@@ -10799,6 +11061,11 @@ impl ::core::cmp::PartialEq for ObjectKeyFrame {
     }
 }
 impl ::core::cmp::Eq for ObjectKeyFrame {}
+impl ::core::fmt::Debug for ObjectKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ObjectKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ObjectKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectKeyFrame;{9852a851-8593-48ee-a6a4-d5d4720f029a})");
 }
@@ -10996,6 +11263,12 @@ impl ::core::cmp::PartialEq for ObjectKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for ObjectKeyFrameCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for ObjectKeyFrameCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ObjectKeyFrameCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ObjectKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ObjectKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.ObjectKeyFrame;{9852a851-8593-48ee-a6a4-d5d4720f029a})))");
 }
@@ -11178,6 +11451,11 @@ impl ::core::cmp::PartialEq for PaneThemeTransition {
     }
 }
 impl ::core::cmp::Eq for PaneThemeTransition {}
+impl ::core::fmt::Debug for PaneThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaneThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaneThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PaneThemeTransition;{4708eb8e-4bfc-ee46-d4f9-708def3fbb2b})");
 }
@@ -11404,6 +11682,11 @@ impl ::core::cmp::PartialEq for PointAnimation {
     }
 }
 impl ::core::cmp::Eq for PointAnimation {}
+impl ::core::fmt::Debug for PointAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointAnimation;{30f04312-7726-4f88-b8e2-2fa54518963b})");
 }
@@ -11553,6 +11836,11 @@ impl ::core::cmp::PartialEq for PointAnimationUsingKeyFrames {
     }
 }
 impl ::core::cmp::Eq for PointAnimationUsingKeyFrames {}
+impl ::core::fmt::Debug for PointAnimationUsingKeyFrames {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointAnimationUsingKeyFrames").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointAnimationUsingKeyFrames {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointAnimationUsingKeyFrames;{9b944f72-446a-41d0-a129-41a620f4595d})");
 }
@@ -11710,6 +11998,11 @@ impl ::core::cmp::PartialEq for PointKeyFrame {
     }
 }
 impl ::core::cmp::Eq for PointKeyFrame {}
+impl ::core::fmt::Debug for PointKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointKeyFrame;{fcc88d01-7f82-4dae-8026-7b7e086878b3})");
 }
@@ -11907,6 +12200,12 @@ impl ::core::cmp::PartialEq for PointKeyFrameCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for PointKeyFrameCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for PointKeyFrameCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointKeyFrameCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for PointKeyFrameCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointKeyFrameCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.PointKeyFrame;{fcc88d01-7f82-4dae-8026-7b7e086878b3})))");
 }
@@ -12087,6 +12386,11 @@ impl ::core::cmp::PartialEq for PointerDownThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for PointerDownThemeAnimation {}
+impl ::core::fmt::Debug for PointerDownThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerDownThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerDownThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointerDownThemeAnimation;{b58e714e-c49d-4788-a233-0ae85d99dd5a})");
 }
@@ -12227,6 +12531,11 @@ impl ::core::cmp::PartialEq for PointerUpThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for PointerUpThemeAnimation {}
+impl ::core::fmt::Debug for PointerUpThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PointerUpThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PointerUpThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PointerUpThemeAnimation;{e9e9d07d-6340-4828-ad12-690694b9910b})");
 }
@@ -12407,6 +12716,11 @@ impl ::core::cmp::PartialEq for PopInThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for PopInThemeAnimation {}
+impl ::core::fmt::Debug for PopInThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PopInThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PopInThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopInThemeAnimation;{196938c1-1c07-4c28-8847-f9f055b32855})");
 }
@@ -12547,6 +12861,11 @@ impl ::core::cmp::PartialEq for PopOutThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for PopOutThemeAnimation {}
+impl ::core::fmt::Debug for PopOutThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PopOutThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PopOutThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopOutThemeAnimation;{4786ab49-0e48-4e81-a2e5-cc5aa19e48d3})");
 }
@@ -12707,6 +13026,11 @@ impl ::core::cmp::PartialEq for PopupThemeTransition {
     }
 }
 impl ::core::cmp::Eq for PopupThemeTransition {}
+impl ::core::fmt::Debug for PopupThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PopupThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PopupThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PopupThemeTransition;{47843552-4283-545e-c791-268dca22ce4b})");
 }
@@ -12847,6 +13171,11 @@ impl ::core::cmp::PartialEq for PowerEase {
     }
 }
 impl ::core::cmp::Eq for PowerEase {}
+impl ::core::fmt::Debug for PowerEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PowerEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PowerEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.PowerEase;{69c80579-eedf-405b-8680-d9606880c937})");
 }
@@ -12962,6 +13291,11 @@ impl ::core::cmp::PartialEq for QuadraticEase {
     }
 }
 impl ::core::cmp::Eq for QuadraticEase {}
+impl ::core::fmt::Debug for QuadraticEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuadraticEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuadraticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuadraticEase;{e1510e91-ef6d-44f0-803d-68d16de0ddfc})");
 }
@@ -13077,6 +13411,11 @@ impl ::core::cmp::PartialEq for QuarticEase {
     }
 }
 impl ::core::cmp::Eq for QuarticEase {}
+impl ::core::fmt::Debug for QuarticEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuarticEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuarticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuarticEase;{e8698814-fe42-4a05-b5b8-081f41157815})");
 }
@@ -13192,6 +13531,11 @@ impl ::core::cmp::PartialEq for QuinticEase {
     }
 }
 impl ::core::cmp::Eq for QuinticEase {}
+impl ::core::fmt::Debug for QuinticEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuinticEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuinticEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.QuinticEase;{92ee793b-3c49-4108-aa11-ab786603da21})");
 }
@@ -13307,6 +13651,11 @@ impl ::core::cmp::PartialEq for ReorderThemeTransition {
     }
 }
 impl ::core::cmp::Eq for ReorderThemeTransition {}
+impl ::core::fmt::Debug for ReorderThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ReorderThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ReorderThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.ReorderThemeTransition;{f2065c6c-d052-4ad1-8362-b71b36df7497})");
 }
@@ -13516,6 +13865,11 @@ impl ::core::cmp::PartialEq for RepeatBehaviorHelper {
     }
 }
 impl ::core::cmp::Eq for RepeatBehaviorHelper {}
+impl ::core::fmt::Debug for RepeatBehaviorHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RepeatBehaviorHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RepeatBehaviorHelper {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepeatBehaviorHelper;{6863ab72-4997-47f9-87ad-37efb75993ea})");
 }
@@ -13690,6 +14044,11 @@ impl ::core::cmp::PartialEq for RepositionThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for RepositionThemeAnimation {}
+impl ::core::fmt::Debug for RepositionThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RepositionThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RepositionThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepositionThemeAnimation;{ecda24e8-8945-4949-a1bf-62109965a7e9})");
 }
@@ -13830,6 +14189,11 @@ impl ::core::cmp::PartialEq for RepositionThemeTransition {
     }
 }
 impl ::core::cmp::Eq for RepositionThemeTransition {}
+impl ::core::fmt::Debug for RepositionThemeTransition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RepositionThemeTransition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RepositionThemeTransition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.RepositionThemeTransition;{88329b82-98f3-455a-ac53-2e7083b6e22c})");
 }
@@ -13945,6 +14309,11 @@ impl ::core::cmp::PartialEq for SineEase {
     }
 }
 impl ::core::cmp::Eq for SineEase {}
+impl ::core::fmt::Debug for SineEase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SineEase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SineEase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SineEase;{a9382962-230b-49da-9e0d-664987892343})");
 }
@@ -14119,6 +14488,11 @@ impl ::core::cmp::PartialEq for SlideNavigationTransitionInfo {
     }
 }
 impl ::core::cmp::Eq for SlideNavigationTransitionInfo {}
+impl ::core::fmt::Debug for SlideNavigationTransitionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SlideNavigationTransitionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SlideNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SlideNavigationTransitionInfo;{d6ac9d77-2e03-405f-80ed-e62beef3668f})");
 }
@@ -14259,6 +14633,11 @@ impl ::core::cmp::PartialEq for SplineColorKeyFrame {
     }
 }
 impl ::core::cmp::Eq for SplineColorKeyFrame {}
+impl ::core::fmt::Debug for SplineColorKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SplineColorKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SplineColorKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplineColorKeyFrame;{1a4a5941-1fe0-473a-8efe-4316d8c86229})");
 }
@@ -14399,6 +14778,11 @@ impl ::core::cmp::PartialEq for SplineDoubleKeyFrame {
     }
 }
 impl ::core::cmp::Eq for SplineDoubleKeyFrame {}
+impl ::core::fmt::Debug for SplineDoubleKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SplineDoubleKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SplineDoubleKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplineDoubleKeyFrame;{00d72d38-6b2b-4843-838e-c8b115eec801})");
 }
@@ -14539,6 +14923,11 @@ impl ::core::cmp::PartialEq for SplinePointKeyFrame {
     }
 }
 impl ::core::cmp::Eq for SplinePointKeyFrame {}
+impl ::core::fmt::Debug for SplinePointKeyFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SplinePointKeyFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SplinePointKeyFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplinePointKeyFrame;{0f19f306-7036-494f-bc3c-780df0cc524a})");
 }
@@ -14881,6 +15270,11 @@ impl ::core::cmp::PartialEq for SplitCloseThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for SplitCloseThemeAnimation {}
+impl ::core::fmt::Debug for SplitCloseThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SplitCloseThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SplitCloseThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplitCloseThemeAnimation;{4f799518-ff39-4e90-bb74-2abd56027402})");
 }
@@ -15223,6 +15617,11 @@ impl ::core::cmp::PartialEq for SplitOpenThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for SplitOpenThemeAnimation {}
+impl ::core::fmt::Debug for SplitOpenThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SplitOpenThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SplitOpenThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SplitOpenThemeAnimation;{785fd7aa-5456-4639-8fd2-26bae6a5ffe4})");
 }
@@ -15446,6 +15845,11 @@ impl ::core::cmp::PartialEq for Storyboard {
     }
 }
 impl ::core::cmp::Eq for Storyboard {}
+impl ::core::fmt::Debug for Storyboard {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Storyboard").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Storyboard {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Storyboard;{d45c1e6e-3594-460e-981a-32271bd3aa06})");
 }
@@ -15561,6 +15965,11 @@ impl ::core::cmp::PartialEq for SuppressNavigationTransitionInfo {
     }
 }
 impl ::core::cmp::Eq for SuppressNavigationTransitionInfo {}
+impl ::core::fmt::Debug for SuppressNavigationTransitionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuppressNavigationTransitionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SuppressNavigationTransitionInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SuppressNavigationTransitionInfo;{244d7b0c-b1b7-4871-9d3e-d56203a3a5b4})");
 }
@@ -15741,6 +16150,11 @@ impl ::core::cmp::PartialEq for SwipeBackThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for SwipeBackThemeAnimation {}
+impl ::core::fmt::Debug for SwipeBackThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SwipeBackThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SwipeBackThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SwipeBackThemeAnimation;{a38a4214-0bca-4d2d-95f7-ceba57fbaf60})");
 }
@@ -15921,6 +16335,11 @@ impl ::core::cmp::PartialEq for SwipeHintThemeAnimation {
     }
 }
 impl ::core::cmp::Eq for SwipeHintThemeAnimation {}
+impl ::core::fmt::Debug for SwipeHintThemeAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SwipeHintThemeAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SwipeHintThemeAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.SwipeHintThemeAnimation;{cdd067c0-580e-4e40-be98-f202d3d84365})");
 }
@@ -16186,6 +16605,11 @@ impl ::core::cmp::PartialEq for Timeline {
     }
 }
 impl ::core::cmp::Eq for Timeline {}
+impl ::core::fmt::Debug for Timeline {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Timeline").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Timeline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Timeline;{0bc465dc-be4d-4d0d-9549-2208b715f40d})");
 }
@@ -16383,6 +16807,12 @@ impl ::core::cmp::PartialEq for TimelineCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for TimelineCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for TimelineCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimelineCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TimelineCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.TimelineCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.Timeline;{0bc465dc-be4d-4d0d-9549-2208b715f40d})))");
 }
@@ -16530,6 +16960,11 @@ impl ::core::cmp::PartialEq for Transition {
     }
 }
 impl ::core::cmp::Eq for Transition {}
+impl ::core::fmt::Debug for Transition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Transition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Transition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.Transition;{3c677c7c-01d0-4dce-b333-976f93312b08})");
 }
@@ -16726,6 +17161,12 @@ impl ::core::cmp::PartialEq for TransitionCollection {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for TransitionCollection {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for TransitionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TransitionCollection").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for TransitionCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Media.Animation.TransitionCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Media.Animation.Transition;{3c677c7c-01d0-4dce-b333-976f93312b08})))");

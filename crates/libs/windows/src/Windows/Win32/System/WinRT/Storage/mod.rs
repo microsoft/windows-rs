@@ -91,6 +91,11 @@ impl ::core::cmp::PartialEq for IOplockBreakingHandler {
     }
 }
 impl ::core::cmp::Eq for IOplockBreakingHandler {}
+impl ::core::fmt::Debug for IOplockBreakingHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IOplockBreakingHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IOplockBreakingHandler {
     type Vtable = IOplockBreakingHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x826abe3d_3acd_47d3_84f2_88aaedcf6304);
@@ -139,6 +144,11 @@ impl ::core::cmp::PartialEq for IRandomAccessStreamFileAccessMode {
     }
 }
 impl ::core::cmp::Eq for IRandomAccessStreamFileAccessMode {}
+impl ::core::fmt::Debug for IRandomAccessStreamFileAccessMode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRandomAccessStreamFileAccessMode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRandomAccessStreamFileAccessMode {
     type Vtable = IRandomAccessStreamFileAccessModeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x332e5848_2e15_458e_85c4_c911c0c3d6f4);
@@ -188,6 +198,11 @@ impl ::core::cmp::PartialEq for IStorageFolderHandleAccess {
     }
 }
 impl ::core::cmp::Eq for IStorageFolderHandleAccess {}
+impl ::core::fmt::Debug for IStorageFolderHandleAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageFolderHandleAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageFolderHandleAccess {
     type Vtable = IStorageFolderHandleAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdf19938f_5462_48a0_be65_d2a3271a08d6);
@@ -243,6 +258,11 @@ impl ::core::cmp::PartialEq for IStorageItemHandleAccess {
     }
 }
 impl ::core::cmp::Eq for IStorageItemHandleAccess {}
+impl ::core::fmt::Debug for IStorageItemHandleAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItemHandleAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IStorageItemHandleAccess {
     type Vtable = IStorageItemHandleAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ca296b2_2c25_4d22_b785_b885c8201e6a);
@@ -296,6 +316,11 @@ impl ::core::cmp::PartialEq for IUnbufferedFileHandleOplockCallback {
     }
 }
 impl ::core::cmp::Eq for IUnbufferedFileHandleOplockCallback {}
+impl ::core::fmt::Debug for IUnbufferedFileHandleOplockCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUnbufferedFileHandleOplockCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUnbufferedFileHandleOplockCallback {
     type Vtable = IUnbufferedFileHandleOplockCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1019a0e_6243_4329_8497_2e75894d7710);
@@ -348,6 +373,11 @@ impl ::core::cmp::PartialEq for IUnbufferedFileHandleProvider {
     }
 }
 impl ::core::cmp::Eq for IUnbufferedFileHandleProvider {}
+impl ::core::fmt::Debug for IUnbufferedFileHandleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUnbufferedFileHandleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUnbufferedFileHandleProvider {
     type Vtable = IUnbufferedFileHandleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa65c9109_42ab_4b94_a7b1_dd2e4e68515e);

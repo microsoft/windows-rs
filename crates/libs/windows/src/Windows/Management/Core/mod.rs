@@ -28,6 +28,11 @@ impl ::core::cmp::PartialEq for ApplicationDataManager {
     }
 }
 impl ::core::cmp::Eq for ApplicationDataManager {}
+impl ::core::fmt::Debug for ApplicationDataManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationDataManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationDataManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Management.Core.ApplicationDataManager;{74d10432-2e99-4000-9a3a-64307e858129})");
 }

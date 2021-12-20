@@ -225,6 +225,11 @@ impl ::core::cmp::PartialEq for PwmController {
     }
 }
 impl ::core::cmp::Eq for PwmController {}
+impl ::core::fmt::Debug for PwmController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PwmController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PwmController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmController;{c45f5c85-d2e8-42cf-9bd6-cf5ed029e6a7})");
 }
@@ -351,6 +356,11 @@ impl ::core::cmp::PartialEq for PwmPin {
     }
 }
 impl ::core::cmp::Eq for PwmPin {}
+impl ::core::fmt::Debug for PwmPin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PwmPin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PwmPin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Pwm.PwmPin;{22972dc8-c6cf-4821-b7f9-c6454fb6af79})");
 }

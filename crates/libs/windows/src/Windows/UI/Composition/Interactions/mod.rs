@@ -152,6 +152,11 @@ impl ::core::cmp::PartialEq for CompositionConditionalValue {
     }
 }
 impl ::core::cmp::Eq for CompositionConditionalValue {}
+impl ::core::fmt::Debug for CompositionConditionalValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionConditionalValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionConditionalValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionConditionalValue;{43250538-eb73-4561-a71d-1a43eaeb7a9b})");
 }
@@ -419,6 +424,11 @@ impl ::core::cmp::PartialEq for CompositionInteractionSourceCollection {
     }
 }
 impl ::core::cmp::Eq for CompositionInteractionSourceCollection {}
+impl ::core::fmt::Debug for CompositionInteractionSourceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositionInteractionSourceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositionInteractionSourceCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.CompositionInteractionSourceCollection;{1b468e4b-a5bf-47d8-a547-3894155a158c})");
 }
@@ -675,6 +685,11 @@ impl ::core::cmp::PartialEq for ICompositionInteractionSource {
     }
 }
 impl ::core::cmp::Eq for ICompositionInteractionSource {}
+impl ::core::fmt::Debug for ICompositionInteractionSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICompositionInteractionSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ICompositionInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{043b2431-06e3-495a-ba54-409f0017fac0}");
 }
@@ -1296,6 +1311,11 @@ impl ::core::cmp::PartialEq for IInteractionTrackerOwner {
     }
 }
 impl ::core::cmp::Eq for IInteractionTrackerOwner {}
+impl ::core::fmt::Debug for IInteractionTrackerOwner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInteractionTrackerOwner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInteractionTrackerOwner {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{db2e8af3-4deb-4e53-b29c-b06c9f96d651}");
 }
@@ -1837,6 +1857,11 @@ impl ::core::cmp::PartialEq for InteractionSourceConfiguration {
     }
 }
 impl ::core::cmp::Eq for InteractionSourceConfiguration {}
+impl ::core::fmt::Debug for InteractionSourceConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionSourceConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionSourceConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionSourceConfiguration;{a78347e5-a9d1-4d02-985e-b930cd0b9da4})");
 }
@@ -2478,6 +2503,11 @@ impl ::core::cmp::PartialEq for InteractionTracker {
     }
 }
 impl ::core::cmp::Eq for InteractionTracker {}
+impl ::core::fmt::Debug for InteractionTracker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTracker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTracker;{2a8e8cb1-1000-4416-8363-cc27fb877308})");
 }
@@ -2663,6 +2693,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerCustomAnimationStateEnteredArg
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerCustomAnimationStateEnteredArgs {}
+impl ::core::fmt::Debug for InteractionTrackerCustomAnimationStateEnteredArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerCustomAnimationStateEnteredArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerCustomAnimationStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerCustomAnimationStateEnteredArgs;{8d1c8cf1-d7b0-434c-a5d2-2d7611864834})");
 }
@@ -2747,6 +2782,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerIdleStateEnteredArgs {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerIdleStateEnteredArgs {}
+impl ::core::fmt::Debug for InteractionTrackerIdleStateEnteredArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerIdleStateEnteredArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerIdleStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerIdleStateEnteredArgs;{50012faa-1510-4142-a1a5-019b09f8857b})");
 }
@@ -2914,6 +2954,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerInertiaModifier {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerInertiaModifier {}
+impl ::core::fmt::Debug for InteractionTrackerInertiaModifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerInertiaModifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaModifier;{a0e2c920-26b4-4da2-8b61-5e683979bbe2})");
 }
@@ -3187,6 +3232,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerInertiaMotion {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerInertiaMotion {}
+impl ::core::fmt::Debug for InteractionTrackerInertiaMotion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerInertiaMotion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaMotion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaMotion;{04922fdc-f154-4cb8-bf33-cc1ba611e6db})");
 }
@@ -3480,6 +3530,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerInertiaNaturalMotion {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerInertiaNaturalMotion {}
+impl ::core::fmt::Debug for InteractionTrackerInertiaNaturalMotion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerInertiaNaturalMotion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaNaturalMotion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaNaturalMotion;{70acdaae-27dc-48ed-a3c3-6d61c9a029d2})");
 }
@@ -3773,6 +3828,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerInertiaRestingValue {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerInertiaRestingValue {}
+impl ::core::fmt::Debug for InteractionTrackerInertiaRestingValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerInertiaRestingValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaRestingValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaRestingValue;{86f7ec09-5096-4170-9cc8-df2fe101bb93})");
 }
@@ -4005,6 +4065,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerInertiaStateEnteredArgs {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerInertiaStateEnteredArgs {}
+impl ::core::fmt::Debug for InteractionTrackerInertiaStateEnteredArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerInertiaStateEnteredArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInertiaStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInertiaStateEnteredArgs;{87108cf2-e7ff-4f7d-9ffd-d72f1e409b63})");
 }
@@ -4089,6 +4154,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerInteractingStateEnteredArgs {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerInteractingStateEnteredArgs {}
+impl ::core::fmt::Debug for InteractionTrackerInteractingStateEnteredArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerInteractingStateEnteredArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerInteractingStateEnteredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerInteractingStateEnteredArgs;{a7263939-a17b-4011-99fd-b5c24f143748})");
 }
@@ -4198,6 +4268,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerRequestIgnoredArgs {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerRequestIgnoredArgs {}
+impl ::core::fmt::Debug for InteractionTrackerRequestIgnoredArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerRequestIgnoredArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerRequestIgnoredArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerRequestIgnoredArgs;{80dd82f1-ce25-488f-91dd-cb6455ccff2e})");
 }
@@ -4291,6 +4366,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerValuesChangedArgs {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerValuesChangedArgs {}
+impl ::core::fmt::Debug for InteractionTrackerValuesChangedArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerValuesChangedArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerValuesChangedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerValuesChangedArgs;{cf1578ef-d3df-4501-b9e6-f02fb22f73d0})");
 }
@@ -4458,6 +4538,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerVector2InertiaModifier {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerVector2InertiaModifier {}
+impl ::core::fmt::Debug for InteractionTrackerVector2InertiaModifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerVector2InertiaModifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaModifier;{87e08ab0-3086-4853-a4b7-77882ad5d7e3})");
 }
@@ -4731,6 +4816,11 @@ impl ::core::cmp::PartialEq for InteractionTrackerVector2InertiaNaturalMotion {
     }
 }
 impl ::core::cmp::Eq for InteractionTrackerVector2InertiaNaturalMotion {}
+impl ::core::fmt::Debug for InteractionTrackerVector2InertiaNaturalMotion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InteractionTrackerVector2InertiaNaturalMotion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InteractionTrackerVector2InertiaNaturalMotion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.InteractionTrackerVector2InertiaNaturalMotion;{5f17695c-162d-4c07-9400-c282b28276ca})");
 }
@@ -5230,6 +5320,11 @@ impl ::core::cmp::PartialEq for VisualInteractionSource {
     }
 }
 impl ::core::cmp::Eq for VisualInteractionSource {}
+impl ::core::fmt::Debug for VisualInteractionSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VisualInteractionSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VisualInteractionSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Interactions.VisualInteractionSource;{ca0e8a86-d8d6-4111-b088-70347bd2b0ed})");
 }

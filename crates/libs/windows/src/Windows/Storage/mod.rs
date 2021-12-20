@@ -123,6 +123,11 @@ impl ::core::cmp::PartialEq for AppDataPaths {
     }
 }
 impl ::core::cmp::Eq for AppDataPaths {}
+impl ::core::fmt::Debug for AppDataPaths {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppDataPaths").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.AppDataPaths;{7301d60a-79a2-48c9-9ec0-3fda092f79e1})");
 }
@@ -358,6 +363,11 @@ impl ::core::cmp::PartialEq for ApplicationData {
     }
 }
 impl ::core::cmp::Eq for ApplicationData {}
+impl ::core::fmt::Debug for ApplicationData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationData;{c3da6fb7-b744-4b45-b0b8-223a0938d0dc})");
 }
@@ -545,6 +555,12 @@ impl ::core::cmp::PartialEq for ApplicationDataCompositeValue {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for ApplicationDataCompositeValue {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for ApplicationDataCompositeValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationDataCompositeValue").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ApplicationDataCompositeValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataCompositeValue;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
@@ -799,6 +815,11 @@ impl ::core::cmp::PartialEq for ApplicationDataContainer {
     }
 }
 impl ::core::cmp::Eq for ApplicationDataContainer {}
+impl ::core::fmt::Debug for ApplicationDataContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationDataContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationDataContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainer;{c5aefd1e-f467-40ba-8566-ab640a441e1d})");
 }
@@ -979,6 +1000,12 @@ impl ::core::cmp::PartialEq for ApplicationDataContainerSettings {
 }
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for ApplicationDataContainerSettings {}
+#[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for ApplicationDataContainerSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationDataContainerSettings").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for ApplicationDataContainerSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.ApplicationDataContainerSettings;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
@@ -1293,6 +1320,11 @@ impl ::core::cmp::PartialEq for ApplicationDataSetVersionHandler {
     }
 }
 impl ::core::cmp::Eq for ApplicationDataSetVersionHandler {}
+impl ::core::fmt::Debug for ApplicationDataSetVersionHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationDataSetVersionHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ApplicationDataSetVersionHandler {
     type Vtable = ApplicationDataSetVersionHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa05791e6_cc9f_4687_acab_a364fd785463);
@@ -2509,6 +2541,11 @@ impl ::core::cmp::PartialEq for IStorageFile {
     }
 }
 impl ::core::cmp::Eq for IStorageFile {}
+impl ::core::fmt::Debug for IStorageFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fa3f6186-4214-428c-a64c-14c9ac7315ea}");
 }
@@ -2622,6 +2659,11 @@ impl ::core::cmp::PartialEq for IStorageFile2 {
     }
 }
 impl ::core::cmp::Eq for IStorageFile2 {}
+impl ::core::fmt::Debug for IStorageFile2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageFile2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageFile2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{954e4bcf-0a77-42fb-b777-c2ed58a52e44}");
 }
@@ -2707,6 +2749,11 @@ impl ::core::cmp::PartialEq for IStorageFilePropertiesWithAvailability {
     }
 }
 impl ::core::cmp::Eq for IStorageFilePropertiesWithAvailability {}
+impl ::core::fmt::Debug for IStorageFilePropertiesWithAvailability {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageFilePropertiesWithAvailability").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageFilePropertiesWithAvailability {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{afcbbe9b-582b-4133-9648-e44ca46ee491}");
 }
@@ -3027,6 +3074,11 @@ impl ::core::cmp::PartialEq for IStorageFolder {
     }
 }
 impl ::core::cmp::Eq for IStorageFolder {}
+impl ::core::fmt::Debug for IStorageFolder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageFolder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageFolder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b}");
 }
@@ -3129,6 +3181,11 @@ impl ::core::cmp::PartialEq for IStorageFolder2 {
     }
 }
 impl ::core::cmp::Eq for IStorageFolder2 {}
+impl ::core::fmt::Debug for IStorageFolder2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageFolder2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageFolder2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{e827e8b9-08d9-4a8e-a0ac-fe5ed3cbbbd3}");
 }
@@ -3346,6 +3403,11 @@ impl ::core::cmp::PartialEq for IStorageItem {
     }
 }
 impl ::core::cmp::Eq for IStorageItem {}
+impl ::core::fmt::Debug for IStorageItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4207a996-ca2f-42f7-bde8-8b10457a7f30}");
 }
@@ -3560,6 +3622,11 @@ impl ::core::cmp::PartialEq for IStorageItem2 {
     }
 }
 impl ::core::cmp::Eq for IStorageItem2 {}
+impl ::core::fmt::Debug for IStorageItem2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItem2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageItem2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{53f926d2-083c-4283-b45b-81c007237e44}");
 }
@@ -3696,6 +3763,11 @@ impl ::core::cmp::PartialEq for IStorageItemProperties {
     }
 }
 impl ::core::cmp::Eq for IStorageItemProperties {}
+impl ::core::fmt::Debug for IStorageItemProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItemProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageItemProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{86664478-8029-46fe-a789-1c2f3e2ffb5c}");
 }
@@ -3889,6 +3961,11 @@ impl ::core::cmp::PartialEq for IStorageItemProperties2 {
     }
 }
 impl ::core::cmp::Eq for IStorageItemProperties2 {}
+impl ::core::fmt::Debug for IStorageItemProperties2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItemProperties2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageItemProperties2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8e86a951-04b9-4bd2-929d-fef3f71621d0}");
 }
@@ -4058,6 +4135,11 @@ impl ::core::cmp::PartialEq for IStorageItemPropertiesWithProvider {
     }
 }
 impl ::core::cmp::Eq for IStorageItemPropertiesWithProvider {}
+impl ::core::fmt::Debug for IStorageItemPropertiesWithProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStorageItemPropertiesWithProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStorageItemPropertiesWithProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{861bf39b-6368-4dee-b40e-74684a5ce714}");
 }
@@ -4454,6 +4536,11 @@ impl ::core::cmp::PartialEq for IStreamedFileDataRequest {
     }
 }
 impl ::core::cmp::Eq for IStreamedFileDataRequest {}
+impl ::core::fmt::Debug for IStreamedFileDataRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IStreamedFileDataRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IStreamedFileDataRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1673fcce-dabd-4d50-beee-180b8a8191b6}");
 }
@@ -5229,6 +5316,11 @@ impl ::core::cmp::PartialEq for SetVersionDeferral {
     }
 }
 impl ::core::cmp::Eq for SetVersionDeferral {}
+impl ::core::fmt::Debug for SetVersionDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetVersionDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetVersionDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionDeferral;{033508a2-781a-437a-b078-3f32badcfe47})");
 }
@@ -5321,6 +5413,11 @@ impl ::core::cmp::PartialEq for SetVersionRequest {
     }
 }
 impl ::core::cmp::Eq for SetVersionRequest {}
+impl ::core::fmt::Debug for SetVersionRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SetVersionRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SetVersionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SetVersionRequest;{b9c76b9b-1056-4e69-8330-162619956f9b})");
 }
@@ -5836,6 +5933,11 @@ impl ::core::cmp::PartialEq for StorageFile {
     }
 }
 impl ::core::cmp::Eq for StorageFile {}
+impl ::core::fmt::Debug for StorageFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageFile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFile;{fa3f6186-4214-428c-a64c-14c9ac7315ea})");
 }
@@ -6614,6 +6716,11 @@ impl ::core::cmp::PartialEq for StorageFolder {
     }
 }
 impl ::core::cmp::Eq for StorageFolder {}
+impl ::core::fmt::Debug for StorageFolder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageFolder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageFolder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageFolder;{72d1cb78-b3ef-4f75-a80b-6fd9dae2944b})");
 }
@@ -6987,6 +7094,11 @@ impl ::core::cmp::PartialEq for StorageLibrary {
     }
 }
 impl ::core::cmp::Eq for StorageLibrary {}
+impl ::core::fmt::Debug for StorageLibrary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibrary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibrary {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibrary;{1edd7103-0e5e-4d6c-b5e8-9318983d6a03})");
 }
@@ -7094,6 +7206,11 @@ impl ::core::cmp::PartialEq for StorageLibraryChange {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryChange {}
+impl ::core::fmt::Debug for StorageLibraryChange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryChange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChange {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChange;{00980b23-2be2-4909-aa48-159f5203a51e})");
 }
@@ -7188,6 +7305,11 @@ impl ::core::cmp::PartialEq for StorageLibraryChangeReader {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryChangeReader {}
+impl ::core::fmt::Debug for StorageLibraryChangeReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryChangeReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeReader;{f205bc83-fca2-41f9-8954-ee2e991eb96f})");
 }
@@ -7284,6 +7406,11 @@ impl ::core::cmp::PartialEq for StorageLibraryChangeTracker {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryChangeTracker {}
+impl ::core::fmt::Debug for StorageLibraryChangeTracker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryChangeTracker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTracker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTracker;{9e157316-6073-44f6-9681-7492d1286c90})");
 }
@@ -7372,6 +7499,11 @@ impl ::core::cmp::PartialEq for StorageLibraryChangeTrackerOptions {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryChangeTrackerOptions {}
+impl ::core::fmt::Debug for StorageLibraryChangeTrackerOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryChangeTrackerOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryChangeTrackerOptions;{bb52bcd4-1a6d-59c0-ad2a-823a20532483})");
 }
@@ -7493,6 +7625,11 @@ impl ::core::cmp::PartialEq for StorageLibraryLastChangeId {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryLastChangeId {}
+impl ::core::fmt::Debug for StorageLibraryLastChangeId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryLastChangeId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryLastChangeId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageLibraryLastChangeId;{5281826a-bbe1-53bc-82ca-81cc7f039329})");
 }
@@ -7620,6 +7757,11 @@ impl ::core::cmp::PartialEq for StorageProvider {
     }
 }
 impl ::core::cmp::Eq for StorageProvider {}
+impl ::core::fmt::Debug for StorageProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageProvider;{e705eed4-d478-47d6-ba46-1a8ebe114a20})");
 }
@@ -7710,6 +7852,11 @@ impl ::core::cmp::PartialEq for StorageStreamTransaction {
     }
 }
 impl ::core::cmp::Eq for StorageStreamTransaction {}
+impl ::core::fmt::Debug for StorageStreamTransaction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageStreamTransaction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageStreamTransaction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StorageStreamTransaction;{f67cf363-a53d-4d94-ae2c-67232d93acdd})");
 }
@@ -7836,6 +7983,12 @@ impl ::core::cmp::PartialEq for StreamedFileDataRequest {
 }
 #[cfg(feature = "Storage_Streams")]
 impl ::core::cmp::Eq for StreamedFileDataRequest {}
+#[cfg(feature = "Storage_Streams")]
+impl ::core::fmt::Debug for StreamedFileDataRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamedFileDataRequest").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::RuntimeType for StreamedFileDataRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.StreamedFileDataRequest;{905a0fe6-bc53-11df-8c49-001e4fc686da})");
@@ -8044,6 +8197,12 @@ impl ::core::cmp::PartialEq for StreamedFileDataRequestedHandler {
 #[cfg(feature = "Storage_Streams")]
 impl ::core::cmp::Eq for StreamedFileDataRequestedHandler {}
 #[cfg(feature = "Storage_Streams")]
+impl ::core::fmt::Debug for StreamedFileDataRequestedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StreamedFileDataRequestedHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Storage_Streams")]
 unsafe impl ::windows::core::Interface for StreamedFileDataRequestedHandler {
     type Vtable = StreamedFileDataRequestedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfef6a824_2fe1_4d07_a35b_b77c50b5f4cc);
@@ -8120,6 +8279,11 @@ impl ::core::cmp::PartialEq for SystemAudioProperties {
     }
 }
 impl ::core::cmp::Eq for SystemAudioProperties {}
+impl ::core::fmt::Debug for SystemAudioProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemAudioProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemAudioProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemAudioProperties;{3f8f38b7-308c-47e1-924d-8645348e5db7})");
 }
@@ -8328,6 +8492,11 @@ impl ::core::cmp::PartialEq for SystemDataPaths {
     }
 }
 impl ::core::cmp::Eq for SystemDataPaths {}
+impl ::core::fmt::Debug for SystemDataPaths {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemDataPaths").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemDataPaths;{e32abf70-d8fa-45ec-a942-d2e26fb60ba5})");
 }
@@ -8412,6 +8581,11 @@ impl ::core::cmp::PartialEq for SystemGPSProperties {
     }
 }
 impl ::core::cmp::Eq for SystemGPSProperties {}
+impl ::core::fmt::Debug for SystemGPSProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemGPSProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemGPSProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemGPSProperties;{c0f46eb4-c174-481a-bc25-921986f6a6f3})");
 }
@@ -8496,6 +8670,11 @@ impl ::core::cmp::PartialEq for SystemImageProperties {
     }
 }
 impl ::core::cmp::Eq for SystemImageProperties {}
+impl ::core::fmt::Debug for SystemImageProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemImageProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemImageProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemImageProperties;{011b2e30-8b39-4308-bea1-e8aa61e47826})");
 }
@@ -8612,6 +8791,11 @@ impl ::core::cmp::PartialEq for SystemMediaProperties {
     }
 }
 impl ::core::cmp::Eq for SystemMediaProperties {}
+impl ::core::fmt::Debug for SystemMediaProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMediaProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemMediaProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMediaProperties;{a42b3316-8415-40dc-8c44-98361d235430})");
 }
@@ -8744,6 +8928,11 @@ impl ::core::cmp::PartialEq for SystemMusicProperties {
     }
 }
 impl ::core::cmp::Eq for SystemMusicProperties {}
+impl ::core::fmt::Debug for SystemMusicProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemMusicProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemMusicProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemMusicProperties;{b47988d5-67af-4bc3-8d39-5b89022026a1})");
 }
@@ -8852,6 +9041,11 @@ impl ::core::cmp::PartialEq for SystemPhotoProperties {
     }
 }
 impl ::core::cmp::Eq for SystemPhotoProperties {}
+impl ::core::fmt::Debug for SystemPhotoProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemPhotoProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemPhotoProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemPhotoProperties;{4734fc3d-ab21-4424-b735-f4353a56c8fc})");
 }
@@ -9063,6 +9257,11 @@ impl ::core::cmp::PartialEq for SystemVideoProperties {
     }
 }
 impl ::core::cmp::Eq for SystemVideoProperties {}
+impl ::core::fmt::Debug for SystemVideoProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemVideoProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemVideoProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.SystemVideoProperties;{2040f715-67f8-4322-9b80-4fa9fefb83e8})");
 }
@@ -9303,6 +9502,11 @@ impl ::core::cmp::PartialEq for UserDataPaths {
     }
 }
 impl ::core::cmp::Eq for UserDataPaths {}
+impl ::core::fmt::Debug for UserDataPaths {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataPaths").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataPaths {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Storage.UserDataPaths;{f9c53912-abc4-46ff-8a2b-dc9d7fa6e52f})");
 }

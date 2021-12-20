@@ -713,6 +713,11 @@ impl ::core::cmp::PartialEq for IActiveIME {
     }
 }
 impl ::core::cmp::Eq for IActiveIME {}
+impl ::core::fmt::Debug for IActiveIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIME").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIME {
     type Vtable = IActiveIMEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6fe20962_d077_11d0_8fe7_00aa006bcc59);
@@ -903,6 +908,11 @@ impl ::core::cmp::PartialEq for IActiveIME2 {
     }
 }
 impl ::core::cmp::Eq for IActiveIME2 {}
+impl ::core::fmt::Debug for IActiveIME2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIME2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIME2 {
     type Vtable = IActiveIME2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe1c4bf0e_2d53_11d2_93e1_0060b067b86e);
@@ -1338,6 +1348,11 @@ impl ::core::cmp::PartialEq for IActiveIMMApp {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMApp {}
+impl ::core::fmt::Debug for IActiveIMMApp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMApp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMApp {
     type Vtable = IActiveIMMAppVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c0e040_62d1_11d1_9326_0060b067b86e);
@@ -1980,6 +1995,11 @@ impl ::core::cmp::PartialEq for IActiveIMMIME {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMIME {}
+impl ::core::fmt::Debug for IActiveIMMIME {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMIME").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMIME {
     type Vtable = IActiveIMMIMEVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03411_f96b_11d0_a475_00aa006bcc59);
@@ -2219,6 +2239,11 @@ impl ::core::cmp::PartialEq for IActiveIMMMessagePumpOwner {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMMessagePumpOwner {}
+impl ::core::fmt::Debug for IActiveIMMMessagePumpOwner {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMMessagePumpOwner").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMMessagePumpOwner {
     type Vtable = IActiveIMMMessagePumpOwnerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5cf2cfa_8aeb_11d1_9364_0060b067b86e);
@@ -2281,6 +2306,11 @@ impl ::core::cmp::PartialEq for IActiveIMMRegistrar {
     }
 }
 impl ::core::cmp::Eq for IActiveIMMRegistrar {}
+impl ::core::fmt::Debug for IActiveIMMRegistrar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActiveIMMRegistrar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IActiveIMMRegistrar {
     type Vtable = IActiveIMMRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3458082_bd00_11d1_939b_0060b067b86e);
@@ -2349,6 +2379,11 @@ impl ::core::cmp::PartialEq for IEnumInputContext {
     }
 }
 impl ::core::cmp::Eq for IEnumInputContext {}
+impl ::core::fmt::Debug for IEnumInputContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumInputContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumInputContext {
     type Vtable = IEnumInputContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09b5eab0_f997_11d1_93d4_0060b067b86e);
@@ -2419,6 +2454,11 @@ impl ::core::cmp::PartialEq for IEnumRegisterWordA {
     }
 }
 impl ::core::cmp::Eq for IEnumRegisterWordA {}
+impl ::core::fmt::Debug for IEnumRegisterWordA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumRegisterWordA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumRegisterWordA {
     type Vtable = IEnumRegisterWordAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08c03412_f96b_11d0_a475_00aa006bcc59);
@@ -2489,6 +2529,11 @@ impl ::core::cmp::PartialEq for IEnumRegisterWordW {
     }
 }
 impl ::core::cmp::Eq for IEnumRegisterWordW {}
+impl ::core::fmt::Debug for IEnumRegisterWordW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumRegisterWordW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumRegisterWordW {
     type Vtable = IEnumRegisterWordWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4955dd31_b159_11d0_8fcf_00aa006bcc59);
@@ -2578,6 +2623,11 @@ impl ::core::cmp::PartialEq for IFEClassFactory {
     }
 }
 impl ::core::cmp::Eq for IFEClassFactory {}
+impl ::core::fmt::Debug for IFEClassFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFEClassFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFEClassFactory {
     type Vtable = IFEClassFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2648,6 +2698,11 @@ impl ::core::cmp::PartialEq for IFECommon {
     }
 }
 impl ::core::cmp::Eq for IFECommon {}
+impl ::core::fmt::Debug for IFECommon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFECommon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFECommon {
     type Vtable = IFECommonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7151_e6db_11d0_83c3_00c04fddb82e);
@@ -2894,6 +2949,11 @@ impl ::core::cmp::PartialEq for IFEDictionary {
     }
 }
 impl ::core::cmp::Eq for IFEDictionary {}
+impl ::core::fmt::Debug for IFEDictionary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFEDictionary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFEDictionary {
     type Vtable = IFEDictionaryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7153_e6db_11d0_83c3_00c04fddb82e);
@@ -2997,6 +3057,11 @@ impl ::core::cmp::PartialEq for IFELanguage {
     }
 }
 impl ::core::cmp::Eq for IFELanguage {}
+impl ::core::fmt::Debug for IFELanguage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFELanguage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFELanguage {
     type Vtable = IFELanguageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x019f7152_e6db_11d0_83c3_00c04fddb82e);
@@ -3074,6 +3139,11 @@ impl ::core::cmp::PartialEq for IImePad {
     }
 }
 impl ::core::cmp::Eq for IImePad {}
+impl ::core::fmt::Debug for IImePad {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImePad").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImePad {
     type Vtable = IImePadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643a_c3a9_11d1_afef_00805f0c8b6d);
@@ -3146,6 +3216,11 @@ impl ::core::cmp::PartialEq for IImePadApplet {
     }
 }
 impl ::core::cmp::Eq for IImePadApplet {}
+impl ::core::fmt::Debug for IImePadApplet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImePadApplet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImePadApplet {
     type Vtable = IImePadAppletVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643b_c3a9_11d1_afef_00805f0c8b6d);
@@ -3211,6 +3286,11 @@ impl ::core::cmp::PartialEq for IImePlugInDictDictionaryList {
     }
 }
 impl ::core::cmp::Eq for IImePlugInDictDictionaryList {}
+impl ::core::fmt::Debug for IImePlugInDictDictionaryList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImePlugInDictDictionaryList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImePlugInDictDictionaryList {
     type Vtable = IImePlugInDictDictionaryListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98752974_b0a6_489b_8f6f_bff3769c8eeb);
@@ -3266,6 +3346,11 @@ impl ::core::cmp::PartialEq for IImeSpecifyApplets {
     }
 }
 impl ::core::cmp::Eq for IImeSpecifyApplets {}
+impl ::core::fmt::Debug for IImeSpecifyApplets {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IImeSpecifyApplets").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IImeSpecifyApplets {
     type Vtable = IImeSpecifyAppletsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d8e643c_c3a9_11d1_afef_00805f0c8b6d);

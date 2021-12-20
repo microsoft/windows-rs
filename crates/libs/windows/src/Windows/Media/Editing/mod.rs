@@ -146,6 +146,11 @@ impl ::core::cmp::PartialEq for BackgroundAudioTrack {
     }
 }
 impl ::core::cmp::Eq for BackgroundAudioTrack {}
+impl ::core::fmt::Debug for BackgroundAudioTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundAudioTrack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundAudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.BackgroundAudioTrack;{4b91b3bd-9e21-4266-a9c2-67dd011a2357})");
 }
@@ -223,6 +228,11 @@ impl ::core::cmp::PartialEq for EmbeddedAudioTrack {
     }
 }
 impl ::core::cmp::Eq for EmbeddedAudioTrack {}
+impl ::core::fmt::Debug for EmbeddedAudioTrack {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmbeddedAudioTrack").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmbeddedAudioTrack {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.EmbeddedAudioTrack;{55ee5a7a-2d30-3fba-a190-4f1a6454f88f})");
 }
@@ -825,6 +835,11 @@ impl ::core::cmp::PartialEq for MediaClip {
     }
 }
 impl ::core::cmp::Eq for MediaClip {}
+impl ::core::fmt::Debug for MediaClip {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaClip").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaClip {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaClip;{53f25366-5fba-3ea4-8693-24761811140a})");
 }
@@ -1056,6 +1071,11 @@ impl ::core::cmp::PartialEq for MediaComposition {
     }
 }
 impl ::core::cmp::Eq for MediaComposition {}
+impl ::core::fmt::Debug for MediaComposition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaComposition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaComposition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaComposition;{2e06e605-dc71-41d6-b837-2d2bc14a2947})");
 }
@@ -1216,6 +1236,11 @@ impl ::core::cmp::PartialEq for MediaOverlay {
     }
 }
 impl ::core::cmp::Eq for MediaOverlay {}
+impl ::core::fmt::Debug for MediaOverlay {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaOverlay").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaOverlay {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlay;{a902ae5d-7869-4830-8ab1-94dc01c05fa4})");
 }
@@ -1330,6 +1355,11 @@ impl ::core::cmp::PartialEq for MediaOverlayLayer {
     }
 }
 impl ::core::cmp::Eq for MediaOverlayLayer {}
+impl ::core::fmt::Debug for MediaOverlayLayer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaOverlayLayer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaOverlayLayer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Editing.MediaOverlayLayer;{a6d9ba57-eeda-46c6-bbe5-e398c84168ac})");
 }

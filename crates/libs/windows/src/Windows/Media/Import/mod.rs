@@ -718,6 +718,11 @@ impl ::core::cmp::PartialEq for PhotoImportDeleteImportedItemsFromSourceResult {
     }
 }
 impl ::core::cmp::Eq for PhotoImportDeleteImportedItemsFromSourceResult {}
+impl ::core::fmt::Debug for PhotoImportDeleteImportedItemsFromSourceResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportDeleteImportedItemsFromSourceResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportDeleteImportedItemsFromSourceResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportDeleteImportedItemsFromSourceResult;{f4e112f8-843d-428a-a1a6-81510292b0ae})");
 }
@@ -1048,6 +1053,11 @@ impl ::core::cmp::PartialEq for PhotoImportFindItemsResult {
     }
 }
 impl ::core::cmp::Eq for PhotoImportFindItemsResult {}
+impl ::core::fmt::Debug for PhotoImportFindItemsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportFindItemsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportFindItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportFindItemsResult;{3915e647-6c78-492b-844e-8fe5e8f6bfb9})");
 }
@@ -1230,6 +1240,11 @@ impl ::core::cmp::PartialEq for PhotoImportImportItemsResult {
     }
 }
 impl ::core::cmp::Eq for PhotoImportImportItemsResult {}
+impl ::core::fmt::Debug for PhotoImportImportItemsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportImportItemsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportImportItemsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportImportItemsResult;{e4d4f478-d419-4443-a84e-f06a850c0b00})");
 }
@@ -1448,6 +1463,11 @@ impl ::core::cmp::PartialEq for PhotoImportItem {
     }
 }
 impl ::core::cmp::Eq for PhotoImportItem {}
+impl ::core::fmt::Debug for PhotoImportItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItem;{a9d07e76-9bfc-43b8-b356-633b6a988c9e})");
 }
@@ -1524,6 +1544,11 @@ impl ::core::cmp::PartialEq for PhotoImportItemImportedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PhotoImportItemImportedEventArgs {}
+impl ::core::fmt::Debug for PhotoImportItemImportedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportItemImportedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportItemImportedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportItemImportedEventArgs;{42cb2fdd-7d68-47b5-bc7c-ceb73e0c77dc})");
 }
@@ -1705,6 +1730,11 @@ impl ::core::cmp::PartialEq for PhotoImportOperation {
     }
 }
 impl ::core::cmp::Eq for PhotoImportOperation {}
+impl ::core::fmt::Debug for PhotoImportOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportOperation;{d9f797e4-a09a-4ee4-a4b1-20940277a5be})");
 }
@@ -1855,6 +1885,11 @@ impl ::core::cmp::PartialEq for PhotoImportSelectionChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PhotoImportSelectionChangedEventArgs {}
+impl ::core::fmt::Debug for PhotoImportSelectionChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSelectionChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportSelectionChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSelectionChangedEventArgs;{10461782-fa9d-4c30-8bc9-4d64911572d5})");
 }
@@ -2034,6 +2069,11 @@ impl ::core::cmp::PartialEq for PhotoImportSession {
     }
 }
 impl ::core::cmp::Eq for PhotoImportSession {}
+impl ::core::fmt::Debug for PhotoImportSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSession;{aa63916e-ecdb-4efe-94c6-5f5cafe34cfb})");
 }
@@ -2153,6 +2193,11 @@ impl ::core::cmp::PartialEq for PhotoImportSidecar {
     }
 }
 impl ::core::cmp::Eq for PhotoImportSidecar {}
+impl ::core::fmt::Debug for PhotoImportSidecar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSidecar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportSidecar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSidecar;{46d7d757-f802-44c7-9c98-7a71f4bc1486})");
 }
@@ -2383,6 +2428,11 @@ impl ::core::cmp::PartialEq for PhotoImportSource {
     }
 }
 impl ::core::cmp::Eq for PhotoImportSource {}
+impl ::core::fmt::Debug for PhotoImportSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportSource;{1f8ea35e-145b-4cd6-87f1-54965a982fef})");
 }
@@ -2585,6 +2635,11 @@ impl ::core::cmp::PartialEq for PhotoImportStorageMedium {
     }
 }
 impl ::core::cmp::Eq for PhotoImportStorageMedium {}
+impl ::core::fmt::Debug for PhotoImportStorageMedium {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportStorageMedium").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportStorageMedium {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportStorageMedium;{f2b9b093-fc85-487f-87c2-58d675d05b07})");
 }
@@ -2798,6 +2853,11 @@ impl ::core::cmp::PartialEq for PhotoImportVideoSegment {
     }
 }
 impl ::core::cmp::Eq for PhotoImportVideoSegment {}
+impl ::core::fmt::Debug for PhotoImportVideoSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhotoImportVideoSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhotoImportVideoSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Media.Import.PhotoImportVideoSegment;{623c0289-321a-41d8-9166-8c62a333276c})");
 }

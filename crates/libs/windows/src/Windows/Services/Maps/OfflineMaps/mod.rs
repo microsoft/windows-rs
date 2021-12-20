@@ -188,6 +188,11 @@ impl ::core::cmp::PartialEq for OfflineMapPackage {
     }
 }
 impl ::core::cmp::Eq for OfflineMapPackage {}
+impl ::core::fmt::Debug for OfflineMapPackage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OfflineMapPackage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackage;{a797673b-a5b5-4144-b525-e68c8862664b})");
 }
@@ -273,6 +278,11 @@ impl ::core::cmp::PartialEq for OfflineMapPackageQueryResult {
     }
 }
 impl ::core::cmp::Eq for OfflineMapPackageQueryResult {}
+impl ::core::fmt::Debug for OfflineMapPackageQueryResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageQueryResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OfflineMapPackageQueryResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageQueryResult;{55585411-39e1-4e41-a4e1-5f4872bee199})");
 }
@@ -384,6 +394,11 @@ impl ::core::cmp::PartialEq for OfflineMapPackageStartDownloadResult {
     }
 }
 impl ::core::cmp::Eq for OfflineMapPackageStartDownloadResult {}
+impl ::core::fmt::Debug for OfflineMapPackageStartDownloadResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OfflineMapPackageStartDownloadResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OfflineMapPackageStartDownloadResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Services.Maps.OfflineMaps.OfflineMapPackageStartDownloadResult;{d965b918-d4d6-4afe-9378-3ec71ef11c3d})");
 }

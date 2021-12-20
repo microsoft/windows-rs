@@ -349,6 +349,11 @@ impl ::core::cmp::PartialEq for IXpsDocumentPackageTarget {
     }
 }
 impl ::core::cmp::Eq for IXpsDocumentPackageTarget {}
+impl ::core::fmt::Debug for IXpsDocumentPackageTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsDocumentPackageTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsDocumentPackageTarget {
     type Vtable = IXpsDocumentPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3b0b6d38_53ad_41da_b212_d37637a6714e);
@@ -411,6 +416,11 @@ impl ::core::cmp::PartialEq for IXpsDocumentPackageTarget3D {
     }
 }
 impl ::core::cmp::Eq for IXpsDocumentPackageTarget3D {}
+impl ::core::fmt::Debug for IXpsDocumentPackageTarget3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsDocumentPackageTarget3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsDocumentPackageTarget3D {
     type Vtable = IXpsDocumentPackageTarget3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x60ba71b8_3101_4984_9199_f4ea775ff01d);
@@ -500,6 +510,11 @@ impl ::core::cmp::PartialEq for IXpsOMBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMBrush {}
+impl ::core::fmt::Debug for IXpsOMBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMBrush {
     type Vtable = IXpsOMBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56a3f80c_ea4c_4187_a57b_a2a473b2b42b);
@@ -795,6 +810,11 @@ impl ::core::cmp::PartialEq for IXpsOMCanvas {
     }
 }
 impl ::core::cmp::Eq for IXpsOMCanvas {}
+impl ::core::fmt::Debug for IXpsOMCanvas {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMCanvas").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMCanvas {
     type Vtable = IXpsOMCanvasVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x221d1452_331e_47c6_87e9_6ccefb9b5ba3);
@@ -964,6 +984,11 @@ impl ::core::cmp::PartialEq for IXpsOMColorProfileResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMColorProfileResource {}
+impl ::core::fmt::Debug for IXpsOMColorProfileResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMColorProfileResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMColorProfileResource {
     type Vtable = IXpsOMColorProfileResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x67bd7d69_1eef_4bb1_b5e7_6f4f87be8abe);
@@ -1051,6 +1076,11 @@ impl ::core::cmp::PartialEq for IXpsOMColorProfileResourceCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMColorProfileResourceCollection {}
+impl ::core::fmt::Debug for IXpsOMColorProfileResourceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMColorProfileResourceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMColorProfileResourceCollection {
     type Vtable = IXpsOMColorProfileResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12759630_5fba_4283_8f7d_cca849809edb);
@@ -1323,6 +1353,11 @@ impl ::core::cmp::PartialEq for IXpsOMCoreProperties {
     }
 }
 impl ::core::cmp::Eq for IXpsOMCoreProperties {}
+impl ::core::fmt::Debug for IXpsOMCoreProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMCoreProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMCoreProperties {
     type Vtable = IXpsOMCorePropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3340fe8f_4027_4aa1_8f5f_d35ae45fe597);
@@ -1466,6 +1501,11 @@ impl ::core::cmp::PartialEq for IXpsOMDashCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMDashCollection {}
+impl ::core::fmt::Debug for IXpsOMDashCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMDashCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMDashCollection {
     type Vtable = IXpsOMDashCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x081613f4_74eb_48f2_83b3_37a9ce2d7dc6);
@@ -1569,6 +1609,11 @@ impl ::core::cmp::PartialEq for IXpsOMDictionary {
     }
 }
 impl ::core::cmp::Eq for IXpsOMDictionary {}
+impl ::core::fmt::Debug for IXpsOMDictionary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMDictionary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMDictionary {
     type Vtable = IXpsOMDictionaryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x897c86b8_8eaf_4ae3_bdde_56419fcf4236);
@@ -1700,6 +1745,11 @@ impl ::core::cmp::PartialEq for IXpsOMDocument {
     }
 }
 impl ::core::cmp::Eq for IXpsOMDocument {}
+impl ::core::fmt::Debug for IXpsOMDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMDocument {
     type Vtable = IXpsOMDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2c2c94cb_ac5f_4254_8ee9_23948309d9f0);
@@ -1785,6 +1835,11 @@ impl ::core::cmp::PartialEq for IXpsOMDocumentCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMDocumentCollection {}
+impl ::core::fmt::Debug for IXpsOMDocumentCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMDocumentCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMDocumentCollection {
     type Vtable = IXpsOMDocumentCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1c87f0d_e947_4754_8a25_971478f7e83e);
@@ -1888,6 +1943,11 @@ impl ::core::cmp::PartialEq for IXpsOMDocumentSequence {
     }
 }
 impl ::core::cmp::Eq for IXpsOMDocumentSequence {}
+impl ::core::fmt::Debug for IXpsOMDocumentSequence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMDocumentSequence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMDocumentSequence {
     type Vtable = IXpsOMDocumentSequenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x56492eb4_d8d5_425e_8256_4c2b64ad0264);
@@ -2010,6 +2070,11 @@ impl ::core::cmp::PartialEq for IXpsOMDocumentStructureResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMDocumentStructureResource {}
+impl ::core::fmt::Debug for IXpsOMDocumentStructureResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMDocumentStructureResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMDocumentStructureResource {
     type Vtable = IXpsOMDocumentStructureResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85febc8a_6b63_48a9_af07_7064e4ecff30);
@@ -2133,6 +2198,11 @@ impl ::core::cmp::PartialEq for IXpsOMFontResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMFontResource {}
+impl ::core::fmt::Debug for IXpsOMFontResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMFontResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMFontResource {
     type Vtable = IXpsOMFontResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa8c45708_47d9_4af4_8d20_33b48c9b8485);
@@ -2221,6 +2291,11 @@ impl ::core::cmp::PartialEq for IXpsOMFontResourceCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMFontResourceCollection {}
+impl ::core::fmt::Debug for IXpsOMFontResourceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMFontResourceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMFontResourceCollection {
     type Vtable = IXpsOMFontResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b4a6bb_88d4_4fa8_aaf9_6d9c596fdbad);
@@ -2350,6 +2425,11 @@ impl ::core::cmp::PartialEq for IXpsOMGeometry {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGeometry {}
+impl ::core::fmt::Debug for IXpsOMGeometry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGeometry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGeometry {
     type Vtable = IXpsOMGeometryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64fcf3d7_4d58_44ba_ad73_a13af6492072);
@@ -2484,6 +2564,11 @@ impl ::core::cmp::PartialEq for IXpsOMGeometryFigure {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGeometryFigure {}
+impl ::core::fmt::Debug for IXpsOMGeometryFigure {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGeometryFigure").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGeometryFigure {
     type Vtable = IXpsOMGeometryFigureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd410dc83_908c_443e_8947_b1795d3c165a);
@@ -2578,6 +2663,11 @@ impl ::core::cmp::PartialEq for IXpsOMGeometryFigureCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGeometryFigureCollection {}
+impl ::core::fmt::Debug for IXpsOMGeometryFigureCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGeometryFigureCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGeometryFigureCollection {
     type Vtable = IXpsOMGeometryFigureCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd48c3f3_a58e_4b5a_8826_1de54abe72b2);
@@ -2939,6 +3029,11 @@ impl ::core::cmp::PartialEq for IXpsOMGlyphs {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGlyphs {}
+impl ::core::fmt::Debug for IXpsOMGlyphs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGlyphs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGlyphs {
     type Vtable = IXpsOMGlyphsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x819b3199_0a5a_4b64_bec7_a9e17e780de2);
@@ -3144,6 +3239,11 @@ impl ::core::cmp::PartialEq for IXpsOMGlyphsEditor {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGlyphsEditor {}
+impl ::core::fmt::Debug for IXpsOMGlyphsEditor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGlyphsEditor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGlyphsEditor {
     type Vtable = IXpsOMGlyphsEditorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa5ab8616_5b16_4b9f_9629_89b323ed7909);
@@ -3322,6 +3422,11 @@ impl ::core::cmp::PartialEq for IXpsOMGradientBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGradientBrush {}
+impl ::core::fmt::Debug for IXpsOMGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGradientBrush {
     type Vtable = IXpsOMGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedb59622_61a2_42c3_bace_acf2286c06bf);
@@ -3412,6 +3517,11 @@ impl ::core::cmp::PartialEq for IXpsOMGradientStop {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGradientStop {}
+impl ::core::fmt::Debug for IXpsOMGradientStop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGradientStop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGradientStop {
     type Vtable = IXpsOMGradientStopVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5cf4f5cc_3969_49b5_a70a_5550b618fe49);
@@ -3491,6 +3601,11 @@ impl ::core::cmp::PartialEq for IXpsOMGradientStopCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMGradientStopCollection {}
+impl ::core::fmt::Debug for IXpsOMGradientStopCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMGradientStopCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMGradientStopCollection {
     type Vtable = IXpsOMGradientStopCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9174c3a_3cd3_4319_bda4_11a39392ceef);
@@ -3698,6 +3813,11 @@ impl ::core::cmp::PartialEq for IXpsOMImageBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMImageBrush {}
+impl ::core::fmt::Debug for IXpsOMImageBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMImageBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMImageBrush {
     type Vtable = IXpsOMImageBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3df0b466_d382_49ef_8550_dd94c80242e4);
@@ -3834,6 +3954,11 @@ impl ::core::cmp::PartialEq for IXpsOMImageResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMImageResource {}
+impl ::core::fmt::Debug for IXpsOMImageResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMImageResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMImageResource {
     type Vtable = IXpsOMImageResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3db8417d_ae50_485e_9a44_d7758f78a23f);
@@ -3922,6 +4047,11 @@ impl ::core::cmp::PartialEq for IXpsOMImageResourceCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMImageResourceCollection {}
+impl ::core::fmt::Debug for IXpsOMImageResourceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMImageResourceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMImageResourceCollection {
     type Vtable = IXpsOMImageResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a4a1a71_9cde_4b71_b33f_62de843eabfe);
@@ -4127,6 +4257,11 @@ impl ::core::cmp::PartialEq for IXpsOMLinearGradientBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMLinearGradientBrush {}
+impl ::core::fmt::Debug for IXpsOMLinearGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMLinearGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMLinearGradientBrush {
     type Vtable = IXpsOMLinearGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x005e279f_c30d_40ff_93ec_1950d3c528db);
@@ -4239,6 +4374,11 @@ impl ::core::cmp::PartialEq for IXpsOMMatrixTransform {
     }
 }
 impl ::core::cmp::Eq for IXpsOMMatrixTransform {}
+impl ::core::fmt::Debug for IXpsOMMatrixTransform {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMMatrixTransform").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMMatrixTransform {
     type Vtable = IXpsOMMatrixTransformVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb77330ff_bb37_4501_a93e_f1b1e50bfc46);
@@ -4302,6 +4442,11 @@ impl ::core::cmp::PartialEq for IXpsOMNameCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMNameCollection {}
+impl ::core::fmt::Debug for IXpsOMNameCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMNameCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMNameCollection {
     type Vtable = IXpsOMNameCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bddf8ec_c915_421b_a166_d173d25653d2);
@@ -4579,6 +4724,11 @@ impl ::core::cmp::PartialEq for IXpsOMObjectFactory {
     }
 }
 impl ::core::cmp::Eq for IXpsOMObjectFactory {}
+impl ::core::fmt::Debug for IXpsOMObjectFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMObjectFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMObjectFactory {
     type Vtable = IXpsOMObjectFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9b2a685_a50d_4fc2_b764_b56e093ea0ca);
@@ -5036,6 +5186,11 @@ impl ::core::cmp::PartialEq for IXpsOMObjectFactory1 {
     }
 }
 impl ::core::cmp::Eq for IXpsOMObjectFactory1 {}
+impl ::core::fmt::Debug for IXpsOMObjectFactory1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMObjectFactory1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMObjectFactory1 {
     type Vtable = IXpsOMObjectFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a91b617_d612_4181_bf7c_be5824e9cc8f);
@@ -5209,6 +5364,11 @@ impl ::core::cmp::PartialEq for IXpsOMPackage {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPackage {}
+impl ::core::fmt::Debug for IXpsOMPackage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPackage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPackage {
     type Vtable = IXpsOMPackageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c3df65_81e1_4674_91dc_fc452f5a416f);
@@ -5353,6 +5513,11 @@ impl ::core::cmp::PartialEq for IXpsOMPackage1 {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPackage1 {}
+impl ::core::fmt::Debug for IXpsOMPackage1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPackage1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPackage1 {
     type Vtable = IXpsOMPackage1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95a9435e_12bb_461b_8e7f_c6adb04cd96a);
@@ -5425,6 +5590,11 @@ impl ::core::cmp::PartialEq for IXpsOMPackageTarget {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPackageTarget {}
+impl ::core::fmt::Debug for IXpsOMPackageTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPackageTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPackageTarget {
     type Vtable = IXpsOMPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x219a9db0_4959_47d0_8034_b1ce84f41a4d);
@@ -5497,6 +5667,11 @@ impl ::core::cmp::PartialEq for IXpsOMPackageWriter {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPackageWriter {}
+impl ::core::fmt::Debug for IXpsOMPackageWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPackageWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPackageWriter {
     type Vtable = IXpsOMPackageWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4e2aa182_a443_42c6_b41b_4f8e9de73ff9);
@@ -5604,6 +5779,11 @@ impl ::core::cmp::PartialEq for IXpsOMPackageWriter3D {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPackageWriter3D {}
+impl ::core::fmt::Debug for IXpsOMPackageWriter3D {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPackageWriter3D").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPackageWriter3D {
     type Vtable = IXpsOMPackageWriter3DVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8a45033_640e_43fa_9bdf_fddeaa31c6a0);
@@ -5802,6 +5982,11 @@ impl ::core::cmp::PartialEq for IXpsOMPage {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPage {}
+impl ::core::fmt::Debug for IXpsOMPage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPage {
     type Vtable = IXpsOMPageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e18888_f120_4fee_8c68_35296eae91d4);
@@ -6053,6 +6238,11 @@ impl ::core::cmp::PartialEq for IXpsOMPage1 {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPage1 {}
+impl ::core::fmt::Debug for IXpsOMPage1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPage1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPage1 {
     type Vtable = IXpsOMPage1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x305b60ef_6892_4dda_9cbb_3aa65974508a);
@@ -6218,6 +6408,11 @@ impl ::core::cmp::PartialEq for IXpsOMPageReference {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPageReference {}
+impl ::core::fmt::Debug for IXpsOMPageReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPageReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPageReference {
     type Vtable = IXpsOMPageReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed360180_6f92_4998_890d_2f208531a0a0);
@@ -6310,6 +6505,11 @@ impl ::core::cmp::PartialEq for IXpsOMPageReferenceCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPageReferenceCollection {}
+impl ::core::fmt::Debug for IXpsOMPageReferenceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPageReferenceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPageReferenceCollection {
     type Vtable = IXpsOMPageReferenceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca16ba4d_e7b9_45c5_958b_f98022473745);
@@ -6374,6 +6574,11 @@ impl ::core::cmp::PartialEq for IXpsOMPart {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPart {}
+impl ::core::fmt::Debug for IXpsOMPart {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPart").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPart {
     type Vtable = IXpsOMPartVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74eb2f0b_a91e_4486_afac_0fabeca3dfc6);
@@ -6445,6 +6650,11 @@ impl ::core::cmp::PartialEq for IXpsOMPartResources {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPartResources {}
+impl ::core::fmt::Debug for IXpsOMPartResources {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPartResources").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPartResources {
     type Vtable = IXpsOMPartResourcesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4cf7729_4864_4275_99b3_a8717163ecaf);
@@ -6526,6 +6736,11 @@ impl ::core::cmp::PartialEq for IXpsOMPartUriCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPartUriCollection {}
+impl ::core::fmt::Debug for IXpsOMPartUriCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPartUriCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPartUriCollection {
     type Vtable = IXpsOMPartUriCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57c650d4_067c_4893_8c33_f62a0633730f);
@@ -6942,6 +7157,11 @@ impl ::core::cmp::PartialEq for IXpsOMPath {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPath {}
+impl ::core::fmt::Debug for IXpsOMPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPath {
     type Vtable = IXpsOMPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37d38bb6_3ee9_4110_9312_14b194163337);
@@ -7141,6 +7361,11 @@ impl ::core::cmp::PartialEq for IXpsOMPrintTicketResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMPrintTicketResource {}
+impl ::core::fmt::Debug for IXpsOMPrintTicketResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMPrintTicketResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMPrintTicketResource {
     type Vtable = IXpsOMPrintTicketResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7ff32d2_34aa_499b_bbe9_9cd4ee6c59f7);
@@ -7355,6 +7580,11 @@ impl ::core::cmp::PartialEq for IXpsOMRadialGradientBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMRadialGradientBrush {}
+impl ::core::fmt::Debug for IXpsOMRadialGradientBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMRadialGradientBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMRadialGradientBrush {
     type Vtable = IXpsOMRadialGradientBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75f207e5_08bf_413c_96b1_b82b4064176b);
@@ -7485,6 +7715,11 @@ impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMRemoteDictionaryResource {}
+impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMRemoteDictionaryResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResource {
     type Vtable = IXpsOMRemoteDictionaryResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc9bd7cd4_e16a_4bf8_8c84_c950af7a3061);
@@ -7628,6 +7863,11 @@ impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResource1 {
     }
 }
 impl ::core::cmp::Eq for IXpsOMRemoteDictionaryResource1 {}
+impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResource1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMRemoteDictionaryResource1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResource1 {
     type Vtable = IXpsOMRemoteDictionaryResource1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf8fc1d4_9d46_4141_ba5f_94bb9250d041);
@@ -7716,6 +7956,11 @@ impl ::core::cmp::PartialEq for IXpsOMRemoteDictionaryResourceCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMRemoteDictionaryResourceCollection {}
+impl ::core::fmt::Debug for IXpsOMRemoteDictionaryResourceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMRemoteDictionaryResourceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMRemoteDictionaryResourceCollection {
     type Vtable = IXpsOMRemoteDictionaryResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5c38db61_7fec_464a_87bd_41e3bef018be);
@@ -7802,6 +8047,11 @@ impl ::core::cmp::PartialEq for IXpsOMResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMResource {}
+impl ::core::fmt::Debug for IXpsOMResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMResource {
     type Vtable = IXpsOMResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xda2ac0a2_73a2_4975_ad14_74097c3ff3a5);
@@ -7863,6 +8113,11 @@ impl ::core::cmp::PartialEq for IXpsOMShareable {
     }
 }
 impl ::core::cmp::Eq for IXpsOMShareable {}
+impl ::core::fmt::Debug for IXpsOMShareable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMShareable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMShareable {
     type Vtable = IXpsOMShareableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7137398f_2fc1_454d_8c6a_2c3115a16ece);
@@ -7979,6 +8234,11 @@ impl ::core::cmp::PartialEq for IXpsOMSignatureBlockResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMSignatureBlockResource {}
+impl ::core::fmt::Debug for IXpsOMSignatureBlockResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMSignatureBlockResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMSignatureBlockResource {
     type Vtable = IXpsOMSignatureBlockResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4776ad35_2e04_4357_8743_ebf6c171a905);
@@ -8067,6 +8327,11 @@ impl ::core::cmp::PartialEq for IXpsOMSignatureBlockResourceCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMSignatureBlockResourceCollection {}
+impl ::core::fmt::Debug for IXpsOMSignatureBlockResourceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMSignatureBlockResourceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMSignatureBlockResourceCollection {
     type Vtable = IXpsOMSignatureBlockResourceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab8f5d8e_351b_4d33_aaed_fa56f0022931);
@@ -8194,6 +8459,11 @@ impl ::core::cmp::PartialEq for IXpsOMSolidColorBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMSolidColorBrush {}
+impl ::core::fmt::Debug for IXpsOMSolidColorBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMSolidColorBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMSolidColorBrush {
     type Vtable = IXpsOMSolidColorBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06f9f05_3be9_4763_98a8_094fc672e488);
@@ -8315,6 +8585,11 @@ impl ::core::cmp::PartialEq for IXpsOMStoryFragmentsResource {
     }
 }
 impl ::core::cmp::Eq for IXpsOMStoryFragmentsResource {}
+impl ::core::fmt::Debug for IXpsOMStoryFragmentsResource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMStoryFragmentsResource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMStoryFragmentsResource {
     type Vtable = IXpsOMStoryFragmentsResourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2b3ca09_0473_4282_87ae_1780863223f0);
@@ -8377,6 +8652,11 @@ impl ::core::cmp::PartialEq for IXpsOMThumbnailGenerator {
     }
 }
 impl ::core::cmp::Eq for IXpsOMThumbnailGenerator {}
+impl ::core::fmt::Debug for IXpsOMThumbnailGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMThumbnailGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMThumbnailGenerator {
     type Vtable = IXpsOMThumbnailGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x15b873d5_1971_41e8_83a3_6578403064c7);
@@ -8537,6 +8817,11 @@ impl ::core::cmp::PartialEq for IXpsOMTileBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMTileBrush {}
+impl ::core::fmt::Debug for IXpsOMTileBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMTileBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMTileBrush {
     type Vtable = IXpsOMTileBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0fc2328d_d722_4a54_b2ec_be90218a789e);
@@ -8759,6 +9044,11 @@ impl ::core::cmp::PartialEq for IXpsOMVisual {
     }
 }
 impl ::core::cmp::Eq for IXpsOMVisual {}
+impl ::core::fmt::Debug for IXpsOMVisual {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMVisual").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMVisual {
     type Vtable = IXpsOMVisualVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc3e7333_fb0b_4af3_a819_0b4eaad0d2fd);
@@ -9008,6 +9298,11 @@ impl ::core::cmp::PartialEq for IXpsOMVisualBrush {
     }
 }
 impl ::core::cmp::Eq for IXpsOMVisualBrush {}
+impl ::core::fmt::Debug for IXpsOMVisualBrush {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMVisualBrush").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMVisualBrush {
     type Vtable = IXpsOMVisualBrushVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97e294af_5b37_46b4_8057_874d2f64119b);
@@ -9106,6 +9401,11 @@ impl ::core::cmp::PartialEq for IXpsOMVisualCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsOMVisualCollection {}
+impl ::core::fmt::Debug for IXpsOMVisualCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsOMVisualCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsOMVisualCollection {
     type Vtable = IXpsOMVisualCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94d8abde_ab91_46a8_82b7_f5b05ef01a96);
@@ -9224,6 +9524,11 @@ impl ::core::cmp::PartialEq for IXpsSignature {
     }
 }
 impl ::core::cmp::Eq for IXpsSignature {}
+impl ::core::fmt::Debug for IXpsSignature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSignature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSignature {
     type Vtable = IXpsSignatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ae4c93e_1ade_42fb_898b_3a5658284857);
@@ -9319,6 +9624,11 @@ impl ::core::cmp::PartialEq for IXpsSignatureBlock {
     }
 }
 impl ::core::cmp::Eq for IXpsSignatureBlock {}
+impl ::core::fmt::Debug for IXpsSignatureBlock {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSignatureBlock").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSignatureBlock {
     type Vtable = IXpsSignatureBlockVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x151fac09_0b97_4ac6_a323_5e4297d4322b);
@@ -9388,6 +9698,11 @@ impl ::core::cmp::PartialEq for IXpsSignatureBlockCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsSignatureBlockCollection {}
+impl ::core::fmt::Debug for IXpsSignatureBlockCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSignatureBlockCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSignatureBlockCollection {
     type Vtable = IXpsSignatureBlockCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23397050_fe99_467a_8dce_9237f074ffe4);
@@ -9452,6 +9767,11 @@ impl ::core::cmp::PartialEq for IXpsSignatureCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsSignatureCollection {}
+impl ::core::fmt::Debug for IXpsSignatureCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSignatureCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSignatureCollection {
     type Vtable = IXpsSignatureCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa2d1d95d_add2_4dff_ab27_6b9c645ff322);
@@ -9560,6 +9880,11 @@ impl ::core::cmp::PartialEq for IXpsSignatureManager {
     }
 }
 impl ::core::cmp::Eq for IXpsSignatureManager {}
+impl ::core::fmt::Debug for IXpsSignatureManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSignatureManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSignatureManager {
     type Vtable = IXpsSignatureManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e8d338_fdc4_4afc_80b5_d532a1782ee1);
@@ -9690,6 +10015,11 @@ impl ::core::cmp::PartialEq for IXpsSignatureRequest {
     }
 }
 impl ::core::cmp::Eq for IXpsSignatureRequest {}
+impl ::core::fmt::Debug for IXpsSignatureRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSignatureRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSignatureRequest {
     type Vtable = IXpsSignatureRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xac58950b_7208_4b2d_b2c4_951083d3b8eb);
@@ -9773,6 +10103,11 @@ impl ::core::cmp::PartialEq for IXpsSignatureRequestCollection {
     }
 }
 impl ::core::cmp::Eq for IXpsSignatureRequestCollection {}
+impl ::core::fmt::Debug for IXpsSignatureRequestCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSignatureRequestCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSignatureRequestCollection {
     type Vtable = IXpsSignatureRequestCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0253e68_9f19_412e_9b4f_54d3b0ac6cd9);
@@ -9914,6 +10249,11 @@ impl ::core::cmp::PartialEq for IXpsSigningOptions {
     }
 }
 impl ::core::cmp::Eq for IXpsSigningOptions {}
+impl ::core::fmt::Debug for IXpsSigningOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsSigningOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsSigningOptions {
     type Vtable = IXpsSigningOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7718eae4_3215_49be_af5b_594fef7fcfa6);

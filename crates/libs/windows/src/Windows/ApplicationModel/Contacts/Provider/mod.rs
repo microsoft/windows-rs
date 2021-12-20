@@ -120,6 +120,11 @@ impl ::core::cmp::PartialEq for ContactPickerUI {
     }
 }
 impl ::core::cmp::Eq for ContactPickerUI {}
+impl ::core::fmt::Debug for ContactPickerUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactPickerUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactPickerUI {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactPickerUI;{e2cc1366-cf66-43c4-a96a-a5a112db4746})");
 }
@@ -194,6 +199,11 @@ impl ::core::cmp::PartialEq for ContactRemovedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContactRemovedEventArgs {}
+impl ::core::fmt::Debug for ContactRemovedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactRemovedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactRemovedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Contacts.Provider.ContactRemovedEventArgs;{6f354338-3302-4d13-ad8d-adcc0ff9e47c})");
 }

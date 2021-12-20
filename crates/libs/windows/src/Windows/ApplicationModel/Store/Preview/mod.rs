@@ -115,6 +115,11 @@ impl ::core::cmp::PartialEq for DeliveryOptimizationSettings {
     }
 }
 impl ::core::cmp::Eq for DeliveryOptimizationSettings {}
+impl ::core::fmt::Debug for DeliveryOptimizationSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeliveryOptimizationSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeliveryOptimizationSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.DeliveryOptimizationSettings;{1810fda0-e853-565e-b874-7a8a7b9a0e0f})");
 }
@@ -723,6 +728,11 @@ impl ::core::cmp::PartialEq for StoreHardwareManufacturerInfo {
     }
 }
 impl ::core::cmp::Eq for StoreHardwareManufacturerInfo {}
+impl ::core::fmt::Debug for StoreHardwareManufacturerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StoreHardwareManufacturerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StoreHardwareManufacturerInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StoreHardwareManufacturerInfo;{f292dc08-c654-43ac-a21f-34801c9d3388})");
 }
@@ -893,6 +903,11 @@ impl ::core::cmp::PartialEq for StorePreviewProductInfo {
     }
 }
 impl ::core::cmp::Eq for StorePreviewProductInfo {}
+impl ::core::fmt::Debug for StorePreviewProductInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePreviewProductInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePreviewProductInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewProductInfo;{1937dbb3-6c01-4c9d-85cd-5babaac2b351})");
 }
@@ -1004,6 +1019,11 @@ impl ::core::cmp::PartialEq for StorePreviewPurchaseResults {
     }
 }
 impl ::core::cmp::Eq for StorePreviewPurchaseResults {}
+impl ::core::fmt::Debug for StorePreviewPurchaseResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePreviewPurchaseResults").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePreviewPurchaseResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewPurchaseResults;{b0daaed1-d6c5-4e53-a043-fba0d8e61231})");
 }
@@ -1144,6 +1164,11 @@ impl ::core::cmp::PartialEq for StorePreviewSkuInfo {
     }
 }
 impl ::core::cmp::Eq for StorePreviewSkuInfo {}
+impl ::core::fmt::Debug for StorePreviewSkuInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorePreviewSkuInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorePreviewSkuInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Store.Preview.StorePreviewSkuInfo;{81fd76e2-0b26-48d9-98ce-27461c669d6c})");
 }

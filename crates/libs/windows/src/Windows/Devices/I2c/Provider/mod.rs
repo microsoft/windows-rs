@@ -63,6 +63,11 @@ impl ::core::cmp::PartialEq for II2cControllerProvider {
     }
 }
 impl ::core::cmp::Eq for II2cControllerProvider {}
+impl ::core::fmt::Debug for II2cControllerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("II2cControllerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for II2cControllerProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{61c2bb82-4510-4163-a87c-4e15a9558980}");
 }
@@ -216,6 +221,11 @@ impl ::core::cmp::PartialEq for II2cDeviceProvider {
     }
 }
 impl ::core::cmp::Eq for II2cDeviceProvider {}
+impl ::core::fmt::Debug for II2cDeviceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("II2cDeviceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for II2cDeviceProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ad342654-57e8-453e-8329-d1e447d103a9}");
 }
@@ -305,6 +315,11 @@ impl ::core::cmp::PartialEq for II2cProvider {
     }
 }
 impl ::core::cmp::Eq for II2cProvider {}
+impl ::core::fmt::Debug for II2cProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("II2cProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for II2cProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6f13083e-bf62-4fe2-a95a-f08999669818}");
 }
@@ -435,6 +450,11 @@ impl ::core::cmp::PartialEq for ProviderI2cConnectionSettings {
     }
 }
 impl ::core::cmp::Eq for ProviderI2cConnectionSettings {}
+impl ::core::fmt::Debug for ProviderI2cConnectionSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ProviderI2cConnectionSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ProviderI2cConnectionSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.I2c.Provider.ProviderI2cConnectionSettings;{e9db4e34-e510-44b7-809d-f2f85b555339})");
 }

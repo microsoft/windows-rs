@@ -487,6 +487,11 @@ impl ::core::cmp::PartialEq for IInertiaProcessor {
     }
 }
 impl ::core::cmp::Eq for IInertiaProcessor {}
+impl ::core::fmt::Debug for IInertiaProcessor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInertiaProcessor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInertiaProcessor {
     type Vtable = IInertiaProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18b00c6d_c5ee_41b1_90a9_9d4a929095ad);
@@ -678,6 +683,11 @@ impl ::core::cmp::PartialEq for IManipulationProcessor {
     }
 }
 impl ::core::cmp::Eq for IManipulationProcessor {}
+impl ::core::fmt::Debug for IManipulationProcessor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IManipulationProcessor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IManipulationProcessor {
     type Vtable = IManipulationProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa22ac519_8300_48a0_bef4_f1be8737dba4);
@@ -928,6 +938,11 @@ impl ::core::cmp::PartialEq for _IManipulationEvents {
     }
 }
 impl ::core::cmp::Eq for _IManipulationEvents {}
+impl ::core::fmt::Debug for _IManipulationEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_IManipulationEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _IManipulationEvents {
     type Vtable = _IManipulationEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f62c8da_9c53_4b22_93df_927a862bbb03);

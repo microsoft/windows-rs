@@ -3966,6 +3966,11 @@ impl ::core::cmp::PartialEq for ITraceEvent {
     }
 }
 impl ::core::cmp::Eq for ITraceEvent {}
+impl ::core::fmt::Debug for ITraceEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITraceEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITraceEvent {
     type Vtable = ITraceEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cc97f40_9028_4ff3_9b62_7d1f79ca7bcb);
@@ -4037,6 +4042,11 @@ impl ::core::cmp::PartialEq for ITraceEventCallback {
     }
 }
 impl ::core::cmp::Eq for ITraceEventCallback {}
+impl ::core::fmt::Debug for ITraceEventCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITraceEventCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITraceEventCallback {
     type Vtable = ITraceEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ed25501_593f_43e9_8f38_3ab46f5a4a52);
@@ -4130,6 +4140,11 @@ impl ::core::cmp::PartialEq for ITraceRelogger {
     }
 }
 impl ::core::cmp::Eq for ITraceRelogger {}
+impl ::core::fmt::Debug for ITraceRelogger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITraceRelogger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITraceRelogger {
     type Vtable = ITraceReloggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf754ad43_3bcc_4286_8009_9c5da214e84e);

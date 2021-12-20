@@ -236,6 +236,11 @@ impl ::core::cmp::PartialEq for IJsonValue {
     }
 }
 impl ::core::cmp::Eq for IJsonValue {}
+impl ::core::fmt::Debug for IJsonValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IJsonValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IJsonValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e}");
 }
@@ -543,6 +548,11 @@ impl ::core::cmp::PartialEq for JsonArray {
     }
 }
 impl ::core::cmp::Eq for JsonArray {}
+impl ::core::fmt::Debug for JsonArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JsonArray {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonArray;{08c1ddb6-0cbd-4a9a-b5d3-2f852dc37e81})");
 }
@@ -1040,6 +1050,11 @@ impl ::core::cmp::PartialEq for JsonObject {
     }
 }
 impl ::core::cmp::Eq for JsonObject {}
+impl ::core::fmt::Debug for JsonObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JsonObject {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonObject;{064e24dd-29c2-4f83-9ac1-9ee11578beb3})");
 }
@@ -1341,6 +1356,11 @@ impl ::core::cmp::PartialEq for JsonValue {
     }
 }
 impl ::core::cmp::Eq for JsonValue {}
+impl ::core::fmt::Debug for JsonValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("JsonValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for JsonValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Json.JsonValue;{a3219ecb-f0b3-4dcd-beee-19d48cd3ed1e})");
 }

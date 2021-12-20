@@ -22348,6 +22348,11 @@ impl ::core::cmp::PartialEq for ICertSrvSetup {
     }
 }
 impl ::core::cmp::Eq for ICertSrvSetup {}
+impl ::core::fmt::Debug for ICertSrvSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertSrvSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertSrvSetup {
     type Vtable = ICertSrvSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb760a1bb_4784_44c0_8f12_555f0780ff25);
@@ -22544,6 +22549,11 @@ impl ::core::cmp::PartialEq for ICertSrvSetupKeyInformation {
     }
 }
 impl ::core::cmp::Eq for ICertSrvSetupKeyInformation {}
+impl ::core::fmt::Debug for ICertSrvSetupKeyInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertSrvSetupKeyInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformation {
     type Vtable = ICertSrvSetupKeyInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ba73778_36da_4c39_8a85_bcfa7d000793);
@@ -22685,6 +22695,11 @@ impl ::core::cmp::PartialEq for ICertSrvSetupKeyInformationCollection {
     }
 }
 impl ::core::cmp::Eq for ICertSrvSetupKeyInformationCollection {}
+impl ::core::fmt::Debug for ICertSrvSetupKeyInformationCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertSrvSetupKeyInformationCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertSrvSetupKeyInformationCollection {
     type Vtable = ICertSrvSetupKeyInformationCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe65c8b00_e58f_41f9_a9ec_a28d7427c844);
@@ -22821,6 +22836,11 @@ impl ::core::cmp::PartialEq for ICertificateEnrollmentPolicyServerSetup {
     }
 }
 impl ::core::cmp::Eq for ICertificateEnrollmentPolicyServerSetup {}
+impl ::core::fmt::Debug for ICertificateEnrollmentPolicyServerSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificateEnrollmentPolicyServerSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentPolicyServerSetup {
     type Vtable = ICertificateEnrollmentPolicyServerSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x859252cc_238c_4a88_b8fd_a37e7d04e68b);
@@ -22967,6 +22987,11 @@ impl ::core::cmp::PartialEq for ICertificateEnrollmentServerSetup {
     }
 }
 impl ::core::cmp::Eq for ICertificateEnrollmentServerSetup {}
+impl ::core::fmt::Debug for ICertificateEnrollmentServerSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICertificateEnrollmentServerSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICertificateEnrollmentServerSetup {
     type Vtable = ICertificateEnrollmentServerSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70027fdb_9dd9_4921_8944_b35cb31bd2ec);
@@ -23146,6 +23171,11 @@ impl ::core::cmp::PartialEq for IMSCEPSetup {
     }
 }
 impl ::core::cmp::Eq for IMSCEPSetup {}
+impl ::core::fmt::Debug for IMSCEPSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSCEPSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSCEPSetup {
     type Vtable = IMSCEPSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4f7761bb_9f3b_4592_9ee0_9a73259c313e);

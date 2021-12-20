@@ -631,6 +631,11 @@ impl ::core::cmp::PartialEq for IKsAggregateControl {
     }
 }
 impl ::core::cmp::Eq for IKsAggregateControl {}
+impl ::core::fmt::Debug for IKsAggregateControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsAggregateControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsAggregateControl {
     type Vtable = IKsAggregateControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f40eac0_3947_11d2_874e_00a0c9223196);
@@ -696,6 +701,11 @@ impl ::core::cmp::PartialEq for IKsControl {
     }
 }
 impl ::core::cmp::Eq for IKsControl {}
+impl ::core::fmt::Debug for IKsControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsControl {
     type Vtable = IKsControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54685_06fd_11d2_b27a_00a0c9223196);
@@ -756,6 +766,11 @@ impl ::core::cmp::PartialEq for IKsFormatSupport {
     }
 }
 impl ::core::cmp::Eq for IKsFormatSupport {}
+impl ::core::fmt::Debug for IKsFormatSupport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsFormatSupport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsFormatSupport {
     type Vtable = IKsFormatSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3cb4a69d_bb6f_4d2b_95b7_452d2c155db5);
@@ -811,6 +826,11 @@ impl ::core::cmp::PartialEq for IKsJackContainerId {
     }
 }
 impl ::core::cmp::Eq for IKsJackContainerId {}
+impl ::core::fmt::Debug for IKsJackContainerId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsJackContainerId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsJackContainerId {
     type Vtable = IKsJackContainerIdVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc99af463_d629_4ec4_8c00_e54d68154248);
@@ -865,6 +885,11 @@ impl ::core::cmp::PartialEq for IKsJackDescription {
     }
 }
 impl ::core::cmp::Eq for IKsJackDescription {}
+impl ::core::fmt::Debug for IKsJackDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsJackDescription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsJackDescription {
     type Vtable = IKsJackDescriptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4509f757_2d46_4637_8e62_ce7db944f57b);
@@ -925,6 +950,11 @@ impl ::core::cmp::PartialEq for IKsJackDescription2 {
     }
 }
 impl ::core::cmp::Eq for IKsJackDescription2 {}
+impl ::core::fmt::Debug for IKsJackDescription2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsJackDescription2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsJackDescription2 {
     type Vtable = IKsJackDescription2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x478f3a9b_e0c9_4827_9228_6f5505ffe76a);
@@ -980,6 +1010,11 @@ impl ::core::cmp::PartialEq for IKsJackSinkInformation {
     }
 }
 impl ::core::cmp::Eq for IKsJackSinkInformation {}
+impl ::core::fmt::Debug for IKsJackSinkInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsJackSinkInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsJackSinkInformation {
     type Vtable = IKsJackSinkInformationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9bd72ed_290f_4581_9ff3_61027a8fe532);
@@ -1044,6 +1079,11 @@ impl ::core::cmp::PartialEq for IKsPropertySet {
     }
 }
 impl ::core::cmp::Eq for IKsPropertySet {}
+impl ::core::fmt::Debug for IKsPropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsPropertySet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsPropertySet {
     type Vtable = IKsPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31efac30_515c_11d0_a9aa_00aa0061be93);
@@ -1098,6 +1138,11 @@ impl ::core::cmp::PartialEq for IKsTopology {
     }
 }
 impl ::core::cmp::Eq for IKsTopology {}
+impl ::core::fmt::Debug for IKsTopology {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKsTopology").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IKsTopology {
     type Vtable = IKsTopologyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x28f54683_06fd_11d2_b27a_00a0c9223196);

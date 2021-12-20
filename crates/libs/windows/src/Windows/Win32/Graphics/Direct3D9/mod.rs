@@ -5388,6 +5388,11 @@ impl ::core::cmp::PartialEq for IDirect3D9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3D9 {}
+impl ::core::fmt::Debug for IDirect3D9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3D9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3D9 {
     type Vtable = IDirect3D9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81bdcbca_64d4_426d_ae8d_ad0147f4275c);
@@ -5557,6 +5562,11 @@ impl ::core::cmp::PartialEq for IDirect3D9Ex {
     }
 }
 impl ::core::cmp::Eq for IDirect3D9Ex {}
+impl ::core::fmt::Debug for IDirect3D9Ex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3D9Ex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3D9Ex {
     type Vtable = IDirect3D9ExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02177241_69fc_400c_8ff1_93a44df6861d);
@@ -5707,6 +5717,11 @@ impl ::core::cmp::PartialEq for IDirect3DBaseTexture9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DBaseTexture9 {}
+impl ::core::fmt::Debug for IDirect3DBaseTexture9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DBaseTexture9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DBaseTexture9 {
     type Vtable = IDirect3DBaseTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580ca87e_1d3c_4d54_991d_b7d3e3c298ce);
@@ -5888,6 +5903,11 @@ impl ::core::cmp::PartialEq for IDirect3DCubeTexture9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DCubeTexture9 {}
+impl ::core::fmt::Debug for IDirect3DCubeTexture9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DCubeTexture9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DCubeTexture9 {
     type Vtable = IDirect3DCubeTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfff32f81_d953_473a_9223_93d652aba93f);
@@ -6471,6 +6491,11 @@ impl ::core::cmp::PartialEq for IDirect3DDevice9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DDevice9 {}
+impl ::core::fmt::Debug for IDirect3DDevice9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DDevice9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DDevice9 {
     type Vtable = IDirect3DDevice9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd0223b96_bf7a_43fd_92bd_a43b0d82b9eb);
@@ -7270,6 +7295,11 @@ impl ::core::cmp::PartialEq for IDirect3DDevice9Ex {
     }
 }
 impl ::core::cmp::Eq for IDirect3DDevice9Ex {}
+impl ::core::fmt::Debug for IDirect3DDevice9Ex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DDevice9Ex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DDevice9Ex {
     type Vtable = IDirect3DDevice9ExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb18b10ce_2649_405a_870f_95f777d4313a);
@@ -7554,6 +7584,11 @@ impl ::core::cmp::PartialEq for IDirect3DIndexBuffer9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DIndexBuffer9 {}
+impl ::core::fmt::Debug for IDirect3DIndexBuffer9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DIndexBuffer9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DIndexBuffer9 {
     type Vtable = IDirect3DIndexBuffer9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c9dd65e_d3f7_4529_acee_785830acde35);
@@ -7621,6 +7656,11 @@ impl ::core::cmp::PartialEq for IDirect3DPixelShader9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DPixelShader9 {}
+impl ::core::fmt::Debug for IDirect3DPixelShader9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DPixelShader9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DPixelShader9 {
     type Vtable = IDirect3DPixelShader9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6d3bdbdc_5b02_4415_b852_ce5e8bccb289);
@@ -7691,6 +7731,11 @@ impl ::core::cmp::PartialEq for IDirect3DQuery9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DQuery9 {}
+impl ::core::fmt::Debug for IDirect3DQuery9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DQuery9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DQuery9 {
     type Vtable = IDirect3DQuery9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9771460_a695_4f26_bbd3_27b840b541cc);
@@ -7776,6 +7821,11 @@ impl ::core::cmp::PartialEq for IDirect3DResource9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DResource9 {}
+impl ::core::fmt::Debug for IDirect3DResource9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DResource9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DResource9 {
     type Vtable = IDirect3DResource9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x05eec05d_8f7d_4362_b999_d1baf357c704);
@@ -7844,6 +7894,11 @@ impl ::core::cmp::PartialEq for IDirect3DStateBlock9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DStateBlock9 {}
+impl ::core::fmt::Debug for IDirect3DStateBlock9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DStateBlock9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DStateBlock9 {
     type Vtable = IDirect3DStateBlock9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb07c4fe5_310d_4ba8_a23c_4f0f206f218b);
@@ -7974,6 +8029,11 @@ impl ::core::cmp::PartialEq for IDirect3DSurface9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DSurface9 {}
+impl ::core::fmt::Debug for IDirect3DSurface9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DSurface9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DSurface9 {
     type Vtable = IDirect3DSurface9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cfbaf3a_9ff6_429a_99b3_a2796af8b89b);
@@ -8071,6 +8131,11 @@ impl ::core::cmp::PartialEq for IDirect3DSwapChain9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DSwapChain9 {}
+impl ::core::fmt::Debug for IDirect3DSwapChain9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DSwapChain9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DSwapChain9 {
     type Vtable = IDirect3DSwapChain9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x794950f2_adfc_458a_905e_10a10b0b503b);
@@ -8193,6 +8258,11 @@ impl ::core::cmp::PartialEq for IDirect3DSwapChain9Ex {
     }
 }
 impl ::core::cmp::Eq for IDirect3DSwapChain9Ex {}
+impl ::core::fmt::Debug for IDirect3DSwapChain9Ex {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DSwapChain9Ex").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DSwapChain9Ex {
     type Vtable = IDirect3DSwapChain9ExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91886caf_1c3d_4d2e_a0ab_3e4c7d8d3303);
@@ -8373,6 +8443,11 @@ impl ::core::cmp::PartialEq for IDirect3DTexture9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DTexture9 {}
+impl ::core::fmt::Debug for IDirect3DTexture9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DTexture9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DTexture9 {
     type Vtable = IDirect3DTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85c31227_3de5_4f00_9b3a_f11ac38c18b5);
@@ -8506,6 +8581,11 @@ impl ::core::cmp::PartialEq for IDirect3DVertexBuffer9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DVertexBuffer9 {}
+impl ::core::fmt::Debug for IDirect3DVertexBuffer9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DVertexBuffer9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DVertexBuffer9 {
     type Vtable = IDirect3DVertexBuffer9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb64bb1b5_fd70_4df6_bf91_19d0a12455e3);
@@ -8573,6 +8653,11 @@ impl ::core::cmp::PartialEq for IDirect3DVertexDeclaration9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DVertexDeclaration9 {}
+impl ::core::fmt::Debug for IDirect3DVertexDeclaration9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DVertexDeclaration9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DVertexDeclaration9 {
     type Vtable = IDirect3DVertexDeclaration9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdd13c59c_36fa_4098_a8fb_c7ed39dc8546);
@@ -8631,6 +8716,11 @@ impl ::core::cmp::PartialEq for IDirect3DVertexShader9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DVertexShader9 {}
+impl ::core::fmt::Debug for IDirect3DVertexShader9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DVertexShader9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DVertexShader9 {
     type Vtable = IDirect3DVertexShader9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xefc5557e_6265_4613_8a94_43857889eb36);
@@ -8713,6 +8803,11 @@ impl ::core::cmp::PartialEq for IDirect3DVolume9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DVolume9 {}
+impl ::core::fmt::Debug for IDirect3DVolume9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DVolume9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DVolume9 {
     type Vtable = IDirect3DVolume9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24f416e6_1f67_4aa7_b88e_d33f6f3128a1);
@@ -8886,6 +8981,11 @@ impl ::core::cmp::PartialEq for IDirect3DVolumeTexture9 {
     }
 }
 impl ::core::cmp::Eq for IDirect3DVolumeTexture9 {}
+impl ::core::fmt::Debug for IDirect3DVolumeTexture9 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirect3DVolumeTexture9").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirect3DVolumeTexture9 {
     type Vtable = IDirect3DVolumeTexture9Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2518526c_e789_4111_a7b9_47ef328d13e6);

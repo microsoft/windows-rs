@@ -487,6 +487,11 @@ impl ::core::cmp::PartialEq for UserDataAccount {
     }
 }
 impl ::core::cmp::Eq for UserDataAccount {}
+impl ::core::fmt::Debug for UserDataAccount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.UserDataAccount;{b9c4367e-b348-4910-be94-4ad4bba6dea7})");
 }
@@ -664,6 +669,11 @@ impl ::core::cmp::PartialEq for UserDataAccountManagerForUser {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountManagerForUser {}
+impl ::core::fmt::Debug for UserDataAccountManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.UserDataAccountManagerForUser;{56a6e8db-db8f-41ab-a65f-8c5971aac982})");
 }
@@ -826,6 +836,11 @@ impl ::core::cmp::PartialEq for UserDataAccountStore {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountStore {}
+impl ::core::fmt::Debug for UserDataAccountStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountStore {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStore;{2073b0ad-7d0a-4e76-bf45-2368f978a59a})");
 }
@@ -936,6 +951,11 @@ impl ::core::cmp::PartialEq for UserDataAccountStoreChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UserDataAccountStoreChangedEventArgs {}
+impl ::core::fmt::Debug for UserDataAccountStoreChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserDataAccountStoreChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserDataAccountStoreChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.UserDataAccountStoreChangedEventArgs;{84e3e2e5-8820-4512-b1f6-2e035be1072c})");
 }

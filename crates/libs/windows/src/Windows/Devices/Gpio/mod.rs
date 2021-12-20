@@ -131,6 +131,11 @@ impl ::core::cmp::PartialEq for GpioChangeCounter {
     }
 }
 impl ::core::cmp::Eq for GpioChangeCounter {}
+impl ::core::fmt::Debug for GpioChangeCounter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioChangeCounter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioChangeCounter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeCounter;{cb5ec0de-6801-43ff-803d-4576628a8b26})");
 }
@@ -388,6 +393,11 @@ impl ::core::cmp::PartialEq for GpioChangeReader {
     }
 }
 impl ::core::cmp::Eq for GpioChangeReader {}
+impl ::core::fmt::Debug for GpioChangeReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioChangeReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioChangeReader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioChangeReader;{0abc885f-e031-48e8-8590-70de78363c6d})");
 }
@@ -594,6 +604,11 @@ impl ::core::cmp::PartialEq for GpioController {
     }
 }
 impl ::core::cmp::Eq for GpioController {}
+impl ::core::fmt::Debug for GpioController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioController;{284012e3-7461-469c-a8bc-61d69d08a53c})");
 }
@@ -784,6 +799,11 @@ impl ::core::cmp::PartialEq for GpioPin {
     }
 }
 impl ::core::cmp::Eq for GpioPin {}
+impl ::core::fmt::Debug for GpioPin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioPin {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPin;{11d9b087-afae-4790-9ee9-e0eac942d201})");
 }
@@ -991,6 +1011,11 @@ impl ::core::cmp::PartialEq for GpioPinValueChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for GpioPinValueChangedEventArgs {}
+impl ::core::fmt::Debug for GpioPinValueChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GpioPinValueChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GpioPinValueChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Gpio.GpioPinValueChangedEventArgs;{3137aae1-703d-4059-bd24-b5b25dffb84e})");
 }

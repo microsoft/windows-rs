@@ -88,6 +88,11 @@ impl ::core::cmp::PartialEq for IPrintDocumentPackageStatusEvent {
     }
 }
 impl ::core::cmp::Eq for IPrintDocumentPackageStatusEvent {}
+impl ::core::fmt::Debug for IPrintDocumentPackageStatusEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDocumentPackageStatusEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintDocumentPackageStatusEvent {
     type Vtable = IPrintDocumentPackageStatusEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed90c8ad_5c34_4d05_a1ec_0e8a9b3ad7af);
@@ -157,6 +162,11 @@ impl ::core::cmp::PartialEq for IPrintDocumentPackageTarget {
     }
 }
 impl ::core::cmp::Eq for IPrintDocumentPackageTarget {}
+impl ::core::fmt::Debug for IPrintDocumentPackageTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDocumentPackageTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintDocumentPackageTarget {
     type Vtable = IPrintDocumentPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b8efec4_3019_4c27_964e_367202156906);
@@ -213,6 +223,11 @@ impl ::core::cmp::PartialEq for IPrintDocumentPackageTargetFactory {
     }
 }
 impl ::core::cmp::Eq for IPrintDocumentPackageTargetFactory {}
+impl ::core::fmt::Debug for IPrintDocumentPackageTargetFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDocumentPackageTargetFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintDocumentPackageTargetFactory {
     type Vtable = IPrintDocumentPackageTargetFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2959bf7_b31b_4a3d_9600_712eb1335ba4);
@@ -271,6 +286,11 @@ impl ::core::cmp::PartialEq for IXpsPrintJob {
     }
 }
 impl ::core::cmp::Eq for IXpsPrintJob {}
+impl ::core::fmt::Debug for IXpsPrintJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsPrintJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsPrintJob {
     type Vtable = IXpsPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ab89b06_8194_425f_ab3b_d7a96e350161);
@@ -359,6 +379,11 @@ impl ::core::cmp::PartialEq for IXpsPrintJobStream {
     }
 }
 impl ::core::cmp::Eq for IXpsPrintJobStream {}
+impl ::core::fmt::Debug for IXpsPrintJobStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsPrintJobStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsPrintJobStream {
     type Vtable = IXpsPrintJobStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a77dc5f_45d6_4dff_9307_d8cb846347ca);

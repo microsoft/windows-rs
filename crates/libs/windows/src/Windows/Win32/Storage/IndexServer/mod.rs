@@ -696,6 +696,11 @@ impl ::core::cmp::PartialEq for IFilter {
     }
 }
 impl ::core::cmp::Eq for IFilter {}
+impl ::core::fmt::Debug for IFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFilter {
     type Vtable = IFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89bcb740_6119_101a_bcb7_00dd010655af);
@@ -762,6 +767,11 @@ impl ::core::cmp::PartialEq for IPhraseSink {
     }
 }
 impl ::core::cmp::Eq for IPhraseSink {}
+impl ::core::fmt::Debug for IPhraseSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPhraseSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPhraseSink {
     type Vtable = IPhraseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc906ff0_c058_101a_b554_08002b33b0e6);

@@ -53,6 +53,11 @@ impl ::core::cmp::PartialEq for IWSDAddress {
     }
 }
 impl ::core::cmp::Eq for IWSDAddress {}
+impl ::core::fmt::Debug for IWSDAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDAddress {
     type Vtable = IWSDAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9574c6c_12a6_4f74_93a1_3318ff605759);
@@ -108,6 +113,11 @@ impl ::core::cmp::PartialEq for IWSDAsyncCallback {
     }
 }
 impl ::core::cmp::Eq for IWSDAsyncCallback {}
+impl ::core::fmt::Debug for IWSDAsyncCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDAsyncCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDAsyncCallback {
     type Vtable = IWSDAsyncCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa63e109d_ce72_49e2_ba98_e845f5ee1666);
@@ -184,6 +194,11 @@ impl ::core::cmp::PartialEq for IWSDAsyncResult {
     }
 }
 impl ::core::cmp::Eq for IWSDAsyncResult {}
+impl ::core::fmt::Debug for IWSDAsyncResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDAsyncResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDAsyncResult {
     type Vtable = IWSDAsyncResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11a9852a_8dd8_423e_b537_9356db4fbfb8);
@@ -239,6 +254,11 @@ impl ::core::cmp::PartialEq for IWSDAttachment {
     }
 }
 impl ::core::cmp::Eq for IWSDAttachment {}
+impl ::core::fmt::Debug for IWSDAttachment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDAttachment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDAttachment {
     type Vtable = IWSDAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5d55a616_9df8_4b09_b156_9ba351a48b76);
@@ -340,6 +360,11 @@ impl ::core::cmp::PartialEq for IWSDDeviceHost {
     }
 }
 impl ::core::cmp::Eq for IWSDDeviceHost {}
+impl ::core::fmt::Debug for IWSDDeviceHost {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDDeviceHost").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDDeviceHost {
     type Vtable = IWSDDeviceHostVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x917fe891_3d13_4138_9809_934c8abeb12c);
@@ -415,6 +440,11 @@ impl ::core::cmp::PartialEq for IWSDDeviceHostNotify {
     }
 }
 impl ::core::cmp::Eq for IWSDDeviceHostNotify {}
+impl ::core::fmt::Debug for IWSDDeviceHostNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDDeviceHostNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDDeviceHostNotify {
     type Vtable = IWSDDeviceHostNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5bee9f9_eeda_41fe_96f7_f45e14990fb0);
@@ -519,6 +549,11 @@ impl ::core::cmp::PartialEq for IWSDDeviceProxy {
     }
 }
 impl ::core::cmp::Eq for IWSDDeviceProxy {}
+impl ::core::fmt::Debug for IWSDDeviceProxy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDDeviceProxy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDDeviceProxy {
     type Vtable = IWSDDeviceProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeee0c031_c578_4c0e_9a3b_973c35f409db);
@@ -620,6 +655,11 @@ impl ::core::cmp::PartialEq for IWSDEndpointProxy {
     }
 }
 impl ::core::cmp::Eq for IWSDEndpointProxy {}
+impl ::core::fmt::Debug for IWSDEndpointProxy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDEndpointProxy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDEndpointProxy {
     type Vtable = IWSDEndpointProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1860d430_b24c_4975_9f90_dbb39baa24ec);
@@ -695,6 +735,11 @@ impl ::core::cmp::PartialEq for IWSDEventingStatus {
     }
 }
 impl ::core::cmp::Eq for IWSDEventingStatus {}
+impl ::core::fmt::Debug for IWSDEventingStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDEventingStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDEventingStatus {
     type Vtable = IWSDEventingStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49b17f52_637a_407a_ae99_fbe82a4d38c0);
@@ -844,6 +889,11 @@ impl ::core::cmp::PartialEq for IWSDHttpAddress {
     }
 }
 impl ::core::cmp::Eq for IWSDHttpAddress {}
+impl ::core::fmt::Debug for IWSDHttpAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDHttpAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDHttpAddress {
     type Vtable = IWSDHttpAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd09ac7bd_2a3e_4b85_8605_2737ff3e4ea0);
@@ -921,6 +971,11 @@ impl ::core::cmp::PartialEq for IWSDHttpAuthParameters {
     }
 }
 impl ::core::cmp::Eq for IWSDHttpAuthParameters {}
+impl ::core::fmt::Debug for IWSDHttpAuthParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDHttpAuthParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDHttpAuthParameters {
     type Vtable = IWSDHttpAuthParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b476df0_8dac_480d_b05c_99781a5884aa);
@@ -1060,6 +1115,11 @@ impl ::core::cmp::PartialEq for IWSDHttpMessageParameters {
     }
 }
 impl ::core::cmp::Eq for IWSDHttpMessageParameters {}
+impl ::core::fmt::Debug for IWSDHttpMessageParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDHttpMessageParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDHttpMessageParameters {
     type Vtable = IWSDHttpMessageParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x540bd122_5c83_4dec_b396_ea62a2697fdf);
@@ -1155,6 +1215,11 @@ impl ::core::cmp::PartialEq for IWSDInboundAttachment {
     }
 }
 impl ::core::cmp::Eq for IWSDInboundAttachment {}
+impl ::core::fmt::Debug for IWSDInboundAttachment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDInboundAttachment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDInboundAttachment {
     type Vtable = IWSDInboundAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5bd6ca65_233c_4fb8_9f7a_2641619655c9);
@@ -1227,6 +1292,11 @@ impl ::core::cmp::PartialEq for IWSDMessageParameters {
     }
 }
 impl ::core::cmp::Eq for IWSDMessageParameters {}
+impl ::core::fmt::Debug for IWSDMessageParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDMessageParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDMessageParameters {
     type Vtable = IWSDMessageParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1fafe8a2_e6fc_4b80_b6cf_b7d45c416d7c);
@@ -1285,6 +1355,11 @@ impl ::core::cmp::PartialEq for IWSDMetadataExchange {
     }
 }
 impl ::core::cmp::Eq for IWSDMetadataExchange {}
+impl ::core::fmt::Debug for IWSDMetadataExchange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDMetadataExchange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDMetadataExchange {
     type Vtable = IWSDMetadataExchangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x06996d57_1d67_4928_9307_3d7833fdb846);
@@ -1367,6 +1442,11 @@ impl ::core::cmp::PartialEq for IWSDOutboundAttachment {
     }
 }
 impl ::core::cmp::Eq for IWSDOutboundAttachment {}
+impl ::core::fmt::Debug for IWSDOutboundAttachment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDOutboundAttachment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDOutboundAttachment {
     type Vtable = IWSDOutboundAttachmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa302f8d_5a22_4ba5_b392_aa8486f4c15d);
@@ -1429,6 +1509,11 @@ impl ::core::cmp::PartialEq for IWSDSSLClientCertificate {
     }
 }
 impl ::core::cmp::Eq for IWSDSSLClientCertificate {}
+impl ::core::fmt::Debug for IWSDSSLClientCertificate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDSSLClientCertificate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDSSLClientCertificate {
     type Vtable = IWSDSSLClientCertificateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xde105e87_a0da_418e_98ad_27b9eed87bdc);
@@ -1492,6 +1577,11 @@ impl ::core::cmp::PartialEq for IWSDScopeMatchingRule {
     }
 }
 impl ::core::cmp::Eq for IWSDScopeMatchingRule {}
+impl ::core::fmt::Debug for IWSDScopeMatchingRule {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDScopeMatchingRule").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDScopeMatchingRule {
     type Vtable = IWSDScopeMatchingRuleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfcafe424_fef5_481a_bd9f_33ce0574256f);
@@ -1553,6 +1643,11 @@ impl ::core::cmp::PartialEq for IWSDServiceMessaging {
     }
 }
 impl ::core::cmp::Eq for IWSDServiceMessaging {}
+impl ::core::fmt::Debug for IWSDServiceMessaging {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDServiceMessaging").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDServiceMessaging {
     type Vtable = IWSDServiceMessagingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94974cf4_0cab_460d_a3f6_7a0ad623c0e6);
@@ -1667,6 +1762,11 @@ impl ::core::cmp::PartialEq for IWSDServiceProxy {
     }
 }
 impl ::core::cmp::Eq for IWSDServiceProxy {}
+impl ::core::fmt::Debug for IWSDServiceProxy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDServiceProxy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDServiceProxy {
     type Vtable = IWSDServiceProxyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4c7fb9c_03ab_4175_9d67_094fafebf487);
@@ -1874,6 +1974,11 @@ impl ::core::cmp::PartialEq for IWSDServiceProxyEventing {
     }
 }
 impl ::core::cmp::Eq for IWSDServiceProxyEventing {}
+impl ::core::fmt::Debug for IWSDServiceProxyEventing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDServiceProxyEventing").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDServiceProxyEventing {
     type Vtable = IWSDServiceProxyEventingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf9279d6d_1012_4a94_b8cc_fd35d2202bfe);
@@ -1982,6 +2087,11 @@ impl ::core::cmp::PartialEq for IWSDSignatureProperty {
     }
 }
 impl ::core::cmp::Eq for IWSDSignatureProperty {}
+impl ::core::fmt::Debug for IWSDSignatureProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDSignatureProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDSignatureProperty {
     type Vtable = IWSDSignaturePropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03ce20aa_71c4_45e2_b32e_3766c61c790f);
@@ -2092,6 +2202,11 @@ impl ::core::cmp::PartialEq for IWSDTransportAddress {
     }
 }
 impl ::core::cmp::Eq for IWSDTransportAddress {}
+impl ::core::fmt::Debug for IWSDTransportAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDTransportAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDTransportAddress {
     type Vtable = IWSDTransportAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70d23498_4ee6_4340_a3df_d845d2235467);
@@ -2274,6 +2389,11 @@ impl ::core::cmp::PartialEq for IWSDUdpAddress {
     }
 }
 impl ::core::cmp::Eq for IWSDUdpAddress {}
+impl ::core::fmt::Debug for IWSDUdpAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDUdpAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDUdpAddress {
     type Vtable = IWSDUdpAddressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x74d6124a_a441_4f78_a1eb_97a8d1996893);
@@ -2398,6 +2518,11 @@ impl ::core::cmp::PartialEq for IWSDUdpMessageParameters {
     }
 }
 impl ::core::cmp::Eq for IWSDUdpMessageParameters {}
+impl ::core::fmt::Debug for IWSDUdpMessageParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDUdpMessageParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDUdpMessageParameters {
     type Vtable = IWSDUdpMessageParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9934149f_8f0c_447b_aa0b_73124b0ca7f0);
@@ -2474,6 +2599,11 @@ impl ::core::cmp::PartialEq for IWSDXMLContext {
     }
 }
 impl ::core::cmp::Eq for IWSDXMLContext {}
+impl ::core::fmt::Debug for IWSDXMLContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDXMLContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDXMLContext {
     type Vtable = IWSDXMLContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75d8f3ee_3e5a_43b4_a15a_bcf6887460c0);
@@ -2591,6 +2721,11 @@ impl ::core::cmp::PartialEq for IWSDiscoveredService {
     }
 }
 impl ::core::cmp::Eq for IWSDiscoveredService {}
+impl ::core::fmt::Debug for IWSDiscoveredService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDiscoveredService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDiscoveredService {
     type Vtable = IWSDiscoveredServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4bad8a3b_b374_4420_9632_aac945b374aa);
@@ -2689,6 +2824,11 @@ impl ::core::cmp::PartialEq for IWSDiscoveryProvider {
     }
 }
 impl ::core::cmp::Eq for IWSDiscoveryProvider {}
+impl ::core::fmt::Debug for IWSDiscoveryProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDiscoveryProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDiscoveryProvider {
     type Vtable = IWSDiscoveryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ffc8e55_f0eb_480f_88b7_b435dd281d45);
@@ -2764,6 +2904,11 @@ impl ::core::cmp::PartialEq for IWSDiscoveryProviderNotify {
     }
 }
 impl ::core::cmp::Eq for IWSDiscoveryProviderNotify {}
+impl ::core::fmt::Debug for IWSDiscoveryProviderNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDiscoveryProviderNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDiscoveryProviderNotify {
     type Vtable = IWSDiscoveryProviderNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73ee3ced_b6e6_4329_a546_3e8ad46563d2);
@@ -2929,6 +3074,11 @@ impl ::core::cmp::PartialEq for IWSDiscoveryPublisher {
     }
 }
 impl ::core::cmp::Eq for IWSDiscoveryPublisher {}
+impl ::core::fmt::Debug for IWSDiscoveryPublisher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDiscoveryPublisher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDiscoveryPublisher {
     type Vtable = IWSDiscoveryPublisherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xae01e1a8_3ff9_4148_8116_057cc616fe13);
@@ -3006,6 +3156,11 @@ impl ::core::cmp::PartialEq for IWSDiscoveryPublisherNotify {
     }
 }
 impl ::core::cmp::Eq for IWSDiscoveryPublisherNotify {}
+impl ::core::fmt::Debug for IWSDiscoveryPublisherNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWSDiscoveryPublisherNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWSDiscoveryPublisherNotify {
     type Vtable = IWSDiscoveryPublisherNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe67651b0_337a_4b3c_9758_733388568251);

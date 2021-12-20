@@ -3102,6 +3102,11 @@ impl ::core::cmp::PartialEq for ICameraUIControl {
     }
 }
 impl ::core::cmp::Eq for ICameraUIControl {}
+impl ::core::fmt::Debug for ICameraUIControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICameraUIControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICameraUIControl {
     type Vtable = ICameraUIControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8733adf_3d68_4b8f_bb08_e28a0bed0376);
@@ -3184,6 +3189,11 @@ impl ::core::cmp::PartialEq for ICameraUIControlEventCallback {
     }
 }
 impl ::core::cmp::Eq for ICameraUIControlEventCallback {}
+impl ::core::fmt::Debug for ICameraUIControlEventCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ICameraUIControlEventCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ICameraUIControlEventCallback {
     type Vtable = ICameraUIControlEventCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1bfa0c2c_fbcd_4776_bda4_88bf974e74f4);
@@ -3243,6 +3253,11 @@ impl ::core::cmp::PartialEq for IClipServiceNotificationHelper {
     }
 }
 impl ::core::cmp::Eq for IClipServiceNotificationHelper {}
+impl ::core::fmt::Debug for IClipServiceNotificationHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IClipServiceNotificationHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IClipServiceNotificationHelper {
     type Vtable = IClipServiceNotificationHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc39948f0_6142_44fd_98ca_e1681a8d68b5);
@@ -3297,6 +3312,11 @@ impl ::core::cmp::PartialEq for IContainerActivationHelper {
     }
 }
 impl ::core::cmp::Eq for IContainerActivationHelper {}
+impl ::core::fmt::Debug for IContainerActivationHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContainerActivationHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContainerActivationHelper {
     type Vtable = IContainerActivationHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb524f93f_80d5_4ec7_ae9e_d66e93ade1fa);
@@ -3345,6 +3365,11 @@ impl ::core::cmp::PartialEq for IDefaultBrowserSyncSettings {
     }
 }
 impl ::core::cmp::Eq for IDefaultBrowserSyncSettings {}
+impl ::core::fmt::Debug for IDefaultBrowserSyncSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDefaultBrowserSyncSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDefaultBrowserSyncSettings {
     type Vtable = IDefaultBrowserSyncSettingsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7a27faad_5ae6_4255_9030_c530936292e3);
@@ -3398,6 +3423,11 @@ impl ::core::cmp::PartialEq for IDeleteBrowsingHistory {
     }
 }
 impl ::core::cmp::Eq for IDeleteBrowsingHistory {}
+impl ::core::fmt::Debug for IDeleteBrowsingHistory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDeleteBrowsingHistory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDeleteBrowsingHistory {
     type Vtable = IDeleteBrowsingHistoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf38ed4b_2be7_4461_8b5e_9a466dc82ae3);
@@ -3500,6 +3530,11 @@ impl ::core::cmp::PartialEq for IEditionUpgradeBroker {
     }
 }
 impl ::core::cmp::Eq for IEditionUpgradeBroker {}
+impl ::core::fmt::Debug for IEditionUpgradeBroker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEditionUpgradeBroker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEditionUpgradeBroker {
     type Vtable = IEditionUpgradeBrokerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xff19cbcf_9455_4937_b872_6b7929a460af);
@@ -3579,6 +3614,11 @@ impl ::core::cmp::PartialEq for IEditionUpgradeHelper {
     }
 }
 impl ::core::cmp::Eq for IEditionUpgradeHelper {}
+impl ::core::fmt::Debug for IEditionUpgradeHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEditionUpgradeHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEditionUpgradeHelper {
     type Vtable = IEditionUpgradeHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd3e9e342_5deb_43b6_849e_6913b85d503a);
@@ -4277,6 +4317,11 @@ impl ::core::cmp::PartialEq for IWindowsLockModeHelper {
     }
 }
 impl ::core::cmp::Eq for IWindowsLockModeHelper {}
+impl ::core::fmt::Debug for IWindowsLockModeHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWindowsLockModeHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWindowsLockModeHelper {
     type Vtable = IWindowsLockModeHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf342d19e_cc22_4648_bb5d_03ccf75b47c5);

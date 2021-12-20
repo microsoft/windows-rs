@@ -1093,6 +1093,11 @@ impl ::core::cmp::PartialEq for ID2D1SimplifiedGeometrySink {
     }
 }
 impl ::core::cmp::Eq for ID2D1SimplifiedGeometrySink {}
+impl ::core::fmt::Debug for ID2D1SimplifiedGeometrySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID2D1SimplifiedGeometrySink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID2D1SimplifiedGeometrySink {
     type Vtable = ID2D1SimplifiedGeometrySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2cd9069e_12e2_11dc_9fed_001143a055f9);

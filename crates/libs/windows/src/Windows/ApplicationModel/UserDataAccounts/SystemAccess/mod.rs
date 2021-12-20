@@ -639,6 +639,11 @@ impl ::core::cmp::PartialEq for DeviceAccountConfiguration {
     }
 }
 impl ::core::cmp::Eq for DeviceAccountConfiguration {}
+impl ::core::fmt::Debug for DeviceAccountConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceAccountConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceAccountConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.UserDataAccounts.SystemAccess.DeviceAccountConfiguration;{ad0123a3-fbdc-4d1b-be43-5a27ea4a1b63})");
 }

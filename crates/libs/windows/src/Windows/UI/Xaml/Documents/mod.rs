@@ -125,6 +125,11 @@ impl ::core::cmp::PartialEq for Block {
     }
 }
 impl ::core::cmp::Eq for Block {}
+impl ::core::fmt::Debug for Block {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Block").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Block {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Block;{4bce0016-dd47-4350-8cb0-e171600ac896})");
 }
@@ -335,6 +340,12 @@ impl ::core::cmp::PartialEq for BlockCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for BlockCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for BlockCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BlockCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for BlockCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.BlockCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Documents.Block;{4bce0016-dd47-4350-8cb0-e171600ac896})))");
 }
@@ -490,6 +501,11 @@ impl ::core::cmp::PartialEq for Bold {
     }
 }
 impl ::core::cmp::Eq for Bold {}
+impl ::core::fmt::Debug for Bold {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Bold").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Bold {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Bold;{ade73784-1b59-4da4-bb23-0f20e885b4bf})");
 }
@@ -645,6 +661,11 @@ impl ::core::cmp::PartialEq for ContactContentLinkProvider {
     }
 }
 impl ::core::cmp::Eq for ContactContentLinkProvider {}
+impl ::core::fmt::Debug for ContactContentLinkProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactContentLinkProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactContentLinkProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.ContactContentLinkProvider;{f92fd29b-589b-4abd-9d37-35a1468f021e})");
 }
@@ -1120,6 +1141,11 @@ impl ::core::cmp::PartialEq for ContentLink {
     }
 }
 impl ::core::cmp::Eq for ContentLink {}
+impl ::core::fmt::Debug for ContentLink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentLink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentLink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.ContentLink;{6c60c3e1-528c-42f8-92be-34b8c68be304})");
 }
@@ -1270,6 +1296,11 @@ impl ::core::cmp::PartialEq for ContentLinkInvokedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ContentLinkInvokedEventArgs {}
+impl ::core::fmt::Debug for ContentLinkInvokedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentLinkInvokedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentLinkInvokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.ContentLinkInvokedEventArgs;{546717c1-e8df-4593-9639-97595fdf8310})");
 }
@@ -1337,6 +1368,11 @@ impl ::core::cmp::PartialEq for ContentLinkProvider {
     }
 }
 impl ::core::cmp::Eq for ContentLinkProvider {}
+impl ::core::fmt::Debug for ContentLinkProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentLinkProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentLinkProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.ContentLinkProvider;{730587fd-bfdc-4cb3-904d-b65ab339bbf5})");
 }
@@ -1528,6 +1564,11 @@ impl ::core::cmp::PartialEq for ContentLinkProviderCollection {
     }
 }
 impl ::core::cmp::Eq for ContentLinkProviderCollection {}
+impl ::core::fmt::Debug for ContentLinkProviderCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentLinkProviderCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentLinkProviderCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.ContentLinkProviderCollection;{f5b84d0c-a9f4-4d1a-a13c-10def1843734})");
 }
@@ -1887,6 +1928,11 @@ impl ::core::cmp::PartialEq for Glyphs {
     }
 }
 impl ::core::cmp::Eq for Glyphs {}
+impl ::core::fmt::Debug for Glyphs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Glyphs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Glyphs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Glyphs;{d079498b-f2b1-4281-99a2-e4d05932b2b5})");
 }
@@ -2437,6 +2483,11 @@ impl ::core::cmp::PartialEq for Hyperlink {
     }
 }
 impl ::core::cmp::Eq for Hyperlink {}
+impl ::core::fmt::Debug for Hyperlink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Hyperlink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Hyperlink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Hyperlink;{0fe2363b-14e9-4152-9e58-5aea5b21f08d})");
 }
@@ -2584,6 +2635,11 @@ impl ::core::cmp::PartialEq for HyperlinkClickEventArgs {
     }
 }
 impl ::core::cmp::Eq for HyperlinkClickEventArgs {}
+impl ::core::fmt::Debug for HyperlinkClickEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HyperlinkClickEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HyperlinkClickEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.HyperlinkClickEventArgs;{c755916b-7bdc-4be7-b373-9240a503d870})");
 }
@@ -4138,6 +4194,11 @@ impl ::core::cmp::PartialEq for Inline {
     }
 }
 impl ::core::cmp::Eq for Inline {}
+impl ::core::fmt::Debug for Inline {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Inline").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Inline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Inline;{0c92712d-1bc9-4931-8cb1-1aeadf1cc685})");
 }
@@ -4348,6 +4409,12 @@ impl ::core::cmp::PartialEq for InlineCollection {
 #[cfg(feature = "Foundation_Collections")]
 impl ::core::cmp::Eq for InlineCollection {}
 #[cfg(feature = "Foundation_Collections")]
+impl ::core::fmt::Debug for InlineCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InlineCollection").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "Foundation_Collections")]
 unsafe impl ::windows::core::RuntimeType for InlineCollection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.InlineCollection;pinterface({913337e9-11a1-4345-a3a2-4e7f956e222d};rc(Windows.UI.Xaml.Documents.Inline;{0c92712d-1bc9-4931-8cb1-1aeadf1cc685})))");
 }
@@ -4516,6 +4583,11 @@ impl ::core::cmp::PartialEq for InlineUIContainer {
     }
 }
 impl ::core::cmp::Eq for InlineUIContainer {}
+impl ::core::fmt::Debug for InlineUIContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InlineUIContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InlineUIContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.InlineUIContainer;{1416ce81-28ee-452e-b121-5fc4f60b86a6})");
 }
@@ -4651,6 +4723,11 @@ impl ::core::cmp::PartialEq for Italic {
     }
 }
 impl ::core::cmp::Eq for Italic {}
+impl ::core::fmt::Debug for Italic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Italic").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Italic {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Italic;{91f4619c-fcbb-4157-802c-76f63b5fb657})");
 }
@@ -4806,6 +4883,11 @@ impl ::core::cmp::PartialEq for LineBreak {
     }
 }
 impl ::core::cmp::Eq for LineBreak {}
+impl ::core::fmt::Debug for LineBreak {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LineBreak").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LineBreak {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.LineBreak;{645589c4-f769-41ed-895b-8a1b2fb31562})");
 }
@@ -5008,6 +5090,11 @@ impl ::core::cmp::PartialEq for Paragraph {
     }
 }
 impl ::core::cmp::Eq for Paragraph {}
+impl ::core::fmt::Debug for Paragraph {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Paragraph").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Paragraph {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Paragraph;{f83ef59a-fa61-4bef-ae33-0b0ad756a84d})");
 }
@@ -5143,6 +5230,11 @@ impl ::core::cmp::PartialEq for PlaceContentLinkProvider {
     }
 }
 impl ::core::cmp::Eq for PlaceContentLinkProvider {}
+impl ::core::fmt::Debug for PlaceContentLinkProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PlaceContentLinkProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PlaceContentLinkProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.PlaceContentLinkProvider;{10348a4c-2366-41be-90c8-3258b53b5483})");
 }
@@ -5296,6 +5388,11 @@ impl ::core::cmp::PartialEq for Run {
     }
 }
 impl ::core::cmp::Eq for Run {}
+impl ::core::fmt::Debug for Run {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Run").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Run {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Run;{59553c83-0e14-49bd-b84b-c526f3034349})");
 }
@@ -5451,6 +5548,11 @@ impl ::core::cmp::PartialEq for Span {
     }
 }
 impl ::core::cmp::Eq for Span {}
+impl ::core::fmt::Debug for Span {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Span").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Span {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Span;{9839d4a9-02af-4811-aa15-6bef3acac97a})");
 }
@@ -6079,6 +6181,11 @@ impl ::core::cmp::PartialEq for TextElement {
     }
 }
 impl ::core::cmp::Eq for TextElement {}
+impl ::core::fmt::Debug for TextElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.TextElement;{e83b0062-d776-4f92-baea-40e77d4791d5})");
 }
@@ -6237,6 +6344,11 @@ impl ::core::cmp::PartialEq for TextHighlighter {
     }
 }
 impl ::core::cmp::Eq for TextHighlighter {}
+impl ::core::fmt::Debug for TextHighlighter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextHighlighter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextHighlighter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.TextHighlighter;{ba6cb54b-7d75-4535-b30d-a81a00b637a4})");
 }
@@ -6304,6 +6416,11 @@ impl ::core::cmp::PartialEq for TextHighlighterBase {
     }
 }
 impl ::core::cmp::Eq for TextHighlighterBase {}
+impl ::core::fmt::Debug for TextHighlighterBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextHighlighterBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextHighlighterBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.TextHighlighterBase;{d957601a-5f0d-4cdf-9758-97e0eb95c8fa})");
 }
@@ -6441,6 +6558,11 @@ impl ::core::cmp::PartialEq for TextPointer {
     }
 }
 impl ::core::cmp::Eq for TextPointer {}
+impl ::core::fmt::Debug for TextPointer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TextPointer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TextPointer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.TextPointer;{ac687aa1-6a41-43ff-851e-45348aa2cf7b})");
 }
@@ -7325,6 +7447,11 @@ impl ::core::cmp::PartialEq for Typography {
     }
 }
 impl ::core::cmp::Eq for Typography {}
+impl ::core::fmt::Debug for Typography {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Typography").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Typography {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Typography;{866f65d5-ea97-42ab-9288-9c01aebc7a97})");
 }
@@ -7400,6 +7527,11 @@ impl ::core::cmp::PartialEq for Underline {
     }
 }
 impl ::core::cmp::Eq for Underline {}
+impl ::core::fmt::Debug for Underline {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Underline").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Underline {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Xaml.Documents.Underline;{a5fa8202-61c0-47d7-93ef-bc0b577c5f26})");
 }

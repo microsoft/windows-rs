@@ -41,6 +41,11 @@ impl ::core::cmp::PartialEq for IIsolatedEnvironmentInterop {
     }
 }
 impl ::core::cmp::Eq for IIsolatedEnvironmentInterop {}
+impl ::core::fmt::Debug for IIsolatedEnvironmentInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIsolatedEnvironmentInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IIsolatedEnvironmentInterop {
     type Vtable = IIsolatedEnvironmentInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85713c2e_8e62_46c5_8de2_c647e1d54636);

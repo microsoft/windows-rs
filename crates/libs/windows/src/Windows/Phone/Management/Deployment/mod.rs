@@ -65,6 +65,11 @@ impl ::core::cmp::PartialEq for Enterprise {
     }
 }
 impl ::core::cmp::Eq for Enterprise {}
+impl ::core::fmt::Debug for Enterprise {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Enterprise").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Enterprise {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.Enterprise;{96592f8d-856c-4426-a947-b06307718078})");
 }
@@ -200,6 +205,11 @@ impl ::core::cmp::PartialEq for EnterpriseEnrollmentResult {
     }
 }
 impl ::core::cmp::Eq for EnterpriseEnrollmentResult {}
+impl ::core::fmt::Debug for EnterpriseEnrollmentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnterpriseEnrollmentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EnterpriseEnrollmentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.EnterpriseEnrollmentResult;{9ff71ce6-90db-4342-b326-1729aa91301c})");
 }
@@ -599,6 +609,11 @@ impl ::core::cmp::PartialEq for PackageInstallResult {
     }
 }
 impl ::core::cmp::Eq for PackageInstallResult {}
+impl ::core::fmt::Debug for PackageInstallResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PackageInstallResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PackageInstallResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Phone.Management.Deployment.PackageInstallResult;{33e8eed5-0f7e-4473-967c-7d6e1c0e7de1})");
 }

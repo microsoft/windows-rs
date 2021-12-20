@@ -1368,6 +1368,11 @@ impl ::core::cmp::PartialEq for IPrintDialogCallback {
     }
 }
 impl ::core::cmp::Eq for IPrintDialogCallback {}
+impl ::core::fmt::Debug for IPrintDialogCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDialogCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintDialogCallback {
     type Vtable = IPrintDialogCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5852a2c3_6530_11d1_b6a3_0000f8757bf9);
@@ -1434,6 +1439,11 @@ impl ::core::cmp::PartialEq for IPrintDialogServices {
     }
 }
 impl ::core::cmp::Eq for IPrintDialogServices {}
+impl ::core::fmt::Debug for IPrintDialogServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintDialogServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintDialogServices {
     type Vtable = IPrintDialogServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509aaeda_5639_11d1_b6a1_0000f8757bf9);

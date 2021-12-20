@@ -1993,6 +1993,11 @@ impl ::core::cmp::PartialEq for IAssemblyCache {
     }
 }
 impl ::core::cmp::Eq for IAssemblyCache {}
+impl ::core::fmt::Debug for IAssemblyCache {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAssemblyCache").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAssemblyCache {
     type Vtable = IAssemblyCacheVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe707dcde_d1cd_11d2_bab9_00c04f8eceae);
@@ -2062,6 +2067,11 @@ impl ::core::cmp::PartialEq for IAssemblyCacheItem {
     }
 }
 impl ::core::cmp::Eq for IAssemblyCacheItem {}
+impl ::core::fmt::Debug for IAssemblyCacheItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAssemblyCacheItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAssemblyCacheItem {
     type Vtable = IAssemblyCacheItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9e3aaeb4_d1cd_11d2_bab9_00c04f8eceae);
@@ -2153,6 +2163,11 @@ impl ::core::cmp::PartialEq for IAssemblyName {
     }
 }
 impl ::core::cmp::Eq for IAssemblyName {}
+impl ::core::fmt::Debug for IAssemblyName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAssemblyName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAssemblyName {
     type Vtable = IAssemblyNameVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd193bc0_b4bc_11d2_9833_00c04fc31d2e);
@@ -2229,6 +2244,11 @@ impl ::core::cmp::PartialEq for IEnumMsmDependency {
     }
 }
 impl ::core::cmp::Eq for IEnumMsmDependency {}
+impl ::core::fmt::Debug for IEnumMsmDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumMsmDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumMsmDependency {
     type Vtable = IEnumMsmDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82c_2c26_11d2_ad65_00a0c9af11a6);
@@ -2297,6 +2317,11 @@ impl ::core::cmp::PartialEq for IEnumMsmError {
     }
 }
 impl ::core::cmp::Eq for IEnumMsmError {}
+impl ::core::fmt::Debug for IEnumMsmError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumMsmError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumMsmError {
     type Vtable = IEnumMsmErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda829_2c26_11d2_ad65_00a0c9af11a6);
@@ -2366,6 +2391,11 @@ impl ::core::cmp::PartialEq for IEnumMsmString {
     }
 }
 impl ::core::cmp::Eq for IEnumMsmString {}
+impl ::core::fmt::Debug for IEnumMsmString {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumMsmString").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumMsmString {
     type Vtable = IEnumMsmStringVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda826_2c26_11d2_ad65_00a0c9af11a6);
@@ -2478,6 +2508,11 @@ impl ::core::cmp::PartialEq for IMsmDependencies {
     }
 }
 impl ::core::cmp::Eq for IMsmDependencies {}
+impl ::core::fmt::Debug for IMsmDependencies {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmDependencies").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmDependencies {
     type Vtable = IMsmDependenciesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82d_2c26_11d2_ad65_00a0c9af11a6);
@@ -2596,6 +2631,11 @@ impl ::core::cmp::PartialEq for IMsmDependency {
     }
 }
 impl ::core::cmp::Eq for IMsmDependency {}
+impl ::core::fmt::Debug for IMsmDependency {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmDependency").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmDependency {
     type Vtable = IMsmDependencyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82b_2c26_11d2_ad65_00a0c9af11a6);
@@ -2735,6 +2775,11 @@ impl ::core::cmp::PartialEq for IMsmError {
     }
 }
 impl ::core::cmp::Eq for IMsmError {}
+impl ::core::fmt::Debug for IMsmError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmError {
     type Vtable = IMsmErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda828_2c26_11d2_ad65_00a0c9af11a6);
@@ -2860,6 +2905,11 @@ impl ::core::cmp::PartialEq for IMsmErrors {
     }
 }
 impl ::core::cmp::Eq for IMsmErrors {}
+impl ::core::fmt::Debug for IMsmErrors {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmErrors").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmErrors {
     type Vtable = IMsmErrorsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82a_2c26_11d2_ad65_00a0c9af11a6);
@@ -2969,6 +3019,11 @@ impl ::core::cmp::PartialEq for IMsmGetFiles {
     }
 }
 impl ::core::cmp::Eq for IMsmGetFiles {}
+impl ::core::fmt::Debug for IMsmGetFiles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmGetFiles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmGetFiles {
     type Vtable = IMsmGetFilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7041ae26_2d78_11d2_888a_00a0c981b015);
@@ -3133,6 +3188,11 @@ impl ::core::cmp::PartialEq for IMsmMerge {
     }
 }
 impl ::core::cmp::Eq for IMsmMerge {}
+impl ::core::fmt::Debug for IMsmMerge {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmMerge").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmMerge {
     type Vtable = IMsmMergeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda82e_2c26_11d2_ad65_00a0c9af11a6);
@@ -3269,6 +3329,11 @@ impl ::core::cmp::PartialEq for IMsmStrings {
     }
 }
 impl ::core::cmp::Eq for IMsmStrings {}
+impl ::core::fmt::Debug for IMsmStrings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsmStrings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsmStrings {
     type Vtable = IMsmStringsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0adda827_2c26_11d2_ad65_00a0c9af11a6);
@@ -3861,6 +3926,11 @@ impl ::core::cmp::PartialEq for IPMApplicationInfo {
     }
 }
 impl ::core::cmp::Eq for IPMApplicationInfo {}
+impl ::core::fmt::Debug for IPMApplicationInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMApplicationInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMApplicationInfo {
     type Vtable = IPMApplicationInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50afb58a_438c_4088_9789_f8c4899829c7);
@@ -4010,6 +4080,11 @@ impl ::core::cmp::PartialEq for IPMApplicationInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMApplicationInfoEnumerator {}
+impl ::core::fmt::Debug for IPMApplicationInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMApplicationInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMApplicationInfoEnumerator {
     type Vtable = IPMApplicationInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0ec42a96_4d46_4dc6_a3d9_a7acaac0f5fa);
@@ -4127,6 +4202,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundServiceAgentInfo {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundServiceAgentInfo {}
+impl ::core::fmt::Debug for IPMBackgroundServiceAgentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundServiceAgentInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundServiceAgentInfo {
     type Vtable = IPMBackgroundServiceAgentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a8b46da_928c_4879_998c_09dc96f3d490);
@@ -4205,6 +4285,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundServiceAgentInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundServiceAgentInfoEnumerator {}
+impl ::core::fmt::Debug for IPMBackgroundServiceAgentInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundServiceAgentInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundServiceAgentInfoEnumerator {
     type Vtable = IPMBackgroundServiceAgentInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18eb2072_ab56_43b3_872c_beafb7a6b391);
@@ -4279,6 +4364,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundWorkerInfo {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundWorkerInfo {}
+impl ::core::fmt::Debug for IPMBackgroundWorkerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundWorkerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundWorkerInfo {
     type Vtable = IPMBackgroundWorkerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7dd4531b_d3bf_4b6b_94f3_69c098b1497d);
@@ -4340,6 +4430,11 @@ impl ::core::cmp::PartialEq for IPMBackgroundWorkerInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMBackgroundWorkerInfoEnumerator {}
+impl ::core::fmt::Debug for IPMBackgroundWorkerInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMBackgroundWorkerInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMBackgroundWorkerInfoEnumerator {
     type Vtable = IPMBackgroundWorkerInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x87f479f8_90d8_4ec7_92b9_72787e2f636b);
@@ -4539,6 +4634,11 @@ impl ::core::cmp::PartialEq for IPMDeploymentManager {
     }
 }
 impl ::core::cmp::Eq for IPMDeploymentManager {}
+impl ::core::fmt::Debug for IPMDeploymentManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMDeploymentManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMDeploymentManager {
     type Vtable = IPMDeploymentManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x35f785fa_1979_4a8b_bc8f_fd70eb0d1544);
@@ -4730,6 +4830,11 @@ impl ::core::cmp::PartialEq for IPMEnumerationManager {
     }
 }
 impl ::core::cmp::Eq for IPMEnumerationManager {}
+impl ::core::fmt::Debug for IPMEnumerationManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMEnumerationManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMEnumerationManager {
     type Vtable = IPMEnumerationManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x698d57c2_292d_4cf3_b73c_d95a6922ed9a);
@@ -4815,6 +4920,11 @@ impl ::core::cmp::PartialEq for IPMExtensionCachedFileUpdaterInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionCachedFileUpdaterInfo {}
+impl ::core::fmt::Debug for IPMExtensionCachedFileUpdaterInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionCachedFileUpdaterInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionCachedFileUpdaterInfo {
     type Vtable = IPMExtensionCachedFileUpdaterInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe2d77509_4e58_4ba9_af7e_b642e370e1b0);
@@ -4869,6 +4979,11 @@ impl ::core::cmp::PartialEq for IPMExtensionContractInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionContractInfo {}
+impl ::core::fmt::Debug for IPMExtensionContractInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionContractInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionContractInfo {
     type Vtable = IPMExtensionContractInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5666373_7ba1_467c_b819_b175db1c295b);
@@ -4953,6 +5068,11 @@ impl ::core::cmp::PartialEq for IPMExtensionFileExtensionInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionFileExtensionInfo {}
+impl ::core::fmt::Debug for IPMExtensionFileExtensionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionFileExtensionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionFileExtensionInfo {
     type Vtable = IPMExtensionFileExtensionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6b87cb6c_0b88_4989_a4ec_033714f710d4);
@@ -5025,6 +5145,11 @@ impl ::core::cmp::PartialEq for IPMExtensionFileOpenPickerInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionFileOpenPickerInfo {}
+impl ::core::fmt::Debug for IPMExtensionFileOpenPickerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionFileOpenPickerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionFileOpenPickerInfo {
     type Vtable = IPMExtensionFileOpenPickerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6dc91d25_9606_420c_9a78_e034a3418345);
@@ -5087,6 +5212,11 @@ impl ::core::cmp::PartialEq for IPMExtensionFileSavePickerInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionFileSavePickerInfo {}
+impl ::core::fmt::Debug for IPMExtensionFileSavePickerInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionFileSavePickerInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionFileSavePickerInfo {
     type Vtable = IPMExtensionFileSavePickerInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x38005cba_f81a_493e_a0f8_922c8680da43);
@@ -5168,6 +5298,11 @@ impl ::core::cmp::PartialEq for IPMExtensionInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionInfo {}
+impl ::core::fmt::Debug for IPMExtensionInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionInfo {
     type Vtable = IPMExtensionInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49acde79_9788_4d0a_8aa0_1746afdb9e9d);
@@ -5231,6 +5366,11 @@ impl ::core::cmp::PartialEq for IPMExtensionInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionInfoEnumerator {}
+impl ::core::fmt::Debug for IPMExtensionInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionInfoEnumerator {
     type Vtable = IPMExtensionInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x403b9e82_1171_4573_8e6f_6f33f39b83dd);
@@ -5284,6 +5424,11 @@ impl ::core::cmp::PartialEq for IPMExtensionProtocolInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionProtocolInfo {}
+impl ::core::fmt::Debug for IPMExtensionProtocolInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionProtocolInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionProtocolInfo {
     type Vtable = IPMExtensionProtocolInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1e3fa036_51eb_4453_baff_b8d8e4b46c8e);
@@ -5351,6 +5496,11 @@ impl ::core::cmp::PartialEq for IPMExtensionShareTargetInfo {
     }
 }
 impl ::core::cmp::Eq for IPMExtensionShareTargetInfo {}
+impl ::core::fmt::Debug for IPMExtensionShareTargetInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMExtensionShareTargetInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMExtensionShareTargetInfo {
     type Vtable = IPMExtensionShareTargetInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5471f48b_c65c_4656_8c70_242e31195fea);
@@ -5517,6 +5667,11 @@ impl ::core::cmp::PartialEq for IPMLiveTileJobInfo {
     }
 }
 impl ::core::cmp::Eq for IPMLiveTileJobInfo {}
+impl ::core::fmt::Debug for IPMLiveTileJobInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMLiveTileJobInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMLiveTileJobInfo {
     type Vtable = IPMLiveTileJobInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6009a81f_4710_4697_b5f6_2208f6057b8e);
@@ -5600,6 +5755,11 @@ impl ::core::cmp::PartialEq for IPMLiveTileJobInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMLiveTileJobInfoEnumerator {}
+impl ::core::fmt::Debug for IPMLiveTileJobInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMLiveTileJobInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMLiveTileJobInfoEnumerator {
     type Vtable = IPMLiveTileJobInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc042582_9415_4f36_9f99_06f104c07c03);
@@ -5751,6 +5911,11 @@ impl ::core::cmp::PartialEq for IPMTaskInfo {
     }
 }
 impl ::core::cmp::Eq for IPMTaskInfo {}
+impl ::core::fmt::Debug for IPMTaskInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTaskInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTaskInfo {
     type Vtable = IPMTaskInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf1d8c33_1bf5_4ee0_b549_6b9dd3834942);
@@ -5836,6 +6001,11 @@ impl ::core::cmp::PartialEq for IPMTaskInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMTaskInfoEnumerator {}
+impl ::core::fmt::Debug for IPMTaskInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTaskInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTaskInfoEnumerator {
     type Vtable = IPMTaskInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0630b0f8_0bbc_4821_be74_c7995166ed2a);
@@ -6003,6 +6173,11 @@ impl ::core::cmp::PartialEq for IPMTileInfo {
     }
 }
 impl ::core::cmp::Eq for IPMTileInfo {}
+impl ::core::fmt::Debug for IPMTileInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTileInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTileInfo {
     type Vtable = IPMTileInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1604833_2b08_4001_82cd_183ad734f752);
@@ -6094,6 +6269,11 @@ impl ::core::cmp::PartialEq for IPMTileInfoEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMTileInfoEnumerator {}
+impl ::core::fmt::Debug for IPMTileInfoEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTileInfoEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTileInfoEnumerator {
     type Vtable = IPMTileInfoEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xded83065_e462_4b2c_acb5_e39cea61c874);
@@ -6142,6 +6322,11 @@ impl ::core::cmp::PartialEq for IPMTilePropertyEnumerator {
     }
 }
 impl ::core::cmp::Eq for IPMTilePropertyEnumerator {}
+impl ::core::fmt::Debug for IPMTilePropertyEnumerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTilePropertyEnumerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTilePropertyEnumerator {
     type Vtable = IPMTilePropertyEnumeratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcc4cd629_9047_4250_aac8_930e47812421);
@@ -6200,6 +6385,11 @@ impl ::core::cmp::PartialEq for IPMTilePropertyInfo {
     }
 }
 impl ::core::cmp::Eq for IPMTilePropertyInfo {}
+impl ::core::fmt::Debug for IPMTilePropertyInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPMTilePropertyInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPMTilePropertyInfo {
     type Vtable = IPMTilePropertyInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c2b8017_1efa_42a7_86c0_6d4b640bf528);
@@ -6285,6 +6475,11 @@ impl ::core::cmp::PartialEq for IValidate {
     }
 }
 impl ::core::cmp::Eq for IValidate {}
+impl ::core::fmt::Debug for IValidate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IValidate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IValidate {
     type Vtable = IValidateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe482e5c6_e31e_4143_a2e6_dbc3d8e4b8d3);

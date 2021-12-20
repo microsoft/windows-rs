@@ -173,6 +173,11 @@ impl ::core::cmp::PartialEq for QuickLink {
     }
 }
 impl ::core::cmp::Eq for QuickLink {}
+impl ::core::fmt::Debug for QuickLink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("QuickLink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for QuickLink {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.QuickLink;{603e4308-f0be-4adc-acc9-8b27ab9cf556})");
 }
@@ -304,6 +309,11 @@ impl ::core::cmp::PartialEq for ShareOperation {
     }
 }
 impl ::core::cmp::Eq for ShareOperation {}
+impl ::core::fmt::Debug for ShareOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ShareOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ShareOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.DataTransfer.ShareTarget.ShareOperation;{2246bab8-d0f8-41c1-a82a-4137db6504fb})");
 }

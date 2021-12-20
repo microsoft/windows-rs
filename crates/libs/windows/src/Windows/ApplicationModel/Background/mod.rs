@@ -61,6 +61,11 @@ impl ::core::cmp::PartialEq for ActivitySensorTrigger {
     }
 }
 impl ::core::cmp::Eq for ActivitySensorTrigger {}
+impl ::core::fmt::Debug for ActivitySensorTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivitySensorTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivitySensorTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ActivitySensorTrigger;{d0dd4342-e37b-4823-a5fe-6b31dfefdeb0})");
 }
@@ -238,6 +243,11 @@ impl ::core::cmp::PartialEq for AppBroadcastTrigger {
     }
 }
 impl ::core::cmp::Eq for AppBroadcastTrigger {}
+impl ::core::fmt::Debug for AppBroadcastTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTrigger;{74d4f496-8d37-44ec-9481-2a0b9854eb48})");
 }
@@ -408,6 +418,11 @@ impl ::core::cmp::PartialEq for AppBroadcastTriggerProviderInfo {
     }
 }
 impl ::core::cmp::Eq for AppBroadcastTriggerProviderInfo {}
+impl ::core::fmt::Debug for AppBroadcastTriggerProviderInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppBroadcastTriggerProviderInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppBroadcastTriggerProviderInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppBroadcastTriggerProviderInfo;{f219352d-9de8-4420-9ce2-5eff8f17376b})");
 }
@@ -501,6 +516,11 @@ impl ::core::cmp::PartialEq for ApplicationTrigger {
     }
 }
 impl ::core::cmp::Eq for ApplicationTrigger {}
+impl ::core::fmt::Debug for ApplicationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTrigger;{0b468630-9574-492c-9e93-1a3ae6335fe9})");
 }
@@ -600,6 +620,11 @@ impl ::core::cmp::PartialEq for ApplicationTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for ApplicationTriggerDetails {}
+impl ::core::fmt::Debug for ApplicationTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ApplicationTriggerDetails;{97dc6ab2-2219-4a9e-9c5e-41d047f76e82})");
 }
@@ -710,6 +735,11 @@ impl ::core::cmp::PartialEq for AppointmentStoreNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for AppointmentStoreNotificationTrigger {}
+impl ::core::fmt::Debug for AppointmentStoreNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AppointmentStoreNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AppointmentStoreNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.AppointmentStoreNotificationTrigger;{64d4040c-c201-42ad-aa2a-e21ba3425b6d})");
 }
@@ -1057,6 +1087,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskBuilder {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskBuilder {}
+impl ::core::fmt::Debug for BackgroundTaskBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskBuilder;{0351550e-3e64-4572-a93a-84075a37c917})");
 }
@@ -1167,6 +1202,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskCanceledEventHandler {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskCanceledEventHandler {}
+impl ::core::fmt::Debug for BackgroundTaskCanceledEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskCanceledEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for BackgroundTaskCanceledEventHandler {
     type Vtable = BackgroundTaskCanceledEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa6c4bac0_51f8_4c57_ac3f_156dd1680c4f);
@@ -1249,6 +1289,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskCompletedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskCompletedEventArgs {}
+impl ::core::fmt::Debug for BackgroundTaskCompletedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskCompletedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskCompletedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskCompletedEventArgs;{565d25cf-f209-48f4-9967-2b184f7bfbf0})");
 }
@@ -1361,6 +1406,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskCompletedEventHandler {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskCompletedEventHandler {}
+impl ::core::fmt::Debug for BackgroundTaskCompletedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskCompletedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for BackgroundTaskCompletedEventHandler {
     type Vtable = BackgroundTaskCompletedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5b38e929_a086_46a7_a678_439135822bcf);
@@ -1392,6 +1442,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskDeferral {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskDeferral {}
+impl ::core::fmt::Debug for BackgroundTaskDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskDeferral;{93cc156d-af27-4dd3-846e-24ee40cadd25})");
 }
@@ -1476,6 +1531,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskProgressEventArgs {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskProgressEventArgs {}
+impl ::core::fmt::Debug for BackgroundTaskProgressEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskProgressEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskProgressEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskProgressEventArgs;{fb1468ac-8332-4d0a-9532-03eae684da31})");
 }
@@ -1588,6 +1648,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskProgressEventHandler {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskProgressEventHandler {}
+impl ::core::fmt::Debug for BackgroundTaskProgressEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskProgressEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for BackgroundTaskProgressEventHandler {
     type Vtable = BackgroundTaskProgressEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x46e0683c_8a88_4c99_804c_76897f6277a6);
@@ -1714,6 +1779,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskRegistration {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskRegistration {}
+impl ::core::fmt::Debug for BackgroundTaskRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistration;{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0})");
 }
@@ -1907,6 +1977,11 @@ impl ::core::cmp::PartialEq for BackgroundTaskRegistrationGroup {
     }
 }
 impl ::core::cmp::Eq for BackgroundTaskRegistrationGroup {}
+impl ::core::fmt::Debug for BackgroundTaskRegistrationGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTaskRegistrationGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTaskRegistrationGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BackgroundTaskRegistrationGroup;{2ab1919a-871b-4167-8a76-055cd67b5b23})");
 }
@@ -2132,6 +2207,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementPublisherTrigger {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementPublisherTrigger {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementPublisherTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementPublisherTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementPublisherTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementPublisherTrigger;{ab3e2612-25d3-48ae-8724-d81877ae6129})");
 }
@@ -2308,6 +2388,11 @@ impl ::core::cmp::PartialEq for BluetoothLEAdvertisementWatcherTrigger {
     }
 }
 impl ::core::cmp::Eq for BluetoothLEAdvertisementWatcherTrigger {}
+impl ::core::fmt::Debug for BluetoothLEAdvertisementWatcherTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BluetoothLEAdvertisementWatcherTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BluetoothLEAdvertisementWatcherTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.BluetoothLEAdvertisementWatcherTrigger;{1aab1819-bce1-48eb-a827-59fb7cee52a6})");
 }
@@ -2405,6 +2490,11 @@ impl ::core::cmp::PartialEq for CachedFileUpdaterTrigger {
     }
 }
 impl ::core::cmp::Eq for CachedFileUpdaterTrigger {}
+impl ::core::fmt::Debug for CachedFileUpdaterTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileUpdaterTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTrigger;{e21caeeb-32f2-4d31-b553-b9e01bde37e0})");
 }
@@ -2521,6 +2611,11 @@ impl ::core::cmp::PartialEq for CachedFileUpdaterTriggerDetails {
     }
 }
 impl ::core::cmp::Eq for CachedFileUpdaterTriggerDetails {}
+impl ::core::fmt::Debug for CachedFileUpdaterTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CachedFileUpdaterTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CachedFileUpdaterTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CachedFileUpdaterTriggerDetails;{71838c13-1314-47b4-9597-dc7e248c17cc})");
 }
@@ -2596,6 +2691,11 @@ impl ::core::cmp::PartialEq for ChatMessageNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for ChatMessageNotificationTrigger {}
+impl ::core::fmt::Debug for ChatMessageNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageNotificationTrigger;{513b43bf-1d40-5c5d-78f5-c923fee3739e})");
 }
@@ -2693,6 +2793,11 @@ impl ::core::cmp::PartialEq for ChatMessageReceivedNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for ChatMessageReceivedNotificationTrigger {}
+impl ::core::fmt::Debug for ChatMessageReceivedNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ChatMessageReceivedNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ChatMessageReceivedNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ChatMessageReceivedNotificationTrigger;{3ea3760e-baf5-4077-88e9-060cf6f0c6d5})");
 }
@@ -2790,6 +2895,11 @@ impl ::core::cmp::PartialEq for CommunicationBlockingAppSetAsActiveTrigger {
     }
 }
 impl ::core::cmp::Eq for CommunicationBlockingAppSetAsActiveTrigger {}
+impl ::core::fmt::Debug for CommunicationBlockingAppSetAsActiveTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CommunicationBlockingAppSetAsActiveTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CommunicationBlockingAppSetAsActiveTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CommunicationBlockingAppSetAsActiveTrigger;{fb91f28a-16a5-486d-974c-7835a8477be2})");
 }
@@ -2887,6 +2997,11 @@ impl ::core::cmp::PartialEq for ContactStoreNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for ContactStoreNotificationTrigger {}
+impl ::core::fmt::Debug for ContactStoreNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContactStoreNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContactStoreNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContactStoreNotificationTrigger;{c833419b-4705-4571-9a16-06b997bf9c96})");
 }
@@ -3006,6 +3121,11 @@ impl ::core::cmp::PartialEq for ContentPrefetchTrigger {
     }
 }
 impl ::core::cmp::Eq for ContentPrefetchTrigger {}
+impl ::core::fmt::Debug for ContentPrefetchTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ContentPrefetchTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ContentPrefetchTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ContentPrefetchTrigger;{710627ee-04fa-440b-80c0-173202199e5d})");
 }
@@ -3101,6 +3221,11 @@ impl ::core::cmp::PartialEq for ConversationalAgentTrigger {
     }
 }
 impl ::core::cmp::Eq for ConversationalAgentTrigger {}
+impl ::core::fmt::Debug for ConversationalAgentTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ConversationalAgentTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ConversationalAgentTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ConversationalAgentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -3217,6 +3342,11 @@ impl ::core::cmp::PartialEq for CustomSystemEventTrigger {
     }
 }
 impl ::core::cmp::Eq for CustomSystemEventTrigger {}
+impl ::core::fmt::Debug for CustomSystemEventTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CustomSystemEventTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CustomSystemEventTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.CustomSystemEventTrigger;{f3596798-cf6b-4ef4-a0ca-29cf4a278c87})");
 }
@@ -3380,6 +3510,11 @@ impl ::core::cmp::PartialEq for DeviceConnectionChangeTrigger {
     }
 }
 impl ::core::cmp::Eq for DeviceConnectionChangeTrigger {}
+impl ::core::fmt::Debug for DeviceConnectionChangeTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceConnectionChangeTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceConnectionChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceConnectionChangeTrigger;{90875e64-3cdd-4efb-ab1c-5b3b6a60ce34})");
 }
@@ -3508,6 +3643,12 @@ impl ::core::cmp::PartialEq for DeviceManufacturerNotificationTrigger {
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for DeviceManufacturerNotificationTrigger {}
 #[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for DeviceManufacturerNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceManufacturerNotificationTrigger").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for DeviceManufacturerNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceManufacturerNotificationTrigger;{81278ab5-41ab-16da-86c2-7f7bf0912f5b})");
 }
@@ -3635,6 +3776,11 @@ impl ::core::cmp::PartialEq for DeviceServicingTrigger {
     }
 }
 impl ::core::cmp::Eq for DeviceServicingTrigger {}
+impl ::core::fmt::Debug for DeviceServicingTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceServicingTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceServicingTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceServicingTrigger;{1ab217ad-6e34-49d3-9e6f-17f1b6dfa881})");
 }
@@ -3785,6 +3931,11 @@ impl ::core::cmp::PartialEq for DeviceUseTrigger {
     }
 }
 impl ::core::cmp::Eq for DeviceUseTrigger {}
+impl ::core::fmt::Debug for DeviceUseTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceUseTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceUseTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceUseTrigger;{0da68011-334f-4d57-b6ec-6dca64b412e4})");
 }
@@ -3874,6 +4025,11 @@ impl ::core::cmp::PartialEq for DeviceWatcherTrigger {
     }
 }
 impl ::core::cmp::Eq for DeviceWatcherTrigger {}
+impl ::core::fmt::Debug for DeviceWatcherTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DeviceWatcherTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DeviceWatcherTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.DeviceWatcherTrigger;{a4617fdd-8573-4260-befc-5bec89cb693d})");
 }
@@ -3969,6 +4125,11 @@ impl ::core::cmp::PartialEq for EmailStoreNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for EmailStoreNotificationTrigger {}
+impl ::core::fmt::Debug for EmailStoreNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EmailStoreNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EmailStoreNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.EmailStoreNotificationTrigger;{986d06da-47eb-4268-a4f2-f3f77188388a})");
 }
@@ -4103,6 +4264,11 @@ impl ::core::cmp::PartialEq for GattCharacteristicNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for GattCharacteristicNotificationTrigger {}
+impl ::core::fmt::Debug for GattCharacteristicNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattCharacteristicNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattCharacteristicNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattCharacteristicNotificationTrigger;{e25f8fc8-0696-474f-a732-f292b0cebc5d})");
 }
@@ -4238,6 +4404,11 @@ impl ::core::cmp::PartialEq for GattServiceProviderTrigger {
     }
 }
 impl ::core::cmp::Eq for GattServiceProviderTrigger {}
+impl ::core::fmt::Debug for GattServiceProviderTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTrigger;{ddc6a3e9-1557-4bd8-8542-468aa0c696f6})");
 }
@@ -4345,6 +4516,11 @@ impl ::core::cmp::PartialEq for GattServiceProviderTriggerResult {
     }
 }
 impl ::core::cmp::Eq for GattServiceProviderTriggerResult {}
+impl ::core::fmt::Debug for GattServiceProviderTriggerResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GattServiceProviderTriggerResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GattServiceProviderTriggerResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GattServiceProviderTriggerResult;{3c4691b1-b198-4e84-bad4-cf4ad299ed3a})");
 }
@@ -4435,6 +4611,11 @@ impl ::core::cmp::PartialEq for GeovisitTrigger {
     }
 }
 impl ::core::cmp::Eq for GeovisitTrigger {}
+impl ::core::fmt::Debug for GeovisitTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeovisitTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeovisitTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.GeovisitTrigger;{4818edaa-04e1-4127-9a4c-19351b8a80a4})");
 }
@@ -4750,6 +4931,11 @@ impl ::core::cmp::PartialEq for IBackgroundCondition {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCondition {}
+impl ::core::fmt::Debug for IBackgroundCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundCondition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ae48a1ee-8951-400a-8302-9c9c9a2a3a3b}");
 }
@@ -4893,6 +5079,11 @@ impl ::core::cmp::PartialEq for IBackgroundTask {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTask {}
+impl ::core::fmt::Debug for IBackgroundTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTask {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7d13d534-fd12-43ce-8c22-ea1ff13c06df}");
 }
@@ -5171,6 +5362,11 @@ impl ::core::cmp::PartialEq for IBackgroundTaskInstance {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTaskInstance {}
+impl ::core::fmt::Debug for IBackgroundTaskInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTaskInstance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{865bda7a-21d8-4573-8f32-928a1b0641f6}");
 }
@@ -5353,6 +5549,11 @@ impl ::core::cmp::PartialEq for IBackgroundTaskInstance2 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTaskInstance2 {}
+impl ::core::fmt::Debug for IBackgroundTaskInstance2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTaskInstance2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{4f7d0176-0c76-4fb4-896d-5de1864122f6}");
 }
@@ -5526,6 +5727,11 @@ impl ::core::cmp::PartialEq for IBackgroundTaskInstance4 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTaskInstance4 {}
+impl ::core::fmt::Debug for IBackgroundTaskInstance4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTaskInstance4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskInstance4 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7f29f23c-aa04-4b08-97b0-06d874cdabf5}");
 }
@@ -5671,6 +5877,11 @@ impl ::core::cmp::PartialEq for IBackgroundTaskRegistration {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTaskRegistration {}
+impl ::core::fmt::Debug for IBackgroundTaskRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTaskRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{10654cc2-a26e-43bf-8c12-1fb40dbfbfa0}");
 }
@@ -5836,6 +6047,11 @@ impl ::core::cmp::PartialEq for IBackgroundTaskRegistration2 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTaskRegistration2 {}
+impl ::core::fmt::Debug for IBackgroundTaskRegistration2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTaskRegistration2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration2 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{6138c703-bb86-4112-afc3-7f939b166e3b}");
 }
@@ -5991,6 +6207,11 @@ impl ::core::cmp::PartialEq for IBackgroundTaskRegistration3 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTaskRegistration3 {}
+impl ::core::fmt::Debug for IBackgroundTaskRegistration3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTaskRegistration3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTaskRegistration3 {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{fe338195-9423-4d8b-830d-b1dd2c7badd5}");
 }
@@ -6147,6 +6368,11 @@ impl ::core::cmp::PartialEq for IBackgroundTrigger {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTrigger {}
+impl ::core::fmt::Debug for IBackgroundTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{84b3a058-6027-4b87-9790-bdf3f757dbd7}");
 }
@@ -7425,6 +7651,11 @@ impl ::core::cmp::PartialEq for LocationTrigger {
     }
 }
 impl ::core::cmp::Eq for LocationTrigger {}
+impl ::core::fmt::Debug for LocationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LocationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LocationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.LocationTrigger;{47666a1c-6877-481e-8026-ff7e14a811a0})");
 }
@@ -7575,6 +7806,11 @@ impl ::core::cmp::PartialEq for MaintenanceTrigger {
     }
 }
 impl ::core::cmp::Eq for MaintenanceTrigger {}
+impl ::core::fmt::Debug for MaintenanceTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MaintenanceTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MaintenanceTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MaintenanceTrigger;{68184c83-fc22-4ce5-841a-7239a9810047})");
 }
@@ -7688,6 +7924,11 @@ impl ::core::cmp::PartialEq for MediaProcessingTrigger {
     }
 }
 impl ::core::cmp::Eq for MediaProcessingTrigger {}
+impl ::core::fmt::Debug for MediaProcessingTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MediaProcessingTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MediaProcessingTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MediaProcessingTrigger;{9a95be65-8a52-4b30-9011-cf38040ea8b0})");
 }
@@ -7818,6 +8059,11 @@ impl ::core::cmp::PartialEq for MobileBroadbandDeviceServiceNotificationTrigger 
     }
 }
 impl ::core::cmp::Eq for MobileBroadbandDeviceServiceNotificationTrigger {}
+impl ::core::fmt::Debug for MobileBroadbandDeviceServiceNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandDeviceServiceNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandDeviceServiceNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandDeviceServiceNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -7915,6 +8161,11 @@ impl ::core::cmp::PartialEq for MobileBroadbandPcoDataChangeTrigger {
     }
 }
 impl ::core::cmp::Eq for MobileBroadbandPcoDataChangeTrigger {}
+impl ::core::fmt::Debug for MobileBroadbandPcoDataChangeTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandPcoDataChangeTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandPcoDataChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPcoDataChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -8012,6 +8263,11 @@ impl ::core::cmp::PartialEq for MobileBroadbandPinLockStateChangeTrigger {
     }
 }
 impl ::core::cmp::Eq for MobileBroadbandPinLockStateChangeTrigger {}
+impl ::core::fmt::Debug for MobileBroadbandPinLockStateChangeTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandPinLockStateChangeTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandPinLockStateChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandPinLockStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -8109,6 +8365,11 @@ impl ::core::cmp::PartialEq for MobileBroadbandRadioStateChangeTrigger {
     }
 }
 impl ::core::cmp::Eq for MobileBroadbandRadioStateChangeTrigger {}
+impl ::core::fmt::Debug for MobileBroadbandRadioStateChangeTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandRadioStateChangeTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandRadioStateChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRadioStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -8206,6 +8467,11 @@ impl ::core::cmp::PartialEq for MobileBroadbandRegistrationStateChangeTrigger {
     }
 }
 impl ::core::cmp::Eq for MobileBroadbandRegistrationStateChangeTrigger {}
+impl ::core::fmt::Debug for MobileBroadbandRegistrationStateChangeTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MobileBroadbandRegistrationStateChangeTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MobileBroadbandRegistrationStateChangeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.MobileBroadbandRegistrationStateChangeTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -8303,6 +8569,11 @@ impl ::core::cmp::PartialEq for NetworkOperatorDataUsageTrigger {
     }
 }
 impl ::core::cmp::Eq for NetworkOperatorDataUsageTrigger {}
+impl ::core::fmt::Debug for NetworkOperatorDataUsageTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkOperatorDataUsageTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorDataUsageTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorDataUsageTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -8400,6 +8671,11 @@ impl ::core::cmp::PartialEq for NetworkOperatorHotspotAuthenticationTrigger {
     }
 }
 impl ::core::cmp::Eq for NetworkOperatorHotspotAuthenticationTrigger {}
+impl ::core::fmt::Debug for NetworkOperatorHotspotAuthenticationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkOperatorHotspotAuthenticationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorHotspotAuthenticationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorHotspotAuthenticationTrigger;{e756c791-3001-4de5-83c7-de61d88831d0})");
 }
@@ -8508,6 +8784,11 @@ impl ::core::cmp::PartialEq for NetworkOperatorNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for NetworkOperatorNotificationTrigger {}
+impl ::core::fmt::Debug for NetworkOperatorNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NetworkOperatorNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NetworkOperatorNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.NetworkOperatorNotificationTrigger;{90089cc6-63cd-480c-95d1-6e6aef801e4a})");
 }
@@ -8603,6 +8884,11 @@ impl ::core::cmp::PartialEq for PaymentAppCanMakePaymentTrigger {
     }
 }
 impl ::core::cmp::Eq for PaymentAppCanMakePaymentTrigger {}
+impl ::core::fmt::Debug for PaymentAppCanMakePaymentTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentAppCanMakePaymentTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentAppCanMakePaymentTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PaymentAppCanMakePaymentTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -8723,6 +9009,11 @@ impl ::core::cmp::PartialEq for PhoneTrigger {
     }
 }
 impl ::core::cmp::Eq for PhoneTrigger {}
+impl ::core::fmt::Debug for PhoneTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PhoneTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PhoneTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PhoneTrigger;{8dcfe99b-d4c5-49f1-b7d3-82e87a0e9dde})");
 }
@@ -8832,6 +9123,11 @@ impl ::core::cmp::PartialEq for PushNotificationTrigger {
     }
 }
 impl ::core::cmp::Eq for PushNotificationTrigger {}
+impl ::core::fmt::Debug for PushNotificationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PushNotificationTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PushNotificationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.PushNotificationTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -8929,6 +9225,11 @@ impl ::core::cmp::PartialEq for RcsEndUserMessageAvailableTrigger {
     }
 }
 impl ::core::cmp::Eq for RcsEndUserMessageAvailableTrigger {}
+impl ::core::fmt::Debug for RcsEndUserMessageAvailableTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RcsEndUserMessageAvailableTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RcsEndUserMessageAvailableTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RcsEndUserMessageAvailableTrigger;{986d0d6a-b2f6-467f-a978-a44091c11a66})");
 }
@@ -9087,6 +9388,11 @@ impl ::core::cmp::PartialEq for RfcommConnectionTrigger {
     }
 }
 impl ::core::cmp::Eq for RfcommConnectionTrigger {}
+impl ::core::fmt::Debug for RfcommConnectionTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RfcommConnectionTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RfcommConnectionTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.RfcommConnectionTrigger;{e8c4cae2-0b53-4464-9394-fd875654de64})");
 }
@@ -9189,6 +9495,12 @@ impl ::core::cmp::PartialEq for SecondaryAuthenticationFactorAuthenticationTrigg
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for SecondaryAuthenticationFactorAuthenticationTrigger {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for SecondaryAuthenticationFactorAuthenticationTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SecondaryAuthenticationFactorAuthenticationTrigger").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for SecondaryAuthenticationFactorAuthenticationTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SecondaryAuthenticationFactorAuthenticationTrigger;{f237f327-5181-4f24-96a7-700a4e5fac62})");
@@ -9305,6 +9617,11 @@ impl ::core::cmp::PartialEq for SensorDataThresholdTrigger {
     }
 }
 impl ::core::cmp::Eq for SensorDataThresholdTrigger {}
+impl ::core::fmt::Debug for SensorDataThresholdTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SensorDataThresholdTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SensorDataThresholdTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SensorDataThresholdTrigger;{5bc0f372-d48b-4b7f-abec-15f9bacc12e2})");
 }
@@ -9417,6 +9734,11 @@ impl ::core::cmp::PartialEq for SmartCardTrigger {
     }
 }
 impl ::core::cmp::Eq for SmartCardTrigger {}
+impl ::core::fmt::Debug for SmartCardTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmartCardTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmartCardTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmartCardTrigger;{f53bc5ac-84ca-4972-8ce9-e58f97b37a50})");
 }
@@ -9518,6 +9840,11 @@ impl ::core::cmp::PartialEq for SmsMessageReceivedTrigger {
     }
 }
 impl ::core::cmp::Eq for SmsMessageReceivedTrigger {}
+impl ::core::fmt::Debug for SmsMessageReceivedTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SmsMessageReceivedTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SmsMessageReceivedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SmsMessageReceivedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -9623,6 +9950,11 @@ impl ::core::cmp::PartialEq for SocketActivityTrigger {
     }
 }
 impl ::core::cmp::Eq for SocketActivityTrigger {}
+impl ::core::fmt::Debug for SocketActivityTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SocketActivityTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SocketActivityTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SocketActivityTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -9726,6 +10058,11 @@ impl ::core::cmp::PartialEq for StorageLibraryChangeTrackerTrigger {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryChangeTrackerTrigger {}
+impl ::core::fmt::Debug for StorageLibraryChangeTrackerTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryChangeTrackerTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryChangeTrackerTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryChangeTrackerTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -9837,6 +10174,11 @@ impl ::core::cmp::PartialEq for StorageLibraryContentChangedTrigger {
     }
 }
 impl ::core::cmp::Eq for StorageLibraryContentChangedTrigger {}
+impl ::core::fmt::Debug for StorageLibraryContentChangedTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StorageLibraryContentChangedTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StorageLibraryContentChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.StorageLibraryContentChangedTrigger;{1637e0a7-829c-45bc-929b-a1e7ea78d89b})");
 }
@@ -9945,6 +10287,11 @@ impl ::core::cmp::PartialEq for SystemCondition {
     }
 }
 impl ::core::cmp::Eq for SystemCondition {}
+impl ::core::fmt::Debug for SystemCondition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemCondition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemCondition {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemCondition;{c15fb476-89c5-420b-abd3-fb3030472128})");
 }
@@ -10101,6 +10448,11 @@ impl ::core::cmp::PartialEq for SystemTrigger {
     }
 }
 impl ::core::cmp::Eq for SystemTrigger {}
+impl ::core::fmt::Debug for SystemTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SystemTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SystemTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.SystemTrigger;{1d80c776-3748-4463-8d7e-276dc139ac1c})");
 }
@@ -10243,6 +10595,11 @@ impl ::core::cmp::PartialEq for TetheringEntitlementCheckTrigger {
     }
 }
 impl ::core::cmp::Eq for TetheringEntitlementCheckTrigger {}
+impl ::core::fmt::Debug for TetheringEntitlementCheckTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TetheringEntitlementCheckTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TetheringEntitlementCheckTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TetheringEntitlementCheckTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -10361,6 +10718,11 @@ impl ::core::cmp::PartialEq for TimeTrigger {
     }
 }
 impl ::core::cmp::Eq for TimeTrigger {}
+impl ::core::fmt::Debug for TimeTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TimeTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TimeTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.TimeTrigger;{656e5556-0b2a-4377-ba70-3b45a935547f})");
 }
@@ -10468,6 +10830,11 @@ impl ::core::cmp::PartialEq for ToastNotificationActionTrigger {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationActionTrigger {}
+impl ::core::fmt::Debug for ToastNotificationActionTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationActionTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationActionTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationActionTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -10577,6 +10944,11 @@ impl ::core::cmp::PartialEq for ToastNotificationHistoryChangedTrigger {
     }
 }
 impl ::core::cmp::Eq for ToastNotificationHistoryChangedTrigger {}
+impl ::core::fmt::Debug for ToastNotificationHistoryChangedTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ToastNotificationHistoryChangedTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ToastNotificationHistoryChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.ToastNotificationHistoryChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }
@@ -10680,6 +11052,11 @@ impl ::core::cmp::PartialEq for UserNotificationChangedTrigger {
     }
 }
 impl ::core::cmp::Eq for UserNotificationChangedTrigger {}
+impl ::core::fmt::Debug for UserNotificationChangedTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UserNotificationChangedTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UserNotificationChangedTrigger {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Background.UserNotificationChangedTrigger;{84b3a058-6027-4b87-9790-bdf3f757dbd7})");
 }

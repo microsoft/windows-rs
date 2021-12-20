@@ -125,6 +125,11 @@ impl ::core::cmp::PartialEq for IChannelCredentials {
     }
 }
 impl ::core::cmp::Eq for IChannelCredentials {}
+impl ::core::fmt::Debug for IChannelCredentials {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IChannelCredentials").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IChannelCredentials {
     type Vtable = IChannelCredentialsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181b448c_c17c_4b17_ac6d_06699b93198f);

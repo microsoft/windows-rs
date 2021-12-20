@@ -109,6 +109,11 @@ impl ::core::cmp::PartialEq for Geofence {
     }
 }
 impl ::core::cmp::Eq for Geofence {}
+impl ::core::fmt::Debug for Geofence {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Geofence").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Geofence {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.Geofence;{9c090823-edb8-47e0-8245-5bf61d321f2d})");
 }
@@ -253,6 +258,11 @@ impl ::core::cmp::PartialEq for GeofenceMonitor {
     }
 }
 impl ::core::cmp::Eq for GeofenceMonitor {}
+impl ::core::fmt::Debug for GeofenceMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceMonitor;{4c0f5f78-1c1f-4621-bbbd-833b92247226})");
 }
@@ -458,6 +468,11 @@ impl ::core::cmp::PartialEq for GeofenceStateChangeReport {
     }
 }
 impl ::core::cmp::Eq for GeofenceStateChangeReport {}
+impl ::core::fmt::Debug for GeofenceStateChangeReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GeofenceStateChangeReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GeofenceStateChangeReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Geolocation.Geofencing.GeofenceStateChangeReport;{9a243c18-2464-4c89-be05-b3ffff5babc5})");
 }

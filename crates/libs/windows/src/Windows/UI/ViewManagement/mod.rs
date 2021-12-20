@@ -55,6 +55,11 @@ impl ::core::cmp::PartialEq for AccessibilitySettings {
     }
 }
 impl ::core::cmp::Eq for AccessibilitySettings {}
+impl ::core::fmt::Debug for AccessibilitySettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AccessibilitySettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AccessibilitySettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.AccessibilitySettings;{fe0e8147-c4c0-4562-b962-1327b52ad5b9})");
 }
@@ -149,6 +154,11 @@ impl ::core::cmp::PartialEq for ActivationViewSwitcher {
     }
 }
 impl ::core::cmp::Eq for ActivationViewSwitcher {}
+impl ::core::fmt::Debug for ActivationViewSwitcher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivationViewSwitcher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivationViewSwitcher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ActivationViewSwitcher;{dca71bb6-7350-492b-aac7-c8a13d7224ad})");
 }
@@ -620,6 +630,11 @@ impl ::core::cmp::PartialEq for ApplicationView {
     }
 }
 impl ::core::cmp::Eq for ApplicationView {}
+impl ::core::fmt::Debug for ApplicationView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationView;{d222d519-4361-451e-96c4-60f4f9742db0})");
 }
@@ -737,6 +752,11 @@ impl ::core::cmp::PartialEq for ApplicationViewConsolidatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewConsolidatedEventArgs {}
+impl ::core::fmt::Debug for ApplicationViewConsolidatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewConsolidatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewConsolidatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewConsolidatedEventArgs;{514449ec-7ea2-4de7-a6a6-7dfbaaebb6fb})");
 }
@@ -890,6 +910,11 @@ impl ::core::cmp::PartialEq for ApplicationViewScaling {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewScaling {}
+impl ::core::fmt::Debug for ApplicationViewScaling {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewScaling").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewScaling {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewScaling;{1d0ddc23-23f3-4b2d-84fe-74bf37b48b66})");
 }
@@ -1317,6 +1342,11 @@ impl ::core::cmp::PartialEq for ApplicationViewTitleBar {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewTitleBar {}
+impl ::core::fmt::Debug for ApplicationViewTitleBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewTitleBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewTitleBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTitleBar;{00924ac0-932b-4a6b-9c4b-dc38c82478ce})");
 }
@@ -1417,6 +1447,11 @@ impl ::core::cmp::PartialEq for ApplicationViewTransferContext {
     }
 }
 impl ::core::cmp::Eq for ApplicationViewTransferContext {}
+impl ::core::fmt::Debug for ApplicationViewTransferContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ApplicationViewTransferContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ApplicationViewTransferContext {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ApplicationViewTransferContext;{8574bc63-3c17-408e-9408-8a1a9ea81bfa})");
 }
@@ -2802,6 +2837,11 @@ impl ::core::cmp::PartialEq for InputPane {
     }
 }
 impl ::core::cmp::Eq for InputPane {}
+impl ::core::fmt::Debug for InputPane {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputPane").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputPane {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.InputPane;{640ada70-06f3-4c87-a678-9829c9127c28})");
 }
@@ -2890,6 +2930,11 @@ impl ::core::cmp::PartialEq for InputPaneVisibilityEventArgs {
     }
 }
 impl ::core::cmp::Eq for InputPaneVisibilityEventArgs {}
+impl ::core::fmt::Debug for InputPaneVisibilityEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InputPaneVisibilityEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InputPaneVisibilityEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.InputPaneVisibilityEventArgs;{d243e016-d907-4fcc-bb8d-f77baa5028f1})");
 }
@@ -3168,6 +3213,11 @@ impl ::core::cmp::PartialEq for StatusBar {
     }
 }
 impl ::core::cmp::Eq for StatusBar {}
+impl ::core::fmt::Debug for StatusBar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StatusBar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StatusBar {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.StatusBar;{0ffcc5bf-98d0-4864-b1e8-b3f4020be8b4})");
 }
@@ -3282,6 +3332,11 @@ impl ::core::cmp::PartialEq for StatusBarProgressIndicator {
     }
 }
 impl ::core::cmp::Eq for StatusBarProgressIndicator {}
+impl ::core::fmt::Debug for StatusBarProgressIndicator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StatusBarProgressIndicator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StatusBarProgressIndicator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.StatusBarProgressIndicator;{76cb2670-a3d7-49cf-8200-4f3eedca27bb})");
 }
@@ -3685,6 +3740,11 @@ impl ::core::cmp::PartialEq for UISettings {
     }
 }
 impl ::core::cmp::Eq for UISettings {}
+impl ::core::fmt::Debug for UISettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UISettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UISettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettings;{85361600-1c63-4627-bcb1-3a89e0bc9c55})");
 }
@@ -3752,6 +3812,11 @@ impl ::core::cmp::PartialEq for UISettingsAnimationsEnabledChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UISettingsAnimationsEnabledChangedEventArgs {}
+impl ::core::fmt::Debug for UISettingsAnimationsEnabledChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UISettingsAnimationsEnabledChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UISettingsAnimationsEnabledChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAnimationsEnabledChangedEventArgs;{0c7b4b3d-2ea1-533e-894d-415bc5243c29})");
 }
@@ -3819,6 +3884,11 @@ impl ::core::cmp::PartialEq for UISettingsAutoHideScrollBarsChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UISettingsAutoHideScrollBarsChangedEventArgs {}
+impl ::core::fmt::Debug for UISettingsAutoHideScrollBarsChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UISettingsAutoHideScrollBarsChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UISettingsAutoHideScrollBarsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsAutoHideScrollBarsChangedEventArgs;{87afd4b2-9146-5f02-8f6b-06d454174c0f})");
 }
@@ -3886,6 +3956,11 @@ impl ::core::cmp::PartialEq for UISettingsMessageDurationChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for UISettingsMessageDurationChangedEventArgs {}
+impl ::core::fmt::Debug for UISettingsMessageDurationChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UISettingsMessageDurationChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UISettingsMessageDurationChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UISettingsMessageDurationChangedEventArgs;{338aad52-4a5d-5b59-8002-d930f608fd6e})");
 }
@@ -3974,6 +4049,11 @@ impl ::core::cmp::PartialEq for UIViewSettings {
     }
 }
 impl ::core::cmp::Eq for UIViewSettings {}
+impl ::core::fmt::Debug for UIViewSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UIViewSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UIViewSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.UIViewSettings;{c63657f6-8850-470d-88f8-455e16ea2c26})");
 }
@@ -4115,6 +4195,11 @@ impl ::core::cmp::PartialEq for ViewModePreferences {
     }
 }
 impl ::core::cmp::Eq for ViewModePreferences {}
+impl ::core::fmt::Debug for ViewModePreferences {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ViewModePreferences").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ViewModePreferences {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.ViewModePreferences;{878fcd3a-0b99-42c9-84d0-d3f1d403554b})");
 }

@@ -1267,6 +1267,11 @@ impl ::core::cmp::PartialEq for IMXAttributes {
     }
 }
 impl ::core::cmp::Eq for IMXAttributes {}
+impl ::core::fmt::Debug for IMXAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMXAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMXAttributes {
     type Vtable = IMXAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf10d27cc_3ec0_415c_8ed8_77ab1c5e7262);
@@ -1387,6 +1392,11 @@ impl ::core::cmp::PartialEq for IMXNamespaceManager {
     }
 }
 impl ::core::cmp::Eq for IMXNamespaceManager {}
+impl ::core::fmt::Debug for IMXNamespaceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMXNamespaceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMXNamespaceManager {
     type Vtable = IMXNamespaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f6_643c_4fbc_bb23_e996eb2d51fd);
@@ -1510,6 +1520,11 @@ impl ::core::cmp::PartialEq for IMXNamespacePrefixes {
     }
 }
 impl ::core::cmp::Eq for IMXNamespacePrefixes {}
+impl ::core::fmt::Debug for IMXNamespacePrefixes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMXNamespacePrefixes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMXNamespacePrefixes {
     type Vtable = IMXNamespacePrefixesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f4_643c_4fbc_bb23_e996eb2d51fd);
@@ -1627,6 +1642,11 @@ impl ::core::cmp::PartialEq for IMXReaderControl {
     }
 }
 impl ::core::cmp::Eq for IMXReaderControl {}
+impl ::core::fmt::Debug for IMXReaderControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMXReaderControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMXReaderControl {
     type Vtable = IMXReaderControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x808f4e35_8d5a_4fbe_8466_33a41279ed30);
@@ -1735,6 +1755,11 @@ impl ::core::cmp::PartialEq for IMXSchemaDeclHandler {
     }
 }
 impl ::core::cmp::Eq for IMXSchemaDeclHandler {}
+impl ::core::fmt::Debug for IMXSchemaDeclHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMXSchemaDeclHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMXSchemaDeclHandler {
     type Vtable = IMXSchemaDeclHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfa4bb38c_faf9_4cca_9302_d1dd0fe520db);
@@ -1919,6 +1944,11 @@ impl ::core::cmp::PartialEq for IMXWriter {
     }
 }
 impl ::core::cmp::Eq for IMXWriter {}
+impl ::core::fmt::Debug for IMXWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMXWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMXWriter {
     type Vtable = IMXWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d7ff4ba_1565_4ea8_94e1_6e724a46f98d);
@@ -2101,6 +2131,11 @@ impl ::core::cmp::PartialEq for IMXXMLFilter {
     }
 }
 impl ::core::cmp::Eq for IMXXMLFilter {}
+impl ::core::fmt::Debug for IMXXMLFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMXXMLFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMXXMLFilter {
     type Vtable = IMXXMLFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f7_643c_4fbc_bb23_e996eb2d51fd);
@@ -2233,6 +2268,11 @@ impl ::core::cmp::PartialEq for ISAXAttributes {
     }
 }
 impl ::core::cmp::Eq for ISAXAttributes {}
+impl ::core::fmt::Debug for ISAXAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXAttributes {
     type Vtable = ISAXAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf078abe1_45d2_4832_91ea_4466ce2f25c9);
@@ -2351,6 +2391,11 @@ impl ::core::cmp::PartialEq for ISAXContentHandler {
     }
 }
 impl ::core::cmp::Eq for ISAXContentHandler {}
+impl ::core::fmt::Debug for ISAXContentHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXContentHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXContentHandler {
     type Vtable = ISAXContentHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1545cdfa_9e4e_4497_a8a4_2bf7d0112c44);
@@ -2427,6 +2472,11 @@ impl ::core::cmp::PartialEq for ISAXDTDHandler {
     }
 }
 impl ::core::cmp::Eq for ISAXDTDHandler {}
+impl ::core::fmt::Debug for ISAXDTDHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXDTDHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXDTDHandler {
     type Vtable = ISAXDTDHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe15c1baf_afb3_4d60_8c36_19a8c45defed);
@@ -2498,6 +2548,11 @@ impl ::core::cmp::PartialEq for ISAXDeclHandler {
     }
 }
 impl ::core::cmp::Eq for ISAXDeclHandler {}
+impl ::core::fmt::Debug for ISAXDeclHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXDeclHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXDeclHandler {
     type Vtable = ISAXDeclHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x862629ac_771a_47b2_8337_4e6843c1be90);
@@ -2559,6 +2614,11 @@ impl ::core::cmp::PartialEq for ISAXEntityResolver {
     }
 }
 impl ::core::cmp::Eq for ISAXEntityResolver {}
+impl ::core::fmt::Debug for ISAXEntityResolver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXEntityResolver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXEntityResolver {
     type Vtable = ISAXEntityResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x99bca7bd_e8c4_4d5f_a0cf_6d907901ff07);
@@ -2623,6 +2683,11 @@ impl ::core::cmp::PartialEq for ISAXErrorHandler {
     }
 }
 impl ::core::cmp::Eq for ISAXErrorHandler {}
+impl ::core::fmt::Debug for ISAXErrorHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXErrorHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXErrorHandler {
     type Vtable = ISAXErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa60511c4_ccf5_479e_98a3_dc8dc545b7d0);
@@ -2708,6 +2773,11 @@ impl ::core::cmp::PartialEq for ISAXLexicalHandler {
     }
 }
 impl ::core::cmp::Eq for ISAXLexicalHandler {}
+impl ::core::fmt::Debug for ISAXLexicalHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXLexicalHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXLexicalHandler {
     type Vtable = ISAXLexicalHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f85d5f5_47a8_4497_bda5_84ba04819ea6);
@@ -2786,6 +2856,11 @@ impl ::core::cmp::PartialEq for ISAXLocator {
     }
 }
 impl ::core::cmp::Eq for ISAXLocator {}
+impl ::core::fmt::Debug for ISAXLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXLocator {
     type Vtable = ISAXLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b7e472a_0de4_4640_bff3_84d38a051c31);
@@ -2954,6 +3029,11 @@ impl ::core::cmp::PartialEq for ISAXXMLFilter {
     }
 }
 impl ::core::cmp::Eq for ISAXXMLFilter {}
+impl ::core::fmt::Debug for ISAXXMLFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXXMLFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXXMLFilter {
     type Vtable = ISAXXMLFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70409222_ca09_4475_acb8_40312fe8d145);
@@ -3117,6 +3197,11 @@ impl ::core::cmp::PartialEq for ISAXXMLReader {
     }
 }
 impl ::core::cmp::Eq for ISAXXMLReader {}
+impl ::core::fmt::Debug for ISAXXMLReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISAXXMLReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISAXXMLReader {
     type Vtable = ISAXXMLReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4f96ed0_f829_476e_81c0_cdc7bd2a0802);
@@ -3341,6 +3426,11 @@ impl ::core::cmp::PartialEq for ISchema {
     }
 }
 impl ::core::cmp::Eq for ISchema {}
+impl ::core::fmt::Debug for ISchema {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchema").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchema {
     type Vtable = ISchemaVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b4_dd1b_4664_9a50_c2f40f4bd79a);
@@ -3563,6 +3653,11 @@ impl ::core::cmp::PartialEq for ISchemaAny {
     }
 }
 impl ::core::cmp::Eq for ISchemaAny {}
+impl ::core::fmt::Debug for ISchemaAny {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaAny").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaAny {
     type Vtable = ISchemaAnyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08bc_dd1b_4664_9a50_c2f40f4bd79a);
@@ -3770,6 +3865,11 @@ impl ::core::cmp::PartialEq for ISchemaAttribute {
     }
 }
 impl ::core::cmp::Eq for ISchemaAttribute {}
+impl ::core::fmt::Debug for ISchemaAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaAttribute {
     type Vtable = ISchemaAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b6_dd1b_4664_9a50_c2f40f4bd79a);
@@ -3957,6 +4057,11 @@ impl ::core::cmp::PartialEq for ISchemaAttributeGroup {
     }
 }
 impl ::core::cmp::Eq for ISchemaAttributeGroup {}
+impl ::core::fmt::Debug for ISchemaAttributeGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaAttributeGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaAttributeGroup {
     type Vtable = ISchemaAttributeGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08ba_dd1b_4664_9a50_c2f40f4bd79a);
@@ -4273,6 +4378,11 @@ impl ::core::cmp::PartialEq for ISchemaComplexType {
     }
 }
 impl ::core::cmp::Eq for ISchemaComplexType {}
+impl ::core::fmt::Debug for ISchemaComplexType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaComplexType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaComplexType {
     type Vtable = ISchemaComplexTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b9_dd1b_4664_9a50_c2f40f4bd79a);
@@ -4564,6 +4674,11 @@ impl ::core::cmp::PartialEq for ISchemaElement {
     }
 }
 impl ::core::cmp::Eq for ISchemaElement {}
+impl ::core::fmt::Debug for ISchemaElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaElement {
     type Vtable = ISchemaElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b7_dd1b_4664_9a50_c2f40f4bd79a);
@@ -4766,6 +4881,11 @@ impl ::core::cmp::PartialEq for ISchemaIdentityConstraint {
     }
 }
 impl ::core::cmp::Eq for ISchemaIdentityConstraint {}
+impl ::core::fmt::Debug for ISchemaIdentityConstraint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaIdentityConstraint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaIdentityConstraint {
     type Vtable = ISchemaIdentityConstraintVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08bd_dd1b_4664_9a50_c2f40f4bd79a);
@@ -4919,6 +5039,11 @@ impl ::core::cmp::PartialEq for ISchemaItem {
     }
 }
 impl ::core::cmp::Eq for ISchemaItem {}
+impl ::core::fmt::Debug for ISchemaItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaItem {
     type Vtable = ISchemaItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b3_dd1b_4664_9a50_c2f40f4bd79a);
@@ -5057,6 +5182,11 @@ impl ::core::cmp::PartialEq for ISchemaItemCollection {
     }
 }
 impl ::core::cmp::Eq for ISchemaItemCollection {}
+impl ::core::fmt::Debug for ISchemaItemCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaItemCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaItemCollection {
     type Vtable = ISchemaItemCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b2_dd1b_4664_9a50_c2f40f4bd79a);
@@ -5260,6 +5390,11 @@ impl ::core::cmp::PartialEq for ISchemaModelGroup {
     }
 }
 impl ::core::cmp::Eq for ISchemaModelGroup {}
+impl ::core::fmt::Debug for ISchemaModelGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaModelGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaModelGroup {
     type Vtable = ISchemaModelGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08bb_dd1b_4664_9a50_c2f40f4bd79a);
@@ -5446,6 +5581,11 @@ impl ::core::cmp::PartialEq for ISchemaNotation {
     }
 }
 impl ::core::cmp::Eq for ISchemaNotation {}
+impl ::core::fmt::Debug for ISchemaNotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaNotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaNotation {
     type Vtable = ISchemaNotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08be_dd1b_4664_9a50_c2f40f4bd79a);
@@ -5631,6 +5771,11 @@ impl ::core::cmp::PartialEq for ISchemaParticle {
     }
 }
 impl ::core::cmp::Eq for ISchemaParticle {}
+impl ::core::fmt::Debug for ISchemaParticle {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaParticle").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaParticle {
     type Vtable = ISchemaParticleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b5_dd1b_4664_9a50_c2f40f4bd79a);
@@ -5762,6 +5907,11 @@ impl ::core::cmp::PartialEq for ISchemaStringCollection {
     }
 }
 impl ::core::cmp::Eq for ISchemaStringCollection {}
+impl ::core::fmt::Debug for ISchemaStringCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaStringCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaStringCollection {
     type Vtable = ISchemaStringCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b1_dd1b_4664_9a50_c2f40f4bd79a);
@@ -6020,6 +6170,11 @@ impl ::core::cmp::PartialEq for ISchemaType {
     }
 }
 impl ::core::cmp::Eq for ISchemaType {}
+impl ::core::fmt::Debug for ISchemaType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISchemaType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISchemaType {
     type Vtable = ISchemaTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b8_dd1b_4664_9a50_c2f40f4bd79a);
@@ -6275,6 +6430,11 @@ impl ::core::cmp::PartialEq for IServerXMLHTTPRequest {
     }
 }
 impl ::core::cmp::Eq for IServerXMLHTTPRequest {}
+impl ::core::fmt::Debug for IServerXMLHTTPRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IServerXMLHTTPRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest {
     type Vtable = IServerXMLHTTPRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e9196bf_13ba_4dd4_91ca_6c571f281495);
@@ -6555,6 +6715,11 @@ impl ::core::cmp::PartialEq for IServerXMLHTTPRequest2 {
     }
 }
 impl ::core::cmp::Eq for IServerXMLHTTPRequest2 {}
+impl ::core::fmt::Debug for IServerXMLHTTPRequest2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IServerXMLHTTPRequest2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IServerXMLHTTPRequest2 {
     type Vtable = IServerXMLHTTPRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2e01311b_c322_4b0a_bd77_b90cfdc8dce7);
@@ -6745,6 +6910,11 @@ impl ::core::cmp::PartialEq for IVBMXNamespaceManager {
     }
 }
 impl ::core::cmp::Eq for IVBMXNamespaceManager {}
+impl ::core::fmt::Debug for IVBMXNamespaceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBMXNamespaceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBMXNamespaceManager {
     type Vtable = IVBMXNamespaceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc90352f5_643c_4fbc_bb23_e996eb2d51fd);
@@ -6932,6 +7102,11 @@ impl ::core::cmp::PartialEq for IVBSAXAttributes {
     }
 }
 impl ::core::cmp::Eq for IVBSAXAttributes {}
+impl ::core::fmt::Debug for IVBSAXAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXAttributes {
     type Vtable = IVBSAXAttributesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10dc0586_132b_4cac_8bb3_db00ac8b7ee0);
@@ -7108,6 +7283,11 @@ impl ::core::cmp::PartialEq for IVBSAXContentHandler {
     }
 }
 impl ::core::cmp::Eq for IVBSAXContentHandler {}
+impl ::core::fmt::Debug for IVBSAXContentHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXContentHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXContentHandler {
     type Vtable = IVBSAXContentHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ed7290a_4dd5_4b46_bb26_4e4155e77faa);
@@ -7238,6 +7418,11 @@ impl ::core::cmp::PartialEq for IVBSAXDTDHandler {
     }
 }
 impl ::core::cmp::Eq for IVBSAXDTDHandler {}
+impl ::core::fmt::Debug for IVBSAXDTDHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXDTDHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXDTDHandler {
     type Vtable = IVBSAXDTDHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x24fb3297_302d_4620_ba39_3a732d850558);
@@ -7363,6 +7548,11 @@ impl ::core::cmp::PartialEq for IVBSAXDeclHandler {
     }
 }
 impl ::core::cmp::Eq for IVBSAXDeclHandler {}
+impl ::core::fmt::Debug for IVBSAXDeclHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXDeclHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXDeclHandler {
     type Vtable = IVBSAXDeclHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe8917260_7579_4be1_b5dd_7afbfa6f077b);
@@ -7477,6 +7667,11 @@ impl ::core::cmp::PartialEq for IVBSAXEntityResolver {
     }
 }
 impl ::core::cmp::Eq for IVBSAXEntityResolver {}
+impl ::core::fmt::Debug for IVBSAXEntityResolver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXEntityResolver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXEntityResolver {
     type Vtable = IVBSAXEntityResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0c05d096_f45b_4aca_ad1a_aa0bc25518dc);
@@ -7595,6 +7790,11 @@ impl ::core::cmp::PartialEq for IVBSAXErrorHandler {
     }
 }
 impl ::core::cmp::Eq for IVBSAXErrorHandler {}
+impl ::core::fmt::Debug for IVBSAXErrorHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXErrorHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXErrorHandler {
     type Vtable = IVBSAXErrorHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd963d3fe_173c_4862_9095_b92f66995f52);
@@ -7734,6 +7934,11 @@ impl ::core::cmp::PartialEq for IVBSAXLexicalHandler {
     }
 }
 impl ::core::cmp::Eq for IVBSAXLexicalHandler {}
+impl ::core::fmt::Debug for IVBSAXLexicalHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXLexicalHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXLexicalHandler {
     type Vtable = IVBSAXLexicalHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x032aac35_8c0e_4d9d_979f_e3b702935576);
@@ -7868,6 +8073,11 @@ impl ::core::cmp::PartialEq for IVBSAXLocator {
     }
 }
 impl ::core::cmp::Eq for IVBSAXLocator {}
+impl ::core::fmt::Debug for IVBSAXLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXLocator {
     type Vtable = IVBSAXLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x796e7ac5_5aa2_4eff_acad_3faaf01a3288);
@@ -7984,6 +8194,11 @@ impl ::core::cmp::PartialEq for IVBSAXXMLFilter {
     }
 }
 impl ::core::cmp::Eq for IVBSAXXMLFilter {}
+impl ::core::fmt::Debug for IVBSAXXMLFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXXMLFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXXMLFilter {
     type Vtable = IVBSAXXMLFilterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1299eb1b_5b88_433e_82de_82ca75ad4e04);
@@ -8177,6 +8392,11 @@ impl ::core::cmp::PartialEq for IVBSAXXMLReader {
     }
 }
 impl ::core::cmp::Eq for IVBSAXXMLReader {}
+impl ::core::fmt::Debug for IVBSAXXMLReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVBSAXXMLReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVBSAXXMLReader {
     type Vtable = IVBSAXXMLReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8c033caa_6cd6_4f73_b728_4531af74945f);
@@ -8318,6 +8538,11 @@ impl ::core::cmp::PartialEq for IXMLAttribute {
     }
 }
 impl ::core::cmp::Eq for IXMLAttribute {}
+impl ::core::fmt::Debug for IXMLAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLAttribute {
     type Vtable = IXMLAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd4d4a0fc_3b73_11d1_b2b4_00c04fb92596);
@@ -8637,6 +8862,11 @@ impl ::core::cmp::PartialEq for IXMLDOMAttribute {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMAttribute {}
+impl ::core::fmt::Debug for IXMLDOMAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMAttribute {
     type Vtable = IXMLDOMAttributeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf85_7b36_11d2_b20e_00c04f983e60);
@@ -9081,6 +9311,11 @@ impl ::core::cmp::PartialEq for IXMLDOMCDATASection {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMCDATASection {}
+impl ::core::fmt::Debug for IXMLDOMCDATASection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMCDATASection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMCDATASection {
     type Vtable = IXMLDOMCDATASectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8a_7b36_11d2_b20e_00c04f983e60);
@@ -9489,6 +9724,11 @@ impl ::core::cmp::PartialEq for IXMLDOMCharacterData {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMCharacterData {}
+impl ::core::fmt::Debug for IXMLDOMCharacterData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMCharacterData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMCharacterData {
     type Vtable = IXMLDOMCharacterDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf84_7b36_11d2_b20e_00c04f983e60);
@@ -9916,6 +10156,11 @@ impl ::core::cmp::PartialEq for IXMLDOMComment {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMComment {}
+impl ::core::fmt::Debug for IXMLDOMComment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMComment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMComment {
     type Vtable = IXMLDOMCommentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf88_7b36_11d2_b20e_00c04f983e60);
@@ -10449,6 +10694,11 @@ impl ::core::cmp::PartialEq for IXMLDOMDocument {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMDocument {}
+impl ::core::fmt::Debug for IXMLDOMDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMDocument {
     type Vtable = IXMLDOMDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf81_7b36_11d2_b20e_00c04f983e60);
@@ -11070,6 +11320,11 @@ impl ::core::cmp::PartialEq for IXMLDOMDocument2 {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMDocument2 {}
+impl ::core::fmt::Debug for IXMLDOMDocument2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMDocument2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMDocument2 {
     type Vtable = IXMLDOMDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf95_7b36_11d2_b20e_00c04f983e60);
@@ -11731,6 +11986,11 @@ impl ::core::cmp::PartialEq for IXMLDOMDocument3 {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMDocument3 {}
+impl ::core::fmt::Debug for IXMLDOMDocument3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMDocument3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMDocument3 {
     type Vtable = IXMLDOMDocument3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf96_7b36_11d2_b20e_00c04f983e60);
@@ -12148,6 +12408,11 @@ impl ::core::cmp::PartialEq for IXMLDOMDocumentFragment {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMDocumentFragment {}
+impl ::core::fmt::Debug for IXMLDOMDocumentFragment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMDocumentFragment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMDocumentFragment {
     type Vtable = IXMLDOMDocumentFragmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa413_272f_11d2_836f_0000f87a7782);
@@ -12518,6 +12783,11 @@ impl ::core::cmp::PartialEq for IXMLDOMDocumentType {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMDocumentType {}
+impl ::core::fmt::Debug for IXMLDOMDocumentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMDocumentType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMDocumentType {
     type Vtable = IXMLDOMDocumentTypeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8b_7b36_11d2_b20e_00c04f983e60);
@@ -12923,6 +13193,11 @@ impl ::core::cmp::PartialEq for IXMLDOMElement {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMElement {}
+impl ::core::fmt::Debug for IXMLDOMElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMElement {
     type Vtable = IXMLDOMElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf86_7b36_11d2_b20e_00c04f983e60);
@@ -13308,6 +13583,11 @@ impl ::core::cmp::PartialEq for IXMLDOMEntity {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMEntity {}
+impl ::core::fmt::Debug for IXMLDOMEntity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMEntity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMEntity {
     type Vtable = IXMLDOMEntityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8d_7b36_11d2_b20e_00c04f983e60);
@@ -13669,6 +13949,11 @@ impl ::core::cmp::PartialEq for IXMLDOMEntityReference {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMEntityReference {}
+impl ::core::fmt::Debug for IXMLDOMEntityReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMEntityReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMEntityReference {
     type Vtable = IXMLDOMEntityReferenceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8e_7b36_11d2_b20e_00c04f983e60);
@@ -13830,6 +14115,11 @@ impl ::core::cmp::PartialEq for IXMLDOMImplementation {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMImplementation {}
+impl ::core::fmt::Debug for IXMLDOMImplementation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMImplementation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMImplementation {
     type Vtable = IXMLDOMImplementationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8f_7b36_11d2_b20e_00c04f983e60);
@@ -13985,6 +14275,11 @@ impl ::core::cmp::PartialEq for IXMLDOMNamedNodeMap {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMNamedNodeMap {}
+impl ::core::fmt::Debug for IXMLDOMNamedNodeMap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMNamedNodeMap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMNamedNodeMap {
     type Vtable = IXMLDOMNamedNodeMapVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf83_7b36_11d2_b20e_00c04f983e60);
@@ -14279,6 +14574,11 @@ impl ::core::cmp::PartialEq for IXMLDOMNode {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMNode {}
+impl ::core::fmt::Debug for IXMLDOMNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMNode {
     type Vtable = IXMLDOMNodeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf80_7b36_11d2_b20e_00c04f983e60);
@@ -14458,6 +14758,11 @@ impl ::core::cmp::PartialEq for IXMLDOMNodeList {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMNodeList {}
+impl ::core::fmt::Debug for IXMLDOMNodeList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMNodeList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMNodeList {
     type Vtable = IXMLDOMNodeListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf82_7b36_11d2_b20e_00c04f983e60);
@@ -14773,6 +15078,11 @@ impl ::core::cmp::PartialEq for IXMLDOMNotation {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMNotation {}
+impl ::core::fmt::Debug for IXMLDOMNotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMNotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMNotation {
     type Vtable = IXMLDOMNotationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf8c_7b36_11d2_b20e_00c04f983e60);
@@ -14964,6 +15274,11 @@ impl ::core::cmp::PartialEq for IXMLDOMParseError {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMParseError {}
+impl ::core::fmt::Debug for IXMLDOMParseError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMParseError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMParseError {
     type Vtable = IXMLDOMParseErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa426_272f_11d2_836f_0000f87a7782);
@@ -15148,6 +15463,11 @@ impl ::core::cmp::PartialEq for IXMLDOMParseError2 {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMParseError2 {}
+impl ::core::fmt::Debug for IXMLDOMParseError2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMParseError2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMParseError2 {
     type Vtable = IXMLDOMParseError2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa428_272f_11d2_836f_0000f87a7782);
@@ -15289,6 +15609,11 @@ impl ::core::cmp::PartialEq for IXMLDOMParseErrorCollection {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMParseErrorCollection {}
+impl ::core::fmt::Debug for IXMLDOMParseErrorCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMParseErrorCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMParseErrorCollection {
     type Vtable = IXMLDOMParseErrorCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa429_272f_11d2_836f_0000f87a7782);
@@ -15609,6 +15934,11 @@ impl ::core::cmp::PartialEq for IXMLDOMProcessingInstruction {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMProcessingInstruction {}
+impl ::core::fmt::Debug for IXMLDOMProcessingInstruction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMProcessingInstruction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMProcessingInstruction {
     type Vtable = IXMLDOMProcessingInstructionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf89_7b36_11d2_b20e_00c04f983e60);
@@ -15807,6 +16137,11 @@ impl ::core::cmp::PartialEq for IXMLDOMSchemaCollection {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMSchemaCollection {}
+impl ::core::fmt::Debug for IXMLDOMSchemaCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMSchemaCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection {
     type Vtable = IXMLDOMSchemaCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x373984c8_b845_449b_91e7_45ac83036ade);
@@ -15999,6 +16334,11 @@ impl ::core::cmp::PartialEq for IXMLDOMSchemaCollection2 {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMSchemaCollection2 {}
+impl ::core::fmt::Debug for IXMLDOMSchemaCollection2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMSchemaCollection2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMSchemaCollection2 {
     type Vtable = IXMLDOMSchemaCollection2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50ea08b0_dd1b_4664_9a50_c2f40f4bd79a);
@@ -16215,6 +16555,11 @@ impl ::core::cmp::PartialEq for IXMLDOMSelection {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMSelection {}
+impl ::core::fmt::Debug for IXMLDOMSelection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMSelection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMSelection {
     type Vtable = IXMLDOMSelectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa634fc7_5888_44a7_a257_3a47150d3a0e);
@@ -16598,6 +16943,11 @@ impl ::core::cmp::PartialEq for IXMLDOMText {
     }
 }
 impl ::core::cmp::Eq for IXMLDOMText {}
+impl ::core::fmt::Debug for IXMLDOMText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDOMText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDOMText {
     type Vtable = IXMLDOMTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf87_7b36_11d2_b20e_00c04f983e60);
@@ -16792,6 +17142,11 @@ impl ::core::cmp::PartialEq for IXMLDSOControl {
     }
 }
 impl ::core::cmp::Eq for IXMLDSOControl {}
+impl ::core::fmt::Debug for IXMLDSOControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDSOControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDSOControl {
     type Vtable = IXMLDSOControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x310afa62_0575_11d2_9ca9_0060b0ec3d39);
@@ -16980,6 +17335,11 @@ impl ::core::cmp::PartialEq for IXMLDocument {
     }
 }
 impl ::core::cmp::Eq for IXMLDocument {}
+impl ::core::fmt::Debug for IXMLDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDocument {
     type Vtable = IXMLDocumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf52e2b61_18a1_11d1_b105_00805f49916b);
@@ -17196,6 +17556,11 @@ impl ::core::cmp::PartialEq for IXMLDocument2 {
     }
 }
 impl ::core::cmp::Eq for IXMLDocument2 {}
+impl ::core::fmt::Debug for IXMLDocument2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLDocument2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLDocument2 {
     type Vtable = IXMLDocument2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b8de2fe_8d2d_11d1_b2fc_00c04fd915a9);
@@ -17386,6 +17751,11 @@ impl ::core::cmp::PartialEq for IXMLElement {
     }
 }
 impl ::core::cmp::Eq for IXMLElement {}
+impl ::core::fmt::Debug for IXMLElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLElement {
     type Vtable = IXMLElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f7f31ac_e15f_11d0_9c25_00c04fc99c8e);
@@ -17572,6 +17942,11 @@ impl ::core::cmp::PartialEq for IXMLElement2 {
     }
 }
 impl ::core::cmp::Eq for IXMLElement2 {}
+impl ::core::fmt::Debug for IXMLElement2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLElement2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLElement2 {
     type Vtable = IXMLElement2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b8de2ff_8d2d_11d1_b2fc_00c04fd915a9);
@@ -17713,6 +18088,11 @@ impl ::core::cmp::PartialEq for IXMLElementCollection {
     }
 }
 impl ::core::cmp::Eq for IXMLElementCollection {}
+impl ::core::fmt::Debug for IXMLElementCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLElementCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLElementCollection {
     type Vtable = IXMLElementCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x65725580_9b5d_11d0_9bfe_00c04fc99c8e);
@@ -17778,6 +18158,11 @@ impl ::core::cmp::PartialEq for IXMLError {
     }
 }
 impl ::core::cmp::Eq for IXMLError {}
+impl ::core::fmt::Debug for IXMLError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLError {
     type Vtable = IXMLErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x948c5ad3_c58d_11d0_9c0b_00c04fc99c8e);
@@ -17949,6 +18334,11 @@ impl ::core::cmp::PartialEq for IXMLHTTPRequest {
     }
 }
 impl ::core::cmp::Eq for IXMLHTTPRequest {}
+impl ::core::fmt::Debug for IXMLHTTPRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLHTTPRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLHTTPRequest {
     type Vtable = IXMLHTTPRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8c108d_4349_11d2_91a4_00c04f7969e8);
@@ -18079,6 +18469,11 @@ impl ::core::cmp::PartialEq for IXMLHTTPRequest2 {
     }
 }
 impl ::core::cmp::Eq for IXMLHTTPRequest2 {}
+impl ::core::fmt::Debug for IXMLHTTPRequest2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLHTTPRequest2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLHTTPRequest2 {
     type Vtable = IXMLHTTPRequest2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5d37dc0_552a_4d52_9cc0_a14d546fbd04);
@@ -18167,6 +18562,11 @@ impl ::core::cmp::PartialEq for IXMLHTTPRequest2Callback {
     }
 }
 impl ::core::cmp::Eq for IXMLHTTPRequest2Callback {}
+impl ::core::fmt::Debug for IXMLHTTPRequest2Callback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLHTTPRequest2Callback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLHTTPRequest2Callback {
     type Vtable = IXMLHTTPRequest2CallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa44a9299_e321_40de_8866_341b41669162);
@@ -18298,6 +18698,11 @@ impl ::core::cmp::PartialEq for IXMLHTTPRequest3 {
     }
 }
 impl ::core::cmp::Eq for IXMLHTTPRequest3 {}
+impl ::core::fmt::Debug for IXMLHTTPRequest3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLHTTPRequest3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLHTTPRequest3 {
     type Vtable = IXMLHTTPRequest3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa1c9feee_0617_4f23_9d58_8961ea43567c);
@@ -18416,6 +18821,11 @@ impl ::core::cmp::PartialEq for IXMLHTTPRequest3Callback {
     }
 }
 impl ::core::cmp::Eq for IXMLHTTPRequest3Callback {}
+impl ::core::fmt::Debug for IXMLHTTPRequest3Callback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLHTTPRequest3Callback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLHTTPRequest3Callback {
     type Vtable = IXMLHTTPRequest3CallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb9e57830_8c6c_4a6f_9c13_47772bb047bb);
@@ -18596,6 +19006,11 @@ impl ::core::cmp::PartialEq for IXMLHttpRequest {
     }
 }
 impl ::core::cmp::Eq for IXMLHttpRequest {}
+impl ::core::fmt::Debug for IXMLHttpRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXMLHttpRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXMLHttpRequest {
     type Vtable = IXMLHttpRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xed8c108d_4349_11d2_91a4_00c04f7969e8);
@@ -18795,6 +19210,11 @@ impl ::core::cmp::PartialEq for IXSLProcessor {
     }
 }
 impl ::core::cmp::Eq for IXSLProcessor {}
+impl ::core::fmt::Debug for IXSLProcessor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXSLProcessor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXSLProcessor {
     type Vtable = IXSLProcessorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf92_7b36_11d2_b20e_00c04f983e60);
@@ -18933,6 +19353,11 @@ impl ::core::cmp::PartialEq for IXSLTemplate {
     }
 }
 impl ::core::cmp::Eq for IXSLTemplate {}
+impl ::core::fmt::Debug for IXSLTemplate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXSLTemplate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXSLTemplate {
     type Vtable = IXSLTemplateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2933bf93_7b36_11d2_b20e_00c04f983e60);
@@ -19277,6 +19702,11 @@ impl ::core::cmp::PartialEq for IXTLRuntime {
     }
 }
 impl ::core::cmp::Eq for IXTLRuntime {}
+impl ::core::fmt::Debug for IXTLRuntime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXTLRuntime").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXTLRuntime {
     type Vtable = IXTLRuntimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa425_272f_11d2_836f_0000f87a7782);
@@ -19885,6 +20315,11 @@ impl ::core::cmp::PartialEq for XMLDOMDocumentEvents {
     }
 }
 impl ::core::cmp::Eq for XMLDOMDocumentEvents {}
+impl ::core::fmt::Debug for XMLDOMDocumentEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XMLDOMDocumentEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for XMLDOMDocumentEvents {
     type Vtable = XMLDOMDocumentEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3efaa427_272f_11d2_836f_0000f87a7782);

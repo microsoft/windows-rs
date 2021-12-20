@@ -208,6 +208,11 @@ impl ::core::cmp::PartialEq for IBitmapData {
     }
 }
 impl ::core::cmp::Eq for IBitmapData {}
+impl ::core::fmt::Debug for IBitmapData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitmapData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBitmapData {
     type Vtable = IBitmapDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1a34ef2_cad8_4635_a3d2_fcda8d3f3caf);
@@ -315,6 +320,11 @@ impl ::core::cmp::PartialEq for IVisualTreeService {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeService {}
+impl ::core::fmt::Debug for IVisualTreeService {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeService").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeService {
     type Vtable = IVisualTreeServiceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa593b11a_d17f_48bb_8f66_83910731c8a5);
@@ -472,6 +482,11 @@ impl ::core::cmp::PartialEq for IVisualTreeService2 {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeService2 {}
+impl ::core::fmt::Debug for IVisualTreeService2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeService2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeService2 {
     type Vtable = IVisualTreeService2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x130f5136_ec43_4f61_89c7_9801a36d2e95);
@@ -673,6 +688,11 @@ impl ::core::cmp::PartialEq for IVisualTreeService3 {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeService3 {}
+impl ::core::fmt::Debug for IVisualTreeService3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeService3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeService3 {
     type Vtable = IVisualTreeService3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0e79c6e0_85a0_4be8_b41a_655cf1fd19bd);
@@ -752,6 +772,11 @@ impl ::core::cmp::PartialEq for IVisualTreeServiceCallback {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeServiceCallback {}
+impl ::core::fmt::Debug for IVisualTreeServiceCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeServiceCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback {
     type Vtable = IVisualTreeServiceCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaa7a8931_80e4_4fec_8f3b_553f87b4966e);
@@ -831,6 +856,11 @@ impl ::core::cmp::PartialEq for IVisualTreeServiceCallback2 {
     }
 }
 impl ::core::cmp::Eq for IVisualTreeServiceCallback2 {}
+impl ::core::fmt::Debug for IVisualTreeServiceCallback2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVisualTreeServiceCallback2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IVisualTreeServiceCallback2 {
     type Vtable = IVisualTreeServiceCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbad9eb88_ae77_4397_b948_5fa2db0a19ea);
@@ -923,6 +953,11 @@ impl ::core::cmp::PartialEq for IXamlDiagnostics {
     }
 }
 impl ::core::cmp::Eq for IXamlDiagnostics {}
+impl ::core::fmt::Debug for IXamlDiagnostics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXamlDiagnostics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXamlDiagnostics {
     type Vtable = IXamlDiagnosticsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x18c9e2b6_3f43_4116_9f2b_ff935d7770d2);

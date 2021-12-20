@@ -61,6 +61,11 @@ impl ::core::cmp::PartialEq for ISoftwareBitmapNative {
     }
 }
 impl ::core::cmp::Eq for ISoftwareBitmapNative {}
+impl ::core::fmt::Debug for ISoftwareBitmapNative {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISoftwareBitmapNative").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNative {
     type Vtable = ISoftwareBitmapNativeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x94bc8415_04ea_4b2e_af13_4de95aa898eb);
@@ -144,6 +149,11 @@ impl ::core::cmp::PartialEq for ISoftwareBitmapNativeFactory {
     }
 }
 impl ::core::cmp::Eq for ISoftwareBitmapNativeFactory {}
+impl ::core::fmt::Debug for ISoftwareBitmapNativeFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISoftwareBitmapNativeFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISoftwareBitmapNativeFactory {
     type Vtable = ISoftwareBitmapNativeFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc3c181ec_2914_4791_af02_02d224a10b43);

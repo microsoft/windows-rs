@@ -305,6 +305,11 @@ impl ::core::cmp::PartialEq for PushNotificationChannel {
     }
 }
 impl ::core::cmp::Eq for PushNotificationChannel {}
+impl ::core::fmt::Debug for PushNotificationChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PushNotificationChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PushNotificationChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannel;{2b28102e-ef0b-4f39-9b8a-a3c194de7081})");
 }
@@ -506,6 +511,11 @@ impl ::core::cmp::PartialEq for PushNotificationChannelManagerForUser {
     }
 }
 impl ::core::cmp::Eq for PushNotificationChannelManagerForUser {}
+impl ::core::fmt::Debug for PushNotificationChannelManagerForUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PushNotificationChannelManagerForUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PushNotificationChannelManagerForUser {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelManagerForUser;{a4c45704-1182-42c7-8890-f563c4890dc4})");
 }
@@ -573,6 +583,11 @@ impl ::core::cmp::PartialEq for PushNotificationChannelsRevokedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PushNotificationChannelsRevokedEventArgs {}
+impl ::core::fmt::Debug for PushNotificationChannelsRevokedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PushNotificationChannelsRevokedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PushNotificationChannelsRevokedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationChannelsRevokedEventArgs;{20e1a24c-1a34-5beb-aae2-40c232c8c140})");
 }
@@ -697,6 +712,11 @@ impl ::core::cmp::PartialEq for PushNotificationReceivedEventArgs {
     }
 }
 impl ::core::cmp::Eq for PushNotificationReceivedEventArgs {}
+impl ::core::fmt::Debug for PushNotificationReceivedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PushNotificationReceivedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PushNotificationReceivedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.PushNotificationReceivedEventArgs;{d1065e0c-36cd-484c-b935-0a99b753cf00})");
 }
@@ -835,6 +855,11 @@ impl ::core::cmp::PartialEq for RawNotification {
     }
 }
 impl ::core::cmp::Eq for RawNotification {}
+impl ::core::fmt::Debug for RawNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("RawNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for RawNotification {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.PushNotifications.RawNotification;{1a227281-3b79-42ac-9963-22ab00d4f0b7})");
 }

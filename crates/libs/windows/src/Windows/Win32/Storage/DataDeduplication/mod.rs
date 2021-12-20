@@ -354,6 +354,11 @@ impl ::core::cmp::PartialEq for IDedupBackupSupport {
     }
 }
 impl ::core::cmp::Eq for IDedupBackupSupport {}
+impl ::core::fmt::Debug for IDedupBackupSupport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDedupBackupSupport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDedupBackupSupport {
     type Vtable = IDedupBackupSupportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc719d963_2b2d_415e_acf7_7eb7ca596ff4);
@@ -421,6 +426,11 @@ impl ::core::cmp::PartialEq for IDedupChunkLibrary {
     }
 }
 impl ::core::cmp::Eq for IDedupChunkLibrary {}
+impl ::core::fmt::Debug for IDedupChunkLibrary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDedupChunkLibrary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDedupChunkLibrary {
     type Vtable = IDedupChunkLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5144d7_2720_4dcc_8777_78597416ec23);
@@ -534,6 +544,11 @@ impl ::core::cmp::PartialEq for IDedupDataPort {
     }
 }
 impl ::core::cmp::Eq for IDedupDataPort {}
+impl ::core::fmt::Debug for IDedupDataPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDedupDataPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDedupDataPort {
     type Vtable = IDedupDataPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7963d734_40a9_4ea3_bbf6_5a89d26f7ae8);
@@ -614,6 +629,11 @@ impl ::core::cmp::PartialEq for IDedupDataPortManager {
     }
 }
 impl ::core::cmp::Eq for IDedupDataPortManager {}
+impl ::core::fmt::Debug for IDedupDataPortManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDedupDataPortManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDedupDataPortManager {
     type Vtable = IDedupDataPortManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44677452_b90a_445e_8192_cdcfe81511fb);
@@ -682,6 +702,11 @@ impl ::core::cmp::PartialEq for IDedupIterateChunksHash32 {
     }
 }
 impl ::core::cmp::Eq for IDedupIterateChunksHash32 {}
+impl ::core::fmt::Debug for IDedupIterateChunksHash32 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDedupIterateChunksHash32").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDedupIterateChunksHash32 {
     type Vtable = IDedupIterateChunksHash32Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90b584d3_72aa_400f_9767_cad866a5a2d8);
@@ -748,6 +773,11 @@ impl ::core::cmp::PartialEq for IDedupReadFileCallback {
     }
 }
 impl ::core::cmp::Eq for IDedupReadFileCallback {}
+impl ::core::fmt::Debug for IDedupReadFileCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDedupReadFileCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDedupReadFileCallback {
     type Vtable = IDedupReadFileCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7bacc67a_2f1d_42d0_897e_6ff62dd533bb);

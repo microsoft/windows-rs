@@ -3759,6 +3759,11 @@ impl ::core::cmp::PartialEq for IAzApplication {
     }
 }
 impl ::core::cmp::Eq for IAzApplication {}
+impl ::core::fmt::Debug for IAzApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplication {
     type Vtable = IAzApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x987bc7c7_b813_4d27_bede_6ba5ae867e95);
@@ -4342,6 +4347,11 @@ impl ::core::cmp::PartialEq for IAzApplication2 {
     }
 }
 impl ::core::cmp::Eq for IAzApplication2 {}
+impl ::core::fmt::Debug for IAzApplication2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplication2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplication2 {
     type Vtable = IAzApplication2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x086a68af_a249_437c_b18d_d4d86d6a9660);
@@ -5025,6 +5035,11 @@ impl ::core::cmp::PartialEq for IAzApplication3 {
     }
 }
 impl ::core::cmp::Eq for IAzApplication3 {}
+impl ::core::fmt::Debug for IAzApplication3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplication3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplication3 {
     type Vtable = IAzApplication3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x181c845e_7196_4a7d_ac2e_020c0bb7a303);
@@ -5441,6 +5456,11 @@ impl ::core::cmp::PartialEq for IAzApplicationGroup {
     }
 }
 impl ::core::cmp::Eq for IAzApplicationGroup {}
+impl ::core::fmt::Debug for IAzApplicationGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplicationGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplicationGroup {
     type Vtable = IAzApplicationGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1b744cd_58a6_4e06_9fbf_36f6d779e21e);
@@ -5833,6 +5853,11 @@ impl ::core::cmp::PartialEq for IAzApplicationGroup2 {
     }
 }
 impl ::core::cmp::Eq for IAzApplicationGroup2 {}
+impl ::core::fmt::Debug for IAzApplicationGroup2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplicationGroup2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplicationGroup2 {
     type Vtable = IAzApplicationGroup2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f0613fc_b71a_464e_a11d_5b881a56cefa);
@@ -6026,6 +6051,11 @@ impl ::core::cmp::PartialEq for IAzApplicationGroups {
     }
 }
 impl ::core::cmp::Eq for IAzApplicationGroups {}
+impl ::core::fmt::Debug for IAzApplicationGroups {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplicationGroups").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplicationGroups {
     type Vtable = IAzApplicationGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ce66ad5_9f3c_469d_a911_b99887a7e685);
@@ -6147,6 +6177,11 @@ impl ::core::cmp::PartialEq for IAzApplications {
     }
 }
 impl ::core::cmp::Eq for IAzApplications {}
+impl ::core::fmt::Debug for IAzApplications {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzApplications").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzApplications {
     type Vtable = IAzApplicationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x929b11a9_95c5_4a84_a29a_20ad42c2f16c);
@@ -6521,6 +6556,11 @@ impl ::core::cmp::PartialEq for IAzAuthorizationStore {
     }
 }
 impl ::core::cmp::Eq for IAzAuthorizationStore {}
+impl ::core::fmt::Debug for IAzAuthorizationStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzAuthorizationStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore {
     type Vtable = IAzAuthorizationStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedbd9ca9_9b82_4f6a_9e8b_98301e450f14);
@@ -7017,6 +7057,11 @@ impl ::core::cmp::PartialEq for IAzAuthorizationStore2 {
     }
 }
 impl ::core::cmp::Eq for IAzAuthorizationStore2 {}
+impl ::core::fmt::Debug for IAzAuthorizationStore2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzAuthorizationStore2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore2 {
     type Vtable = IAzAuthorizationStore2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb11e5584_d577_4273_b6c5_0973e0f8e80d);
@@ -7560,6 +7605,11 @@ impl ::core::cmp::PartialEq for IAzAuthorizationStore3 {
     }
 }
 impl ::core::cmp::Eq for IAzAuthorizationStore3 {}
+impl ::core::fmt::Debug for IAzAuthorizationStore3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzAuthorizationStore3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzAuthorizationStore3 {
     type Vtable = IAzAuthorizationStore3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xabc08425_0c86_4fa0_9be3_7189956c926e);
@@ -7786,6 +7836,11 @@ impl ::core::cmp::PartialEq for IAzBizRuleContext {
     }
 }
 impl ::core::cmp::Eq for IAzBizRuleContext {}
+impl ::core::fmt::Debug for IAzBizRuleContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzBizRuleContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzBizRuleContext {
     type Vtable = IAzBizRuleContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe192f17d_d59f_455e_a152_940316cd77b2);
@@ -7924,6 +7979,11 @@ impl ::core::cmp::PartialEq for IAzBizRuleInterfaces {
     }
 }
 impl ::core::cmp::Eq for IAzBizRuleInterfaces {}
+impl ::core::fmt::Debug for IAzBizRuleInterfaces {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzBizRuleInterfaces").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzBizRuleInterfaces {
     type Vtable = IAzBizRuleInterfacesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe94128c7_e9da_44cc_b0bd_53036f3aab3d);
@@ -8065,6 +8125,11 @@ impl ::core::cmp::PartialEq for IAzBizRuleParameters {
     }
 }
 impl ::core::cmp::Eq for IAzBizRuleParameters {}
+impl ::core::fmt::Debug for IAzBizRuleParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzBizRuleParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzBizRuleParameters {
     type Vtable = IAzBizRuleParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfc17685f_e25d_4dcd_bae1_276ec9533cb5);
@@ -8263,6 +8328,11 @@ impl ::core::cmp::PartialEq for IAzClientContext {
     }
 }
 impl ::core::cmp::Eq for IAzClientContext {}
+impl ::core::fmt::Debug for IAzClientContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzClientContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzClientContext {
     type Vtable = IAzClientContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeff1f00b_488a_466d_afd9_a401c5f9eef5);
@@ -8529,6 +8599,11 @@ impl ::core::cmp::PartialEq for IAzClientContext2 {
     }
 }
 impl ::core::cmp::Eq for IAzClientContext2 {}
+impl ::core::fmt::Debug for IAzClientContext2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzClientContext2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzClientContext2 {
     type Vtable = IAzClientContext2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2b0c92b8_208a_488a_8f81_e4edb22111cd);
@@ -8873,6 +8948,11 @@ impl ::core::cmp::PartialEq for IAzClientContext3 {
     }
 }
 impl ::core::cmp::Eq for IAzClientContext3 {}
+impl ::core::fmt::Debug for IAzClientContext3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzClientContext3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzClientContext3 {
     type Vtable = IAzClientContext3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x11894fde_1deb_4b4b_8907_6d1cda1f5d4f);
@@ -9037,6 +9117,11 @@ impl ::core::cmp::PartialEq for IAzNameResolver {
     }
 }
 impl ::core::cmp::Eq for IAzNameResolver {}
+impl ::core::fmt::Debug for IAzNameResolver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzNameResolver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzNameResolver {
     type Vtable = IAzNameResolverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x504d0f15_73e2_43df_a870_a64f40714f53);
@@ -9153,6 +9238,11 @@ impl ::core::cmp::PartialEq for IAzObjectPicker {
     }
 }
 impl ::core::cmp::Eq for IAzObjectPicker {}
+impl ::core::fmt::Debug for IAzObjectPicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzObjectPicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzObjectPicker {
     type Vtable = IAzObjectPickerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x63130a48_699a_42d8_bf01_c62ac3fb79f9);
@@ -9322,6 +9412,11 @@ impl ::core::cmp::PartialEq for IAzOperation {
     }
 }
 impl ::core::cmp::Eq for IAzOperation {}
+impl ::core::fmt::Debug for IAzOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzOperation {
     type Vtable = IAzOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e56b24f_ea01_4d61_be44_c49b5e4eaf74);
@@ -9535,6 +9630,11 @@ impl ::core::cmp::PartialEq for IAzOperation2 {
     }
 }
 impl ::core::cmp::Eq for IAzOperation2 {}
+impl ::core::fmt::Debug for IAzOperation2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzOperation2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzOperation2 {
     type Vtable = IAzOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f5ea01f_44a2_4184_9c48_a75b4dcc8ccc);
@@ -9676,6 +9776,11 @@ impl ::core::cmp::PartialEq for IAzOperations {
     }
 }
 impl ::core::cmp::Eq for IAzOperations {}
+impl ::core::fmt::Debug for IAzOperations {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzOperations").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzOperations {
     type Vtable = IAzOperationsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x90ef9c07_9706_49d9_af80_0438a5f3ec35);
@@ -9791,6 +9896,11 @@ impl ::core::cmp::PartialEq for IAzPrincipalLocator {
     }
 }
 impl ::core::cmp::Eq for IAzPrincipalLocator {}
+impl ::core::fmt::Debug for IAzPrincipalLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzPrincipalLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzPrincipalLocator {
     type Vtable = IAzPrincipalLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe5c3507d_ad6a_4992_9c7f_74ab480b44cc);
@@ -10039,6 +10149,11 @@ impl ::core::cmp::PartialEq for IAzRole {
     }
 }
 impl ::core::cmp::Eq for IAzRole {}
+impl ::core::fmt::Debug for IAzRole {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRole").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRole {
     type Vtable = IAzRoleVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x859e0d8d_62d7_41d8_a034_c0cd5d43fdfa);
@@ -10379,6 +10494,11 @@ impl ::core::cmp::PartialEq for IAzRoleAssignment {
     }
 }
 impl ::core::cmp::Eq for IAzRoleAssignment {}
+impl ::core::fmt::Debug for IAzRoleAssignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleAssignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleAssignment {
     type Vtable = IAzRoleAssignmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x55647d31_0d5a_4fa3_b4ac_2b5f9ad5ab76);
@@ -10556,6 +10676,11 @@ impl ::core::cmp::PartialEq for IAzRoleAssignments {
     }
 }
 impl ::core::cmp::Eq for IAzRoleAssignments {}
+impl ::core::fmt::Debug for IAzRoleAssignments {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleAssignments").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleAssignments {
     type Vtable = IAzRoleAssignmentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c80b900_fceb_4d73_a0f4_c83b0bbf2481);
@@ -10843,6 +10968,11 @@ impl ::core::cmp::PartialEq for IAzRoleDefinition {
     }
 }
 impl ::core::cmp::Eq for IAzRoleDefinition {}
+impl ::core::fmt::Debug for IAzRoleDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleDefinition {
     type Vtable = IAzRoleDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd97fcea1_2599_44f1_9fc3_58e9fbe09466);
@@ -11019,6 +11149,11 @@ impl ::core::cmp::PartialEq for IAzRoleDefinitions {
     }
 }
 impl ::core::cmp::Eq for IAzRoleDefinitions {}
+impl ::core::fmt::Debug for IAzRoleDefinitions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoleDefinitions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoleDefinitions {
     type Vtable = IAzRoleDefinitionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x881f25a5_d755_4550_957a_d503a3b34001);
@@ -11140,6 +11275,11 @@ impl ::core::cmp::PartialEq for IAzRoles {
     }
 }
 impl ::core::cmp::Eq for IAzRoles {}
+impl ::core::fmt::Debug for IAzRoles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzRoles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzRoles {
     type Vtable = IAzRolesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x95e0f119_13b4_4dae_b65f_2f7d60d822e4);
@@ -11452,6 +11592,11 @@ impl ::core::cmp::PartialEq for IAzScope {
     }
 }
 impl ::core::cmp::Eq for IAzScope {}
+impl ::core::fmt::Debug for IAzScope {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzScope").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzScope {
     type Vtable = IAzScopeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00e52487_e08d_4514_b62e_877d5645f5ab);
@@ -11897,6 +12042,11 @@ impl ::core::cmp::PartialEq for IAzScope2 {
     }
 }
 impl ::core::cmp::Eq for IAzScope2 {}
+impl ::core::fmt::Debug for IAzScope2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzScope2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzScope2 {
     type Vtable = IAzScope2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xee9fe8c9_c9f3_40e2_aa12_d1d8599727fd);
@@ -12101,6 +12251,11 @@ impl ::core::cmp::PartialEq for IAzScopes {
     }
 }
 impl ::core::cmp::Eq for IAzScopes {}
+impl ::core::fmt::Debug for IAzScopes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzScopes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzScopes {
     type Vtable = IAzScopesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x78e14853_9f5e_406d_9b91_6bdba6973510);
@@ -12347,6 +12502,11 @@ impl ::core::cmp::PartialEq for IAzTask {
     }
 }
 impl ::core::cmp::Eq for IAzTask {}
+impl ::core::fmt::Debug for IAzTask {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzTask").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzTask {
     type Vtable = IAzTaskVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcb94e592_2e0e_4a6c_a336_b89a6dc1e388);
@@ -12667,6 +12827,11 @@ impl ::core::cmp::PartialEq for IAzTask2 {
     }
 }
 impl ::core::cmp::Eq for IAzTask2 {}
+impl ::core::fmt::Debug for IAzTask2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzTask2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzTask2 {
     type Vtable = IAzTask2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x03a9a5ee_48c8_4832_9025_aad503c46526);
@@ -12838,6 +13003,11 @@ impl ::core::cmp::PartialEq for IAzTasks {
     }
 }
 impl ::core::cmp::Eq for IAzTasks {}
+impl ::core::fmt::Debug for IAzTasks {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAzTasks").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAzTasks {
     type Vtable = IAzTasksVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb338ccab_4c85_4388_8c0a_c58592bad398);

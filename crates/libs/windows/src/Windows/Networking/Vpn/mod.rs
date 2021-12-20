@@ -316,6 +316,11 @@ impl ::core::cmp::PartialEq for IVpnChannelStatics {
     }
 }
 impl ::core::cmp::Eq for IVpnChannelStatics {}
+impl ::core::fmt::Debug for IVpnChannelStatics {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnChannelStatics").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnChannelStatics {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{88eb062d-e818-4ffd-98a6-363e3736c95d}");
 }
@@ -425,6 +430,11 @@ impl ::core::cmp::PartialEq for IVpnCredential {
     }
 }
 impl ::core::cmp::Eq for IVpnCredential {}
+impl ::core::fmt::Debug for IVpnCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnCredential").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnCredential {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b7e78af3-a46d-404b-8729-1832522853ac}");
 }
@@ -625,6 +635,11 @@ impl ::core::cmp::PartialEq for IVpnCustomPrompt {
     }
 }
 impl ::core::cmp::Eq for IVpnCustomPrompt {}
+impl ::core::fmt::Debug for IVpnCustomPrompt {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnCustomPrompt").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnCustomPrompt {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9b2ebe7b-87d5-433c-b4f6-eee6aa68a244}");
 }
@@ -763,6 +778,11 @@ impl ::core::cmp::PartialEq for IVpnCustomPromptElement {
     }
 }
 impl ::core::cmp::Eq for IVpnCustomPromptElement {}
+impl ::core::fmt::Debug for IVpnCustomPromptElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnCustomPromptElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnCustomPromptElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{73bd5638-6f04-404d-93dd-50a44924a38b}");
 }
@@ -998,6 +1018,11 @@ impl ::core::cmp::PartialEq for IVpnDomainNameInfoFactory {
     }
 }
 impl ::core::cmp::Eq for IVpnDomainNameInfoFactory {}
+impl ::core::fmt::Debug for IVpnDomainNameInfoFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnDomainNameInfoFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnDomainNameInfoFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2507bb75-028f-4688-8d3a-c4531df37da8}");
 }
@@ -1139,6 +1164,11 @@ impl ::core::cmp::PartialEq for IVpnInterfaceIdFactory {
     }
 }
 impl ::core::cmp::Eq for IVpnInterfaceIdFactory {}
+impl ::core::fmt::Debug for IVpnInterfaceIdFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnInterfaceIdFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnInterfaceIdFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d1000}");
 }
@@ -1309,6 +1339,11 @@ impl ::core::cmp::PartialEq for IVpnNamespaceInfoFactory {
     }
 }
 impl ::core::cmp::Eq for IVpnNamespaceInfoFactory {}
+impl ::core::fmt::Debug for IVpnNamespaceInfoFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnNamespaceInfoFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnNamespaceInfoFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{cb3e951a-b0ce-442b-acbb-5f99b202c31c}");
 }
@@ -1501,6 +1536,11 @@ impl ::core::cmp::PartialEq for IVpnPacketBufferFactory {
     }
 }
 impl ::core::cmp::Eq for IVpnPacketBufferFactory {}
+impl ::core::fmt::Debug for IVpnPacketBufferFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnPacketBufferFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnPacketBufferFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{9e2ddca2-1712-4ce4-b179-8c652c6d9999}");
 }
@@ -1668,6 +1708,11 @@ impl ::core::cmp::PartialEq for IVpnPlugIn {
     }
 }
 impl ::core::cmp::Eq for IVpnPlugIn {}
+impl ::core::fmt::Debug for IVpnPlugIn {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnPlugIn").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnPlugIn {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ceb78d07-d0a8-4703-a091-c8c2c0915bc4}");
 }
@@ -1864,6 +1909,11 @@ impl ::core::cmp::PartialEq for IVpnProfile {
     }
 }
 impl ::core::cmp::Eq for IVpnProfile {}
+impl ::core::fmt::Debug for IVpnProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{7875b751-b0d7-43db-8a93-d3fe2479e56a}");
 }
@@ -2015,6 +2065,11 @@ impl ::core::cmp::PartialEq for IVpnRouteFactory {
     }
 }
 impl ::core::cmp::Eq for IVpnRouteFactory {}
+impl ::core::fmt::Debug for IVpnRouteFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVpnRouteFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVpnRouteFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bdeab5ff-45cf-4b99-83fb-db3bc2672b02}");
 }
@@ -2180,6 +2235,11 @@ impl ::core::cmp::PartialEq for VpnAppId {
     }
 }
 impl ::core::cmp::Eq for VpnAppId {}
+impl ::core::fmt::Debug for VpnAppId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnAppId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnAppId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnAppId;{7b06a635-5c58-41d9-94a7-bfbcf1d8ca54})");
 }
@@ -2623,6 +2683,11 @@ impl ::core::cmp::PartialEq for VpnChannel {
     }
 }
 impl ::core::cmp::Eq for VpnChannel {}
+impl ::core::fmt::Debug for VpnChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnChannel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannel;{4ac78d07-d1a8-4303-a091-c8d2e0915bc3})");
 }
@@ -2699,6 +2764,11 @@ impl ::core::cmp::PartialEq for VpnChannelActivityEventArgs {
     }
 }
 impl ::core::cmp::Eq for VpnChannelActivityEventArgs {}
+impl ::core::fmt::Debug for VpnChannelActivityEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelActivityEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnChannelActivityEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityEventArgs;{a36c88f2-afdc-4775-855d-d4ac0a35fc55})");
 }
@@ -2808,6 +2878,11 @@ impl ::core::cmp::PartialEq for VpnChannelActivityStateChangedArgs {
     }
 }
 impl ::core::cmp::Eq for VpnChannelActivityStateChangedArgs {}
+impl ::core::fmt::Debug for VpnChannelActivityStateChangedArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelActivityStateChangedArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnChannelActivityStateChangedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelActivityStateChangedArgs;{3d750565-fdc0-4bbe-a23b-45fffc6d97a1})");
 }
@@ -2910,6 +2985,11 @@ impl ::core::cmp::PartialEq for VpnChannelConfiguration {
     }
 }
 impl ::core::cmp::Eq for VpnChannelConfiguration {}
+impl ::core::fmt::Debug for VpnChannelConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnChannelConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnChannelConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnChannelConfiguration;{0e2ddca2-2012-4fe4-b179-8c652c6d107e})");
 }
@@ -3047,6 +3127,11 @@ impl ::core::cmp::PartialEq for VpnCredential {
     }
 }
 impl ::core::cmp::Eq for VpnCredential {}
+impl ::core::fmt::Debug for VpnCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCredential").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCredential {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCredential;{b7e78af3-a46d-404b-8729-1832522853ac})");
 }
@@ -3242,6 +3327,11 @@ impl ::core::cmp::PartialEq for VpnCustomCheckBox {
     }
 }
 impl ::core::cmp::Eq for VpnCustomCheckBox {}
+impl ::core::fmt::Debug for VpnCustomCheckBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomCheckBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomCheckBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomCheckBox;{43878753-03c5-4e61-93d7-a957714c4282})");
 }
@@ -3401,6 +3491,11 @@ impl ::core::cmp::PartialEq for VpnCustomComboBox {
     }
 }
 impl ::core::cmp::Eq for VpnCustomComboBox {}
+impl ::core::fmt::Debug for VpnCustomComboBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomComboBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomComboBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomComboBox;{9a24158e-dba1-4c6f-8270-dcf3c9761c4c})");
 }
@@ -3571,6 +3666,11 @@ impl ::core::cmp::PartialEq for VpnCustomEditBox {
     }
 }
 impl ::core::cmp::Eq for VpnCustomEditBox {}
+impl ::core::fmt::Debug for VpnCustomEditBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomEditBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomEditBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomEditBox;{3002d9a0-cfbf-4c0b-8f3c-66f503c20b39})");
 }
@@ -3707,6 +3807,11 @@ impl ::core::cmp::PartialEq for VpnCustomErrorBox {
     }
 }
 impl ::core::cmp::Eq for VpnCustomErrorBox {}
+impl ::core::fmt::Debug for VpnCustomErrorBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomErrorBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomErrorBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomErrorBox;{9ec4efb2-c942-42af-b223-588b48328721})");
 }
@@ -3864,6 +3969,11 @@ impl ::core::cmp::PartialEq for VpnCustomPromptBooleanInput {
     }
 }
 impl ::core::cmp::Eq for VpnCustomPromptBooleanInput {}
+impl ::core::fmt::Debug for VpnCustomPromptBooleanInput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomPromptBooleanInput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomPromptBooleanInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptBooleanInput;{c4c9a69e-ff47-4527-9f27-a49292019979})");
 }
@@ -4017,6 +4127,11 @@ impl ::core::cmp::PartialEq for VpnCustomPromptOptionSelector {
     }
 }
 impl ::core::cmp::Eq for VpnCustomPromptOptionSelector {}
+impl ::core::fmt::Debug for VpnCustomPromptOptionSelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomPromptOptionSelector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomPromptOptionSelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptOptionSelector;{3b8f34d9-8ec1-4e95-9a4e-7ba64d38f330})");
 }
@@ -4166,6 +4281,11 @@ impl ::core::cmp::PartialEq for VpnCustomPromptText {
     }
 }
 impl ::core::cmp::Eq for VpnCustomPromptText {}
+impl ::core::fmt::Debug for VpnCustomPromptText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomPromptText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomPromptText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptText;{3bc8bdee-3a42-49a3-abdd-07b2edea752d})");
 }
@@ -4336,6 +4456,11 @@ impl ::core::cmp::PartialEq for VpnCustomPromptTextInput {
     }
 }
 impl ::core::cmp::Eq for VpnCustomPromptTextInput {}
+impl ::core::fmt::Debug for VpnCustomPromptTextInput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomPromptTextInput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomPromptTextInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomPromptTextInput;{c9da9c75-913c-47d5-88ba-48fc48930235})");
 }
@@ -4485,6 +4610,11 @@ impl ::core::cmp::PartialEq for VpnCustomTextBox {
     }
 }
 impl ::core::cmp::Eq for VpnCustomTextBox {}
+impl ::core::fmt::Debug for VpnCustomTextBox {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnCustomTextBox").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnCustomTextBox {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnCustomTextBox;{daa4c3ca-8f23-4d36-91f1-76d937827942})");
 }
@@ -4639,6 +4769,11 @@ impl ::core::cmp::PartialEq for VpnDomainNameAssignment {
     }
 }
 impl ::core::cmp::Eq for VpnDomainNameAssignment {}
+impl ::core::fmt::Debug for VpnDomainNameAssignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDomainNameAssignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnDomainNameAssignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameAssignment;{4135b141-ccdb-49b5-9401-039a8ae767e9})");
 }
@@ -4773,6 +4908,11 @@ impl ::core::cmp::PartialEq for VpnDomainNameInfo {
     }
 }
 impl ::core::cmp::Eq for VpnDomainNameInfo {}
+impl ::core::fmt::Debug for VpnDomainNameInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnDomainNameInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnDomainNameInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnDomainNameInfo;{ad2eb82f-ea8e-4f7a-843e-1a87e32e1b9a})");
 }
@@ -4936,6 +5076,11 @@ impl ::core::cmp::PartialEq for VpnForegroundActivatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for VpnForegroundActivatedEventArgs {}
+impl ::core::fmt::Debug for VpnForegroundActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnForegroundActivatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnForegroundActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivatedEventArgs;{85b465b0-cadb-4d70-ac92-543a24dc9ebc})");
 }
@@ -5062,6 +5207,11 @@ impl ::core::cmp::PartialEq for VpnForegroundActivationOperation {
     }
 }
 impl ::core::cmp::Eq for VpnForegroundActivationOperation {}
+impl ::core::fmt::Debug for VpnForegroundActivationOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnForegroundActivationOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnForegroundActivationOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnForegroundActivationOperation;{9e010d57-f17a-4bd5-9b6d-f984f1297d3c})");
 }
@@ -5185,6 +5335,11 @@ impl ::core::cmp::PartialEq for VpnInterfaceId {
     }
 }
 impl ::core::cmp::Eq for VpnInterfaceId {}
+impl ::core::fmt::Debug for VpnInterfaceId {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnInterfaceId").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnInterfaceId {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnInterfaceId;{9e2ddca2-1712-4ce4-b179-8c652c6d1011})");
 }
@@ -5341,6 +5496,11 @@ impl ::core::cmp::PartialEq for VpnManagementAgent {
     }
 }
 impl ::core::cmp::Eq for VpnManagementAgent {}
+impl ::core::fmt::Debug for VpnManagementAgent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnManagementAgent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnManagementAgent {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnManagementAgent;{193696cd-a5c4-4abe-852b-785be4cb3e34})");
 }
@@ -5531,6 +5691,11 @@ impl ::core::cmp::PartialEq for VpnNamespaceAssignment {
     }
 }
 impl ::core::cmp::Eq for VpnNamespaceAssignment {}
+impl ::core::fmt::Debug for VpnNamespaceAssignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnNamespaceAssignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnNamespaceAssignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceAssignment;{d7f7db18-307d-4c0e-bd62-8fa270bbadd6})");
 }
@@ -5655,6 +5820,11 @@ impl ::core::cmp::PartialEq for VpnNamespaceInfo {
     }
 }
 impl ::core::cmp::Eq for VpnNamespaceInfo {}
+impl ::core::fmt::Debug for VpnNamespaceInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnNamespaceInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnNamespaceInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNamespaceInfo;{30edfb43-444f-44c5-8167-a35a91f1af94})");
 }
@@ -5900,6 +6070,11 @@ impl ::core::cmp::PartialEq for VpnNativeProfile {
     }
 }
 impl ::core::cmp::Eq for VpnNativeProfile {}
+impl ::core::fmt::Debug for VpnNativeProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnNativeProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnNativeProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnNativeProfile;{a4aee29e-6417-4333-9842-f0a66db69802})");
 }
@@ -6092,6 +6267,11 @@ impl ::core::cmp::PartialEq for VpnPacketBuffer {
     }
 }
 impl ::core::cmp::Eq for VpnPacketBuffer {}
+impl ::core::fmt::Debug for VpnPacketBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnPacketBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnPacketBuffer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBuffer;{c2f891fc-4d5c-4a63-b70d-4e307eacce55})");
 }
@@ -6221,6 +6401,11 @@ impl ::core::cmp::PartialEq for VpnPacketBufferList {
     }
 }
 impl ::core::cmp::Eq for VpnPacketBufferList {}
+impl ::core::fmt::Debug for VpnPacketBufferList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnPacketBufferList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnPacketBufferList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPacketBufferList;{c2f891fc-4d5c-4a63-b70d-4e307eacce77})");
 }
@@ -6390,6 +6575,11 @@ impl ::core::cmp::PartialEq for VpnPickedCredential {
     }
 }
 impl ::core::cmp::Eq for VpnPickedCredential {}
+impl ::core::fmt::Debug for VpnPickedCredential {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnPickedCredential").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnPickedCredential {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPickedCredential;{9a793ac7-8854-4e52-ad97-24dd9a842bce})");
 }
@@ -6596,6 +6786,11 @@ impl ::core::cmp::PartialEq for VpnPlugInProfile {
     }
 }
 impl ::core::cmp::Eq for VpnPlugInProfile {}
+impl ::core::fmt::Debug for VpnPlugInProfile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnPlugInProfile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnPlugInProfile {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnPlugInProfile;{0edf0da4-4f00-4589-8d7b-4bf988f6542c})");
 }
@@ -6724,6 +6919,11 @@ impl ::core::cmp::PartialEq for VpnRoute {
     }
 }
 impl ::core::cmp::Eq for VpnRoute {}
+impl ::core::fmt::Debug for VpnRoute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnRoute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnRoute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRoute;{b5731b83-0969-4699-938e-7776db29cfb3})");
 }
@@ -6872,6 +7072,11 @@ impl ::core::cmp::PartialEq for VpnRouteAssignment {
     }
 }
 impl ::core::cmp::Eq for VpnRouteAssignment {}
+impl ::core::fmt::Debug for VpnRouteAssignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnRouteAssignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnRouteAssignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnRouteAssignment;{db64de22-ce39-4a76-9550-f61039f80e48})");
 }
@@ -6982,6 +7187,11 @@ impl ::core::cmp::PartialEq for VpnSystemHealth {
     }
 }
 impl ::core::cmp::Eq for VpnSystemHealth {}
+impl ::core::fmt::Debug for VpnSystemHealth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnSystemHealth").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnSystemHealth {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnSystemHealth;{99a8f8af-c0ee-4e75-817a-f231aee5123d})");
 }
@@ -7146,6 +7356,11 @@ impl ::core::cmp::PartialEq for VpnTrafficFilter {
     }
 }
 impl ::core::cmp::Eq for VpnTrafficFilter {}
+impl ::core::fmt::Debug for VpnTrafficFilter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnTrafficFilter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnTrafficFilter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilter;{2f691b60-6c9f-47f5-ac36-bb1b042e2c50})");
 }
@@ -7256,6 +7471,11 @@ impl ::core::cmp::PartialEq for VpnTrafficFilterAssignment {
     }
 }
 impl ::core::cmp::Eq for VpnTrafficFilterAssignment {}
+impl ::core::fmt::Debug for VpnTrafficFilterAssignment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VpnTrafficFilterAssignment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VpnTrafficFilterAssignment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.Vpn.VpnTrafficFilterAssignment;{56ccd45c-e664-471e-89cd-601603b9e0f3})");
 }

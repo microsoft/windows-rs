@@ -86,6 +86,11 @@ impl ::core::cmp::PartialEq for EasClientDeviceInformation {
     }
 }
 impl ::core::cmp::Eq for EasClientDeviceInformation {}
+impl ::core::fmt::Debug for EasClientDeviceInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasClientDeviceInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasClientDeviceInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientDeviceInformation;{54dfd981-1968-4ca3-b958-e595d16505eb})");
 }
@@ -284,6 +289,11 @@ impl ::core::cmp::PartialEq for EasClientSecurityPolicy {
     }
 }
 impl ::core::cmp::Eq for EasClientSecurityPolicy {}
+impl ::core::fmt::Debug for EasClientSecurityPolicy {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasClientSecurityPolicy").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasClientSecurityPolicy {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasClientSecurityPolicy;{45b72362-dfba-4a9b-aced-6fe2adcb6420})");
 }
@@ -430,6 +440,11 @@ impl ::core::cmp::PartialEq for EasComplianceResults {
     }
 }
 impl ::core::cmp::Eq for EasComplianceResults {}
+impl ::core::fmt::Debug for EasComplianceResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EasComplianceResults").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EasComplianceResults {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.ExchangeActiveSyncProvisioning.EasComplianceResults;{463c299c-7f19-4c66-b403-cb45dd57a2b3})");
 }

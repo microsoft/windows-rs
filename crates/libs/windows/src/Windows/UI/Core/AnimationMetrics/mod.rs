@@ -70,6 +70,11 @@ impl ::core::cmp::PartialEq for AnimationDescription {
     }
 }
 impl ::core::cmp::Eq for AnimationDescription {}
+impl ::core::fmt::Debug for AnimationDescription {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AnimationDescription").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for AnimationDescription {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.AnimationDescription;{7d11a549-be3d-41de-b081-05c149962f9b})");
 }
@@ -403,6 +408,11 @@ impl ::core::cmp::PartialEq for IPropertyAnimation {
     }
 }
 impl ::core::cmp::Eq for IPropertyAnimation {}
+impl ::core::fmt::Debug for IPropertyAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPropertyAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{3a01b4da-4d8c-411e-b615-1ade683a9903}");
 }
@@ -531,6 +541,11 @@ impl ::core::cmp::PartialEq for OpacityAnimation {
     }
 }
 impl ::core::cmp::Eq for OpacityAnimation {}
+impl ::core::fmt::Debug for OpacityAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("OpacityAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for OpacityAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.OpacityAnimation;{803aabe5-ee7e-455f-84e9-2506afb8d2b4})");
 }
@@ -665,6 +680,11 @@ impl ::core::cmp::PartialEq for PropertyAnimation {
     }
 }
 impl ::core::cmp::Eq for PropertyAnimation {}
+impl ::core::fmt::Debug for PropertyAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertyAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertyAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.PropertyAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }
@@ -876,6 +896,11 @@ impl ::core::cmp::PartialEq for ScaleAnimation {
     }
 }
 impl ::core::cmp::Eq for ScaleAnimation {}
+impl ::core::fmt::Debug for ScaleAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ScaleAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ScaleAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.ScaleAnimation;{023552c7-71ab-428c-9c9f-d31780964995})");
 }
@@ -1010,6 +1035,11 @@ impl ::core::cmp::PartialEq for TranslationAnimation {
     }
 }
 impl ::core::cmp::Eq for TranslationAnimation {}
+impl ::core::fmt::Debug for TranslationAnimation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TranslationAnimation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TranslationAnimation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Core.AnimationMetrics.TranslationAnimation;{3a01b4da-4d8c-411e-b615-1ade683a9903})");
 }

@@ -8917,6 +8917,11 @@ impl ::core::cmp::PartialEq for IDirectInput2A {
     }
 }
 impl ::core::cmp::Eq for IDirectInput2A {}
+impl ::core::fmt::Debug for IDirectInput2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput2A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput2A {
     type Vtable = IDirectInput2AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e662_aa8a_11cf_bfc7_444553540000);
@@ -9022,6 +9027,11 @@ impl ::core::cmp::PartialEq for IDirectInput2W {
     }
 }
 impl ::core::cmp::Eq for IDirectInput2W {}
+impl ::core::fmt::Debug for IDirectInput2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput2W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput2W {
     type Vtable = IDirectInput2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e663_aa8a_11cf_bfc7_444553540000);
@@ -9151,6 +9161,11 @@ impl ::core::cmp::PartialEq for IDirectInput7A {
     }
 }
 impl ::core::cmp::Eq for IDirectInput7A {}
+impl ::core::fmt::Debug for IDirectInput7A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput7A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput7A {
     type Vtable = IDirectInput7AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb684_236d_11d3_8e9d_00c04f6844ae);
@@ -9281,6 +9296,11 @@ impl ::core::cmp::PartialEq for IDirectInput7W {
     }
 }
 impl ::core::cmp::Eq for IDirectInput7W {}
+impl ::core::fmt::Debug for IDirectInput7W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput7W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput7W {
     type Vtable = IDirectInput7WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a4cb685_236d_11d3_8e9d_00c04f6844ae);
@@ -9377,6 +9397,11 @@ impl ::core::cmp::PartialEq for IDirectInput8A {
     }
 }
 impl ::core::cmp::Eq for IDirectInput8A {}
+impl ::core::fmt::Debug for IDirectInput8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput8A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput8A {
     type Vtable = IDirectInput8AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798030_483a_4da2_aa99_5d64ed369700);
@@ -9476,6 +9501,11 @@ impl ::core::cmp::PartialEq for IDirectInput8W {
     }
 }
 impl ::core::cmp::Eq for IDirectInput8W {}
+impl ::core::fmt::Debug for IDirectInput8W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInput8W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInput8W {
     type Vtable = IDirectInput8WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbf798031_483a_4da2_aa99_5d64ed369700);
@@ -9560,6 +9590,11 @@ impl ::core::cmp::PartialEq for IDirectInputA {
     }
 }
 impl ::core::cmp::Eq for IDirectInputA {}
+impl ::core::fmt::Debug for IDirectInputA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputA {
     type Vtable = IDirectInputAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521360_aa8a_11cf_bfc7_444553540000);
@@ -9741,6 +9776,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice2A {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice2A {}
+impl ::core::fmt::Debug for IDirectInputDevice2A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice2A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice2A {
     type Vtable = IDirectInputDevice2AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e682_c92e_11cf_bfc7_444553540000);
@@ -9945,6 +9985,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice2W {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice2W {}
+impl ::core::fmt::Debug for IDirectInputDevice2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice2W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice2W {
     type Vtable = IDirectInputDevice2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e683_c92e_11cf_bfc7_444553540000);
@@ -10179,6 +10224,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice7A {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice7A {}
+impl ::core::fmt::Debug for IDirectInputDevice7A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice7A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice7A {
     type Vtable = IDirectInputDevice7AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bc_2356_11d3_8e9d_00c04f6844ae);
@@ -10417,6 +10467,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice7W {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice7W {}
+impl ::core::fmt::Debug for IDirectInputDevice7W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice7W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice7W {
     type Vtable = IDirectInputDevice7WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57d7c6bd_2356_11d3_8e9d_00c04f6844ae);
@@ -10630,6 +10685,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice8A {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice8A {}
+impl ::core::fmt::Debug for IDirectInputDevice8A {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice8A").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice8A {
     type Vtable = IDirectInputDevice8AVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41080_dc15_4833_a41b_748f73a38179);
@@ -10849,6 +10909,11 @@ impl ::core::cmp::PartialEq for IDirectInputDevice8W {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDevice8W {}
+impl ::core::fmt::Debug for IDirectInputDevice8W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDevice8W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDevice8W {
     type Vtable = IDirectInputDevice8WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54d41081_dc15_4833_a41b_748f73a38179);
@@ -11004,6 +11069,11 @@ impl ::core::cmp::PartialEq for IDirectInputDeviceA {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDeviceA {}
+impl ::core::fmt::Debug for IDirectInputDeviceA {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDeviceA").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDeviceA {
     type Vtable = IDirectInputDeviceAVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e680_c92e_11cf_bfc7_444553540000);
@@ -11138,6 +11208,11 @@ impl ::core::cmp::PartialEq for IDirectInputDeviceW {
     }
 }
 impl ::core::cmp::Eq for IDirectInputDeviceW {}
+impl ::core::fmt::Debug for IDirectInputDeviceW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputDeviceW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputDeviceW {
     type Vtable = IDirectInputDeviceWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5944e681_c92e_11cf_bfc7_444553540000);
@@ -11246,6 +11321,11 @@ impl ::core::cmp::PartialEq for IDirectInputEffect {
     }
 }
 impl ::core::cmp::Eq for IDirectInputEffect {}
+impl ::core::fmt::Debug for IDirectInputEffect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputEffect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputEffect {
     type Vtable = IDirectInputEffectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7e1f7c0_88d2_11d0_9ad0_00a0c9a06e35);
@@ -11348,6 +11428,11 @@ impl ::core::cmp::PartialEq for IDirectInputEffectDriver {
     }
 }
 impl ::core::cmp::Eq for IDirectInputEffectDriver {}
+impl ::core::fmt::Debug for IDirectInputEffectDriver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputEffectDriver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputEffectDriver {
     type Vtable = IDirectInputEffectDriverVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x02538130_898f_11d0_9ad0_00a0c9a06e35);
@@ -11478,6 +11563,11 @@ impl ::core::cmp::PartialEq for IDirectInputJoyConfig {
     }
 }
 impl ::core::cmp::Eq for IDirectInputJoyConfig {}
+impl ::core::fmt::Debug for IDirectInputJoyConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputJoyConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputJoyConfig {
     type Vtable = IDirectInputJoyConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1de12ab1_c9f5_11cf_bfc7_444553540000);
@@ -11621,6 +11711,11 @@ impl ::core::cmp::PartialEq for IDirectInputJoyConfig8 {
     }
 }
 impl ::core::cmp::Eq for IDirectInputJoyConfig8 {}
+impl ::core::fmt::Debug for IDirectInputJoyConfig8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputJoyConfig8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputJoyConfig8 {
     type Vtable = IDirectInputJoyConfig8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb0d7dfa_1990_4f27_b4d6_edf2eec4a44c);
@@ -11715,6 +11810,11 @@ impl ::core::cmp::PartialEq for IDirectInputW {
     }
 }
 impl ::core::cmp::Eq for IDirectInputW {}
+impl ::core::fmt::Debug for IDirectInputW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectInputW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectInputW {
     type Vtable = IDirectInputWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x89521361_aa8a_11cf_bfc7_444553540000);

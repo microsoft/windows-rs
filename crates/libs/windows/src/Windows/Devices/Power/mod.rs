@@ -73,6 +73,11 @@ impl ::core::cmp::PartialEq for Battery {
     }
 }
 impl ::core::cmp::Eq for Battery {}
+impl ::core::fmt::Debug for Battery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Battery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Battery {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.Battery;{bc894fc6-0072-47c8-8b5d-614aaa7a437e})");
 }
@@ -186,6 +191,11 @@ impl ::core::cmp::PartialEq for BatteryReport {
     }
 }
 impl ::core::cmp::Eq for BatteryReport {}
+impl ::core::fmt::Debug for BatteryReport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BatteryReport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BatteryReport {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Power.BatteryReport;{c9858c3a-4e13-420a-a8d0-24f18f395401})");
 }

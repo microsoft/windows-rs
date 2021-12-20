@@ -106,6 +106,11 @@ impl ::core::cmp::PartialEq for SpatialGraphInteropFrameOfReferencePreview {
     }
 }
 impl ::core::cmp::Eq for SpatialGraphInteropFrameOfReferencePreview {}
+impl ::core::fmt::Debug for SpatialGraphInteropFrameOfReferencePreview {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SpatialGraphInteropFrameOfReferencePreview").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SpatialGraphInteropFrameOfReferencePreview {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Perception.Spatial.Preview.SpatialGraphInteropFrameOfReferencePreview;{a8271b23-735f-5729-a98e-e64ed189abc5})");
 }

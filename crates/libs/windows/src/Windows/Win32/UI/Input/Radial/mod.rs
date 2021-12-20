@@ -61,6 +61,11 @@ impl ::core::cmp::PartialEq for IRadialControllerConfigurationInterop {
     }
 }
 impl ::core::cmp::Eq for IRadialControllerConfigurationInterop {}
+impl ::core::fmt::Debug for IRadialControllerConfigurationInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRadialControllerConfigurationInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRadialControllerConfigurationInterop {
     type Vtable = IRadialControllerConfigurationInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x787cdaac_3186_476d_87e4_b9374a7b9970);
@@ -139,6 +144,11 @@ impl ::core::cmp::PartialEq for IRadialControllerIndependentInputSourceInterop {
     }
 }
 impl ::core::cmp::Eq for IRadialControllerIndependentInputSourceInterop {}
+impl ::core::fmt::Debug for IRadialControllerIndependentInputSourceInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRadialControllerIndependentInputSourceInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRadialControllerIndependentInputSourceInterop {
     type Vtable = IRadialControllerIndependentInputSourceInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3d577eff_4cee_11e6_b535_001bdc06ab3b);
@@ -217,6 +227,11 @@ impl ::core::cmp::PartialEq for IRadialControllerInterop {
     }
 }
 impl ::core::cmp::Eq for IRadialControllerInterop {}
+impl ::core::fmt::Debug for IRadialControllerInterop {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRadialControllerInterop").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRadialControllerInterop {
     type Vtable = IRadialControllerInteropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b0535c9_57ad_45c1_9d79_ad5c34360513);

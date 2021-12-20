@@ -130,6 +130,11 @@ impl ::core::cmp::PartialEq for EndpointPair {
     }
 }
 impl ::core::cmp::Eq for EndpointPair {}
+impl ::core::fmt::Debug for EndpointPair {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EndpointPair").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for EndpointPair {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.EndpointPair;{33a0aa36-f8fa-4b30-b856-76517c3bd06d})");
 }
@@ -280,6 +285,11 @@ impl ::core::cmp::PartialEq for HostName {
     }
 }
 impl ::core::cmp::Eq for HostName {}
+impl ::core::fmt::Debug for HostName {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HostName").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HostName {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.HostName;{bf8ecaad-ed96-49a7-9084-d416cae88dcb})");
 }

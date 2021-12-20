@@ -22,6 +22,11 @@ impl ::core::cmp::PartialEq for ActivatedDeferral {
     }
 }
 impl ::core::cmp::Eq for ActivatedDeferral {}
+impl ::core::fmt::Debug for ActivatedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivatedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivatedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.ActivatedDeferral;{c3bd1978-a431-49d8-a76a-395a4e03dcf3})");
 }
@@ -141,6 +146,12 @@ impl ::core::cmp::PartialEq for ActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for ActivatedEventHandler {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for ActivatedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivatedEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for ActivatedEventHandler {
     type Vtable = ActivatedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x50f1e730_c5d1_4b6b_9adb_8a11756be29c);
@@ -183,6 +194,11 @@ impl ::core::cmp::PartialEq for ActivatedOperation {
     }
 }
 impl ::core::cmp::Eq for ActivatedOperation {}
+impl ::core::fmt::Debug for ActivatedOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ActivatedOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ActivatedOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.ActivatedOperation;{b6a0b4bc-c6ca-42fd-9818-71904e45fed7})");
 }
@@ -263,6 +279,12 @@ impl ::core::cmp::PartialEq for BackgroundActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for BackgroundActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for BackgroundActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for BackgroundActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.BackgroundActivatedEventArgs;{ab14bee0-e760-440e-a91c-44796de3a92d})");
@@ -423,6 +445,12 @@ impl ::core::cmp::PartialEq for BackgroundActivatedEventHandler {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for BackgroundActivatedEventHandler {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for BackgroundActivatedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundActivatedEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::Interface for BackgroundActivatedEventHandler {
     type Vtable = BackgroundActivatedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xedb19fbb_0761_47cc_9a77_24d7072965ca);
@@ -471,6 +499,12 @@ impl ::core::cmp::PartialEq for EnteredBackgroundEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for EnteredBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for EnteredBackgroundEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnteredBackgroundEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::RuntimeType for EnteredBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.EnteredBackgroundEventArgs;{f722dcc2-9827-403d-aaed-ecca9ac17398})");
@@ -630,6 +664,12 @@ impl ::core::cmp::PartialEq for EnteredBackgroundEventHandler {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for EnteredBackgroundEventHandler {}
+#[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for EnteredBackgroundEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("EnteredBackgroundEventHandler").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for EnteredBackgroundEventHandler {
     type Vtable = EnteredBackgroundEventHandlerVtbl;
@@ -791,6 +831,11 @@ impl ::core::cmp::PartialEq for HtmlPrintDocumentSource {
     }
 }
 impl ::core::cmp::Eq for HtmlPrintDocumentSource {}
+impl ::core::fmt::Debug for HtmlPrintDocumentSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("HtmlPrintDocumentSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for HtmlPrintDocumentSource {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.HtmlPrintDocumentSource;{cea6469a-0e05-467a-abc9-36ec1d4cdcb6})");
 }
@@ -977,6 +1022,11 @@ impl ::core::cmp::PartialEq for IActivatedEventArgsDeferral {
     }
 }
 impl ::core::cmp::Eq for IActivatedEventArgsDeferral {}
+impl ::core::fmt::Debug for IActivatedEventArgsDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IActivatedEventArgsDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IActivatedEventArgsDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ca6d5f74-63c2-44a6-b97b-d9a03c20bc9b}");
 }
@@ -1245,6 +1295,11 @@ impl ::core::cmp::PartialEq for IWebUIBackgroundTaskInstance {
     }
 }
 impl ::core::cmp::Eq for IWebUIBackgroundTaskInstance {}
+impl ::core::fmt::Debug for IWebUIBackgroundTaskInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebUIBackgroundTaskInstance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebUIBackgroundTaskInstance {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{23f12c25-e2f7-4741-bc9c-394595de24dc}");
 }
@@ -1364,6 +1419,11 @@ impl ::core::cmp::PartialEq for IWebUINavigatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IWebUINavigatedEventArgs {}
+impl ::core::fmt::Debug for IWebUINavigatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWebUINavigatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IWebUINavigatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a75841b8-2499-4030-a69d-15d2d9cfe524}");
 }
@@ -1479,6 +1539,12 @@ impl ::core::cmp::PartialEq for LeavingBackgroundEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for LeavingBackgroundEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for LeavingBackgroundEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LeavingBackgroundEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::RuntimeType for LeavingBackgroundEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.LeavingBackgroundEventArgs;{39c6ec9a-ae6e-46f9-a07a-cfc23f88733e})");
@@ -1639,6 +1705,12 @@ impl ::core::cmp::PartialEq for LeavingBackgroundEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for LeavingBackgroundEventHandler {}
 #[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for LeavingBackgroundEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LeavingBackgroundEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for LeavingBackgroundEventHandler {
     type Vtable = LeavingBackgroundEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00b4ccd9_7a9c_4b6b_9ac4_13474f268bc4);
@@ -1717,6 +1789,11 @@ impl ::core::cmp::PartialEq for NavigatedEventHandler {
     }
 }
 impl ::core::cmp::Eq for NavigatedEventHandler {}
+impl ::core::fmt::Debug for NavigatedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NavigatedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for NavigatedEventHandler {
     type Vtable = NavigatedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7af46fe6_40ca_4e49_a7d6_dbdb330cd1a3);
@@ -1777,6 +1854,11 @@ impl ::core::cmp::PartialEq for NewWebUIViewCreatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for NewWebUIViewCreatedEventArgs {}
+impl ::core::fmt::Debug for NewWebUIViewCreatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("NewWebUIViewCreatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for NewWebUIViewCreatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.NewWebUIViewCreatedEventArgs;{e8e1b216-be2b-4c9e-85e7-083143ec4be7})");
 }
@@ -1922,6 +2004,11 @@ impl ::core::cmp::PartialEq for ResumingEventHandler {
     }
 }
 impl ::core::cmp::Eq for ResumingEventHandler {}
+impl ::core::fmt::Debug for ResumingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResumingEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ResumingEventHandler {
     type Vtable = ResumingEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26599ba9_a22d_4806_a728_acadc1d075fa);
@@ -1959,6 +2046,12 @@ impl ::core::cmp::PartialEq for SuspendingDeferral {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for SuspendingDeferral {}
+#[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for SuspendingDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingDeferral").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::RuntimeType for SuspendingDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingDeferral;{59140509-8bc9-4eb4-b636-dabdc4f46f66})");
@@ -2076,6 +2169,12 @@ impl ::core::cmp::PartialEq for SuspendingEventArgs {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for SuspendingEventArgs {}
+#[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for SuspendingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::RuntimeType for SuspendingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingEventArgs;{96061c05-2dba-4d08-b0bd-2b30a131c6aa})");
@@ -2232,6 +2331,12 @@ impl ::core::cmp::PartialEq for SuspendingEventHandler {
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for SuspendingEventHandler {}
 #[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for SuspendingEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingEventHandler").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::Interface for SuspendingEventHandler {
     type Vtable = SuspendingEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x509c429c_78e2_4883_abc8_8960dcde1b5c);
@@ -2289,6 +2394,12 @@ impl ::core::cmp::PartialEq for SuspendingOperation {
 }
 #[cfg(feature = "ApplicationModel")]
 impl ::core::cmp::Eq for SuspendingOperation {}
+#[cfg(feature = "ApplicationModel")]
+impl ::core::fmt::Debug for SuspendingOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SuspendingOperation").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel")]
 unsafe impl ::windows::core::RuntimeType for SuspendingOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.SuspendingOperation;{9da4ca41-20e1-4e9b-9f65-a9f435340c3a})");
@@ -2611,6 +2722,12 @@ impl ::core::cmp::PartialEq for WebUIAppointmentsProviderAddAppointmentActivated
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIAppointmentsProviderAddAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderAddAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderAddAppointmentActivatedEventArgs;{a2861367-cee5-4e4d-9ed7-41c34ec18b02})");
 }
@@ -2885,6 +3002,12 @@ impl ::core::cmp::PartialEq for WebUIAppointmentsProviderRemoveAppointmentActiva
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderRemoveAppointmentActivatedEventArgs;{751f3ab8-0b8e-451c-9f15-966e699bac25})");
 }
@@ -3158,6 +3281,12 @@ impl ::core::cmp::PartialEq for WebUIAppointmentsProviderReplaceAppointmentActiv
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderReplaceAppointmentActivatedEventArgs;{1551b7d4-a981-4067-8a62-0524e4ade121})");
@@ -3451,6 +3580,12 @@ impl ::core::cmp::PartialEq for WebUIAppointmentsProviderShowAppointmentDetailsA
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderShowAppointmentDetailsActivatedEventArgs;{3958f065-9841-4ca5-999b-885198b9ef2a})");
 }
@@ -3733,6 +3868,12 @@ impl ::core::cmp::PartialEq for WebUIAppointmentsProviderShowTimeFrameActivatedE
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIAppointmentsProviderShowTimeFrameActivatedEventArgs;{9baeaba6-0e0b-49aa-babc-12b1dc774986})");
@@ -4047,6 +4188,11 @@ impl ::core::cmp::PartialEq for WebUIBackgroundTaskInstanceRuntimeClass {
     }
 }
 impl ::core::cmp::Eq for WebUIBackgroundTaskInstanceRuntimeClass {}
+impl ::core::fmt::Debug for WebUIBackgroundTaskInstanceRuntimeClass {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIBackgroundTaskInstanceRuntimeClass").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUIBackgroundTaskInstanceRuntimeClass {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIBackgroundTaskInstanceRuntimeClass;{23f12c25-e2f7-4741-bc9c-394595de24dc})");
 }
@@ -4219,6 +4365,12 @@ impl ::core::cmp::PartialEq for WebUIBarcodeScannerPreviewActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIBarcodeScannerPreviewActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIBarcodeScannerPreviewActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIBarcodeScannerPreviewActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIBarcodeScannerPreviewActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIBarcodeScannerPreviewActivatedEventArgs;{6772797c-99bf-4349-af22-e4123560371c})");
@@ -4463,6 +4615,12 @@ impl ::core::cmp::PartialEq for WebUICachedFileUpdaterActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUICachedFileUpdaterActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUICachedFileUpdaterActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICachedFileUpdaterActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUICachedFileUpdaterActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICachedFileUpdaterActivatedEventArgs;{d06eb1c7-3805-4ecb-b757-6cf15e26fef3})");
 }
@@ -4702,6 +4860,12 @@ impl ::core::cmp::PartialEq for WebUICameraSettingsActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUICameraSettingsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUICameraSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICameraSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUICameraSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICameraSettingsActivatedEventArgs;{fb67a508-2dad-490a-9170-dca036eb114b})");
 }
@@ -4914,6 +5078,12 @@ impl ::core::cmp::PartialEq for WebUICommandLineActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUICommandLineActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUICommandLineActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUICommandLineActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUICommandLineActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUICommandLineActivatedEventArgs;{4506472c-006a-48eb-8afb-d07ab25e3366})");
@@ -5176,6 +5346,12 @@ impl ::core::cmp::PartialEq for WebUIContactCallActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIContactCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIContactCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIContactCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactCallActivatedEventArgs;{c2df14c7-30eb-41c6-b3bc-5b1694f9dab3})");
 }
@@ -5423,6 +5599,12 @@ impl ::core::cmp::PartialEq for WebUIContactMapActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIContactMapActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIContactMapActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIContactMapActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactMapActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactMapActivatedEventArgs;{b32bf870-eee7-4ad2-aaf1-a87effcf00a4})");
@@ -5681,6 +5863,12 @@ impl ::core::cmp::PartialEq for WebUIContactMessageActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIContactMessageActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIContactMessageActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIContactMessageActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactMessageActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactMessageActivatedEventArgs;{de598db2-0e03-43b0-bf56-bcc40b3162df})");
 }
@@ -5929,6 +6117,12 @@ impl ::core::cmp::PartialEq for WebUIContactPanelActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIContactPanelActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIContactPanelActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIContactPanelActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactPanelActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPanelActivatedEventArgs;{52bb63e4-d3d4-4b63-8051-4af2082cab80})");
 }
@@ -6163,6 +6357,12 @@ impl ::core::cmp::PartialEq for WebUIContactPickerActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIContactPickerActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIContactPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIContactPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPickerActivatedEventArgs;{ce57aae7-6449-45a7-971f-d113be7a8936})");
 }
@@ -6393,6 +6593,12 @@ impl ::core::cmp::PartialEq for WebUIContactPostActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIContactPostActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIContactPostActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIContactPostActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactPostActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactPostActivatedEventArgs;{b35a3c67-f1e7-4655-ad6e-4857588f552f})");
@@ -6651,6 +6857,12 @@ impl ::core::cmp::PartialEq for WebUIContactVideoCallActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIContactVideoCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIContactVideoCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIContactVideoCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIContactVideoCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIContactVideoCallActivatedEventArgs;{61079db8-e3e7-4b4f-858d-5c63a96ef684})");
 }
@@ -6907,6 +7119,12 @@ impl ::core::cmp::PartialEq for WebUIDeviceActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIDeviceActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIDeviceActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIDeviceActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIDeviceActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDeviceActivatedEventArgs;{cd50b9a9-ce10-44d2-8234-c355a073ef33})");
@@ -7173,6 +7391,12 @@ impl ::core::cmp::PartialEq for WebUIDevicePairingActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIDevicePairingActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIDevicePairingActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIDevicePairingActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIDevicePairingActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDevicePairingActivatedEventArgs;{eba0d1e4-ecc6-4148-94ed-f4b37ec05b3e})");
 }
@@ -7438,6 +7662,12 @@ impl ::core::cmp::PartialEq for WebUIDialReceiverActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIDialReceiverActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIDialReceiverActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIDialReceiverActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIDialReceiverActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIDialReceiverActivatedEventArgs;{fb777ed7-85ee-456e-a44d-85d730e70aed})");
@@ -7757,6 +7987,12 @@ impl ::core::cmp::PartialEq for WebUIFileActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIFileActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIFileActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIFileActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIFileActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileActivatedEventArgs;{bb2afc33-93b1-42ed-8b26-236dd9c78496})");
 }
@@ -8057,6 +8293,12 @@ impl ::core::cmp::PartialEq for WebUIFileOpenPickerActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIFileOpenPickerActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIFileOpenPickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIFileOpenPickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIFileOpenPickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileOpenPickerActivatedEventArgs;{72827082-5525-4bf2-bc09-1f5095d4964d})");
 }
@@ -8330,6 +8572,12 @@ impl ::core::cmp::PartialEq for WebUIFileOpenPickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::cmp::Eq for WebUIFileOpenPickerContinuationEventArgs {}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+impl ::core::fmt::Debug for WebUIFileOpenPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIFileOpenPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for WebUIFileOpenPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileOpenPickerContinuationEventArgs;{f0fa3f3a-d4e8-4ad3-9c34-2308f32fcec9})");
@@ -8614,6 +8862,12 @@ impl ::core::cmp::PartialEq for WebUIFileSavePickerActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIFileSavePickerActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIFileSavePickerActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIFileSavePickerActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIFileSavePickerActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerActivatedEventArgs;{81c19cf1-74e6-4387-82eb-bb8fd64b4346})");
 }
@@ -8888,6 +9142,12 @@ impl ::core::cmp::PartialEq for WebUIFileSavePickerContinuationEventArgs {
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::cmp::Eq for WebUIFileSavePickerContinuationEventArgs {}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+impl ::core::fmt::Debug for WebUIFileSavePickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIFileSavePickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for WebUIFileSavePickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFileSavePickerContinuationEventArgs;{2c846fe1-3bad-4f33-8c8b-e46fae824b4b})");
 }
@@ -9161,6 +9421,12 @@ impl ::core::cmp::PartialEq for WebUIFolderPickerContinuationEventArgs {
 }
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 impl ::core::cmp::Eq for WebUIFolderPickerContinuationEventArgs {}
+#[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
+impl ::core::fmt::Debug for WebUIFolderPickerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIFolderPickerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(all(feature = "ApplicationModel_Activation", feature = "deprecated"))]
 unsafe impl ::windows::core::RuntimeType for WebUIFolderPickerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIFolderPickerContinuationEventArgs;{51882366-9f4b-498f-beb0-42684f6e1c29})");
@@ -9462,6 +9728,12 @@ impl ::core::cmp::PartialEq for WebUILaunchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUILaunchActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUILaunchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUILaunchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUILaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILaunchActivatedEventArgs;{fbc93e26-a14a-4b4f-82b0-33bed920af52})");
@@ -9789,6 +10061,12 @@ impl ::core::cmp::PartialEq for WebUILockScreenActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUILockScreenActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUILockScreenActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUILockScreenActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUILockScreenActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenActivatedEventArgs;{3ca77966-6108-4a41-8220-ee7d133c8532})");
 }
@@ -10072,6 +10350,12 @@ impl ::core::cmp::PartialEq for WebUILockScreenCallActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUILockScreenCallActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUILockScreenCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUILockScreenCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUILockScreenCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenCallActivatedEventArgs;{06f37fbe-b5f2-448b-b13e-e328ac1c516a})");
 }
@@ -10319,6 +10603,12 @@ impl ::core::cmp::PartialEq for WebUILockScreenComponentActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUILockScreenComponentActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUILockScreenComponentActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUILockScreenComponentActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUILockScreenComponentActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUILockScreenComponentActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
 }
@@ -10452,6 +10742,11 @@ impl ::core::cmp::PartialEq for WebUINavigatedDeferral {
     }
 }
 impl ::core::cmp::Eq for WebUINavigatedDeferral {}
+impl ::core::fmt::Debug for WebUINavigatedDeferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUINavigatedDeferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUINavigatedDeferral {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedDeferral;{d804204d-831f-46e2-b432-3afce211f962})");
 }
@@ -10526,6 +10821,11 @@ impl ::core::cmp::PartialEq for WebUINavigatedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebUINavigatedEventArgs {}
+impl ::core::fmt::Debug for WebUINavigatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUINavigatedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUINavigatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedEventArgs;{a75841b8-2499-4030-a69d-15d2d9cfe524})");
 }
@@ -10622,6 +10922,11 @@ impl ::core::cmp::PartialEq for WebUINavigatedOperation {
     }
 }
 impl ::core::cmp::Eq for WebUINavigatedOperation {}
+impl ::core::fmt::Debug for WebUINavigatedOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUINavigatedOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUINavigatedOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUINavigatedOperation;{7a965f08-8182-4a89-ab67-8492e8750d4b})");
 }
@@ -10746,6 +11051,12 @@ impl ::core::cmp::PartialEq for WebUIPhoneCallActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIPhoneCallActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIPhoneCallActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIPhoneCallActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIPhoneCallActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPhoneCallActivatedEventArgs;{54615221-a3c1-4ced-b62f-8c60523619ad})");
@@ -10981,6 +11292,12 @@ impl ::core::cmp::PartialEq for WebUIPrint3DWorkflowActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIPrint3DWorkflowActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIPrint3DWorkflowActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIPrint3DWorkflowActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIPrint3DWorkflowActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrint3DWorkflowActivatedEventArgs;{3f57e78b-f2ac-4619-8302-ef855e1c9b90})");
 }
@@ -11185,6 +11502,12 @@ impl ::core::cmp::PartialEq for WebUIPrintTaskSettingsActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIPrintTaskSettingsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIPrintTaskSettingsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIPrintTaskSettingsActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIPrintTaskSettingsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrintTaskSettingsActivatedEventArgs;{ee30a0c9-ce56-4865-ba8e-8954ac271107})");
 }
@@ -11379,6 +11702,12 @@ impl ::core::cmp::PartialEq for WebUIPrintWorkflowForegroundTaskActivatedEventAr
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIPrintWorkflowForegroundTaskActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIPrintWorkflowForegroundTaskActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIPrintWorkflowForegroundTaskActivatedEventArgs;{cf651713-cd08-4fd8-b697-a281b6544e2e})");
@@ -11593,6 +11922,12 @@ impl ::core::cmp::PartialEq for WebUIProtocolActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIProtocolActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIProtocolActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIProtocolActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIProtocolActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIProtocolActivatedEventArgs;{6095f4dd-b7c0-46ab-81fe-d90f36d00d24})");
@@ -11921,6 +12256,12 @@ impl ::core::cmp::PartialEq for WebUIProtocolForResultsActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIProtocolForResultsActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIProtocolForResultsActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIProtocolForResultsActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIProtocolForResultsActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIProtocolForResultsActivatedEventArgs;{e75132c2-7ae7-4517-80ac-dbe8d7cc5b9c})");
 }
@@ -12238,6 +12579,12 @@ impl ::core::cmp::PartialEq for WebUIRestrictedLaunchActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIRestrictedLaunchActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIRestrictedLaunchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIRestrictedLaunchActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIRestrictedLaunchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIRestrictedLaunchActivatedEventArgs;{e0b7ac81-bfc3-4344-a5da-19fd5a27baae})");
 }
@@ -12494,6 +12841,12 @@ impl ::core::cmp::PartialEq for WebUISearchActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUISearchActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUISearchActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUISearchActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUISearchActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUISearchActivatedEventArgs;{8cb36951-58c8-43e3-94bc-41d33f8b630e})");
@@ -12760,6 +13113,12 @@ impl ::core::cmp::PartialEq for WebUIShareTargetActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIShareTargetActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIShareTargetActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIShareTargetActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIShareTargetActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIShareTargetActivatedEventArgs;{4bdaf9c8-cdb2-4acb-bfc3-6648563378ec})");
 }
@@ -12998,6 +13357,12 @@ impl ::core::cmp::PartialEq for WebUIStartupTaskActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIStartupTaskActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIStartupTaskActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIStartupTaskActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIStartupTaskActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIStartupTaskActivatedEventArgs;{03b11a58-5276-4d91-8621-54611864d5fa})");
@@ -13251,6 +13616,12 @@ impl ::core::cmp::PartialEq for WebUIToastNotificationActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIToastNotificationActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIToastNotificationActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIToastNotificationActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIToastNotificationActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIToastNotificationActivatedEventArgs;{92a86f82-5290-431d-be85-c4aaeeb8685f})");
 }
@@ -13480,6 +13851,12 @@ impl ::core::cmp::PartialEq for WebUIUserDataAccountProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIUserDataAccountProviderActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIUserDataAccountProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIUserDataAccountProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIUserDataAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIUserDataAccountProviderActivatedEventArgs;{1bc9f723-8ef1-4a51-a63a-fe711eeab607})");
@@ -14142,6 +14519,11 @@ impl ::core::cmp::PartialEq for WebUIView {
     }
 }
 impl ::core::cmp::Eq for WebUIView {}
+impl ::core::fmt::Debug for WebUIView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebUIView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIView;{6783f64f-52da-4fd7-be69-8ef6284b423c})");
 }
@@ -14318,6 +14700,12 @@ impl ::core::cmp::PartialEq for WebUIVoiceCommandActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIVoiceCommandActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIVoiceCommandActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIVoiceCommandActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIVoiceCommandActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIVoiceCommandActivatedEventArgs;{ab92dcfd-8d43-4de6-9775-20704b581b00})");
@@ -14567,6 +14955,12 @@ impl ::core::cmp::PartialEq for WebUIWalletActionActivatedEventArgs {
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIWalletActionActivatedEventArgs {}
 #[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIWalletActionActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIWalletActionActivatedEventArgs").field(&self.0).finish()
+    }
+}
+#[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIWalletActionActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWalletActionActivatedEventArgs;{fcfc027b-1a1a-4d22-923f-ae6f45fa52d9})");
 }
@@ -14779,6 +15173,12 @@ impl ::core::cmp::PartialEq for WebUIWebAccountProviderActivatedEventArgs {
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIWebAccountProviderActivatedEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIWebAccountProviderActivatedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIWebAccountProviderActivatedEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIWebAccountProviderActivatedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWebAccountProviderActivatedEventArgs;{72b71774-98ea-4ccf-9752-46d9051004f1})");
@@ -15018,6 +15418,12 @@ impl ::core::cmp::PartialEq for WebUIWebAuthenticationBrokerContinuationEventArg
 }
 #[cfg(feature = "ApplicationModel_Activation")]
 impl ::core::cmp::Eq for WebUIWebAuthenticationBrokerContinuationEventArgs {}
+#[cfg(feature = "ApplicationModel_Activation")]
+impl ::core::fmt::Debug for WebUIWebAuthenticationBrokerContinuationEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebUIWebAuthenticationBrokerContinuationEventArgs").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "ApplicationModel_Activation")]
 unsafe impl ::windows::core::RuntimeType for WebUIWebAuthenticationBrokerContinuationEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.WebUI.WebUIWebAuthenticationBrokerContinuationEventArgs;{75dda3d4-7714-453d-b7ff-b95e3a1709da})");

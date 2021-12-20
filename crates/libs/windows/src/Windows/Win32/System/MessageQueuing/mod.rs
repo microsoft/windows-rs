@@ -95,6 +95,11 @@ impl ::core::cmp::PartialEq for IMSMQApplication {
     }
 }
 impl ::core::cmp::Eq for IMSMQApplication {}
+impl ::core::fmt::Debug for IMSMQApplication {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQApplication").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQApplication {
     type Vtable = IMSMQApplicationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e085_dccd_11d0_aa4b_0060970debae);
@@ -261,6 +266,11 @@ impl ::core::cmp::PartialEq for IMSMQApplication2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQApplication2 {}
+impl ::core::fmt::Debug for IMSMQApplication2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQApplication2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQApplication2 {
     type Vtable = IMSMQApplication2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x12a30900_7300_11d2_b0e6_00e02c074f6b);
@@ -509,6 +519,11 @@ impl ::core::cmp::PartialEq for IMSMQApplication3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQApplication3 {}
+impl ::core::fmt::Debug for IMSMQApplication3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQApplication3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQApplication3 {
     type Vtable = IMSMQApplication3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1f_2168_11d3_898c_00e02c074f6b);
@@ -654,6 +669,11 @@ impl ::core::cmp::PartialEq for IMSMQCollection {
     }
 }
 impl ::core::cmp::Eq for IMSMQCollection {}
+impl ::core::fmt::Debug for IMSMQCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQCollection {
     type Vtable = IMSMQCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0188ac2f_ecb3_4173_9779_635ca2039c72);
@@ -764,6 +784,11 @@ impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser {
     }
 }
 impl ::core::cmp::Eq for IMSMQCoordinatedTransactionDispenser {}
+impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQCoordinatedTransactionDispenser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser {
     type Vtable = IMSMQCoordinatedTransactionDispenserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e081_dccd_11d0_aa4b_0060970debae);
@@ -877,6 +902,11 @@ impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQCoordinatedTransactionDispenser2 {}
+impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQCoordinatedTransactionDispenser2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser2 {
     type Vtable = IMSMQCoordinatedTransactionDispenser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b10_2168_11d3_898c_00e02c074f6b);
@@ -992,6 +1022,11 @@ impl ::core::cmp::PartialEq for IMSMQCoordinatedTransactionDispenser3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQCoordinatedTransactionDispenser3 {}
+impl ::core::fmt::Debug for IMSMQCoordinatedTransactionDispenser3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQCoordinatedTransactionDispenser3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQCoordinatedTransactionDispenser3 {
     type Vtable = IMSMQCoordinatedTransactionDispenser3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b14_2168_11d3_898c_00e02c074f6b);
@@ -1170,6 +1205,11 @@ impl ::core::cmp::PartialEq for IMSMQDestination {
     }
 }
 impl ::core::cmp::Eq for IMSMQDestination {}
+impl ::core::fmt::Debug for IMSMQDestination {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQDestination").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQDestination {
     type Vtable = IMSMQDestinationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b16_2168_11d3_898c_00e02c074f6b);
@@ -1296,6 +1336,11 @@ impl ::core::cmp::PartialEq for IMSMQEvent {
     }
 }
 impl ::core::cmp::Eq for IMSMQEvent {}
+impl ::core::fmt::Debug for IMSMQEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQEvent {
     type Vtable = IMSMQEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e077_dccd_11d0_aa4b_0060970debae);
@@ -1423,6 +1468,11 @@ impl ::core::cmp::PartialEq for IMSMQEvent2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQEvent2 {}
+impl ::core::fmt::Debug for IMSMQEvent2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQEvent2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQEvent2 {
     type Vtable = IMSMQEvent2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b12_2168_11d3_898c_00e02c074f6b);
@@ -1572,6 +1622,11 @@ impl ::core::cmp::PartialEq for IMSMQEvent3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQEvent3 {}
+impl ::core::fmt::Debug for IMSMQEvent3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQEvent3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQEvent3 {
     type Vtable = IMSMQEvent3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1c_2168_11d3_898c_00e02c074f6b);
@@ -1723,6 +1778,11 @@ impl ::core::cmp::PartialEq for IMSMQManagement {
     }
 }
 impl ::core::cmp::Eq for IMSMQManagement {}
+impl ::core::fmt::Debug for IMSMQManagement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQManagement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQManagement {
     type Vtable = IMSMQManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbe5f0241_e489_4957_8cc4_a452fcf3e23e);
@@ -2075,6 +2135,11 @@ impl ::core::cmp::PartialEq for IMSMQMessage {
     }
 }
 impl ::core::cmp::Eq for IMSMQMessage {}
+impl ::core::fmt::Debug for IMSMQMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQMessage {
     type Vtable = IMSMQMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e074_dccd_11d0_aa4b_0060970debae);
@@ -2610,6 +2675,11 @@ impl ::core::cmp::PartialEq for IMSMQMessage2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQMessage2 {}
+impl ::core::fmt::Debug for IMSMQMessage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQMessage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQMessage2 {
     type Vtable = IMSMQMessage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd9933be0_a567_11d2_b0f3_00e02c074f6b);
@@ -3266,6 +3336,11 @@ impl ::core::cmp::PartialEq for IMSMQMessage3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQMessage3 {}
+impl ::core::fmt::Debug for IMSMQMessage3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQMessage3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQMessage3 {
     type Vtable = IMSMQMessage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1a_2168_11d3_898c_00e02c074f6b);
@@ -3946,6 +4021,11 @@ impl ::core::cmp::PartialEq for IMSMQMessage4 {
     }
 }
 impl ::core::cmp::Eq for IMSMQMessage4 {}
+impl ::core::fmt::Debug for IMSMQMessage4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQMessage4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQMessage4 {
     type Vtable = IMSMQMessage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b23_2168_11d3_898c_00e02c074f6b);
@@ -4269,6 +4349,11 @@ impl ::core::cmp::PartialEq for IMSMQOutgoingQueueManagement {
     }
 }
 impl ::core::cmp::Eq for IMSMQOutgoingQueueManagement {}
+impl ::core::fmt::Debug for IMSMQOutgoingQueueManagement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQOutgoingQueueManagement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQOutgoingQueueManagement {
     type Vtable = IMSMQOutgoingQueueManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x64c478fb_f9b0_4695_8a7f_439ac94326d3);
@@ -4401,6 +4486,11 @@ impl ::core::cmp::PartialEq for IMSMQPrivateDestination {
     }
 }
 impl ::core::cmp::Eq for IMSMQPrivateDestination {}
+impl ::core::fmt::Debug for IMSMQPrivateDestination {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQPrivateDestination").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQPrivateDestination {
     type Vtable = IMSMQPrivateDestinationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b17_2168_11d3_898c_00e02c074f6b);
@@ -4519,6 +4609,11 @@ impl ::core::cmp::PartialEq for IMSMQPrivateEvent {
     }
 }
 impl ::core::cmp::Eq for IMSMQPrivateEvent {}
+impl ::core::fmt::Debug for IMSMQPrivateEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQPrivateEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQPrivateEvent {
     type Vtable = IMSMQPrivateEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7ab3341_c9d3_11d1_bb47_0080c7c5a2c0);
@@ -4629,6 +4724,11 @@ impl ::core::cmp::PartialEq for IMSMQQuery {
     }
 }
 impl ::core::cmp::Eq for IMSMQQuery {}
+impl ::core::fmt::Debug for IMSMQQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQuery {
     type Vtable = IMSMQQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e072_dccd_11d0_aa4b_0060970debae);
@@ -4744,6 +4844,11 @@ impl ::core::cmp::PartialEq for IMSMQQuery2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQuery2 {}
+impl ::core::fmt::Debug for IMSMQQuery2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQuery2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQuery2 {
     type Vtable = IMSMQQuery2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0e_2168_11d3_898c_00e02c074f6b);
@@ -4882,6 +4987,11 @@ impl ::core::cmp::PartialEq for IMSMQQuery3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQuery3 {}
+impl ::core::fmt::Debug for IMSMQQuery3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQuery3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQuery3 {
     type Vtable = IMSMQQuery3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b19_2168_11d3_898c_00e02c074f6b);
@@ -5022,6 +5132,11 @@ impl ::core::cmp::PartialEq for IMSMQQuery4 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQuery4 {}
+impl ::core::fmt::Debug for IMSMQQuery4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQuery4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQuery4 {
     type Vtable = IMSMQQuery4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b24_2168_11d3_898c_00e02c074f6b);
@@ -5197,6 +5312,11 @@ impl ::core::cmp::PartialEq for IMSMQQueue {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueue {}
+impl ::core::fmt::Debug for IMSMQQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueue {
     type Vtable = IMSMQQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e076_dccd_11d0_aa4b_0060970debae);
@@ -5421,6 +5541,11 @@ impl ::core::cmp::PartialEq for IMSMQQueue2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueue2 {}
+impl ::core::fmt::Debug for IMSMQQueue2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueue2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueue2 {
     type Vtable = IMSMQQueue2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef0574e0_06d8_11d3_b100_00e02c074f6b);
@@ -5732,6 +5857,11 @@ impl ::core::cmp::PartialEq for IMSMQQueue3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueue3 {}
+impl ::core::fmt::Debug for IMSMQQueue3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueue3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueue3 {
     type Vtable = IMSMQQueue3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1b_2168_11d3_898c_00e02c074f6b);
@@ -6073,6 +6203,11 @@ impl ::core::cmp::PartialEq for IMSMQQueue4 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueue4 {}
+impl ::core::fmt::Debug for IMSMQQueue4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueue4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueue4 {
     type Vtable = IMSMQQueue4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b20_2168_11d3_898c_00e02c074f6b);
@@ -6379,6 +6514,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfo {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfo {}
+impl ::core::fmt::Debug for IMSMQQueueInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo {
     type Vtable = IMSMQQueueInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07b_dccd_11d0_aa4b_0060970debae);
@@ -6693,6 +6833,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfo2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfo2 {}
+impl ::core::fmt::Debug for IMSMQQueueInfo2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfo2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo2 {
     type Vtable = IMSMQQueueInfo2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfd174a80_89cf_11d2_b0f2_00e02c074f6b);
@@ -7042,6 +7187,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfo3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfo3 {}
+impl ::core::fmt::Debug for IMSMQQueueInfo3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfo3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo3 {
     type Vtable = IMSMQQueueInfo3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1d_2168_11d3_898c_00e02c074f6b);
@@ -7399,6 +7549,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfo4 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfo4 {}
+impl ::core::fmt::Debug for IMSMQQueueInfo4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfo4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfo4 {
     type Vtable = IMSMQQueueInfo4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b21_2168_11d3_898c_00e02c074f6b);
@@ -7567,6 +7722,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfos {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfos {}
+impl ::core::fmt::Debug for IMSMQQueueInfos {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfos").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos {
     type Vtable = IMSMQQueueInfosVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07d_dccd_11d0_aa4b_0060970debae);
@@ -7685,6 +7845,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfos2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfos2 {}
+impl ::core::fmt::Debug for IMSMQQueueInfos2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfos2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos2 {
     type Vtable = IMSMQQueueInfos2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b0f_2168_11d3_898c_00e02c074f6b);
@@ -7805,6 +7970,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfos3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfos3 {}
+impl ::core::fmt::Debug for IMSMQQueueInfos3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfos3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos3 {
     type Vtable = IMSMQQueueInfos3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b1e_2168_11d3_898c_00e02c074f6b);
@@ -7925,6 +8095,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueInfos4 {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueInfos4 {}
+impl ::core::fmt::Debug for IMSMQQueueInfos4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueInfos4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueInfos4 {
     type Vtable = IMSMQQueueInfos4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b22_2168_11d3_898c_00e02c074f6b);
@@ -8115,6 +8290,11 @@ impl ::core::cmp::PartialEq for IMSMQQueueManagement {
     }
 }
 impl ::core::cmp::Eq for IMSMQQueueManagement {}
+impl ::core::fmt::Debug for IMSMQQueueManagement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQQueueManagement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQQueueManagement {
     type Vtable = IMSMQQueueManagementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7fbe7759_5760_444d_b8a5_5e7ab9a84cce);
@@ -8249,6 +8429,11 @@ impl ::core::cmp::PartialEq for IMSMQTransaction {
     }
 }
 impl ::core::cmp::Eq for IMSMQTransaction {}
+impl ::core::fmt::Debug for IMSMQTransaction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQTransaction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQTransaction {
     type Vtable = IMSMQTransactionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e07f_dccd_11d0_aa4b_0060970debae);
@@ -8401,6 +8586,11 @@ impl ::core::cmp::PartialEq for IMSMQTransaction2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQTransaction2 {}
+impl ::core::fmt::Debug for IMSMQTransaction2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQTransaction2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQTransaction2 {
     type Vtable = IMSMQTransaction2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ce0c5b0_6e67_11d2_b0e6_00e02c074f6b);
@@ -8583,6 +8773,11 @@ impl ::core::cmp::PartialEq for IMSMQTransaction3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQTransaction3 {}
+impl ::core::fmt::Debug for IMSMQTransaction3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQTransaction3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQTransaction3 {
     type Vtable = IMSMQTransaction3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b13_2168_11d3_898c_00e02c074f6b);
@@ -8700,6 +8895,11 @@ impl ::core::cmp::PartialEq for IMSMQTransactionDispenser {
     }
 }
 impl ::core::cmp::Eq for IMSMQTransactionDispenser {}
+impl ::core::fmt::Debug for IMSMQTransactionDispenser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQTransactionDispenser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser {
     type Vtable = IMSMQTransactionDispenserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e083_dccd_11d0_aa4b_0060970debae);
@@ -8813,6 +9013,11 @@ impl ::core::cmp::PartialEq for IMSMQTransactionDispenser2 {
     }
 }
 impl ::core::cmp::Eq for IMSMQTransactionDispenser2 {}
+impl ::core::fmt::Debug for IMSMQTransactionDispenser2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQTransactionDispenser2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser2 {
     type Vtable = IMSMQTransactionDispenser2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b11_2168_11d3_898c_00e02c074f6b);
@@ -8928,6 +9133,11 @@ impl ::core::cmp::PartialEq for IMSMQTransactionDispenser3 {
     }
 }
 impl ::core::cmp::Eq for IMSMQTransactionDispenser3 {}
+impl ::core::fmt::Debug for IMSMQTransactionDispenser3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSMQTransactionDispenser3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSMQTransactionDispenser3 {
     type Vtable = IMSMQTransactionDispenser3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeba96b15_2168_11d3_898c_00e02c074f6b);
@@ -10043,6 +10253,11 @@ impl ::core::cmp::PartialEq for _DMSMQEventEvents {
     }
 }
 impl ::core::cmp::Eq for _DMSMQEventEvents {}
+impl ::core::fmt::Debug for _DMSMQEventEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("_DMSMQEventEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for _DMSMQEventEvents {
     type Vtable = _DMSMQEventEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd7d6e078_dccd_11d0_aa4b_0060970debae);

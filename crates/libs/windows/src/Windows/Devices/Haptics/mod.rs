@@ -358,6 +358,11 @@ impl ::core::cmp::PartialEq for SimpleHapticsController {
     }
 }
 impl ::core::cmp::Eq for SimpleHapticsController {}
+impl ::core::fmt::Debug for SimpleHapticsController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SimpleHapticsController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SimpleHapticsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsController;{3d577ef9-4cee-11e6-b535-001bdc06ab3b})");
 }
@@ -443,6 +448,11 @@ impl ::core::cmp::PartialEq for SimpleHapticsControllerFeedback {
     }
 }
 impl ::core::cmp::Eq for SimpleHapticsControllerFeedback {}
+impl ::core::fmt::Debug for SimpleHapticsControllerFeedback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SimpleHapticsControllerFeedback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SimpleHapticsControllerFeedback {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.SimpleHapticsControllerFeedback;{3d577ef8-4cee-11e6-b535-001bdc06ab3b})");
 }
@@ -606,6 +616,11 @@ impl ::core::cmp::PartialEq for VibrationDevice {
     }
 }
 impl ::core::cmp::Eq for VibrationDevice {}
+impl ::core::fmt::Debug for VibrationDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VibrationDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for VibrationDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.Haptics.VibrationDevice;{40f21a3e-8844-47ff-b312-06185a3844da})");
 }

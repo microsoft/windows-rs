@@ -2666,6 +2666,11 @@ impl ::core::cmp::PartialEq for IAccountingProviderConfig {
     }
 }
 impl ::core::cmp::Eq for IAccountingProviderConfig {}
+impl ::core::fmt::Debug for IAccountingProviderConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccountingProviderConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccountingProviderConfig {
     type Vtable = IAccountingProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db18_d706_11d0_a37b_00c04fc9da04);
@@ -2743,6 +2748,11 @@ impl ::core::cmp::PartialEq for IAuthenticationProviderConfig {
     }
 }
 impl ::core::cmp::Eq for IAuthenticationProviderConfig {}
+impl ::core::fmt::Debug for IAuthenticationProviderConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAuthenticationProviderConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAuthenticationProviderConfig {
     type Vtable = IAuthenticationProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db17_d706_11d0_a37b_00c04fc9da04);
@@ -2822,6 +2832,11 @@ impl ::core::cmp::PartialEq for IEAPProviderConfig {
     }
 }
 impl ::core::cmp::Eq for IEAPProviderConfig {}
+impl ::core::fmt::Debug for IEAPProviderConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEAPProviderConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEAPProviderConfig {
     type Vtable = IEAPProviderConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db19_d706_11d0_a37b_00c04fc9da04);
@@ -2932,6 +2947,11 @@ impl ::core::cmp::PartialEq for IEAPProviderConfig2 {
     }
 }
 impl ::core::cmp::Eq for IEAPProviderConfig2 {}
+impl ::core::fmt::Debug for IEAPProviderConfig2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEAPProviderConfig2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEAPProviderConfig2 {
     type Vtable = IEAPProviderConfig2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd565917a_85c4_4466_856e_671c3742ea9a);
@@ -3070,6 +3090,11 @@ impl ::core::cmp::PartialEq for IEAPProviderConfig3 {
     }
 }
 impl ::core::cmp::Eq for IEAPProviderConfig3 {}
+impl ::core::fmt::Debug for IEAPProviderConfig3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEAPProviderConfig3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEAPProviderConfig3 {
     type Vtable = IEAPProviderConfig3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb78ecd12_68bb_4f86_9bf0_8438dd3be982);
@@ -3141,6 +3166,11 @@ impl ::core::cmp::PartialEq for IRouterProtocolConfig {
     }
 }
 impl ::core::cmp::Eq for IRouterProtocolConfig {}
+impl ::core::fmt::Debug for IRouterProtocolConfig {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRouterProtocolConfig").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRouterProtocolConfig {
     type Vtable = IRouterProtocolConfigVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66a2db16_d706_11d0_a37b_00c04fc9da04);

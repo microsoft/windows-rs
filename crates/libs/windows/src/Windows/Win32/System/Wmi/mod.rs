@@ -96,6 +96,11 @@ impl ::core::cmp::PartialEq for IEnumWbemClassObject {
     }
 }
 impl ::core::cmp::Eq for IEnumWbemClassObject {}
+impl ::core::fmt::Debug for IEnumWbemClassObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumWbemClassObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumWbemClassObject {
     type Vtable = IEnumWbemClassObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x027947e1_d731_11ce_a357_000000000001);
@@ -163,6 +168,11 @@ impl ::core::cmp::PartialEq for IMofCompiler {
     }
 }
 impl ::core::cmp::Eq for IMofCompiler {}
+impl ::core::fmt::Debug for IMofCompiler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMofCompiler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMofCompiler {
     type Vtable = IMofCompilerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6daf974e_2e37_11d2_aec9_00c04fb68820);
@@ -446,6 +456,11 @@ impl ::core::cmp::PartialEq for ISWbemDateTime {
     }
 }
 impl ::core::cmp::Eq for ISWbemDateTime {}
+impl ::core::fmt::Debug for ISWbemDateTime {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemDateTime").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemDateTime {
     type Vtable = ISWbemDateTimeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5e97458a_cf77_11d3_b38f_00105a1f473a);
@@ -601,6 +616,11 @@ impl ::core::cmp::PartialEq for ISWbemEventSource {
     }
 }
 impl ::core::cmp::Eq for ISWbemEventSource {}
+impl ::core::fmt::Debug for ISWbemEventSource {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemEventSource").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemEventSource {
     type Vtable = ISWbemEventSourceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x27d54d92_0ebe_11d2_8b22_00600806d9b6);
@@ -884,6 +904,11 @@ impl ::core::cmp::PartialEq for ISWbemLastError {
     }
 }
 impl ::core::cmp::Eq for ISWbemLastError {}
+impl ::core::fmt::Debug for ISWbemLastError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemLastError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemLastError {
     type Vtable = ISWbemLastErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd962db84_d4bb_11d1_8b09_00600806d9b6);
@@ -1039,6 +1064,11 @@ impl ::core::cmp::PartialEq for ISWbemLocator {
     }
 }
 impl ::core::cmp::Eq for ISWbemLocator {}
+impl ::core::fmt::Debug for ISWbemLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemLocator {
     type Vtable = ISWbemLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415b_cb41_11d1_8b02_00600806d9b6);
@@ -1170,6 +1200,11 @@ impl ::core::cmp::PartialEq for ISWbemMethod {
     }
 }
 impl ::core::cmp::Eq for ISWbemMethod {}
+impl ::core::fmt::Debug for ISWbemMethod {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemMethod").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemMethod {
     type Vtable = ISWbemMethodVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x422e8e90_d955_11d1_8b09_00600806d9b6);
@@ -1294,6 +1329,11 @@ impl ::core::cmp::PartialEq for ISWbemMethodSet {
     }
 }
 impl ::core::cmp::Eq for ISWbemMethodSet {}
+impl ::core::fmt::Debug for ISWbemMethodSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemMethodSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemMethodSet {
     type Vtable = ISWbemMethodSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc93ba292_d955_11d1_8b09_00600806d9b6);
@@ -1416,6 +1456,11 @@ impl ::core::cmp::PartialEq for ISWbemNamedValue {
     }
 }
 impl ::core::cmp::Eq for ISWbemNamedValue {}
+impl ::core::fmt::Debug for ISWbemNamedValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemNamedValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemNamedValue {
     type Vtable = ISWbemNamedValueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a64164_cb41_11d1_8b02_00600806d9b6);
@@ -1559,6 +1604,11 @@ impl ::core::cmp::PartialEq for ISWbemNamedValueSet {
     }
 }
 impl ::core::cmp::Eq for ISWbemNamedValueSet {}
+impl ::core::fmt::Debug for ISWbemNamedValueSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemNamedValueSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemNamedValueSet {
     type Vtable = ISWbemNamedValueSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf2376ea_ce8c_11d1_8b05_00600806d9b6);
@@ -1830,6 +1880,11 @@ impl ::core::cmp::PartialEq for ISWbemObject {
     }
 }
 impl ::core::cmp::Eq for ISWbemObject {}
+impl ::core::fmt::Debug for ISWbemObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemObject {
     type Vtable = ISWbemObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415a_cb41_11d1_8b02_00600806d9b6);
@@ -2175,6 +2230,11 @@ impl ::core::cmp::PartialEq for ISWbemObjectEx {
     }
 }
 impl ::core::cmp::Eq for ISWbemObjectEx {}
+impl ::core::fmt::Debug for ISWbemObjectEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemObjectEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemObjectEx {
     type Vtable = ISWbemObjectExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x269ad56a_8a67_4129_bc8c_0506dcfe9880);
@@ -2448,6 +2508,11 @@ impl ::core::cmp::PartialEq for ISWbemObjectPath {
     }
 }
 impl ::core::cmp::Eq for ISWbemObjectPath {}
+impl ::core::fmt::Debug for ISWbemObjectPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemObjectPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemObjectPath {
     type Vtable = ISWbemObjectPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5791bc27_ce9c_11d1_97bf_0000f81e849c);
@@ -2615,6 +2680,11 @@ impl ::core::cmp::PartialEq for ISWbemObjectSet {
     }
 }
 impl ::core::cmp::Eq for ISWbemObjectSet {}
+impl ::core::fmt::Debug for ISWbemObjectSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemObjectSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemObjectSet {
     type Vtable = ISWbemObjectSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415f_cb41_11d1_8b02_00600806d9b6);
@@ -2748,6 +2818,11 @@ impl ::core::cmp::PartialEq for ISWbemPrivilege {
     }
 }
 impl ::core::cmp::Eq for ISWbemPrivilege {}
+impl ::core::fmt::Debug for ISWbemPrivilege {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemPrivilege").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemPrivilege {
     type Vtable = ISWbemPrivilegeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67bd_5804_11d2_8b4a_00600806d9b6);
@@ -2890,6 +2965,11 @@ impl ::core::cmp::PartialEq for ISWbemPrivilegeSet {
     }
 }
 impl ::core::cmp::Eq for ISWbemPrivilegeSet {}
+impl ::core::fmt::Debug for ISWbemPrivilegeSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemPrivilegeSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemPrivilegeSet {
     type Vtable = ISWbemPrivilegeSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x26ee67bf_5804_11d2_8b4a_00600806d9b6);
@@ -3042,6 +3122,11 @@ impl ::core::cmp::PartialEq for ISWbemProperty {
     }
 }
 impl ::core::cmp::Eq for ISWbemProperty {}
+impl ::core::fmt::Debug for ISWbemProperty {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemProperty").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemProperty {
     type Vtable = ISWbemPropertyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a388f98_d4ba_11d1_8b09_00600806d9b6);
@@ -3182,6 +3267,11 @@ impl ::core::cmp::PartialEq for ISWbemPropertySet {
     }
 }
 impl ::core::cmp::Eq for ISWbemPropertySet {}
+impl ::core::fmt::Debug for ISWbemPropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemPropertySet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemPropertySet {
     type Vtable = ISWbemPropertySetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdea0a7b2_d4ba_11d1_8b09_00600806d9b6);
@@ -3345,6 +3435,11 @@ impl ::core::cmp::PartialEq for ISWbemQualifier {
     }
 }
 impl ::core::cmp::Eq for ISWbemQualifier {}
+impl ::core::fmt::Debug for ISWbemQualifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemQualifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemQualifier {
     type Vtable = ISWbemQualifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x79b05932_d3b7_11d1_8b06_00600806d9b6);
@@ -3487,6 +3582,11 @@ impl ::core::cmp::PartialEq for ISWbemQualifierSet {
     }
 }
 impl ::core::cmp::Eq for ISWbemQualifierSet {}
+impl ::core::fmt::Debug for ISWbemQualifierSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemQualifierSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemQualifierSet {
     type Vtable = ISWbemQualifierSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9b16ed16_d3df_11d1_8b08_00600806d9b6);
@@ -3625,6 +3725,11 @@ impl ::core::cmp::PartialEq for ISWbemRefreshableItem {
     }
 }
 impl ::core::cmp::Eq for ISWbemRefreshableItem {}
+impl ::core::fmt::Debug for ISWbemRefreshableItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemRefreshableItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemRefreshableItem {
     type Vtable = ISWbemRefreshableItemVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ad4bf92_daab_11d3_b38f_00105a1f473a);
@@ -3780,6 +3885,11 @@ impl ::core::cmp::PartialEq for ISWbemRefresher {
     }
 }
 impl ::core::cmp::Eq for ISWbemRefresher {}
+impl ::core::fmt::Debug for ISWbemRefresher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemRefresher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemRefresher {
     type Vtable = ISWbemRefresherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x14d8250e_d9c2_11d3_b38f_00105a1f473a);
@@ -3916,6 +4026,11 @@ impl ::core::cmp::PartialEq for ISWbemSecurity {
     }
 }
 impl ::core::cmp::Eq for ISWbemSecurity {}
+impl ::core::fmt::Debug for ISWbemSecurity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemSecurity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemSecurity {
     type Vtable = ISWbemSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb54d66e6_2287_11d2_8b33_00600806d9b6);
@@ -4169,6 +4284,11 @@ impl ::core::cmp::PartialEq for ISWbemServices {
     }
 }
 impl ::core::cmp::Eq for ISWbemServices {}
+impl ::core::fmt::Debug for ISWbemServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemServices {
     type Vtable = ISWbemServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x76a6415c_cb41_11d1_8b02_00600806d9b6);
@@ -4502,6 +4622,11 @@ impl ::core::cmp::PartialEq for ISWbemServicesEx {
     }
 }
 impl ::core::cmp::Eq for ISWbemServicesEx {}
+impl ::core::fmt::Debug for ISWbemServicesEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemServicesEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemServicesEx {
     type Vtable = ISWbemServicesExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2f68443_85dc_427e_91d8_366554cc754c);
@@ -4665,6 +4790,11 @@ impl ::core::cmp::PartialEq for ISWbemSink {
     }
 }
 impl ::core::cmp::Eq for ISWbemSink {}
+impl ::core::fmt::Debug for ISWbemSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemSink {
     type Vtable = ISWbemSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75718c9f_f029_11d1_a1ac_00c04fb6c223);
@@ -4767,6 +4897,11 @@ impl ::core::cmp::PartialEq for ISWbemSinkEvents {
     }
 }
 impl ::core::cmp::Eq for ISWbemSinkEvents {}
+impl ::core::fmt::Debug for ISWbemSinkEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISWbemSinkEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISWbemSinkEvents {
     type Vtable = ISWbemSinkEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x75718ca0_f029_11d1_a1ac_00c04fb6c223);
@@ -4827,6 +4962,11 @@ impl ::core::cmp::PartialEq for IUnsecuredApartment {
     }
 }
 impl ::core::cmp::Eq for IUnsecuredApartment {}
+impl ::core::fmt::Debug for IUnsecuredApartment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUnsecuredApartment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IUnsecuredApartment {
     type Vtable = IUnsecuredApartmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1cfaba8c_1523_11d1_ad79_00c04fd8fdff);
@@ -4932,6 +5072,11 @@ impl ::core::cmp::PartialEq for IWMIExtension {
     }
 }
 impl ::core::cmp::Eq for IWMIExtension {}
+impl ::core::fmt::Debug for IWMIExtension {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMIExtension").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMIExtension {
     type Vtable = IWMIExtensionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xadc1f06e_5c7e_11d2_8b74_00104b2afb41);
@@ -4996,6 +5141,11 @@ impl ::core::cmp::PartialEq for IWbemAddressResolution {
     }
 }
 impl ::core::cmp::Eq for IWbemAddressResolution {}
+impl ::core::fmt::Debug for IWbemAddressResolution {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemAddressResolution").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemAddressResolution {
     type Vtable = IWbemAddressResolutionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7ce2e12_8c90_11d1_9e7b_00c04fc324a8);
@@ -5055,6 +5205,11 @@ impl ::core::cmp::PartialEq for IWbemBackupRestore {
     }
 }
 impl ::core::cmp::Eq for IWbemBackupRestore {}
+impl ::core::fmt::Debug for IWbemBackupRestore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemBackupRestore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemBackupRestore {
     type Vtable = IWbemBackupRestoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc49e32c7_bc8b_11d2_85d4_00105a1f8304);
@@ -5144,6 +5299,11 @@ impl ::core::cmp::PartialEq for IWbemBackupRestoreEx {
     }
 }
 impl ::core::cmp::Eq for IWbemBackupRestoreEx {}
+impl ::core::fmt::Debug for IWbemBackupRestoreEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemBackupRestoreEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemBackupRestoreEx {
     type Vtable = IWbemBackupRestoreExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa359dec5_e813_4834_8a2a_ba7f1d777d76);
@@ -5218,6 +5378,11 @@ impl ::core::cmp::PartialEq for IWbemCallResult {
     }
 }
 impl ::core::cmp::Eq for IWbemCallResult {}
+impl ::core::fmt::Debug for IWbemCallResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemCallResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemCallResult {
     type Vtable = IWbemCallResultVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44aca675_e8fc_11d0_a07c_00c04fb68820);
@@ -5391,6 +5556,11 @@ impl ::core::cmp::PartialEq for IWbemClassObject {
     }
 }
 impl ::core::cmp::Eq for IWbemClassObject {}
+impl ::core::fmt::Debug for IWbemClassObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemClassObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemClassObject {
     type Vtable = IWbemClassObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc12a681_737f_11cf_884d_00aa004b2e24);
@@ -5491,6 +5661,11 @@ impl ::core::cmp::PartialEq for IWbemClientConnectionTransport {
     }
 }
 impl ::core::cmp::Eq for IWbemClientConnectionTransport {}
+impl ::core::fmt::Debug for IWbemClientConnectionTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemClientConnectionTransport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemClientConnectionTransport {
     type Vtable = IWbemClientConnectionTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa889c72a_fcc1_4a9e_af61_ed071333fb5b);
@@ -5549,6 +5724,11 @@ impl ::core::cmp::PartialEq for IWbemClientTransport {
     }
 }
 impl ::core::cmp::Eq for IWbemClientTransport {}
+impl ::core::fmt::Debug for IWbemClientTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemClientTransport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemClientTransport {
     type Vtable = IWbemClientTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf7ce2e11_8c90_11d1_9e7b_00c04fc324a8);
@@ -5620,6 +5800,11 @@ impl ::core::cmp::PartialEq for IWbemConfigureRefresher {
     }
 }
 impl ::core::cmp::Eq for IWbemConfigureRefresher {}
+impl ::core::fmt::Debug for IWbemConfigureRefresher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemConfigureRefresher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemConfigureRefresher {
     type Vtable = IWbemConfigureRefresherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c92_516b_11d1_aea6_00c04fb68820);
@@ -5680,6 +5865,11 @@ impl ::core::cmp::PartialEq for IWbemConnectorLogin {
     }
 }
 impl ::core::cmp::Eq for IWbemConnectorLogin {}
+impl ::core::fmt::Debug for IWbemConnectorLogin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemConnectorLogin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemConnectorLogin {
     type Vtable = IWbemConnectorLoginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd8ec9cb1_b135_4f10_8b1b_c7188bb0d186);
@@ -5749,6 +5939,11 @@ impl ::core::cmp::PartialEq for IWbemConstructClassObject {
     }
 }
 impl ::core::cmp::Eq for IWbemConstructClassObject {}
+impl ::core::fmt::Debug for IWbemConstructClassObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemConstructClassObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemConstructClassObject {
     type Vtable = IWbemConstructClassObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ef76194_70d5_11d1_ad90_00c04fd8fdff);
@@ -5848,6 +6043,11 @@ impl ::core::cmp::PartialEq for IWbemContext {
     }
 }
 impl ::core::cmp::Eq for IWbemContext {}
+impl ::core::fmt::Debug for IWbemContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemContext {
     type Vtable = IWbemContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x44aca674_e8fc_11d0_a07c_00c04fb68820);
@@ -5948,6 +6148,11 @@ impl ::core::cmp::PartialEq for IWbemDecoupledBasicEventProvider {
     }
 }
 impl ::core::cmp::Eq for IWbemDecoupledBasicEventProvider {}
+impl ::core::fmt::Debug for IWbemDecoupledBasicEventProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemDecoupledBasicEventProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemDecoupledBasicEventProvider {
     type Vtable = IWbemDecoupledBasicEventProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86336d20_ca11_4786_9ef1_bc8a946b42fc);
@@ -6009,6 +6214,11 @@ impl ::core::cmp::PartialEq for IWbemDecoupledRegistrar {
     }
 }
 impl ::core::cmp::Eq for IWbemDecoupledRegistrar {}
+impl ::core::fmt::Debug for IWbemDecoupledRegistrar {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemDecoupledRegistrar").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemDecoupledRegistrar {
     type Vtable = IWbemDecoupledRegistrarVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1005cbcf_e64f_4646_bcd3_3a089d8a84b4);
@@ -6064,6 +6274,11 @@ impl ::core::cmp::PartialEq for IWbemEventConsumerProvider {
     }
 }
 impl ::core::cmp::Eq for IWbemEventConsumerProvider {}
+impl ::core::fmt::Debug for IWbemEventConsumerProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemEventConsumerProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemEventConsumerProvider {
     type Vtable = IWbemEventConsumerProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246107a_b06e_11d0_ad61_00c04fd8fdff);
@@ -6111,6 +6326,11 @@ impl ::core::cmp::PartialEq for IWbemEventProvider {
     }
 }
 impl ::core::cmp::Eq for IWbemEventProvider {}
+impl ::core::fmt::Debug for IWbemEventProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemEventProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemEventProvider {
     type Vtable = IWbemEventProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe245105b_b06e_11d0_ad61_00c04fd8fdff);
@@ -6162,6 +6382,11 @@ impl ::core::cmp::PartialEq for IWbemEventProviderQuerySink {
     }
 }
 impl ::core::cmp::Eq for IWbemEventProviderQuerySink {}
+impl ::core::fmt::Debug for IWbemEventProviderQuerySink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemEventProviderQuerySink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemEventProviderQuerySink {
     type Vtable = IWbemEventProviderQuerySinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x580acaf8_fa1c_11d0_ad72_00c04fd8fdff);
@@ -6215,6 +6440,11 @@ impl ::core::cmp::PartialEq for IWbemEventProviderSecurity {
     }
 }
 impl ::core::cmp::Eq for IWbemEventProviderSecurity {}
+impl ::core::fmt::Debug for IWbemEventProviderSecurity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemEventProviderSecurity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemEventProviderSecurity {
     type Vtable = IWbemEventProviderSecurityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x631f7d96_d993_11d2_b339_00105a1f4aaf);
@@ -6305,6 +6535,11 @@ impl ::core::cmp::PartialEq for IWbemEventSink {
     }
 }
 impl ::core::cmp::Eq for IWbemEventSink {}
+impl ::core::fmt::Debug for IWbemEventSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemEventSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemEventSink {
     type Vtable = IWbemEventSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3ae0080a_7e3a_4366_bf89_0feedc931659);
@@ -6376,6 +6611,11 @@ impl ::core::cmp::PartialEq for IWbemHiPerfEnum {
     }
 }
 impl ::core::cmp::Eq for IWbemHiPerfEnum {}
+impl ::core::fmt::Debug for IWbemHiPerfEnum {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemHiPerfEnum").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemHiPerfEnum {
     type Vtable = IWbemHiPerfEnumVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2705c288_79ae_11d2_b348_00105a1f8177);
@@ -6455,6 +6695,11 @@ impl ::core::cmp::PartialEq for IWbemHiPerfProvider {
     }
 }
 impl ::core::cmp::Eq for IWbemHiPerfProvider {}
+impl ::core::fmt::Debug for IWbemHiPerfProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemHiPerfProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemHiPerfProvider {
     type Vtable = IWbemHiPerfProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c93_516b_11d1_aea6_00c04fb68820);
@@ -6534,6 +6779,11 @@ impl ::core::cmp::PartialEq for IWbemLevel1Login {
     }
 }
 impl ::core::cmp::Eq for IWbemLevel1Login {}
+impl ::core::fmt::Debug for IWbemLevel1Login {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemLevel1Login").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemLevel1Login {
     type Vtable = IWbemLevel1LoginVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf309ad18_d86a_11d0_a075_00c04fb68820);
@@ -6595,6 +6845,11 @@ impl ::core::cmp::PartialEq for IWbemLocator {
     }
 }
 impl ::core::cmp::Eq for IWbemLocator {}
+impl ::core::fmt::Debug for IWbemLocator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemLocator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemLocator {
     type Vtable = IWbemLocatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc12a687_737f_11cf_884d_00aa004b2e24);
@@ -6829,6 +7084,11 @@ impl ::core::cmp::PartialEq for IWbemObjectAccess {
     }
 }
 impl ::core::cmp::Eq for IWbemObjectAccess {}
+impl ::core::fmt::Debug for IWbemObjectAccess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemObjectAccess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemObjectAccess {
     type Vtable = IWbemObjectAccessVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c9a_516b_11d1_aea6_00c04fb68820);
@@ -6936,6 +7196,11 @@ impl ::core::cmp::PartialEq for IWbemObjectSink {
     }
 }
 impl ::core::cmp::Eq for IWbemObjectSink {}
+impl ::core::fmt::Debug for IWbemObjectSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemObjectSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemObjectSink {
     type Vtable = IWbemObjectSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c857801_7381_11cf_884d_00aa004b2e24);
@@ -7041,6 +7306,11 @@ impl ::core::cmp::PartialEq for IWbemObjectSinkEx {
     }
 }
 impl ::core::cmp::Eq for IWbemObjectSinkEx {}
+impl ::core::fmt::Debug for IWbemObjectSinkEx {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemObjectSinkEx").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemObjectSinkEx {
     type Vtable = IWbemObjectSinkExVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe7d35cfa_348b_485e_b524_252725d697ca);
@@ -7112,6 +7382,11 @@ impl ::core::cmp::PartialEq for IWbemObjectTextSrc {
     }
 }
 impl ::core::cmp::Eq for IWbemObjectTextSrc {}
+impl ::core::fmt::Debug for IWbemObjectTextSrc {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemObjectTextSrc").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemObjectTextSrc {
     type Vtable = IWbemObjectTextSrcVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbfbf883a_cad7_11d3_a11b_00105a1f515a);
@@ -7288,6 +7563,11 @@ impl ::core::cmp::PartialEq for IWbemPath {
     }
 }
 impl ::core::cmp::Eq for IWbemPath {}
+impl ::core::fmt::Debug for IWbemPath {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemPath").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemPath {
     type Vtable = IWbemPathVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3bc15af2_736c_477e_9e51_238af8667dcc);
@@ -7426,6 +7706,11 @@ impl ::core::cmp::PartialEq for IWbemPathKeyList {
     }
 }
 impl ::core::cmp::Eq for IWbemPathKeyList {}
+impl ::core::fmt::Debug for IWbemPathKeyList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemPathKeyList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemPathKeyList {
     type Vtable = IWbemPathKeyListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ae62877_7544_4bb0_aa26_a13824659ed6);
@@ -7500,6 +7785,11 @@ impl ::core::cmp::PartialEq for IWbemPropertyProvider {
     }
 }
 impl ::core::cmp::Eq for IWbemPropertyProvider {}
+impl ::core::fmt::Debug for IWbemPropertyProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemPropertyProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemPropertyProvider {
     type Vtable = IWbemPropertyProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xce61e841_65bc_11d0_b6bd_00aa003240c7);
@@ -7555,6 +7845,11 @@ impl ::core::cmp::PartialEq for IWbemProviderIdentity {
     }
 }
 impl ::core::cmp::Eq for IWbemProviderIdentity {}
+impl ::core::fmt::Debug for IWbemProviderIdentity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemProviderIdentity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemProviderIdentity {
     type Vtable = IWbemProviderIdentityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x631f7d97_d993_11d2_b339_00105a1f4aaf);
@@ -7603,6 +7898,11 @@ impl ::core::cmp::PartialEq for IWbemProviderInit {
     }
 }
 impl ::core::cmp::Eq for IWbemProviderInit {}
+impl ::core::fmt::Debug for IWbemProviderInit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemProviderInit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemProviderInit {
     type Vtable = IWbemProviderInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1be41572_91dd_11d1_aeb2_00c04fb68820);
@@ -7656,6 +7956,11 @@ impl ::core::cmp::PartialEq for IWbemProviderInitSink {
     }
 }
 impl ::core::cmp::Eq for IWbemProviderInitSink {}
+impl ::core::fmt::Debug for IWbemProviderInitSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemProviderInitSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemProviderInitSink {
     type Vtable = IWbemProviderInitSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1be41571_91dd_11d1_aeb2_00c04fb68820);
@@ -7733,6 +8038,11 @@ impl ::core::cmp::PartialEq for IWbemQualifierSet {
     }
 }
 impl ::core::cmp::Eq for IWbemQualifierSet {}
+impl ::core::fmt::Debug for IWbemQualifierSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemQualifierSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemQualifierSet {
     type Vtable = IWbemQualifierSetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdc12a680_737f_11cf_884d_00aa004b2e24);
@@ -7821,6 +8131,11 @@ impl ::core::cmp::PartialEq for IWbemQuery {
     }
 }
 impl ::core::cmp::Eq for IWbemQuery {}
+impl ::core::fmt::Debug for IWbemQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemQuery {
     type Vtable = IWbemQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x81166f58_dd98_11d3_a120_00105a1f515a);
@@ -7880,6 +8195,11 @@ impl ::core::cmp::PartialEq for IWbemRefresher {
     }
 }
 impl ::core::cmp::Eq for IWbemRefresher {}
+impl ::core::fmt::Debug for IWbemRefresher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemRefresher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemRefresher {
     type Vtable = IWbemRefresherVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x49353c99_516b_11d1_aea6_00c04fb68820);
@@ -8037,6 +8357,11 @@ impl ::core::cmp::PartialEq for IWbemServices {
     }
 }
 impl ::core::cmp::Eq for IWbemServices {}
+impl ::core::fmt::Debug for IWbemServices {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemServices").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemServices {
     type Vtable = IWbemServicesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9556dc99_828c_11cf_a37e_00aa003240c7);
@@ -8128,6 +8453,11 @@ impl ::core::cmp::PartialEq for IWbemShutdown {
     }
 }
 impl ::core::cmp::Eq for IWbemShutdown {}
+impl ::core::fmt::Debug for IWbemShutdown {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemShutdown").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemShutdown {
     type Vtable = IWbemShutdownVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7b31df9_d515_11d3_a11c_00105a1f515a);
@@ -8183,6 +8513,11 @@ impl ::core::cmp::PartialEq for IWbemStatusCodeText {
     }
 }
 impl ::core::cmp::Eq for IWbemStatusCodeText {}
+impl ::core::fmt::Debug for IWbemStatusCodeText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemStatusCodeText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemStatusCodeText {
     type Vtable = IWbemStatusCodeTextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeb87e1bc_3233_11d2_aec9_00c04fb68820);
@@ -8238,6 +8573,11 @@ impl ::core::cmp::PartialEq for IWbemTransport {
     }
 }
 impl ::core::cmp::Eq for IWbemTransport {}
+impl ::core::fmt::Debug for IWbemTransport {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemTransport").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemTransport {
     type Vtable = IWbemTransportVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x553fe584_2156_11d0_b6ae_00aa003240c7);
@@ -8285,6 +8625,11 @@ impl ::core::cmp::PartialEq for IWbemUnboundObjectSink {
     }
 }
 impl ::core::cmp::Eq for IWbemUnboundObjectSink {}
+impl ::core::fmt::Debug for IWbemUnboundObjectSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemUnboundObjectSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemUnboundObjectSink {
     type Vtable = IWbemUnboundObjectSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe246107b_b06e_11d0_ad61_00c04fd8fdff);
@@ -8364,6 +8709,11 @@ impl ::core::cmp::PartialEq for IWbemUnsecuredApartment {
     }
 }
 impl ::core::cmp::Eq for IWbemUnsecuredApartment {}
+impl ::core::fmt::Debug for IWbemUnsecuredApartment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWbemUnsecuredApartment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWbemUnsecuredApartment {
     type Vtable = IWbemUnsecuredApartmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x31739d04_3471_4cf4_9a7c_57a44ae71956);

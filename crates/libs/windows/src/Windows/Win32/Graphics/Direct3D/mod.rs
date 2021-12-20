@@ -1497,6 +1497,11 @@ impl ::core::cmp::PartialEq for ID3DBlob {
     }
 }
 impl ::core::cmp::Eq for ID3DBlob {}
+impl ::core::fmt::Debug for ID3DBlob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3DBlob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3DBlob {
     type Vtable = ID3DBlobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8ba5fb08_5195_40e2_ac58_0d989c3a0102);
@@ -1549,6 +1554,11 @@ impl ::core::cmp::PartialEq for ID3DDestructionNotifier {
     }
 }
 impl ::core::cmp::Eq for ID3DDestructionNotifier {}
+impl ::core::fmt::Debug for ID3DDestructionNotifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3DDestructionNotifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3DDestructionNotifier {
     type Vtable = ID3DDestructionNotifierVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa06eb39a_50da_425b_8c31_4eecd6c270f3);
@@ -1587,6 +1597,11 @@ impl ::core::cmp::PartialEq for ID3DInclude {
     }
 }
 impl ::core::cmp::Eq for ID3DInclude {}
+impl ::core::fmt::Debug for ID3DInclude {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ID3DInclude").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ID3DInclude {
     type Vtable = ID3DIncludeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();

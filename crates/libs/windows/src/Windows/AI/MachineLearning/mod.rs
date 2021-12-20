@@ -315,6 +315,11 @@ impl ::core::cmp::PartialEq for ILearningModelFeatureDescriptor {
     }
 }
 impl ::core::cmp::Eq for ILearningModelFeatureDescriptor {}
+impl ::core::fmt::Debug for ILearningModelFeatureDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelFeatureDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILearningModelFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{bc08cf7c-6ed0-4004-97ba-b9a2eecd2b4f}");
 }
@@ -400,6 +405,11 @@ impl ::core::cmp::PartialEq for ILearningModelFeatureValue {
     }
 }
 impl ::core::cmp::Eq for ILearningModelFeatureValue {}
+impl ::core::fmt::Debug for ILearningModelFeatureValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelFeatureValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILearningModelFeatureValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f51005db-4085-4dfe-9fed-95eb0c0cf75c}");
 }
@@ -473,6 +483,11 @@ impl ::core::cmp::PartialEq for ILearningModelOperatorProvider {
     }
 }
 impl ::core::cmp::Eq for ILearningModelOperatorProvider {}
+impl ::core::fmt::Debug for ILearningModelOperatorProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ILearningModelOperatorProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ILearningModelOperatorProvider {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a222e5d-afb1-47ed-bfad-b5b3a459ec04}");
 }
@@ -782,6 +797,11 @@ impl ::core::cmp::PartialEq for ITensor {
     }
 }
 impl ::core::cmp::Eq for ITensor {}
+impl ::core::fmt::Debug for ITensor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITensor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ITensor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{05489593-a305-4a25-ad09-440119b4b7f6}");
 }
@@ -1729,6 +1749,11 @@ impl ::core::cmp::PartialEq for ImageFeatureDescriptor {
     }
 }
 impl ::core::cmp::Eq for ImageFeatureDescriptor {}
+impl ::core::fmt::Debug for ImageFeatureDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageFeatureDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureDescriptor;{365585a5-171a-4a2a-985f-265159d3895a})");
 }
@@ -1849,6 +1874,11 @@ impl ::core::cmp::PartialEq for ImageFeatureValue {
     }
 }
 impl ::core::cmp::Eq for ImageFeatureValue {}
+impl ::core::fmt::Debug for ImageFeatureValue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ImageFeatureValue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ImageFeatureValue {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.ImageFeatureValue;{f0414fd9-c9aa-4405-b7fb-94f87c8a3037})");
 }
@@ -2079,6 +2109,11 @@ impl ::core::cmp::PartialEq for LearningModel {
     }
 }
 impl ::core::cmp::Eq for LearningModel {}
+impl ::core::fmt::Debug for LearningModel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModel {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModel;{5b8e4920-489f-4e86-9128-265a327b78fa})");
 }
@@ -2243,6 +2278,11 @@ impl ::core::cmp::PartialEq for LearningModelBinding {
     }
 }
 impl ::core::cmp::Eq for LearningModelBinding {}
+impl ::core::fmt::Debug for LearningModelBinding {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelBinding").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelBinding {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelBinding;{ea312f20-168f-4f8c-94fe-2e7ac31b4aa8})");
 }
@@ -2422,6 +2462,11 @@ impl ::core::cmp::PartialEq for LearningModelDevice {
     }
 }
 impl ::core::cmp::Eq for LearningModelDevice {}
+impl ::core::fmt::Debug for LearningModelDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelDevice;{f5c2c8fe-3f56-4a8c-ac5f-fdb92d8b8252})");
 }
@@ -2559,6 +2604,11 @@ impl ::core::cmp::PartialEq for LearningModelEvaluationResult {
     }
 }
 impl ::core::cmp::Eq for LearningModelEvaluationResult {}
+impl ::core::fmt::Debug for LearningModelEvaluationResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelEvaluationResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelEvaluationResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelEvaluationResult;{b2f9bfcd-960e-49c0-8593-eb190ae3eee2})");
 }
@@ -2793,6 +2843,11 @@ impl ::core::cmp::PartialEq for LearningModelSession {
     }
 }
 impl ::core::cmp::Eq for LearningModelSession {}
+impl ::core::fmt::Debug for LearningModelSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSession;{8e58f8f6-b787-4c11-90f0-7129aeca74a9})");
 }
@@ -2925,6 +2980,11 @@ impl ::core::cmp::PartialEq for LearningModelSessionOptions {
     }
 }
 impl ::core::cmp::Eq for LearningModelSessionOptions {}
+impl ::core::fmt::Debug for LearningModelSessionOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("LearningModelSessionOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for LearningModelSessionOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.LearningModelSessionOptions;{b8f63fa1-134d-5133-8cff-3a5c3c263beb})");
 }
@@ -3041,6 +3101,11 @@ impl ::core::cmp::PartialEq for MapFeatureDescriptor {
     }
 }
 impl ::core::cmp::Eq for MapFeatureDescriptor {}
+impl ::core::fmt::Debug for MapFeatureDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapFeatureDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for MapFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.MapFeatureDescriptor;{530424bd-a257-436d-9e60-c2981f7cc5c4})");
 }
@@ -3171,6 +3236,11 @@ impl ::core::cmp::PartialEq for SequenceFeatureDescriptor {
     }
 }
 impl ::core::cmp::Eq for SequenceFeatureDescriptor {}
+impl ::core::fmt::Debug for SequenceFeatureDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("SequenceFeatureDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for SequenceFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.SequenceFeatureDescriptor;{84f6945a-562b-4d62-a851-739aced96668})");
 }
@@ -3366,6 +3436,11 @@ impl ::core::cmp::PartialEq for TensorBoolean {
     }
 }
 impl ::core::cmp::Eq for TensorBoolean {}
+impl ::core::fmt::Debug for TensorBoolean {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorBoolean").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorBoolean {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorBoolean;{50f311ed-29e9-4a5c-a44d-8fc512584eed})");
 }
@@ -3635,6 +3710,11 @@ impl ::core::cmp::PartialEq for TensorDouble {
     }
 }
 impl ::core::cmp::Eq for TensorDouble {}
+impl ::core::fmt::Debug for TensorDouble {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorDouble").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorDouble {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorDouble;{91e41252-7a8f-4f0e-a28f-9637ffc8a3d0})");
 }
@@ -3848,6 +3928,11 @@ impl ::core::cmp::PartialEq for TensorFeatureDescriptor {
     }
 }
 impl ::core::cmp::Eq for TensorFeatureDescriptor {}
+impl ::core::fmt::Debug for TensorFeatureDescriptor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorFeatureDescriptor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorFeatureDescriptor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFeatureDescriptor;{74455c80-946a-4310-a19c-ee0af028fce4})");
 }
@@ -4043,6 +4128,11 @@ impl ::core::cmp::PartialEq for TensorFloat {
     }
 }
 impl ::core::cmp::Eq for TensorFloat {}
+impl ::core::fmt::Debug for TensorFloat {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorFloat").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorFloat {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat;{f2282d82-aa02-42c8-a0c8-df1efc9676e1})");
 }
@@ -4312,6 +4402,11 @@ impl ::core::cmp::PartialEq for TensorFloat16Bit {
     }
 }
 impl ::core::cmp::Eq for TensorFloat16Bit {}
+impl ::core::fmt::Debug for TensorFloat16Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorFloat16Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorFloat16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorFloat16Bit;{0ab994fc-5b89-4c3c-b5e4-5282a5316c0a})");
 }
@@ -4581,6 +4676,11 @@ impl ::core::cmp::PartialEq for TensorInt16Bit {
     }
 }
 impl ::core::cmp::Eq for TensorInt16Bit {}
+impl ::core::fmt::Debug for TensorInt16Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorInt16Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorInt16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt16Bit;{98a32d39-e6d6-44af-8afa-baebc44dc020})");
 }
@@ -4850,6 +4950,11 @@ impl ::core::cmp::PartialEq for TensorInt32Bit {
     }
 }
 impl ::core::cmp::Eq for TensorInt32Bit {}
+impl ::core::fmt::Debug for TensorInt32Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorInt32Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorInt32Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt32Bit;{2c0c28d3-207c-4486-a7d2-884522c5e589})");
 }
@@ -5119,6 +5224,11 @@ impl ::core::cmp::PartialEq for TensorInt64Bit {
     }
 }
 impl ::core::cmp::Eq for TensorInt64Bit {}
+impl ::core::fmt::Debug for TensorInt64Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorInt64Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorInt64Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt64Bit;{499665ba-1fa2-45ad-af25-a0bd9bda4c87})");
 }
@@ -5388,6 +5498,11 @@ impl ::core::cmp::PartialEq for TensorInt8Bit {
     }
 }
 impl ::core::cmp::Eq for TensorInt8Bit {}
+impl ::core::fmt::Debug for TensorInt8Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorInt8Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorInt8Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorInt8Bit;{cddd97c5-ffd8-4fef-aefb-30e1a485b2ee})");
 }
@@ -5696,6 +5811,11 @@ impl ::core::cmp::PartialEq for TensorString {
     }
 }
 impl ::core::cmp::Eq for TensorString {}
+impl ::core::fmt::Debug for TensorString {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorString").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorString {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorString;{582335c8-bdb1-4610-bc75-35e9cbf009b7})");
 }
@@ -5965,6 +6085,11 @@ impl ::core::cmp::PartialEq for TensorUInt16Bit {
     }
 }
 impl ::core::cmp::Eq for TensorUInt16Bit {}
+impl ::core::fmt::Debug for TensorUInt16Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorUInt16Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorUInt16Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt16Bit;{68140f4b-23c0-42f3-81f6-a891c011bc3f})");
 }
@@ -6234,6 +6359,11 @@ impl ::core::cmp::PartialEq for TensorUInt32Bit {
     }
 }
 impl ::core::cmp::Eq for TensorUInt32Bit {}
+impl ::core::fmt::Debug for TensorUInt32Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorUInt32Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorUInt32Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt32Bit;{d8c9c2ff-7511-45a3-bfac-c38f370d2237})");
 }
@@ -6503,6 +6633,11 @@ impl ::core::cmp::PartialEq for TensorUInt64Bit {
     }
 }
 impl ::core::cmp::Eq for TensorUInt64Bit {}
+impl ::core::fmt::Debug for TensorUInt64Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorUInt64Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorUInt64Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt64Bit;{2e70ffad-04bf-4825-839a-82baef8c7886})");
 }
@@ -6772,6 +6907,11 @@ impl ::core::cmp::PartialEq for TensorUInt8Bit {
     }
 }
 impl ::core::cmp::Eq for TensorUInt8Bit {}
+impl ::core::fmt::Debug for TensorUInt8Bit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("TensorUInt8Bit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for TensorUInt8Bit {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.AI.MachineLearning.TensorUInt8Bit;{58e1ae27-622b-48e3-be22-d867aed1daac})");
 }

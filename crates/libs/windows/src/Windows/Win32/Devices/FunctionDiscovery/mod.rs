@@ -113,6 +113,11 @@ impl ::core::cmp::PartialEq for IFunctionDiscovery {
     }
 }
 impl ::core::cmp::Eq for IFunctionDiscovery {}
+impl ::core::fmt::Debug for IFunctionDiscovery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionDiscovery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionDiscovery {
     type Vtable = IFunctionDiscoveryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4df99b70_e148_4432_b004_4c9eeb535a5e);
@@ -186,6 +191,11 @@ impl ::core::cmp::PartialEq for IFunctionDiscoveryNotification {
     }
 }
 impl ::core::cmp::Eq for IFunctionDiscoveryNotification {}
+impl ::core::fmt::Debug for IFunctionDiscoveryNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionDiscoveryNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryNotification {
     type Vtable = IFunctionDiscoveryNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5f6c1ba8_5330_422e_a368_572b244d3f87);
@@ -275,6 +285,11 @@ impl ::core::cmp::PartialEq for IFunctionDiscoveryProvider {
     }
 }
 impl ::core::cmp::Eq for IFunctionDiscoveryProvider {}
+impl ::core::fmt::Debug for IFunctionDiscoveryProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionDiscoveryProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryProvider {
     type Vtable = IFunctionDiscoveryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xdcde394f_1478_4813_a402_f6fb10657222);
@@ -348,6 +363,11 @@ impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderFactory {
     }
 }
 impl ::core::cmp::Eq for IFunctionDiscoveryProviderFactory {}
+impl ::core::fmt::Debug for IFunctionDiscoveryProviderFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionDiscoveryProviderFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryProviderFactory {
     type Vtable = IFunctionDiscoveryProviderFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x86443ff0_1ad5_4e68_a45a_40c2c329de3b);
@@ -420,6 +440,11 @@ impl ::core::cmp::PartialEq for IFunctionDiscoveryProviderQuery {
     }
 }
 impl ::core::cmp::Eq for IFunctionDiscoveryProviderQuery {}
+impl ::core::fmt::Debug for IFunctionDiscoveryProviderQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionDiscoveryProviderQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryProviderQuery {
     type Vtable = IFunctionDiscoveryProviderQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6876ea98_baec_46db_bc20_75a76e267a3a);
@@ -478,6 +503,11 @@ impl ::core::cmp::PartialEq for IFunctionDiscoveryServiceProvider {
     }
 }
 impl ::core::cmp::Eq for IFunctionDiscoveryServiceProvider {}
+impl ::core::fmt::Debug for IFunctionDiscoveryServiceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionDiscoveryServiceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionDiscoveryServiceProvider {
     type Vtable = IFunctionDiscoveryServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4c81ed02_1b04_43f2_a451_69966cbcd1c2);
@@ -575,6 +605,11 @@ impl ::core::cmp::PartialEq for IFunctionInstance {
     }
 }
 impl ::core::cmp::Eq for IFunctionInstance {}
+impl ::core::fmt::Debug for IFunctionInstance {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionInstance").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionInstance {
     type Vtable = IFunctionInstanceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33591c10_0bed_4f02_b0ab_1530d5533ee9);
@@ -661,6 +696,11 @@ impl ::core::cmp::PartialEq for IFunctionInstanceCollection {
     }
 }
 impl ::core::cmp::Eq for IFunctionInstanceCollection {}
+impl ::core::fmt::Debug for IFunctionInstanceCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionInstanceCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionInstanceCollection {
     type Vtable = IFunctionInstanceCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf0a3d895_855c_42a2_948d_2f97d450ecb1);
@@ -731,6 +771,11 @@ impl ::core::cmp::PartialEq for IFunctionInstanceCollectionQuery {
     }
 }
 impl ::core::cmp::Eq for IFunctionInstanceCollectionQuery {}
+impl ::core::fmt::Debug for IFunctionInstanceCollectionQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionInstanceCollectionQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionInstanceCollectionQuery {
     type Vtable = IFunctionInstanceCollectionQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x57cc6fd2_c09a_4289_bb72_25f04142058e);
@@ -788,6 +833,11 @@ impl ::core::cmp::PartialEq for IFunctionInstanceQuery {
     }
 }
 impl ::core::cmp::Eq for IFunctionInstanceQuery {}
+impl ::core::fmt::Debug for IFunctionInstanceQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFunctionInstanceQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFunctionInstanceQuery {
     type Vtable = IFunctionInstanceQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6242bc6b_90ec_4b37_bb46_e229fd84ed95);
@@ -846,6 +896,11 @@ impl ::core::cmp::PartialEq for IPNPXAssociation {
     }
 }
 impl ::core::cmp::Eq for IPNPXAssociation {}
+impl ::core::fmt::Debug for IPNPXAssociation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPNPXAssociation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPNPXAssociation {
     type Vtable = IPNPXAssociationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0bd7e521_4da6_42d5_81ba_1981b6b94075);
@@ -914,6 +969,11 @@ impl ::core::cmp::PartialEq for IPNPXDeviceAssociation {
     }
 }
 impl ::core::cmp::Eq for IPNPXDeviceAssociation {}
+impl ::core::fmt::Debug for IPNPXDeviceAssociation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPNPXDeviceAssociation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPNPXDeviceAssociation {
     type Vtable = IPNPXDeviceAssociationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xeed366d0_35b8_4fc5_8d20_7e5bd31f6ded);
@@ -1002,6 +1062,11 @@ impl ::core::cmp::PartialEq for IPropertyStoreCollection {
     }
 }
 impl ::core::cmp::Eq for IPropertyStoreCollection {}
+impl ::core::fmt::Debug for IPropertyStoreCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertyStoreCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropertyStoreCollection {
     type Vtable = IPropertyStoreCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd14d9c30_12d2_42d8_bce4_c60c2bb226fa);
@@ -1082,6 +1147,11 @@ impl ::core::cmp::PartialEq for IProviderProperties {
     }
 }
 impl ::core::cmp::Eq for IProviderProperties {}
+impl ::core::fmt::Debug for IProviderProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProviderProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProviderProperties {
     type Vtable = IProviderPropertiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf986ea6_3b5f_4c5f_b88a_2f8b20ceef17);
@@ -1164,6 +1234,11 @@ impl ::core::cmp::PartialEq for IProviderPropertyConstraintCollection {
     }
 }
 impl ::core::cmp::Eq for IProviderPropertyConstraintCollection {}
+impl ::core::fmt::Debug for IProviderPropertyConstraintCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProviderPropertyConstraintCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProviderPropertyConstraintCollection {
     type Vtable = IProviderPropertyConstraintCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf4fae42f_5778_4a13_8540_b5fd8c1398dd);
@@ -1231,6 +1306,11 @@ impl ::core::cmp::PartialEq for IProviderPublishing {
     }
 }
 impl ::core::cmp::Eq for IProviderPublishing {}
+impl ::core::fmt::Debug for IProviderPublishing {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProviderPublishing").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProviderPublishing {
     type Vtable = IProviderPublishingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcd1b9a04_206c_4a05_a0c8_1635a21a2b7c);
@@ -1309,6 +1389,11 @@ impl ::core::cmp::PartialEq for IProviderQueryConstraintCollection {
     }
 }
 impl ::core::cmp::Eq for IProviderQueryConstraintCollection {}
+impl ::core::fmt::Debug for IProviderQueryConstraintCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProviderQueryConstraintCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProviderQueryConstraintCollection {
     type Vtable = IProviderQueryConstraintCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c243e11_3261_4bcd_b922_84a873d460ae);

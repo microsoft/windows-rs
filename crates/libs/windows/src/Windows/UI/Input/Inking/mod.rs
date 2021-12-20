@@ -418,6 +418,11 @@ impl ::core::cmp::PartialEq for IInkPointFactory {
     }
 }
 impl ::core::cmp::Eq for IInkPointFactory {}
+impl ::core::fmt::Debug for IInkPointFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkPointFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInkPointFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{29e5d51c-c98f-405d-9f3b-e53e31068d4d}");
 }
@@ -688,6 +693,11 @@ impl ::core::cmp::PartialEq for IInkPresenterRulerFactory {
     }
 }
 impl ::core::cmp::Eq for IInkPresenterRulerFactory {}
+impl ::core::fmt::Debug for IInkPresenterRulerFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkPresenterRulerFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInkPresenterRulerFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{34361beb-9001-4a4b-a690-69dbaf63e501}");
 }
@@ -824,6 +834,11 @@ impl ::core::cmp::PartialEq for IInkPresenterStencil {
     }
 }
 impl ::core::cmp::Eq for IInkPresenterStencil {}
+impl ::core::fmt::Debug for IInkPresenterStencil {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkPresenterStencil").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInkPresenterStencil {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{30d12d6d-3e06-4d02-b116-277fb5d8addc}");
 }
@@ -972,6 +987,11 @@ impl ::core::cmp::PartialEq for IInkRecognizerContainer {
     }
 }
 impl ::core::cmp::Eq for IInkRecognizerContainer {}
+impl ::core::fmt::Debug for IInkRecognizerContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkRecognizerContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInkRecognizerContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{a74d9a31-8047-4698-a912-f82a5085012f}");
 }
@@ -1319,6 +1339,11 @@ impl ::core::cmp::PartialEq for IInkStrokeContainer {
     }
 }
 impl ::core::cmp::Eq for IInkStrokeContainer {}
+impl ::core::fmt::Debug for IInkStrokeContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInkStrokeContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IInkStrokeContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{22accbc6-faa9-4f14-b68c-f6cee670ae16}");
 }
@@ -1792,6 +1817,11 @@ impl ::core::cmp::PartialEq for InkDrawingAttributes {
     }
 }
 impl ::core::cmp::Eq for InkDrawingAttributes {}
+impl ::core::fmt::Debug for InkDrawingAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkDrawingAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributes;{97a2176c-6774-48ad-84f0-48f5a9be74f9})");
 }
@@ -1906,6 +1936,11 @@ impl ::core::cmp::PartialEq for InkDrawingAttributesPencilProperties {
     }
 }
 impl ::core::cmp::Eq for InkDrawingAttributesPencilProperties {}
+impl ::core::fmt::Debug for InkDrawingAttributesPencilProperties {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkDrawingAttributesPencilProperties").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkDrawingAttributesPencilProperties {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkDrawingAttributesPencilProperties;{4f2534cb-2d86-41bb-b0e8-e4c2a0253c52})");
 }
@@ -2047,6 +2082,11 @@ impl ::core::cmp::PartialEq for InkInputConfiguration {
     }
 }
 impl ::core::cmp::Eq for InkInputConfiguration {}
+impl ::core::fmt::Debug for InkInputConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkInputConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkInputConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputConfiguration;{93a68dc4-0b7b-49d7-b34f-9901e524dcf2})");
 }
@@ -2141,6 +2181,11 @@ impl ::core::cmp::PartialEq for InkInputProcessingConfiguration {
     }
 }
 impl ::core::cmp::Eq for InkInputProcessingConfiguration {}
+impl ::core::fmt::Debug for InkInputProcessingConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkInputProcessingConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkInputProcessingConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkInputProcessingConfiguration;{2778d85e-33ca-4b06-a6d3-ac3945116d37})");
 }
@@ -2469,6 +2514,11 @@ impl ::core::cmp::PartialEq for InkManager {
     }
 }
 impl ::core::cmp::Eq for InkManager {}
+impl ::core::fmt::Debug for InkManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkManager {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkManager;{4744737d-671b-4163-9c95-4e8d7a035fe1})");
 }
@@ -2654,6 +2704,11 @@ impl ::core::cmp::PartialEq for InkModelerAttributes {
     }
 }
 impl ::core::cmp::Eq for InkModelerAttributes {}
+impl ::core::fmt::Debug for InkModelerAttributes {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkModelerAttributes").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkModelerAttributes {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkModelerAttributes;{bad31f27-0cd9-4bfd-b6f3-9e03ba8d7454})");
 }
@@ -2822,6 +2877,11 @@ impl ::core::cmp::PartialEq for InkPoint {
     }
 }
 impl ::core::cmp::Eq for InkPoint {}
+impl ::core::fmt::Debug for InkPoint {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPoint").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkPoint {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPoint;{9f87272b-858c-46a5-9b41-d195970459fd})");
 }
@@ -3032,6 +3092,11 @@ impl ::core::cmp::PartialEq for InkPresenter {
     }
 }
 impl ::core::cmp::Eq for InkPresenter {}
+impl ::core::fmt::Debug for InkPresenter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPresenter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkPresenter {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenter;{a69b70e2-887b-458f-b173-4fe4438930a3})");
 }
@@ -3298,6 +3363,11 @@ impl ::core::cmp::PartialEq for InkPresenterProtractor {
     }
 }
 impl ::core::cmp::Eq for InkPresenterProtractor {}
+impl ::core::fmt::Debug for InkPresenterProtractor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPresenterProtractor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkPresenterProtractor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterProtractor;{7de3f2aa-ef6c-4e91-a73b-5b70d56fbd17})");
 }
@@ -3514,6 +3584,11 @@ impl ::core::cmp::PartialEq for InkPresenterRuler {
     }
 }
 impl ::core::cmp::Eq for InkPresenterRuler {}
+impl ::core::fmt::Debug for InkPresenterRuler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkPresenterRuler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkPresenterRuler {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkPresenterRuler;{6cda7d5a-dec7-4dd7-877a-2133f183d48a})");
 }
@@ -3665,6 +3740,11 @@ impl ::core::cmp::PartialEq for InkRecognitionResult {
     }
 }
 impl ::core::cmp::Eq for InkRecognitionResult {}
+impl ::core::fmt::Debug for InkRecognitionResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkRecognitionResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkRecognitionResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognitionResult;{36461a94-5068-40ef-8a05-2c2fb60908a2})");
 }
@@ -3775,6 +3855,11 @@ impl ::core::cmp::PartialEq for InkRecognizer {
     }
 }
 impl ::core::cmp::Eq for InkRecognizer {}
+impl ::core::fmt::Debug for InkRecognizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkRecognizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkRecognizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizer;{077ccea3-904d-442a-b151-aaca3631c43b})");
 }
@@ -3871,6 +3956,11 @@ impl ::core::cmp::PartialEq for InkRecognizerContainer {
     }
 }
 impl ::core::cmp::Eq for InkRecognizerContainer {}
+impl ::core::fmt::Debug for InkRecognizerContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkRecognizerContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkRecognizerContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkRecognizerContainer;{a74d9a31-8047-4698-a912-f82a5085012f})");
 }
@@ -4089,6 +4179,11 @@ impl ::core::cmp::PartialEq for InkStroke {
     }
 }
 impl ::core::cmp::Eq for InkStroke {}
+impl ::core::fmt::Debug for InkStroke {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkStroke").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkStroke {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStroke;{15144d60-cce3-4fcf-9d52-11518ab6afd4})");
 }
@@ -4217,6 +4312,11 @@ impl ::core::cmp::PartialEq for InkStrokeBuilder {
     }
 }
 impl ::core::cmp::Eq for InkStrokeBuilder {}
+impl ::core::fmt::Debug for InkStrokeBuilder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkStrokeBuilder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkStrokeBuilder {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeBuilder;{82bbd1dc-1c63-41dc-9e07-4b4a70ced801})");
 }
@@ -4432,6 +4532,11 @@ impl ::core::cmp::PartialEq for InkStrokeContainer {
     }
 }
 impl ::core::cmp::Eq for InkStrokeContainer {}
+impl ::core::fmt::Debug for InkStrokeContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkStrokeContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkStrokeContainer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeContainer;{22accbc6-faa9-4f14-b68c-f6cee670ae16})");
 }
@@ -4588,6 +4693,11 @@ impl ::core::cmp::PartialEq for InkStrokeInput {
     }
 }
 impl ::core::cmp::Eq for InkStrokeInput {}
+impl ::core::fmt::Debug for InkStrokeInput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkStrokeInput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkStrokeInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeInput;{cf2ffe7b-5e10-43c6-a080-88f26e1dc67d})");
 }
@@ -4715,6 +4825,11 @@ impl ::core::cmp::PartialEq for InkStrokeRenderingSegment {
     }
 }
 impl ::core::cmp::Eq for InkStrokeRenderingSegment {}
+impl ::core::fmt::Debug for InkStrokeRenderingSegment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkStrokeRenderingSegment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkStrokeRenderingSegment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokeRenderingSegment;{68510f1f-88e3-477a-a2fa-569f5f1f9bd5})");
 }
@@ -4792,6 +4907,11 @@ impl ::core::cmp::PartialEq for InkStrokesCollectedEventArgs {
     }
 }
 impl ::core::cmp::Eq for InkStrokesCollectedEventArgs {}
+impl ::core::fmt::Debug for InkStrokesCollectedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkStrokesCollectedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkStrokesCollectedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesCollectedEventArgs;{c4f3f229-1938-495c-b4d9-6de4b08d4811})");
 }
@@ -4867,6 +4987,11 @@ impl ::core::cmp::PartialEq for InkStrokesErasedEventArgs {
     }
 }
 impl ::core::cmp::Eq for InkStrokesErasedEventArgs {}
+impl ::core::fmt::Debug for InkStrokesErasedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkStrokesErasedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkStrokesErasedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkStrokesErasedEventArgs;{a4216a22-1503-4ebf-8ff5-2de84584a8aa})");
 }
@@ -4947,6 +5072,11 @@ impl ::core::cmp::PartialEq for InkSynchronizer {
     }
 }
 impl ::core::cmp::Eq for InkSynchronizer {}
+impl ::core::fmt::Debug for InkSynchronizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkSynchronizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkSynchronizer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkSynchronizer;{9b9ea160-ae9b-45f9-8407-4b493b163661})");
 }
@@ -5126,6 +5256,11 @@ impl ::core::cmp::PartialEq for InkUnprocessedInput {
     }
 }
 impl ::core::cmp::Eq for InkUnprocessedInput {}
+impl ::core::fmt::Debug for InkUnprocessedInput {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("InkUnprocessedInput").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for InkUnprocessedInput {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.InkUnprocessedInput;{db4445e0-8398-4921-ac3b-ab978c5ba256})");
 }
@@ -5259,6 +5394,11 @@ impl ::core::cmp::PartialEq for PenAndInkSettings {
     }
 }
 impl ::core::cmp::Eq for PenAndInkSettings {}
+impl ::core::fmt::Debug for PenAndInkSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PenAndInkSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PenAndInkSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Input.Inking.PenAndInkSettings;{bc2ceb8f-0066-44a8-bb7a-b839b3deb8f5})");
 }

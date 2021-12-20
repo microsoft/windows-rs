@@ -730,6 +730,11 @@ impl ::core::cmp::PartialEq for WebViewControl {
     }
 }
 impl ::core::cmp::Eq for WebViewControl {}
+impl ::core::fmt::Debug for WebViewControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControl {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControl;{3f921316-bc70-4bda-9136-c94370899fab})");
 }
@@ -888,6 +893,11 @@ impl ::core::cmp::PartialEq for WebViewControlAcceleratorKeyPressedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlAcceleratorKeyPressedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlAcceleratorKeyPressedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlAcceleratorKeyPressedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlAcceleratorKeyPressedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlAcceleratorKeyPressedEventArgs;{77a2a53e-7c74-437d-a290-3ac0d8cd5655})");
 }
@@ -1029,6 +1039,11 @@ impl ::core::cmp::PartialEq for WebViewControlMoveFocusRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebViewControlMoveFocusRequestedEventArgs {}
+impl ::core::fmt::Debug for WebViewControlMoveFocusRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlMoveFocusRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlMoveFocusRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlMoveFocusRequestedEventArgs;{6b2a340d-4bd0-405e-b7c1-1e72a492f446})");
 }
@@ -1176,6 +1191,11 @@ impl ::core::cmp::PartialEq for WebViewControlProcess {
     }
 }
 impl ::core::cmp::Eq for WebViewControlProcess {}
+impl ::core::fmt::Debug for WebViewControlProcess {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlProcess").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlProcess {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcess;{02c723ec-98d6-424a-b63e-c6136c36a0f2})");
 }
@@ -1309,6 +1329,11 @@ impl ::core::cmp::PartialEq for WebViewControlProcessOptions {
     }
 }
 impl ::core::cmp::Eq for WebViewControlProcessOptions {}
+impl ::core::fmt::Debug for WebViewControlProcessOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebViewControlProcessOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebViewControlProcessOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Web.UI.Interop.WebViewControlProcessOptions;{1cca72a7-3bd6-4826-8261-6c8189505d89})");
 }

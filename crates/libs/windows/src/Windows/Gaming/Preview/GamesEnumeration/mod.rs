@@ -181,6 +181,11 @@ impl ::core::cmp::PartialEq for GameListChangedEventHandler {
     }
 }
 impl ::core::cmp::Eq for GameListChangedEventHandler {}
+impl ::core::fmt::Debug for GameListChangedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameListChangedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for GameListChangedEventHandler {
     type Vtable = GameListChangedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x25f6a421_d8f5_4d91_b40e_53d5e86fde64);
@@ -319,6 +324,11 @@ impl ::core::cmp::PartialEq for GameListEntry {
     }
 }
 impl ::core::cmp::Eq for GameListEntry {}
+impl ::core::fmt::Debug for GameListEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameListEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameListEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Preview.GamesEnumeration.GameListEntry;{735924d3-811f-4494-b69c-c641a0c61543})");
 }
@@ -488,6 +498,11 @@ impl ::core::cmp::PartialEq for GameListRemovedEventHandler {
     }
 }
 impl ::core::cmp::Eq for GameListRemovedEventHandler {}
+impl ::core::fmt::Debug for GameListRemovedEventHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameListRemovedEventHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for GameListRemovedEventHandler {
     type Vtable = GameListRemovedEventHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x10c5648f_6c8f_4712_9b38_474bc22e76d8);
@@ -648,6 +663,11 @@ impl ::core::cmp::PartialEq for GameModeConfiguration {
     }
 }
 impl ::core::cmp::Eq for GameModeConfiguration {}
+impl ::core::fmt::Debug for GameModeConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameModeConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameModeConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Preview.GamesEnumeration.GameModeConfiguration;{78e591af-b142-4ef0-8830-55bc2be4f5ea})");
 }
@@ -746,6 +766,11 @@ impl ::core::cmp::PartialEq for GameModeUserConfiguration {
     }
 }
 impl ::core::cmp::Eq for GameModeUserConfiguration {}
+impl ::core::fmt::Debug for GameModeUserConfiguration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GameModeUserConfiguration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GameModeUserConfiguration {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Gaming.Preview.GamesEnumeration.GameModeUserConfiguration;{72d34af4-756b-470f-a0c2-ba62a90795db})");
 }
@@ -898,6 +923,11 @@ impl ::core::cmp::PartialEq for IGameListEntry {
     }
 }
 impl ::core::cmp::Eq for IGameListEntry {}
+impl ::core::fmt::Debug for IGameListEntry {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IGameListEntry").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IGameListEntry {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{735924d3-811f-4494-b69c-c641a0c61543}");
 }

@@ -100,6 +100,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IIter
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IIterable<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IIterable<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIterable<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IIterable<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{faa585ea-6214-4217-afda-7f46de5869b3}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -225,6 +230,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IIter
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IIterator<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IIterator<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IIterator<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IIterator<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{6a79e863-4300-459a-9966-cbb660963ee1}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -334,6 +344,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IKeyValuePair<K, V> {}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IKeyValuePair<K, V> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IKeyValuePair<K,V,>").field(&self.0).finish()
+    }
+}
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IKeyValuePair<K, V> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{02b51929-c1c4-4a7e-8940-0312b5c18500}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -497,6 +512,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IMap<K, V> {}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IMap<K, V> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMap<K,V,>").field(&self.0).finish()
+    }
+}
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMap<K, V> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{3c2925fe-8519-45c1-aa79-197b6718c1c1}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -616,6 +636,11 @@ impl<K: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IMapC
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IMapChangedEventArgs<K> {}
+impl<K: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IMapChangedEventArgs<K> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMapChangedEventArgs<K,>").field(&self.0).finish()
+    }
+}
 unsafe impl<K: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMapChangedEventArgs<K> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{9939f4df-050a-4c0f-aa60-77075f9c4777}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -756,6 +781,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IMapView<K, V> {}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IMapView<K, V> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMapView<K,V,>").field(&self.0).finish()
+    }
+}
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IMapView<K, V> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{e480ce40-a338-4ada-adcf-272272e48cb9}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -972,6 +1002,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IObservableMap<K, V> {}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IObservableMap<K, V> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObservableMap<K,V,>").field(&self.0).finish()
+    }
+}
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IObservableMap<K, V> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{65df2bf5-bf39-41b5-aebc-5a9d865e472b}").push_slice(b";").push_other(<K as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b";").push_other(<V as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -1210,6 +1245,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IObse
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IObservableVector<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IObservableVector<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObservableVector<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IObservableVector<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{5917eb53-50b4-4a0d-b309-65862b3f1dbc}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -1441,6 +1481,11 @@ impl ::core::cmp::PartialEq for IPropertySet {
     }
 }
 impl ::core::cmp::Eq for IPropertySet {}
+impl ::core::fmt::Debug for IPropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropertySet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IPropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{8a43ed9f-f4e6-4421-acf9-1dab2986820c}");
 }
@@ -1637,6 +1682,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IVect
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IVector<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IVector<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVector<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IVector<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{913337e9-11a1-4345-a3a2-4e7f956e222d}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -1773,6 +1823,11 @@ impl ::core::cmp::PartialEq for IVectorChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for IVectorChangedEventArgs {}
+impl ::core::fmt::Debug for IVectorChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVectorChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IVectorChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{575933df-34fe-4480-af15-07691f3d5d9b}");
 }
@@ -1912,6 +1967,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for IVect
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for IVectorView<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for IVectorView<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IVectorView<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::RuntimeType for IVectorView<T> {
     const SIGNATURE: ::windows::core::ConstBuffer = { ::windows::core::ConstBuffer::new().push_slice(b"pinterface(").push_slice(b"{bbe1fa4c-b0e3-4583-baef-1f1b2e483e56}").push_slice(b";").push_other(<T as ::windows::core::RuntimeType>::SIGNATURE).push_slice(b")") };
 }
@@ -2035,6 +2095,11 @@ impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType 
     }
 }
 impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for MapChangedEventHandler<K, V> {}
+impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for MapChangedEventHandler<K, V> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("MapChangedEventHandler<K,V,>").field(&self.0).finish()
+    }
+}
 unsafe impl<K: ::windows::core::RuntimeType + 'static, V: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for MapChangedEventHandler<K, V> {
     type Vtable = MapChangedEventHandlerVtbl<K, V>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);
@@ -2149,6 +2214,11 @@ impl ::core::cmp::PartialEq for PropertySet {
     }
 }
 impl ::core::cmp::Eq for PropertySet {}
+impl ::core::fmt::Debug for PropertySet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PropertySet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PropertySet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.PropertySet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
@@ -2399,6 +2469,11 @@ impl ::core::cmp::PartialEq for StringMap {
     }
 }
 impl ::core::cmp::Eq for StringMap {}
+impl ::core::fmt::Debug for StringMap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("StringMap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for StringMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.StringMap;pinterface({3c2925fe-8519-45c1-aa79-197b6718c1c1};string;string))");
 }
@@ -2627,6 +2702,11 @@ impl ::core::cmp::PartialEq for ValueSet {
     }
 }
 impl ::core::cmp::Eq for ValueSet {}
+impl ::core::fmt::Debug for ValueSet {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ValueSet").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ValueSet {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Foundation.Collections.ValueSet;{8a43ed9f-f4e6-4421-acf9-1dab2986820c})");
 }
@@ -2848,6 +2928,11 @@ impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::PartialEq for Vecto
     }
 }
 impl<T: ::windows::core::RuntimeType + 'static> ::core::cmp::Eq for VectorChangedEventHandler<T> {}
+impl<T: ::windows::core::RuntimeType + 'static> ::core::fmt::Debug for VectorChangedEventHandler<T> {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("VectorChangedEventHandler<T,>").field(&self.0).finish()
+    }
+}
 unsafe impl<T: ::windows::core::RuntimeType + 'static> ::windows::core::Interface for VectorChangedEventHandler<T> {
     type Vtable = VectorChangedEventHandlerVtbl<T>;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_signature(<Self as ::windows::core::RuntimeType>::SIGNATURE);

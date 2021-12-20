@@ -82,6 +82,11 @@ impl ::core::cmp::PartialEq for IFindSimilarResults {
     }
 }
 impl ::core::cmp::Eq for IFindSimilarResults {}
+impl ::core::fmt::Debug for IFindSimilarResults {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFindSimilarResults").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFindSimilarResults {
     type Vtable = IFindSimilarResultsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a81_9dbc_11da_9e3f_0011114ae311);
@@ -136,6 +141,11 @@ impl ::core::cmp::PartialEq for IRdcComparator {
     }
 }
 impl ::core::cmp::Eq for IRdcComparator {}
+impl ::core::fmt::Debug for IRdcComparator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcComparator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcComparator {
     type Vtable = IRdcComparatorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a77_9dbc_11da_9e3f_0011114ae311);
@@ -200,6 +210,11 @@ impl ::core::cmp::PartialEq for IRdcFileReader {
     }
 }
 impl ::core::cmp::Eq for IRdcFileReader {}
+impl ::core::fmt::Debug for IRdcFileReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcFileReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcFileReader {
     type Vtable = IRdcFileReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a74_9dbc_11da_9e3f_0011114ae311);
@@ -299,6 +314,11 @@ impl ::core::cmp::PartialEq for IRdcFileWriter {
     }
 }
 impl ::core::cmp::Eq for IRdcFileWriter {}
+impl ::core::fmt::Debug for IRdcFileWriter {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcFileWriter").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcFileWriter {
     type Vtable = IRdcFileWriterVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a75_9dbc_11da_9e3f_0011114ae311);
@@ -363,6 +383,11 @@ impl ::core::cmp::PartialEq for IRdcGenerator {
     }
 }
 impl ::core::cmp::Eq for IRdcGenerator {}
+impl ::core::fmt::Debug for IRdcGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcGenerator {
     type Vtable = IRdcGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a73_9dbc_11da_9e3f_0011114ae311);
@@ -431,6 +456,11 @@ impl ::core::cmp::PartialEq for IRdcGeneratorFilterMaxParameters {
     }
 }
 impl ::core::cmp::Eq for IRdcGeneratorFilterMaxParameters {}
+impl ::core::fmt::Debug for IRdcGeneratorFilterMaxParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcGeneratorFilterMaxParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcGeneratorFilterMaxParameters {
     type Vtable = IRdcGeneratorFilterMaxParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a72_9dbc_11da_9e3f_0011114ae311);
@@ -500,6 +530,11 @@ impl ::core::cmp::PartialEq for IRdcGeneratorParameters {
     }
 }
 impl ::core::cmp::Eq for IRdcGeneratorParameters {}
+impl ::core::fmt::Debug for IRdcGeneratorParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcGeneratorParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcGeneratorParameters {
     type Vtable = IRdcGeneratorParametersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a71_9dbc_11da_9e3f_0011114ae311);
@@ -585,6 +620,11 @@ impl ::core::cmp::PartialEq for IRdcLibrary {
     }
 }
 impl ::core::cmp::Eq for IRdcLibrary {}
+impl ::core::fmt::Debug for IRdcLibrary {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcLibrary").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcLibrary {
     type Vtable = IRdcLibraryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a78_9dbc_11da_9e3f_0011114ae311);
@@ -649,6 +689,11 @@ impl ::core::cmp::PartialEq for IRdcSignatureReader {
     }
 }
 impl ::core::cmp::Eq for IRdcSignatureReader {}
+impl ::core::fmt::Debug for IRdcSignatureReader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcSignatureReader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcSignatureReader {
     type Vtable = IRdcSignatureReaderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a76_9dbc_11da_9e3f_0011114ae311);
@@ -708,6 +753,11 @@ impl ::core::cmp::PartialEq for IRdcSimilarityGenerator {
     }
 }
 impl ::core::cmp::Eq for IRdcSimilarityGenerator {}
+impl ::core::fmt::Debug for IRdcSimilarityGenerator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IRdcSimilarityGenerator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IRdcSimilarityGenerator {
     type Vtable = IRdcSimilarityGeneratorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a80_9dbc_11da_9e3f_0011114ae311);
@@ -792,6 +842,11 @@ impl ::core::cmp::PartialEq for ISimilarity {
     }
 }
 impl ::core::cmp::Eq for ISimilarity {}
+impl ::core::fmt::Debug for ISimilarity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimilarity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimilarity {
     type Vtable = ISimilarityVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a83_9dbc_11da_9e3f_0011114ae311);
@@ -885,6 +940,11 @@ impl ::core::cmp::PartialEq for ISimilarityFileIdTable {
     }
 }
 impl ::core::cmp::Eq for ISimilarityFileIdTable {}
+impl ::core::fmt::Debug for ISimilarityFileIdTable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimilarityFileIdTable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimilarityFileIdTable {
     type Vtable = ISimilarityFileIdTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7f_9dbc_11da_9e3f_0011114ae311);
@@ -946,6 +1006,11 @@ impl ::core::cmp::PartialEq for ISimilarityReportProgress {
     }
 }
 impl ::core::cmp::Eq for ISimilarityReportProgress {}
+impl ::core::fmt::Debug for ISimilarityReportProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimilarityReportProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimilarityReportProgress {
     type Vtable = ISimilarityReportProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7a_9dbc_11da_9e3f_0011114ae311);
@@ -994,6 +1059,11 @@ impl ::core::cmp::PartialEq for ISimilarityTableDumpState {
     }
 }
 impl ::core::cmp::Eq for ISimilarityTableDumpState {}
+impl ::core::fmt::Debug for ISimilarityTableDumpState {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimilarityTableDumpState").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimilarityTableDumpState {
     type Vtable = ISimilarityTableDumpStateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7b_9dbc_11da_9e3f_0011114ae311);
@@ -1061,6 +1131,11 @@ impl ::core::cmp::PartialEq for ISimilarityTraitsMappedView {
     }
 }
 impl ::core::cmp::Eq for ISimilarityTraitsMappedView {}
+impl ::core::fmt::Debug for ISimilarityTraitsMappedView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimilarityTraitsMappedView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimilarityTraitsMappedView {
     type Vtable = ISimilarityTraitsMappedViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7c_9dbc_11da_9e3f_0011114ae311);
@@ -1145,6 +1220,11 @@ impl ::core::cmp::PartialEq for ISimilarityTraitsMapping {
     }
 }
 impl ::core::cmp::Eq for ISimilarityTraitsMapping {}
+impl ::core::fmt::Debug for ISimilarityTraitsMapping {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimilarityTraitsMapping").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimilarityTraitsMapping {
     type Vtable = ISimilarityTraitsMappingVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7d_9dbc_11da_9e3f_0011114ae311);
@@ -1234,6 +1314,11 @@ impl ::core::cmp::PartialEq for ISimilarityTraitsTable {
     }
 }
 impl ::core::cmp::Eq for ISimilarityTraitsTable {}
+impl ::core::fmt::Debug for ISimilarityTraitsTable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISimilarityTraitsTable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISimilarityTraitsTable {
     type Vtable = ISimilarityTraitsTableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x96236a7e_9dbc_11da_9e3f_0011114ae311);

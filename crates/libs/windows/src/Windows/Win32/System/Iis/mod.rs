@@ -65,6 +65,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpAuthenticationProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpAuthenticationProvider {}
+impl ::core::fmt::Debug for AsyncIFtpAuthenticationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpAuthenticationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpAuthenticationProvider {
     type Vtable = AsyncIFtpAuthenticationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc24efb65_9f3e_4996_8fb1_ce166916bab5);
@@ -126,6 +131,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpAuthorizationProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpAuthorizationProvider {}
+impl ::core::fmt::Debug for AsyncIFtpAuthorizationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpAuthorizationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpAuthorizationProvider {
     type Vtable = AsyncIFtpAuthorizationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x860dc339_07e5_4a5c_9c61_8820cea012bc);
@@ -187,6 +197,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpHomeDirectoryProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpHomeDirectoryProvider {}
+impl ::core::fmt::Debug for AsyncIFtpHomeDirectoryProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpHomeDirectoryProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpHomeDirectoryProvider {
     type Vtable = AsyncIFtpHomeDirectoryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x73f81638_6295_42bd_a2be_4a657f7c479c);
@@ -247,6 +262,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpLogProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpLogProvider {}
+impl ::core::fmt::Debug for AsyncIFtpLogProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpLogProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpLogProvider {
     type Vtable = AsyncIFtpLogProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x00a0ae46_2498_48b2_95e6_df678ed7d49f);
@@ -307,6 +327,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpPostprocessProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpPostprocessProvider {}
+impl ::core::fmt::Debug for AsyncIFtpPostprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpPostprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpPostprocessProvider {
     type Vtable = AsyncIFtpPostprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa16b2542_9694_4eb1_a564_6c2e91fdc133);
@@ -367,6 +392,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpPreprocessProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpPreprocessProvider {}
+impl ::core::fmt::Debug for AsyncIFtpPreprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpPreprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpPreprocessProvider {
     type Vtable = AsyncIFtpPreprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6ff5fd8f_fd8e_48b1_a3e0_bf7073db4db5);
@@ -428,6 +458,11 @@ impl ::core::cmp::PartialEq for AsyncIFtpRoleProvider {
     }
 }
 impl ::core::cmp::Eq for AsyncIFtpRoleProvider {}
+impl ::core::fmt::Debug for AsyncIFtpRoleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIFtpRoleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIFtpRoleProvider {
     type Vtable = AsyncIFtpRoleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3e83bf99_70ec_41ca_84b6_aca7c7a62caf);
@@ -496,6 +531,11 @@ impl ::core::cmp::PartialEq for AsyncIMSAdminBaseSinkW {
     }
 }
 impl ::core::cmp::Eq for AsyncIMSAdminBaseSinkW {}
+impl ::core::fmt::Debug for AsyncIMSAdminBaseSinkW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIMSAdminBaseSinkW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIMSAdminBaseSinkW {
     type Vtable = AsyncIMSAdminBaseSinkWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69613_b80d_11d0_b9b9_00a0c922e750);
@@ -2230,6 +2270,11 @@ impl ::core::cmp::PartialEq for IADMEXT {
     }
 }
 impl ::core::cmp::Eq for IADMEXT {}
+impl ::core::fmt::Debug for IADMEXT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IADMEXT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IADMEXT {
     type Vtable = IADMEXTVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x51dfe970_f6f2_11d0_b9bd_00a0c922e750);
@@ -2285,6 +2330,11 @@ impl ::core::cmp::PartialEq for IFtpAuthenticationProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpAuthenticationProvider {}
+impl ::core::fmt::Debug for IFtpAuthenticationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpAuthenticationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpAuthenticationProvider {
     type Vtable = IFtpAuthenticationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4659f95c_d5a8_4707_b2fc_6fd5794246cf);
@@ -2340,6 +2390,11 @@ impl ::core::cmp::PartialEq for IFtpAuthorizationProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpAuthorizationProvider {}
+impl ::core::fmt::Debug for IFtpAuthorizationProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpAuthorizationProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpAuthorizationProvider {
     type Vtable = IFtpAuthorizationProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa50ae7a1_a35a_42b4_a4f3_f4f7057a05d1);
@@ -2395,6 +2450,11 @@ impl ::core::cmp::PartialEq for IFtpHomeDirectoryProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpHomeDirectoryProvider {}
+impl ::core::fmt::Debug for IFtpHomeDirectoryProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpHomeDirectoryProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpHomeDirectoryProvider {
     type Vtable = IFtpHomeDirectoryProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0933b392_18dd_4097_8b9c_83325c35d9a6);
@@ -2449,6 +2509,11 @@ impl ::core::cmp::PartialEq for IFtpLogProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpLogProvider {}
+impl ::core::fmt::Debug for IFtpLogProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpLogProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpLogProvider {
     type Vtable = IFtpLogProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa18a94cc_8299_4408_816c_7c3baca1a40e);
@@ -2504,6 +2569,11 @@ impl ::core::cmp::PartialEq for IFtpPostprocessProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpPostprocessProvider {}
+impl ::core::fmt::Debug for IFtpPostprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpPostprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpPostprocessProvider {
     type Vtable = IFtpPostprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4522cbc6_16cd_49ad_8653_9a2c579e4280);
@@ -2559,6 +2629,11 @@ impl ::core::cmp::PartialEq for IFtpPreprocessProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpPreprocessProvider {}
+impl ::core::fmt::Debug for IFtpPreprocessProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpPreprocessProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpPreprocessProvider {
     type Vtable = IFtpPreprocessProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa3c19b60_5a28_471a_8f93_ab30411cee82);
@@ -2613,6 +2688,11 @@ impl ::core::cmp::PartialEq for IFtpProviderConstruct {
     }
 }
 impl ::core::cmp::Eq for IFtpProviderConstruct {}
+impl ::core::fmt::Debug for IFtpProviderConstruct {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpProviderConstruct").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpProviderConstruct {
     type Vtable = IFtpProviderConstructVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4d1a3f7b_412d_447c_b199_64f967e9a2da);
@@ -2668,6 +2748,11 @@ impl ::core::cmp::PartialEq for IFtpRoleProvider {
     }
 }
 impl ::core::cmp::Eq for IFtpRoleProvider {}
+impl ::core::fmt::Debug for IFtpRoleProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IFtpRoleProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IFtpRoleProvider {
     type Vtable = IFtpRoleProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x909c850d_8ca0_4674_96b8_cc2941535725);
@@ -3000,6 +3085,11 @@ impl ::core::cmp::PartialEq for IMSAdminBase2W {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBase2W {}
+impl ::core::fmt::Debug for IMSAdminBase2W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBase2W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBase2W {
     type Vtable = IMSAdminBase2WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8298d101_f992_43b7_8eca_5052d885b995);
@@ -3338,6 +3428,11 @@ impl ::core::cmp::PartialEq for IMSAdminBase3W {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBase3W {}
+impl ::core::fmt::Debug for IMSAdminBase3W {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBase3W").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBase3W {
     type Vtable = IMSAdminBase3WVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf612954d_3b0b_4c56_9563_227b7be624b4);
@@ -3461,6 +3556,11 @@ impl ::core::cmp::PartialEq for IMSAdminBaseSinkW {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBaseSinkW {}
+impl ::core::fmt::Debug for IMSAdminBaseSinkW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBaseSinkW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBaseSinkW {
     type Vtable = IMSAdminBaseSinkWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9e69612_b80d_11d0_b9b9_00a0c922e750);
@@ -3662,6 +3762,11 @@ impl ::core::cmp::PartialEq for IMSAdminBaseW {
     }
 }
 impl ::core::cmp::Eq for IMSAdminBaseW {}
+impl ::core::fmt::Debug for IMSAdminBaseW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSAdminBaseW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSAdminBaseW {
     type Vtable = IMSAdminBaseWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x70b51430_b6ca_11d0_b9b9_00a0c922e750);
@@ -3767,6 +3872,11 @@ impl ::core::cmp::PartialEq for IMSImpExpHelpW {
     }
 }
 impl ::core::cmp::Eq for IMSImpExpHelpW {}
+impl ::core::fmt::Debug for IMSImpExpHelpW {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMSImpExpHelpW").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMSImpExpHelpW {
     type Vtable = IMSImpExpHelpWVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29ff67ff_8050_480f_9f30_cc41635f2f9d);

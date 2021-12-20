@@ -48,6 +48,11 @@ impl ::core::cmp::PartialEq for IComponentAuthenticate {
     }
 }
 impl ::core::cmp::Eq for IComponentAuthenticate {}
+impl ::core::fmt::Debug for IComponentAuthenticate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IComponentAuthenticate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IComponentAuthenticate {
     type Vtable = IComponentAuthenticateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9889c00_6d2b_11d3_8496_00c04f79dbc0);
@@ -149,6 +154,11 @@ impl ::core::cmp::PartialEq for IMDSPDevice {
     }
 }
 impl ::core::cmp::Eq for IMDSPDevice {}
+impl ::core::fmt::Debug for IMDSPDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPDevice {
     type Vtable = IMDSPDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a12_33ed_11d3_8470_00c04f79dbc0);
@@ -303,6 +313,11 @@ impl ::core::cmp::PartialEq for IMDSPDevice2 {
     }
 }
 impl ::core::cmp::Eq for IMDSPDevice2 {}
+impl ::core::fmt::Debug for IMDSPDevice2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPDevice2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPDevice2 {
     type Vtable = IMDSPDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x420d16ad_c97d_4e00_82aa_00e9f4335ddd);
@@ -512,6 +527,11 @@ impl ::core::cmp::PartialEq for IMDSPDevice3 {
     }
 }
 impl ::core::cmp::Eq for IMDSPDevice3 {}
+impl ::core::fmt::Debug for IMDSPDevice3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPDevice3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPDevice3 {
     type Vtable = IMDSPDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a839845_fc55_487c_976f_ee38ac0e8c4e);
@@ -624,6 +644,11 @@ impl ::core::cmp::PartialEq for IMDSPDeviceControl {
     }
 }
 impl ::core::cmp::Eq for IMDSPDeviceControl {}
+impl ::core::fmt::Debug for IMDSPDeviceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPDeviceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPDeviceControl {
     type Vtable = IMDSPDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a14_33ed_11d3_8470_00c04f79dbc0);
@@ -685,6 +710,11 @@ impl ::core::cmp::PartialEq for IMDSPDirectTransfer {
     }
 }
 impl ::core::cmp::Eq for IMDSPDirectTransfer {}
+impl ::core::fmt::Debug for IMDSPDirectTransfer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPDirectTransfer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPDirectTransfer {
     type Vtable = IMDSPDirectTransferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2fe57a8_9304_478c_9ee4_47e397b912d7);
@@ -752,6 +782,11 @@ impl ::core::cmp::PartialEq for IMDSPEnumDevice {
     }
 }
 impl ::core::cmp::Eq for IMDSPEnumDevice {}
+impl ::core::fmt::Debug for IMDSPEnumDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPEnumDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPEnumDevice {
     type Vtable = IMDSPEnumDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a11_33ed_11d3_8470_00c04f79dbc0);
@@ -821,6 +856,11 @@ impl ::core::cmp::PartialEq for IMDSPEnumStorage {
     }
 }
 impl ::core::cmp::Eq for IMDSPEnumStorage {}
+impl ::core::fmt::Debug for IMDSPEnumStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPEnumStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPEnumStorage {
     type Vtable = IMDSPEnumStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a15_33ed_11d3_8470_00c04f79dbc0);
@@ -905,6 +945,11 @@ impl ::core::cmp::PartialEq for IMDSPObject {
     }
 }
 impl ::core::cmp::Eq for IMDSPObject {}
+impl ::core::fmt::Debug for IMDSPObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPObject {
     type Vtable = IMDSPObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a18_33ed_11d3_8470_00c04f79dbc0);
@@ -1022,6 +1067,11 @@ impl ::core::cmp::PartialEq for IMDSPObject2 {
     }
 }
 impl ::core::cmp::Eq for IMDSPObject2 {}
+impl ::core::fmt::Debug for IMDSPObject2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPObject2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPObject2 {
     type Vtable = IMDSPObject2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f34cd3e_5907_4341_9af9_97f4187c3aa5);
@@ -1113,6 +1163,11 @@ impl ::core::cmp::PartialEq for IMDSPObjectInfo {
     }
 }
 impl ::core::cmp::Eq for IMDSPObjectInfo {}
+impl ::core::fmt::Debug for IMDSPObjectInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPObjectInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPObjectInfo {
     type Vtable = IMDSPObjectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a19_33ed_11d3_8470_00c04f79dbc0);
@@ -1172,6 +1227,11 @@ impl ::core::cmp::PartialEq for IMDSPRevoked {
     }
 }
 impl ::core::cmp::Eq for IMDSPRevoked {}
+impl ::core::fmt::Debug for IMDSPRevoked {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPRevoked").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPRevoked {
     type Vtable = IMDSPRevokedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa4e8f2d4_3f31_464d_b53d_4fc335998184);
@@ -1267,6 +1327,11 @@ impl ::core::cmp::PartialEq for IMDSPStorage {
     }
 }
 impl ::core::cmp::Eq for IMDSPStorage {}
+impl ::core::fmt::Debug for IMDSPStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPStorage {
     type Vtable = IMDSPStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a16_33ed_11d3_8470_00c04f79dbc0);
@@ -1414,6 +1479,11 @@ impl ::core::cmp::PartialEq for IMDSPStorage2 {
     }
 }
 impl ::core::cmp::Eq for IMDSPStorage2 {}
+impl ::core::fmt::Debug for IMDSPStorage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPStorage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPStorage2 {
     type Vtable = IMDSPStorage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0a5e07a5_6454_4451_9c36_1c6ae7e2b1d6);
@@ -1597,6 +1667,11 @@ impl ::core::cmp::PartialEq for IMDSPStorage3 {
     }
 }
 impl ::core::cmp::Eq for IMDSPStorage3 {}
+impl ::core::fmt::Debug for IMDSPStorage3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPStorage3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPStorage3 {
     type Vtable = IMDSPStorage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c669867_97ed_4a67_9706_1c5529d2a414);
@@ -1832,6 +1907,11 @@ impl ::core::cmp::PartialEq for IMDSPStorage4 {
     }
 }
 impl ::core::cmp::Eq for IMDSPStorage4 {}
+impl ::core::fmt::Debug for IMDSPStorage4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPStorage4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPStorage4 {
     type Vtable = IMDSPStorage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3133b2c4_515c_481b_b1ce_39327ecb4f74);
@@ -1950,6 +2030,11 @@ impl ::core::cmp::PartialEq for IMDSPStorageGlobals {
     }
 }
 impl ::core::cmp::Eq for IMDSPStorageGlobals {}
+impl ::core::fmt::Debug for IMDSPStorageGlobals {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDSPStorageGlobals").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDSPStorageGlobals {
     type Vtable = IMDSPStorageGlobalsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a17_33ed_11d3_8470_00c04f79dbc0);
@@ -2016,6 +2101,11 @@ impl ::core::cmp::PartialEq for IMDServiceProvider {
     }
 }
 impl ::core::cmp::Eq for IMDServiceProvider {}
+impl ::core::fmt::Debug for IMDServiceProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDServiceProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDServiceProvider {
     type Vtable = IMDServiceProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a10_33ed_11d3_8470_00c04f79dbc0);
@@ -2100,6 +2190,11 @@ impl ::core::cmp::PartialEq for IMDServiceProvider2 {
     }
 }
 impl ::core::cmp::Eq for IMDServiceProvider2 {}
+impl ::core::fmt::Debug for IMDServiceProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDServiceProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDServiceProvider2 {
     type Vtable = IMDServiceProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb2fa24b7_cda3_4694_9862_413ae1a34819);
@@ -2210,6 +2305,11 @@ impl ::core::cmp::PartialEq for IMDServiceProvider3 {
     }
 }
 impl ::core::cmp::Eq for IMDServiceProvider3 {}
+impl ::core::fmt::Debug for IMDServiceProvider3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMDServiceProvider3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMDServiceProvider3 {
     type Vtable = IMDServiceProvider3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4ed13ef3_a971_4d19_9f51_0e1826b2da57);
@@ -2269,6 +2369,11 @@ impl ::core::cmp::PartialEq for ISCPSecureAuthenticate {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureAuthenticate {}
+impl ::core::fmt::Debug for ISCPSecureAuthenticate {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureAuthenticate").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate {
     type Vtable = ISCPSecureAuthenticateVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0f_33ed_11d3_8470_00c04f79dbc0);
@@ -2342,6 +2447,11 @@ impl ::core::cmp::PartialEq for ISCPSecureAuthenticate2 {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureAuthenticate2 {}
+impl ::core::fmt::Debug for ISCPSecureAuthenticate2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureAuthenticate2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureAuthenticate2 {
     type Vtable = ISCPSecureAuthenticate2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb580cfae_1672_47e2_acaa_44bbecbcae5b);
@@ -2403,6 +2513,11 @@ impl ::core::cmp::PartialEq for ISCPSecureExchange {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureExchange {}
+impl ::core::fmt::Debug for ISCPSecureExchange {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureExchange").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureExchange {
     type Vtable = ISCPSecureExchangeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0e_33ed_11d3_8470_00c04f79dbc0);
@@ -2489,6 +2604,11 @@ impl ::core::cmp::PartialEq for ISCPSecureExchange2 {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureExchange2 {}
+impl ::core::fmt::Debug for ISCPSecureExchange2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureExchange2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureExchange2 {
     type Vtable = ISCPSecureExchange2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c62fc7b_2690_483f_9d44_0a20cb35577c);
@@ -2609,6 +2729,11 @@ impl ::core::cmp::PartialEq for ISCPSecureExchange3 {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureExchange3 {}
+impl ::core::fmt::Debug for ISCPSecureExchange3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureExchange3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureExchange3 {
     type Vtable = ISCPSecureExchange3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xab4e77e4_8908_4b17_bd2a_b1dbe6dd69e1);
@@ -2680,6 +2805,11 @@ impl ::core::cmp::PartialEq for ISCPSecureQuery {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureQuery {}
+impl ::core::fmt::Debug for ISCPSecureQuery {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureQuery").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureQuery {
     type Vtable = ISCPSecureQueryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0d_33ed_11d3_8470_00c04f79dbc0);
@@ -2795,6 +2925,11 @@ impl ::core::cmp::PartialEq for ISCPSecureQuery2 {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureQuery2 {}
+impl ::core::fmt::Debug for ISCPSecureQuery2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureQuery2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureQuery2 {
     type Vtable = ISCPSecureQuery2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebe17e25_4fd7_4632_af46_6d93d4fcc72e);
@@ -2962,6 +3097,11 @@ impl ::core::cmp::PartialEq for ISCPSecureQuery3 {
     }
 }
 impl ::core::cmp::Eq for ISCPSecureQuery3 {}
+impl ::core::fmt::Debug for ISCPSecureQuery3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSecureQuery3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSecureQuery3 {
     type Vtable = ISCPSecureQuery3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb7edd1a2_4dab_484b_b3c5_ad39b8b4c0b1);
@@ -3032,6 +3172,11 @@ impl ::core::cmp::PartialEq for ISCPSession {
     }
 }
 impl ::core::cmp::Eq for ISCPSession {}
+impl ::core::fmt::Debug for ISCPSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ISCPSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ISCPSession {
     type Vtable = ISCPSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x88a3e6ed_eee4_4619_bbb3_fd4fb62715d1);
@@ -3134,6 +3279,11 @@ impl ::core::cmp::PartialEq for IWMDMDevice {
     }
 }
 impl ::core::cmp::Eq for IWMDMDevice {}
+impl ::core::fmt::Debug for IWMDMDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMDevice {
     type Vtable = IWMDMDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a02_33ed_11d3_8470_00c04f79dbc0);
@@ -3288,6 +3438,11 @@ impl ::core::cmp::PartialEq for IWMDMDevice2 {
     }
 }
 impl ::core::cmp::Eq for IWMDMDevice2 {}
+impl ::core::fmt::Debug for IWMDMDevice2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMDevice2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMDevice2 {
     type Vtable = IWMDMDevice2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe34f3d37_9d67_4fc1_9252_62d28b2f8b55);
@@ -3497,6 +3652,11 @@ impl ::core::cmp::PartialEq for IWMDMDevice3 {
     }
 }
 impl ::core::cmp::Eq for IWMDMDevice3 {}
+impl ::core::fmt::Debug for IWMDMDevice3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMDevice3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMDevice3 {
     type Vtable = IWMDMDevice3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c03e4fe_05db_4dda_9e3c_06233a6d5d65);
@@ -3609,6 +3769,11 @@ impl ::core::cmp::PartialEq for IWMDMDeviceControl {
     }
 }
 impl ::core::cmp::Eq for IWMDMDeviceControl {}
+impl ::core::fmt::Debug for IWMDMDeviceControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMDeviceControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMDeviceControl {
     type Vtable = IWMDMDeviceControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a04_33ed_11d3_8470_00c04f79dbc0);
@@ -3672,6 +3837,11 @@ impl ::core::cmp::PartialEq for IWMDMDeviceSession {
     }
 }
 impl ::core::cmp::Eq for IWMDMDeviceSession {}
+impl ::core::fmt::Debug for IWMDMDeviceSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMDeviceSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMDeviceSession {
     type Vtable = IWMDMDeviceSessionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x82af0a65_9d96_412c_83e5_3c43e4b06cc7);
@@ -3739,6 +3909,11 @@ impl ::core::cmp::PartialEq for IWMDMEnumDevice {
     }
 }
 impl ::core::cmp::Eq for IWMDMEnumDevice {}
+impl ::core::fmt::Debug for IWMDMEnumDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMEnumDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMEnumDevice {
     type Vtable = IWMDMEnumDeviceVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a01_33ed_11d3_8470_00c04f79dbc0);
@@ -3808,6 +3983,11 @@ impl ::core::cmp::PartialEq for IWMDMEnumStorage {
     }
 }
 impl ::core::cmp::Eq for IWMDMEnumStorage {}
+impl ::core::fmt::Debug for IWMDMEnumStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMEnumStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMEnumStorage {
     type Vtable = IWMDMEnumStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a05_33ed_11d3_8470_00c04f79dbc0);
@@ -3902,6 +4082,11 @@ impl ::core::cmp::PartialEq for IWMDMLogger {
     }
 }
 impl ::core::cmp::Eq for IWMDMLogger {}
+impl ::core::fmt::Debug for IWMDMLogger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMLogger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMLogger {
     type Vtable = IWMDMLoggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x110a3200_5a79_11d3_8d78_444553540000);
@@ -3983,6 +4168,11 @@ impl ::core::cmp::PartialEq for IWMDMMetaData {
     }
 }
 impl ::core::cmp::Eq for IWMDMMetaData {}
+impl ::core::fmt::Debug for IWMDMMetaData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMMetaData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMMetaData {
     type Vtable = IWMDMMetaDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xec3b0663_0951_460a_9a80_0dceed3c043c);
@@ -4041,6 +4231,11 @@ impl ::core::cmp::PartialEq for IWMDMNotification {
     }
 }
 impl ::core::cmp::Eq for IWMDMNotification {}
+impl ::core::fmt::Debug for IWMDMNotification {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMNotification").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMNotification {
     type Vtable = IWMDMNotificationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3f5e95c0_0f43_4ed4_93d2_c89a45d59b81);
@@ -4123,6 +4318,11 @@ impl ::core::cmp::PartialEq for IWMDMObjectInfo {
     }
 }
 impl ::core::cmp::Eq for IWMDMObjectInfo {}
+impl ::core::fmt::Debug for IWMDMObjectInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMObjectInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMObjectInfo {
     type Vtable = IWMDMObjectInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a09_33ed_11d3_8470_00c04f79dbc0);
@@ -4219,6 +4419,11 @@ impl ::core::cmp::PartialEq for IWMDMOperation {
     }
 }
 impl ::core::cmp::Eq for IWMDMOperation {}
+impl ::core::fmt::Debug for IWMDMOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMOperation {
     type Vtable = IWMDMOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0b_33ed_11d3_8470_00c04f79dbc0);
@@ -4350,6 +4555,11 @@ impl ::core::cmp::PartialEq for IWMDMOperation2 {
     }
 }
 impl ::core::cmp::Eq for IWMDMOperation2 {}
+impl ::core::fmt::Debug for IWMDMOperation2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMOperation2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMOperation2 {
     type Vtable = IWMDMOperation2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x33445b48_7df7_425c_ad8f_0fc6d82f9f75);
@@ -4479,6 +4689,11 @@ impl ::core::cmp::PartialEq for IWMDMOperation3 {
     }
 }
 impl ::core::cmp::Eq for IWMDMOperation3 {}
+impl ::core::fmt::Debug for IWMDMOperation3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMOperation3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMOperation3 {
     type Vtable = IWMDMOperation3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd1f9b46a_9ca8_46d8_9d0f_1ec9bae54919);
@@ -4551,6 +4766,11 @@ impl ::core::cmp::PartialEq for IWMDMProgress {
     }
 }
 impl ::core::cmp::Eq for IWMDMProgress {}
+impl ::core::fmt::Debug for IWMDMProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMProgress {
     type Vtable = IWMDMProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a0c_33ed_11d3_8470_00c04f79dbc0);
@@ -4637,6 +4857,11 @@ impl ::core::cmp::PartialEq for IWMDMProgress2 {
     }
 }
 impl ::core::cmp::Eq for IWMDMProgress2 {}
+impl ::core::fmt::Debug for IWMDMProgress2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMProgress2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMProgress2 {
     type Vtable = IWMDMProgress2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3a43f550_b383_4e92_b04a_e6bbc660fefc);
@@ -4756,6 +4981,11 @@ impl ::core::cmp::PartialEq for IWMDMProgress3 {
     }
 }
 impl ::core::cmp::Eq for IWMDMProgress3 {}
+impl ::core::fmt::Debug for IWMDMProgress3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMProgress3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMProgress3 {
     type Vtable = IWMDMProgress3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x21de01cb_3bb4_4929_b21a_17af3f80f658);
@@ -4815,6 +5045,11 @@ impl ::core::cmp::PartialEq for IWMDMRevoked {
     }
 }
 impl ::core::cmp::Eq for IWMDMRevoked {}
+impl ::core::fmt::Debug for IWMDMRevoked {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMRevoked").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMRevoked {
     type Vtable = IWMDMRevokedVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xebeccedb_88ee_4e55_b6a4_8d9f07d696aa);
@@ -4904,6 +5139,11 @@ impl ::core::cmp::PartialEq for IWMDMStorage {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorage {}
+impl ::core::fmt::Debug for IWMDMStorage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorage {
     type Vtable = IWMDMStorageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a06_33ed_11d3_8470_00c04f79dbc0);
@@ -5037,6 +5277,11 @@ impl ::core::cmp::PartialEq for IWMDMStorage2 {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorage2 {}
+impl ::core::fmt::Debug for IWMDMStorage2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorage2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorage2 {
     type Vtable = IWMDMStorage2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ed5a144_5cd5_4683_9eff_72cbdb2d9533);
@@ -5215,6 +5460,11 @@ impl ::core::cmp::PartialEq for IWMDMStorage3 {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorage3 {}
+impl ::core::fmt::Debug for IWMDMStorage3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorage3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorage3 {
     type Vtable = IWMDMStorage3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97717eea_926a_464e_96a4_247b0216026e);
@@ -5447,6 +5697,11 @@ impl ::core::cmp::PartialEq for IWMDMStorage4 {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorage4 {}
+impl ::core::fmt::Debug for IWMDMStorage4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorage4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorage4 {
     type Vtable = IWMDMStorage4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc225bac5_a03a_40b8_9a23_91cf478c64a6);
@@ -5547,6 +5802,11 @@ impl ::core::cmp::PartialEq for IWMDMStorageControl {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorageControl {}
+impl ::core::fmt::Debug for IWMDMStorageControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorageControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorageControl {
     type Vtable = IWMDMStorageControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a08_33ed_11d3_8470_00c04f79dbc0);
@@ -5651,6 +5911,11 @@ impl ::core::cmp::PartialEq for IWMDMStorageControl2 {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorageControl2 {}
+impl ::core::fmt::Debug for IWMDMStorageControl2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorageControl2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorageControl2 {
     type Vtable = IWMDMStorageControl2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x972c2e88_bd6c_4125_8e09_84f837e637b6);
@@ -5782,6 +6047,11 @@ impl ::core::cmp::PartialEq for IWMDMStorageControl3 {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorageControl3 {}
+impl ::core::fmt::Debug for IWMDMStorageControl3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorageControl3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorageControl3 {
     type Vtable = IWMDMStorageControl3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb3266365_d4f3_4696_8d53_bd27ec60993a);
@@ -5871,6 +6141,11 @@ impl ::core::cmp::PartialEq for IWMDMStorageGlobals {
     }
 }
 impl ::core::cmp::Eq for IWMDMStorageGlobals {}
+impl ::core::fmt::Debug for IWMDMStorageGlobals {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDMStorageGlobals").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDMStorageGlobals {
     type Vtable = IWMDMStorageGlobalsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a07_33ed_11d3_8470_00c04f79dbc0);
@@ -5940,6 +6215,11 @@ impl ::core::cmp::PartialEq for IWMDeviceManager {
     }
 }
 impl ::core::cmp::Eq for IWMDeviceManager {}
+impl ::core::fmt::Debug for IWMDeviceManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDeviceManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDeviceManager {
     type Vtable = IWMDeviceManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1dcb3a00_33ed_11d3_8470_00c04f79dbc0);
@@ -6040,6 +6320,11 @@ impl ::core::cmp::PartialEq for IWMDeviceManager2 {
     }
 }
 impl ::core::cmp::Eq for IWMDeviceManager2 {}
+impl ::core::fmt::Debug for IWMDeviceManager2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDeviceManager2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDeviceManager2 {
     type Vtable = IWMDeviceManager2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x923e5249_8731_4c5b_9b1c_b8b60b6e46af);
@@ -6168,6 +6453,11 @@ impl ::core::cmp::PartialEq for IWMDeviceManager3 {
     }
 }
 impl ::core::cmp::Eq for IWMDeviceManager3 {}
+impl ::core::fmt::Debug for IWMDeviceManager3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWMDeviceManager3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWMDeviceManager3 {
     type Vtable = IWMDeviceManager3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf185c41_100d_46ed_be2e_9ce8c44594ef);

@@ -47,6 +47,11 @@ impl ::core::cmp::PartialEq for Direct3D11CaptureFrame {
     }
 }
 impl ::core::cmp::Eq for Direct3D11CaptureFrame {}
+impl ::core::fmt::Debug for Direct3D11CaptureFrame {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3D11CaptureFrame").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Direct3D11CaptureFrame {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFrame;{fa50c623-38da-4b32-acf3-fa9734ad800e})");
 }
@@ -219,6 +224,11 @@ impl ::core::cmp::PartialEq for Direct3D11CaptureFramePool {
     }
 }
 impl ::core::cmp::Eq for Direct3D11CaptureFramePool {}
+impl ::core::fmt::Debug for Direct3D11CaptureFramePool {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("Direct3D11CaptureFramePool").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for Direct3D11CaptureFramePool {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.Direct3D11CaptureFramePool;{24eb6d22-1975-422e-82e7-780dbd8ddf24})");
 }
@@ -430,6 +440,11 @@ impl ::core::cmp::PartialEq for GraphicsCaptureItem {
     }
 }
 impl ::core::cmp::Eq for GraphicsCaptureItem {}
+impl ::core::fmt::Debug for GraphicsCaptureItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GraphicsCaptureItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GraphicsCaptureItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureItem;{79c3f95b-31f7-4ec2-a464-632ef5d30760})");
 }
@@ -514,6 +529,11 @@ impl ::core::cmp::PartialEq for GraphicsCapturePicker {
     }
 }
 impl ::core::cmp::Eq for GraphicsCapturePicker {}
+impl ::core::fmt::Debug for GraphicsCapturePicker {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GraphicsCapturePicker").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GraphicsCapturePicker {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCapturePicker;{5a1711b3-ad79-4b4a-9336-1318fdde3539})");
 }
@@ -631,6 +651,11 @@ impl ::core::cmp::PartialEq for GraphicsCaptureSession {
     }
 }
 impl ::core::cmp::Eq for GraphicsCaptureSession {}
+impl ::core::fmt::Debug for GraphicsCaptureSession {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("GraphicsCaptureSession").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for GraphicsCaptureSession {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Graphics.Capture.GraphicsCaptureSession;{814e42a9-f70f-4ad7-939b-fddcc6eb880d})");
 }

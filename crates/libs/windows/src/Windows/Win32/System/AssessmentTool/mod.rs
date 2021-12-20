@@ -236,6 +236,11 @@ impl ::core::cmp::PartialEq for IAccessibleWinSAT {
     }
 }
 impl ::core::cmp::Eq for IAccessibleWinSAT {}
+impl ::core::fmt::Debug for IAccessibleWinSAT {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAccessibleWinSAT").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAccessibleWinSAT {
     type Vtable = IAccessibleWinSATVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x30e6018a_94a8_4ff8_a69a_71b67413f07b);
@@ -349,6 +354,11 @@ impl ::core::cmp::PartialEq for IInitiateWinSATAssessment {
     }
 }
 impl ::core::cmp::Eq for IInitiateWinSATAssessment {}
+impl ::core::fmt::Debug for IInitiateWinSATAssessment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IInitiateWinSATAssessment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IInitiateWinSATAssessment {
     type Vtable = IInitiateWinSATAssessmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd983fc50_f5bf_49d5_b5ed_cccb18aa7fc1);
@@ -464,6 +474,11 @@ impl ::core::cmp::PartialEq for IProvideWinSATAssessmentInfo {
     }
 }
 impl ::core::cmp::Eq for IProvideWinSATAssessmentInfo {}
+impl ::core::fmt::Debug for IProvideWinSATAssessmentInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvideWinSATAssessmentInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvideWinSATAssessmentInfo {
     type Vtable = IProvideWinSATAssessmentInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0cd1c380_52d3_4678_ac6f_e929e480be9e);
@@ -597,6 +612,11 @@ impl ::core::cmp::PartialEq for IProvideWinSATResultsInfo {
     }
 }
 impl ::core::cmp::Eq for IProvideWinSATResultsInfo {}
+impl ::core::fmt::Debug for IProvideWinSATResultsInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvideWinSATResultsInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvideWinSATResultsInfo {
     type Vtable = IProvideWinSATResultsInfoVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8334d5d_568e_4075_875f_9df341506640);
@@ -665,6 +685,11 @@ impl ::core::cmp::PartialEq for IProvideWinSATVisuals {
     }
 }
 impl ::core::cmp::Eq for IProvideWinSATVisuals {}
+impl ::core::fmt::Debug for IProvideWinSATVisuals {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProvideWinSATVisuals").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProvideWinSATVisuals {
     type Vtable = IProvideWinSATVisualsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa9f4ade0_871a_42a3_b813_3078d25162c9);
@@ -766,6 +791,11 @@ impl ::core::cmp::PartialEq for IQueryAllWinSATAssessments {
     }
 }
 impl ::core::cmp::Eq for IQueryAllWinSATAssessments {}
+impl ::core::fmt::Debug for IQueryAllWinSATAssessments {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IQueryAllWinSATAssessments").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IQueryAllWinSATAssessments {
     type Vtable = IQueryAllWinSATAssessmentsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0b89ed1d_6398_4fea_87fc_567d8d19176f);
@@ -828,6 +858,11 @@ impl ::core::cmp::PartialEq for IQueryOEMWinSATCustomization {
     }
 }
 impl ::core::cmp::Eq for IQueryOEMWinSATCustomization {}
+impl ::core::fmt::Debug for IQueryOEMWinSATCustomization {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IQueryOEMWinSATCustomization").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IQueryOEMWinSATCustomization {
     type Vtable = IQueryOEMWinSATCustomizationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbc9a6a9f_ad4e_420e_9953_b34671e9df22);
@@ -928,6 +963,11 @@ impl ::core::cmp::PartialEq for IQueryRecentWinSATAssessment {
     }
 }
 impl ::core::cmp::Eq for IQueryRecentWinSATAssessment {}
+impl ::core::fmt::Debug for IQueryRecentWinSATAssessment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IQueryRecentWinSATAssessment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IQueryRecentWinSATAssessment {
     type Vtable = IQueryRecentWinSATAssessmentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf8ad5d1f_3b47_4bdc_9375_7c6b1da4eca7);
@@ -996,6 +1036,11 @@ impl ::core::cmp::PartialEq for IWinSATInitiateEvents {
     }
 }
 impl ::core::cmp::Eq for IWinSATInitiateEvents {}
+impl ::core::fmt::Debug for IWinSATInitiateEvents {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWinSATInitiateEvents").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWinSATInitiateEvents {
     type Vtable = IWinSATInitiateEventsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x262a1918_ba0d_41d5_92c2_fab4633ee74f);

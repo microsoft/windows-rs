@@ -64,6 +64,11 @@ impl ::core::cmp::PartialEq for CoreFrameworkInputView {
     }
 }
 impl ::core::cmp::Eq for CoreFrameworkInputView {}
+impl ::core::fmt::Debug for CoreFrameworkInputView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreFrameworkInputView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputView;{d77c94ae-46b8-5d4a-9489-8ddec3d639a6})");
 }
@@ -158,6 +163,11 @@ impl ::core::cmp::PartialEq for CoreFrameworkInputViewAnimationStartingEventArgs
     }
 }
 impl ::core::cmp::Eq for CoreFrameworkInputViewAnimationStartingEventArgs {}
+impl ::core::fmt::Debug for CoreFrameworkInputViewAnimationStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreFrameworkInputViewAnimationStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewAnimationStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewAnimationStartingEventArgs;{c0ec901c-bba4-501b-ae8b-65c9e756a719})");
 }
@@ -243,6 +253,11 @@ impl ::core::cmp::PartialEq for CoreFrameworkInputViewOcclusionsChangedEventArgs
     }
 }
 impl ::core::cmp::Eq for CoreFrameworkInputViewOcclusionsChangedEventArgs {}
+impl ::core::fmt::Debug for CoreFrameworkInputViewOcclusionsChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreFrameworkInputViewOcclusionsChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreFrameworkInputViewOcclusionsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreFrameworkInputViewOcclusionsChangedEventArgs;{f36f4949-c82c-53d1-a75d-2b2baf0d9b0d})");
 }
@@ -506,6 +521,11 @@ impl ::core::cmp::PartialEq for CoreInputView {
     }
 }
 impl ::core::cmp::Eq for CoreInputView {}
+impl ::core::fmt::Debug for CoreInputView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputView {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputView;{c770cd7a-7001-4c32-bf94-25c1f554cbf1})");
 }
@@ -605,6 +625,11 @@ impl ::core::cmp::PartialEq for CoreInputViewAnimationStartingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewAnimationStartingEventArgs {}
+impl ::core::fmt::Debug for CoreInputViewAnimationStartingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewAnimationStartingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewAnimationStartingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewAnimationStartingEventArgs;{a9144af2-b55c-5ea1-b8ab-5340f3e94897})");
 }
@@ -681,6 +706,11 @@ impl ::core::cmp::PartialEq for CoreInputViewHidingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewHidingEventArgs {}
+impl ::core::fmt::Debug for CoreInputViewHidingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewHidingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewHidingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewHidingEventArgs;{eada47bd-bac5-5336-848d-41083584daad})");
 }
@@ -804,6 +834,11 @@ impl ::core::cmp::PartialEq for CoreInputViewOcclusion {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewOcclusion {}
+impl ::core::fmt::Debug for CoreInputViewOcclusion {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewOcclusion").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusion {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusion;{cc36ce06-3865-4177-b5f5-8b65e0b9ce84})");
 }
@@ -928,6 +963,11 @@ impl ::core::cmp::PartialEq for CoreInputViewOcclusionsChangedEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewOcclusionsChangedEventArgs {}
+impl ::core::fmt::Debug for CoreInputViewOcclusionsChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewOcclusionsChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewOcclusionsChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewOcclusionsChangedEventArgs;{be1027e8-b3ee-4df7-9554-89cdc66082c2})");
 }
@@ -1004,6 +1044,11 @@ impl ::core::cmp::PartialEq for CoreInputViewShowingEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewShowingEventArgs {}
+impl ::core::fmt::Debug for CoreInputViewShowingEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewShowingEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewShowingEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewShowingEventArgs;{ca52261b-fb9e-5daf-a98c-262b8b76af50})");
 }
@@ -1115,6 +1160,11 @@ impl ::core::cmp::PartialEq for CoreInputViewTransferringXYFocusEventArgs {
     }
 }
 impl ::core::cmp::Eq for CoreInputViewTransferringXYFocusEventArgs {}
+impl ::core::fmt::Debug for CoreInputViewTransferringXYFocusEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CoreInputViewTransferringXYFocusEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CoreInputViewTransferringXYFocusEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.CoreInputViewTransferringXYFocusEventArgs;{04de169f-ba02-4850-8b55-d82d03ba6d7f})");
 }
@@ -1666,6 +1716,11 @@ impl ::core::cmp::PartialEq for UISettingsController {
     }
 }
 impl ::core::cmp::Eq for UISettingsController {}
+impl ::core::fmt::Debug for UISettingsController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UISettingsController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UISettingsController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.ViewManagement.Core.UISettingsController;{78a51ac4-15c0-5a1b-a75b-acbf9cb8bb9e})");
 }

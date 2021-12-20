@@ -419,6 +419,11 @@ impl ::core::cmp::PartialEq for WiFiDirectAdvertisement {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectAdvertisement {}
+impl ::core::fmt::Debug for WiFiDirectAdvertisement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectAdvertisement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisement;{ab511a2d-2a06-49a1-a584-61435c7905a6})");
 }
@@ -569,6 +574,11 @@ impl ::core::cmp::PartialEq for WiFiDirectAdvertisementPublisher {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectAdvertisementPublisher {}
+impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisher {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectAdvertisementPublisher").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisher {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisher;{b35a2d1a-9b1f-45d9-925a-694d66df68ef})");
 }
@@ -688,6 +698,11 @@ impl ::core::cmp::PartialEq for WiFiDirectAdvertisementPublisherStatusChangedEve
     }
 }
 impl ::core::cmp::Eq for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {}
+impl ::core::fmt::Debug for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectAdvertisementPublisherStatusChangedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectAdvertisementPublisherStatusChangedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectAdvertisementPublisherStatusChangedEventArgs;{aafde53c-5481-46e6-90dd-32116518f192})");
 }
@@ -812,6 +827,11 @@ impl ::core::cmp::PartialEq for WiFiDirectConnectionListener {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectConnectionListener {}
+impl ::core::fmt::Debug for WiFiDirectConnectionListener {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConnectionListener").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionListener {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionListener;{699c1b0d-8d13-4ee9-b9ec-9c72f8251f7d})");
 }
@@ -935,6 +955,11 @@ impl ::core::cmp::PartialEq for WiFiDirectConnectionParameters {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectConnectionParameters {}
+impl ::core::fmt::Debug for WiFiDirectConnectionParameters {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConnectionParameters").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionParameters {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionParameters;{b2e55405-5702-4b16-a02c-bbcd21ef6098})");
 }
@@ -1044,6 +1069,11 @@ impl ::core::cmp::PartialEq for WiFiDirectConnectionRequest {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectConnectionRequest {}
+impl ::core::fmt::Debug for WiFiDirectConnectionRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConnectionRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionRequest;{8eb99605-914f-49c3-a614-d18dc5b19b43})");
 }
@@ -1146,6 +1176,11 @@ impl ::core::cmp::PartialEq for WiFiDirectConnectionRequestedEventArgs {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectConnectionRequestedEventArgs {}
+impl ::core::fmt::Debug for WiFiDirectConnectionRequestedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectConnectionRequestedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectConnectionRequestedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectConnectionRequestedEventArgs;{f99d20be-d38d-484f-8215-e7b65abf244c})");
 }
@@ -1333,6 +1368,11 @@ impl ::core::cmp::PartialEq for WiFiDirectDevice {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectDevice {}
+impl ::core::fmt::Debug for WiFiDirectDevice {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectDevice").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectDevice {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectDevice;{72deaaa8-72eb-4dae-8a28-8513355d2777})");
 }
@@ -1565,6 +1605,11 @@ impl ::core::cmp::PartialEq for WiFiDirectInformationElement {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectInformationElement {}
+impl ::core::fmt::Debug for WiFiDirectInformationElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectInformationElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectInformationElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectInformationElement;{affb72d6-76bb-497e-ac8b-dc72838bc309})");
 }
@@ -1674,6 +1719,11 @@ impl ::core::cmp::PartialEq for WiFiDirectLegacySettings {
     }
 }
 impl ::core::cmp::Eq for WiFiDirectLegacySettings {}
+impl ::core::fmt::Debug for WiFiDirectLegacySettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WiFiDirectLegacySettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WiFiDirectLegacySettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Devices.WiFiDirect.WiFiDirectLegacySettings;{a64fdbba-f2fd-4567-a91b-f5c2f5321057})");
 }

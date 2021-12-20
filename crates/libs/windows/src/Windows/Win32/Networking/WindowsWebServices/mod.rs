@@ -66,6 +66,11 @@ impl ::core::cmp::PartialEq for IContentPrefetcherTaskTrigger {
     }
 }
 impl ::core::cmp::Eq for IContentPrefetcherTaskTrigger {}
+impl ::core::fmt::Debug for IContentPrefetcherTaskTrigger {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IContentPrefetcherTaskTrigger").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IContentPrefetcherTaskTrigger {
     type Vtable = IContentPrefetcherTaskTriggerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1b35a14a_6094_4799_a60e_e474e15d4dc9);

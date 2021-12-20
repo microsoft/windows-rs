@@ -306,6 +306,11 @@ impl ::core::cmp::PartialEq for BackgroundDownloader {
     }
 }
 impl ::core::cmp::Eq for BackgroundDownloader {}
+impl ::core::fmt::Debug for BackgroundDownloader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundDownloader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundDownloader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundDownloader;{c1c79333-6649-4b1d-a826-a4b3dd234d0b})");
 }
@@ -458,6 +463,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferCompletionGroup {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferCompletionGroup {}
+impl ::core::fmt::Debug for BackgroundTransferCompletionGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferCompletionGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroup;{2d930225-986b-574d-7950-0add47f5d706})");
 }
@@ -544,6 +554,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferCompletionGroupTriggerDetails 
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferCompletionGroupTriggerDetails {}
+impl ::core::fmt::Debug for BackgroundTransferCompletionGroupTriggerDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferCompletionGroupTriggerDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferCompletionGroupTriggerDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferCompletionGroupTriggerDetails;{7b6be286-6e47-5136-7fcb-fa4389f46f5b})");
 }
@@ -654,6 +669,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferContentPart {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferContentPart {}
+impl ::core::fmt::Debug for BackgroundTransferContentPart {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferContentPart").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferContentPart {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferContentPart;{e8e15657-d7d1-4ed8-838e-674ac217ace6})");
 }
@@ -846,6 +866,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferGroup {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferGroup {}
+impl ::core::fmt::Debug for BackgroundTransferGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferGroup {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferGroup;{d8c3e3e4-6459-4540-85eb-aaa1c8903677})");
 }
@@ -974,6 +999,11 @@ impl ::core::cmp::PartialEq for BackgroundTransferRangesDownloadedEventArgs {
     }
 }
 impl ::core::cmp::Eq for BackgroundTransferRangesDownloadedEventArgs {}
+impl ::core::fmt::Debug for BackgroundTransferRangesDownloadedEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundTransferRangesDownloadedEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundTransferRangesDownloadedEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundTransferRangesDownloadedEventArgs;{3ebc7453-bf48-4a88-9248-b0c165184f5c})");
 }
@@ -1394,6 +1424,11 @@ impl ::core::cmp::PartialEq for BackgroundUploader {
     }
 }
 impl ::core::cmp::Eq for BackgroundUploader {}
+impl ::core::fmt::Debug for BackgroundUploader {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("BackgroundUploader").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for BackgroundUploader {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.BackgroundUploader;{c595c9ae-cead-465b-8801-c55ac90a01ce})");
 }
@@ -1745,6 +1780,11 @@ impl ::core::cmp::PartialEq for DownloadOperation {
     }
 }
 impl ::core::cmp::Eq for DownloadOperation {}
+impl ::core::fmt::Debug for DownloadOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DownloadOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DownloadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.DownloadOperation;{bd87ebb0-5714-4e09-ba68-bef73903b0d7})");
 }
@@ -2129,6 +2169,11 @@ impl ::core::cmp::PartialEq for IBackgroundTransferBase {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTransferBase {}
+impl ::core::fmt::Debug for IBackgroundTransferBase {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTransferBase").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferBase {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{2a9da250-c769-458c-afe8-feb8d4d3b2ef}");
 }
@@ -2298,6 +2343,11 @@ impl ::core::cmp::PartialEq for IBackgroundTransferContentPartFactory {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTransferContentPartFactory {}
+impl ::core::fmt::Debug for IBackgroundTransferContentPartFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTransferContentPartFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferContentPartFactory {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{90ef98a9-7a01-4a0b-9f80-a0b0bb370f8d}");
 }
@@ -2494,6 +2544,11 @@ impl ::core::cmp::PartialEq for IBackgroundTransferOperation {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTransferOperation {}
+impl ::core::fmt::Debug for IBackgroundTransferOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTransferOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{ded06846-90ca-44fb-8fb1-124154c0d539}");
 }
@@ -2591,6 +2646,11 @@ impl ::core::cmp::PartialEq for IBackgroundTransferOperationPriority {
     }
 }
 impl ::core::cmp::Eq for IBackgroundTransferOperationPriority {}
+impl ::core::fmt::Debug for IBackgroundTransferOperationPriority {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundTransferOperationPriority").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IBackgroundTransferOperationPriority {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{04854327-5254-4b3a-915e-0aa49275c0f9}");
 }
@@ -3122,6 +3182,11 @@ impl ::core::cmp::PartialEq for ResponseInformation {
     }
 }
 impl ::core::cmp::Eq for ResponseInformation {}
+impl ::core::fmt::Debug for ResponseInformation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ResponseInformation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for ResponseInformation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.ResponseInformation;{f8bb9a12-f713-4792-8b68-d9d297f91d2e})");
 }
@@ -3204,6 +3269,12 @@ impl ::core::cmp::PartialEq for UnconstrainedTransferRequestResult {
 }
 #[cfg(feature = "deprecated")]
 impl ::core::cmp::Eq for UnconstrainedTransferRequestResult {}
+#[cfg(feature = "deprecated")]
+impl ::core::fmt::Debug for UnconstrainedTransferRequestResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UnconstrainedTransferRequestResult").field(&self.0).finish()
+    }
+}
 #[cfg(feature = "deprecated")]
 unsafe impl ::windows::core::RuntimeType for UnconstrainedTransferRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UnconstrainedTransferRequestResult;{4c24b81f-d944-4112-a98e-6a69522b7ebb})");
@@ -3420,6 +3491,11 @@ impl ::core::cmp::PartialEq for UploadOperation {
     }
 }
 impl ::core::cmp::Eq for UploadOperation {}
+impl ::core::fmt::Debug for UploadOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("UploadOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for UploadOperation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Networking.BackgroundTransfer.UploadOperation;{3e5624e0-7389-434c-8b35-427fd36bbdae})");
 }

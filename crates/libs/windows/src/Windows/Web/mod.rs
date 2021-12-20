@@ -72,6 +72,11 @@ impl ::core::cmp::PartialEq for IUriToStreamResolver {
     }
 }
 impl ::core::cmp::Eq for IUriToStreamResolver {}
+impl ::core::fmt::Debug for IUriToStreamResolver {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IUriToStreamResolver").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IUriToStreamResolver {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{b0aba86a-9aeb-4d3a-9590-003e3ca7e290}");
 }

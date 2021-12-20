@@ -267,6 +267,11 @@ impl ::core::cmp::PartialEq for DtdEntity {
     }
 }
 impl ::core::cmp::Eq for DtdEntity {}
+impl ::core::fmt::Debug for DtdEntity {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtdEntity").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DtdEntity {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdEntity;{6a0b5ffc-63b4-480f-9e6a-8a92816aade4})");
 }
@@ -645,6 +650,11 @@ impl ::core::cmp::PartialEq for DtdNotation {
     }
 }
 impl ::core::cmp::Eq for DtdNotation {}
+impl ::core::fmt::Debug for DtdNotation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("DtdNotation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for DtdNotation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.DtdNotation;{8cb4e04d-6d46-4edb-ab73-df83c51ad397})");
 }
@@ -1239,6 +1249,11 @@ impl ::core::cmp::PartialEq for IXmlCharacterData {
     }
 }
 impl ::core::cmp::Eq for IXmlCharacterData {}
+impl ::core::fmt::Debug for IXmlCharacterData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlCharacterData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXmlCharacterData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{132e42ab-4e36-4df6-b1c8-0ce62fd88b26}");
 }
@@ -1864,6 +1879,11 @@ impl ::core::cmp::PartialEq for IXmlNode {
     }
 }
 impl ::core::cmp::Eq for IXmlNode {}
+impl ::core::fmt::Debug for IXmlNode {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlNode").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXmlNode {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{1c741d59-2122-47d5-a856-83f3d4214875}");
 }
@@ -2011,6 +2031,11 @@ impl ::core::cmp::PartialEq for IXmlNodeSelector {
     }
 }
 impl ::core::cmp::Eq for IXmlNodeSelector {}
+impl ::core::fmt::Debug for IXmlNodeSelector {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlNodeSelector").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXmlNodeSelector {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{63dbba8b-d0db-4fe1-b745-f9433afdc25b}");
 }
@@ -2109,6 +2134,11 @@ impl ::core::cmp::PartialEq for IXmlNodeSerializer {
     }
 }
 impl ::core::cmp::Eq for IXmlNodeSerializer {}
+impl ::core::fmt::Debug for IXmlNodeSerializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlNodeSerializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXmlNodeSerializer {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{5cc5b382-e6dd-4991-abef-06d8d2e7bd0c}");
 }
@@ -2578,6 +2608,11 @@ impl ::core::cmp::PartialEq for IXmlText {
     }
 }
 impl ::core::cmp::Eq for IXmlText {}
+impl ::core::fmt::Debug for IXmlText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXmlText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for IXmlText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"{f931a4cb-308d-4760-a1d5-43b67450ac7e}");
 }
@@ -2913,6 +2948,11 @@ impl ::core::cmp::PartialEq for XmlAttribute {
     }
 }
 impl ::core::cmp::Eq for XmlAttribute {}
+impl ::core::fmt::Debug for XmlAttribute {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlAttribute").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlAttribute {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlAttribute;{ac144aa4-b4f1-4db6-b206-8a22c308db0a})");
 }
@@ -3332,6 +3372,11 @@ impl ::core::cmp::PartialEq for XmlCDataSection {
     }
 }
 impl ::core::cmp::Eq for XmlCDataSection {}
+impl ::core::fmt::Debug for XmlCDataSection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlCDataSection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlCDataSection {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlCDataSection;{4d04b46f-c8bd-45b4-8899-0400d7c2c60f})");
 }
@@ -3787,6 +3832,11 @@ impl ::core::cmp::PartialEq for XmlComment {
     }
 }
 impl ::core::cmp::Eq for XmlComment {}
+impl ::core::fmt::Debug for XmlComment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlComment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlComment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlComment;{bca474d5-b61f-4611-9cac-2e92e3476d47})");
 }
@@ -4382,6 +4432,11 @@ impl ::core::cmp::PartialEq for XmlDocument {
     }
 }
 impl ::core::cmp::Eq for XmlDocument {}
+impl ::core::fmt::Debug for XmlDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocument;{f7f3a506-1e87-42d6-bcfb-b8c809fa5494})");
 }
@@ -4744,6 +4799,11 @@ impl ::core::cmp::PartialEq for XmlDocumentFragment {
     }
 }
 impl ::core::cmp::Eq for XmlDocumentFragment {}
+impl ::core::fmt::Debug for XmlDocumentFragment {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlDocumentFragment").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlDocumentFragment {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentFragment;{e2ea6a96-0c21-44a5-8bc9-9e4a262708ec})");
 }
@@ -5130,6 +5190,11 @@ impl ::core::cmp::PartialEq for XmlDocumentType {
     }
 }
 impl ::core::cmp::Eq for XmlDocumentType {}
+impl ::core::fmt::Debug for XmlDocumentType {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlDocumentType").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlDocumentType {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDocumentType;{f7342425-9781-4964-8e94-9b1c6dfc9bc7})");
 }
@@ -5272,6 +5337,11 @@ impl ::core::cmp::PartialEq for XmlDomImplementation {
     }
 }
 impl ::core::cmp::Eq for XmlDomImplementation {}
+impl ::core::fmt::Debug for XmlDomImplementation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlDomImplementation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlDomImplementation {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlDomImplementation;{6de58132-f11d-4fbb-8cc6-583cba93112f})");
 }
@@ -5660,6 +5730,11 @@ impl ::core::cmp::PartialEq for XmlElement {
     }
 }
 impl ::core::cmp::Eq for XmlElement {}
+impl ::core::fmt::Debug for XmlElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlElement {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlElement;{2dfb8a1f-6b10-4ef8-9f83-efcce8faec37})");
 }
@@ -6022,6 +6097,11 @@ impl ::core::cmp::PartialEq for XmlEntityReference {
     }
 }
 impl ::core::cmp::Eq for XmlEntityReference {}
+impl ::core::fmt::Debug for XmlEntityReference {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlEntityReference").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlEntityReference {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlEntityReference;{2e2f47bc-c3d0-4ccf-bb86-0ab8c36a61cf})");
 }
@@ -6228,6 +6308,11 @@ impl ::core::cmp::PartialEq for XmlLoadSettings {
     }
 }
 impl ::core::cmp::Eq for XmlLoadSettings {}
+impl ::core::fmt::Debug for XmlLoadSettings {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlLoadSettings").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlLoadSettings {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlLoadSettings;{58aa07a8-fed6-46f7-b4c5-fb1ba72108d6})");
 }
@@ -6405,6 +6490,11 @@ impl ::core::cmp::PartialEq for XmlNamedNodeMap {
     }
 }
 impl ::core::cmp::Eq for XmlNamedNodeMap {}
+impl ::core::fmt::Debug for XmlNamedNodeMap {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlNamedNodeMap").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlNamedNodeMap {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNamedNodeMap;{b3a69eb0-aab0-4b82-a6fa-b1453f7c021b})");
 }
@@ -6602,6 +6692,11 @@ impl ::core::cmp::PartialEq for XmlNodeList {
     }
 }
 impl ::core::cmp::Eq for XmlNodeList {}
+impl ::core::fmt::Debug for XmlNodeList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlNodeList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlNodeList {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlNodeList;{8c60ad77-83a4-4ec1-9c54-7ba429e13da6})");
 }
@@ -6987,6 +7082,11 @@ impl ::core::cmp::PartialEq for XmlProcessingInstruction {
     }
 }
 impl ::core::cmp::Eq for XmlProcessingInstruction {}
+impl ::core::fmt::Debug for XmlProcessingInstruction {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlProcessingInstruction").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlProcessingInstruction {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlProcessingInstruction;{2707fd1e-1e92-4ece-b6f4-26f069078ddc})");
 }
@@ -7406,6 +7506,11 @@ impl ::core::cmp::PartialEq for XmlText {
     }
 }
 impl ::core::cmp::Eq for XmlText {}
+impl ::core::fmt::Debug for XmlText {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("XmlText").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for XmlText {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Xml.Dom.XmlText;{f931a4cb-308d-4760-a1d5-43b67450ac7e})");
 }

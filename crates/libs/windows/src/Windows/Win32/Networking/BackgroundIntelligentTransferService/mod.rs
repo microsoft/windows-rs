@@ -59,6 +59,11 @@ impl ::core::cmp::PartialEq for AsyncIBackgroundCopyCallback {
     }
 }
 impl ::core::cmp::Eq for AsyncIBackgroundCopyCallback {}
+impl ::core::fmt::Debug for AsyncIBackgroundCopyCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("AsyncIBackgroundCopyCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for AsyncIBackgroundCopyCallback {
     type Vtable = AsyncIBackgroundCopyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca29d251_b4bb_4679_a3d9_ae8006119d54);
@@ -1156,6 +1161,11 @@ impl ::core::cmp::PartialEq for IBITSExtensionSetup {
     }
 }
 impl ::core::cmp::Eq for IBITSExtensionSetup {}
+impl ::core::fmt::Debug for IBITSExtensionSetup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBITSExtensionSetup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBITSExtensionSetup {
     type Vtable = IBITSExtensionSetupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x29cfbbf7_09e4_4b97_b0bc_f2287e3d8eb3);
@@ -1268,6 +1278,11 @@ impl ::core::cmp::PartialEq for IBITSExtensionSetupFactory {
     }
 }
 impl ::core::cmp::Eq for IBITSExtensionSetupFactory {}
+impl ::core::fmt::Debug for IBITSExtensionSetupFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBITSExtensionSetupFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBITSExtensionSetupFactory {
     type Vtable = IBITSExtensionSetupFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd5d2d542_5503_4e64_8b48_72ef91a32ee1);
@@ -1337,6 +1352,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyCallback {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyCallback {}
+impl ::core::fmt::Debug for IBackgroundCopyCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyCallback {
     type Vtable = IBackgroundCopyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x97ea99c7_0186_4ad4_8df9_c5b4e0ed6b22);
@@ -1399,6 +1419,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyCallback1 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyCallback1 {}
+impl ::core::fmt::Debug for IBackgroundCopyCallback1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyCallback1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyCallback1 {
     type Vtable = IBackgroundCopyCallback1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x084f6593_3800_4e08_9b59_99fa59addf82);
@@ -1485,6 +1510,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyCallback2 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyCallback2 {}
+impl ::core::fmt::Debug for IBackgroundCopyCallback2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyCallback2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyCallback2 {
     type Vtable = IBackgroundCopyCallback2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeac_489e_11d9_a9cd_000d56965251);
@@ -1596,6 +1626,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyCallback3 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyCallback3 {}
+impl ::core::fmt::Debug for IBackgroundCopyCallback3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyCallback3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyCallback3 {
     type Vtable = IBackgroundCopyCallback3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x98c97bd2_e32b_4ad8_a528_95fd8b16bd42);
@@ -1675,6 +1710,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyError {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyError {}
+impl ::core::fmt::Debug for IBackgroundCopyError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyError {
     type Vtable = IBackgroundCopyErrorVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x19c613a0_fcb8_4f28_81ae_897c3d078f81);
@@ -1748,6 +1788,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyFile {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyFile {}
+impl ::core::fmt::Debug for IBackgroundCopyFile {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyFile").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile {
     type Vtable = IBackgroundCopyFileVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x01b7bd23_fb88_4a77_8490_5891d3e4653a);
@@ -1848,6 +1893,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyFile2 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyFile2 {}
+impl ::core::fmt::Debug for IBackgroundCopyFile2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyFile2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile2 {
     type Vtable = IBackgroundCopyFile2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x83e81b93_0873_474d_8a8c_f2018b1a939c);
@@ -1994,6 +2044,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyFile3 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyFile3 {}
+impl ::core::fmt::Debug for IBackgroundCopyFile3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyFile3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile3 {
     type Vtable = IBackgroundCopyFile3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeaa_489e_11d9_a9cd_000d56965251);
@@ -2172,6 +2227,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyFile4 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyFile4 {}
+impl ::core::fmt::Debug for IBackgroundCopyFile4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyFile4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile4 {
     type Vtable = IBackgroundCopyFile4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef7e0655_7888_4960_b0e5_730846e03492);
@@ -2382,6 +2442,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyFile5 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyFile5 {}
+impl ::core::fmt::Debug for IBackgroundCopyFile5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyFile5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile5 {
     type Vtable = IBackgroundCopyFile5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x85c1657f_dafc_40e8_8834_df18ea25717e);
@@ -2628,6 +2693,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyFile6 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyFile6 {}
+impl ::core::fmt::Debug for IBackgroundCopyFile6 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyFile6").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyFile6 {
     type Vtable = IBackgroundCopyFile6Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xcf6784f7_d677_49fd_9368_cb47aee9d1ad);
@@ -2770,6 +2840,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyGroup {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyGroup {}
+impl ::core::fmt::Debug for IBackgroundCopyGroup {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyGroup").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyGroup {
     type Vtable = IBackgroundCopyGroupVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1ded80a7_53ea_424f_8a04_17fea9adc4f5);
@@ -2988,6 +3063,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJob {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJob {}
+impl ::core::fmt::Debug for IBackgroundCopyJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob {
     type Vtable = IBackgroundCopyJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x37668d37_507e_4160_9316_26306d150b12);
@@ -3115,6 +3195,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJob1 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJob1 {}
+impl ::core::fmt::Debug for IBackgroundCopyJob1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJob1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob1 {
     type Vtable = IBackgroundCopyJob1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x59f5553c_2031_4629_bb18_2645a6970947);
@@ -3384,6 +3469,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJob2 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJob2 {}
+impl ::core::fmt::Debug for IBackgroundCopyJob2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJob2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob2 {
     type Vtable = IBackgroundCopyJob2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x54b50739_686f_45eb_9dff_d6a9a0faa9af);
@@ -3737,6 +3827,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJob3 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJob3 {}
+impl ::core::fmt::Debug for IBackgroundCopyJob3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJob3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob3 {
     type Vtable = IBackgroundCopyJob3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x443c8934_90ff_48ed_bcde_26f5c7450042);
@@ -4145,6 +4240,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJob4 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJob4 {}
+impl ::core::fmt::Debug for IBackgroundCopyJob4 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJob4").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob4 {
     type Vtable = IBackgroundCopyJob4Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeae_489e_11d9_a9cd_000d56965251);
@@ -4591,6 +4691,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJob5 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJob5 {}
+impl ::core::fmt::Debug for IBackgroundCopyJob5 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJob5").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJob5 {
     type Vtable = IBackgroundCopyJob5Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe847030c_bbba_4657_af6d_484aa42bf1fe);
@@ -4749,6 +4854,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJobHttpOptions {}
+impl ::core::fmt::Debug for IBackgroundCopyJobHttpOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJobHttpOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJobHttpOptions {
     type Vtable = IBackgroundCopyJobHttpOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xf1bd1079_9f01_4bdc_8036_f09b70095066);
@@ -4879,6 +4989,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions2 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJobHttpOptions2 {}
+impl ::core::fmt::Debug for IBackgroundCopyJobHttpOptions2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJobHttpOptions2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJobHttpOptions2 {
     type Vtable = IBackgroundCopyJobHttpOptions2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb591a192_a405_4fc3_8323_4c5c542578fc);
@@ -5041,6 +5156,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyJobHttpOptions3 {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyJobHttpOptions3 {}
+impl ::core::fmt::Debug for IBackgroundCopyJobHttpOptions3 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyJobHttpOptions3").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyJobHttpOptions3 {
     type Vtable = IBackgroundCopyJobHttpOptions3Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8a9263d3_fd4c_4eda_9b28_30132a4d4e3c);
@@ -5128,6 +5248,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyManager {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyManager {}
+impl ::core::fmt::Debug for IBackgroundCopyManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyManager {
     type Vtable = IBackgroundCopyManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5ce34c0d_0dc9_4c1f_897c_daa1b78cee7c);
@@ -5196,6 +5321,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyQMgr {
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyQMgr {}
+impl ::core::fmt::Debug for IBackgroundCopyQMgr {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyQMgr").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyQMgr {
     type Vtable = IBackgroundCopyQMgrVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x16f41c69_09f5_41d2_8cd8_3c08c47bc8a8);
@@ -5250,6 +5380,11 @@ impl ::core::cmp::PartialEq for IBackgroundCopyServerCertificateValidationCallba
     }
 }
 impl ::core::cmp::Eq for IBackgroundCopyServerCertificateValidationCallback {}
+impl ::core::fmt::Debug for IBackgroundCopyServerCertificateValidationCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBackgroundCopyServerCertificateValidationCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBackgroundCopyServerCertificateValidationCallback {
     type Vtable = IBackgroundCopyServerCertificateValidationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4cec0d02_def7_4158_813a_c32a46945ff7);
@@ -5316,6 +5451,11 @@ impl ::core::cmp::PartialEq for IBitsPeer {
     }
 }
 impl ::core::cmp::Eq for IBitsPeer {}
+impl ::core::fmt::Debug for IBitsPeer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitsPeer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBitsPeer {
     type Vtable = IBitsPeerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdea2_489e_11d9_a9cd_000d56965251);
@@ -5432,6 +5572,11 @@ impl ::core::cmp::PartialEq for IBitsPeerCacheAdministration {
     }
 }
 impl ::core::cmp::Eq for IBitsPeerCacheAdministration {}
+impl ::core::fmt::Debug for IBitsPeerCacheAdministration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitsPeerCacheAdministration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBitsPeerCacheAdministration {
     type Vtable = IBitsPeerCacheAdministrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdead_489e_11d9_a9cd_000d56965251);
@@ -5530,6 +5675,11 @@ impl ::core::cmp::PartialEq for IBitsPeerCacheRecord {
     }
 }
 impl ::core::cmp::Eq for IBitsPeerCacheRecord {}
+impl ::core::fmt::Debug for IBitsPeerCacheRecord {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitsPeerCacheRecord").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBitsPeerCacheRecord {
     type Vtable = IBitsPeerCacheRecordVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdeaf_489e_11d9_a9cd_000d56965251);
@@ -5610,6 +5760,11 @@ impl ::core::cmp::PartialEq for IBitsTokenOptions {
     }
 }
 impl ::core::cmp::Eq for IBitsTokenOptions {}
+impl ::core::fmt::Debug for IBitsTokenOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBitsTokenOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBitsTokenOptions {
     type Vtable = IBitsTokenOptionsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9a2584c3_f7d2_457a_9a5e_22b67bffc7d2);
@@ -5685,6 +5840,11 @@ impl ::core::cmp::PartialEq for IEnumBackgroundCopyFiles {
     }
 }
 impl ::core::cmp::Eq for IEnumBackgroundCopyFiles {}
+impl ::core::fmt::Debug for IEnumBackgroundCopyFiles {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumBackgroundCopyFiles").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumBackgroundCopyFiles {
     type Vtable = IEnumBackgroundCopyFilesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xca51e165_c365_424c_8d41_24aaa4ff3c40);
@@ -5759,6 +5919,11 @@ impl ::core::cmp::PartialEq for IEnumBackgroundCopyGroups {
     }
 }
 impl ::core::cmp::Eq for IEnumBackgroundCopyGroups {}
+impl ::core::fmt::Debug for IEnumBackgroundCopyGroups {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumBackgroundCopyGroups").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumBackgroundCopyGroups {
     type Vtable = IEnumBackgroundCopyGroupsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd993e603_4aa4_47c5_8665_c20d39c2ba4f);
@@ -5833,6 +5998,11 @@ impl ::core::cmp::PartialEq for IEnumBackgroundCopyJobs {
     }
 }
 impl ::core::cmp::Eq for IEnumBackgroundCopyJobs {}
+impl ::core::fmt::Debug for IEnumBackgroundCopyJobs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumBackgroundCopyJobs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumBackgroundCopyJobs {
     type Vtable = IEnumBackgroundCopyJobsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1af4f612_3b71_466f_8f58_7b6f73ac57ad);
@@ -5907,6 +6077,11 @@ impl ::core::cmp::PartialEq for IEnumBackgroundCopyJobs1 {
     }
 }
 impl ::core::cmp::Eq for IEnumBackgroundCopyJobs1 {}
+impl ::core::fmt::Debug for IEnumBackgroundCopyJobs1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumBackgroundCopyJobs1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumBackgroundCopyJobs1 {
     type Vtable = IEnumBackgroundCopyJobs1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8baeba9d_8f1c_42c4_b82c_09ae79980d25);
@@ -5981,6 +6156,11 @@ impl ::core::cmp::PartialEq for IEnumBitsPeerCacheRecords {
     }
 }
 impl ::core::cmp::Eq for IEnumBitsPeerCacheRecords {}
+impl ::core::fmt::Debug for IEnumBitsPeerCacheRecords {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumBitsPeerCacheRecords").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumBitsPeerCacheRecords {
     type Vtable = IEnumBitsPeerCacheRecordsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdea4_489e_11d9_a9cd_000d56965251);
@@ -6055,6 +6235,11 @@ impl ::core::cmp::PartialEq for IEnumBitsPeers {
     }
 }
 impl ::core::cmp::Eq for IEnumBitsPeers {}
+impl ::core::fmt::Debug for IEnumBitsPeers {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IEnumBitsPeers").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IEnumBitsPeers {
     type Vtable = IEnumBitsPeersVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x659cdea5_489e_11d9_a9cd_000d56965251);

@@ -1982,6 +1982,11 @@ impl ::core::cmp::PartialEq for IDirectMusic {
     }
 }
 impl ::core::cmp::Eq for IDirectMusic {}
+impl ::core::fmt::Debug for IDirectMusic {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusic").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusic {
     type Vtable = IDirectMusicVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6536115a_7b2d_11d2_ba18_0000f875ac12);
@@ -2104,6 +2109,11 @@ impl ::core::cmp::PartialEq for IDirectMusic8 {
     }
 }
 impl ::core::cmp::Eq for IDirectMusic8 {}
+impl ::core::fmt::Debug for IDirectMusic8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusic8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusic8 {
     type Vtable = IDirectMusic8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d3629f7_813d_4939_8508_f05c6b75fd97);
@@ -2216,6 +2226,11 @@ impl ::core::cmp::PartialEq for IDirectMusicBuffer {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicBuffer {}
+impl ::core::fmt::Debug for IDirectMusicBuffer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicBuffer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicBuffer {
     type Vtable = IDirectMusicBufferVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac2878_b39b_11d1_8704_00600893b1bd);
@@ -2286,6 +2301,11 @@ impl ::core::cmp::PartialEq for IDirectMusicCollection {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicCollection {}
+impl ::core::fmt::Debug for IDirectMusicCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicCollection {
     type Vtable = IDirectMusicCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287c_b39b_11d1_8704_00600893b1bd);
@@ -2340,6 +2360,11 @@ impl ::core::cmp::PartialEq for IDirectMusicDownload {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicDownload {}
+impl ::core::fmt::Debug for IDirectMusicDownload {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicDownload").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicDownload {
     type Vtable = IDirectMusicDownloadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287b_b39b_11d1_8704_00600893b1bd);
@@ -2382,6 +2407,11 @@ impl ::core::cmp::PartialEq for IDirectMusicDownloadedInstrument {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicDownloadedInstrument {}
+impl ::core::fmt::Debug for IDirectMusicDownloadedInstrument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicDownloadedInstrument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicDownloadedInstrument {
     type Vtable = IDirectMusicDownloadedInstrumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287e_b39b_11d1_8704_00600893b1bd);
@@ -2433,6 +2463,11 @@ impl ::core::cmp::PartialEq for IDirectMusicInstrument {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicInstrument {}
+impl ::core::fmt::Debug for IDirectMusicInstrument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicInstrument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicInstrument {
     type Vtable = IDirectMusicInstrumentVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287d_b39b_11d1_8704_00600893b1bd);
@@ -2555,6 +2590,11 @@ impl ::core::cmp::PartialEq for IDirectMusicPort {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicPort {}
+impl ::core::fmt::Debug for IDirectMusicPort {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicPort").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicPort {
     type Vtable = IDirectMusicPortVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x08f2d8c9_37c2_11d2_b9f9_0000f875ac12);
@@ -2649,6 +2689,11 @@ impl ::core::cmp::PartialEq for IDirectMusicPortDownload {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicPortDownload {}
+impl ::core::fmt::Debug for IDirectMusicPortDownload {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicPortDownload").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicPortDownload {
     type Vtable = IDirectMusicPortDownloadVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xd2ac287a_b39b_11d1_8704_00600893b1bd);
@@ -2775,6 +2820,11 @@ impl ::core::cmp::PartialEq for IDirectMusicSynth {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicSynth {}
+impl ::core::fmt::Debug for IDirectMusicSynth {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicSynth").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicSynth {
     type Vtable = IDirectMusicSynthVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823661_5c85_11d2_afa6_00aa0024d8b6);
@@ -2957,6 +3007,11 @@ impl ::core::cmp::PartialEq for IDirectMusicSynth8 {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicSynth8 {}
+impl ::core::fmt::Debug for IDirectMusicSynth8 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicSynth8").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicSynth8 {
     type Vtable = IDirectMusicSynth8Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x53cab625_2711_4c9f_9de7_1b7f925f6fc8);
@@ -3066,6 +3121,11 @@ impl ::core::cmp::PartialEq for IDirectMusicSynthSink {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicSynthSink {}
+impl ::core::fmt::Debug for IDirectMusicSynthSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicSynthSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicSynthSink {
     type Vtable = IDirectMusicSynthSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x09823663_5c85_11d2_afa6_00aa0024d8b6);
@@ -3127,6 +3187,11 @@ impl ::core::cmp::PartialEq for IDirectMusicThru {
     }
 }
 impl ::core::cmp::Eq for IDirectMusicThru {}
+impl ::core::fmt::Debug for IDirectMusicThru {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDirectMusicThru").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDirectMusicThru {
     type Vtable = IDirectMusicThruVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xced153e7_3606_11d2_b9f9_0000f875ac12);

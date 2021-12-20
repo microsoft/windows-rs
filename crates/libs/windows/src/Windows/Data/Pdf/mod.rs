@@ -210,6 +210,11 @@ impl ::core::cmp::PartialEq for PdfDocument {
     }
 }
 impl ::core::cmp::Eq for PdfDocument {}
+impl ::core::fmt::Debug for PdfDocument {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdfDocument").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PdfDocument {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfDocument;{ac7ebedd-80fa-4089-846e-81b77ff5a86c})");
 }
@@ -352,6 +357,11 @@ impl ::core::cmp::PartialEq for PdfPage {
     }
 }
 impl ::core::cmp::Eq for PdfPage {}
+impl ::core::fmt::Debug for PdfPage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdfPage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PdfPage {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPage;{9db4b0c8-5320-4cfc-ad76-493fdad0e594})");
 }
@@ -491,6 +501,11 @@ impl ::core::cmp::PartialEq for PdfPageDimensions {
     }
 }
 impl ::core::cmp::Eq for PdfPageDimensions {}
+impl ::core::fmt::Debug for PdfPageDimensions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdfPageDimensions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PdfPageDimensions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageDimensions;{22170471-313e-44e8-835d-63a3e7624a10})");
 }
@@ -648,6 +663,11 @@ impl ::core::cmp::PartialEq for PdfPageRenderOptions {
     }
 }
 impl ::core::cmp::Eq for PdfPageRenderOptions {}
+impl ::core::fmt::Debug for PdfPageRenderOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PdfPageRenderOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PdfPageRenderOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Data.Pdf.PdfPageRenderOptions;{3c98056f-b7cf-4c29-9a04-52d90267f425})");
 }

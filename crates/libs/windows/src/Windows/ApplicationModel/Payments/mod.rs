@@ -858,6 +858,11 @@ impl ::core::cmp::PartialEq for PaymentAddress {
     }
 }
 impl ::core::cmp::Eq for PaymentAddress {}
+impl ::core::fmt::Debug for PaymentAddress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentAddress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentAddress {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentAddress;{5f2264e9-6f3a-4166-a018-0a0b06bb32b5})");
 }
@@ -946,6 +951,11 @@ impl ::core::cmp::PartialEq for PaymentCanMakePaymentResult {
     }
 }
 impl ::core::cmp::Eq for PaymentCanMakePaymentResult {}
+impl ::core::fmt::Debug for PaymentCanMakePaymentResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentCanMakePaymentResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentCanMakePaymentResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCanMakePaymentResult;{7696fe55-d5d3-4d3d-b345-45591759c510})");
 }
@@ -1110,6 +1120,11 @@ impl ::core::cmp::PartialEq for PaymentCurrencyAmount {
     }
 }
 impl ::core::cmp::Eq for PaymentCurrencyAmount {}
+impl ::core::fmt::Debug for PaymentCurrencyAmount {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentCurrencyAmount").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentCurrencyAmount {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentCurrencyAmount;{e3a3e9e0-b41f-4987-bdcb-071331f2daa4})");
 }
@@ -1263,6 +1278,11 @@ impl ::core::cmp::PartialEq for PaymentDetails {
     }
 }
 impl ::core::cmp::Eq for PaymentDetails {}
+impl ::core::fmt::Debug for PaymentDetails {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentDetails").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentDetails {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetails;{53bb2d7d-e0eb-4053-8eae-ce7c48e02945})");
 }
@@ -1394,6 +1414,11 @@ impl ::core::cmp::PartialEq for PaymentDetailsModifier {
     }
 }
 impl ::core::cmp::Eq for PaymentDetailsModifier {}
+impl ::core::fmt::Debug for PaymentDetailsModifier {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentDetailsModifier").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentDetailsModifier {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentDetailsModifier;{be1c7d65-4323-41d7-b305-dfcb765f69de})");
 }
@@ -1513,6 +1538,11 @@ impl ::core::cmp::PartialEq for PaymentItem {
     }
 }
 impl ::core::cmp::Eq for PaymentItem {}
+impl ::core::fmt::Debug for PaymentItem {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentItem").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentItem {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentItem;{685ac88b-79b2-4b76-9e03-a876223dfe72})");
 }
@@ -1624,6 +1654,11 @@ impl ::core::cmp::PartialEq for PaymentMediator {
     }
 }
 impl ::core::cmp::Eq for PaymentMediator {}
+impl ::core::fmt::Debug for PaymentMediator {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentMediator").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentMediator {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMediator;{fb0ee829-ec0c-449a-83da-7ae3073365a2})");
 }
@@ -1729,6 +1764,11 @@ impl ::core::cmp::PartialEq for PaymentMerchantInfo {
     }
 }
 impl ::core::cmp::Eq for PaymentMerchantInfo {}
+impl ::core::fmt::Debug for PaymentMerchantInfo {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentMerchantInfo").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentMerchantInfo {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMerchantInfo;{63445050-0e94-4ed6-aacb-e6012bd327a7})");
 }
@@ -1835,6 +1875,11 @@ impl ::core::cmp::PartialEq for PaymentMethodData {
     }
 }
 impl ::core::cmp::Eq for PaymentMethodData {}
+impl ::core::fmt::Debug for PaymentMethodData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentMethodData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentMethodData {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentMethodData;{d1d3caf4-de98-4129-b1b7-c3ad86237bf4})");
 }
@@ -2009,6 +2054,11 @@ impl ::core::cmp::PartialEq for PaymentOptions {
     }
 }
 impl ::core::cmp::Eq for PaymentOptions {}
+impl ::core::fmt::Debug for PaymentOptions {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentOptions").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentOptions {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentOptions;{aaa30854-1f2b-4365-8251-01b58915a5bc})");
 }
@@ -2160,6 +2210,11 @@ impl ::core::cmp::PartialEq for PaymentRequest {
     }
 }
 impl ::core::cmp::Eq for PaymentRequest {}
+impl ::core::fmt::Debug for PaymentRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequest;{b74942e1-ed7b-47eb-bc08-78cc5d6896b6})");
 }
@@ -2290,6 +2345,11 @@ impl ::core::cmp::PartialEq for PaymentRequestChangedArgs {
     }
 }
 impl ::core::cmp::Eq for PaymentRequestChangedArgs {}
+impl ::core::fmt::Debug for PaymentRequestChangedArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestChangedArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedArgs;{c6145e44-cd8b-4be4-b555-27c99194c0c5})");
 }
@@ -2402,6 +2462,11 @@ impl ::core::cmp::PartialEq for PaymentRequestChangedHandler {
     }
 }
 impl ::core::cmp::Eq for PaymentRequestChangedHandler {}
+impl ::core::fmt::Debug for PaymentRequestChangedHandler {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestChangedHandler").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for PaymentRequestChangedHandler {
     type Vtable = PaymentRequestChangedHandlerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5078b9e1_f398_4f2c_a27e_94d371cf6c7d);
@@ -2486,6 +2551,11 @@ impl ::core::cmp::PartialEq for PaymentRequestChangedResult {
     }
 }
 impl ::core::cmp::Eq for PaymentRequestChangedResult {}
+impl ::core::fmt::Debug for PaymentRequestChangedResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestChangedResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentRequestChangedResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestChangedResult;{df699e5c-16c4-47ad-9401-8440ec0757db})");
 }
@@ -2638,6 +2708,11 @@ impl ::core::cmp::PartialEq for PaymentRequestSubmitResult {
     }
 }
 impl ::core::cmp::Eq for PaymentRequestSubmitResult {}
+impl ::core::fmt::Debug for PaymentRequestSubmitResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentRequestSubmitResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentRequestSubmitResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentRequestSubmitResult;{7b9c3912-30f2-4e90-b249-8ce7d78ffe56})");
 }
@@ -2763,6 +2838,11 @@ impl ::core::cmp::PartialEq for PaymentResponse {
     }
 }
 impl ::core::cmp::Eq for PaymentResponse {}
+impl ::core::fmt::Debug for PaymentResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentResponse;{e1389457-8bd2-4888-9fa8-97985545108e})");
 }
@@ -2909,6 +2989,11 @@ impl ::core::cmp::PartialEq for PaymentShippingOption {
     }
 }
 impl ::core::cmp::Eq for PaymentShippingOption {}
+impl ::core::fmt::Debug for PaymentShippingOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentShippingOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentShippingOption {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentShippingOption;{13372ada-9753-4574-8966-93145a76c7f9})");
 }
@@ -3046,6 +3131,11 @@ impl ::core::cmp::PartialEq for PaymentToken {
     }
 }
 impl ::core::cmp::Eq for PaymentToken {}
+impl ::core::fmt::Debug for PaymentToken {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("PaymentToken").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for PaymentToken {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.ApplicationModel.Payments.PaymentToken;{bbcac013-ccd0-41f2-b2a1-0a2e4b5dce25})");
 }

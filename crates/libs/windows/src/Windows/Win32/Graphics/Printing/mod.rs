@@ -6585,6 +6585,11 @@ impl ::core::cmp::PartialEq for IAsyncGetSendNotificationCookie {
     }
 }
 impl ::core::cmp::Eq for IAsyncGetSendNotificationCookie {}
+impl ::core::fmt::Debug for IAsyncGetSendNotificationCookie {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAsyncGetSendNotificationCookie").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAsyncGetSendNotificationCookie {
     type Vtable = IAsyncGetSendNotificationCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -6649,6 +6654,11 @@ impl ::core::cmp::PartialEq for IAsyncGetSrvReferralCookie {
     }
 }
 impl ::core::cmp::Eq for IAsyncGetSrvReferralCookie {}
+impl ::core::fmt::Debug for IAsyncGetSrvReferralCookie {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAsyncGetSrvReferralCookie").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAsyncGetSrvReferralCookie {
     type Vtable = IAsyncGetSrvReferralCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -6748,6 +6758,11 @@ impl ::core::cmp::PartialEq for IBidiAsyncNotifyChannel {
     }
 }
 impl ::core::cmp::Eq for IBidiAsyncNotifyChannel {}
+impl ::core::fmt::Debug for IBidiAsyncNotifyChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IBidiAsyncNotifyChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IBidiAsyncNotifyChannel {
     type Vtable = IBidiAsyncNotifyChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
@@ -8846,6 +8861,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncCookie {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncCookie {}
+impl ::core::fmt::Debug for IPrintAsyncCookie {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncCookie").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncCookie {
     type Vtable = IPrintAsyncCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -8927,6 +8947,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncNewChannelCookie {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncNewChannelCookie {}
+impl ::core::fmt::Debug for IPrintAsyncNewChannelCookie {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncNewChannelCookie").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncNewChannelCookie {
     type Vtable = IPrintAsyncNewChannelCookieVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -8987,6 +9012,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncNotify {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncNotify {}
+impl ::core::fmt::Debug for IPrintAsyncNotify {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncNotify").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncNotify {
     type Vtable = IPrintAsyncNotifyVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x532818f7_921b_4fb2_bff8_2f4fd52ebebf);
@@ -9044,6 +9074,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncNotifyCallback {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncNotifyCallback {}
+impl ::core::fmt::Debug for IPrintAsyncNotifyCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncNotifyCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyCallback {
     type Vtable = IPrintAsyncNotifyCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7def34c1_9d92_4c99_b3b3_db94a9d4191b);
@@ -9101,6 +9136,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncNotifyChannel {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncNotifyChannel {}
+impl ::core::fmt::Debug for IPrintAsyncNotifyChannel {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncNotifyChannel").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyChannel {
     type Vtable = IPrintAsyncNotifyChannelVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x4a5031b1_1f3f_4db0_a462_4530ed8b0451);
@@ -9158,6 +9198,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncNotifyDataObject {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncNotifyDataObject {}
+impl ::core::fmt::Debug for IPrintAsyncNotifyDataObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncNotifyDataObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyDataObject {
     type Vtable = IPrintAsyncNotifyDataObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x77cf513e_5d49_4789_9f30_d0822b335c0d);
@@ -9215,6 +9260,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncNotifyRegistration {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncNotifyRegistration {}
+impl ::core::fmt::Debug for IPrintAsyncNotifyRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncNotifyRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyRegistration {
     type Vtable = IPrintAsyncNotifyRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x0f6f27b6_6f86_4591_9203_64c3bfadedfe);
@@ -9279,6 +9329,11 @@ impl ::core::cmp::PartialEq for IPrintAsyncNotifyServerReferral {
     }
 }
 impl ::core::cmp::Eq for IPrintAsyncNotifyServerReferral {}
+impl ::core::fmt::Debug for IPrintAsyncNotifyServerReferral {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintAsyncNotifyServerReferral").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintAsyncNotifyServerReferral {
     type Vtable = IPrintAsyncNotifyServerReferralVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -9363,6 +9418,11 @@ impl ::core::cmp::PartialEq for IPrintBidiAsyncNotifyRegistration {
     }
 }
 impl ::core::cmp::Eq for IPrintBidiAsyncNotifyRegistration {}
+impl ::core::fmt::Debug for IPrintBidiAsyncNotifyRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintBidiAsyncNotifyRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintBidiAsyncNotifyRegistration {
     type Vtable = IPrintBidiAsyncNotifyRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -9521,6 +9581,11 @@ impl ::core::cmp::PartialEq for IPrintCoreHelper {
     }
 }
 impl ::core::cmp::Eq for IPrintCoreHelper {}
+impl ::core::fmt::Debug for IPrintCoreHelper {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintCoreHelper").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintCoreHelper {
     type Vtable = IPrintCoreHelperVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xa89ec53e_3905_49c6_9c1a_c0a88117fdb6);
@@ -9665,6 +9730,11 @@ impl ::core::cmp::PartialEq for IPrintCoreHelperPS {
     }
 }
 impl ::core::cmp::Eq for IPrintCoreHelperPS {}
+impl ::core::fmt::Debug for IPrintCoreHelperPS {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintCoreHelperPS").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintCoreHelperPS {
     type Vtable = IPrintCoreHelperPSVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc2c14f6f_95d3_4d63_96cf_6bd9e6c907c2);
@@ -9811,6 +9881,11 @@ impl ::core::cmp::PartialEq for IPrintCoreHelperUni {
     }
 }
 impl ::core::cmp::Eq for IPrintCoreHelperUni {}
+impl ::core::fmt::Debug for IPrintCoreHelperUni {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintCoreHelperUni").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintCoreHelperUni {
     type Vtable = IPrintCoreHelperUniVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7e8e51d6_e5ee_4426_817b_958b9444eb79);
@@ -9980,6 +10055,11 @@ impl ::core::cmp::PartialEq for IPrintCoreHelperUni2 {
     }
 }
 impl ::core::cmp::Eq for IPrintCoreHelperUni2 {}
+impl ::core::fmt::Debug for IPrintCoreHelperUni2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintCoreHelperUni2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintCoreHelperUni2 {
     type Vtable = IPrintCoreHelperUni2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x6c8afdfc_ead0_4d2d_8071_9bf0175a6c3a);
@@ -10135,6 +10215,11 @@ impl ::core::cmp::PartialEq for IPrintCoreUI2 {
     }
 }
 impl ::core::cmp::Eq for IPrintCoreUI2 {}
+impl ::core::fmt::Debug for IPrintCoreUI2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintCoreUI2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintCoreUI2 {
     type Vtable = IPrintCoreUI2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x085ccfca_3adf_4c9e_b491_d851a6edc997);
@@ -10242,6 +10327,11 @@ impl ::core::cmp::PartialEq for IPrintJob {
     }
 }
 impl ::core::cmp::Eq for IPrintJob {}
+impl ::core::fmt::Debug for IPrintJob {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintJob").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintJob {
     type Vtable = IPrintJobVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb771dab8_1282_41b7_858c_f206e4d20577);
@@ -10358,6 +10448,11 @@ impl ::core::cmp::PartialEq for IPrintJobCollection {
     }
 }
 impl ::core::cmp::Eq for IPrintJobCollection {}
+impl ::core::fmt::Debug for IPrintJobCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintJobCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintJobCollection {
     type Vtable = IPrintJobCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x72b82a24_a598_4e87_895f_cdb23a49e9dc);
@@ -10425,6 +10520,11 @@ impl ::core::cmp::PartialEq for IPrintOemCommon {
     }
 }
 impl ::core::cmp::Eq for IPrintOemCommon {}
+impl ::core::fmt::Debug for IPrintOemCommon {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintOemCommon").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintOemCommon {
     type Vtable = IPrintOemCommonVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7f42285e_91d5_11d1_8820_00c04fb961ec);
@@ -10489,6 +10589,11 @@ impl ::core::cmp::PartialEq for IPrintOemDriverUI {
     }
 }
 impl ::core::cmp::Eq for IPrintOemDriverUI {}
+impl ::core::fmt::Debug for IPrintOemDriverUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintOemDriverUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintOemDriverUI {
     type Vtable = IPrintOemDriverUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92b05d50_78bc_11d1_9480_00a0c90640b8);
@@ -10628,6 +10733,11 @@ impl ::core::cmp::PartialEq for IPrintOemUI {
     }
 }
 impl ::core::cmp::Eq for IPrintOemUI {}
+impl ::core::fmt::Debug for IPrintOemUI {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintOemUI").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintOemUI {
     type Vtable = IPrintOemUIVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc6a7a9d0_774c_11d1_947f_00a0c90640b8);
@@ -10821,6 +10931,11 @@ impl ::core::cmp::PartialEq for IPrintOemUI2 {
     }
 }
 impl ::core::cmp::Eq for IPrintOemUI2 {}
+impl ::core::fmt::Debug for IPrintOemUI2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintOemUI2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintOemUI2 {
     type Vtable = IPrintOemUI2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x292515f9_b54b_489b_9275_bab56821395e);
@@ -10913,6 +11028,11 @@ impl ::core::cmp::PartialEq for IPrintOemUIMXDC {
     }
 }
 impl ::core::cmp::Eq for IPrintOemUIMXDC {}
+impl ::core::fmt::Debug for IPrintOemUIMXDC {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintOemUIMXDC").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintOemUIMXDC {
     type Vtable = IPrintOemUIMXDCVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7349d725_e2c1_4dca_afb5_c13e91bc9306);
@@ -11236,6 +11356,11 @@ impl ::core::cmp::PartialEq for IPrintPreviewDxgiPackageTarget {
     }
 }
 impl ::core::cmp::Eq for IPrintPreviewDxgiPackageTarget {}
+impl ::core::fmt::Debug for IPrintPreviewDxgiPackageTarget {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintPreviewDxgiPackageTarget").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintPreviewDxgiPackageTarget {
     type Vtable = IPrintPreviewDxgiPackageTargetVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1a6dd0ad_1e2a_4e99_a5ba_91f17818290e);
@@ -11468,6 +11593,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperation {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaAsyncOperation {}
+impl ::core::fmt::Debug for IPrintSchemaAsyncOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaAsyncOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperation {
     type Vtable = IPrintSchemaAsyncOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x143c8dcb_d37f_47f7_88e8_6b1d21f2c5f7);
@@ -11575,6 +11705,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaAsyncOperationEvent {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaAsyncOperationEvent {}
+impl ::core::fmt::Debug for IPrintSchemaAsyncOperationEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaAsyncOperationEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaAsyncOperationEvent {
     type Vtable = IPrintSchemaAsyncOperationEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x23adbb16_0133_4906_b29a_1dce1d026379);
@@ -11751,6 +11886,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaCapabilities {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaCapabilities {}
+impl ::core::fmt::Debug for IPrintSchemaCapabilities {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaCapabilities").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities {
     type Vtable = IPrintSchemaCapabilitiesVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5a577640_501d_4927_bcd0_5ef57a7ed175);
@@ -11966,6 +12106,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaCapabilities2 {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaCapabilities2 {}
+impl ::core::fmt::Debug for IPrintSchemaCapabilities2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaCapabilities2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaCapabilities2 {
     type Vtable = IPrintSchemaCapabilities2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb58845f4_9970_4d87_a636_169fb82ed642);
@@ -12126,6 +12271,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaDisplayableElement {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaDisplayableElement {}
+impl ::core::fmt::Debug for IPrintSchemaDisplayableElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaDisplayableElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaDisplayableElement {
     type Vtable = IPrintSchemaDisplayableElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xaf45af49_d6aa_407d_bf87_3912236e9d94);
@@ -12251,6 +12401,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaElement {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaElement {}
+impl ::core::fmt::Debug for IPrintSchemaElement {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaElement").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaElement {
     type Vtable = IPrintSchemaElementVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x724c1646_e64b_4bbf_8eb4_d45e4fd580da);
@@ -12446,6 +12601,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaFeature {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaFeature {}
+impl ::core::fmt::Debug for IPrintSchemaFeature {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaFeature").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaFeature {
     type Vtable = IPrintSchemaFeatureVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xef189461_5d62_4626_8e57_ff83583c4826);
@@ -12666,6 +12826,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaNUpOption {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaNUpOption {}
+impl ::core::fmt::Debug for IPrintSchemaNUpOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaNUpOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaNUpOption {
     type Vtable = IPrintSchemaNUpOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x1f6342f2_d848_42e3_8995_c10a9ef9a3ba);
@@ -12860,6 +13025,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaOption {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaOption {}
+impl ::core::fmt::Debug for IPrintSchemaOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaOption {
     type Vtable = IPrintSchemaOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x66bb2f51_5844_4997_8d70_4b7cc221cf92);
@@ -12988,6 +13158,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaOptionCollection {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaOptionCollection {}
+impl ::core::fmt::Debug for IPrintSchemaOptionCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaOptionCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaOptionCollection {
     type Vtable = IPrintSchemaOptionCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbaecb0bd_a946_4771_bc30_e8b24f8d45c1);
@@ -13159,6 +13334,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaPageImageableSize {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaPageImageableSize {}
+impl ::core::fmt::Debug for IPrintSchemaPageImageableSize {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaPageImageableSize").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaPageImageableSize {
     type Vtable = IPrintSchemaPageImageableSizeVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7c85bf5e_dc7c_4f61_839b_4107e1c9b68e);
@@ -13381,6 +13561,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaPageMediaSizeOption {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaPageMediaSizeOption {}
+impl ::core::fmt::Debug for IPrintSchemaPageMediaSizeOption {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaPageMediaSizeOption").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaPageMediaSizeOption {
     type Vtable = IPrintSchemaPageMediaSizeOptionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x68746729_f493_4830_a10f_69028774605d);
@@ -13586,6 +13771,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaParameterDefinition {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaParameterDefinition {}
+impl ::core::fmt::Debug for IPrintSchemaParameterDefinition {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaParameterDefinition").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaParameterDefinition {
     type Vtable = IPrintSchemaParameterDefinitionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb5ade81e_0e61_4fe1_81c6_c333e4ffe0f1);
@@ -13749,6 +13939,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaParameterInitializer {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaParameterInitializer {}
+impl ::core::fmt::Debug for IPrintSchemaParameterInitializer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaParameterInitializer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaParameterInitializer {
     type Vtable = IPrintSchemaParameterInitializerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x52027082_0b74_4648_9564_828cc6cb656c);
@@ -13936,6 +14131,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaTicket {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaTicket {}
+impl ::core::fmt::Debug for IPrintSchemaTicket {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaTicket").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaTicket {
     type Vtable = IPrintSchemaTicketVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe480b861_4708_4e6d_a5b4_a2b4eeb9baa4);
@@ -14155,6 +14355,11 @@ impl ::core::cmp::PartialEq for IPrintSchemaTicket2 {
     }
 }
 impl ::core::cmp::Eq for IPrintSchemaTicket2 {}
+impl ::core::fmt::Debug for IPrintSchemaTicket2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintSchemaTicket2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintSchemaTicket2 {
     type Vtable = IPrintSchemaTicket2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2ec1f844_766a_47a1_91f4_2eeb6190f80c);
@@ -14263,6 +14468,11 @@ impl ::core::cmp::PartialEq for IPrintTicketProvider {
     }
 }
 impl ::core::cmp::Eq for IPrintTicketProvider {}
+impl ::core::fmt::Debug for IPrintTicketProvider {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintTicketProvider").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintTicketProvider {
     type Vtable = IPrintTicketProviderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xbb5116db_0a23_4c3a_a6b6_89e5558dfb5d);
@@ -14392,6 +14602,11 @@ impl ::core::cmp::PartialEq for IPrintTicketProvider2 {
     }
 }
 impl ::core::cmp::Eq for IPrintTicketProvider2 {}
+impl ::core::fmt::Debug for IPrintTicketProvider2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintTicketProvider2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintTicketProvider2 {
     type Vtable = IPrintTicketProvider2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xb8a70ab2_3dfc_4fec_a074_511b13c651cb);
@@ -14489,6 +14704,11 @@ impl ::core::cmp::PartialEq for IPrintUnidiAsyncNotifyRegistration {
     }
 }
 impl ::core::cmp::Eq for IPrintUnidiAsyncNotifyRegistration {}
+impl ::core::fmt::Debug for IPrintUnidiAsyncNotifyRegistration {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrintUnidiAsyncNotifyRegistration").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrintUnidiAsyncNotifyRegistration {
     type Vtable = IPrintUnidiAsyncNotifyRegistrationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -14671,6 +14891,11 @@ impl ::core::cmp::PartialEq for IPrinterBidiSetRequestCallback {
     }
 }
 impl ::core::cmp::Eq for IPrinterBidiSetRequestCallback {}
+impl ::core::fmt::Debug for IPrinterBidiSetRequestCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterBidiSetRequestCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterBidiSetRequestCallback {
     type Vtable = IPrinterBidiSetRequestCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc52d32dd_f2b4_4052_8502_ec4305ecb71f);
@@ -14724,6 +14949,11 @@ impl ::core::cmp::PartialEq for IPrinterExtensionAsyncOperation {
     }
 }
 impl ::core::cmp::Eq for IPrinterExtensionAsyncOperation {}
+impl ::core::fmt::Debug for IPrinterExtensionAsyncOperation {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterExtensionAsyncOperation").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterExtensionAsyncOperation {
     type Vtable = IPrinterExtensionAsyncOperationVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x108d6a23_6a4b_4552_9448_68b427186acd);
@@ -14833,6 +15063,11 @@ impl ::core::cmp::PartialEq for IPrinterExtensionContext {
     }
 }
 impl ::core::cmp::Eq for IPrinterExtensionContext {}
+impl ::core::fmt::Debug for IPrinterExtensionContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterExtensionContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterExtensionContext {
     type Vtable = IPrinterExtensionContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf2_c4d2_41fd_b4b2_aedbee5e1900);
@@ -14953,6 +15188,11 @@ impl ::core::cmp::PartialEq for IPrinterExtensionContextCollection {
     }
 }
 impl ::core::cmp::Eq for IPrinterExtensionContextCollection {}
+impl ::core::fmt::Debug for IPrinterExtensionContextCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterExtensionContextCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterExtensionContextCollection {
     type Vtable = IPrinterExtensionContextCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfb476970_9bab_4861_811e_3e98b0c5addf);
@@ -15065,6 +15305,11 @@ impl ::core::cmp::PartialEq for IPrinterExtensionEvent {
     }
 }
 impl ::core::cmp::Eq for IPrinterExtensionEvent {}
+impl ::core::fmt::Debug for IPrinterExtensionEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterExtensionEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterExtensionEvent {
     type Vtable = IPrinterExtensionEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc093cb63_5ef5_4585_af8e_4d5637487b57);
@@ -15247,6 +15492,11 @@ impl ::core::cmp::PartialEq for IPrinterExtensionEventArgs {
     }
 }
 impl ::core::cmp::Eq for IPrinterExtensionEventArgs {}
+impl ::core::fmt::Debug for IPrinterExtensionEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterExtensionEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterExtensionEventArgs {
     type Vtable = IPrinterExtensionEventArgsVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf4_c4d2_41fd_b4b2_aedbee5e1900);
@@ -15325,6 +15575,11 @@ impl ::core::cmp::PartialEq for IPrinterExtensionManager {
     }
 }
 impl ::core::cmp::Eq for IPrinterExtensionManager {}
+impl ::core::fmt::Debug for IPrinterExtensionManager {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterExtensionManager").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterExtensionManager {
     type Vtable = IPrinterExtensionManagerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x93c6eb8c_b001_4355_9629_8e8a1b3f8e77);
@@ -15429,6 +15684,11 @@ impl ::core::cmp::PartialEq for IPrinterExtensionRequest {
     }
 }
 impl ::core::cmp::Eq for IPrinterExtensionRequest {}
+impl ::core::fmt::Debug for IPrinterExtensionRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterExtensionRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterExtensionRequest {
     type Vtable = IPrinterExtensionRequestVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x39843bf3_c4d2_41fd_b4b2_aedbee5e1900);
@@ -15588,6 +15848,11 @@ impl ::core::cmp::PartialEq for IPrinterPropertyBag {
     }
 }
 impl ::core::cmp::Eq for IPrinterPropertyBag {}
+impl ::core::fmt::Debug for IPrinterPropertyBag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterPropertyBag").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterPropertyBag {
     type Vtable = IPrinterPropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xfea77364_df95_4a23_a905_019b79a8e481);
@@ -15731,6 +15996,11 @@ impl ::core::cmp::PartialEq for IPrinterQueue {
     }
 }
 impl ::core::cmp::Eq for IPrinterQueue {}
+impl ::core::fmt::Debug for IPrinterQueue {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterQueue").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterQueue {
     type Vtable = IPrinterQueueVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x3580a828_07fe_4b94_ac1a_757d9d2d3056);
@@ -15892,6 +16162,11 @@ impl ::core::cmp::PartialEq for IPrinterQueue2 {
     }
 }
 impl ::core::cmp::Eq for IPrinterQueue2 {}
+impl ::core::fmt::Debug for IPrinterQueue2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterQueue2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterQueue2 {
     type Vtable = IPrinterQueue2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x8cd444e8_c9bb_49b3_8e38_e03209416131);
@@ -16008,6 +16283,11 @@ impl ::core::cmp::PartialEq for IPrinterQueueEvent {
     }
 }
 impl ::core::cmp::Eq for IPrinterQueueEvent {}
+impl ::core::fmt::Debug for IPrinterQueueEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterQueueEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterQueueEvent {
     type Vtable = IPrinterQueueEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x214685f6_7b78_4681_87e0_495f739273d1);
@@ -16115,6 +16395,11 @@ impl ::core::cmp::PartialEq for IPrinterQueueView {
     }
 }
 impl ::core::cmp::Eq for IPrinterQueueView {}
+impl ::core::fmt::Debug for IPrinterQueueView {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterQueueView").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterQueueView {
     type Vtable = IPrinterQueueViewVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x476e2969_3b2b_4b3f_8277_cff6056042aa);
@@ -16221,6 +16506,11 @@ impl ::core::cmp::PartialEq for IPrinterQueueViewEvent {
     }
 }
 impl ::core::cmp::Eq for IPrinterQueueViewEvent {}
+impl ::core::fmt::Debug for IPrinterQueueViewEvent {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterQueueViewEvent").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterQueueViewEvent {
     type Vtable = IPrinterQueueViewEventVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xc5b6042b_fd21_404a_a0ef_e2fbb52b9080);
@@ -16338,6 +16628,11 @@ impl ::core::cmp::PartialEq for IPrinterScriptContext {
     }
 }
 impl ::core::cmp::Eq for IPrinterScriptContext {}
+impl ::core::fmt::Debug for IPrinterScriptContext {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterScriptContext").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterScriptContext {
     type Vtable = IPrinterScriptContextVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x066acbca_8881_49c9_bb98_fae16b4889e1);
@@ -16498,6 +16793,11 @@ impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag {
     }
 }
 impl ::core::cmp::Eq for IPrinterScriptablePropertyBag {}
+impl ::core::fmt::Debug for IPrinterScriptablePropertyBag {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterScriptablePropertyBag").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag {
     type Vtable = IPrinterScriptablePropertyBagVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x91c7765f_ed57_49ad_8b01_dc24816a5294);
@@ -16701,6 +17001,11 @@ impl ::core::cmp::PartialEq for IPrinterScriptablePropertyBag2 {
     }
 }
 impl ::core::cmp::Eq for IPrinterScriptablePropertyBag2 {}
+impl ::core::fmt::Debug for IPrinterScriptablePropertyBag2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterScriptablePropertyBag2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterScriptablePropertyBag2 {
     type Vtable = IPrinterScriptablePropertyBag2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2a1c53c4_8638_4b3e_b518_2773c94556a3);
@@ -16836,6 +17141,11 @@ impl ::core::cmp::PartialEq for IPrinterScriptableSequentialStream {
     }
 }
 impl ::core::cmp::Eq for IPrinterScriptableSequentialStream {}
+impl ::core::fmt::Debug for IPrinterScriptableSequentialStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterScriptableSequentialStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterScriptableSequentialStream {
     type Vtable = IPrinterScriptableSequentialStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2072838a_316f_467a_a949_27f68c44a854);
@@ -16987,6 +17297,11 @@ impl ::core::cmp::PartialEq for IPrinterScriptableStream {
     }
 }
 impl ::core::cmp::Eq for IPrinterScriptableStream {}
+impl ::core::fmt::Debug for IPrinterScriptableStream {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPrinterScriptableStream").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPrinterScriptableStream {
     type Vtable = IPrinterScriptableStreamVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7edf9a92_4750_41a5_a17f_879a6f4f7dcb);
@@ -17329,6 +17644,11 @@ impl ::core::cmp::PartialEq for IXpsRasterizationFactory {
     }
 }
 impl ::core::cmp::Eq for IXpsRasterizationFactory {}
+impl ::core::fmt::Debug for IXpsRasterizationFactory {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsRasterizationFactory").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory {
     type Vtable = IXpsRasterizationFactoryVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xe094808a_24c6_482b_a3a7_c21ac9b55f17);
@@ -17384,6 +17704,11 @@ impl ::core::cmp::PartialEq for IXpsRasterizationFactory1 {
     }
 }
 impl ::core::cmp::Eq for IXpsRasterizationFactory1 {}
+impl ::core::fmt::Debug for IXpsRasterizationFactory1 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsRasterizationFactory1").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory1 {
     type Vtable = IXpsRasterizationFactory1Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x2d6e5f77_6414_4a1e_a8e0_d4194ce6a26f);
@@ -17439,6 +17764,11 @@ impl ::core::cmp::PartialEq for IXpsRasterizationFactory2 {
     }
 }
 impl ::core::cmp::Eq for IXpsRasterizationFactory2 {}
+impl ::core::fmt::Debug for IXpsRasterizationFactory2 {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsRasterizationFactory2").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsRasterizationFactory2 {
     type Vtable = IXpsRasterizationFactory2Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9c16ce3e_10f5_41fd_9ddc_6826669c2ff6);
@@ -17498,6 +17828,11 @@ impl ::core::cmp::PartialEq for IXpsRasterizer {
     }
 }
 impl ::core::cmp::Eq for IXpsRasterizer {}
+impl ::core::fmt::Debug for IXpsRasterizer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsRasterizer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsRasterizer {
     type Vtable = IXpsRasterizerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x7567cfc8_c156_47a8_9dac_11a2ae5bdd6b);
@@ -17552,6 +17887,11 @@ impl ::core::cmp::PartialEq for IXpsRasterizerNotificationCallback {
     }
 }
 impl ::core::cmp::Eq for IXpsRasterizerNotificationCallback {}
+impl ::core::fmt::Debug for IXpsRasterizerNotificationCallback {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IXpsRasterizerNotificationCallback").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IXpsRasterizerNotificationCallback {
     type Vtable = IXpsRasterizerNotificationCallbackVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x9ab8fd0d_cb94_49c2_9cb0_97ec1d5469d2);

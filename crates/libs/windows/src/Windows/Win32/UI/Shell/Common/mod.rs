@@ -120,6 +120,11 @@ impl ::core::cmp::PartialEq for IObjectArray {
     }
 }
 impl ::core::cmp::Eq for IObjectArray {}
+impl ::core::fmt::Debug for IObjectArray {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectArray").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectArray {
     type Vtable = IObjectArrayVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x92ca9dcd_5622_4bba_a805_5e9f541bd8c9);
@@ -215,6 +220,11 @@ impl ::core::cmp::PartialEq for IObjectCollection {
     }
 }
 impl ::core::cmp::Eq for IObjectCollection {}
+impl ::core::fmt::Debug for IObjectCollection {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IObjectCollection").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IObjectCollection {
     type Vtable = IObjectCollectionVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0x5632b1a4_e38a_400a_928a_d4cd63230295);

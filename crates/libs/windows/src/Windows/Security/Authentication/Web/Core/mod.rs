@@ -40,6 +40,11 @@ impl ::core::cmp::PartialEq for FindAllAccountsResult {
     }
 }
 impl ::core::cmp::Eq for FindAllAccountsResult {}
+impl ::core::fmt::Debug for FindAllAccountsResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("FindAllAccountsResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for FindAllAccountsResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.FindAllAccountsResult;{a5812b5d-b72e-420c-86ab-aac0d7b7261f})");
 }
@@ -532,6 +537,11 @@ impl ::core::cmp::PartialEq for WebAccountEventArgs {
     }
 }
 impl ::core::cmp::Eq for WebAccountEventArgs {}
+impl ::core::fmt::Debug for WebAccountEventArgs {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountEventArgs").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountEventArgs {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountEventArgs;{6fb7037d-424e-44ec-977c-ef2415462a5a})");
 }
@@ -660,6 +670,11 @@ impl ::core::cmp::PartialEq for WebAccountMonitor {
     }
 }
 impl ::core::cmp::Eq for WebAccountMonitor {}
+impl ::core::fmt::Debug for WebAccountMonitor {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebAccountMonitor").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebAccountMonitor {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebAccountMonitor;{7445f5fd-aa9d-4619-8d5d-c138a4ede3e5})");
 }
@@ -904,6 +919,11 @@ impl ::core::cmp::PartialEq for WebProviderError {
     }
 }
 impl ::core::cmp::Eq for WebProviderError {}
+impl ::core::fmt::Debug for WebProviderError {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebProviderError").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebProviderError {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebProviderError;{db191bb1-50c5-4809-8dca-09c99410245c})");
 }
@@ -1073,6 +1093,11 @@ impl ::core::cmp::PartialEq for WebTokenRequest {
     }
 }
 impl ::core::cmp::Eq for WebTokenRequest {}
+impl ::core::fmt::Debug for WebTokenRequest {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebTokenRequest").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebTokenRequest {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequest;{b77b4d68-adcb-4673-b364-0cf7b35caf97})");
 }
@@ -1208,6 +1233,11 @@ impl ::core::cmp::PartialEq for WebTokenRequestResult {
     }
 }
 impl ::core::cmp::Eq for WebTokenRequestResult {}
+impl ::core::fmt::Debug for WebTokenRequestResult {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebTokenRequestResult").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebTokenRequestResult {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenRequestResult;{c12a8305-d1f8-4483-8d54-38fe292784ff})");
 }
@@ -1382,6 +1412,11 @@ impl ::core::cmp::PartialEq for WebTokenResponse {
     }
 }
 impl ::core::cmp::Eq for WebTokenResponse {}
+impl ::core::fmt::Debug for WebTokenResponse {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("WebTokenResponse").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for WebTokenResponse {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.Security.Authentication.Web.Core.WebTokenResponse;{67a7c5ca-83f6-44c6-a3b1-0eb69e41fa8a})");
 }

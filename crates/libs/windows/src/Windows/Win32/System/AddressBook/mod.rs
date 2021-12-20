@@ -1626,6 +1626,11 @@ impl ::core::cmp::PartialEq for IABContainer {
     }
 }
 impl ::core::cmp::Eq for IABContainer {}
+impl ::core::fmt::Debug for IABContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IABContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IABContainer {
     type Vtable = IABContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -1847,6 +1852,11 @@ impl ::core::cmp::PartialEq for IAddrBook {
     }
 }
 impl ::core::cmp::Eq for IAddrBook {}
+impl ::core::fmt::Debug for IAddrBook {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAddrBook").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAddrBook {
     type Vtable = IAddrBookVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2002,6 +2012,11 @@ impl ::core::cmp::PartialEq for IAttach {
     }
 }
 impl ::core::cmp::Eq for IAttach {}
+impl ::core::fmt::Debug for IAttach {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IAttach").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IAttach {
     type Vtable = IAttachVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2195,6 +2210,11 @@ impl ::core::cmp::PartialEq for IDistList {
     }
 }
 impl ::core::cmp::Eq for IDistList {}
+impl ::core::fmt::Debug for IDistList {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IDistList").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IDistList {
     type Vtable = IDistListVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2274,6 +2294,11 @@ impl ::core::cmp::PartialEq for IMAPIAdviseSink {
     }
 }
 impl ::core::cmp::Eq for IMAPIAdviseSink {}
+impl ::core::fmt::Debug for IMAPIAdviseSink {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIAdviseSink").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIAdviseSink {
     type Vtable = IMAPIAdviseSinkVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2415,6 +2440,11 @@ impl ::core::cmp::PartialEq for IMAPIContainer {
     }
 }
 impl ::core::cmp::Eq for IMAPIContainer {}
+impl ::core::fmt::Debug for IMAPIContainer {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIContainer").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIContainer {
     type Vtable = IMAPIContainerVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2497,6 +2527,11 @@ impl ::core::cmp::PartialEq for IMAPIControl {
     }
 }
 impl ::core::cmp::Eq for IMAPIControl {}
+impl ::core::fmt::Debug for IMAPIControl {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIControl").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIControl {
     type Vtable = IMAPIControlVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2706,6 +2741,11 @@ impl ::core::cmp::PartialEq for IMAPIFolder {
     }
 }
 impl ::core::cmp::Eq for IMAPIFolder {}
+impl ::core::fmt::Debug for IMAPIFolder {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIFolder").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIFolder {
     type Vtable = IMAPIFolderVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2806,6 +2846,11 @@ impl ::core::cmp::PartialEq for IMAPIProgress {
     }
 }
 impl ::core::cmp::Eq for IMAPIProgress {}
+impl ::core::fmt::Debug for IMAPIProgress {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIProgress").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIProgress {
     type Vtable = IMAPIProgressVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -2906,6 +2951,11 @@ impl ::core::cmp::PartialEq for IMAPIProp {
     }
 }
 impl ::core::cmp::Eq for IMAPIProp {}
+impl ::core::fmt::Debug for IMAPIProp {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIProp").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIProp {
     type Vtable = IMAPIPropVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3052,6 +3102,11 @@ impl ::core::cmp::PartialEq for IMAPIStatus {
     }
 }
 impl ::core::cmp::Eq for IMAPIStatus {}
+impl ::core::fmt::Debug for IMAPIStatus {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPIStatus").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPIStatus {
     type Vtable = IMAPIStatusVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3214,6 +3269,11 @@ impl ::core::cmp::PartialEq for IMAPITable {
     }
 }
 impl ::core::cmp::Eq for IMAPITable {}
+impl ::core::fmt::Debug for IMAPITable {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMAPITable").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMAPITable {
     type Vtable = IMAPITableVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3480,6 +3540,11 @@ impl ::core::cmp::PartialEq for IMailUser {
     }
 }
 impl ::core::cmp::Eq for IMailUser {}
+impl ::core::fmt::Debug for IMailUser {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMailUser").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMailUser {
     type Vtable = IMailUserVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3646,6 +3711,11 @@ impl ::core::cmp::PartialEq for IMessage {
     }
 }
 impl ::core::cmp::Eq for IMessage {}
+impl ::core::fmt::Debug for IMessage {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMessage").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMessage {
     type Vtable = IMessageVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3842,6 +3912,11 @@ impl ::core::cmp::PartialEq for IMsgStore {
     }
 }
 impl ::core::cmp::Eq for IMsgStore {}
+impl ::core::fmt::Debug for IMsgStore {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IMsgStore").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IMsgStore {
     type Vtable = IMsgStoreVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -3986,6 +4061,11 @@ impl ::core::cmp::PartialEq for IProfSect {
     }
 }
 impl ::core::cmp::Eq for IProfSect {}
+impl ::core::fmt::Debug for IProfSect {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProfSect").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProfSect {
     type Vtable = IProfSectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4132,6 +4212,11 @@ impl ::core::cmp::PartialEq for IPropData {
     }
 }
 impl ::core::cmp::Eq for IPropData {}
+impl ::core::fmt::Debug for IPropData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IPropData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IPropData {
     type Vtable = IPropDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4223,6 +4308,11 @@ impl ::core::cmp::PartialEq for IProviderAdmin {
     }
 }
 impl ::core::cmp::Eq for IProviderAdmin {}
+impl ::core::fmt::Debug for IProviderAdmin {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IProviderAdmin").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IProviderAdmin {
     type Vtable = IProviderAdminVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4320,6 +4410,11 @@ impl ::core::cmp::PartialEq for ITableData {
     }
 }
 impl ::core::cmp::Eq for ITableData {}
+impl ::core::fmt::Debug for ITableData {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("ITableData").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for ITableData {
     type Vtable = ITableDataVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4389,6 +4484,11 @@ impl ::core::cmp::PartialEq for IWABExtInit {
     }
 }
 impl ::core::cmp::Eq for IWABExtInit {}
+impl ::core::fmt::Debug for IWABExtInit {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWABExtInit").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWABExtInit {
     type Vtable = IWABExtInitVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::from_u128(0xea22ebf0_87a4_11d1_9acf_00a0c91f9c8b);
@@ -4493,6 +4593,11 @@ impl ::core::cmp::PartialEq for IWABOBJECT_ {
     }
 }
 impl ::core::cmp::Eq for IWABOBJECT_ {}
+impl ::core::fmt::Debug for IWABOBJECT_ {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWABOBJECT_").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWABOBJECT_ {
     type Vtable = IWABOBJECT_Vtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();
@@ -4666,6 +4771,11 @@ impl ::core::cmp::PartialEq for IWABObject {
     }
 }
 impl ::core::cmp::Eq for IWABObject {}
+impl ::core::fmt::Debug for IWABObject {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("IWABObject").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::Interface for IWABObject {
     type Vtable = IWABObjectVtbl;
     const IID: ::windows::core::GUID = ::windows::core::GUID::zeroed();

@@ -65,6 +65,11 @@ impl ::core::cmp::PartialEq for CompositorController {
     }
 }
 impl ::core::cmp::Eq for CompositorController {}
+impl ::core::fmt::Debug for CompositorController {
+    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+        f.debug_tuple("CompositorController").field(&self.0).finish()
+    }
+}
 unsafe impl ::windows::core::RuntimeType for CompositorController {
     const SIGNATURE: ::windows::core::ConstBuffer = ::windows::core::ConstBuffer::from_slice(b"rc(Windows.UI.Composition.Core.CompositorController;{2d75f35a-70a7-4395-ba2d-cef0b18399f9})");
 }
