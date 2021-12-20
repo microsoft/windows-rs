@@ -36,19 +36,6 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
             }
         });
 
-        let debug = if gen.sys {
-            quote! {}
-        } else {
-            quote! {
-                #features
-                impl ::core::fmt::Debug for #ident {
-                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
-                        f.debug_tuple(#name).field(&self.0).finish()
-                    }
-                }
-            }
-        };
-
         quote! {
             #doc
             #features
@@ -100,6 +87,12 @@ pub fn gen(def: &TypeDef, gen: &Gen) -> TokenStream {
                 }
                 #features
                 impl ::core::cmp::Eq for #ident {}
+                #features
+                impl ::core::fmt::Debug for #ident {
+                    fn fmt(&self, f: &mut ::core::fmt::Formatter<'_>) -> ::core::fmt::Result {
+                        f.debug_tuple(#name).field(&self.0).finish()
+                    }
+                }
             });
         }
 
